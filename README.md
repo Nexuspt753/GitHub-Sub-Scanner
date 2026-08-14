@@ -75,7 +75,7 @@ shareable matrix link are how you hand the same result to a client.
 2. `sources.json` is pre-wired to **Delta-Kronecker**, **barry-far**,
    **Epodonios**, and **mheidari98**. Add or remove sources as needed — each
    `url` must point to a **raw** file containing v2ray URIs (plain text or
-   base64-encoded). `max_configs` caps tests per run.
+   base64-encoded). Every config found is tested — there is no per-run cap.
 3. Enable Pages: **Settings → Pages → Source: Deploy from a branch → `main` → `/ (root)`**.
 4. Run the workflow once: **Actions → "Test & Rank Configs" → Run workflow**.
 5. Your site is at `https://Nexuspt753.github.io/<repo>/`.
@@ -92,8 +92,9 @@ shareable matrix link are how you hand the same result to a client.
   perform from any other country or ISP. Treat this as an uptime/health monitor,
   not a real-world speed test.
 - **ICMP ping is unavailable** on GitHub runners, so "ping" is TCP connect time.
-- **Geolocation** uses free APIs (`ip-api.com`, `ipapi.co`, `ipinfo.io`) that are
-  rate-limited and sometimes block GitHub's shared egress IPs. Results may be blank.
+- **Geolocation** uses free APIs (`ip-api.com` batch with `ipwho.is` and
+  `ipapi.co` fallback) that are rate-limited and sometimes block GitHub's shared
+  egress IPs. A few IPs may still come back blank.
 - **GitHub ToS / abuse risk.** Actions is not intended for continuous network
   probing or for running proxy clients against arbitrary third-party servers.
   Aggressively scanning feeds of strangers' servers can get the repo/account
@@ -107,19 +108,19 @@ shareable matrix link are how you hand the same result to a client.
 
 All overridable via environment variables (set them in the workflow, or under
 repo Settings → Secrets → Actions):
-- `WORKERS` (default `16`) — parallel test workers. Tests are network-bound
+- `WORKERS` (default `64`) — parallel test workers. Tests are network-bound
   (latency/timeouts), not CPU-bound, so this can go well above the 2-vCPU count.
 - `SPEED_BYTES` (default `2000000`) — bytes downloaded for the speed test.
 - `HTTP_TIMEOUT` (default `10`) — seconds per HTTP request.
-The number of configs tested per run is `max_configs` in `sources.json`
-(currently `2000`). Geolocation + DNS are cached per IP/host and throttled to
-stay within free-API limits.
+Every config found is tested — there is no per-run cap. Geolocation is batched
+via `ip-api.com` (100 IPs/request) with per-IP fallback, and DNS/geo results are
+cached per host/IP.
 
-> ⚠️ **Scale caveat.** At 2000 configs/run this hits thousands of third-party
-> servers and downloads gigabytes of speed-test data every run, which raises the
-> risk of GitHub flagging the account for abuse and of free geolocation APIs
-> rate-limiting. If GitHub throttles you, lower `max_configs`, lengthen the
-> schedule interval, or drop `SPEED_BYTES`.
+> ⚠️ **Scale caveat.** Testing every config means tens of thousands of probes
+> against third-party servers and gigabytes of speed-test data every run, which
+> raises the risk of GitHub flagging the account for abuse and can exceed the
+> workflow's time limit. If GitHub throttles you, lengthen the schedule
+> interval, trim `sources.json`, lower `SPEED_BYTES`, or reduce `WORKERS`.
 
 ## Files
 

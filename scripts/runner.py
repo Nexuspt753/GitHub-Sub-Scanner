@@ -36,7 +36,7 @@ PROXY_PORT = 10808
 # Defaults, overridable via environment variables.
 SPEED_BYTES = int(os.environ.get("SPEED_BYTES", "2000000"))   # 2 MB
 HTTP_TIMEOUT = int(os.environ.get("HTTP_TIMEOUT", "10"))
-WORKERS = int(os.environ.get("WORKERS", "16"))
+WORKERS = int(os.environ.get("WORKERS", "64"))
 UA = "Mozilla/5.0 (GitHub Actions; config-ranker)"
 
 # Protocols xray-core cannot run.
@@ -444,15 +444,18 @@ def speed_test(port=PROXY_PORT):
 
 
 # --------------------------------------------------------------------------- #
-# Geolocation (cached per IP; DNS cached per host; throttled to free API limits)
+# Geolocation (DNS cached per host; geolocation batched after testing)
 # --------------------------------------------------------------------------- #
 
 _DNS_CACHE = {}
 _GEO_CACHE = {}
 _CACHE_LOCK = threading.Lock()
-_GEO_LOCK = threading.Lock()
-_LAST_GEO_TS = 0.0
-_GEO_MIN_INTERVAL = 1.3   # seconds between geolocation API calls (~45/min)
+
+# ip-api.com/batch geolocates up to 100 IPs per request — the most accurate free
+# option, and the batch endpoint sidesteps the usual one-IP-per-request limit.
+# Free tier allows ~15 batch requests/minute.
+_BATCH_SIZE = 100
+_BATCH_INTERVAL = 4.0   # seconds between batch requests
 
 
 def resolve_ip(host):
@@ -472,56 +475,128 @@ def resolve_ip(host):
     return ip
 
 
-def geolocate(ip):
-    if not ip:
-        return {}
-    with _CACHE_LOCK:
-        if ip in _GEO_CACHE:
-            return _GEO_CACHE[ip]
-    with _GEO_LOCK:
-        with _CACHE_LOCK:
-            if ip in _GEO_CACHE:
-                return _GEO_CACHE[ip]
-        global _LAST_GEO_TS
-        wait = _GEO_MIN_INTERVAL - (time.time() - _LAST_GEO_TS)
-        if wait > 0:
-            time.sleep(wait)
-        _LAST_GEO_TS = time.time()
+def _http_json(url, data=None, timeout=8):
+    """GET (or JSON POST when `data` is set) and parse JSON, else None."""
+    try:
+        headers = {"User-Agent": UA}
+        if data is not None:
+            headers["Content-Type"] = "application/json"
+            req = urllib.request.Request(url, data=data, headers=headers)
+        else:
+            req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read().decode("utf-8", "ignore"))
+    except Exception:
+        return None
 
-        apis = [
-            ("ip-api", f"http://ip-api.com/json/{ip}?fields=status,country,regionName,city,isp,lat,lon"),
-            ("ipapi.co", f"https://ipapi.co/{ip}/json/"),
-            ("ipinfo", f"https://ipinfo.io/{ip}/json"),
-        ]
-        result = {}
-        for name, url in apis:
-            try:
-                req = urllib.request.Request(url, headers={"User-Agent": UA})
-                data = json.loads(urllib.request.urlopen(req, timeout=5).read().decode())
-                if name == "ip-api":
-                    if data.get("status") == "success":
-                        result = {"country": data.get("country"), "region": data.get("regionName"),
-                                  "city": data.get("city"), "isp": data.get("isp"),
-                                  "lat": data.get("lat"), "lon": data.get("lon")}
-                elif name == "ipapi.co":
-                    if not data.get("error"):
-                        result = {"country": data.get("country_name"), "region": data.get("region"),
-                                  "city": data.get("city"), "isp": data.get("org"),
-                                  "lat": data.get("latitude"), "lon": data.get("longitude")}
-                else:  # ipinfo
-                    if data.get("ip"):
-                        loc = (data.get("loc") or "").split(",")
-                        result = {"country": data.get("country"), "region": data.get("region"),
-                                  "city": data.get("city"), "isp": data.get("org"),
-                                  "lat": loc[0] if len(loc) == 2 else None,
-                                  "lon": loc[1] if len(loc) == 2 else None}
-            except Exception:
-                continue
-            if result:
-                break
-        with _CACHE_LOCK:
-            _GEO_CACHE[ip] = result
-        return result
+
+def _chunks(seq, n):
+    for i in range(0, len(seq), n):
+        yield seq[i:i + n]
+
+
+def _geo_from_ipapi(d):
+    asn = d.get("as") or None
+    org = d.get("org") or None
+    isp = d.get("isp") or org or asn
+    return {
+        "country": d.get("country"),
+        "region": d.get("regionName"),
+        "city": d.get("city"),
+        "isp": isp or None,
+        "org": org,
+        "asn": asn,
+        "lat": d.get("lat"),
+        "lon": d.get("lon"),
+    }
+
+
+def _batch_ipapi(ips):
+    """Geolocate IPs via ip-api.com/batch. Returns {ip: geo} for successes."""
+    out = {}
+    url = "http://ip-api.com/batch"
+    fields = "query,status,message,country,regionName,city,lat,lon,isp,org,as"
+    for i, chunk in enumerate(_chunks(ips, _BATCH_SIZE)):
+        if i:
+            time.sleep(_BATCH_INTERVAL)
+        body = json.dumps([{"query": ip, "fields": fields} for ip in chunk]).encode()
+        data = _http_json(url, data=body, timeout=20)
+        if isinstance(data, list):
+            for item in data:
+                ip = item.get("query")
+                if ip and item.get("status") == "success":
+                    out[ip] = _geo_from_ipapi(item)
+    return out
+
+
+def _geo_ipwhois(d):
+    if not d or d.get("success") is False:
+        return None
+    conn = d.get("connection") or {}
+    org = conn.get("org")
+    asn = conn.get("asn")
+    return {
+        "country": d.get("country"),
+        "region": d.get("region"),
+        "city": d.get("city"),
+        "isp": org or conn.get("isp"),
+        "org": org,
+        "asn": (f"AS{asn} {org}".strip() if asn else None),
+        "lat": d.get("latitude"),
+        "lon": d.get("longitude"),
+    }
+
+
+def _geo_ipapi_co(d):
+    if not d or d.get("error"):
+        return None
+    org = d.get("org")
+    asn = d.get("asn")
+    return {
+        "country": d.get("country_name"),
+        "region": d.get("region"),
+        "city": d.get("city"),
+        "isp": org,
+        "org": org,
+        "asn": (f"{asn} {org}".strip() if asn else None),
+        "lat": d.get("latitude"),
+        "lon": d.get("longitude"),
+    }
+
+
+def _fallback_geolocate(ip):
+    """Single-IP fallback for anything ip-api.com/batch could not resolve."""
+    providers = [
+        (f"https://ipwho.is/{ip}", _geo_ipwhois),
+        (f"https://ipapi.co/{ip}/json/", _geo_ipapi_co),
+    ]
+    for url, parse in providers:
+        geo = parse(_http_json(url))
+        if geo and (geo.get("country") or geo.get("city")):
+            return geo
+        time.sleep(0.25)
+    return {}
+
+
+def geolocate_all(results):
+    """Fill geo fields for every unique IP in `results` (batched, cached)."""
+    ips = sorted({r.get("ip") for r in results if r.get("ip")})
+    todo = [ip for ip in ips if ip not in _GEO_CACHE]
+    if todo:
+        log(f"geolocating {len(todo)} unique IPs ...")
+        for ip, geo in _batch_ipapi(todo).items():
+            _GEO_CACHE[ip] = geo
+        remaining = [ip for ip in todo if ip not in _GEO_CACHE]
+        if remaining:
+            log(f"  falling back for {len(remaining)} IPs ...")
+            for ip in remaining:
+                _GEO_CACHE[ip] = _fallback_geolocate(ip)
+    for r in results:
+        geo = _GEO_CACHE.get(r.get("ip")) or {}
+        for k, v in geo.items():
+            if v is not None:
+                r[k] = v
+    return results
 
 
 # --------------------------------------------------------------------------- #
@@ -540,10 +615,8 @@ def compute_score(r):
     return round(score, 1)
 
 
-def finish_geo(r, node):
-    ip = resolve_ip(node["address"])
-    r["ip"] = ip
-    r.update(geolocate(ip))
+def finish_node(r, node):
+    r["ip"] = resolve_ip(node["address"])
     r["score"] = compute_score(r)
     return r
 
@@ -564,6 +637,7 @@ def test_node(node, port):
         "note": None,
         "ip": None,
         "country": None, "region": None, "city": None, "isp": None,
+        "asn": None, "org": None, "lat": None, "lon": None,
         "error": None,
     }
 
@@ -574,7 +648,7 @@ def test_node(node, port):
         r["gemini_reachable"] = None
         r["speed_mbps"] = None
         r["note"] = "udp (untested)"
-        return finish_geo(r, node)
+        return finish_node(r, node)
 
     # TCP protocols xray can't run (anytls, ssr): TCP-ping + geolocate only.
     if node["protocol"] in TCP_ONLY_PROTOCOLS:
@@ -584,14 +658,14 @@ def test_node(node, port):
         r["note"] = "tcp-only (not testable with xray-core)"
         r["tcp_ping_ms"] = tcp_ping(node["address"], node["port"])
         r["alive"] = r["tcp_ping_ms"] is not None
-        return finish_geo(r, node)
+        return finish_node(r, node)
 
     # xray-testable protocols: cheap TCP pre-filter before spinning up xray.
     r["tcp_ping_ms"] = tcp_ping(node["address"], node["port"])
     if r["tcp_ping_ms"] is None:
         r["alive"] = False
         r["error"] = "tcp unreachable"
-        return finish_geo(r, node)
+        return finish_node(r, node)
 
     proc = None
     try:
@@ -616,7 +690,7 @@ def test_node(node, port):
             except Exception:
                 proc.kill()
 
-    return finish_geo(r, node)
+    return finish_node(r, node)
 
 
 def rename_uri(uri, name):
@@ -728,27 +802,29 @@ def main():
         source_lists.append(uris)
     log(f"found {total_raw} raw URIs across {len(source_lists)} sources")
 
-    # Dedupe per source, then round-robin so every source is fairly represented.
+    # Dedupe by exact config URI — distinct configs sharing a host:port (e.g.
+    # VLESS+Reality short-ids on one port) are all kept, while byte-identical
+    # duplicates across feeds are skipped. Then round-robin so every source is
+    # fairly represented. There is no per-run cap: every config is tested.
     seen, queues = set(), []
     for uris in source_lists:
         q = []
         for uri in uris:
+            key = html.unescape(uri).strip()
+            if key in seen:
+                continue
+            seen.add(key)
             try:
                 node = parse_uri(uri)
                 node["uri"] = uri
             except Exception:
                 continue
-            key = (node["address"], node["port"], node["protocol"])
-            if key in seen:
-                continue
-            seen.add(key)
             q.append(node)
         queues.append(q)
 
-    maxc = int(sources.get("max_configs", 30))
     nodes = []
     i = 0
-    while len(nodes) < maxc and any(queues):
+    while any(queues):
         q = queues[i % len(queues)]
         if q:
             nodes.append(q.pop(0))
@@ -762,8 +838,9 @@ def main():
         futs = {}
         for i, node in enumerate(nodes):
             port = PROXY_PORT + (i % WORKERS)
-            log(f"[{i + 1}/{len(nodes)}] queued {node['name']} "
-                f"({node['protocol']} {node['address']}:{node['port']})")
+            if i % 250 == 0:
+                log(f"[{i + 1}/{len(nodes)}] queued {node['name']} "
+                    f"({node['protocol']} {node['address']}:{node['port']})")
             futs[ex.submit(test_node, node, port)] = i
         for fut in as_completed(futs):
             i = futs[fut]
@@ -775,15 +852,21 @@ def main():
                      "protocol": node["protocol"], "address": node["address"],
                      "port": node["port"], "alive": False, "tested": True,
                      "gemini_reachable": False, "speed_mbps": 0.0,
-                     "tcp_ping_ms": None, "error": f"worker crash: {e}", "score": 0.0}
+                     "tcp_ping_ms": None, "ip": None,
+                     "country": None, "region": None, "city": None, "isp": None,
+                     "asn": None, "org": None, "lat": None, "lon": None,
+                     "error": f"worker crash: {e}", "score": 0.0}
             results[i] = r
             state = ("ALIVE" if r["alive"] is True else
                      ("untested" if r["alive"] is None else
                       ("error: " + (r.get("error") or "dead"))))
             log(f"      -> {state}  ping={r.get('tcp_ping_ms')}ms  "
                 f"speed={r.get('speed_mbps')}Mbps  gemini={r.get('gemini_reachable')}  "
-                f"loc={r.get('city')}, {r.get('country')}  score={r.get('score')} "
+                f"score={r.get('score')} "
                 f"[{r.get('name')}]")
+
+    geolocate_all(results)
+    log(f"geolocated {sum(1 for r in results if r.get('country'))}/{len(results)} configs")
 
     payload = {
         "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
