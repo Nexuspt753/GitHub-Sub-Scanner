@@ -50,6 +50,25 @@ TCP-ping + location check (marked `tcp-only`), while UDP-based `hysteria2`/`tuic
 are included untested (no liveness check). All are excluded from the Gemini,
 speed, and top groups.
 
+### Custom subscription builder
+
+The site also has a **Build your subscription** panel. Add any number of
+conditions (field + operator + value) — e.g. *Gemini reachable = yes*,
+*Score > 60*, *TCP ping < 200 ms*, *Country = United States* — and combine them
+with AND or OR. The matching configs are turned into a base64 v2ray
+subscription you can grab three ways:
+
+- **Copy subscription (base64)** — paste into any client that imports a
+  base64 subscription from the clipboard (v2rayN / v2rayNG / Hiddify /
+  Streisand).
+- **Download .txt** — save the payload as a file to import or self-host.
+- **Copy share link** — a URL that re-opens the page with your exact matrix
+  (bookmark or share it).
+
+Because the site is fully static (no server), it can't return a different
+subscription per visitor from GitHub Pages; the base64 payload and the
+shareable matrix link are how you hand the same result to a client.
+
 ## Setup
 
 1. Push this repo to GitHub (public repo).
