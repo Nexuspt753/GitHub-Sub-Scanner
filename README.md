@@ -86,13 +86,21 @@ speed, and top groups.
 
 ## Tuning
 
-Three knobs, all overridable via environment variables (set them in the
-workflow, or under repo Settings → Secrets → Actions):
-- `WORKERS` (default `4`) — parallel test workers. 4–6 is the sweet spot on the
-  GitHub runner's 2 vCPUs; beyond that there's no further gain.
-- `SPEED_BYTES` (default `5000000`) — bytes downloaded for the speed test.
+All overridable via environment variables (set them in the workflow, or under
+repo Settings → Secrets → Actions):
+- `WORKERS` (default `16`) — parallel test workers. Tests are network-bound
+  (latency/timeouts), not CPU-bound, so this can go well above the 2-vCPU count.
+- `SPEED_BYTES` (default `2000000`) — bytes downloaded for the speed test.
 - `HTTP_TIMEOUT` (default `10`) — seconds per HTTP request.
-The number of configs tested per run is `max_configs` in `sources.json`.
+The number of configs tested per run is `max_configs` in `sources.json`
+(currently `2000`). Geolocation + DNS are cached per IP/host and throttled to
+stay within free-API limits.
+
+> ⚠️ **Scale caveat.** At 2000 configs/run this hits thousands of third-party
+> servers and downloads gigabytes of speed-test data every run, which raises the
+> risk of GitHub flagging the account for abuse and of free geolocation APIs
+> rate-limiting. If GitHub throttles you, lower `max_configs`, lengthen the
+> schedule interval, or drop `SPEED_BYTES`.
 
 ## Files
 

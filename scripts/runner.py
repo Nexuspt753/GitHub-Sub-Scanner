@@ -20,6 +20,7 @@ import os
 import re
 import socket
 import subprocess
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -33,9 +34,9 @@ XRAY_BIN = "bin/xray"
 PROXY_PORT = 10808
 
 # Defaults, overridable via environment variables.
-SPEED_BYTES = int(os.environ.get("SPEED_BYTES", "5000000"))   # 5 MB
+SPEED_BYTES = int(os.environ.get("SPEED_BYTES", "2000000"))   # 2 MB
 HTTP_TIMEOUT = int(os.environ.get("HTTP_TIMEOUT", "10"))
-WORKERS = int(os.environ.get("WORKERS", "4"))
+WORKERS = int(os.environ.get("WORKERS", "16"))
 UA = "Mozilla/5.0 (GitHub Actions; config-ranker)"
 
 # Protocols xray-core cannot run.
@@ -443,51 +444,84 @@ def speed_test(port=PROXY_PORT):
 
 
 # --------------------------------------------------------------------------- #
-# Geolocation
+# Geolocation (cached per IP; DNS cached per host; throttled to free API limits)
 # --------------------------------------------------------------------------- #
 
+_DNS_CACHE = {}
+_GEO_CACHE = {}
+_CACHE_LOCK = threading.Lock()
+_GEO_LOCK = threading.Lock()
+_LAST_GEO_TS = 0.0
+_GEO_MIN_INTERVAL = 1.3   # seconds between geolocation API calls (~45/min)
+
+
 def resolve_ip(host):
+    with _CACHE_LOCK:
+        if host in _DNS_CACHE:
+            return _DNS_CACHE[host]
+    ip = None
     try:
         for info in socket.getaddrinfo(host, None, proto=socket.IPPROTO_TCP):
             if info[4][0]:
-                return info[4][0]
+                ip = info[4][0]
+                break
     except Exception:
         pass
-    return None
+    with _CACHE_LOCK:
+        _DNS_CACHE[host] = ip
+    return ip
 
 
 def geolocate(ip):
     if not ip:
         return {}
-    apis = [
-        ("ip-api", f"http://ip-api.com/json/{ip}?fields=status,country,regionName,city,isp,lat,lon"),
-        ("ipapi.co", f"https://ipapi.co/{ip}/json/"),
-        ("ipinfo", f"https://ipinfo.io/{ip}/json"),
-    ]
-    for name, url in apis:
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
-            data = json.loads(urllib.request.urlopen(req, timeout=8).read().decode())
-            if name == "ip-api":
-                if data.get("status") == "success":
-                    return {"country": data.get("country"), "region": data.get("regionName"),
-                            "city": data.get("city"), "isp": data.get("isp"),
-                            "lat": data.get("lat"), "lon": data.get("lon")}
-            elif name == "ipapi.co":
-                if not data.get("error"):
-                    return {"country": data.get("country_name"), "region": data.get("region"),
-                            "city": data.get("city"), "isp": data.get("org"),
-                            "lat": data.get("latitude"), "lon": data.get("longitude")}
-            else:  # ipinfo
-                if data.get("ip"):
-                    loc = (data.get("loc") or "").split(",")
-                    return {"country": data.get("country"), "region": data.get("region"),
-                            "city": data.get("city"), "isp": data.get("org"),
-                            "lat": loc[0] if len(loc) == 2 else None,
-                            "lon": loc[1] if len(loc) == 2 else None}
-        except Exception:
-            continue
-    return {}
+    with _CACHE_LOCK:
+        if ip in _GEO_CACHE:
+            return _GEO_CACHE[ip]
+    with _GEO_LOCK:
+        with _CACHE_LOCK:
+            if ip in _GEO_CACHE:
+                return _GEO_CACHE[ip]
+        global _LAST_GEO_TS
+        wait = _GEO_MIN_INTERVAL - (time.time() - _LAST_GEO_TS)
+        if wait > 0:
+            time.sleep(wait)
+        _LAST_GEO_TS = time.time()
+
+        apis = [
+            ("ip-api", f"http://ip-api.com/json/{ip}?fields=status,country,regionName,city,isp,lat,lon"),
+            ("ipapi.co", f"https://ipapi.co/{ip}/json/"),
+            ("ipinfo", f"https://ipinfo.io/{ip}/json"),
+        ]
+        result = {}
+        for name, url in apis:
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": UA})
+                data = json.loads(urllib.request.urlopen(req, timeout=5).read().decode())
+                if name == "ip-api":
+                    if data.get("status") == "success":
+                        result = {"country": data.get("country"), "region": data.get("regionName"),
+                                  "city": data.get("city"), "isp": data.get("isp"),
+                                  "lat": data.get("lat"), "lon": data.get("lon")}
+                elif name == "ipapi.co":
+                    if not data.get("error"):
+                        result = {"country": data.get("country_name"), "region": data.get("region"),
+                                  "city": data.get("city"), "isp": data.get("org"),
+                                  "lat": data.get("latitude"), "lon": data.get("longitude")}
+                else:  # ipinfo
+                    if data.get("ip"):
+                        loc = (data.get("loc") or "").split(",")
+                        result = {"country": data.get("country"), "region": data.get("region"),
+                                  "city": data.get("city"), "isp": data.get("org"),
+                                  "lat": loc[0] if len(loc) == 2 else None,
+                                  "lon": loc[1] if len(loc) == 2 else None}
+            except Exception:
+                continue
+            if result:
+                break
+        with _CACHE_LOCK:
+            _GEO_CACHE[ip] = result
+        return result
 
 
 # --------------------------------------------------------------------------- #
