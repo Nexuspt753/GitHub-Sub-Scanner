@@ -36,7 +36,7 @@ PROXY_PORT = 10808
 # Defaults, overridable via environment variables.
 SPEED_BYTES = int(os.environ.get("SPEED_BYTES", "2000000"))   # 2 MB
 HTTP_TIMEOUT = int(os.environ.get("HTTP_TIMEOUT", "10"))
-WORKERS = int(os.environ.get("WORKERS", "64"))
+WORKERS = int(os.environ.get("WORKERS", "256"))  # Increased from 64 to 256 for significantly faster runs while testing ALL ~32k unique configs. Tests are network-bound (latency/timeouts), not CPU-bound, so this is safe on GitHub runners (up to ~500 workers). GitHub may throttle beyond 200-300 workers — monitor usage and scale down if needed. See README for full guidance.
 UA = "Mozilla/5.0 (GitHub Actions; config-ranker)"
 
 # Protocols xray-core cannot run.
