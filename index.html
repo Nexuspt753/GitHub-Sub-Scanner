@@ -102,8 +102,11 @@ function render(data) {
     isp.className = "muted";
     tr.appendChild(isp);
 
-    const alive = cell(n.alive ? "✓" : "✗");
-    alive.className = "num " + (n.alive ? "alive" : "dead");
+    const alive = document.createElement("td");
+    alive.className = "num";
+    if (n.alive === true) { alive.textContent = "✓"; alive.classList.add("alive"); }
+    else if (n.alive === false) { alive.textContent = "✗"; alive.classList.add("dead"); }
+    else { alive.textContent = "—"; alive.classList.add("muted"); }
     tr.appendChild(alive);
 
     const ping = cell(n.tcp_ping_ms == null ? "—" : n.tcp_ping_ms + " ms");

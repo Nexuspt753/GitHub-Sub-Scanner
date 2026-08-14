@@ -25,20 +25,24 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 XRAY_URL = "https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
 XRAY_API = "https://api.github.com/repos/XTLS/Xray-core/releases/latest"
 XRAY_BIN = "bin/xray"
 PROXY_PORT = 10808
-PROXY_URL = f"http://127.0.0.1:{PROXY_PORT}"
 
 # Defaults, overridable via environment variables.
-SPEED_BYTES = int(os.environ.get("SPEED_BYTES", "10000000"))  # 10 MB
-HTTP_TIMEOUT = 15
+SPEED_BYTES = int(os.environ.get("SPEED_BYTES", "5000000"))   # 5 MB
+HTTP_TIMEOUT = int(os.environ.get("HTTP_TIMEOUT", "10"))
+WORKERS = int(os.environ.get("WORKERS", "4"))
 UA = "Mozilla/5.0 (GitHub Actions; config-ranker)"
 
-# Protocols xray-core cannot run; we only TCP-ping + geolocate these.
-TCP_ONLY_PROTOCOLS = {"hysteria2", "anytls", "tuic", "ssr"}
+# Protocols xray-core cannot run.
+#  - UDP/QUIC (hysteria2, tuic): can't even TCP-ping -> pass through untested.
+#  - TCP (anytls, ssr): TCP-ping + geolocation only.
+UDP_PROTOCOLS = {"hysteria2", "tuic"}
+TCP_ONLY_PROTOCOLS = {"anytls", "ssr"}
 URI_RE = re.compile(
     r"(?:vmess|vless|trojan|ssr|ss|shadowsocks|hy2|hysteria2|anytls|tuic)://[^\s\"'<>]+"
 )
@@ -296,7 +300,7 @@ def build_stream_settings(node):
     return ss
 
 
-def build_xray_config(node):
+def build_xray_config(node, local_port):
     address = node["address"]
     port = node["port"]
     stream = build_stream_settings(node)
@@ -328,7 +332,7 @@ def build_xray_config(node):
 
     return {
         "log": {"loglevel": "warning"},
-        "inbounds": [{"listen": "127.0.0.1", "port": PROXY_PORT, "protocol": "http"}],
+        "inbounds": [{"listen": "127.0.0.1", "port": local_port, "protocol": "http"}],
         "outbounds": [out],
     }
 
@@ -364,10 +368,10 @@ def ensure_xray():
     log("  xray-core ready.")
 
 
-def start_xray(node):
-    cfg_path = "bin/config.json"
+def start_xray(node, port):
+    cfg_path = f"bin/config_{port}.json"
     with open(cfg_path, "w") as f:
-        json.dump(build_xray_config(node), f)
+        json.dump(build_xray_config(node, port), f)
     proc = subprocess.Popen(
         [XRAY_BIN, "run", "-c", cfg_path],
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
@@ -375,11 +379,11 @@ def start_xray(node):
     return proc
 
 
-def wait_for_proxy(timeout=10):
+def wait_for_proxy(port, timeout=10):
     deadline = time.time() + timeout
     while time.time() < deadline:
         try:
-            s = socket.create_connection(("127.0.0.1", PROXY_PORT), timeout=1)
+            s = socket.create_connection(("127.0.0.1", port), timeout=1)
             s.close()
             return True
         except Exception:
@@ -391,15 +395,16 @@ def wait_for_proxy(timeout=10):
 # Tests
 # --------------------------------------------------------------------------- #
 
-def opener(use_proxy):
-    handler = (urllib.request.ProxyHandler({"http": PROXY_URL, "https": PROXY_URL})
+def opener(use_proxy, port=PROXY_PORT):
+    proxy = f"http://127.0.0.1:{port}"
+    handler = (urllib.request.ProxyHandler({"http": proxy, "https": proxy})
                if use_proxy else urllib.request.ProxyHandler({}))
     return urllib.request.build_opener(handler)
 
 
-def http_status(url, use_proxy, timeout=HTTP_TIMEOUT):
+def http_status(url, use_proxy, port=PROXY_PORT, timeout=HTTP_TIMEOUT):
     """Return (reached, elapsed_ms). Any HTTP response counts as 'reached'."""
-    op = opener(use_proxy)
+    op = opener(use_proxy, port)
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     start = time.time()
     try:
@@ -422,9 +427,9 @@ def tcp_ping(host, port, timeout=8):
         return None
 
 
-def speed_test():
+def speed_test(port=PROXY_PORT):
     url = f"https://speed.cloudflare.com/__down?bytes={SPEED_BYTES}"
-    op = opener(use_proxy=True)
+    op = opener(True, port)
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     start = time.time()
     try:
@@ -501,7 +506,15 @@ def compute_score(r):
     return round(score, 1)
 
 
-def test_node(node):
+def finish_geo(r, node):
+    ip = resolve_ip(node["address"])
+    r["ip"] = ip
+    r.update(geolocate(ip))
+    r["score"] = compute_score(r)
+    return r
+
+
+def test_node(node, port):
     r = {
         "name": node.get("name", ""),
         "uri": node.get("uri"),
@@ -520,34 +533,45 @@ def test_node(node):
         "error": None,
     }
 
-    # Protocols xray-core can't run: TCP-ping + geolocate only (pass-through).
-    if node["protocol"] in TCP_ONLY_PROTOCOLS:
+    # UDP/QUIC protocols (hysteria2, tuic): can't test with xray or TCP-ping.
+    if node["protocol"] in UDP_PROTOCOLS:
         r["tested"] = False
-        r["note"] = "tcp-only (not testable with xray-core)"
+        r["alive"] = None
         r["gemini_reachable"] = None
         r["speed_mbps"] = None
+        r["note"] = "udp (untested)"
+        return finish_geo(r, node)
+
+    # TCP protocols xray can't run (anytls, ssr): TCP-ping + geolocate only.
+    if node["protocol"] in TCP_ONLY_PROTOCOLS:
+        r["tested"] = False
+        r["gemini_reachable"] = None
+        r["speed_mbps"] = None
+        r["note"] = "tcp-only (not testable with xray-core)"
         r["tcp_ping_ms"] = tcp_ping(node["address"], node["port"])
         r["alive"] = r["tcp_ping_ms"] is not None
-        ip = resolve_ip(node["address"])
-        r["ip"] = ip
-        r.update(geolocate(ip))
-        r["score"] = compute_score(r)
-        return r
+        return finish_geo(r, node)
+
+    # xray-testable protocols: cheap TCP pre-filter before spinning up xray.
+    r["tcp_ping_ms"] = tcp_ping(node["address"], node["port"])
+    if r["tcp_ping_ms"] is None:
+        r["alive"] = False
+        r["error"] = "tcp unreachable"
+        return finish_geo(r, node)
 
     proc = None
     try:
-        proc = start_xray(node)
-        if wait_for_proxy():
-            alive, alive_ms = http_status("http://www.gstatic.com/generate_204", use_proxy=True)
+        proc = start_xray(node, port)
+        if wait_for_proxy(port):
+            alive, alive_ms = http_status("http://www.gstatic.com/generate_204", True, port)
             r["alive"] = alive
             r["latency_ms"] = alive_ms
             if alive:
-                gemini, _ = http_status("https://generativelanguage.googleapis.com/v1beta/models", use_proxy=True)
+                gemini, _ = http_status("https://generativelanguage.googleapis.com/v1beta/models", True, port)
                 r["gemini_reachable"] = gemini
-                r["speed_mbps"] = speed_test()
+                r["speed_mbps"] = speed_test(port)
         else:
             r["error"] = "xray failed to start"
-        r["tcp_ping_ms"] = tcp_ping(node["address"], node["port"])
     except Exception as e:
         r["error"] = str(e)
     finally:
@@ -558,11 +582,7 @@ def test_node(node):
             except Exception:
                 proc.kill()
 
-    ip = resolve_ip(node["address"])
-    r["ip"] = ip
-    r.update(geolocate(ip))
-    r["score"] = compute_score(r)
-    return r
+    return finish_geo(r, node)
 
 
 def rename_uri(uri, name):
@@ -600,7 +620,8 @@ def write_subscription(path, uris):
 
 def write_subscriptions(results, repo):
     """Emit grouped subscription files and a manifest listing them."""
-    alive = [r for r in results if r.get("alive") and r.get("uri")]
+    # Include anything not known-dead (alive=True, or alive=None = UDP untested).
+    alive = [r for r in results if r.get("uri") and r.get("alive") is not False]
     base_raw = f"https://raw.githubusercontent.com/{repo}/main"
     groups = []
 
@@ -610,8 +631,8 @@ def write_subscriptions(results, repo):
             groups.append({"id": group_id, "name": name, "path": path,
                            "count": n, "url": f"{base_raw}/{path}", "desc": desc})
 
-    # 1. Everything alive, and the Gemini-capable subset.
-    add("all", "All (alive)", "subs/all.txt",
+    # 1. Everything not-known-dead, and the Gemini-capable subset.
+    add("all", "All", "subs/all.txt",
         [rename_uri(r["uri"], r["name"]) for r in alive])
     gemini = [r for r in alive if r.get("gemini_reachable")]
     add("gemini", "Can reach Gemini", "subs/gemini.txt",
@@ -702,16 +723,33 @@ def main():
 
     ensure_xray()
 
-    results = []
-    for i, node in enumerate(nodes):
-        log(f"[{i + 1}/{len(nodes)}] {node['name']}  "
-            f"({node['protocol']} {node['address']}:{node['port']})")
-        r = test_node(node)
-        state = "ALIVE" if r["alive"] else ("error: " + (r["error"] or "dead"))
-        log(f"      -> {state}  ping={r['tcp_ping_ms']}ms  "
-            f"speed={r['speed_mbps']}Mbps  gemini={r['gemini_reachable']}  "
-            f"loc={r.get('city')}, {r.get('country')}  score={r['score']}")
-        results.append(r)
+    results = [None] * len(nodes)
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
+        futs = {}
+        for i, node in enumerate(nodes):
+            port = PROXY_PORT + (i % WORKERS)
+            log(f"[{i + 1}/{len(nodes)}] queued {node['name']} "
+                f"({node['protocol']} {node['address']}:{node['port']})")
+            futs[ex.submit(test_node, node, port)] = i
+        for fut in as_completed(futs):
+            i = futs[fut]
+            try:
+                r = fut.result()
+            except Exception as e:
+                node = nodes[i]
+                r = {"name": node.get("name", ""), "uri": node.get("uri"),
+                     "protocol": node["protocol"], "address": node["address"],
+                     "port": node["port"], "alive": False, "tested": True,
+                     "gemini_reachable": False, "speed_mbps": 0.0,
+                     "tcp_ping_ms": None, "error": f"worker crash: {e}", "score": 0.0}
+            results[i] = r
+            state = ("ALIVE" if r["alive"] is True else
+                     ("untested" if r["alive"] is None else
+                      ("error: " + (r.get("error") or "dead"))))
+            log(f"      -> {state}  ping={r.get('tcp_ping_ms')}ms  "
+                f"speed={r.get('speed_mbps')}Mbps  gemini={r.get('gemini_reachable')}  "
+                f"loc={r.get('city')}, {r.get('country')}  score={r.get('score')} "
+                f"[{r.get('name')}]")
 
     payload = {
         "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),

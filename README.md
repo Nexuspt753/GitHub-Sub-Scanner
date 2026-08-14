@@ -45,10 +45,10 @@ Each run also regenerates a set of **base64-encoded v2ray subscriptions** under
 The site lists every group with a copy button, so a user pastes the link into
 their client. Only configs that tested **alive** are included.
 
-Protocols xray-core can't run (Hysteria2/`hy2`, `anytls`, `tuic`, `ssr`) are
-still included in the `all`, `protocol`, `country`, and `isp` groups, but they
-only get a TCP-ping + location check (marked `tcp-only`); they're excluded from
-the Gemini, speed, and top groups.
+Protocols xray-core can't run are still passed through: `anytls`/`ssr` get a
+TCP-ping + location check (marked `tcp-only`), while UDP-based `hysteria2`/`tuic`
+are included untested (no liveness check). All are excluded from the Gemini,
+speed, and top groups.
 
 ## Setup
 
@@ -83,6 +83,16 @@ the Gemini, speed, and top groups.
 - **Legal.** V2Ray is widely used to bypass national firewalls, which is illegal
   in several jurisdictions. Hosting a public aggregator/tester puts you in that
   space — you assume the responsibility.
+
+## Tuning
+
+Three knobs, all overridable via environment variables (set them in the
+workflow, or under repo Settings → Secrets → Actions):
+- `WORKERS` (default `4`) — parallel test workers. 4–6 is the sweet spot on the
+  GitHub runner's 2 vCPUs; beyond that there's no further gain.
+- `SPEED_BYTES` (default `5000000`) — bytes downloaded for the speed test.
+- `HTTP_TIMEOUT` (default `10`) — seconds per HTTP request.
+The number of configs tested per run is `max_configs` in `sources.json`.
 
 ## Files
 
