@@ -777,9 +777,13 @@ def _apply_rdap_geofeed(ips):
 
 
 def _is_cloudflare_anycast(geo):
-    """Cloudflare edge IPs are anycast: they have no single physical location."""
-    return ((geo.get("isp") or "") == "Cloudflare, Inc."
-            or (geo.get("org") or "") == "Cloudflare, Inc.")
+    """Cloudflare edge IPs are anycast: they have no single physical location.
+
+    Free databases report these under a dozen spellings ("Cloudflare, Inc.",
+    "Cloudflare London, LLC", "CLOUDFLARE", ...), so match any entity that is
+    Cloudflare by name, case-insensitively."""
+    hay = lambda s: "cloudflare" in (s or "").lower()
+    return hay(geo.get("isp")) or hay(geo.get("org")) or hay(geo.get("asn"))
 
 
 def geolocate_all(results):
