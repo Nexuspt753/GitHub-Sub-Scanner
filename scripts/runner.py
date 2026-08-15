@@ -922,11 +922,6 @@ def rename_uri(uri, name):
     return f"{scheme}://{main}#{urllib.parse.quote(name, safe='')}"
 
 
-def b64sub(uris):
-    """Encode a list of URIs into a standard v2ray subscription payload."""
-    return base64.b64encode("\n".join(uris).encode()).decode()
-
-
 def slug(s):
     if not s:
         return "unknown"
@@ -935,11 +930,12 @@ def slug(s):
 
 
 def write_subscription(path, uris):
+    """Write a plain-text subscription: one URI per line."""
     if not uris:
         return 0
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
-        f.write(b64sub(uris))
+        f.write("\n".join(uris) + "\n")
     return len(uris)
 
 

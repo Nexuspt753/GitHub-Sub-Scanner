@@ -92,7 +92,7 @@
 <details class="builder" id="builder">
   <summary>Build your subscription</summary>
   <p class="meta">Define conditions — e.g. Gemini reachable = yes, score &gt; 60,
-    TCP ping &lt; 200 ms, country = United States — and get a base64 v2ray
+    TCP ping &lt; 200 ms, country = United States — and get a plain-text v2ray
     subscription with exactly the configs that match. Untested (UDP) configs are
     included unless you add an “Alive = yes” condition.</p>
   <div class="bmode">
@@ -108,7 +108,7 @@
   </div>
   <div id="bcount" class="bcount">…</div>
   <div class="bout">
-    <button class="bbtn primary" id="bcopy">Copy subscription (base64)</button>
+    <button class="bbtn primary" id="bcopy">Copy subscription</button>
     <button class="bbtn" id="bdl">Download .txt</button>
     <button class="bbtn" id="blink">Copy share link</button>
   </div>
@@ -154,8 +154,8 @@
 </div>
 
 <h2 class="sec">Subscription groups</h2>
-<p class="meta">Base64-encoded v2ray subscriptions. Add any link to your client
-  (v2rayN / v2rayNG / Hiddify / Streisand).</p>
+<p class="meta">Plain-text v2ray subscriptions (one URI per line). Add any link
+  to your client (v2rayN / v2rayNG / Hiddify / Streisand).</p>
 <input type="search" id="gsearch" placeholder="Filter groups…" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;border-radius:6px;padding:7px 10px;font:inherit;width:100%;max-width:420px;" />
 <div id="subs" class="subs"></div>
 
@@ -507,7 +507,7 @@ function matchingNodes() {
 
 function buildSub() {
   const uris = matchingNodes().map((n) => n.uri);
-  return { uris, b64: b64Encode(uris.join("\n")) };
+  return { uris, text: uris.join("\n") };
 }
 
 function onMatrixChange() {
@@ -546,15 +546,15 @@ function initBuilder() {
   $("#badd").onclick = () => { addCondition({}); onMatrixChange(); };
   $("#bmode").onchange = onMatrixChange;
   $("#bcopy").onclick = () => {
-    const { uris, b64 } = buildSub();
+    const { uris, text } = buildSub();
     if (!uris.length) { flash($("#bcopy"), "No matches"); return; }
-    copyText(b64);
+    copyText(text);
     flash($("#bcopy"), "Copied");
   };
   $("#bdl").onclick = () => {
-    const { uris, b64 } = buildSub();
+    const { uris, text } = buildSub();
     if (!uris.length) { flash($("#bdl"), "No matches"); return; }
-    const blob = new Blob([b64], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "subscription.txt";

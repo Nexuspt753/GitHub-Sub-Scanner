@@ -28,8 +28,8 @@ The workflow (`.github/workflows/test.yml`) runs every 2 hours (and on manual
 
 ### Subscription groups
 
-Each run also regenerates a set of **base64-encoded v2ray subscriptions** under
-`subs/`, one file per group, plus `subs/manifest.json`. Groups:
+Each run also regenerates a set of **plain-text v2ray subscriptions** (one URI
+per line) under `subs/`, one file per group, plus `subs/manifest.json`. Groups:
 
 | Group | Path |
 |---|---|
@@ -55,18 +55,18 @@ speed, and top groups.
 The site also has a **Build your subscription** panel. Add any number of
 conditions (field + operator + value) — e.g. *Gemini reachable = yes*,
 *Score > 60*, *TCP ping < 200 ms*, *Country = United States* — and combine them
-with AND or OR. The matching configs are turned into a base64 v2ray
+with AND or OR. The matching configs are turned into a plain-text v2ray
 subscription you can grab three ways:
 
-- **Copy subscription (base64)** — paste into any client that imports a
-  base64 subscription from the clipboard (v2rayN / v2rayNG / Hiddify /
+- **Copy subscription** — paste the plain-text URIs into any client that
+  imports a subscription from the clipboard (v2rayN / v2rayNG / Hiddify /
   Streisand).
 - **Download .txt** — save the payload as a file to import or self-host.
 - **Copy share link** — a URL that re-opens the page with your exact matrix
   (bookmark or share it).
 
 Because the site is fully static (no server), it can't return a different
-subscription per visitor from GitHub Pages; the base64 payload and the
+subscription per visitor from GitHub Pages; the plain-text payload and the
 shareable matrix link are how you hand the same result to a client.
 
 ## Setup
