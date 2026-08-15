@@ -15,6 +15,7 @@ Everything is measured from GitHub's network, NOT from any end user's location.
 
 import base64
 import html
+import ipaddress
 import json
 import os
 import re
@@ -449,7 +450,10 @@ def speed_test(port=PROXY_PORT):
 
 _DNS_CACHE = {}
 _GEO_CACHE = {}
+_RDAP_CACHE = {}
+_GEOFEED_CACHE = {}
 _CACHE_LOCK = threading.Lock()
+_GEOFEED_LOCK = threading.Lock()
 
 # ip-api.com/batch geolocates up to 100 IPs per request — the most accurate free
 # option, and the batch endpoint sidesteps the usual one-IP-per-request limit.
@@ -578,6 +582,206 @@ def _fallback_geolocate(ip):
     return {}
 
 
+# ISO 3166-1 alpha-2 -> full name, matching the names ip-api.com returns.
+# 'EU' is ARIN's catch-all for blocks registered to Europe without a country.
+_COUNTRY_NAMES = {
+    "US": "United States", "CA": "Canada", "DE": "Germany", "FR": "France",
+    "NL": "The Netherlands", "GB": "United Kingdom", "RU": "Russia",
+    "FI": "Finland", "HK": "Hong Kong", "SG": "Singapore", "JP": "Japan",
+    "IR": "Iran", "PL": "Poland", "BR": "Brazil", "CN": "China",
+    "AE": "United Arab Emirates", "TR": "T\u00fcrkiye", "IT": "Italy",
+    "KR": "South Korea", "SE": "Sweden", "ES": "Spain", "CH": "Switzerland",
+    "IN": "India", "IE": "Ireland", "SA": "Saudi Arabia", "UA": "Ukraine",
+    "EE": "Estonia", "IL": "Israel", "AU": "Australia", "AT": "Austria",
+    "RO": "Romania", "MY": "Malaysia", "PK": "Pakistan", "GR": "Greece",
+    "EG": "Egypt", "KW": "Kuwait", "JO": "Jordan", "VN": "Vietnam",
+    "MX": "Mexico", "BG": "Bulgaria", "BE": "Belgium", "ZA": "South Africa",
+    "CY": "Cyprus", "TH": "Thailand", "CZ": "Czechia", "LT": "Lithuania",
+    "KH": "Cambodia", "HU": "Hungary", "BZ": "Belize", "AZ": "Azerbaijan",
+    "AR": "Argentina", "NZ": "New Zealand", "AL": "Albania", "CW": "Curacao",
+    "LV": "Latvia", "CO": "Colombia", "DZ": "Algeria", "DK": "Denmark",
+    "MM": "Myanmar", "MT": "Malta", "MD": "Moldova", "CR": "Costa Rica",
+    "PT": "Portugal", "TW": "Taiwan", "ME": "Montenegro", "LU": "Luxembourg",
+    "ID": "Indonesia", "PR": "Puerto Rico", "AM": "Armenia", "NO": "Norway",
+    "CL": "Chile", "GE": "Georgia", "DO": "Dominican Republic",
+    "PA": "Panama", "RS": "Serbia", "SK": "Slovakia", "SI": "Slovenia",
+    "HR": "Croatia", "NG": "Nigeria", "KE": "Kenya", "BD": "Bangladesh",
+    "NP": "Nepal", "LK": "Sri Lanka", "PH": "Philippines", "IQ": "Iraq",
+    "SY": "Syria", "LB": "Lebanon", "KZ": "Kazakhstan", "UZ": "Uzbekistan",
+    "BY": "Belarus", "BA": "Bosnia and Herzegovina", "MK": "North Macedonia",
+    "IS": "Iceland", "PE": "Peru", "EC": "Ecuador", "UY": "Uruguay",
+    "GT": "Guatemala", "HN": "Honduras", "SV": "El Salvador", "NI": "Nicaragua",
+    "JM": "Jamaica", "TT": "Trinidad and Tobago", "MA": "Morocco",
+    "TN": "Tunisia", "ET": "Ethiopia", "QA": "Qatar",
+    "BH": "Bahrain", "OM": "Oman", "YE": "Yemen", "AF": "Afghanistan",
+    "EU": "Europe",
+}
+
+_RDAP_BASES = (
+    "https://rdap.org/ip/",
+    "https://rdap.db.ripe.net/ip/",
+    "https://rdap.arin.net/registry/ip/",
+)
+
+
+def _country_name(code):
+    """Map an ISO country code to the full name used in results.json."""
+    code = (code or "").upper()
+    if not code:
+        return None
+    return _COUNTRY_NAMES.get(code, code)
+
+
+def _rdap_get(ip):
+    """Query the IP's registration (RDAP). Returns the JSON object or None."""
+    with _CACHE_LOCK:
+        if ip in _RDAP_CACHE:
+            return _RDAP_CACHE[ip]
+    data = None
+    for base in _RDAP_BASES:
+        try:
+            req = urllib.request.Request(
+                base + ip,
+                headers={"User-Agent": UA, "Accept": "application/rdap+json"},
+            )
+            with urllib.request.urlopen(req, timeout=6) as r:
+                if r.status != 200:
+                    continue
+                j = json.loads(r.read().decode("utf-8", "ignore"))
+                if "handle" in j or "startAddress" in j:
+                    data = j
+                    break
+        except Exception:
+            continue
+    with _CACHE_LOCK:
+        _RDAP_CACHE[ip] = data
+    return data
+
+
+def _geofeed_url(rdap):
+    """Extract the RFC 8805 geofeed URL from an RDAP response, if any."""
+    for link in rdap.get("links") or []:
+        if "geofeed" in (link.get("rel") or ""):
+            href = link.get("href")
+            if href:
+                return href
+    return None
+
+
+def _geofeed_fetch(url):
+    """Fetch and parse an RFC 8805 geofeed CSV -> [(network, cc, city), ...]."""
+    with _GEOFEED_LOCK:
+        if url in _GEOFEED_CACHE:
+            return _GEOFEED_CACHE[url]
+    entries = []
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            text = r.read().decode("utf-8", "ignore")
+        for line in text.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = [p.strip() for p in line.split(",")]
+            if len(parts) < 2:
+                continue
+            try:
+                net = ipaddress.ip_network(parts[0], strict=False)
+            except ValueError:
+                continue
+            cc = parts[1].upper()
+            city = parts[3] if len(parts) > 3 else ""
+            entries.append((net, cc, city))
+    except Exception:
+        entries = []
+    with _GEOFEED_LOCK:
+        _GEOFEED_CACHE[url] = entries
+    return entries
+
+
+def _geofeed_lookup(ip, url):
+    """Longest-prefix match of `ip` in the geofeed. Returns (cc, city) or None."""
+    entries = _geofeed_fetch(url)
+    if not entries:
+        return None
+    addr = ipaddress.ip_address(ip)
+    best = None
+    for net, cc, city in entries:
+        if addr.version == net.version and addr in net:
+            if best is None or net.prefixlen > best[0].prefixlen:
+                best = (net, cc, city)
+    if best and best[1]:
+        return best[1], best[2]
+    return None
+
+
+def _rdap_override_for(ip):
+    """Return geo fields that should override the ip-api result for `ip`.
+
+    Free IP databases lag behind reality for rented/leased datacenter IPs and
+    systematically mislabel European hosts as US/Canada. The registration
+    (RDAP) plus the owner's self-published geofeed (RFC 8805) carry the
+    freshest location, so we prefer them. Best-effort: on any failure we
+    return None and leave the ip-api result untouched.
+    """
+    cur = _GEO_CACHE.get(ip) or {}
+
+    # Anycast edge IPs have no single location; the anycast pass handles them
+    # (and we save an RDAP round-trip for the many Cloudflare IPs).
+    if _is_cloudflare_anycast(cur):
+        return None
+
+    # Only correct the labels we know the free databases get wrong (US/Canada
+    # bias on churned hosting IPs). Leave an already-plausible country alone —
+    # that also skips most RDAP lookups entirely.
+    if cur.get("country") not in ("United States", "Canada", None):
+        return None
+
+    data = _rdap_get(ip)
+    if not data:
+        return None
+
+    # 1. RFC 8805 geofeed — the owner's explicit current location.
+    gf_url = _geofeed_url(data)
+    if gf_url:
+        hit = _geofeed_lookup(ip, gf_url)
+        if hit:
+            cc, city = hit
+            return {"country": _country_name(cc), "region": None,
+                    "city": city or None}
+
+    # 2. RDAP registration country — undoes the stale-database US/Canada
+    #    mislabel for recently reallocated IPs.
+    rdap_cc = (data.get("country") or "").upper()
+    if rdap_cc and rdap_cc != "ZZ":
+        name = _country_name(rdap_cc)
+        if name and name != cur.get("country"):
+            return {"country": name, "region": None, "city": None}
+    return None
+
+
+def _apply_rdap_geofeed(ips):
+    """Overlay RDAP/geofeed corrections onto _GEO_CACHE for the given IPs."""
+    with ThreadPoolExecutor(max_workers=16) as ex:
+        futures = {ex.submit(_rdap_override_for, ip): ip for ip in ips}
+        for fut in as_completed(futures):
+            ip = futures[fut]
+            try:
+                override = fut.result()
+            except Exception:
+                override = None
+            if override:
+                cur = dict(_GEO_CACHE.get(ip) or {})
+                cur.update(override)
+                _GEO_CACHE[ip] = cur
+
+
+def _is_cloudflare_anycast(geo):
+    """Cloudflare edge IPs are anycast: they have no single physical location."""
+    return ((geo.get("isp") or "") == "Cloudflare, Inc."
+            or (geo.get("org") or "") == "Cloudflare, Inc.")
+
+
 def geolocate_all(results):
     """Fill geo fields for every unique IP in `results` (batched, cached)."""
     ips = sorted({r.get("ip") for r in results if r.get("ip")})
@@ -591,6 +795,19 @@ def geolocate_all(results):
             log(f"  falling back for {len(remaining)} IPs ...")
             for ip in remaining:
                 _GEO_CACHE[ip] = _fallback_geolocate(ip)
+        # Authoritative correction: registration + RFC 8805 geofeeds.
+        _apply_rdap_geofeed(todo)
+
+    # Anycast CDN edge IPs route to the nearest PoP, so a single country is
+    # meaningless (from GitHub they resolve to a US/CA edge regardless of the
+    # user's own location).
+    for ip in ips:
+        geo = _GEO_CACHE.get(ip)
+        if geo and _is_cloudflare_anycast(geo):
+            geo["country"] = "Cloudflare (anycast)"
+            geo["region"] = None
+            geo["city"] = None
+
     for r in results:
         geo = _GEO_CACHE.get(r.get("ip")) or {}
         for k, v in geo.items():

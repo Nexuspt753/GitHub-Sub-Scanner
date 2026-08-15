@@ -93,8 +93,15 @@ shareable matrix link are how you hand the same result to a client.
   not a real-world speed test.
 - **ICMP ping is unavailable** on GitHub runners, so "ping" is TCP connect time.
 - **Geolocation** uses free APIs (`ip-api.com` batch with `ipwho.is` and
-  `ipapi.co` fallback) that are rate-limited and sometimes block GitHub's shared
-  egress IPs. A few IPs may still come back blank.
+  `ipapi.co` fallback). Free IP databases lag behind reality for the
+  rented/leased datacenter IPs that dominate these feeds, so results are
+  corrected against the authoritative IP registration (RDAP) and the owner's
+  self-published RFC 8805 geofeed where available. Cloudflare edge IPs are
+  anycast (they have no single physical location, and from GitHub they resolve
+  to a US/CA edge regardless of your own location), so they are labelled
+  `Cloudflare (anycast)` rather than a country. A few IPs may still come back
+  blank or imperfect — there is no perfectly accurate free source for churned
+  hosting IPs.
 - **GitHub ToS / abuse risk.** Actions is not intended for continuous network
   probing or for running proxy clients against arbitrary third-party servers.
   Aggressively scanning feeds of strangers' servers can get the repo/account
