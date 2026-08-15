@@ -135,4 +135,7 @@ cached per host/IP.
 - `scripts/runner.py` — fetch, parse, test, geolocate, score.
 - `sources.json` — feed list and per-run cap.
 - `index.html` — static ranking page (GitHub Pages).
-- `results.json` — generated output, committed by the workflow.
+- `results.json` — slim generated output for the page (compact, no per-config
+  URI), committed by the workflow.
+- `subs/uris.json` — per-config URIs for the subscription builder, fetched only
+  when the builder is opened; committed by the workflow.

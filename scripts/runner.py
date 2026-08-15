@@ -1085,20 +1085,41 @@ def main():
     geolocate_all(results)
     log(f"geolocated {sum(1 for r in results if r.get('country'))}/{len(results)} configs")
 
+    # Write a slim results.json for the website. The page only needs a handful
+    # of display fields; the per-node URI (by far the largest field) is moved to
+    # subs/uris.json and fetched only when the subscription builder is used.
+    # Compact separators also cut the JSON size roughly in half vs. indent=2.
+    web_nodes = [{
+        "name": r.get("name"), "protocol": r.get("protocol"),
+        "address": r.get("address"), "port": r.get("port"),
+        "alive": r.get("alive"), "tcp_ping_ms": r.get("tcp_ping_ms"),
+        "speed_mbps": r.get("speed_mbps"),
+        "gemini_reachable": r.get("gemini_reachable"),
+        "score": r.get("score"), "country": r.get("country"),
+        "region": r.get("region"), "city": r.get("city"),
+        "isp": r.get("isp"),
+    } for r in results]
+    uris = [r.get("uri") or "" for r in results]
+
     payload = {
         "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "node_count": len(results),
         "alive_count": sum(1 for r in results if r["alive"]),
         "gemini_count": sum(1 for r in results if r["gemini_reachable"]),
-        "nodes": results,
+        "nodes": web_nodes,
     }
     with open("results.json", "w") as f:
-        json.dump(payload, f, indent=2)
+        json.dump(payload, f, separators=(",", ":"))
     log(f"wrote results.json ({payload['alive_count']}/{payload['node_count']} alive)")
 
     # GITHUB_REPOSITORY is set automatically on Actions (owner = your GitHub username).
     repo = os.environ.get("GITHUB_REPOSITORY", "Nexuspt753/REPO")
     write_subscriptions(results, repo)
+
+    os.makedirs("subs", exist_ok=True)
+    with open("subs/uris.json", "w") as f:
+        json.dump(uris, f, separators=(",", ":"))
+    log(f"wrote subs/uris.json ({len(uris)} URIs)")
 
 
 if __name__ == "__main__":
