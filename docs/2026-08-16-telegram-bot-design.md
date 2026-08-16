@@ -48,7 +48,7 @@ Three boxes. The GitHub Action is the **producer**; the Cloudflare Worker is the
                                                                     │  ┌──────────┐  │          │
                                                                     │  │  query / │  │          │
                                                                     │  │  push    │──┼── ③ ──▶ Telegram API
-                                                                    │  │  engine  │  │  DM      │  (sendMessage)
+                                                                    │  │  engine  │  │  DM      │  (sendDocument)
                                                                     │  └────┬─────┘  │          │
                                                                     │       │        │          │
                                                                     │       ▼        │          │
@@ -74,9 +74,11 @@ Three boxes. The GitHub Action is the **producer**; the Cloudflare Worker is the
   results land, not on a separate schedule.
 
 - **Query (on-demand):** ② user sends `/top 10` → Telegram POSTs to `/telegram` →
-  Worker reads `results:cache` from KV → evaluates → replies. Replies use the
-  **webhook response body** (`sendMessage` in the HTTP 200 payload) so queries cost
-  **0 subrequests**.
+  Worker reads `results:cache` from KV → evaluates → sends the matches as a **.txt
+  subscription file** via `sendDocument`, with a short caption (e.g. "12 configs ·
+  score>50 · UK"). The file is a plain-text v2ray subscription (one URI per line) —
+  directly paste-able into v2rayN / v2rayNG / Hiddify / Streisand. This costs **1
+  subrequest** per query (multipart upload), which is negligible for interactive use.
 
 ### Why push is webhook-triggered, not cron
 
@@ -89,7 +91,7 @@ cost is one extra authenticated webhook step in the Action.
 | Key | Value | TTL |
 |---|---|---|
 | `results:cache` | `{ fetchedAt: number, data: ResultsJson }` — latest ranking, repopulated every `/push` | none (overwritten) |
-| `sub:<chatId>` | `{ chatId, matrix, createdAt, lastNotifiedAt, lastNotifiedIds? }` | none |
+| `sub:<chatId>` | `{ chatId, matrix, createdAt, lastNotifiedAt, lastNotifiedIds? }` (lastNotifiedIds capped to most recent 100 — see §6) | none |
 | `conv:<chatId>` | `{ step, partialMatrix }` — transient in-bot wizard state | `expirationTtl: 600` (10 min, self-cleanup) |
 | `share:<token>` | `{ matrix }` — deep-link token from the site | `expirationTtl: 604800` (7 days) |
 
@@ -123,7 +125,7 @@ the in-bot builder produce the same matrix shape, so they share one evaluation p
 | Component | Role |
 |---|---|
 | **Router** | Dispatches by path: `/telegram`, `/push`, `/share`, `/health`. Rejects all else. |
-| **Telegram webhook handler** | Validates `X-Telegram-Bot-Api-Secret-Token`; parses update (command or inline callback); dispatches to query engine or subscription manager. Replies via webhook response body (0 subrequests). |
+| **Telegram webhook handler** | Validates `X-Telegram-Bot-Api-Secret-Token`; parses update (command or inline callback); dispatches to query engine or subscription manager. Sends results as .txt files via `sendDocument` (1 subrequest/query). |
 | **Query / push engine** | Pure, stateless: `evaluate(matrix, results) → matches[]`. Used by both query (reply) and push (DM). Highest-value unit to test. |
 | **Subscription manager** | CRUD on `sub:<chatId>`: store, list, update matrix, delete. Holds `conv:<chatId>` wizard state. Powers `/subscribe`, `/unsubscribe`, `/myfilters`, `/start`. |
 
@@ -194,12 +196,42 @@ After `/push` stores `results:cache`, the push engine enumerates subscribers via
 cursor past that). For each subscriber, it runs `evaluate(matrix, results)` and
 behaves per the subscriber's `mode`:
 
+Both modes deliver configs as a **.txt subscription file** (`sendDocument`) with a
+caption summarizing the match. This sidesteps Telegram's 4,096-character `sendMessage`
+limit (10+ formatted proxy URIs with scores/flags would overflow it), keeps each push
+to one clean message instead of a flood, and produces a file the user's client can
+import directly. The .txt payload is the same one-URI-per-line subscription the site
+already generates under `subs/`.
+
 - **Diff mode (default).** DM only matches whose IDs are **not** in the subscriber's
-  `lastNotifiedIds`. Silent when nothing is new. Updates `lastNotifiedIds` and
-  `lastNotifiedAt` after a successful send. Prevents alert fatigue from configs that
-  stay alive across many runs.
+  `lastNotifiedIds`. Silent when nothing is new. After a successful send, updates
+  `lastNotifiedIds` (capped to the most recent 100 entries — see §7) and
+  `lastNotifiedAt`. Prevents alert fatigue from configs that stay alive across many
+  runs.
 - **Digest mode.** Every push, send the current top matches (e.g. best-scoring 5)
-  with a "2h digest" header, regardless of prior alerts. Predictable cadence.
+  with a "2h digest" caption, regardless of prior alerts. Predictable cadence.
+
+### Bounding `lastNotifiedIds` growth
+
+In diff mode, appending IDs every 2 hours would grow `lastNotifiedIds` indefinitely
+over months. Cap it to the most recent 100 entries after each push:
+
+```ts
+const updatedIds = Array.from(
+  new Set([...currentMatchIds, ...(subscriber.lastNotifiedIds || [])])
+).slice(0, 100);
+```
+
+A 100-entry cap is far larger than any single run's matches, so it never suppresses
+a legitimately new alert; it only bounds KV value size.
+
+### Outbound DM pacing
+
+Telegram enforces ~30 msg/sec. Firing 45 concurrent `fetch()` uploads in one
+`Promise.allSettled` tick can trigger `429 Too Many Requests`. Pace the broadcast in
+small batches (e.g. 15 DMs per batch with a ~500ms pause between batches), or iterate
+sequentially with `for…of` (45 sequential uploads take ~2–3s total, well within the
+Worker's CPU timeout).
 
 ### Free-tier guardrail: subrequest cap
 
@@ -268,11 +300,13 @@ One-time setup:
 6. Add one step to the GitHub Action (at the end of the workflow, after committing
    `results.json`):
    ```bash
-   curl -X POST https://<worker>/push \
+   curl -fsSL -X POST https://<worker>/push \
      -H "Authorization: Bearer ${{ secrets.PUSH_SECRET }}" \
      -H "Content-Type: application/json" \
      --data-binary @results.json
    ```
+   `-f` makes the Action step fail with a non-zero exit code if the Worker returns
+   HTTP 4xx/5xx, surfacing auth or parse failures immediately in the Actions UI.
 
 All of this is free. GitHub Pages remains the public archive and subscription-file
 host; it is no longer on the runtime data path (the Action sends data directly to
@@ -295,7 +329,7 @@ to the repo.
 | Resource | Free limit | This design's usage |
 |---|---|---|
 | Worker requests | 100k/day | ~12 push invocations + user queries — negligible |
-| Worker subrequests | 50/invocation | push DMs only; capped at ≤ 45/invocation |
+| Worker subrequests | 50/invocation | 1 per query (file upload) + ≤ 45 per push (paced) |
 | KV reads | 100k/day | one per query + one per push subscriber |
 | KV writes | 1/kday | one per `/push` + one per new subscriber + one per `/share` — far under limit |
 | Action minutes | free for public repos | one extra `curl` step — seconds |
