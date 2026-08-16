@@ -35,3 +35,20 @@ jobs:
           git add results.json subs/
           git commit -m "chore: update config ranking $(date -u +%FT%TZ)" || echo "No changes"
           git push
+
+      - name: Notify Telegram bot
+        run: |
+          python3 - <<'PY'
+          import json
+          results = json.load(open("results.json"))
+          uris = json.load(open("subs/uris.json"))
+          for node, uri in zip(results["nodes"], uris):
+              node["uri"] = uri
+          with open("payload.json", "w") as f:
+              json.dump({"nodes": results["nodes"]}, f)
+          print(f"payload.json: {len(results['nodes'])} nodes")
+          PY
+          curl -fsSL -X POST "${{ secrets.WORKER_PUSH_URL }}/push" \
+            -H "Authorization: Bearer ${{ secrets.PUSH_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --data-binary @payload.json
