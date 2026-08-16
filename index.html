@@ -468,7 +468,7 @@ function toMatrix(ui) {
     .filter((c) => c.f && c.op)
     .map((c) => {
       const field = FIELD_TO_CONDITION[c.f] || c.f;
-      let value: any = c.v;
+      let value = c.v;
       if (["score", "tcp_ping_ms", "speed_mbps"].includes(c.f)) {
         value = Number(value);
       } else if (BOOL_FIELDS.has(c.f)) {
