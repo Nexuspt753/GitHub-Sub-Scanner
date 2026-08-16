@@ -34,6 +34,6 @@ export async function handleShare(env: { kv: any }, request: Request): Promise<R
   }
   const token = randomToken();
   await putShare(env.kv, token, matrix);
-  const url = `https://t.me/YOUR_BOT_USERNAME?start=share_${token}`;
+  const url = `https://t.me/github_sub_scanner_bot?start=share_${token}`;
   return Response.json({ token, url }, { headers: corsHeaders({ "content-type": "application/json" }) });
 }
