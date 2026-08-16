@@ -202,3 +202,22 @@ describe("handleTelegram", () => {
     expect(await kv.get("sub:1", "json")).toBeNull();
   });
 });
+
+describe("router (index)", () => {
+  it("routes /health to 200", async () => {
+    const mod = await import("../src/index");
+    const worker = mod.default as any;
+    const kv = new FakeKV();
+    const res = await worker.fetch(new Request("http://fake/health"), { BOT_KV: kv }, {});
+    expect(res.status).toBe(200);
+    const body = await res.json() as any;
+    expect(body.ok).toBe(true);
+  });
+
+  it("404s unknown paths", async () => {
+    const mod = await import("../src/index");
+    const worker = mod.default as any;
+    const res = await worker.fetch(new Request("http://fake/unknown"), { BOT_KV: new FakeKV() }, {});
+    expect(res.status).toBe(404);
+  });
+});
