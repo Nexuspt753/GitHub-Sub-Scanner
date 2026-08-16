@@ -1,7 +1,8 @@
-import { getSubscriber, putSubscriber, getResults, getShare } from "../kv";
+import { getSubscriber, putSubscriber, getResults, getShare, getConv } from "../kv";
 import { evaluate } from "../evaluate";
 import { buildTxt, makeCaption } from "../format";
 import { sendDocument, sendMessage } from "../telegram";
+import { Wizard } from "./wizard";
 import type { SubscriberRecord } from "../types";
 
 interface Env {
@@ -9,6 +10,8 @@ interface Env {
   token: string;
   secretToken: string;
 }
+
+const wizardSessions = new Map<number, Wizard>();
 
 export async function handleTelegram(env: Env, request: Request): Promise<Response> {
   const got = request.headers.get("x-telegram-bot-api-secret-token");
@@ -21,12 +24,33 @@ export async function handleTelegram(env: Env, request: Request): Promise<Respon
   } catch {
     return new Response("ok", { status: 200 });
   }
+
+  const cq = update.callback_query;
+  if (cq) {
+    const chatId = cq.message?.chat?.id ?? cq.from.id;
+    const w = wizardSessions.get(chatId);
+    if (w) {
+      await w.handleCallback(cq.data ?? "", async (text, _kb) => {
+        await sendMessage(env.token, chatId, text);
+      });
+    }
+    return new Response("ok", { status: 200 });
+  }
+
   const msg = update.message;
   if (!msg || !msg.chat) return new Response("ok", { status: 200 });
   const chatId = msg.chat.id;
   const text = (msg.text ?? "").trim();
 
   try {
+    const w = wizardSessions.get(chatId);
+    if (w && (await getConv(env.kv, chatId))?.step === "value") {
+      await w.handleValue(text, async (t, _kb) => {
+        await sendMessage(env.token, chatId, t);
+      });
+      return new Response("ok", { status: 200 });
+    }
+
     if (text.startsWith("/start")) {
       await cmdStart(env, chatId, text);
     } else if (text === "/help") {
@@ -42,7 +66,11 @@ export async function handleTelegram(env: Env, request: Request): Promise<Respon
     } else if (text === "/status") {
       await cmdStatus(env, chatId);
     } else if (text === "/subscribe") {
-      await sendMessage(env.token, chatId, "Send me a filter link from the website (use its 'Subscribe on Telegram' button), or browse with /top <n> and /country <name>. A guided wizard is coming in the next update.");
+      const w = new Wizard(env.kv, chatId);
+      wizardSessions.set(chatId, w);
+      await w.start(async (t, _kb) => {
+        await sendMessage(env.token, chatId, t);
+      });
     } else if (text === "/unsubscribe") {
       await env.kv.delete(`sub:${chatId}`);
       await sendMessage(env.token, chatId, "You are unsubscribed. You won't receive push updates anymore.");
