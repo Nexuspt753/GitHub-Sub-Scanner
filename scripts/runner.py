@@ -953,8 +953,15 @@ def write_subscriptions(results, repo):
     def add(group_id, name, path, uris, desc=""):
         n = write_subscription(path, uris)
         if n:
+            # Write a base64-encoded copy alongside the plaintext file.
+            b64_path = path.replace(".txt", ".b64.txt")
+            b64 = base64.b64encode(("\n".join(uris) + "\n").encode("utf-8")).decode("ascii")
+            os.makedirs(os.path.dirname(b64_path), exist_ok=True)
+            with open(b64_path, "w") as f:
+                f.write(b64 + "\n")
             groups.append({"id": group_id, "name": name, "path": path,
-                           "count": n, "url": f"{base_raw}/{path}", "desc": desc})
+                           "count": n, "url": f"{base_raw}/{path}",
+                           "b64_url": f"{base_raw}/{b64_path}", "desc": desc})
 
     # 1. Everything not-known-dead, and the Gemini-capable subset.
     add("all", "All", "subs/all.txt",
