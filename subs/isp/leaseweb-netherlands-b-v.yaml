@@ -1,18 +1,18 @@
 proxies:
   - type: vless
+    name: ">>@outline_vpn::NL"
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
-    server: mypanel.unixzone.us
-    port: 12068
-    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Ap_Ir6
     server: 85.17.145.65
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
@@ -24,31 +24,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: hex_proxy
-    server: 85.17.145.65
-    port: 12068
-    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: hopev2ray💛
-    server: 85.17.145.65
-    port: 12068
-    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇳🇱
+    name: EPODONIOS-01
     server: mypanel.unixzone.us
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
@@ -87,55 +63,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vod.ensf.top
-  - type: trojan
-    name: 4Jadi-ac9107b7b5
-    server: 37.48.65.144
-    port: 443
-    password: 0cb2cd1f-870b-485c-914a-60aba39eed39
-    udp: true
-    tls: true
-    sni: tt6.tjvpn.top
-    client-fingerprint: chrome
-  - type: vless
-    name: 4Mohsen-d9e5b9554e
-    server: mypanel.unixzone.us
-    port: 12068
-    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - ">>@outline_vpn::NL"
       - EPODONIOS
-      - Ap_Ir6
-      - hex_proxy
-      - hopev2ray💛
-      - 🇳🇱
+      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Jadi-ac9107b7b5
-      - 4Mohsen-d9e5b9554e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - ">>@outline_vpn::NL"
       - EPODONIOS
-      - Ap_Ir6
-      - hex_proxy
-      - hopev2ray💛
-      - 🇳🇱
+      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Jadi-ac9107b7b5
-      - 4Mohsen-d9e5b9554e
 rules:
   - MATCH,Proxy

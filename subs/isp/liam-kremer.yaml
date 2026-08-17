@@ -1,0 +1,146 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 212.46.33.32
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl1.spidermanshopping.com
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 193.178.226.219
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl1.spidermanshopping.com
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: nl.gsupport.support
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: video.intfreed.ru
+    reality-opts:
+      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
+      short-id: 7755e972daf8eec8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 212.46.33.38
+    port: 443
+    uuid: 2642342c-fa52-4f62-b44d-fb77de8f75e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: login.moktana.app
+    reality-opts:
+      public-key: C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4
+      short-id: 5d1e8b3f6c2a9d4e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 212.46.33.18
+    port: 443
+    uuid: 2642342c-fa52-4f62-b44d-fb77de8f75e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: login.moktana.app
+    reality-opts:
+      public-key: C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4
+      short-id: 5d1e8b3f6c2a9d4e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 212.46.33.22
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl1.spidermanshopping.com
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-05
+    server: 193.178.226.215
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl1.spidermanshopping.com
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-06
+    server: 193.178.226.211
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: video.intfreed.ru
+    reality-opts:
+      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
+      short-id: 7755e972daf8eec8
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+rules:
+  - MATCH,Proxy

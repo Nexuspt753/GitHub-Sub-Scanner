@@ -15,24 +15,8 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vod.ensf.top
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 185.36.143.71
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -52,7 +36,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -61,6 +44,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

@@ -1,38 +1,27 @@
 proxies:
-  - type: ss
-    name: 4Sarina-bc33b18467
-    server: 87.121.162.249
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: JGv616hMWdjfuZ00jYfq7XkBHJZrOBrg
-    udp: true
   - type: vless
-    name: 4Nika-6f7701bba1
-    server: deu196.unboundaccess.org
+    name: vless
+    server: 185.136.12.179
     port: 443
-    uuid: f788e136-b245-4617-9d41-b505c7f41ef9
+    uuid: 2cca8201-c93e-40eb-bd8a-fea4170c169e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.bing.com
-    reality-opts:
-      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
-    flow: xtls-rprx-vision
+    alpn:
+      - h2
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-bc33b18467
-      - 4Nika-6f7701bba1
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-bc33b18467
-      - 4Nika-6f7701bba1
+      - vless
 rules:
   - MATCH,Proxy

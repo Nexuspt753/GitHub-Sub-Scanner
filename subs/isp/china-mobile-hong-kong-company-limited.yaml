@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 223.122.123.74
+    port: 30100
+    uuid: 19bb341c-ee57-4899-b1e7-e9d3ebdf23df
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: xiweini.dpdns.org
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

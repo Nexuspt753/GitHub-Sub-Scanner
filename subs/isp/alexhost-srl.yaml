@@ -13,12 +13,70 @@ proxies:
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 80.96.112.250
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: roman3.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 185.103.167.231
+    port: 443
+    uuid: f8c5b018-f51a-4137-be8a-50a451630589
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.tradingview.com
+    reality-opts:
+      public-key: doAoyk3TDL7pSojBT8JVINlmjMy31VW7YrHpBhw3bnA
+      short-id: 4b9c77b3
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: mold.helper-internet.com
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: mold.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 143.246.196.157
+    port: 443
+    uuid: 45c595fa-988f-11f1-8024-54db13ea7d40
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.blocket.se
+    reality-opts:
+      public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +84,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - EPODONIOS
 rules:
   - MATCH,Proxy

@@ -1,21 +1,19 @@
 proxies:
   - type: vless
-    name: Oslo · @DeltaKroneckerGithub
-    server: 54.240.174.40
-    port: 443
-    uuid: 7ce54bb3-d612-4aa7-be08-089d3c461d53
+    name: Nordland · @DeltaKroneckerGithub
+    server: 46.29.238.139
+    port: 40443
+    uuid: 8384341b-cd89-4a21-a022-cc4bd4e648ca
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: d1yxsk0zprgivr.cloudfront.net
+    servername: deepl.com
+    reality-opts:
+      public-key: 7i4Y7v80NVAIi_4_9roDkqcXmexIHli87dfZuFaQMUI
+      short-id: 68da
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: ss
-    name: Oslo · EPODONIOS
+    name: Oslo · @DeltaKroneckerGithub
     server: 185.213.23.63
     port: 990
     cipher: chacha20-ietf-poly1305
@@ -28,55 +26,22 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
-  - type: ss
-    name: Oslo · @DeltaKroneckerGithub-02
-    server: 185.213.23.63
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-    udp: true
-  - type: ss
-    name: Oslo · 🇳🇴NO-185.213.23.63-4643
-    server: 185.213.23.63
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-    udp: true
-  - type: vless
-    name: Sandefjord · 4Kian-cb7f5d88a9
-    server: 185.125.171.13
-    port: 443
-    uuid: a09373e2-e120-457d-9ec9-ea7fe8bedb52
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: partner.g2.com
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Nordland · @DeltaKroneckerGithub
       - Oslo · @DeltaKroneckerGithub
-      - Oslo · EPODONIOS
       - Oslo · @DeltaKroneckerGithub-01
-      - Oslo · @DeltaKroneckerGithub-02
-      - Oslo · 🇳🇴NO-185.213.23.63-4643
-      - Sandefjord · 4Kian-cb7f5d88a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Nordland · @DeltaKroneckerGithub
       - Oslo · @DeltaKroneckerGithub
-      - Oslo · EPODONIOS
       - Oslo · @DeltaKroneckerGithub-01
-      - Oslo · @DeltaKroneckerGithub-02
-      - Oslo · 🇳🇴NO-185.213.23.63-4643
-      - Sandefjord · 4Kian-cb7f5d88a9
 rules:
   - MATCH,Proxy

@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.59.183.167
+    port: 443
+    uuid: 301d514e-4aa0-47b0-ba44-a0cb891cd52f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: OZVjfQBboTDTBw0baMFqzVPsVUI4FNQmspTEb0b0zW4
+      short-id: a1b2c3d4
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,23 +1,32 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-d231c265db
-    server: 31.177.111.14
-    port: 8443
-    password: 57284239-1ceb-439f-826e-cd25fcc1c1c5
-    sni: 130-17-10-202.sslip.io
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.177.111.144
+    port: 443
+    uuid: 8071f3cc-994f-4fe2-bb87-cdc79559cb56
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: J3W60M3AtU5k97dW435MfETjHX-DtfFqNrRUNoj2MXE
+      short-id: a1b2c3d4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d231c265db
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d231c265db
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

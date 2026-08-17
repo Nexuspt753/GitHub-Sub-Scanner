@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 94.237.31.51
+    port: 28961
+    uuid: 6a6f414c-0326-4764-8e90-04f53cdaac57
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,45 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: tun.temas-bor.ir
+    port: 443
+    uuid: 38df5518-26c5-449b-98d9-a4f456f5f689
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: login.yahoo.com
+    reality-opts:
+      public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
+      short-id: c6e19c434dc87df7
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 45.144.50.221
+    port: 443
+    uuid: ff58c891-0b00-4d61-9ffe-e788303b2e58
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sun6-21.userapi.com
+    reality-opts:
+      public-key: bkoG2uW0EbbhOIwF4O9Yhqg69zFKa8W7MBI0WAfitE0
+      short-id: 16ee3a5f0387c553
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+rules:
+  - MATCH,Proxy

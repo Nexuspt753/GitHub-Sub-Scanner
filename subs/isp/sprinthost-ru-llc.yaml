@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 191.44.32.103
+    port: 5000
+    uuid: ead060e5-21f9-5369-b9f9-175ab7faa20f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.com
+    reality-opts:
+      public-key: SLrTZEGZV42hDpfoCkqPZwwVK2V57Db3y6LxKbxexGU
+      short-id: ec4a18
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,42 +1,31 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 217.60.23.231
+    server: 94.183.221.193
     port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    uuid: 54bd89a2-e6a3-4d68-9d17-043ab37118d1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: uemqA7VkHB7Xw_gc88AfbBijEJgiWaVdCiIyMae8CSI
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 94.183.228.149
+    port: 443
+    uuid: 6d64c245-3f74-424f-8fa9-d3da25aac3f9
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: eu-west.cendora.ru
+    servername: gateway.icloud.com
     reality-opts:
-      public-key: m6RDw1b8R4lCaRUIzhHpy6TtX2Dhk6nyby8dWzeQqA0
-      short-id: dd3ff38418d29d22
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-a706818c2a
-    server: nld26.luckernld.org
-    port: 443
-    uuid: 40d7798a-6c76-4298-a9d4-9e6181cd2dd7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cybo.com
-    reality-opts:
-      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-ebafbb11ad
-    server: nld26.luckernld.org
-    port: 443
-    uuid: 40d7798a-6c76-4298-a9d4-9e6181cd2dd7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cybo.com
-    reality-opts:
-      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+      public-key: L0acYoTxKR5ix7LXAmP10cy06n2JjgkXTojGjtWAqww
+      short-id: ed7b9bdfedb9b8e5
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -45,8 +34,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-a706818c2a
-      - 4Mohsen-ebafbb11ad
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -54,7 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-a706818c2a
-      - 4Mohsen-ebafbb11ad
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

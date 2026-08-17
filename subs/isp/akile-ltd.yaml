@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 141.11.87.48
+    port: 443
+    uuid: 601e4ca5-df0a-43a1-97c2-0b1f5c0ae413
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: hZvWDPjsxTSrNSqFXUFgNnXn44vKdr5uirPsie6RGBk
+      short-id: 16ba1b6178a4bdde
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 156.246.88.125
     port: 26518
     uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
@@ -14,17 +28,33 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-3bd837c62d
-    server: 156.226.168.10
+    name: DeltaKroneckerGithub-02
+    server: 156.224.76.205
     port: 443
-    uuid: 85816b94-9ac8-4a8b-9c62-ecb0685849a9
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: portal.citygrainla.com
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: EPODONIOS
+    server: 212.135.38.193
+    port: 443
+    uuid: 601e4ca5-df0a-43a1-97c2-0b1f5c0ae413
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
     reality-opts:
-      public-key: eSj4Qfl_f2t1DZLE7NGQ02TJbaPJRaKfjakoDyCyt3o
-      short-id: 8bc1
+      public-key: LQ4cJhrzBRuRu3Nb3xUaHEBkPEJ7P5Uca5bFAbMj0is
+      short-id: b8e2ce6fc1d12895
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -33,7 +63,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-3bd837c62d
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +73,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-3bd837c62d
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
 rules:
   - MATCH,Proxy

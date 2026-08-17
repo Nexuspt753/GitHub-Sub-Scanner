@@ -14,26 +14,45 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-6729d5bec2
-    server: 188.127.247.129
-    port: 443
-    uuid: 33aa2b47-484b-49f6-8f23-fb34602d221f
+    name: EPODONIOS
+    server: 193.124.58.154
+    port: 8443
+    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: yahoo.com
-    reality-opts:
-      public-key: Kb0rDCu2kKhfnC6bsi0DMRxDej9S-Mu1vVza1H1l4U4
-      short-id: 0c
-    flow: xtls-rprx-vision
+    servername: kjgdksgghre466.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kjgdksgghre466.pages.dev
+  - type: vless
+    name: EPODONIOS-01
+    server: 91.199.160.8
+    port: 443
+    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kjgdksgghre466.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kjgdksgghre466.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-6729d5bec2
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +60,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-6729d5bec2
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

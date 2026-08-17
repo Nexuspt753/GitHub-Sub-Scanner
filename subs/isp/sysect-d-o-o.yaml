@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.19.223.155
+    port: 8443
+    uuid: f0b752da-101e-46dd-9860-3f089e71ec91
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

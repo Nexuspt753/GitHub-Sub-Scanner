@@ -1,18 +1,20 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 62.192.153.130
-    port: 443
-    uuid: 921db318-1694-4408-9cc7-c93df39f7f8e
+    name: EPODONIOS
+    server: api.pl.pngv.top
+    port: 4999
+    uuid: 2e35ca4c-00cd-4e0b-bb51-f69d19c9f3df
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: de.monkora.org
-    reality-opts:
-      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
     xudp: true
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
+    server: gr-direct.pngv.top
+    port: 4999
+    uuid: 2e35ca4c-00cd-4e0b-bb51-f69d19c9f3df
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: 176.96.138.122
     port: 443
     uuid: 518a99df-54f6-4f42-819d-b60abd880edf
@@ -25,7 +27,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: EPODONIOS-03
+    server: api.pl.pngv.top
+    port: 4999
+    uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-04
+    server: gr-direct.pngv.top
+    port: 4999
+    uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
+    udp: true
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub
     server: 94.249.239.33
     port: 8443
     uuid: 133f76fc-a5ab-463e-b46d-9587d7137e55
@@ -40,67 +56,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: appsooner
-    server: 176.96.138.122
-    port: 443
-    uuid: 518a99df-54f6-4f42-819d-b60abd880edf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kind-vortex.cdn.cachefleet.com
-    reality-opts:
-      public-key: O_YZOJVON0LE1U01hAtNUOVRy7z6fkBUXbMtpCGoGEg
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: prrofile_purple
-    server: 176.96.138.122
-    port: 443
-    uuid: 518a99df-54f6-4f42-819d-b60abd880edf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kind-vortex.cdn.cachefleet.com
-    reality-opts:
-      public-key: O_YZOJVON0LE1U01hAtNUOVRy7z6fkBUXbMtpCGoGEg
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-6d3bf8fec1
-    server: 176.96.138.122
-    port: 443
-    uuid: 518a99df-54f6-4f42-819d-b60abd880edf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kind-vortex.cdn.cachefleet.com
-    reality-opts:
-      public-key: O_YZOJVON0LE1U01hAtNUOVRy7z6fkBUXbMtpCGoGEg
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
-      - appsooner
-      - prrofile_purple
-      - 4Kian-6d3bf8fec1
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
-      - appsooner
-      - prrofile_purple
-      - 4Kian-6d3bf8fec1
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.170.22.176
+    port: 7443
+    uuid: dbacac09-9ee8-400c-b53b-745a769c220a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tv.apple.com
+    reality-opts:
+      public-key: 8XsSsJHS3-t2C497lP13JJNtknwSMWitJGYDvRJu3XE
+      short-id: b66233e398c50da0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

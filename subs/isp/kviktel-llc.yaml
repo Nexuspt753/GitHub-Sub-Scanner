@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: ru104.mechvpn.online
-    port: 443
-    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ru104.mechvpn.online
-    flow: xtls-rprx-vision-udp443
-    xudp: true
-  - type: vless
     name: ">>@v2nodes::PL"
     server: ru104.mechvpn.online
     port: 443
@@ -22,7 +11,7 @@ proxies:
     flow: xtls-rprx-vision-udp443
     xudp: true
   - type: vless
-    name: 4Jadi-5cbd4b79e9
+    name: EPODONIOS
     server: ru104.mechvpn.online
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
@@ -37,17 +26,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - ">>@v2nodes::PL"
-      - 4Jadi-5cbd4b79e9
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - ">>@v2nodes::PL"
-      - 4Jadi-5cbd4b79e9
+      - EPODONIOS
 rules:
   - MATCH,Proxy

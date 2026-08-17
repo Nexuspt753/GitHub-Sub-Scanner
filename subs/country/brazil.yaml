@@ -1,16 +1,22 @@
 proxies:
   - type: vless
-    name: Rio de Janeiro · @DeltaKroneckerGithub
-    server: 200.165.225.174
+    name: São Paulo · @DeltaKroneckerGithub
+    server: cave.magazinetut.online
     port: 443
-    uuid: b6b92515-13c5-4e6e-9fea-8db2d44628a0
+    uuid: 0000e293-996d-4c32-99dc-29a8aba80d06
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: veilix.ciphero.xyz
-    reality-opts:
-      public-key: 8qUm4S6MR9bLa-ZfblO64aKjRIwGEFEwdVIxgz_tbn4
-      short-id: 33b5887524592cad
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: São Paulo · @DeltaKroneckerGithub-01
+    server: cave.magazinetut.online
+    port: 443
+    uuid: a78d6a0b-8751-4e8e-bafa-79a86c5a5fc7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +24,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Rio de Janeiro · @DeltaKroneckerGithub
+      - São Paulo · @DeltaKroneckerGithub
+      - São Paulo · @DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Rio de Janeiro · @DeltaKroneckerGithub
+      - São Paulo · @DeltaKroneckerGithub
+      - São Paulo · @DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

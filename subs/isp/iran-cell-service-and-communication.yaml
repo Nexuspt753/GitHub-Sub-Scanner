@@ -1,32 +1,18 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: EPODONIOS
-    server: 2.144.21.150
-    port: 2000
-    password: humanity
+    server: 2.144.22.87
+    port: 443
+    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
     udp: true
     tls: true
-    sni: www.ignitelimit.com
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: "[🇮🇷]t.me/ConfigV2RayNG"
-    server: 2.144.21.150
-    port: 2000
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    alpn:
+      - h2
+      - http/1.1
+    servername: api.bgp6.ir
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: EPODONIOS-01
     server: 2.144.26.237
@@ -43,124 +29,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vip.polnejat.ir
-  - type: vless
-    name: "[🇮🇷]t.me/ConfigsHub"
-    server: 2.144.26.237
-    port: 9443
-    uuid: b47a1c70-d033-4c31-b24f-6058d6cd04bf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip.polnejat.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-geo-psiphon-be
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip.polnejat.ir
-  - type: vless
-    name: 🇮🇷143579
-    server: 2.144.26.237
-    port: 9443
-    uuid: b47a1c70-d033-4c31-b24f-6058d6cd04bf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip.polnejat.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-geo-psiphon-be
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip.polnejat.ir
-  - type: trojan
-    name: 4Sarina-cbb749985f
-    server: 2.144.21.112
-    port: 40443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Kian-885649425e
-    server: 2.144.21.112
-    port: 40443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.ignitelimit.com
-  - type: trojan
-    name: 4Nika-8a54bd9d9d
-    server: 2.144.21.150
-    port: 2000
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-e56942c5ca
-    server: 2.144.21.150
-    port: 2000
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-153c46c122
-    server: 2.144.21.150
-    port: 2000
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Nika-c95e90cfcc
-    server: 2.144.21.150
-    port: 2000
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - "[🇮🇷]t.me/ConfigV2RayNG"
       - EPODONIOS-01
-      - "[🇮🇷]t.me/ConfigsHub"
-      - 🇮🇷143579
-      - 4Sarina-cbb749985f
-      - 4Kian-885649425e
-      - 4Nika-8a54bd9d9d
-      - 4Jadi-e56942c5ca
-      - 4Mohsen-153c46c122
-      - 4Nika-c95e90cfcc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -168,15 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - "[🇮🇷]t.me/ConfigV2RayNG"
       - EPODONIOS-01
-      - "[🇮🇷]t.me/ConfigsHub"
-      - 🇮🇷143579
-      - 4Sarina-cbb749985f
-      - 4Kian-885649425e
-      - 4Nika-8a54bd9d9d
-      - 4Jadi-e56942c5ca
-      - 4Mohsen-153c46c122
-      - 4Nika-c95e90cfcc
 rules:
   - MATCH,Proxy

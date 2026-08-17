@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 140.99.223.12
+    port: 443
+    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: savesafe.run
+    reality-opts:
+      public-key: wx4B5IBeGc_0h6XZW6714G7951zLUYILv6eNRSgPDl8
+      short-id: e4f6a3446ac34a24
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 89.117.158.245
@@ -13,6 +27,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +35,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

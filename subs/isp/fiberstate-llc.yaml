@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 38.58.180.136
+    port: 3087
+    uuid: 5efabea4-f6d4-91fd-b8f0-17e004c89c68
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@s5gydl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: node67.lunes.host
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

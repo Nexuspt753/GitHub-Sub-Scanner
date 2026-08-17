@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.58.56.215
+    port: 2054
+    uuid: baadeb43-ab3d-40f2-b1e6-5e3d4104f06c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ibm.com
+    reality-opts:
+      public-key: WckOSneVajAzpH0sZSAFAWPnmwuuEXKZrTICNj5_hHU
+      short-id: 423bccc9c13fb509
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

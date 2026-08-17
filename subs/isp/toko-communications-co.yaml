@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: warpvio.orbvia.online
+    port: 443
+    uuid: b6b92515-13c5-4e6e-9fea-8db2d44628a0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: warpvio.orbvia.online
+    reality-opts:
+      public-key: c9FNVDSx_oUTDFW0JewGq511wlGweUkQGgPPY9vsCVM
+      short-id: 08804e078e1257c8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 195.78.48.194
+    port: 443
+    uuid: b6b92515-13c5-4e6e-9fea-8db2d44628a0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: warpvio.orbvia.online
+    reality-opts:
+      public-key: c9FNVDSx_oUTDFW0JewGq511wlGweUkQGgPPY9vsCVM
+      short-id: 08804e078e1257c8
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

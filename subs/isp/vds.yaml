@@ -1,0 +1,31 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.223.120.19
+    port: 18443
+    uuid: b0ecfb88-7438-4aef-ae3b-7984917d45ed
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 5post-gate.x5.ru
+    reality-opts:
+      public-key: YvhcuqXRqPigT7_rp9vsV5LAdxXHN8eWB_17SchS_S8
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

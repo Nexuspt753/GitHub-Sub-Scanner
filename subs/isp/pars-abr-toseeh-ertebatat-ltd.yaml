@@ -1,0 +1,101 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 87.236.38.139
+    port: 2036
+    uuid: 440d1fb3-7a10-4569-82c2-71602cef26c7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: world.ashahan.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: world.ashahan.ir
+  - type: vless
+    name: EPODONIOS
+    server: direct.mynor.ir
+    port: 443
+    uuid: 273fd35b-bb19-4fec-8192-ab2c83e73d55
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: myket.ir
+    reality-opts:
+      public-key: jdRc1m6H39-UZp0U8BkTwLpkZIZoyFEORGxEpcnKGAg
+      short-id: ee8fb0d94f
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: sv33.lithiumhost.ir
+    port: 41722
+    uuid: 53426f60-add2-4118-9627-91adaedcd92f
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: sv33.lithiumhost.ir
+    port: 41722
+    uuid: 53426f60-add2-4118-9627-91adaedcd92f
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
+    server: dl4.gooniforoshi.fun
+    port: 443
+    uuid: 73e08fcb-a0c7-45d0-b55d-f78c903c64a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl4.gooniforoshi.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /download.php
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl4.gooniforoshi.fun
+  - type: vless
+    name: EPODONIOS-04
+    server: sv33.lithiumhost.ir
+    port: 41722
+    uuid: adc1e45e-78f9-4c4c-a127-d27401c40432
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-05
+    server: sv33.lithiumhost.ir
+    port: 41722
+    uuid: f564970a-8d90-4139-aec2-72cfbf6b1e24
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
+      - EPODONIOS-05
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
+      - EPODONIOS-05
+rules:
+  - MATCH,Proxy
