@@ -1,23 +1,68 @@
 proxies:
   - type: hysteria2
+    name: Copenhagen · 丹麦
+    server: lsj1.mangshe.xyz
+    port: 2056
+    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
+    sni: lsj1.mangshe.xyz
+    skip-cert-verify: true
+  - type: hysteria2
     name: Copenhagen · EPODONIOS
     server: lsj1.mangshe.xyz
     port: 2056
     password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
     sni: lsj1.mangshe.xyz
     skip-cert-verify: true
+  - type: hysteria2
+    name: Copenhagen · 🇩🇰DK
+    server: lsj1.mangshe.xyz
+    port: 2056
+    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
+    sni: lsj1.mangshe.xyz
+    skip-cert-verify: true
+  - type: hysteria2
+    name: Copenhagen · 4Jadi-9dc24d9193
+    server: lsj1.mangshe.xyz
+    port: 2056
+    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
+    sni: lsj1.mangshe.xyz
+    skip-cert-verify: true
+  - type: vless
+    name: Copenhagen · 4Jadi-5dd2bf6d23
+    server: 144.31.242.164
+    port: 443
+    uuid: fa98f221-29e1-4a7e-8797-3bf294aeda35
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Copenhagen · 丹麦
       - Copenhagen · EPODONIOS
+      - Copenhagen · 🇩🇰DK
+      - Copenhagen · 4Jadi-9dc24d9193
+      - Copenhagen · 4Jadi-5dd2bf6d23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Copenhagen · 丹麦
       - Copenhagen · EPODONIOS
+      - Copenhagen · 🇩🇰DK
+      - Copenhagen · 4Jadi-9dc24d9193
+      - Copenhagen · 4Jadi-5dd2bf6d23
 rules:
   - MATCH,Proxy

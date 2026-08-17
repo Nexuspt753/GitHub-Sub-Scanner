@@ -1,12 +1,12 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 193.124.45.154
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: eu-central.cendora.ru
     reality-opts:
       public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
@@ -14,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 193.124.15.11
     port: 443
     uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
@@ -29,20 +29,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vod.ensf.top
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 201.50.115.23
+    port: 443
+    uuid: fc1b3bda-b226-452a-8c5c-b0e36a1f8f88
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

@@ -1,17 +1,5 @@
 proxies:
   - type: vless
-    name: ">>@outline_vpn::NL"
-    server: 85.17.145.65
-    port: 12068
-    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: EPODONIOS
     server: 85.17.145.65
     port: 12068
@@ -36,7 +24,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub
+    name: Ap_Ir6
     server: 85.17.145.65
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
@@ -48,7 +36,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 95.168.174.248
     port: 443
     uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
@@ -63,26 +51,80 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vod.ensf.top
+  - type: vless
+    name: EPODONIOS-02
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-3d40595abc
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-e550c9bc67
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: ">>@outline_vpn::NL"
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ">>@outline_vpn::NL"
       - EPODONIOS
       - EPODONIOS-01
+      - Ap_Ir6
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS-02
+      - 4Kian-3d40595abc
+      - 4Sarina-e550c9bc67
+      - ">>@outline_vpn::NL"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ">>@outline_vpn::NL"
       - EPODONIOS
       - EPODONIOS-01
+      - Ap_Ir6
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS-02
+      - 4Kian-3d40595abc
+      - 4Sarina-e550c9bc67
+      - ">>@outline_vpn::NL"
 rules:
   - MATCH,Proxy

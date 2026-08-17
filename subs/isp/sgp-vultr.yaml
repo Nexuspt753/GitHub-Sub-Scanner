@@ -1,4 +1,12 @@
 proxies:
+  - type: hysteria2
+    name: 4FreeIran-dbec38c246
+    server: sg.555199.xyz
+    port: 5000
+    password: af9e1b9f-3ee6-4184-a330-bb110419687a
+    sni: sg.555199.xyz
+    skip-cert-verify: false
+    ports: 5000-12000
   - type: trojan
     name: DeltaKroneckerGithub
     server: 207.148.119.176
@@ -13,6 +21,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-dbec38c246
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +29,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-dbec38c246
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

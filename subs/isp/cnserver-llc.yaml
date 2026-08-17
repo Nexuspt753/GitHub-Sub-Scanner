@@ -6,12 +6,20 @@ proxies:
     password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
     sni: 144.225.187.153
     skip-cert-verify: true
+  - type: hysteria2
+    name: 美国
+    server: uswx4.wxgqlfx.vip
+    port: 11683
+    password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
+    sni: 144.225.187.153
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 美国
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 美国
 rules:
   - MATCH,Proxy

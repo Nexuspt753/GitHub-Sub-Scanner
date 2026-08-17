@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Jadi-3c8892f97c
+    server: 191.44.90.4
+    port: 8444
+    password: e8c93f75-4ed5-41b1-a32e-a846e54582e8
+    sni: premium-nl.geodema.network
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-3c8892f97c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-3c8892f97c
+rules:
+  - MATCH,Proxy

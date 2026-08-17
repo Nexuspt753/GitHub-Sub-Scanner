@@ -5,12 +5,34 @@ proxies:
     port: 443
     password: b11841e3-2acc-45ff-afe0-a9ed9a823aaa
     sni: rpc-2068.internet-booster.com
+  - type: hysteria2
+    name: 波兰
+    server: rpc-2068.internet-booster.com
+    port: 443
+    password: b11841e3-2acc-45ff-afe0-a9ed9a823aaa
+    sni: rpc-2068.internet-booster.com
+  - type: hysteria2
+    name: 4Sarina-c215786cb0
+    server: rpc-2068.internet-booster.com
+    port: 443
+    password: b11841e3-2acc-45ff-afe0-a9ed9a823aaa
+    sni: rpc-2068.internet-booster.com
+  - type: hysteria2
+    name: 4Nika-c52e0fa308
+    server: 139.28.98.26
+    port: 443
+    password: c4a4d98d-8d64-4e76-bc50-096b07d82382
+    sni: nl-hysteria.boxypn.com
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 波兰
+      - 4Sarina-c215786cb0
+      - 4Nika-c52e0fa308
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +40,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 波兰
+      - 4Sarina-c215786cb0
+      - 4Nika-c52e0fa308
 rules:
   - MATCH,Proxy

@@ -9,12 +9,23 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 浪国
+    server: 366-1095.rabbitpro-in-3.com
+    port: 29009
+    uuid: e351d6d8-c167-3e07-8fda-3f2f4ec0760b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 浪国
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -22,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 浪国
 rules:
   - MATCH,Proxy

@@ -1,0 +1,37 @@
+proxies:
+  - type: vmess
+    name: 4Nika-09a9cb139b
+    server: time.ir
+    port: 443
+    uuid: last-update-time
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: time.ir
+    alpn:
+      - h2
+      - http/1.1
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: time.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-09a9cb139b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-09a9cb139b
+rules:
+  - MATCH,Proxy

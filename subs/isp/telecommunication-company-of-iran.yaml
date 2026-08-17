@@ -1,0 +1,26 @@
+proxies:
+  - type: vmess
+    name: 4Nika-c9103d8916
+    server: iran.speedlrn.com
+    port: 5002
+    uuid: 80879c6d-44c7-4a9e-8ef2-c15318dcadda
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-c9103d8916
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-c9103d8916
+rules:
+  - MATCH,Proxy

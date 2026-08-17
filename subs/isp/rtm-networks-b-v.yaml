@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-3049bb9bd5
+    server: n.nl.cleanersaz.help
+    port: 443
+    password: f056b41dc9f2b516e333738d1345a6be46a8ca80a3870ffe
+    sni: n.nl.cleanersaz.help
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-3049bb9bd5
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-3049bb9bd5
+rules:
+  - MATCH,Proxy

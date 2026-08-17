@@ -1,23 +1,23 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 46.254.18.198
+  - type: hysteria2
+    name: 4Mohsen-c4f1b607be
+    server: ru-i-2.monkeyisland.xyz
     port: 443
-    uuid: 25b737e9-4d9a-4e53-b2f1-531a69f89462
-    udp: true
-    xudp: true
+    password: 921db318-1694-4408-9cc7-c93df39f7f8e
+    sni: ru-i-2.monkeyisland.xyz
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Mohsen-c4f1b607be
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Mohsen-c4f1b607be
 rules:
   - MATCH,Proxy

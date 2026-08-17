@@ -1,15 +1,10 @@
 proxies:
-  - type: vless
-    name: ">>@v2nodes::DE"
-    server: 82.38.4.126
+  - type: hysteria2
+    name: 4FreeIran-5099299efa
+    server: de200.mechvpn.online
     port: 443
-    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: de126.mechvpn.online
-    flow: xtls-rprx-vision-udp443
-    xudp: true
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 82.38.4.126
@@ -43,24 +38,50 @@ proxies:
     servername: de126.mechvpn.online
     flow: xtls-rprx-vision-udp443
     xudp: true
+  - type: vless
+    name: 4FreeIran-c361e4506d
+    server: 82.38.4.126
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de126.mechvpn.online
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: ">>@v2nodes::DE"
+    server: 82.38.4.126
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de126.mechvpn.online
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ">>@v2nodes::DE"
+      - 4FreeIran-5099299efa
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - 4FreeIran-c361e4506d
+      - ">>@v2nodes::DE"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ">>@v2nodes::DE"
+      - 4FreeIran-5099299efa
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - 4FreeIran-c361e4506d
+      - ">>@v2nodes::DE"
 rules:
   - MATCH,Proxy

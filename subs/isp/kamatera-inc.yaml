@@ -1,5 +1,14 @@
 proxies:
   - type: hysteria2
+    name: 4Jadi-b97a4a2d4f
+    server: 185.47.172.226
+    port: 32950
+    password: 0ansucp5k6aop125
+    sni: 185.47.172.226
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: dnwx30hvcobf7xcf
+  - type: hysteria2
     name: EPODONIOS
     server: 185.47.172.226
     port: 32950
@@ -8,50 +17,17 @@ proxies:
     skip-cert-verify: false
     obfs: salamander
     obfs-password: dnwx30hvcobf7xcf
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.147.251.25
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eu-west.cendora.ru
-    reality-opts:
-      public-key: m6RDw1b8R4lCaRUIzhHpy6TtX2Dhk6nyby8dWzeQqA0
-      short-id: dd3ff38418d29d22
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: confiig_hub
+    server: 185.47.172.226
+    port: 32950
+    password: 0ansucp5k6aop125
+    sni: 185.47.172.226
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: dnwx30hvcobf7xcf
   - type: vless
     name: EPODONIOS-01
-    server: 45.147.251.25
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eu-west.cendora.ru
-    reality-opts:
-      public-key: m6RDw1b8R4lCaRUIzhHpy6TtX2Dhk6nyby8dWzeQqA0
-      short-id: dd3ff38418d29d22
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 79.108.166.178
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-02
     server: gzipd.restaurantbomb.com
     port: 1758
     uuid: 57d430fa-6b15-41ba-9b94-05a05b64fd66
@@ -64,45 +40,56 @@ proxies:
       short-id: b5516a2b1bdcb4f6
     xudp: true
   - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-02
     server: tuntey.poefauscw.ir
     port: 8080
     uuid: 61393afa-169b-42a9-98c7-7e032183add6
     udp: true
     xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 45.91.171.116
-    port: 443
-    password: 2ee85121-31de-4581-a492-eb00f606e392
+  - type: vless
+    name: meliproxyy
+    server: gzipd.restaurantbomb.com
+    port: 1758
+    uuid: 57d430fa-6b15-41ba-9b94-05a05b64fd66
     udp: true
     tls: true
-    sni: sto.freeguard.org
     client-fingerprint: chrome
+    servername: www.yahoo.com
+    reality-opts:
+      public-key: YHpxdq3UWoSZyk_mw5hUWvSkWIN4A8bksnnxrfHrzBE
+      short-id: b5516a2b1bdcb4f6
+    xudp: true
+  - type: vless
+    name: confiig_hub-01
+    server: tuntey.poefauscw.ir
+    port: 8080
+    uuid: 61393afa-169b-42a9-98c7-7e032183add6
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-b97a4a2d4f
       - EPODONIOS
-      - DeltaKroneckerGithub
+      - confiig_hub
       - EPODONIOS-01
-      - DeltaKroneckerGithub-01
       - EPODONIOS-02
-      - EPODONIOS-03
-      - DeltaKroneckerGithub-02
+      - meliproxyy
+      - confiig_hub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-b97a4a2d4f
       - EPODONIOS
-      - DeltaKroneckerGithub
+      - confiig_hub
       - EPODONIOS-01
-      - DeltaKroneckerGithub-01
       - EPODONIOS-02
-      - EPODONIOS-03
-      - DeltaKroneckerGithub-02
+      - meliproxyy
+      - confiig_hub-01
 rules:
   - MATCH,Proxy

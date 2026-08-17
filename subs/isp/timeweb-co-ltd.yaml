@@ -42,6 +42,46 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 188.225.45.223
+    port: 17443
+    uuid: b0ecfb88-7438-4aef-ae3b-7984917d45ed
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 5post-gate.x5.ru
+    reality-opts:
+      public-key: YvhcuqXRqPigT7_rp9vsV5LAdxXHN8eWB_17SchS_S8
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-1fd829188b
+    server: 188.225.27.238
+    port: 2200
+    uuid: 77fd4d9e-c314-4203-b3e0-b836a1d969b4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rzd.ru
+  - type: vless
+    name: 4Kian-aadc9aea15
+    server: 188.225.27.238
+    port: 2200
+    uuid: 77fd4d9e-c314-4203-b3e0-b836a1d969b4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -50,6 +90,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4FreeIran-1fd829188b
+      - 4Kian-aadc9aea15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -59,5 +102,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4FreeIran-1fd829188b
+      - 4Kian-aadc9aea15
 rules:
   - MATCH,Proxy

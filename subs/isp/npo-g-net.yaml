@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-b6242b8397
+    server: serv21.strettenvpn.com
+    port: 443
+    password: 707db87b-9cbf-438f-b4c7-9d984c8e944a
+    sni: serv21.strettenvpn.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-b6242b8397
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-b6242b8397
+rules:
+  - MATCH,Proxy

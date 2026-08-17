@@ -1,0 +1,50 @@
+proxies:
+  - type: vmess
+    name: 4Mohsen-eb94975308
+    server: lms.uin-antasari.ac.id
+    port: 80
+    uuid: 46bfdb59-83c6-4710-877e-c809b5a90dff
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vpnneo
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: biznet-s.nextvpn.cc
+  - type: vmess
+    name: 4Nika-b3757cf7a8
+    server: lms.uin-antasari.ac.id
+    port: 80
+    uuid: 46bfdb59-83c6-4710-877e-c809b5a90dff
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: exa.nextvpn.cc
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-eb94975308
+      - 4Nika-b3757cf7a8
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-eb94975308
+      - 4Nika-b3757cf7a8
+rules:
+  - MATCH,Proxy

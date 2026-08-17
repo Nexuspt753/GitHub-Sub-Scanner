@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Kian-b3464f066b
+    server: 167.88.61.175
+    port: 443
+    cipher: aes-256-gcm
+    password: pKEW8JPByTVTLtM
+    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 216.152.147.28
@@ -23,20 +30,92 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: channel_@networld_vpn
+    server: 23.162.200.198
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vless
+    name: 4Mohsen-9eebe27f82
+    server: 216.152.147.28
+    port: 443
+    uuid: d9e4721d-cdac-44c7-bc91-117367eac194
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: kjiuPmjM4IutdZudHfcPZHEwcrBEFY4qBLlvfC6A_Ss
+      short-id: b9f8d3f8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vmess
+    name: 4Nika-ee4625f711
+    server: 134.195.196.211
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-e41fe4168d
+    server: 158.51.121.36
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Jadi-f9804a7763
+    server: 23.162.200.198
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-b3464f066b
       - DeltaKroneckerGithub
       - EPODONIOS
+      - channel_@networld_vpn
+      - 4Mohsen-9eebe27f82
+      - 4Nika-ee4625f711
+      - 4Sarina-e41fe4168d
+      - 4Jadi-f9804a7763
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-b3464f066b
       - DeltaKroneckerGithub
       - EPODONIOS
+      - channel_@networld_vpn
+      - 4Mohsen-9eebe27f82
+      - 4Nika-ee4625f711
+      - 4Sarina-e41fe4168d
+      - 4Jadi-f9804a7763
 rules:
   - MATCH,Proxy

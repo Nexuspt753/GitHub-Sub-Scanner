@@ -1,4 +1,13 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-796495c46a
+    server: fr131.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: fr131.mechvpn.online
+    skip-cert-verify: true
+    alpn:
+      - h3
   - type: vless
     name: DeltaKroneckerGithub
     server: 194.24.161.140
@@ -15,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-796495c46a
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -22,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-796495c46a
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Nika-90943fffd5
+    server: 128.127.181.15
+    port: 443
+    uuid: 497631c4-a1a4-45ff-a86a-f42873473bb6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: be.quattro-tech.ru
+    reality-opts:
+      public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
+      short-id: 43dcff53849b81e6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-6df16f6079
+    server: 128.127.181.24
+    port: 443
+    uuid: ecad47b0-249e-4f6f-adff-e3c8f02b1897
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: be.quattro-tech.ru
+    reality-opts:
+      public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
+      short-id: 43dcff53849b81e6
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-90943fffd5
+      - 4Sarina-6df16f6079
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-90943fffd5
+      - 4Sarina-6df16f6079
+rules:
+  - MATCH,Proxy
