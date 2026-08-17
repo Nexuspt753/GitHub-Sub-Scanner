@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 🇮🇷145592
+    server: respina.msphnx.ir
+    port: 2019
+    uuid: 769a8dad-869f-4707-a237-f284f2605d2b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: RYUCFGttyeR0jJRoAwx5RkkT7gVwtaj06hDf66GhuXU
+      short-id: 5e8ef064a2f8
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷145592
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷145592
+rules:
+  - MATCH,Proxy

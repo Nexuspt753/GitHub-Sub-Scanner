@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 🇺🇸145593
+    server: 97.64.20.203
+    port: 443
+    cipher: aes-256-gcm
+    password: eT0hbu0qSofBP6mRWN56oSAN
+    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 104.225.145.159
@@ -14,18 +21,31 @@ proxies:
       path: /5f4638b2
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Mohsen-32e553f3cf
+    server: 185.212.56.168
+    port: 443
+    password: share.mjj-home.com
+    udp: true
+    tls: true
+    sni: tw.softbank.mjj-home.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇺🇸145593
       - DeltaKroneckerGithub
+      - 4Mohsen-32e553f3cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇺🇸145593
       - DeltaKroneckerGithub
+      - 4Mohsen-32e553f3cf
 rules:
   - MATCH,Proxy

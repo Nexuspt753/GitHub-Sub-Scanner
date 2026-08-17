@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-deee3439ef
+    server: 89.28.236.192
+    port: 8443
+    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kjgdksgghre466.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kjgdksgghre466.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-deee3439ef
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-deee3439ef
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Mohsen-b003d71fe8
+    server: 154.205.159.100
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: f8f7aCzcPKbsF8p3
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-b003d71fe8
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-b003d71fe8
+rules:
+  - MATCH,Proxy

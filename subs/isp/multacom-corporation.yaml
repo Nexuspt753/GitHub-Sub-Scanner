@@ -1,6 +1,21 @@
 proxies:
   - type: vmess
-    name: 4Jadi-b0cbd9f745
+    name: 4FreeIran-d7831cca16
+    server: 74.48.28.190
+    port: 80
+    uuid: 4ed58974-48cd-472e-c818-fb847b8c551f
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /cctv13.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-1357503d6b
     server: 74.48.28.190
     port: 80
     uuid: 4ed58974-48cd-472e-c818-fb847b8c551f
@@ -19,13 +34,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-b0cbd9f745
+      - 4FreeIran-d7831cca16
+      - 4Nika-1357503d6b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b0cbd9f745
+      - 4FreeIran-d7831cca16
+      - 4Nika-1357503d6b
 rules:
   - MATCH,Proxy

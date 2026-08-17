@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: vless
+    server: 188.72.103.4
+    port: 443
+    uuid: 255d790e-e0a4-44df-bea9-62f122f7c5a4
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: 2b3fc7da-9680-4bc5-a564-ba53b8fbb886
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
     port: 443
@@ -30,7 +44,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: vless
+    name: vless-02
     server: 188.72.103.4
     port: 443
     uuid: 50645a71-af5c-4e64-9c5c-ee82297a3549
@@ -51,21 +65,14 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-01
-    server: 188.72.103.4
-    port: 443
-    uuid: 57c10970-081e-44b4-87a7-140041381c01
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-02
-    server: 188.72.103.4
-    port: 443
-    uuid: 8e27e0eb-06d6-49e3-82c5-3e185f53148c
-    udp: true
-    xudp: true
-  - type: vless
     name: vless-03
+    server: 188.72.103.4
+    port: 443
+    uuid: 6b94c5ba-c40e-4ba2-ac88-cee494f1f892
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-04
     server: 188.72.103.4
     port: 443
     uuid: a9dc5bdd-ee5d-4ab2-b169-3a9d07ce7e1c
@@ -76,25 +83,27 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
+      - vless-01
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
-      - vless
-      - 4Kian-8406711aff
-      - vless-01
       - vless-02
+      - 4Kian-8406711aff
       - vless-03
+      - vless-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vless
+      - vless-01
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
-      - vless
-      - 4Kian-8406711aff
-      - vless-01
       - vless-02
+      - 4Kian-8406711aff
       - vless-03
+      - vless-04
 rules:
   - MATCH,Proxy

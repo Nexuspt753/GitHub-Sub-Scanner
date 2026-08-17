@@ -1,19 +1,4 @@
 proxies:
-  - type: trojan
-    name: EPODONIOS
-    server: 212.183.88.136
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
   - type: vless
     name: DeltaKroneckerGithub
     server: 212.183.88.30
@@ -27,20 +12,52 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime23.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: 4FreeIran-1877038813
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-1877038813
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-1877038813
 rules:
   - MATCH,Proxy

@@ -1,12 +1,14 @@
 proxies:
   - type: vless
-    name: 4Kian-ee9f73f2a3
-    server: tutdesignstudio.site
+    name: DeltaKroneckerGithub
+    server: 38.180.50.4
     port: 8443
     uuid: 38cc34e9-9973-439c-b61b-3d89b798d571
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
     servername: tutdesignstudio.site
     flow: xtls-rprx-vision
     xudp: true
@@ -15,13 +17,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-ee9f73f2a3
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-ee9f73f2a3
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
