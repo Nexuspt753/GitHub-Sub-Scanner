@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: grid.onetimeok.com
-    port: 443
-    uuid: 86208db7-8bbc-42c2-9eb2-ffe5675502c3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: grid.onetimeok.com
-    reality-opts:
-      public-key: 28oR3ji9c2CneMNkbvcDL8WfvNWHS3GfA3RdtaF-pSg
-      short-id: 89e97b6542785ca6
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: EPODONIOS-01
     server: us.differentok.com
     port: 443
     uuid: eb1c3a3c-c828-404d-bf98-b878c5435600
@@ -63,15 +47,31 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-10a78974f4
+    server: us.differentok.com
+    port: 443
+    uuid: eb1c3a3c-c828-404d-bf98-b878c5435600
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us.differentok.com
+    reality-opts:
+      public-key: Jxwj8rNcJnXop1Xk9Ydst_wFPJsQOtZ74g50saIgokU
+      short-id: a5668d2759baa4ac
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - confiig_hub
       - prrofile_purple
+      - 4Kian-10a78974f4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -79,8 +79,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - confiig_hub
       - prrofile_purple
+      - 4Kian-10a78974f4
 rules:
   - MATCH,Proxy

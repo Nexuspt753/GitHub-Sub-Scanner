@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 109.201.152.181
+    port: 443
+    cipher: aes-128-cfb
+    password: shadowsocks
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

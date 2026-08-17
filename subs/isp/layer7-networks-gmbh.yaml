@@ -1,6 +1,27 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 91.239.208.15
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr15.mechvpn.online
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: de151.mechvpn.online
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 88.214.24.186
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
@@ -11,7 +32,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-03
     server: 91.239.208.213
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
@@ -21,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-04
     server: 185.55.243.151
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
@@ -51,26 +72,6 @@ proxies:
     flow: xtls-rprx-vision-udp443
     xudp: true
   - type: vless
-    name: 4FreeIran-c96467349b
-    server: de151.mechvpn.online
-    port: 443
-    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision-udp443
-    xudp: true
-  - type: vless
-    name: 4Nika-860ffe9f30
-    server: fr15.mechvpn.online
-    port: 443
-    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision-udp443
-    xudp: true
-  - type: vless
     name: ">>@v2nodes::DE"
     server: de151.mechvpn.online
     port: 443
@@ -90,6 +91,26 @@ proxies:
     client-fingerprint: chrome
     flow: xtls-rprx-vision-udp443
     xudp: true
+  - type: vless
+    name: 4FreeIran-c96467349b
+    server: de151.mechvpn.online
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Nika-860ffe9f30
+    server: fr15.mechvpn.online
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -98,12 +119,14 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - EPODONIOS-01
-      - 4FreeIran-c96467349b
-      - 4Nika-860ffe9f30
       - ">>@v2nodes::DE"
       - ">>@v2nodes::FR"
+      - 4FreeIran-c96467349b
+      - 4Nika-860ffe9f30
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -113,11 +136,13 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - EPODONIOS-01
-      - 4FreeIran-c96467349b
-      - 4Nika-860ffe9f30
       - ">>@v2nodes::DE"
       - ">>@v2nodes::FR"
+      - 4FreeIran-c96467349b
+      - 4Nika-860ffe9f30
 rules:
   - MATCH,Proxy

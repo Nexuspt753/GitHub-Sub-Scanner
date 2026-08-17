@@ -1,13 +1,20 @@
 proxies:
   - type: ss
-    name: icv2ray
+    name: EPODONIOS
     server: 194.61.121.93
     port: 7538
     cipher: chacha20-ietf-poly1305
     password: U9YAoqBgg5VyGBc6vQv1sN
     udp: true
   - type: ss
-    name: 🇵🇱
+    name: EPODONIOS-01
+    server: 213.109.147.242
+    port: 62685
+    cipher: chacha20-ietf-poly1305
+    password: VpKABcOpNNA0l5G2AVOmw8
+    udp: true
+  - type: ss
+    name: icv2ray
     server: 194.61.121.93
     port: 7538
     cipher: chacha20-ietf-poly1305
@@ -19,6 +26,13 @@ proxies:
     port: 62685
     cipher: chacha20-ietf-poly1305
     password: VpKABcOpNNA0l5G2AVOmw8
+    udp: true
+  - type: ss
+    name: 4Nika-d32c3cc750
+    server: 194.61.121.93
+    port: 7538
+    cipher: chacha20-ietf-poly1305
+    password: U9YAoqBgg5VyGBc6vQv1sN
     udp: true
   - type: ss
     name: 4FreeIran-a4c8260ccf
@@ -41,8 +55,22 @@ proxies:
       short-id: 8718c58d3d51db59
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: 194.61.121.102
+    port: 443
+    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl3.freehiliters.com
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 91.227.77.87
     port: 443
     password: bpb-trojan
@@ -53,21 +81,21 @@ proxies:
       - http/1.1
     client-fingerprint: chrome
   - type: ss
-    name: ">>@configV2rayNG::PL"
+    name: DeltaKroneckerGithub-03
     server: 194.61.121.93
     port: 7538
     cipher: chacha20-ietf-poly1305
     password: U9YAoqBgg5VyGBc6vQv1sN
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-04
     server: 213.109.147.242
     port: 62685
     cipher: chacha20-ietf-poly1305
     password: VpKABcOpNNA0l5G2AVOmw8
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-05
     server: 213.109.147.242
     port: 62685
     cipher: chacha20-ietf-poly1305
@@ -78,29 +106,35 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - icv2ray
-      - 🇵🇱
       - 🇳🇱
+      - 4Nika-d32c3cc750
       - 4FreeIran-a4c8260ccf
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - ">>@configV2rayNG::PL"
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - icv2ray
-      - 🇵🇱
       - 🇳🇱
+      - 4Nika-d32c3cc750
       - 4FreeIran-a4c8260ccf
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - ">>@configV2rayNG::PL"
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
 rules:
   - MATCH,Proxy

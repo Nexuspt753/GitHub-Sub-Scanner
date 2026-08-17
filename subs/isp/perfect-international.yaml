@@ -1,0 +1,33 @@
+proxies:
+  - type: vmess
+    name: 4Jadi-ef9ededdb2
+    server: jp.vpn.taiaise.cn
+    port: 443
+    uuid: 060aede7-11ea-4032-b025-6c4168a5182e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /jp
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp.vpn.taiaise.cn
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-ef9ededdb2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-ef9ededdb2
+rules:
+  - MATCH,Proxy

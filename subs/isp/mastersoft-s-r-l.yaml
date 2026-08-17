@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 195.78.49.163
+    port: 443
+    uuid: ac6a8052-b2d2-4b75-9352-10756a445ca5
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: nl.hipertune.ru
+    reality-opts:
+      public-key: IzgffKkveDU5cboe6pVJz4wYxXYz9Vv3ll0kWym4VEI
+      short-id: c279a74d19205d38
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 103.119.19.208
     port: 443
@@ -28,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 46.8.113.142
     port: 443
     password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
@@ -37,7 +51,7 @@ proxies:
     sni: ch-2.bexum.fun
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: ch-2.bexum.fun
     port: 443
     password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
@@ -59,42 +73,28 @@ proxies:
       short-id: 00bca5982f82d083
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-b4210ef9de
-    server: 188.130.208.4
-    port: 443
-    uuid: 4f4c3977-3f71-4c1d-a5b7-1c9118fbc1cb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ravenol.su
-    reality-opts:
-      public-key: 1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs
-      short-id: 428ef87fd47a3a32
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🦁36@oneclickvpnkeys
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-4ce2c5835d
-      - 4Mohsen-b4210ef9de
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🦁36@oneclickvpnkeys
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-4ce2c5835d
-      - 4Mohsen-b4210ef9de
 rules:
   - MATCH,Proxy

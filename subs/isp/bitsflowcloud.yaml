@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Kian-d80b652a3c
+    server: rm-us-04.409648.xyz
+    port: 37735
+    uuid: 6dcb725e-947e-4bbe-bb35-903374d57179
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: d1--ov-gotcha07.bilivideo.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-d80b652a3c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-d80b652a3c
+rules:
+  - MATCH,Proxy

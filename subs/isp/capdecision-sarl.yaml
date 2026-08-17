@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: Daily_Configs
+    server: account-alert-cyt.mobileahmad.ir
+    port: 2091
+    uuid: f588839c-1f68-4317-9799-11deeb957690
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇳🇱145510
+    server: account-alert-cyt.mobileahmad.ir
+    port: 2091
+    uuid: f588839c-1f68-4317-9799-11deeb957690
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Daily_Configs
+      - 🇳🇱145510
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Daily_Configs
+      - 🇳🇱145510
+rules:
+  - MATCH,Proxy

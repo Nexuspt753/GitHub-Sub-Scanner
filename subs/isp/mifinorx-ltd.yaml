@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 🇪🇸
+    server: 31.57.190.9
+    port: 443
+    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kjgdksgghre466.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kjgdksgghre466.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇪🇸
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇪🇸
+rules:
+  - MATCH,Proxy

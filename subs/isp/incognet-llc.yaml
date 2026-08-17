@@ -1,21 +1,5 @@
 proxies:
   - type: vmess
-    name: 4FreeIran-5d28be3482
-    server: 23.137.249.110
-    port: 26230
-    uuid: 21b2345e-b817-4285-9e0e-af0dbfa4a165
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 23.137.249.110
-  - type: vmess
     name: 4FreeIran-b6ec12b068
     server: 23.137.249.110
     port: 26230
@@ -36,7 +20,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5d28be3482
       - 4FreeIran-b6ec12b068
   - name: Auto
     type: url-test
@@ -44,7 +27,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5d28be3482
       - 4FreeIran-b6ec12b068
 rules:
   - MATCH,Proxy

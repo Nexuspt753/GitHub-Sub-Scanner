@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  - type: vless
+    name: Podgorica · 🇪🇸
+    server: 31.57.190.9
+    port: 443
+    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kjgdksgghre466.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kjgdksgghre466.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Podgorica · @DeltaKroneckerGithub
+      - Podgorica · 🇪🇸
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Podgorica · @DeltaKroneckerGithub
+      - Podgorica · 🇪🇸
 rules:
   - MATCH,Proxy

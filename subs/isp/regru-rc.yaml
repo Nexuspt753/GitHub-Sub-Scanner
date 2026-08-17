@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-f79453df36
+    server: 79.174.83.75
+    port: 443
+    uuid: 654de067-5cd7-4a66-af08-c487f4f7fcd6
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: 5post-gate.x5.ru
+    reality-opts:
+      public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+      short-id: abcd
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-f79453df36
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-f79453df36
+rules:
+  - MATCH,Proxy

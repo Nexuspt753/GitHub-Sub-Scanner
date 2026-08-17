@@ -1,20 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 217.60.23.231
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: eu-west.cendora.ru
-    reality-opts:
-      public-key: m6RDw1b8R4lCaRUIzhHpy6TtX2Dhk6nyby8dWzeQqA0
-      short-id: dd3ff38418d29d22
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 94.183.221.193
     port: 443
     uuid: 54bd89a2-e6a3-4d68-9d17-043ab37118d1
@@ -29,7 +15,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 94.183.228.149
     port: 443
     uuid: 6d64c245-3f74-424f-8fa9-d3da25aac3f9
@@ -42,6 +28,19 @@ proxies:
       short-id: ed7b9bdfedb9b8e5
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-ebafbb11ad
+    server: nld26.luckernld.org
+    port: 443
+    uuid: 40d7798a-6c76-4298-a9d4-9e6181cd2dd7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cybo.com
+    reality-opts:
+      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -49,7 +48,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Mohsen-ebafbb11ad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,6 +57,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Mohsen-ebafbb11ad
 rules:
   - MATCH,Proxy
