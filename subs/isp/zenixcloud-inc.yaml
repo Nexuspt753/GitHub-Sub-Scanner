@@ -1,0 +1,44 @@
+proxies:
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 45.207.207.25
+    port: 443
+    cipher: aes-256-gcm
+    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 45.207.207.25
+    port: 443
+    cipher: aes-256-gcm
+    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
+    udp: true
+  - type: vless
+    name: 4Sarina-fb8a63ba2f
+    server: 23.138.12.138
+    port: 26602
+    uuid: b0979c88-5a95-45c7-a46b-16b213b3e841
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mgxui.peng.mom
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Sarina-fb8a63ba2f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Sarina-fb8a63ba2f
+rules:
+  - MATCH,Proxy

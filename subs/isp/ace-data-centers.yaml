@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 108.165.255.5
+    port: 443
+    password: 019a8c1f-3d28-74e8-8a8e-40045d7ec77f
+    udp: true
+    tls: true
+    sni: www.bilibili.com
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

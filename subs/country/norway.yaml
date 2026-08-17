@@ -1,0 +1,82 @@
+proxies:
+  - type: vless
+    name: Oslo · @DeltaKroneckerGithub
+    server: 54.240.174.40
+    port: 443
+    uuid: 7ce54bb3-d612-4aa7-be08-089d3c461d53
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: d1yxsk0zprgivr.cloudfront.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: ss
+    name: Oslo · EPODONIOS
+    server: 185.213.23.63
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: ss
+    name: Oslo · @DeltaKroneckerGithub-01
+    server: 185.213.23.63
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: ss
+    name: Oslo · @DeltaKroneckerGithub-02
+    server: 185.213.23.63
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: ss
+    name: Oslo · 🇳🇴NO-185.213.23.63-4643
+    server: 185.213.23.63
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: vless
+    name: Sandefjord · 4Kian-cb7f5d88a9
+    server: 185.125.171.13
+    port: 443
+    uuid: a09373e2-e120-457d-9ec9-ea7fe8bedb52
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: partner.g2.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Oslo · @DeltaKroneckerGithub
+      - Oslo · EPODONIOS
+      - Oslo · @DeltaKroneckerGithub-01
+      - Oslo · @DeltaKroneckerGithub-02
+      - Oslo · 🇳🇴NO-185.213.23.63-4643
+      - Sandefjord · 4Kian-cb7f5d88a9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Oslo · @DeltaKroneckerGithub
+      - Oslo · EPODONIOS
+      - Oslo · @DeltaKroneckerGithub-01
+      - Oslo · @DeltaKroneckerGithub-02
+      - Oslo · 🇳🇴NO-185.213.23.63-4643
+      - Sandefjord · 4Kian-cb7f5d88a9
+rules:
+  - MATCH,Proxy

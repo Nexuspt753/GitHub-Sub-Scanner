@@ -340,6 +340,279 @@ def build_xray_config(node, local_port):
 
 
 # --------------------------------------------------------------------------- #
+# Mihomo / Clash subscription generation
+# --------------------------------------------------------------------------- #
+# WhiteVPN-Desktop (and Mihomo itself) read a Clash-style YAML directly, so we
+# emit one per group: the engine parses it without any share-link conversion.
+# Protocols the engine cannot run are dropped, node names are made YAML-safe and
+# unique, and the list is capped so Mihomo actually loads the config. The raw
+# one-URI-per-line .txt is kept untouched for other clients.
+
+MAX_MIHOMO_NODES = int(os.environ.get("MAX_MIHOMO_NODES", "2000"))
+
+
+def parse_hysteria2(uri):
+    """Full hysteria2 parser (password/sni/obfs), unlike parse_generic."""
+    rest = uri.split("://", 1)[1]
+    main, _, frag = rest.partition("#")
+    name = urllib.parse.unquote(frag) if frag else "hysteria2"
+    userinfo, _, hostport = main.partition("@")
+    password = urllib.parse.unquote(userinfo)
+    hostport = hostport.split("?", 1)[0].split("/", 1)[0]
+    address, _, port = hostport.partition(":")
+    m = re.match(r"\d+", port) if port else None
+    port = int(m.group(0)) if m else 443
+    query = {}
+    if "?" in main:
+        query = dict(urllib.parse.parse_qsl(main.split("?", 1)[1]))
+    return {
+        "protocol": "hysteria2", "name": name, "address": address, "port": port,
+        "password": password,
+        "sni": query.get("sni"),
+        "insecure": query.get("insecure") or query.get("allowInsecure"),
+        "alpn": query.get("alpn"),
+        "mport": query.get("mport"),
+        "obfs": query.get("obfs"),
+        "obfs_password": query.get("obfs-password"),
+        "pin": query.get("pinSHA256"),
+    }
+
+
+def _transport(node):
+    """Return Clash transport keys for a parsed node, or {} for tcp."""
+    net = (node.get("network") or "tcp").lower()
+    if net in ("tcp", "", None):
+        return {}
+    path = node.get("path") or "/"
+    host = node.get("host_header")
+    if net in ("ws", "httpupgrade"):
+        opts = {"path": path, "headers": {"User-Agent": UA}}
+        if host:
+            opts["headers"]["Host"] = host
+        return {"network": net, "ws-opts": opts}
+    if net == "grpc":
+        return {"network": "grpc", "grpc-opts": {"grpc-service-name": path or ""}}
+    if net in ("http", "h2"):
+        headers = {"Host": host} if host else {}
+        return {"network": net, (net + "-opts"): {"path": [path], "headers": headers}}
+    if net == "xhttp":
+        opts = {"path": path}
+        if host:
+            opts["host"] = host
+        return {"network": "xhttp", "xhttp-opts": opts}
+    return {}
+
+
+def _mihomo_vless(node):
+    p = {"type": "vless", "name": node["name"], "server": node["address"],
+         "port": int(node["port"]), "uuid": node["uuid"], "udp": True}
+    sec = (node.get("security") or "none").lower()
+    if "tls" in sec or sec == "reality":
+        p["tls"] = True
+        p["client-fingerprint"] = node.get("fp") or "chrome"
+        if node.get("alpn"):
+            p["alpn"] = node["alpn"].split(",")
+        if node.get("sni"):
+            p["servername"] = node["sni"]
+        if node.get("pbk"):
+            real = {"public-key": node["pbk"]}
+            if node.get("sid"):
+                real["short-id"] = node["sid"]
+            p["reality-opts"] = real
+    if node.get("flow"):
+        p["flow"] = node["flow"].lower()
+    p["xudp"] = True
+    p.update(_transport(node))
+    return p
+
+
+def _mihomo_vmess(node):
+    p = {"type": "vmess", "name": node["name"], "server": node["address"],
+         "port": int(node["port"]), "uuid": node["uuid"],
+         "alterId": int(node.get("aid", 0)), "cipher": node.get("scy") or "auto",
+         "udp": True, "xudp": True, "skip-cert-verify": False}
+    if (node.get("security") or "").lower() in ("tls", "1", "true"):
+        p["tls"] = True
+    if node.get("sni"):
+        p["servername"] = node["sni"]
+    if node.get("alpn"):
+        p["alpn"] = node["alpn"].split(",")
+    p.update(_transport(node))
+    return p
+
+
+def _mihomo_trojan(node):
+    p = {"type": "trojan", "name": node["name"], "server": node["address"],
+         "port": int(node["port"]), "password": node["password"], "udp": True}
+    sec = (node.get("security") or "").lower()
+    if "tls" in sec or sec == "reality" or node.get("sni"):
+        p["tls"] = True
+    if node.get("sni"):
+        p["sni"] = node["sni"]
+    ins = node.get("allowInsecure")
+    if ins:
+        p["skip-cert-verify"] = str(ins).lower() in ("1", "true")
+    if node.get("alpn"):
+        p["alpn"] = node["alpn"].split(",")
+    p["client-fingerprint"] = node.get("fp") or "chrome"
+    p.update(_transport(node))
+    return p
+
+
+def _mihomo_ss(node):
+    return {"type": "ss", "name": node["name"], "server": node["address"],
+            "port": int(node["port"]), "cipher": node["method"],
+            "password": node["password"], "udp": True}
+
+
+def _mihomo_hy2(node):
+    p = {"type": "hysteria2", "name": node["name"], "server": node["address"],
+         "port": int(node["port"]), "password": node["password"]}
+    if node.get("sni"):
+        p["sni"] = node["sni"]
+    ins = node.get("insecure")
+    if ins:
+        p["skip-cert-verify"] = str(ins).lower() in ("1", "true")
+    if node.get("alpn"):
+        p["alpn"] = node["alpn"].split(",")
+    if node.get("mport"):
+        p["ports"] = node["mport"]
+    if node.get("obfs"):
+        p["obfs"] = node["obfs"]
+        if node.get("obfs_password"):
+            p["obfs-password"] = node["obfs_password"]
+    if node.get("pin"):
+        p["fingerprint"] = node["pin"]
+    return p
+
+
+# Protocols the engine cannot run are dropped (Mihomo can't, and WhiteVPN's
+# link parser ignores them too). Keeping them would just produce nodes Mihomo
+# refuses, so there is nothing to gain by emitting them.
+_UNSUPPORTED = {"tuic", "ssr", "anytls", "socks", "socks5"}
+
+
+def convert_uri_to_proxy(uri):
+    """Convert a share link to a Mihomo proxy dict, or None if unsupported."""
+    uri = html.unescape(uri)
+    try:
+        if uri.startswith("vmess://"):
+            return _mihomo_vmess(parse_vmess(uri))
+        if uri.startswith("vless://"):
+            return _mihomo_vless(parse_vless(uri))
+        if uri.startswith("trojan://"):
+            return _mihomo_trojan(parse_trojan(uri))
+        if uri.startswith("ss://") or uri.startswith("shadowsocks://"):
+            return _mihomo_ss(parse_ss(uri))
+        if uri.startswith("hy2://") or uri.startswith("hysteria2://"):
+            return _mihomo_hy2(parse_hysteria2(uri))
+    except Exception:
+        return None
+    return None
+
+
+def sanitize_name(name):
+    name = re.sub(r"[\r\n]+", " ", str(name or ""))
+    name = name.lstrip("@`").strip()
+    return name
+
+
+def build_mihomo_yaml(uris, max_nodes=MAX_MIHOMO_NODES):
+    """Render a Clash/Mihomo YAML: proxies + select/url-test groups + MATCH rule.
+
+    Unsupported protocols are dropped, names are made YAML-safe and unique, and
+    the list is capped so Mihomo actually loads the config. Returns "" if no
+    supported node survived.
+    """
+    proxies = []
+    seen = set()
+    for uri in uris:
+        proxy = convert_uri_to_proxy(uri)
+        if not proxy:
+            continue
+        name = sanitize_name(proxy.get("name", "")) or "node"
+        if name in seen:
+            i = 1
+            while f"{name}-{i:02d}" in seen:
+                i += 1
+            name = f"{name}-{i:02d}"
+        seen.add(name)
+        proxy["name"] = name
+        proxies.append(proxy)
+        if max_nodes is not None and len(proxies) >= max_nodes:
+            break
+    if not proxies:
+        return ""
+    names = [p["name"] for p in proxies]
+    doc = {
+        "proxies": proxies,
+        "proxy-groups": [
+            {"name": "Proxy", "type": "select", "proxies": ["Auto"] + names},
+            {"name": "Auto", "type": "url-test",
+             "url": "https://connectivitycheck.gstatic.com/generate_204",
+             "interval": 300, "tolerance": 100, "proxies": names},
+        ],
+        "rules": ["MATCH,Proxy"],
+    }
+    return _dump(doc, 0) + "\n"
+
+
+def _scalar(v):
+    if isinstance(v, bool):
+        return "true" if v else "false"
+    if v is None:
+        return "null"
+    if isinstance(v, (int, float)):
+        return str(v)
+    s = str(v)
+    # Quote when the bare form would be misread: empty, leading/trailing space,
+    # a leading special char, any of the chars that can start a YAML construct,
+    # a mid-string ": " / "# " that would be parsed as a mapping/comment, a
+    # value YAML would coerce to a non-string (number/bool/null), or a YAML
+    # keyword. Without quoting, a numeric name like "12345" parses back as an
+    # int and a leading "-" looks like a list item.
+    if (s == "" or re.match(r"^[\s\-?:,#\[\]{}*&!|>%@`\"']", s)
+            or re.search(r":\s|#\s|:$|#$", s)
+            or s != s.strip()
+            or s in ("true", "false", "null", "yes", "no", "~")
+            or re.fullmatch(r"[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?", s)):
+        return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    return s
+
+
+def _dump(obj, indent=0):
+    """Minimal YAML block emitter (no PyYAML dependency)."""
+    pad = "  " * indent
+    if isinstance(obj, dict):
+        if not obj:
+            return pad + "{}"
+        out = []
+        for k, v in obj.items():
+            key = k if re.match(r"^[A-Za-z0-9_.\-/]+$", str(k)) else _scalar(k)
+            if isinstance(v, (dict, list)) and len(v) > 0:
+                out.append(f"{pad}{key}:")
+                out.append(_dump(v, indent + 1))
+            else:
+                out.append(f"{pad}{key}: {_scalar(v)}")
+        return "\n".join(out)
+    if isinstance(obj, list):
+        if not obj:
+            return pad + "[]"
+        out = []
+        for item in obj:
+            if isinstance(item, (dict, list)) and len(item) > 0:
+                inner = _dump(item, indent + 1)
+                first, _, rest = inner.partition("\n")
+                out.append(pad + "- " + first.strip())
+                if rest:
+                    out.append(rest)
+            else:
+                out.append(pad + "- " + _scalar(item))
+        return "\n".join(out)
+    return pad + _scalar(obj)
+
+
+# --------------------------------------------------------------------------- #
 # xray process management
 # --------------------------------------------------------------------------- #
 
@@ -950,22 +1223,31 @@ def write_subscriptions(results, repo):
     base_raw = f"https://raw.githubusercontent.com/{repo}/main"
     groups = []
 
-    def add(group_id, name, path, uris, desc=""):
+    def add(group_id, name, path, uris, desc="", cap=False):
         n = write_subscription(path, uris)
-        if n:
-            # Write a base64-encoded copy alongside the plaintext file.
-            b64_path = path.replace(".txt", ".b64.txt")
-            b64 = base64.b64encode(("\n".join(uris) + "\n").encode("utf-8")).decode("ascii")
-            os.makedirs(os.path.dirname(b64_path), exist_ok=True)
-            with open(b64_path, "w") as f:
-                f.write(b64 + "\n")
-            groups.append({"id": group_id, "name": name, "path": path,
-                           "count": n, "url": f"{base_raw}/{path}",
-                           "b64_url": f"{base_raw}/{b64_path}", "desc": desc})
+        if not n:
+            return
+        # Mihomo/Clash YAML subscription next to the plaintext file. This is the
+        # format clients (WhiteVPN-Desktop, Mihomo, Clash) actually parse.
+        # Per the user's constraint, only the "all" group is capped; the raw
+        # plaintext subscriptions are kept untouched and complete. Groups with no
+        # supported proxies (e.g. an all-ssr/anytls/tuic group) get no YAML file —
+        # there is nothing Mihomo can use, and the plaintext .txt still exists.
+        entry = {"id": group_id, "name": name, "path": path,
+                 "count": n, "url": f"{base_raw}/{path}", "desc": desc}
+        yaml_path = path.replace(".txt", ".yaml")
+        max_nodes = MAX_MIHOMO_NODES if cap else None
+        yaml_doc = build_mihomo_yaml(uris, max_nodes)
+        if yaml_doc:
+            os.makedirs(os.path.dirname(yaml_path), exist_ok=True)
+            with open(yaml_path, "w") as f:
+                f.write(yaml_doc)
+            entry["yaml_url"] = f"{base_raw}/{yaml_path}"
+        groups.append(entry)
 
     # 1. Everything not-known-dead, and the Gemini-capable subset.
     add("all", "All", "subs/all.txt",
-        [rename_uri(r["uri"], r["name"]) for r in alive])
+        [rename_uri(r["uri"], r["name"]) for r in alive], cap=True)
     gemini = [r for r in alive if r.get("gemini_reachable")]
     add("gemini", "Can reach Gemini", "subs/gemini.txt",
         [rename_uri(r["uri"], r["name"]) for r in gemini])

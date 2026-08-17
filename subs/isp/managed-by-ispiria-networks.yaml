@@ -1,0 +1,23 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 37.1.220.158
+    port: 443
+    password: 62b78c9b-16cb-4ee6-824b-a4f856cf18f3
+    udp: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,38 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-5ddbe5015e
+    server: cabinet.wwwinternetvideo.click
+    port: 443
+    password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
+    sni: cabinet.wwwinternetvideo.click
+  - type: hysteria2
+    name: EPODONIOS
+    server: cabinet.wwwinternetvideo.click
+    port: 443
+    password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
+    sni: cabinet.wwwinternetvideo.click
+  - type: hysteria2
+    name: 爱沙尼亚
+    server: cabinet.wwwinternetvideo.click
+    port: 443
+    password: sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
+    sni: cabinet.wwwinternetvideo.click
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-5ddbe5015e
+      - EPODONIOS
+      - 爱沙尼亚
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-5ddbe5015e
+      - EPODONIOS
+      - 爱沙尼亚
+rules:
+  - MATCH,Proxy

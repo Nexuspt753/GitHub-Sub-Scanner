@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: unitking.snowfalls.top
+    port: 1443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: unitking.snowfalls.top
+    reality-opts:
+      public-key: Yf10DFHbCihRVIDaxQkkib1kEBy4uIf2vCiPml7M2AI
+      short-id: 0441f3e34348cb15
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 193.111.117.11
+    port: 1443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pls.snowfall.top
+    reality-opts:
+      public-key: jtEyL2mfSJ5rlvpMfYgkY6HaleCFRif0DnOOOXNHhxg
+      short-id: 0441f3e34348cb45
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 151.243.28.59
+    port: 1443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: unitking.snowfalls.top
+    reality-opts:
+      public-key: Yf10DFHbCihRVIDaxQkkib1kEBy4uIf2vCiPml7M2AI
+      short-id: 0441f3e34348cb15
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+rules:
+  - MATCH,Proxy

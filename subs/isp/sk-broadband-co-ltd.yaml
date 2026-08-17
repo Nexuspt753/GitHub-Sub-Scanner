@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Kian-41deed32ef
+    server: p141.panda001.net
+    port: 4652
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-41deed32ef
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-41deed32ef
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Jadi-8d08f415f7
+    server: 78.129.140.11
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: OiLR7aA0k5jJxv0uikQlTU
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-8d08f415f7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-8d08f415f7
+rules:
+  - MATCH,Proxy

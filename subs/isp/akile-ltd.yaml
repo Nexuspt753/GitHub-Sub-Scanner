@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 156.246.88.125
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
+      short-id: 6caead99
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-3bd837c62d
+    server: 156.226.168.10
+    port: 443
+    uuid: 85816b94-9ac8-4a8b-9c62-ecb0685849a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: portal.citygrainla.com
+    reality-opts:
+      public-key: eSj4Qfl_f2t1DZLE7NGQ02TJbaPJRaKfjakoDyCyt3o
+      short-id: 8bc1
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4FreeIran-3bd837c62d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4FreeIran-3bd837c62d
+rules:
+  - MATCH,Proxy

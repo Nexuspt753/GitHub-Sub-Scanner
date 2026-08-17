@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 193.124.254.60
+    port: 443
+    uuid: f61025f4-7973-4e3e-883c-a0fe85f0489c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lv.rexten.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-33141798da
+    server: 193.124.254.60
+    port: 443
+    uuid: f61025f4-7973-4e3e-883c-a0fe85f0489c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lv.rexten.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4FreeIran-33141798da
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4FreeIran-33141798da
+rules:
+  - MATCH,Proxy

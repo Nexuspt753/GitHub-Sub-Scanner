@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 🇩🇪
+    server: 8.209.74.72
+    port: 20001
+    cipher: chacha20-ietf-poly1305
+    password: PWpjPo3tqhPN4yRZ
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇩🇪
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇩🇪
+rules:
+  - MATCH,Proxy

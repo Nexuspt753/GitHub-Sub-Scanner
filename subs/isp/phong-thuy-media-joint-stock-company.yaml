@@ -1,0 +1,31 @@
+proxies:
+  - type: vmess
+    name: 4Jadi-70bdc269ec
+    server: 103.82.25.106
+    port: 80
+    uuid: ec7c94b5-6ca6-4289-b44b-c6583f2c5f6c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fuzzyng?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-70bdc269ec
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-70bdc269ec
+rules:
+  - MATCH,Proxy

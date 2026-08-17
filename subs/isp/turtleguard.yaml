@@ -1,0 +1,48 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: serv40.strettenvpn.com
+    port: 443
+    uuid: ccd53600-4ebb-4509-8cb3-bf1551c5efbd
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: sun6-21.userapi.com
+    reality-opts:
+      public-key: yhUfTGgu5PYRlFqMnRZkxffH_aU05AFUToGI8_EKF28
+      short-id: "8248954896"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: serv40.strettenvpn.com
+    port: 7771
+    uuid: 707db87b-9cbf-438f-b4c7-9d984c8e944a
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: sun6-21.userapi.com
+    reality-opts:
+      public-key: yhUfTGgu5PYRlFqMnRZkxffH_aU05AFUToGI8_EKF28
+      short-id: c4a9f1e2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-c7ae3fc109
+    server: 78.17.112.103
+    port: 13868
+    uuid: 06d44c57-8e1a-41f4-b9c4-65d35869e078
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.epicgames.com
+    reality-opts:
+      public-key: 8SX8GXMe3lXOyY_acO4HFXXYJn_rOOf4zkYFrifV1Tk
+      short-id: e852dc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-fcbcf5642c
+    server: 78.17.112.103
+    port: 13868
+    uuid: 06d44c57-8e1a-41f4-b9c4-65d35869e078
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.epicgames.com
+    reality-opts:
+      public-key: 8SX8GXMe3lXOyY_acO4HFXXYJn_rOOf4zkYFrifV1Tk
+      short-id: e852dc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-c7ae3fc109
+      - 4Sarina-fcbcf5642c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-c7ae3fc109
+      - 4Sarina-fcbcf5642c
+rules:
+  - MATCH,Proxy

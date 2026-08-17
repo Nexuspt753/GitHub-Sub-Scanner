@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 155.103.69.195
+    port: 48711
+    uuid: 23a9b46e-9443-4268-81c5-399929919ab0
+    udp: true
+    xudp: true
+  - type: vless
+    name: Net2ray
+    server: 155.103.69.195
+    port: 48711
+    uuid: 23a9b46e-9443-4268-81c5-399929919ab0
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-edf7ef9214
+    server: 155.103.69.195
+    port: 48711
+    uuid: 23a9b46e-9443-4268-81c5-399929919ab0
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-fe9ada030b
+    server: 155.103.69.195
+    port: 48711
+    uuid: 23a9b46e-9443-4268-81c5-399929919ab0
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - Net2ray
+      - 4Sarina-edf7ef9214
+      - 4Mohsen-fe9ada030b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - Net2ray
+      - 4Sarina-edf7ef9214
+      - 4Mohsen-fe9ada030b
+rules:
+  - MATCH,Proxy

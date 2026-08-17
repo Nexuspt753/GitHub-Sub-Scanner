@@ -1,0 +1,50 @@
+proxies:
+  - type: ss
+    name: Bogotá · EPODONIOS
+    server: 149.104.107.41
+    port: 8090
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - type: ss
+    name: Bogotá · 🇨🇴
+    server: 149.104.107.41
+    port: 8090
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - type: ss
+    name: Bogotá · 4Mohsen-35dd29cbd3
+    server: 149.104.107.41
+    port: 8090
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - type: ss
+    name: Bogotá · @DeltaKroneckerGithub
+    server: 149.104.107.41
+    port: 8090
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Bogotá · EPODONIOS
+      - Bogotá · 🇨🇴
+      - Bogotá · 4Mohsen-35dd29cbd3
+      - Bogotá · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Bogotá · EPODONIOS
+      - Bogotá · 🇨🇴
+      - Bogotá · 4Mohsen-35dd29cbd3
+      - Bogotá · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

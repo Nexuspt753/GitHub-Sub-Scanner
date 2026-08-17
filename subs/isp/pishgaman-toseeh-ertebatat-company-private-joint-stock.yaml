@@ -1,0 +1,26 @@
+proxies:
+  - type: vmess
+    name: 4Kian-16c897b4ad
+    server: tun.myparadise.top
+    port: 8080
+    uuid: 5b7d58ec-9dcf-47e5-b1c8-9bdd34243907
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-16c897b4ad
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-16c897b4ad
+rules:
+  - MATCH,Proxy

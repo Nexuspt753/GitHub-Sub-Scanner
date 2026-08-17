@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { escapeHtml, buildTxt, makeCaption } from "../src/format";
+import { escapeHtml, buildTxt, makeCaption, buildMihomoYaml } from "../src/format";
 import { sampleNodes } from "./fixtures";
 
 describe("format", () => {
@@ -36,5 +36,31 @@ describe("format", () => {
   it("makeCaption escapes html in label", () => {
     const c = makeCaption(sampleNodes.slice(0, 1), "a<b");
     expect(c).toContain("a&lt;b");
+  });
+
+  it("buildMihomoYaml drops unsupported protocols", () => {
+    const nodes = [
+      ...sampleNodes,
+      { ...sampleNodes[0], uri: "ssr://a:b:c:d:e:f:g:h" } as any,
+      { ...sampleNodes[0], uri: "anytls://u@1.1.1.1:443#x" } as any,
+      { ...sampleNodes[0], uri: "tuic://u@2.2.2.2:443?password=1#x" } as any,
+    ];
+    const yaml = buildMihomoYaml(nodes);
+    // Only the 4 supported sample URIs survive (vmess/vless/trojan/vless).
+    expect((yaml.match(/^\s*- type:/gm) || []).length).toBe(4);
+    expect(yaml).toContain("proxies:");
+    expect(yaml).toContain("proxy-groups:");
+    expect(yaml).toContain("MATCH,Proxy");
+  });
+
+  it("buildMihomoYaml returns empty string when nothing parses", () => {
+    expect(buildMihomoYaml([{ ...sampleNodes[0], uri: "ssr://bad" } as any])).toBe("");
+  });
+
+  it("buildMihomoYaml makes names unique", () => {
+    const dup = { ...sampleNodes[0] };
+    const yaml = buildMihomoYaml([sampleNodes[0], dup]);
+    const names = (yaml.match(/^\s*name: (.+)$/gm) || []).map((m) => m.replace(/^\s*name: /, ""));
+    expect(new Set(names).size).toBe(names.length);
   });
 });

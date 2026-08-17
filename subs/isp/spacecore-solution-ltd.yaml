@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Kian-fba00e26e1
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-fba00e26e1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-fba00e26e1
+rules:
+  - MATCH,Proxy

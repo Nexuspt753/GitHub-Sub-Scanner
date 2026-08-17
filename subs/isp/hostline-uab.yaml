@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 88.119.176.20
+    port: 443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: unas.denegnet.cc
+    reality-opts:
+      public-key: RP93KQEzBP7wvvhwYy5c87IiQbV6xnsx7XgJpajevTA
+      short-id: bc599ecdd54c1b3f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: unas.denegnet.cc
+    port: 443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: unas.denegnet.cc
+    reality-opts:
+      public-key: RP93KQEzBP7wvvhwYy5c87IiQbV6xnsx7XgJpajevTA
+      short-id: bc599ecdd54c1b3f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 88.119.176.146
+    port: 443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: unas.denegnet.cc
+    reality-opts:
+      public-key: RP93KQEzBP7wvvhwYy5c87IiQbV6xnsx7XgJpajevTA
+      short-id: bc599ecdd54c1b3f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-020bc0013f
+    server: unas.denegnet.cc
+    port: 443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: unas.denegnet.cc
+    reality-opts:
+      public-key: RP93KQEzBP7wvvhwYy5c87IiQbV6xnsx7XgJpajevTA
+      short-id: bc599ecdd54c1b3f
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Mohsen-020bc0013f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Mohsen-020bc0013f
+rules:
+  - MATCH,Proxy

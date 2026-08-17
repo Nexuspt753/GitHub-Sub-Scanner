@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: 4Nika-03d89d9f2d
+    server: 217.79.184.18
+    port: 443
+    password: 0dd0ae16-4081-4530-a925-c3c34ca07d57
+    udp: true
+    tls: true
+    sni: download.xn--mes358a9urctx.com
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-03d89d9f2d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-03d89d9f2d
+rules:
+  - MATCH,Proxy

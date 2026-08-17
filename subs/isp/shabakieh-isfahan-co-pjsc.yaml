@@ -1,0 +1,41 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 85.133.161.168
+    port: 443
+    uuid: feade342-9a00-427e-b049-752a4e584ba5
+    udp: true
+    xudp: true
+  - type: vless
+    name: v2rayngzendegimamad🕊️
+    server: 85.133.161.168
+    port: 443
+    uuid: feade342-9a00-427e-b049-752a4e584ba5
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-7d03473a2c
+    server: 85.133.161.168
+    port: 443
+    uuid: feade342-9a00-427e-b049-752a4e584ba5
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - v2rayngzendegimamad🕊️
+      - 4Sarina-7d03473a2c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - v2rayngzendegimamad🕊️
+      - 4Sarina-7d03473a2c
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,88 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-2f94adbd83
+    server: pol.cryptoofarm.com
+    port: 443
+    password: 16ab4d4a-fd81-4535-9b7b-346677226ce8
+    sni: pol.cryptoofarm.com
+  - type: hysteria2
+    name: 波兰
+    server: pol.cryptoofarm.com
+    port: 443
+    password: 16ab4d4a-fd81-4535-9b7b-346677226ce8
+    sni: pol.cryptoofarm.com
+  - type: hysteria2
+    name: EPODONIOS
+    server: pol.cryptoofarm.com
+    port: 443
+    password: 16ab4d4a-fd81-4535-9b7b-346677226ce8
+    sni: pol.cryptoofarm.com
+  - type: hysteria2
+    name: 4Mohsen-327d4573bc
+    server: pol.cryptoofarm.com
+    port: 443
+    password: 16ab4d4a-fd81-4535-9b7b-346677226ce8
+    sni: pol.cryptoofarm.com
+  - type: ss
+    name: EPODONIOS-01
+    server: 193.42.38.209
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.81.114.88
+    port: 9443
+    password: 50ad7b7681494900887bbf80ab3722d0
+    udp: true
+    tls: true
+    sni: apple.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 185.221.222.19
+    port: 9443
+    password: d0a35aaeb22042e0909540e94c9765e9
+    udp: true
+    tls: true
+    sni: apple.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 193.42.38.209
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-2f94adbd83
+      - 波兰
+      - EPODONIOS
+      - 4Mohsen-327d4573bc
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-2f94adbd83
+      - 波兰
+      - EPODONIOS
+      - 4Mohsen-327d4573bc
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+rules:
+  - MATCH,Proxy

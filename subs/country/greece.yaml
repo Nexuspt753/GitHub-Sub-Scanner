@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: Thessaloniki · @DeltaKroneckerGithub
+    server: 85.90.197.25
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: grek.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Thessaloniki · @DeltaKroneckerGithub-01
+    server: 85.90.197.147
+    port: 443
+    uuid: 2cb6b4d9-0c74-45e2-a4fb-645bb8ac532a
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: grek.o4ka-internet.com
+    reality-opts:
+      public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
+      short-id: 5629431325884ff0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Pátrai · @DeltaKroneckerGithub
+    server: 185.226.67.182
+    port: 443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: depa.kupivodku.top
+    reality-opts:
+      public-key: JyGDRuOThmoCQ2pYD5VyPnFBKb25RqwqJ6-W-tNHBlY
+      short-id: 0491f3e34348cb95
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Thessaloniki · @DeltaKroneckerGithub
+      - Thessaloniki · @DeltaKroneckerGithub-01
+      - Pátrai · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Thessaloniki · @DeltaKroneckerGithub
+      - Thessaloniki · @DeltaKroneckerGithub-01
+      - Pátrai · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

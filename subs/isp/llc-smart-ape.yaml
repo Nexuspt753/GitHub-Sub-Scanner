@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-d231c265db
+    server: 31.177.111.14
+    port: 8443
+    password: 57284239-1ceb-439f-826e-cd25fcc1c1c5
+    sni: 130-17-10-202.sslip.io
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-d231c265db
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-d231c265db
+rules:
+  - MATCH,Proxy

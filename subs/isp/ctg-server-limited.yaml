@@ -1,0 +1,90 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-eb043a049b
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-52ac598b7d
+    server: 202.146.222.89
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 🇭🇰HK
+    server: 202.146.222.89
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS
+    server: 202.146.222.89
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-af58f5d5ba
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-6e8e331365
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+  - type: hysteria2
+    name: 4Nika-2ad1ce575e
+    server: 202.146.222.89
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS-01
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+  - type: hysteria2
+    name: ">>@oneclickvpnkeys::HK"
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-eb043a049b
+      - 4Mohsen-52ac598b7d
+      - 🇭🇰HK
+      - EPODONIOS
+      - 4Nika-af58f5d5ba
+      - 4Nika-6e8e331365
+      - 4Nika-2ad1ce575e
+      - EPODONIOS-01
+      - ">>@oneclickvpnkeys::HK"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-eb043a049b
+      - 4Mohsen-52ac598b7d
+      - 🇭🇰HK
+      - EPODONIOS
+      - 4Nika-af58f5d5ba
+      - 4Nika-6e8e331365
+      - 4Nika-2ad1ce575e
+      - EPODONIOS-01
+      - ">>@oneclickvpnkeys::HK"
+rules:
+  - MATCH,Proxy

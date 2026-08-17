@@ -1,0 +1,60 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 200.165.228.47
+    port: 4100
+    uuid: 6620ef58-9c62-43fe-9596-ff862b200958
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 200.165.225.174
+    port: 443
+    uuid: b6b92515-13c5-4e6e-9fea-8db2d44628a0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: veilix.ciphero.xyz
+    reality-opts:
+      public-key: 8qUm4S6MR9bLa-ZfblO64aKjRIwGEFEwdVIxgz_tbn4
+      short-id: 33b5887524592cad
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 200.165.234.62
+    port: 4100
+    uuid: 5383fb97-1178-4709-9a25-b767b743e911
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+rules:
+  - MATCH,Proxy

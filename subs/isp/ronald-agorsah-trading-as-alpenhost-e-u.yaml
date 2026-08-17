@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.152.241.86
+    port: 1443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: davai.kupivodku.top
+    reality-opts:
+      public-key: h-ofuILZVZLM3zSC6NIFwL7T7TdXsEsKS04upiMzmQY
+      short-id: 0131f3e34341cb40
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

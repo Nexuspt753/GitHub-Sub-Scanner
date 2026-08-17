@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 93.119.168.215
+    port: 60771
+    uuid: 060a5db6-7ff9-4a64-87c1-8a27be4f11ab
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-48e184416a
+    server: 93.119.168.215
+    port: 60771
+    uuid: 060a5db6-7ff9-4a64-87c1-8a27be4f11ab
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Mohsen-48e184416a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Mohsen-48e184416a
+rules:
+  - MATCH,Proxy

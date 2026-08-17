@@ -1,0 +1,58 @@
+proxies:
+  - type: hysteria2
+    name: EPODONIOS
+    server: ipaste.4ippi.ru
+    port: 1935
+    password: 22j0d00lev7mq0yv
+    sni: ipaste.4ippi.ru
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: 816ys5fceofhpwft
+  - type: hysteria2
+    name: Daily_Configs
+    server: ipaste.4ippi.ru
+    port: 1935
+    password: 22j0d00lev7mq0yv
+    sni: ipaste.4ippi.ru
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: 816ys5fceofhpwft
+  - type: hysteria2
+    name: 4Jadi-935d6099b9
+    server: ipaste.4ippi.ru
+    port: 1935
+    password: 22j0d00lev7mq0yv
+    sni: ipaste.4ippi.ru
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: 816ys5fceofhpwft
+  - type: hysteria2
+    name: 4Mohsen-fd20ebe56c
+    server: ipaste.4ippi.ru
+    port: 1935
+    password: 22j0d00lev7mq0yv
+    sni: ipaste.4ippi.ru
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: 816ys5fceofhpwft
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - Daily_Configs
+      - 4Jadi-935d6099b9
+      - 4Mohsen-fd20ebe56c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - Daily_Configs
+      - 4Jadi-935d6099b9
+      - 4Mohsen-fd20ebe56c
+rules:
+  - MATCH,Proxy

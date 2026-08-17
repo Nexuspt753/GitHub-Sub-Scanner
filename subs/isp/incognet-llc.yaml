@@ -1,0 +1,149 @@
+proxies:
+  - type: vmess
+    name: EPODONIOS
+    server: 23.137.249.110
+    port: 30010
+    uuid: 2f3f767d-3dea-4de0-8861-5b5a0dbf9061
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-01
+    server: 23.137.249.110
+    port: 26230
+    uuid: 21b2345e-b817-4285-9e0e-af0dbfa4a165
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 23.137.249.110
+  - type: vmess
+    name: EPODONIOS-02
+    server: 23.137.249.110
+    port: 30011
+    uuid: 18eebad4-796b-4e22-b930-5f46abefbdd3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: vmesc
+    server: 23.137.249.110
+    port: 26230
+    uuid: 21b2345e-b817-4285-9e0e-af0dbfa4a165
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 23.137.249.110
+  - type: vmess
+    name: vmess_ir
+    server: 23.137.249.110
+    port: 30011
+    uuid: 18eebad4-796b-4e22-b930-5f46abefbdd3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4Kian-361592803b
+    server: 23.137.249.110
+    port: 26230
+    uuid: 21b2345e-b817-4285-9e0e-af0dbfa4a165
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 23.137.249.110
+  - type: vmess
+    name: 4Sarina-eb5209960c
+    server: 23.137.249.110
+    port: 30011
+    uuid: 18eebad4-796b-4e22-b930-5f46abefbdd3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4FreeIran-b6ec12b068
+    server: 23.137.249.110
+    port: 26230
+    uuid: 21b2345e-b817-4285-9e0e-af0dbfa4a165
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 23.137.249.110
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - vmesc
+      - vmess_ir
+      - 4Kian-361592803b
+      - 4Sarina-eb5209960c
+      - 4FreeIran-b6ec12b068
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - vmesc
+      - vmess_ir
+      - 4Kian-361592803b
+      - 4Sarina-eb5209960c
+      - 4FreeIran-b6ec12b068
+rules:
+  - MATCH,Proxy

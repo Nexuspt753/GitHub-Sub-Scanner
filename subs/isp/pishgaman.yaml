@@ -1,0 +1,26 @@
+proxies:
+  - type: vmess
+    name: 4FreeIran-03cc97ecbe
+    server: dn.torontomovie.com
+    port: 8080
+    uuid: dc941c31-dff3-4b7f-88ed-64b9139cbac2
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-03cc97ecbe
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-03cc97ecbe
+rules:
+  - MATCH,Proxy

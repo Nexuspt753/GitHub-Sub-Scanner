@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: erfanandroid
+    server: 146.103.26.96
+    port: 37211
+    uuid: f8fd2381-40ea-4b46-973b-f9dab2eed50b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: 2dpt8KZvY90iXmpdsCMkvK_00uHIhNbnz0VYrVFcJ3k
+      short-id: aa6f080efb8928f9
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - erfanandroid
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - erfanandroid
+rules:
+  - MATCH,Proxy

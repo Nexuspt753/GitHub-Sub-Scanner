@@ -1,0 +1,74 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 188.225.45.223
+    port: 40443
+    uuid: 6688ef96-b385-48a6-9094-ed1a42b95066
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: UO79ZZ-dsBRLmINHiYrXrM2bCbMTTXhizRMhpBq7XSs
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 188.225.27.238
+    port: 2200
+    uuid: 77fd4d9e-c314-4203-b3e0-b836a1d969b4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 188.225.27.238
+    port: 2200
+    uuid: 77fd4d9e-c314-4203-b3e0-b836a1d969b4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rzd.ru
+  - type: vless
+    name: hex_proxy
+    server: 188.225.27.238
+    port: 2200
+    uuid: 77fd4d9e-c314-4203-b3e0-b836a1d969b4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - hex_proxy
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - hex_proxy
+rules:
+  - MATCH,Proxy

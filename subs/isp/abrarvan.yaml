@@ -1,0 +1,50 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 95.38.167.78
+    port: 9147
+    cipher: aes-256-gcm
+    password: YWMyMmQxOTlkZjgxM2IwMmU1OThlMjhhN2FmOWI5
+    udp: true
+  - type: ss
+    name: Alpha_v2rayIP
+    server: 95.38.167.78
+    port: 9147
+    cipher: aes-256-gcm
+    password: YWMyMmQxOTlkZjgxM2IwMmU1OThlMjhhN2FmOWI5
+    udp: true
+  - type: ss
+    name: Napsternetvirani
+    server: 95.38.167.78
+    port: 9147
+    cipher: aes-256-gcm
+    password: YWMyMmQxOTlkZjgxM2IwMmU1OThlMjhhN2FmOWI5
+    udp: true
+  - type: ss
+    name: 4Kian-035a4e40ce
+    server: 95.38.167.78
+    port: 9147
+    cipher: aes-256-gcm
+    password: YWMyMmQxOTlkZjgxM2IwMmU1OThlMjhhN2FmOWI5
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - Alpha_v2rayIP
+      - Napsternetvirani
+      - 4Kian-035a4e40ce
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - Alpha_v2rayIP
+      - Napsternetvirani
+      - 4Kian-035a4e40ce
+rules:
+  - MATCH,Proxy

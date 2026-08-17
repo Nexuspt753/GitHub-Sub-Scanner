@@ -1,0 +1,104 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 87.76.179.75
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: spain3.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: spain3.helper-internet.com
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: spain3.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 178.214.211.36
+    port: 443
+    uuid: 2cb6b4d9-0c74-45e2-a4fb-645bb8ac532a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rom2.o4ka-internet.com
+    reality-opts:
+      public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
+      short-id: 5629431325884ff0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 91.124.19.38
+    port: 443
+    uuid: 2cb6b4d9-0c74-45e2-a4fb-645bb8ac532a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl6.o4ka-internet.com
+    reality-opts:
+      public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
+      short-id: 5629431325884ff0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-b060f78d92
+    server: 91.124.19.38
+    port: 443
+    uuid: 2cb6b4d9-0c74-45e2-a4fb-645bb8ac532a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl6.o4ka-internet.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Mohsen-2e5dfd519a
+    server: spain3.helper-internet.com
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: spain3.helper-internet.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Jadi-b060f78d92
+      - 4Mohsen-2e5dfd519a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Jadi-b060f78d92
+      - 4Mohsen-2e5dfd519a
+rules:
+  - MATCH,Proxy

@@ -20,12 +20,13 @@ export async function sendDocument(
   caption: string,
   filename: string,
   content: string,
+  contentType = "text/plain",
 ): Promise<void> {
   const form = new FormData();
   form.set("chat_id", String(chatId));
   form.set("caption", caption);
   form.set("parse_mode", "HTML");
-  form.set("document", new Blob([content], { type: "text/plain" }), filename);
+  form.set("document", new Blob([content], { type: contentType }), filename);
   await fetch(`${BASE}/bot${token}/sendDocument`, {
     method: "POST",
     body: form,

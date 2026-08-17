@@ -1,0 +1,48 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.188.115.159
+    port: 8446
+    uuid: 5bfae926-3ebb-47a8-93dc-858bb4a71a35
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: rUCHk3_64Wv_f_v46OfVNYldKu9fUqHpX937bmGeeDs
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 5.188.115.159
+    port: 8446
+    uuid: 467d6b6f-c05a-4883-ac93-b5e262a306c5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: rUCHk3_64Wv_f_v46OfVNYldKu9fUqHpX937bmGeeDs
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

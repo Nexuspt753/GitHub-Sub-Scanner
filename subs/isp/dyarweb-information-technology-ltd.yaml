@@ -1,0 +1,38 @@
+proxies:
+  - type: vmess
+    name: 4FreeIran-ae2ee864d0
+    server: client.cloudafra.top
+    port: 4356
+    uuid: 0c9dc39b-47d9-47d8-8dab-c3cce76e3099
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-b4a37238c7
+    server: status.nixonbhost.top
+    port: 33550
+    uuid: 6f276b57-2b72-4e00-b441-b0ae47487a59
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-ae2ee864d0
+      - 4FreeIran-b4a37238c7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-ae2ee864d0
+      - 4FreeIran-b4a37238c7
+rules:
+  - MATCH,Proxy

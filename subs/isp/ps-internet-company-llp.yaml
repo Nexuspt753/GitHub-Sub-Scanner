@@ -1,0 +1,39 @@
+proxies:
+  - type: ss
+    name: ✔︎𝐜𝐡𝐚𝐧𝐧𝐞𝐥➪@ConfigV2rayForFree
+    server: 77.240.38.27
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: fkXtvCEQ1ZU1rzF3fIK0fw==
+    udp: true
+  - type: vless
+    name: 4Kian-29db45928d
+    server: 91.147.92.153
+    port: 443
+    uuid: c80bbc09-837d-495f-bebc-3e8ac5dede41
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hls-svod.itunes.apple.com
+    reality-opts:
+      public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
+      short-id: f79448a30d
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - ✔︎𝐜𝐡𝐚𝐧𝐧𝐞𝐥➪@ConfigV2rayForFree
+      - 4Kian-29db45928d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - ✔︎𝐜𝐡𝐚𝐧𝐧𝐞𝐥➪@ConfigV2rayForFree
+      - 4Kian-29db45928d
+rules:
+  - MATCH,Proxy

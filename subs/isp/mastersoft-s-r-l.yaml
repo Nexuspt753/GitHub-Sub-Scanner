@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.119.18.115
+    port: 443
+    uuid: a6f6d9c9-9d43-4d0e-bf95-4b87cc5bbaac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ch1.murhost.network
+    reality-opts:
+      public-key: V-B12dvv0fVIwcmcRNdMQIcc4nmqsYB_PR_3X4VVB0A
+      short-id: 91a7a393d805f5c6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-3fece72180
+    server: ch1.murhost.network
+    port: 443
+    uuid: a6f6d9c9-9d43-4d0e-bf95-4b87cc5bbaac
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ch1.murhost.network
+    reality-opts:
+      public-key: V-B12dvv0fVIwcmcRNdMQIcc4nmqsYB_PR_3X4VVB0A
+      short-id: 91a7a393d805f5c6
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Mohsen-3fece72180
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Mohsen-3fece72180
+rules:
+  - MATCH,Proxy

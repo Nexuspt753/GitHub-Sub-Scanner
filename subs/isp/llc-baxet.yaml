@@ -1,0 +1,51 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-be08e84cba
+    server: 185-22-155-81.liao.kdns.fr
+    port: 50160
+    password: 2a0099ded5baa93c55823af39229c5b1
+    sni: 185-22-155-81.liao.kdns.fr
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 176.32.39.29
+    port: 443
+    password: 8OXD5VVt8s
+    udp: true
+    tls: true
+    sni: journalofbigdata.springeropen.com
+    client-fingerprint: random
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 195.133.23.5
+    port: 20810
+    cipher: aes-256-gcm
+    password: d99c422199e62b6b
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 45.140.169.123
+    port: 20801
+    cipher: aes-256-gcm
+    password: 6b39ae3234dfd68b
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-be08e84cba
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-be08e84cba
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+rules:
+  - MATCH,Proxy

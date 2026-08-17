@@ -1,0 +1,145 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 103.224.212.211
+    port: 443
+    password: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+    udp: true
+    tls: true
+    sni: 60.72img.xyz
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 103.224.212.217
+    port: 443
+    password: b379fd8e-75c6-4bd6-8a5b-88f3e64bb3fa
+    udp: true
+    tls: true
+    sni: dl.kgvn.garenanow.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-04b8b3e290
+    server: us2.trojanvh.xyz
+    port: 80
+    password: 255c924c-1314-4084-9a9e-1d1a82a5cf49
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-324e8bfc84
+    server: cnamemk.ciscocdn1.live
+    port: 443
+    password: 4d706727-996f-4427-930d-60f3bd414cf9
+    udp: true
+    tls: true
+    sni: c2mk.ciscocdn1.live
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /rDCYQta83d0oPABKBhcIX
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Mohsen-c44b8b697f
+    server: cnamemk.ciscocdn1.live
+    port: 443
+    password: 4d706727-996f-4427-930d-60f3bd414cf9
+    udp: true
+    tls: true
+    sni: c2mk.ciscocdn1.live
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /rDCYQta83d0oPABKBhcIX
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Mohsen-bdcde58727
+    server: cnamemt.ciscocdn1.live
+    port: 443
+    password: 4d706727-996f-4427-930d-60f3bd414cf9
+    udp: true
+    tls: true
+    sni: c2mt.ciscocdn1.live
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /rDCYQta83d0oPABKBhcIX
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Sarina-2f1aa2c477
+    server: cnamemc.ciscocdn1.live
+    port: 443
+    password: 5de2dfab-28e4-4773-b0d3-8d43da0d9ac3
+    udp: true
+    tls: true
+    sni: c3mc.ciscocdn1.live
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /ywQ9KSLI4ZBm9wOAXUaN
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4FreeIran-48ec263279
+    server: cnamemc.ciscocdn1.live
+    port: 443
+    password: 5de2dfab-28e4-4773-b0d3-8d43da0d9ac3
+    udp: true
+    tls: true
+    sni: c3mc.ciscocdn1.live
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /ywQ9KSLI4ZBm9wOAXUaN
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Mohsen-f37b0827d9
+    server: oplg1.cfcdn2.xyz
+    port: 443
+    uuid: c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /AUIKN8AU
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: oplg1.cfcdn2.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Sarina-04b8b3e290
+      - 4FreeIran-324e8bfc84
+      - 4Mohsen-c44b8b697f
+      - 4Mohsen-bdcde58727
+      - 4Sarina-2f1aa2c477
+      - 4FreeIran-48ec263279
+      - 4Mohsen-f37b0827d9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Sarina-04b8b3e290
+      - 4FreeIran-324e8bfc84
+      - 4Mohsen-c44b8b697f
+      - 4Mohsen-bdcde58727
+      - 4Sarina-2f1aa2c477
+      - 4FreeIran-48ec263279
+      - 4Mohsen-f37b0827d9
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: Novi Travnik · @DeltaKroneckerGithub
+    server: 45.156.248.21
+    port: 1443
+    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bossnia.netotcluchai.top
+    reality-opts:
+      public-key: aS94augCCytcbHRn37QNUfrBwAM2cp2RIXFL97yr50o
+      short-id: 0441f3e34348cb45
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Novi Travnik · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Novi Travnik · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

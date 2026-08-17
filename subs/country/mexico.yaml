@@ -1,0 +1,67 @@
+proxies:
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub
+    server: 45.134.9.133
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ul-mexico1.09vpn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Querétaro City · 4Mohsen-a576c985da
+    server: 68.155.139.204
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: Querétaro City · 4Jadi-5b5eb4a9a5
+    server: 68.155.139.204
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Mexico City · @DeltaKroneckerGithub
+      - Querétaro City · 4Mohsen-a576c985da
+      - Querétaro City · 4Jadi-5b5eb4a9a5
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Mexico City · @DeltaKroneckerGithub
+      - Querétaro City · 4Mohsen-a576c985da
+      - Querétaro City · 4Jadi-5b5eb4a9a5
+rules:
+  - MATCH,Proxy

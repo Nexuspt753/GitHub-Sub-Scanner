@@ -1,6 +1,6 @@
 import { getSubscriber, putSubscriber, getResults, getShare, getConv } from "../kv";
 import { evaluate } from "../evaluate";
-import { buildTxt, makeCaption } from "../format";
+import { buildMihomoYaml, makeCaption } from "../format";
 import { sendDocument, sendMessage } from "../telegram";
 import { Wizard } from "./wizard";
 import type { SubscriberRecord } from "../types";
@@ -112,7 +112,7 @@ async function withResults<T>(env: Env, chatId: number, fn: (nodes: any[]) => Pr
 async function cmdTop(env: Env, chatId: number, n: number): Promise<void> {
   await withResults(env, chatId, async (nodes) => {
     const top = [...nodes].sort((a, b) => b.score - a.score).slice(0, n);
-    await sendDocument(env.token, chatId, makeCaption(top, "top"), "top.txt", buildTxt(top));
+    await sendDocument(env.token, chatId, makeCaption(top, "top"), "top.yaml", buildMihomoYaml(top), "application/yaml");
   });
 }
 
@@ -120,7 +120,7 @@ async function cmdCountry(env: Env, chatId: number, name: string): Promise<void>
   await withResults(env, chatId, async (nodes) => {
     const m = { conditions: [{ field: "country", operator: "eq", value: name }], combinator: "AND", mode: "digest" as const };
     const matches = evaluate(m as any, nodes);
-    await sendDocument(env.token, chatId, makeCaption(matches, name), "country.txt", buildTxt(matches));
+    await sendDocument(env.token, chatId, makeCaption(matches, name), "country.yaml", buildMihomoYaml(matches), "application/yaml");
   });
 }
 

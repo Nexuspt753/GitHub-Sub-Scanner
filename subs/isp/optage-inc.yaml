@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: 4Mohsen-bf905bfbb2
+    server: 150.66.13.75
+    port: 443
+    password: df283334-6f6e-4efb-9a8a-b8ecf3040924
+    udp: true
+    tls: true
+    sni: tk15.1coinvp.vip
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-bf905bfbb2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-bf905bfbb2
+rules:
+  - MATCH,Proxy

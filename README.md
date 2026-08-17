@@ -28,40 +28,56 @@ The workflow (`.github/workflows/test.yml`) runs every 2 hours (and on manual
 
 ### Subscription groups
 
-Each run also regenerates a set of **plain-text v2ray subscriptions** (one URI
-per line) under `subs/`, one file per group, plus `subs/manifest.json`. Groups:
+Each run also regenerates a set of subscriptions under `subs/`, one **pair** of
+files per group, plus `subs/manifest.json`:
 
-| Group | Path |
+- `subs/<group>.txt` — plain-text v2ray links (one URI per line) for clients
+  like v2rayN / v2rayNG / Hiddify.
+- `subs/<group>.yaml` — a **Clash / Mihomo YAML** config (proxies + select /
+  url-test groups + a `MATCH` rule) that **WhiteVPN-Desktop and Mihomo parse
+  directly**. This is the format to use when the base64 / plain link list fails
+  to load.
+
+Groups:
+
+| Group | Path (`.txt` and `.yaml`) |
 |---|---|
-| All (alive) | `subs/all.txt` |
-| Can reach Gemini | `subs/gemini.txt` |
-| By protocol | `subs/protocol/{vmess,vless,trojan,ss}.txt` |
-| By country (city in name) | `subs/country/{country}.txt` |
-| By ISP / datacenter | `subs/isp/{isp}.txt` |
-| Top by score | `subs/top.txt` |
-| Low latency (<250 ms) | `subs/low-latency.txt` |
-| Fast (>=10 Mbps) | `subs/fast.txt` |
+| All (alive) | `subs/all.txt` · `subs/all.yaml` |
+| Can reach Gemini | `subs/gemini.txt` · `subs/gemini.yaml` |
+| By protocol | `subs/protocol/{vmess,vless,trojan,ss,hysteria2}.txt` · `.yaml` |
+| By country (city in name) | `subs/country/{country}.txt` · `.yaml` |
+| By ISP / datacenter | `subs/isp/{isp}.txt` · `.yaml` |
+| Top by score | `subs/top.txt` · `subs/top.yaml` |
+| Low latency (<250 ms) | `subs/low-latency.txt` · `.yaml` |
+| Fast (>=10 Mbps) | `subs/fast.txt` · `subs/fast.yaml` |
 
-The site lists every group with a copy button, so a user pastes the link into
-their client. Only configs that tested **alive** are included.
+The site lists every group with **Copy** (plain-text link) and **Copy YAML**
+(Mihomo config link) buttons. Only configs that tested **alive** are included.
 
-Protocols xray-core can't run are still passed through: `anytls`/`ssr` get a
-TCP-ping + location check (marked `tcp-only`), while UDP-based `hysteria2`/`tuic`
-are included untested (no liveness check). All are excluded from the Gemini,
-speed, and top groups.
+The `.yaml` file for the **All** group is capped at `MAX_MIHOMO_NODES` (default
+2000) so Mihomo actually loads it; the raw `.txt` is kept complete with no cap.
+All other `.yaml` files are uncapped.
+
+The YAML builder drops protocols Mihomo can't run — `ssr`, `anytls`, `tuic` —
+and sanitizes node names (strips leading `@`, quotes YAML-hostile characters,
+de-duplicates) so the file always parses. `hysteria2` is included.
+
 
 ### Custom subscription builder
 
 The site also has a **Build your subscription** panel. Add any number of
 conditions (field + operator + value) — e.g. *Gemini reachable = yes*,
 *Score > 60*, *TCP ping < 200 ms*, *Country = United States* — and combine them
-with AND or OR. The matching configs are turned into a plain-text v2ray
-subscription you can grab three ways:
+with AND or OR. The matching configs are turned into a subscription you can grab
+in two formats:
 
-- **Copy subscription** — paste the plain-text URIs into any client that
-  imports a subscription from the clipboard (v2rayN / v2rayNG / Hiddify /
-  Streisand).
-- **Download .txt** — save the payload as a file to import or self-host.
+- **Copy subscription** — plain-text v2ray URIs (one per line) for clients like
+  v2rayN / v2rayNG / Hiddify / Streisand.
+- **Copy Mihomo YAML** — a Clash / Mihomo YAML config (proxies + groups + rule)
+  that WhiteVPN-Desktop and Mihomo can import directly, built from the same
+  matched configs. This is the format to use when the plain link list won't
+  parse.
+- **Download .txt** — save the plain-text payload as a file to import or self-host.
 - **Copy share link** — a URL that re-opens the page with your exact matrix
   (bookmark or share it).
 

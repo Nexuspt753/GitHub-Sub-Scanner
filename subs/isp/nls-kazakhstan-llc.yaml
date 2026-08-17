@@ -1,0 +1,28 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: magazinetut.online
+    port: 8443
+    uuid: 7d641c2e-6897-4b9f-8a82-3f0cc8980db1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,74 @@
+proxies:
+  - type: vless
+    name: Zaporizhzhya · @DeltaKroneckerGithub
+    server: 45.135.235.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime07.workers.dev
+  - type: vless
+    name: Kharkiv · @DeltaKroneckerGithub
+    server: 193.238.153.15
+    port: 443
+    uuid: 40cfbd0a-f133-4174-8e03-ab0e587e1099
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: dzknsuwujuOacNHTXzdPxBLNUEJfEImiwLinPPNFmwU
+      short-id: 1ea21a140beaecc5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Zaporizhzhya · @DeltaKroneckerGithub-01
+    server: 45.135.235.123
+    port: 443
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: Telegram-WangCai2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
+  - type: trojan
+    name: Kyiv · @DeltaKroneckerGithub
+    server: 130.0.236.88
+    port: 443
+    password: d2adff89-5143-4d67-921f-3478464de5bb
+    udp: true
+    tls: true
+    sni: ua.freeguard.org
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Zaporizhzhya · @DeltaKroneckerGithub
+      - Kharkiv · @DeltaKroneckerGithub
+      - Zaporizhzhya · @DeltaKroneckerGithub-01
+      - Kyiv · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Zaporizhzhya · @DeltaKroneckerGithub
+      - Kharkiv · @DeltaKroneckerGithub
+      - Zaporizhzhya · @DeltaKroneckerGithub-01
+      - Kyiv · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,53 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 194.24.161.140
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr140.mechvpn.online
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 194.24.161.133
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr133.mechvpn.online
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-de431a700c
+    server: 194.24.161.133
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr133.mechvpn.online
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-de431a700c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-de431a700c
+rules:
+  - MATCH,Proxy

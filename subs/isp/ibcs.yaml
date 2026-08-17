@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.181.21.234
+    port: 443
+    uuid: d7fc372d-c057-43ce-8070-9b96abbc60f3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fl4.raketa-balance.com
+    reality-opts:
+      public-key: JaP4bhvIMW-l7T0_RkLra59DeBYI6W9XemKa8MyRPSY
+      short-id: 6c6082a2223c1d03
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

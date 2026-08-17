@@ -1,0 +1,52 @@
+proxies:
+  - type: vmess
+    name: 4Jadi-3df5d21525
+    server: 94.128.12.238
+    port: 443
+    uuid: ecba5b33-f768-4d8a-b004-b29e8e5c676f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /@forwardv2ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sazgar.serveirc.com
+  - type: vmess
+    name: 4Sarina-6adbf4183d
+    server: 94.128.12.238
+    port: 443
+    uuid: 14bb927f-a4ec-4de7-90fb-388c1f69dbc1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /@forwardv2ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sazgar22.zapto.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-3df5d21525
+      - 4Sarina-6adbf4183d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-3df5d21525
+      - 4Sarina-6adbf4183d
+rules:
+  - MATCH,Proxy

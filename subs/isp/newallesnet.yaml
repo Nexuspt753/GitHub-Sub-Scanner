@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4FreeIran-71a4b50453
+    server: 210.231.184.93
+    port: 4433
+    password: sharecentrepro
+    obfs: none
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-71a4b50453
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-71a4b50453
+rules:
+  - MATCH,Proxy

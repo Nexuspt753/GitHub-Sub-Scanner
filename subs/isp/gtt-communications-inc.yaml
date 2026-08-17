@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.36.124.176
+    port: 29513
+    uuid: f618d6e9-c6af-40b8-bc7a-bbf450586784
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: rSI9mgtOco9D39xdbX64nv2J2BRBGQpgCOi4opw8mCo
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,6 +1,6 @@
 import type { SubscriberRecord } from "../types";
 import { evaluate } from "../evaluate";
-import { makeCaption } from "../format";
+import { makeCaption, buildMihomoYaml } from "../format";
 import { sendDocument } from "../telegram";
 import { putResults, listSubscribers } from "../kv";
 
@@ -68,7 +68,10 @@ async function sendToSubscriber(env: Env, sub: SubscriberRecord, nodes: any[]): 
 
   try {
     const txt = toSend.map((m) => m.uri).join("\n");
-    await sendDocument(env.token, sub.chatId, labelFor(matches), "subscription.txt", txt);
+    const yaml = buildMihomoYaml(toSend);
+    await sendDocument(env.token, sub.chatId, labelFor(matches),
+      yaml ? "subscription.yaml" : "subscription.txt",
+      yaml || txt, yaml ? "application/yaml" : "text/plain");
     await env.kv.put(`sub:${sub.chatId}`, JSON.stringify(updated));
   } catch (e: any) {
     if (String(e?.message ?? e).includes("403")) {

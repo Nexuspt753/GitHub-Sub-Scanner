@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Nika-ffac30c34e
+    server: 45.195.228.26
+    port: 443
+    uuid: d2042070-c247-4226-a3ac-15337923e00d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandex.net
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-ffac30c34e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-ffac30c34e
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,25 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-39edb119be
+    server: 77.90.41.197
+    port: 35000
+    password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
+    sni: api.kermanshahi.org
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-39edb119be
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-39edb119be
+rules:
+  - MATCH,Proxy

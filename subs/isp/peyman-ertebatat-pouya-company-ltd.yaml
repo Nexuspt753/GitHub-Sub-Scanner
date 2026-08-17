@@ -1,0 +1,34 @@
+proxies:
+  - type: vmess
+    name: 4Kian-0ddd764e06
+    server: s2.megaping.casa
+    port: 2082
+    uuid: 4639fb4d-4284-45a8-9bea-ee9449087046
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    alpn:
+      - http/1.1
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-0ddd764e06
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-0ddd764e06
+rules:
+  - MATCH,Proxy

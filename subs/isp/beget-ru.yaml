@@ -1,0 +1,92 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 193.168.46.180
+    port: 443
+    uuid: 010d7dc9-776b-4495-a85c-44794f3da49c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rruu.persik.host
+    reality-opts:
+      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
+      short-id: c1a7e9b4711d5f60
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇷🇺RU_106_@Surfboardv2ray
+    server: 193.168.46.180
+    port: 443
+    uuid: 010d7dc9-776b-4495-a85c-44794f3da49c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rruu.persik.host
+    reality-opts:
+      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
+      short-id: c1a7e9b4711d5f60
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-80d124e8a4
+    server: 193.168.46.180
+    port: 443
+    uuid: 010d7dc9-776b-4495-a85c-44794f3da49c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rruu.persik.host
+    reality-opts:
+      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
+      short-id: c1a7e9b4711d5f60
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-baca97dbec
+    server: 62.113.103.10
+    port: 4100
+    uuid: ea535a23-447f-4501-918c-de8a8b376bec
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-693a5f7fbd
+    server: 193.168.46.180
+    port: 443
+    uuid: f6881211-aa8e-4c16-b924-45910c6b5210
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: rruu.persik.host
+    reality-opts:
+      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
+      short-id: c1a7e9b4711d5f60
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇷🇺RU_106_@Surfboardv2ray
+      - 4Sarina-80d124e8a4
+      - 4Mohsen-baca97dbec
+      - 4Nika-693a5f7fbd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇷🇺RU_106_@Surfboardv2ray
+      - 4Sarina-80d124e8a4
+      - 4Mohsen-baca97dbec
+      - 4Nika-693a5f7fbd
+rules:
+  - MATCH,Proxy

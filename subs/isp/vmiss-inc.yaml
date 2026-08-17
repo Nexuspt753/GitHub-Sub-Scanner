@@ -1,0 +1,48 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 38.47.96.220
+    port: 11424
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: Telegram-WangCai2🇨🇳
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 186.241.106.97
+    port: 443
+    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+      short-id: 1a
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

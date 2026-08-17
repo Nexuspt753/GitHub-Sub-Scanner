@@ -1,0 +1,33 @@
+proxies:
+  - type: vmess
+    name: 4FreeIran-9ee98f962f
+    server: 185.48.136.150
+    port: 443
+    uuid: 14bb927f-a4ec-4de7-90fb-388c1f69dbc1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /@forwardv2ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sazgar22.zapto.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-9ee98f962f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-9ee98f962f
+rules:
+  - MATCH,Proxy

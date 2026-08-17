@@ -1,0 +1,38 @@
+proxies:
+  - type: vmess
+    name: "|🇳🇱|-V2ayTun0"
+    server: nl4.uarlixo.ir
+    port: 4545
+    uuid: bf360b56-e087-4158-872b-f0c4ec921388
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-4a8f83d62f
+    server: tun1.wizardx1.com
+    port: 2078
+    uuid: 8c207682-e007-4a0d-88a3-68b8638b3d10
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - "|🇳🇱|-V2ayTun0"
+      - 4Kian-4a8f83d62f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - "|🇳🇱|-V2ayTun0"
+      - 4Kian-4a8f83d62f
+rules:
+  - MATCH,Proxy

@@ -92,9 +92,11 @@
 <details class="builder" id="builder">
   <summary>Build your subscription</summary>
   <p class="meta">Define conditions — e.g. Gemini reachable = yes, score &gt; 60,
-    TCP ping &lt; 200 ms, country = United States — and get a plain-text v2ray
-    subscription with exactly the configs that match. Untested (UDP) configs are
-    included unless you add an “Alive = yes” condition.</p>
+    TCP ping &lt; 200 ms, country = United States — and get a subscription with
+    exactly the configs that match. Use <b>Copy subscription</b> for a plain-text
+    v2ray link list (v2rayN / v2rayNG / Hiddify), or <b>Copy Mihomo YAML</b> for a
+    Clash/Mihomo YAML that WhiteVPN-Desktop and Mihomo can parse directly. Untested
+    (UDP) configs are included unless you add an “Alive = yes” condition.</p>
   <div class="bmode">
     <label for="bmode">Match</label>
     <select id="bmode">
@@ -109,7 +111,7 @@
   <div id="bcount" class="bcount">…</div>
   <div class="bout">
     <button class="bbtn primary" id="bcopy">Copy subscription</button>
-    <button class="bbtn" id="bb64">Copy base64</button>
+    <button class="bbtn" id="byaml">Copy Mihomo YAML</button>
     <button class="bbtn" id="bdl">Download .txt</button>
     <button class="bbtn" id="blink">Copy share link</button>
     <button class="bbtn" id="btg">Subscribe on Telegram</button>
@@ -156,8 +158,10 @@
 </div>
 
 <h2 class="sec">Subscription groups</h2>
-<p class="meta">Plain-text v2ray subscriptions (one URI per line). Add any link
-  to your client (v2rayN / v2rayNG / Hiddify / Streisand).</p>
+<p class="meta">Two formats per group: a plain-text v2ray link list (one URI per
+  line) for v2rayN / v2rayNG / Hiddify, and a Mihomo/Clash <b>YAML</b> file that
+  WhiteVPN-Desktop and Mihomo can parse directly. Use <b>Copy YAML</b> for the
+  YAML link.</p>
 <input type="search" id="gsearch" placeholder="Filter groups…" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;border-radius:6px;padding:7px 10px;font:inherit;width:100%;max-width:420px;" />
 <div id="subs" class="subs"></div>
 
@@ -538,6 +542,214 @@ function buildSub() {
   return { uris, text: uris.join("\n") };
 }
 
+// ---------------------------------------------------------------------------
+// Mihomo / Clash YAML builder (client-side, mirrors scripts/runner.py)
+// ---------------------------------------------------------------------------
+// WhiteVPN-Desktop and Mihomo read a Clash-style YAML directly. We convert the
+// matched share links to proxy dicts, drop unsupported protocols (ssr/anytls/
+// tuic), make names YAML-safe + unique, and emit a config with select/url-test
+// groups + a MATCH rule. Unsupported links are silently skipped.
+function atobUtf8(b64) {
+  try { return decodeURIComponent(escape(atob(b64))); } catch (e) { return atob(b64); }
+}
+function b64UrlDecodeUtf8(s) {
+  s = s.replace(/-/g, "+").replace(/_/g, "/");
+  while (s.length % 4) s += "=";
+  return atobUtf8(s);
+}
+function parseQuery(q) {
+  const out = {};
+  q.split("&").forEach((kv) => {
+    const i = kv.indexOf("=");
+    if (i < 0) return;
+    out[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1));
+  });
+  return out;
+}
+function splitUserInfoHost(uri, scheme) {
+  // returns { user, host, port, query, name } for scheme://user@host:port?q#name
+  const rest = uri.slice(scheme.length + 3);
+  const hashI = rest.indexOf("#");
+  const name = hashI >= 0 ? decodeURIComponent(rest.slice(hashI + 1)) : "";
+  let main = hashI >= 0 ? rest.slice(0, hashI) : rest;
+  const qI = main.indexOf("?");
+  const query = qI >= 0 ? parseQuery(main.slice(qI + 1)) : {};
+  main = qI >= 0 ? main.slice(0, qI) : main;
+  const atI = main.indexOf("@");
+  let user = "", hostport = main;
+  if (atI >= 0) { user = main.slice(0, atI); hostport = main.slice(atI + 1); }
+  const colonI = hostport.lastIndexOf(":");
+  const port = colonI >= 0 ? hostport.slice(colonI + 1) : "443";
+  const host = colonI >= 0 ? hostport.slice(0, colonI) : hostport;
+  return { user, host, port: parseInt(port, 10) || 443, query, name };
+}
+
+function convVmess(uri) {
+  const json = JSON.parse(atobUtf8(uri.slice("vmess://".length)));
+  const tls = String(json.tls || "").toLowerCase();
+  const p = { type: "vmess", name: json.ps || "vmess", server: json.add || json.host,
+             port: parseInt(json.port, 10) || 443, uuid: json.id,
+             alterId: parseInt(json.aid, 10) || 0, cipher: json.scy || "auto",
+             udp: true, "xudp": true, "skip-cert-verify": false };
+  if (tls === "tls" || tls === "1" || tls === "true") p.tls = true;
+  if (json.sni) p.servername = json.sni;
+  if (json.alpn) p.alpn = String(json.alpn).split(",");
+  if (json.net && json.net !== "tcp") attachTransport(p, json.net, json.path, json.host, json.alpn);
+  return p;
+}
+function convVless(uri) {
+  const { user, host, port, query, name } = splitUserInfoHost(uri, "vless");
+  const p = { type: "vless", name: name || "vless", server: host, port,
+              uuid: user, udp: true, "xudp": true };
+  const sec = (query.security || "none").toLowerCase();
+  if (sec === "tls" || sec === "reality") {
+    p.tls = true; p["client-fingerprint"] = query.fp || "chrome";
+    if (query.alpn) p.alpn = String(query.alpn).split(",");
+    if (query.sni) p.servername = query.sni;
+    if (query.pbk) { const r = { "public-key": query.pbk }; if (query.sid) r["short-id"] = query.sid; p["reality-opts"] = r; }
+  }
+  if (query.flow) p.flow = query.flow.toLowerCase();
+  attachTransport(p, query.type || "tcp", query.path, query.host, query.alpn);
+  return p;
+}
+function convTrojan(uri) {
+  const { user, host, port, query, name } = splitUserInfoHost(uri, "trojan");
+  const p = { type: "trojan", name: name || "trojan", server: host, port,
+              password: decodeURIComponent(user), udp: true };
+  const sec = (query.security || "").toLowerCase();
+  if (sec === "tls" || sec === "reality" || query.sni) p.tls = true;
+  if (query.sni) p.sni = query.sni;
+  if (query.allowInsecure) p["skip-cert-verify"] = String(query.allowInsecure).toLowerCase() === "1" || String(query.allowInsecure).toLowerCase() === "true";
+  if (query.alpn) p.alpn = String(query.alpn).split(",");
+  p["client-fingerprint"] = query.fp || "chrome";
+  attachTransport(p, query.type || "tcp", query.path, query.host, query.alpn);
+  return p;
+}
+function convSS(uri) {
+  const rest = uri.slice("ss://".length).split("#")[0];
+  let user, hostport;
+  if (rest.includes("@")) { const i = rest.indexOf("@"); user = rest.slice(0, i); hostport = rest.slice(i + 1); }
+  else { const d = atobUtf8(rest); const i = d.indexOf("@"); user = d.slice(0, i); hostport = d.slice(i + 1); }
+  if (!user.includes(":")) user = atobUtf8(user);
+  const ci = user.indexOf(":");
+  const method = user.slice(0, ci); const password = user.slice(ci + 1);
+  const hp = hostport.split(":").length > 1 ? hostport.split(":") : [hostport, "443"];
+  return { type: "ss", name: decodeURIComponent(uri.split("#")[1] || "ss"), server: hp[0],
+           port: parseInt(hp[1], 10) || 443, cipher: method, password, udp: true };
+}
+function convHy2(uri) {
+  const { user, host, port, query, name } = splitUserInfoHost(uri, "hysteria2");
+  const p = { type: "hysteria2", name: name || "hysteria2", server: host, port,
+              password: decodeURIComponent(user) };
+  if (query.sni) p.sni = query.sni;
+  if (query.allowInsecure || query.insecure) p["skip-cert-verify"] = true;
+  if (query.alpn) p.alpn = String(query.alpn).split(",");
+  if (query.mport) p.ports = query.mport;
+  if (query.obfs) { p.obfs = query.obfs; if (query["obfs-password"]) p["obfs-password"] = query["obfs-password"]; }
+  return p;
+}
+function attachTransport(p, net, path, host, alpn) {
+  net = (net || "tcp");
+  if (net === "tcp" || !net) return;
+  if (net === "ws" || net === "httpupgrade") {
+    const opts = { path: path || "/", headers: { "User-Agent": navigator.userAgent } };
+    if (host) opts.headers.Host = host;
+    p.network = net; p["ws-opts"] = opts;
+  } else if (net === "grpc") {
+    p.network = "grpc"; p["grpc-opts"] = { "grpc-service-name": path || "" };
+  } else if (net === "h2" || net === "http") {
+    p.network = net; p[net + "-opts"] = { path: [path || "/"], headers: host ? { Host: host } : {} };
+  } else if (net === "xhttp") {
+    p.network = "xhttp"; p["xhttp-opts"] = { path: path || "/", ...(host ? { host } : {}) };
+  }
+}
+function convertUri(uri) {
+  uri = (uri || "").trim();
+  if (!uri) return null;
+  if (uri.startsWith("vmess://")) { try { return convVmess(uri); } catch (e) { return null; } }
+  if (uri.startsWith("vless://")) { try { return convVless(uri); } catch (e) { return null; } }
+  if (uri.startsWith("trojan://")) { try { return convTrojan(uri); } catch (e) { return null; } }
+  if (uri.startsWith("ss://") || uri.startsWith("shadowsocks://")) { try { return convSS(uri); } catch (e) { return null; } }
+  if (uri.startsWith("hy2://") || uri.startsWith("hysteria2://")) { try { return convHy2(uri); } catch (e) { return null; } }
+  return null; // ssr / anytls / tuic intentionally dropped
+}
+
+function sanitizeName(name) {
+  return String(name || "").replace(/\r?\n/g, " ").replace(/^[\s@`]+/, "").trim();
+}
+function yamlScalar(v) {
+  if (typeof v === "boolean") return v ? "true" : "false";
+  if (v === null || v === undefined) return "null";
+  if (typeof v === "number") return String(v);
+  let s = String(v);
+  if (s === "" || /^[\s\-?:,#\[\]{}*&!|>%@`"']/.test(s) || /:\s|#\s|:$|#$/.test(s) ||
+      s !== s.trim() || ["true", "false", "null", "yes", "no", "~"].includes(s) ||
+      /^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/.test(s)) {
+    return '"' + s.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"';
+  }
+  return s;
+}
+function yamlDump(obj, indent) {
+  indent = indent || 0;
+  const pad = "  ".repeat(indent);
+  if (Array.isArray(obj)) {
+    if (!obj.length) return pad + "[]";
+    return obj.map((item) => {
+      if ((item && typeof item === "object") && Object.keys(item).length) {
+        const inner = yamlDump(item, indent + 1);
+        const nl = inner.indexOf("\n");
+        const first = nl >= 0 ? inner.slice(0, nl) : inner;
+        const rest = nl >= 0 ? inner.slice(nl + 1) : "";
+        return pad + "- " + first.trim() + (rest ? "\n" + rest : "");
+      }
+      return pad + "- " + yamlScalar(item);
+    }).join("\n");
+  }
+  if (obj && typeof obj === "object") {
+    const keys = Object.keys(obj);
+    if (!keys.length) return pad + "{}";
+    return keys.map((k) => {
+      const v = obj[k];
+      const key = /^[A-Za-z0-9_.\-/]+$/.test(k) ? k : yamlScalar(k);
+      if ((v && typeof v === "object") && (Array.isArray(v) ? v.length : Object.keys(v).length)) {
+        return pad + key + ":\n" + yamlDump(v, indent + 1);
+      }
+      return pad + key + ": " + yamlScalar(v);
+    }).join("\n");
+  }
+  return pad + yamlScalar(obj);
+}
+function buildMihomoYaml(text) {
+  const uris = (text || "").split("\n").map((s) => s.trim()).filter(Boolean);
+  const seen = new Set();
+  const proxies = [];
+  for (const uri of uris) {
+    const p = convertUri(uri);
+    if (!p) continue;
+    let name = sanitizeName(p.name) || "node";
+    if (seen.has(name)) {
+      let i = 1;
+      while (seen.has(name + "-" + String(i).padStart(2, "0"))) i++;
+      name = name + "-" + String(i).padStart(2, "0");
+    }
+    seen.add(name);
+    p.name = name;
+    proxies.push(p);
+  }
+  if (!proxies.length) return "";
+  const names = proxies.map((p) => p.name);
+  const doc = {
+    proxies,
+    "proxy-groups": [
+      { name: "Proxy", type: "select", proxies: ["Auto"].concat(names) },
+      { name: "Auto", type: "url-test", url: "https://connectivitycheck.gstatic.com/generate_204",
+        interval: 300, tolerance: 100, proxies: names },
+    ],
+    rules: ["MATCH,Proxy"],
+  };
+  return yamlDump(doc, 0) + "\n";
+}
+
 function onMatrixChange() {
   const m = matchingNodes();
   $("#bcount").innerHTML = "<strong>" + m.length + "</strong> config" +
@@ -579,11 +791,13 @@ function initBuilder() {
     copyText(text);
     flash($("#bcopy"), "Copied");
   };
-  $("#bb64").onclick = () => {
+  $("#byaml").onclick = () => {
     const { uris, text } = buildSub();
-    if (!uris.length) { flash($("#bb64"), "No matches"); return; }
-    copyText(b64Encode(text));
-    flash($("#bb64"), "Copied");
+    if (!uris.length) { flash($("#byaml"), "No matches"); return; }
+    const yaml = buildMihomoYaml(text);
+    if (!yaml) { flash($("#byaml"), "No parsable"); return; }
+    copyText(yaml);
+    flash($("#byaml"), "Copied");
   };
   $("#bdl").onclick = () => {
     const { uris, text } = buildSub();
@@ -724,13 +938,18 @@ function groupRow(g) {
     copyText(g.url); btn.textContent = "Copied";
     setTimeout(() => { btn.textContent = "Copy"; }, 1200);
   };
-  const b64 = document.createElement("button");
-  b64.textContent = "Copy base64"; b64.className = "copy";
-  b64.onclick = () => {
-    copyText(g.b64_url); b64.textContent = "Copied";
-    setTimeout(() => { b64.textContent = "Copy base64"; }, 1200);
-  };
-  row.append(info, link, btn, b64);
+  const yaml = document.createElement("button");
+  yaml.textContent = "Copy YAML"; yaml.className = "copy";
+  if (g.yaml_url) {
+    yaml.onclick = () => {
+      copyText(g.yaml_url); yaml.textContent = "Copied";
+      setTimeout(() => { yaml.textContent = "Copy YAML"; }, 1200);
+    };
+  } else {
+    // No Mihomo-readable nodes in this group (e.g. all ssr/anytls/tuic).
+    yaml.textContent = "No YAML"; yaml.disabled = true; yaml.style.opacity = "0.5";
+  }
+  row.append(info, link, btn, yaml);
   return row;
 }
 

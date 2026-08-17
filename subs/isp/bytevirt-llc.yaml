@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 141.11.139.239
+    port: 39738
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: Telegram-WangCai2🇨🇳
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

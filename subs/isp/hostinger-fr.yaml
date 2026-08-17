@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Kian-a72df75238
+    server: france-paris.hostinger.kcartik-vps.com
+    port: 80
+    uuid: b5920b52-504c-4835-978c-fbc4110d5840
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: france-paris.hostinger.kcartik-vps.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-a72df75238
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-a72df75238
+rules:
+  - MATCH,Proxy

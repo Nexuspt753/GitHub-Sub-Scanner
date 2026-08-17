@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Kian-fe283cdcb3
+    server: 84.32.230.160
+    port: 443
+    uuid: 9175264d-11b6-431f-86a7-69adf9fa24f2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ftp.debian.org
+    reality-opts:
+      public-key: cY7T3CiF0ysvFgyTXliMsXSTBM0Icd_VOhuDkxM9nFY
+      short-id: 75e19bf5087c4f0c
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-fe283cdcb3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-fe283cdcb3
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,79 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 104.224.181.22
+    port: 443
+    uuid: 2f72980a-f9ad-4f1c-841b-0a0e00000000
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: FasT-roUte-bC09eB-NHN.teSt-enV-F841eA.WORkers.DEV
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /sync
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: FaST-ROUTE-bC09eb-nHn.TeSt-enV-F841EA.WORKErS.dEv
+  - type: vless
+    name: EPODONIOS
+    server: 104.224.181.22
+    port: 443
+    uuid: 2f72980a-f9ad-4f1c-841b-0a0e00000000
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: FasT-roUte-bC09eB-NHN.teSt-enV-F841eA.WORkers.DEV
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /sync
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: FaST-ROUTE-bC09eb-nHn.TeSt-enV-F841EA.WORKErS.dEv
+  - type: vless
+    name: meliproxyy
+    server: 104.224.181.22
+    port: 443
+    uuid: 2f72980a-f9ad-4f1c-841b-0a0e00000000
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: FasT-roUte-bC09eB-NHN.teSt-enV-F841eA.WORkers.DEV
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /sync
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: FaST-ROUTE-bC09eb-nHn.TeSt-enV-F841EA.WORKErS.dEv
+  - type: trojan
+    name: 4Mohsen-32e553f3cf
+    server: 185.212.56.168
+    port: 443
+    password: share.mjj-home.com
+    udp: true
+    tls: true
+    sni: tw.softbank.mjj-home.com
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - meliproxyy
+      - 4Mohsen-32e553f3cf
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - meliproxyy
+      - 4Mohsen-32e553f3cf
+rules:
+  - MATCH,Proxy

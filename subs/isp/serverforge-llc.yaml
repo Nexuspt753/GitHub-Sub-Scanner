@@ -1,0 +1,75 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 130.12.242.157
+    port: 443
+    uuid: 551955b3-46e9-5129-95c9-e7474c15ed6b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nl24.fast-connect-service.site
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: icv2ray
+    server: 130.12.242.157
+    port: 443
+    uuid: 551955b3-46e9-5129-95c9-e7474c15ed6b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nl24.fast-connect-service.site
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 130.12.242.106
+    port: 443
+    uuid: bc058e69-0444-4c7b-98da-bd67f0b143da
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: deepl.com
+    reality-opts:
+      public-key: vnjp7zIK2H3CGdjSis_79KXqS6IG-opmpbETPUD-EC8
+      short-id: 15affa0af66dfc79
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-52a83cdd94
+    server: 130.12.242.157
+    port: 443
+    uuid: 551955b3-46e9-5129-95c9-e7474c15ed6b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nl24.fast-connect-service.site
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - icv2ray
+      - DeltaKroneckerGithub
+      - 4Jadi-52a83cdd94
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - icv2ray
+      - DeltaKroneckerGithub
+      - 4Jadi-52a83cdd94
+rules:
+  - MATCH,Proxy

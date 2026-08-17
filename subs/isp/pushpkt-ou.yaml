@@ -1,0 +1,149 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.209.15.167
+    port: 443
+    uuid: a5a612d6-d571-4400-9f9a-7cb21eb903c1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl1.sodahub.online
+    reality-opts:
+      public-key: kK2a0QSYg0XQIMQOvDI7lJJvJcMH0-52RB90FivhVmM
+      short-id: c334408a1056aaf8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 205.237.104.58
+    port: 4443
+    uuid: 62b72631-985d-4768-8b5a-7cc06753e0f0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dev.max.ru
+    reality-opts:
+      public-key: "-yJaCCGsucUDEnTTn6VJJyF0R5ZLlJAVNeIXFJYSGn8"
+      short-id: 361c68748712c743
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: fr.pubconverter.com
+    port: 4443
+    uuid: de6d11a5-d833-4f18-a4f9-464b80f0f864
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dev.max.ru
+    reality-opts:
+      public-key: "-yJaCCGsucUDEnTTn6VJJyF0R5ZLlJAVNeIXFJYSGn8"
+      short-id: 361c68748712c743
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 205.237.105.80
+    port: 8443
+    uuid: a5a612d6-d571-4400-9f9a-7cb21eb903c1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr4.sodahub.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 205.237.104.58
+    port: 4443
+    uuid: de6d11a5-d833-4f18-a4f9-464b80f0f864
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dev.max.ru
+    reality-opts:
+      public-key: "-yJaCCGsucUDEnTTn6VJJyF0R5ZLlJAVNeIXFJYSGn8"
+      short-id: 361c68748712c743
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-05
+    server: 185.209.15.215
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: nl7.helper-internet.com
+    reality-opts:
+      public-key: pgG2grngQEtOFJImLfz0AEm-O2IodM2jCY4aMCYQI1U
+      short-id: 6aa2d2e950441a9a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-06
+    server: 185.209.15.163
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl8.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-07
+    server: 205.237.104.58
+    port: 4443
+    uuid: 896002a8-3afc-49e6-8fac-5129fb717b49
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dev.max.ru
+    reality-opts:
+      public-key: "-yJaCCGsucUDEnTTn6VJJyF0R5ZLlJAVNeIXFJYSGn8"
+      short-id: 361c68748712c743
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+      - DeltaKroneckerGithub-07
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+      - DeltaKroneckerGithub-07
+rules:
+  - MATCH,Proxy

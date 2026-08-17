@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Sarina-fd29f7288e
+    server: new01.asaltabie.monster
+    port: 443
+    uuid: d0f4d620-db2b-45e0-8353-a073461b1130
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: new01.asaltabie.monster
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: new01.asaltabie.monster
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-fd29f7288e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-fd29f7288e
+rules:
+  - MATCH,Proxy

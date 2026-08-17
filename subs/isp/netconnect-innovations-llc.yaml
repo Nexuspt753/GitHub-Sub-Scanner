@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Kian-d2df018c9a
+    server: 138.128.224.100
+    port: 80
+    uuid: e8dd40fd-169a-4545-8664-7f71f02e0657
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /telegram-mitivpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: iriknet.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-d2df018c9a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-d2df018c9a
+rules:
+  - MATCH,Proxy

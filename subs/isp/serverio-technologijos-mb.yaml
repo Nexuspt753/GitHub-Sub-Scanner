@@ -1,0 +1,92 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 194.0.194.38
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: ru9.aimodelhub.top
+    port: 443
+    uuid: b85b1e90-b5ed-0002-b433-bf9d2eca0e42
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru9.aimodelhub.top
+    reality-opts:
+      public-key: jwT3lcIzJQMjzBKRNsmyRGrgaa1qNfE7pQF_nAKu0GA
+      short-id: a73cf719b624
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: id.tutdesignstudio.site
+    port: 8443
+    uuid: b9125df6-2a60-4643-bcba-a5f78cb663a7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 45.12.5.171
+    port: 443
+    uuid: b85b1e90-b5ed-0002-b433-bf9d2eca0e42
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru9.aimodelhub.top
+    reality-opts:
+      public-key: jwT3lcIzJQMjzBKRNsmyRGrgaa1qNfE7pQF_nAKu0GA
+      short-id: a73cf719b624
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-5b8d255a72
+    server: id.tutdesignstudio.site
+    port: 8443
+    uuid: b9125df6-2a60-4643-bcba-a5f78cb663a7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Sarina-5b8d255a72
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Sarina-5b8d255a72
+rules:
+  - MATCH,Proxy

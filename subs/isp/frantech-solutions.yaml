@@ -1,0 +1,50 @@
+proxies:
+  - type: ss
+    name: United+States
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+  - type: ss
+    name: EPODONIOS
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+  - type: ss
+    name: ⚛️79@oneclickvpnkeys
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+  - type: ss
+    name: 4Sarina-fbe44cf27e
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - United+States
+      - EPODONIOS
+      - ⚛️79@oneclickvpnkeys
+      - 4Sarina-fbe44cf27e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - United+States
+      - EPODONIOS
+      - ⚛️79@oneclickvpnkeys
+      - 4Sarina-fbe44cf27e
+rules:
+  - MATCH,Proxy
