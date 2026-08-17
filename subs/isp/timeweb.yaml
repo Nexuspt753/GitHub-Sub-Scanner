@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 201.24.49.62
+    port: 1
+    uuid: fa4babae-cea3-49b1-9d6f-342495a46ea9
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 201.24.49.62
+    port: 1
+    uuid: fa4babae-cea3-49b1-9d6f-342495a46ea9
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇧🇷BR-🚀@VPNine1
+    server: 201.24.49.62
+    port: 1
+    uuid: fa4babae-cea3-49b1-9d6f-342495a46ea9
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-b477b7aee2
+    server: 201.24.49.62
+    port: 1
+    uuid: fa4babae-cea3-49b1-9d6f-342495a46ea9
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-a9e7eafddc
+    server: 201.24.49.62
+    port: 1
+    uuid: fa4babae-cea3-49b1-9d6f-342495a46ea9
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇧🇷BR-🚀@VPNine1
+      - 4Sarina-b477b7aee2
+      - 4Mohsen-a9e7eafddc
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇧🇷BR-🚀@VPNine1
+      - 4Sarina-b477b7aee2
+      - 4Mohsen-a9e7eafddc
+rules:
+  - MATCH,Proxy

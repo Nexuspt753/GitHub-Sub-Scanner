@@ -6,12 +6,27 @@ proxies:
     password: dbab9df7-5c0a-4726-8574-11e34972b67d
     sni: www.bing.com
     skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.36.124.176
+    port: 29513
+    uuid: f618d6e9-c6af-40b8-bc7a-bbf450586784
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: rSI9mgtOco9D39xdbX64nv2J2BRBGQpgCOi4opw8mCo
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-9851c2ece0
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-9851c2ece0
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

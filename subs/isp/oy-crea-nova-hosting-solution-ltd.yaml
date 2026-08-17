@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 185.221.163.211
+    port: 443
+    uuid: 9aff0732-7ce4-4b34-ba20-e67c6df64fdd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fin1.panel11.ru
+    reality-opts:
+      public-key: lQ8pnlOU0kqS77TA7Fftl8nSzktXLzFpOLGqCZEAhjg
+      short-id: aaec521b22bbe6cb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: fin1.panel11.ru
     port: 443
     uuid: 9aff0732-7ce4-4b34-ba20-e67c6df64fdd
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

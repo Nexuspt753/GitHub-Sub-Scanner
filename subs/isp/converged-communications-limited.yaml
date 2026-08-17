@@ -1,6 +1,34 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: family.bucket.8.kfc-520.com
+    port: 10033
+    uuid: 2a88deea-221d-3f06-9846-4067c6f725ee
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.hp.com
+    reality-opts:
+      public-key: mQvQHrpr_4068cLt-AOl44mQN6YccQv7yLfCP5Kp9HU
+      short-id: "667925235980"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: family.bucket.8.kfc-520.com
+    port: 10038
+    uuid: 2a88deea-221d-3f06-9846-4067c6f725ee
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.adobe.com
+    reality-opts:
+      public-key: JddbQk5RNLhnZOTiod0E7JGcCTRNO69nrP1b8VtKS2c
+      short-id: 2a92
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: family.bucket.6.kfc-520.com
     port: 10017
     uuid: 2a88deea-221d-3f06-9846-4067c6f725ee
@@ -19,6 +47,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

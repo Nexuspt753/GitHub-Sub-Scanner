@@ -1,12 +1,12 @@
 proxies:
   - type: hysteria2
-    name: EPODONIOS
+    name: 4Kian-04f43ab8e9
     server: hy2-us.frdmhere.com
     port: 8458
     password: e0c7af35-e2db-47c7-b1a3-ce5ec0dd0474
     sni: hy2.frdmhere.com
   - type: hysteria2
-    name: 4Kian-04f43ab8e9
+    name: EPODONIOS
     server: hy2-us.frdmhere.com
     port: 8458
     password: e0c7af35-e2db-47c7-b1a3-ce5ec0dd0474
@@ -73,6 +73,22 @@ proxies:
         Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
   - type: vless
     name: DeltaKroneckerGithub-03
+    server: 77.110.115.8
+    port: 25565
+    uuid: 086422b2-3347-45f8-b527-d9e1be25dc56
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.ru
+    reality-opts:
+      public-key: pBd5IOD_sCDpIDqgi6EtZ6DAAMGns9n2C3qPH0i3Tno
+      short-id: "52"
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-04
     server: 83.147.216.223
     port: 4433
     uuid: b491331e-3be5-4097-8bc1-fa86de978c29
@@ -92,27 +108,29 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 4Kian-04f43ab8e9
+      - EPODONIOS
       - 美国
       - 4Kian-d4a3db64f2
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 4Kian-04f43ab8e9
+      - EPODONIOS
       - 美国
       - 4Kian-d4a3db64f2
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy
