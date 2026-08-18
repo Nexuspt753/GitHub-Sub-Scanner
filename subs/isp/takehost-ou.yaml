@@ -1,36 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 94.249.225.160
-    port: 443
-    uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
-      short-id: 6ba85179e30d4fc2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 94.249.225.160
-    port: 443
-    uuid: fa98f221-29e1-4a7e-8797-3bf294aeda35
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
-      short-id: 6ba85179e30d4fc2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: hysteria2
     name: 4Sarina-7e78058a0d
     server: de.1.22.washing.help
@@ -125,13 +93,27 @@ proxies:
       public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-b473b92296
+    server: 94.249.225.160
+    port: 443
+    uuid: fa98f221-29e1-4a7e-8797-3bf294aeda35
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Sarina-7e78058a0d
       - 4Mohsen-60d0a90f64
       - EPODONIOS
@@ -140,14 +122,13 @@ proxy-groups:
       - prrofile_purple
       - 4Jadi-e1c23abd81
       - 4FreeIran-1f0cbec484
+      - 4Kian-b473b92296
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Sarina-7e78058a0d
       - 4Mohsen-60d0a90f64
       - EPODONIOS
@@ -156,5 +137,6 @@ proxy-groups:
       - prrofile_purple
       - 4Jadi-e1c23abd81
       - 4FreeIran-1f0cbec484
+      - 4Kian-b473b92296
 rules:
   - MATCH,Proxy

@@ -1,32 +1,32 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-deee3439ef
-    server: 89.28.236.192
-    port: 8443
-    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kjgdksgghre466.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kjgdksgghre466.pages.dev
+  - type: hysteria2
+    name: 4Jadi-48363d775d
+    server: dk86.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: 127.0.0.1
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-c741f5d0aa
+    server: dk86.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: dk86.mechvpn.online
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-deee3439ef
+      - 4Jadi-48363d775d
+      - 4FreeIran-c741f5d0aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-deee3439ef
+      - 4Jadi-48363d775d
+      - 4FreeIran-c741f5d0aa
 rules:
   - MATCH,Proxy

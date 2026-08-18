@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 31.77.111.11
-    port: 43439
-    uuid: 428e923f-e608-412b-9e51-3b09ffab551f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cdn.higames.ru
-    reality-opts:
-      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: 39ad36226f3abec8
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 109.121.44.81
     port: 443
     uuid: 6179ce37-97b2-4ac7-9591-b4b2bfaca09d
@@ -30,15 +14,18 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-e5ad5f2245
-    server: 109.121.44.41
+    name: 4FreeIran-530be51601
+    server: 109.121.44.81
     port: 443
-    uuid: 00706a0e-de50-40f0-b6e0-e50b8d727d88
+    uuid: 6179ce37-97b2-4ac7-9591-b4b2bfaca09d
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: firefox
     servername: www.amd.com
-    flow: xtls-rprx-vision-udp443
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 0a4b7c3d
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -46,8 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-e5ad5f2245
+      - 4FreeIran-530be51601
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,7 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-e5ad5f2245
+      - 4FreeIran-530be51601
 rules:
   - MATCH,Proxy

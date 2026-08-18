@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Sarina-364d4beaf3
+    server: 46.28.68.63
+    port: 443
+    uuid: 44927d9f-1a75-4c03-ab8c-79898adaaece
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: LS-zg9fF_5TvNfMCIKngy5AMue1hF-hsk3hShsHGXT4
+      short-id: e5fa48b9363c6a88
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-364d4beaf3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-364d4beaf3
+rules:
+  - MATCH,Proxy

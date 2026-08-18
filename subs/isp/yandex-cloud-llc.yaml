@@ -1,11 +1,22 @@
 proxies:
   - type: vless
-    name: vless
-    server: 188.72.103.4
-    port: 443
-    uuid: 267be100-d509-41b7-bdd2-6e166c368be1
+    name: DeltaKroneckerGithub
+    server: 51.250.4.141
+    port: 8443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
     xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
   - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
@@ -21,22 +32,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-b130ccff51
-    server: 51.250.106.64
-    port: 443
-    uuid: 4a6de183-2ad3-456c-b420-feeac81f6257
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cloudflare.com
-    reality-opts:
-      public-key: FCg2XiFJrpH-2XlELSSSyEC7zkeW29HOgp4rfrqXEAI
-      short-id: 123abc
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Kian-8406711aff
     server: 51.250.95.143
     port: 443
@@ -51,14 +46,50 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-01
+    name: vless
     server: 188.72.103.4
     port: 443
     uuid: 5828d2a3-a3c9-4b0e-9ecc-8debbdfac9e6
     udp: true
     xudp: true
   - type: vless
-    name: vless-02
+    name: 4Mohsen-fa1c928bc6
+    server: 51.250.4.141
+    port: 8443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
+  - type: vless
+    name: 4Sarina-116914100b
+    server: 51.250.4.141
+    port: 8443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
+  - type: vless
+    name: vless-01
     server: 188.72.103.4
     port: 443
     uuid: a853fd5b-051e-4ea9-a2b8-cf84bd41e1f2
@@ -69,23 +100,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
       - 4Nika-4aadd209d8
-      - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless
+      - 4Mohsen-fa1c928bc6
+      - 4Sarina-116914100b
       - vless-01
-      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
       - 4Nika-4aadd209d8
-      - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless
+      - 4Mohsen-fa1c928bc6
+      - 4Sarina-116914100b
       - vless-01
-      - vless-02
 rules:
   - MATCH,Proxy

@@ -1,0 +1,64 @@
+proxies:
+  - type: hysteria2
+    name: 4FreeIran-afd8e05a5c
+    server: 139.28.168.54
+    port: 8080
+    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
+    sni: grape-honk.yyuyy.com
+  - type: hysteria2
+    name: 4Mohsen-59a33d070a
+    server: 139.28.168.54
+    port: 8443
+    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
+    sni: grape-honk.yyuyy.com
+  - type: hysteria2
+    name: 4Mohsen-2a527ad77a
+    server: 139.28.168.54
+    port: 9080
+    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
+    sni: grape-honk.yyuyy.com
+  - type: hysteria2
+    name: 4Mohsen-281542ebea
+    server: 139.28.168.55
+    port: 8080
+    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
+    sni: grape-honk.yyuyy.com
+  - type: hysteria2
+    name: 4FreeIran-6e711eecf9
+    server: 139.28.168.55
+    port: 8443
+    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
+    sni: grape-honk.yyuyy.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-e0c774abef
+    server: 139.28.168.55
+    port: 9080
+    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
+    sni: grape-honk.yyuyy.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-afd8e05a5c
+      - 4Mohsen-59a33d070a
+      - 4Mohsen-2a527ad77a
+      - 4Mohsen-281542ebea
+      - 4FreeIran-6e711eecf9
+      - 4Mohsen-e0c774abef
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-afd8e05a5c
+      - 4Mohsen-59a33d070a
+      - 4Mohsen-2a527ad77a
+      - 4Mohsen-281542ebea
+      - 4FreeIran-6e711eecf9
+      - 4Mohsen-e0c774abef
+rules:
+  - MATCH,Proxy

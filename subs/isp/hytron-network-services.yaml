@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Sarina-c2733ba24b
+    server: 156.248.10.58
+    port: 443
+    uuid: 9c71e3bf-d79c-41ad-ba08-1028aff0eaa5
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: nono.hhhkkhktt.xyz
+    reality-opts:
+      public-key: EXIEsAJq-s30mA0r997iwrR8ijvGLZ7DOTkr_R39QCE
+      short-id: 54fc3827c8
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-c2733ba24b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-c2733ba24b
+rules:
+  - MATCH,Proxy

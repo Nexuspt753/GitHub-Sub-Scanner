@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-2be5b5959f
+    server: 94.102.51.218
+    port: 443
+    uuid: c28ee61d-0d43-4e69-8e6a-6397ed0ffc03
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: fair-lunar.cdn.cachefleet.com
+    reality-opts:
+      public-key: SHDdd617KLHHb0qlQFOHepeHFl_Ch2i-K7o891uyo2M
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-2be5b5959f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-2be5b5959f
+rules:
+  - MATCH,Proxy

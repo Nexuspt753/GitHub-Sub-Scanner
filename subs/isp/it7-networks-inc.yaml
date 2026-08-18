@@ -1,19 +1,45 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 104.225.145.159
+    server: 66.112.214.246
     port: 443
-    uuid: 5f4638b2-cf76-4f59-92a7-bdd5ad53e010
+    uuid: a900899d-ab39-4d82-a2cd-a4ad28eebc21
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: rnxhttp.256800.xyz
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: oGxL_rHFVBV5PSYJikUJtPj0qzSJiwS-fkcxievVC1U
+      short-id: 63ad0d246040ae
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /5f4638b2
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 97.64.30.227
+    port: 443
+    uuid: eb534939-3159-4188-865a-deef4ab39ae2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: _bxEBATGniBF4AfbzCwrOlygRIjKXUQugXb5ZPuyYxU
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 23.252.104.131
+    port: 54321
+    cipher: aes-256-gcm
+    password: Proxy2024
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 66.112.211.35
+    port: 443
+    cipher: aes-128-gcm
+    password: synlgmm
+    udp: true
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -24,14 +50,25 @@ proxies:
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
   - type: vless
-    name: 4Mohsen-a250baff13
-    server: 104.225.232.25
-    port: 10877
-    uuid: 42613786-2036-4a79-ad64-cc65d4e60a8d
+    name: 4Kian-d690ab0cc4
+    server: 66.112.214.246
+    port: 443
+    uuid: a900899d-ab39-4d82-a2cd-a4ad28eebc21
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.paypal.com
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Sarina-fdfcc2bc22
+    server: 97.64.30.227
+    port: 443
+    uuid: eb534939-3159-4188-865a-deef4ab39ae2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
     flow: xtls-rprx-vision-udp443
     xudp: true
 proxy-groups:
@@ -40,8 +77,12 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-32e553f3cf
-      - 4Mohsen-a250baff13
+      - 4Kian-d690ab0cc4
+      - 4Sarina-fdfcc2bc22
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,7 +90,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-32e553f3cf
-      - 4Mohsen-a250baff13
+      - 4Kian-d690ab0cc4
+      - 4Sarina-fdfcc2bc22
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.88.186.55
+    port: 2054
+    uuid: baadeb43-ab3d-40f2-b1e6-5e3d4104f06c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ibm.com
+    reality-opts:
+      public-key: WckOSneVajAzpH0sZSAFAWPnmwuuEXKZrTICNj5_hHU
+      short-id: 423bccc9c13fb509
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 45.92.1.131
     port: 443
@@ -7,19 +23,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.ray-balance.space
-    reality-opts:
-      public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.92.1.131
-    port: 443
-    uuid: 32fff625-bdaa-4aad-8b45-14a02b1d5f9d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
     servername: www.ray-balance.space
     reality-opts:
       public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
@@ -39,22 +42,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.88.186.55
-    port: 2054
-    uuid: baadeb43-ab3d-40f2-b1e6-5e3d4104f06c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.ibm.com
-    reality-opts:
-      public-key: WckOSneVajAzpH0sZSAFAWPnmwuuEXKZrTICNj5_hHU
-      short-id: 423bccc9c13fb509
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-bd0a82a6f0
     server: 45.92.1.131
     port: 443
@@ -67,26 +54,39 @@ proxies:
       public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-4d28d1fbb2
+    server: 45.92.1.131
+    port: 443
+    uuid: 32fff625-bdaa-4aad-8b45-14a02b1d5f9d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.ray-balance.space
+    reality-opts:
+      public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - configprxy
-      - DeltaKroneckerGithub-01
       - 4FreeIran-bd0a82a6f0
+      - 4Nika-4d28d1fbb2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - configprxy
-      - DeltaKroneckerGithub-01
       - 4FreeIran-bd0a82a6f0
+      - 4Nika-4d28d1fbb2
 rules:
   - MATCH,Proxy

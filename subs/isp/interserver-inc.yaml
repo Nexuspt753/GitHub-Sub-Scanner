@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Kian-abe0c848bd
+    server: 161.129.71.148
+    port: 17913
+    cipher: aes-128-gcm
+    password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-abe0c848bd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-abe0c848bd
+rules:
+  - MATCH,Proxy

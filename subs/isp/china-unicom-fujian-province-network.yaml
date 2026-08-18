@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 36.248.14.90
+    port: 33102
+    uuid: fb957ee2-2ca0-43f3-ab86-724a9ca0b628
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sgg.knhqf.com
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

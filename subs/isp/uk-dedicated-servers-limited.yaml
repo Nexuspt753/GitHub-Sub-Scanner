@@ -6,12 +6,20 @@ proxies:
     password: 725bc0b69e720cd5a2cd209252507c6e
     sni: 94-229-64-108.liao.kdns.fr
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-e325ca21ee
+    server: 94-229-64-108.liao.kdns.fr
+    port: 50160
+    password: 725bc0b69e720cd5a2cd209252507c6e
+    sni: 94-229-64-108.liao.kdns.fr
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-b709f0da6d
+      - 4Nika-e325ca21ee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-b709f0da6d
+      - 4Nika-e325ca21ee
 rules:
   - MATCH,Proxy

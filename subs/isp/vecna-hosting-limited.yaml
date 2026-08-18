@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Jadi-726bece9cf
+    server: de.intfreed.ru
+    port: 443
+    uuid: bf92bdef-ab8d-4481-8798-2d39023357b2
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: video.intfreed.ru
+    reality-opts:
+      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
+      short-id: 7755e972daf8eec8
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-726bece9cf
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-726bece9cf
+rules:
+  - MATCH,Proxy

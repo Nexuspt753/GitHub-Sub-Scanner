@@ -1,20 +1,34 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 5.180.27.159
-    port: 8445
-    uuid: fd6011da-5c16-463d-8aaf-ff35c1b95a74
+    server: magazinetut.online
+    port: 8443
+    uuid: 7d641c2e-6897-4b9f-8a82-3f0cc8980db1
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: ya.ru
-    reality-opts:
-      public-key: LZF1JDaVO0Mk_YHH19G5Pv1_jVKm_k_0KcJCWhMHRQo
-      short-id: fe8565750f25
+    alpn:
+      - http/1.1
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: hysteria2
+    name: 4Kian-7f3e6a8a84
+    server: 5.180.27.210
+    port: 8080
+    password: owefv0_92Z540k2F_nx83245_J9130oS_tY
+    sni: borat-hopp.bumbleshrimp.com
+  - type: hysteria2
+    name: 4Jadi-56850ae3cf
+    server: 5.180.27.221
+    port: 8080
+    password: owefv0_92Z540k2F_nx83245_J9130oS_tY
+    sni: borat-hopp.bumbleshrimp.com
+  - type: hysteria2
+    name: 4Nika-96f99c1faa
+    server: 5.180.27.221
+    port: 8443
+    password: owefv0_92Z540k2F_nx83245_J9130oS_tY
+    sni: borat-hopp.bumbleshrimp.com
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 5.180.52.186
@@ -26,13 +40,46 @@ proxies:
     servername: magazinetut.online
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: kz2.techdatacloud.org
+    port: 443
+    uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cloud.mail.ru
+    reality-opts:
+      public-key: 06GvG7PU5F3Hgq-vUH24tU0tpsbGMCCt26BSvlaBNUE
+      short-id: dfbfa87e9f37f1f0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 5.180.40.9
+    port: 443
+    uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cloud.mail.ru
+    reality-opts:
+      public-key: 06GvG7PU5F3Hgq-vUH24tU0tpsbGMCCt26BSvlaBNUE
+      short-id: dfbfa87e9f37f1f0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-7f3e6a8a84
+      - 4Jadi-56850ae3cf
+      - 4Nika-96f99c1faa
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,6 +87,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-7f3e6a8a84
+      - 4Jadi-56850ae3cf
+      - 4Nika-96f99c1faa
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

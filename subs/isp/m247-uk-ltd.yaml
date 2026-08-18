@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Mohsen-e343787141
+    server: 89.249.74.188
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-e343787141
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-e343787141
+rules:
+  - MATCH,Proxy
