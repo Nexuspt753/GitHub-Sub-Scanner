@@ -1,0 +1,23 @@
+proxies:
+  - type: trojan
+    name: 4Mohsen-56931bb137
+    server: 212.33.206.111
+    port: 80
+    password: yu7AvNL9rW
+    udp: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-56931bb137
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-56931bb137
+rules:
+  - MATCH,Proxy

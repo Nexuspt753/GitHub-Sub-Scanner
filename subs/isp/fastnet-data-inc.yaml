@@ -1,59 +1,25 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 23.185.200.135
-    port: 57841
-    cipher: aes-128-gcm
-    password: xo6k84l7b00n2hJp
-    udp: true
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 23.185.200.135
-    port: 57841
-    cipher: aes-128-gcm
-    password: xo6k84l7b00n2hJp
+    server: 45.140.88.214
+    port: 4443
+    password: Aimer
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 23.185.200.135
-    port: 57841
-    cipher: aes-128-gcm
-    password: xo6k84l7b00n2hJp
-    udp: true
-  - type: ss
-    name: ">>@configV2rayNG::US"
-    server: 23.185.200.135
-    port: 57841
-    cipher: aes-128-gcm
-    password: xo6k84l7b00n2hJp
-    udp: true
-  - type: ss
-    name: 🇺🇸US-23.185.200.135-0448
-    server: 23.185.200.135
-    port: 57841
-    cipher: aes-128-gcm
-    password: xo6k84l7b00n2hJp
-    udp: true
+    tls: true
+    sni: ngepz.ambercc.filegear-sg.me
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - ">>@configV2rayNG::US"
-      - 🇺🇸US-23.185.200.135-0448
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - ">>@configV2rayNG::US"
-      - 🇺🇸US-23.185.200.135-0448
 rules:
   - MATCH,Proxy

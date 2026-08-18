@@ -55,7 +55,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: erfanandroid
+    name: configprxy
     server: 176.109.88.216
     port: 443
     uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
@@ -69,7 +69,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: MTMVPN
+    name: erfanandroid
     server: 176.109.88.216
     port: 443
     uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
@@ -97,6 +97,24 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Jadi-3b71870bcc
+    server: 176.109.85.71
+    port: 14443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: mws.tunnelgate.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ru
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mws.tunnelgate.org
+  - type: vless
     name: 4Kian-a21851d0ae
     server: 176.109.88.216
     port: 443
@@ -119,9 +137,10 @@ proxy-groups:
       - EPODONIOS
       - "2"
       - TEHRANARGO
+      - configprxy
       - erfanandroid
-      - MTMVPN
       - Proxy_mtm
+      - 4Jadi-3b71870bcc
       - 4Kian-a21851d0ae
   - name: Auto
     type: url-test
@@ -133,9 +152,10 @@ proxy-groups:
       - EPODONIOS
       - "2"
       - TEHRANARGO
+      - configprxy
       - erfanandroid
-      - MTMVPN
       - Proxy_mtm
+      - 4Jadi-3b71870bcc
       - 4Kian-a21851d0ae
 rules:
   - MATCH,Proxy

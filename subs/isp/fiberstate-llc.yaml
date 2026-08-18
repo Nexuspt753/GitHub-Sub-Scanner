@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 38.58.180.136
+    port: 3116
+    uuid: 5efabea4-f6d4-91fd-b8f0-17e004c89c60
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@s5gydl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: node67.lunes.host
+  - type: vless
     name: 4Kian-d40637dc93
     server: node67.lunes.host
     port: 3116
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-d40637dc93
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-d40637dc93
 rules:
   - MATCH,Proxy

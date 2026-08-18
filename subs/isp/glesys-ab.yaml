@@ -1,30 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Sarina-3ce6cdb6d8
-    server: 178.83.31.93
-    port: 443
-    uuid: 4a97788b-5d8a-410c-875c-ba36930e185e
+  - type: ss
+    name: 4Kian-4a331250a6
+    server: 46.246.96.30
+    port: 31561
+    cipher: chacha20-ietf-poly1305
+    password: hc8LMJew3Fl9MbcFCoFgT0
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: 989gq45ogQSZLDoUTcLNSYW5v_3ER7W_6Oi_8swZzXo
-      short-id: cb55f541
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-3ce6cdb6d8
+      - 4Kian-4a331250a6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-3ce6cdb6d8
+      - 4Kian-4a331250a6
 rules:
   - MATCH,Proxy

@@ -1,4 +1,19 @@
 proxies:
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub
+    server: 45.134.9.133
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ul-mexico1.09vpn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: Querétaro City · 4FreeIran-2b1b60daf4
     server: 68.155.139.204
@@ -20,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Mexico City · @DeltaKroneckerGithub
       - Querétaro City · 4FreeIran-2b1b60daf4
   - name: Auto
     type: url-test
@@ -27,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Mexico City · @DeltaKroneckerGithub
       - Querétaro City · 4FreeIran-2b1b60daf4
 rules:
   - MATCH,Proxy

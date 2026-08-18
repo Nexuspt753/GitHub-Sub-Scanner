@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Jadi-58b45b5572
+    server: 38.207.177.236
+    port: 443
+    uuid: 9c64064c-aaaf-449f-9344-77632fc9ff1c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: maES4RMEtsm5emBCixDRa6Y5GvmVwmwZNBL2G4Q03D4
+      short-id: 47de54e71fee3451
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-fd39743c0c
     server: 38.207.177.236
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-58b45b5572
       - 4FreeIran-fd39743c0c
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-58b45b5572
       - 4FreeIran-fd39743c0c
 rules:
   - MATCH,Proxy
