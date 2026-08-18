@@ -1,5 +1,35 @@
 proxies:
   - type: vmess
+    name: 4FreeIran-d7831cca16
+    server: 74.48.28.190
+    port: 80
+    uuid: 4ed58974-48cd-472e-c818-fb847b8c551f
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /cctv13.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-a5aa98ea6d
+    server: 74.48.28.190
+    port: 80
+    uuid: 4ed58974-48cd-472e-c818-fb847b8c551f
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /cctv13.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4FreeIran-b1bb5cb434
     server: us1.grpc.stream
     port: 80
@@ -20,6 +50,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-d7831cca16
+      - 4Kian-a5aa98ea6d
       - 4FreeIran-b1bb5cb434
   - name: Auto
     type: url-test
@@ -27,6 +59,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-d7831cca16
+      - 4Kian-a5aa98ea6d
       - 4FreeIran-b1bb5cb434
 rules:
   - MATCH,Proxy

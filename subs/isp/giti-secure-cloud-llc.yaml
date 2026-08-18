@@ -13,6 +13,20 @@ proxies:
     uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-223701f099
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: 16965742-1254-4035-da01-fbc924653b4d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: s2.zynetraq.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -20,6 +34,7 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
+      - 4FreeIran-223701f099
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +43,6 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
+      - 4FreeIran-223701f099
 rules:
   - MATCH,Proxy

@@ -1,4 +1,16 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: magazinetut.online
+    port: 8443
+    uuid: 7d641c2e-6897-4b9f-8a82-3f0cc8980db1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Kian-7f3e6a8a84
     server: 5.180.27.210
@@ -18,7 +30,7 @@ proxies:
     password: owefv0_92Z540k2F_nx83245_J9130oS_tY
     sni: borat-hopp.bumbleshrimp.com
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 5.180.52.186
     port: 8443
     uuid: 7d641c2e-6897-4b9f-8a82-3f0cc8980db1
@@ -33,19 +45,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-7f3e6a8a84
       - 4Jadi-56850ae3cf
       - 4Nika-96f99c1faa
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-7f3e6a8a84
       - 4Jadi-56850ae3cf
       - 4Nika-96f99c1faa
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

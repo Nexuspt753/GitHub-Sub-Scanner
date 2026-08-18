@@ -8,12 +8,24 @@ proxies:
     tls: true
     sni: 38.180.173.150
     client-fingerprint: chrome
+  - type: vless
+    name: Lima · 4FreeIran-fac899fc64
+    server: 5r86-tuq187.operix.top
+    port: 443
+    uuid: 4caaaae0-516b-4026-b2b2-69fea69df19a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Lima · @DeltaKroneckerGithub
+      - Lima · 4FreeIran-fac899fc64
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Lima · @DeltaKroneckerGithub
+      - Lima · 4FreeIran-fac899fc64
 rules:
   - MATCH,Proxy

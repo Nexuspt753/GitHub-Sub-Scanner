@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Sarina-2563bffea5
+    server: 103.76.85.228
+    port: 443
+    uuid: 696338ec-091d-4b41-b855-8f88d5b5d873
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-2563bffea5
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-2563bffea5
+rules:
+  - MATCH,Proxy

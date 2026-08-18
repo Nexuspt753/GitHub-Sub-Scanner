@@ -11,32 +11,6 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Продлите
-    server: 85.198.101.160
-    port: 443
-    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-bffffd50a5
-    server: 45.12.75.242
-    port: 26424
-    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ya.ru
-    reality-opts:
-      public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-      short-id: 23103e1e
-    xudp: true
   - type: vmess
     name: 4Sarina-bdc0b294eb
     server: 45.11.92.100
@@ -69,16 +43,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: YouTube-aweikeji
+  - type: vmess
+    name: 4Nika-f4154fad58
+    server: 45.144.179.138
+    port: 443
+    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - Продлите
-      - 4Sarina-bffffd50a5
       - 4Sarina-bdc0b294eb
       - 4Nika-87a480cf50
+      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,9 +74,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - Продлите
-      - 4Sarina-bffffd50a5
       - 4Sarina-bdc0b294eb
       - 4Nika-87a480cf50
+      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

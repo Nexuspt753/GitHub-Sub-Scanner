@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-b925aeca6d
+    server: nl2.frkn.org
+    port: 8443
+    password: 3b8c82ed-fe66-472d-915e-034ccb57103f
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-b925aeca6d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-b925aeca6d
+rules:
+  - MATCH,Proxy
