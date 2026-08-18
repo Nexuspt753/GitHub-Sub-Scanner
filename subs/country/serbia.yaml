@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: Belgrade · 4Jadi-57c31e99b9
+    server: 146.70.221.238
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Belgrade · 4Jadi-57c31e99b9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Belgrade · 4Jadi-57c31e99b9
+rules:
+  - MATCH,Proxy

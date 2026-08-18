@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 2.144.26.237
+    port: 9443
+    uuid: b47a1c70-d033-4c31-b24f-6058d6cd04bf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vip.polnejat.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /nova-geo-psiphon-be
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vip.polnejat.ir
+  - type: vless
     name: vpnsal
     server: 2.144.26.237
     port: 9443
@@ -16,6 +32,15 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vip.polnejat.ir
   - type: trojan
+    name: 4Sarina-cbb749985f
+    server: 2.144.21.112
+    port: 40443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Kian-885649425e
     server: 2.144.21.112
     port: 40443
@@ -31,20 +56,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
   - type: trojan
-    name: 4Jadi-b65974edc0
-    server: 2.144.21.112
-    port: 40443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
     name: 4Nika-cdded78b06
     server: 2.144.21.112
     port: 40443
@@ -58,24 +69,44 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-91d7963fc6
+    server: 2.144.26.237
+    port: 9443
+    uuid: b47a1c70-d033-4c31-b24f-6058d6cd04bf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vip.polnejat.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /nova-geo-psiphon-be
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vip.polnejat.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - vpnsal
+      - 4Sarina-cbb749985f
       - 4Kian-885649425e
-      - 4Jadi-b65974edc0
       - 4Nika-cdded78b06
+      - 4Jadi-91d7963fc6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - vpnsal
+      - 4Sarina-cbb749985f
       - 4Kian-885649425e
-      - 4Jadi-b65974edc0
       - 4Nika-cdded78b06
+      - 4Jadi-91d7963fc6
 rules:
   - MATCH,Proxy
