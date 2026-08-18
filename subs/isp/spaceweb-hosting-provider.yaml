@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: hex_proxy
-    server: 168.222.141.146
+    name: DeltaKroneckerGithub
+    server: 168.222.140.155
     port: 2200
-    uuid: bceda826-c83c-45d0-891e-15c4bfec76bc
+    uuid: 2aa7f4b1-e859-46d0-b8ac-8587811ab7b1
     udp: true
     xudp: true
     network: ws
@@ -11,19 +11,18 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - hex_proxy
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - hex_proxy
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

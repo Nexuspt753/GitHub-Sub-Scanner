@@ -20,12 +20,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: time.ir
+  - type: vmess
+    name: 4FreeIran-f819b6b2aa
+    server: time.ir
+    port: 443
+    uuid: last-update-time
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: time.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: time.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-09a9cb139b
+      - 4FreeIran-f819b6b2aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,5 +52,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-09a9cb139b
+      - 4FreeIran-f819b6b2aa
 rules:
   - MATCH,Proxy

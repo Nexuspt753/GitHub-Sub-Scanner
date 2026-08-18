@@ -2,6 +2,22 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 151.241.129.98
+    port: 7219
+    uuid: d33ac0d8-d558-41bc-9805-9420fa965f8c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 7nnoiou0z.3xn99hzq2sh7iekktpkeq7rofs3qc8iohrqs4pb9p.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 7nnoiou0z.3xn99hzq2sh7iekktpkeq7rofs3qc8iohrqs4pb9p.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 151.241.129.98
     port: 7228
     uuid: 27683927-577c-44fe-a229-49953175da78
     udp: true
@@ -21,6 +37,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

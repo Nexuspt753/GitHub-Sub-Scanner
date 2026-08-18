@@ -1,17 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 87.228.122.106
-    port: 2200
-    uuid: 2c66d559-9889-45c5-a712-d8b7a31fa04d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: EPODONIOS
     server: 87.228.122.108
     port: 4100
@@ -23,6 +11,20 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 84.38.189.17
+    port: 9443
+    uuid: dbacac09-9ee8-400c-b53b-745a769c220a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: m.vkvideo.ru
+    reality-opts:
+      public-key: ccQ_NEu7yDeesiPh8FP8eBIYHToC5eMtJRqDI8mHWgw
+      short-id: dd42
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: hopev2ray🤎
     server: 87.228.122.108
@@ -36,7 +38,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: mehrosaboran
+    name: DeltaKroneckerGithub-01
+    server: 87.228.122.101
+    port: 2200
+    uuid: 155e8dd4-a559-407a-9ea8-13a5e829f066
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: برای
     server: 82.202.247.181
     port: 443
     uuid: cd60668d-28d0-4070-8179-47ad0d151dd5
@@ -49,22 +63,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-f13c626108
-    server: 185.91.53.4
-    port: 443
-    uuid: 1243639c-60f1-4ad9-b0c2-a7635b2abc98
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: VaKp9XjMqT7lA4F3b6hpdF6fmsiY4B_hz6MzT6fv938
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-057596ed80
+    name: 4FreeIran-329e959634
     server: 87.228.122.108
     port: 4100
     uuid: 155e8dd4-a559-407a-9ea8-13a5e829f066
@@ -76,59 +75,45 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-1656cc2513
-    server: 185.91.53.4
+    name: vless
+    server: 31.129.42.37
     port: 443
-    uuid: 467d6b6f-c05a-4883-ac93-b5e262a306c5
+    uuid: e4d08a10-8369-45dd-bf1e-977469c56f3f
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: VaKp9XjMqT7lA4F3b6hpdF6fmsiY4B_hz6MzT6fv938
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
-    name: 4Mohsen-4b8fef8bdf
-    server: 82.202.247.181
+    name: vless-01
+    server: 37.9.4.128
     port: 443
-    uuid: cd60668d-28d0-4070-8179-47ad0d151dd5
+    uuid: e4d08a10-8369-45dd-bf1e-977469c56f3f
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yandex.ru
-    reality-opts:
-      public-key: vZ22ThhkpXUd5-tY-v5TTrouLHjgYYmeQgqeLt7HRz0
-    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub
       - hopev2ray🤎
-      - mehrosaboran
-      - 4Nika-f13c626108
-      - 4Mohsen-057596ed80
-      - 4Nika-1656cc2513
-      - 4Mohsen-4b8fef8bdf
+      - DeltaKroneckerGithub-01
+      - برای
+      - 4FreeIran-329e959634
+      - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub
       - hopev2ray🤎
-      - mehrosaboran
-      - 4Nika-f13c626108
-      - 4Mohsen-057596ed80
-      - 4Nika-1656cc2513
-      - 4Mohsen-4b8fef8bdf
+      - DeltaKroneckerGithub-01
+      - برای
+      - 4FreeIran-329e959634
+      - vless
+      - vless-01
 rules:
   - MATCH,Proxy

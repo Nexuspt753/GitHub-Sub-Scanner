@@ -1,0 +1,41 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: ir.speedit.ir
+    port: 443
+    uuid: 67122aab-4fa3-44c9-94fc-200b4c1df027
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇮🇷145744
+    server: ir.speedit.ir
+    port: 443
+    uuid: 67122aab-4fa3-44c9-94fc-200b4c1df027
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: ir.speedit.ir
+    port: 443
+    uuid: 67122aab-4fa3-44c9-94fc-200b4c1df027
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇮🇷145744
+      - 🇮🇷IR-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇮🇷145744
+      - 🇮🇷IR-🚀@VPNine1
+rules:
+  - MATCH,Proxy

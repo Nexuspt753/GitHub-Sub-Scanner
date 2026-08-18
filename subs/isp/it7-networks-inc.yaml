@@ -1,25 +1,4 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 97.64.20.203
-    port: 443
-    cipher: aes-256-gcm
-    password: eT0hbu0qSofBP6mRWN56oSAN
-    udp: true
-  - type: ss
-    name: 🇺🇸145593
-    server: 97.64.20.203
-    port: 443
-    cipher: aes-256-gcm
-    password: eT0hbu0qSofBP6mRWN56oSAN
-    udp: true
-  - type: ss
-    name: 🇺🇸US-🚀@VPNine1
-    server: 97.64.20.203
-    port: 443
-    cipher: aes-256-gcm
-    password: eT0hbu0qSofBP6mRWN56oSAN
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 104.225.145.159
@@ -35,13 +14,6 @@ proxies:
       path: /5f4638b2
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: ss
-    name: 4Sarina-c0fb7170c5
-    server: 97.64.20.203
-    port: 443
-    cipher: aes-256-gcm
-    password: eT0hbu0qSofBP6mRWN56oSAN
-    udp: true
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -51,28 +23,33 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-a250baff13
+    server: 104.225.232.25
+    port: 10877
+    uuid: 42613786-2036-4a79-ad64-cc65d4e60a8d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.paypal.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇺🇸145593
-      - 🇺🇸US-🚀@VPNine1
       - DeltaKroneckerGithub
-      - 4Sarina-c0fb7170c5
       - 4Mohsen-32e553f3cf
+      - 4Mohsen-a250baff13
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇺🇸145593
-      - 🇺🇸US-🚀@VPNine1
       - DeltaKroneckerGithub
-      - 4Sarina-c0fb7170c5
       - 4Mohsen-32e553f3cf
+      - 4Mohsen-a250baff13
 rules:
   - MATCH,Proxy

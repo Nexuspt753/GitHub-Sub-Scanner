@@ -50,8 +50,18 @@ proxies:
     client-fingerprint: chrome
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: cave.magazinetut.online
+    port: 443
+    uuid: a78d6a0b-8751-4e8e-bafa-79a86c5a5fc7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 38.180.173.150
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -60,7 +70,7 @@ proxies:
     sni: 38.180.173.150
     client-fingerprint: chrome
   - type: ss
-    name: DeltaKroneckerGithub-02
+    name: ">>@V2rayNG3::NL"
     server: 188.116.23.244
     port: 8388
     cipher: chacha20-ietf-poly1305
@@ -68,6 +78,13 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-03
+    server: 188.116.23.244
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: eVC634QvVk5l
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-04
     server: 188.116.23.244
     port: 8388
     cipher: chacha20-ietf-poly1305
@@ -86,22 +103,6 @@ proxies:
       public-key: QXGsw1KqljvUiarkvFdBs3T1TeUQq4skwHFlsmbj31o
       short-id: 365c07ed
     xudp: true
-  - type: vless
-    name: 4Jadi-910a6d697a
-    server: 185.109.48.13
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
 proxy-groups:
   - name: Proxy
     type: select
@@ -115,9 +116,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - ">>@V2rayNG3::NL"
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4FreeIran-cca815baed
-      - 4Jadi-910a6d697a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -132,8 +134,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - ">>@V2rayNG3::NL"
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4FreeIran-cca815baed
-      - 4Jadi-910a6d697a
 rules:
   - MATCH,Proxy

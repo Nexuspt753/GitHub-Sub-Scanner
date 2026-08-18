@@ -1,7 +1,7 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 43.154.131.189
+    server: 43.154.33.183
     port: 443
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
@@ -17,20 +17,36 @@ proxies:
         Host: vp10.pages.dev
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 43.154.33.183
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    server: 43.165.183.74
+    port: 2443
+    uuid: 5c53add3-e092-4b29-b0c0-fb4f784115d1
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vp10.pages.dev
+    servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /@Marisa_kristi
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
+        Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
+  - type: vless
+    name: 🇯🇵
+    server: 43.167.239.81
+    port: 443
+    uuid: 85819b3c-fe18-40bb-bd9a-f3cd194a8d28
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 43.167.239.81
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 43.167.239.81
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: 43.134.48.62
@@ -49,6 +65,16 @@ proxies:
     tls: true
     sni: ngepx.ambercc.filegear-sg.me
     client-fingerprint: chrome
+  - type: vmess
+    name: 4Kian-0888d18caa
+    server: v29.hdacd.com
+    port: 30829
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,8 +82,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 🇯🇵
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Kian-0888d18caa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,7 +94,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 🇯🇵
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Kian-0888d18caa
 rules:
   - MATCH,Proxy

@@ -1,9 +1,41 @@
 proxies:
   - type: vless
-    name: 4Mohsen-f79453df36
+    name: 4Nika-40d2becb20
     server: 79.174.83.75
     port: 443
-    uuid: 654de067-5cd7-4a66-af08-c487f4f7fcd6
+    uuid: 2c9da9ca-0730-4322-be78-5bb263e2bb75
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: 5post-gate.x5.ru
+    reality-opts:
+      public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+      short-id: abcd
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-033534f48b
+    server: 79.174.83.75
+    port: 443
+    uuid: b3ec32c6-ff34-4f73-aca1-cf9bba239b00
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: 5post-gate.x5.ru
+    reality-opts:
+      public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
+      short-id: abcd
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-7ecb0ef22c
+    server: 79.174.83.75
+    port: 443
+    uuid: c0dee231-dc87-4f4f-8313-1ffaf2fb31bf
     udp: true
     tls: true
     client-fingerprint: safari
@@ -20,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f79453df36
+      - 4Nika-40d2becb20
+      - 4Kian-033534f48b
+      - 4FreeIran-7ecb0ef22c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f79453df36
+      - 4Nika-40d2becb20
+      - 4Kian-033534f48b
+      - 4FreeIran-7ecb0ef22c
 rules:
   - MATCH,Proxy
