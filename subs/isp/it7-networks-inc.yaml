@@ -1,32 +1,27 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 97.64.20.203
-    port: 443
-    cipher: aes-256-gcm
-    password: eT0hbu0qSofBP6mRWN56oSAN
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: 104.225.232.25
-    port: 10877
-    uuid: 42613786-2036-4a79-ad64-cc65d4e60a8d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.paypal.com
-    reality-opts:
-      public-key: zX35soHloTc-mNt8U2GiZQaRZuKr4v_GjMEV7SMyiUw
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 104.225.145.159
     port: 443
     uuid: 5f4638b2-cf76-4f59-92a7-bdd5ad53e010
     udp: true
     tls: true
     client-fingerprint: firefox
+    servername: rnxhttp.256800.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /5f4638b2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: 138.128.220.75
+    port: 443
+    uuid: 5f4638b2-cf76-4f59-92a7-bdd5ad53e010
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: rnxhttp.256800.xyz
     xudp: true
     network: ws
@@ -41,15 +36,30 @@ proxies:
     cipher: aes-128-gcm
     password: synlgmm
     udp: true
+  - type: vless
+    name: 🇺🇸146199
+    server: 138.128.220.75
+    port: 443
+    uuid: 5f4638b2-cf76-4f59-92a7-bdd5ad53e010
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rnxhttp.256800.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /5f4638b2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: ss
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 23.252.104.131
     port: 54321
     cipher: aes-256-gcm
     password: Proxy2024
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 66.112.211.35
     port: 443
     cipher: aes-128-gcm
@@ -69,12 +79,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 4Sarina-c3d687d04e
+      - 🇺🇸146199
+      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - 4Mohsen-32e553f3cf
   - name: Auto
     type: url-test
@@ -82,12 +92,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 4Sarina-c3d687d04e
+      - 🇺🇸146199
+      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - 4Mohsen-32e553f3cf
 rules:
   - MATCH,Proxy
