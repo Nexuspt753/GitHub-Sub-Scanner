@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 185.36.143.71
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -67,6 +83,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-4ca2f5bd10
       - 4FreeIran-3cc9851a1e
       - 4FreeIran-21d13b320c
@@ -77,6 +94,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-4ca2f5bd10
       - 4FreeIran-3cc9851a1e
       - 4FreeIran-21d13b320c

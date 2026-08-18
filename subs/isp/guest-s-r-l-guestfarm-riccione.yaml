@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 713dec3f7bd33f.salzivo.ir
+    port: 8080
+    uuid: d97a084e-f7b2-421c-b7fc-7bce5ad2e066
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇩🇪145819
+    server: 713dec3f7bd33f.salzivo.ir
+    port: 8080
+    uuid: d97a084e-f7b2-421c-b7fc-7bce5ad2e066
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇩🇪DE-🚀@VPNine1
+    server: 713dec3f7bd33f.salzivo.ir
+    port: 8080
+    uuid: d97a084e-f7b2-421c-b7fc-7bce5ad2e066
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-692822d3ba
+    server: 713dec3f7bd33f.salzivo.ir
+    port: 8080
+    uuid: d97a084e-f7b2-421c-b7fc-7bce5ad2e066
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇩🇪145819
+      - 🇩🇪DE-🚀@VPNine1
+      - 4Jadi-692822d3ba
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇩🇪145819
+      - 🇩🇪DE-🚀@VPNine1
+      - 4Jadi-692822d3ba
+rules:
+  - MATCH,Proxy

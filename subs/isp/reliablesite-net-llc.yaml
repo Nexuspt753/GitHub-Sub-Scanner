@@ -1,1 +1,30 @@
-proxies: []
+proxies:
+  - type: vless
+    name: 4Nika-e0b3075336
+    server: 172.96.141.210
+    port: 8443
+    uuid: 9c71e3bf-d79c-41ad-ba08-1028aff0eaa5
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: room.rootvana.top
+    reality-opts:
+      public-key: Y0zCjvOLHuHWgv4HUyqb9O0lSMnTrl26XO8qwnWoQXw
+      short-id: b85875a13da4
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-e0b3075336
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-e0b3075336
+rules:
+  - MATCH,Proxy
