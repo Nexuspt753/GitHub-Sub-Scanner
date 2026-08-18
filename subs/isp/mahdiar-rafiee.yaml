@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: vless
+    server: 185.211.59.224
+    port: 6100
+    uuid: cbb33a51-c5c8-4bad-85be-3eaba2c2cf52
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+rules:
+  - MATCH,Proxy

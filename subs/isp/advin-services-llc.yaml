@@ -1,0 +1,41 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: germany.zelnora.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: f8htvnxIgwCFbkDUlQ3aozYWcV53pIsC
+    udp: true
+  - type: ss
+    name: 🇩🇪DE-🚀@VPNine1
+    server: germany.zelnora.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: f8htvnxIgwCFbkDUlQ3aozYWcV53pIsC
+    udp: true
+  - type: ss
+    name: 4Mohsen-ff82e41f14
+    server: germany.zelnora.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: f8htvnxIgwCFbkDUlQ3aozYWcV53pIsC
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇩🇪DE-🚀@VPNine1
+      - 4Mohsen-ff82e41f14
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇩🇪DE-🚀@VPNine1
+      - 4Mohsen-ff82e41f14
+rules:
+  - MATCH,Proxy

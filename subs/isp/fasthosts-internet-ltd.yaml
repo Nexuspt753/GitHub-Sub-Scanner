@@ -1,0 +1,31 @@
+proxies:
+  - type: vmess
+    name: 4Mohsen-7d7b380154
+    server: uk.vpnjantit.com
+    port: 10000
+    uuid: 3c05ef9e-6582-11f1-a6e5-1727059cff63
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vpnjantit
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-7d7b380154
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-7d7b380154
+rules:
+  - MATCH,Proxy

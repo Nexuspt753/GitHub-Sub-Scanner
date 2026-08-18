@@ -28,6 +28,21 @@ proxies:
       public-key: 0wHK7-VJ5ich3gTaQbBhMyyEtXpNGmVNskbIsnLBTQ8
       short-id: "0000008795147229"
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 89.150.34.41
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
   - type: vless
     name: erfanandroid
     server: 157.22.176.96
@@ -67,22 +82,6 @@ proxies:
       public-key: 0wHK7-VJ5ich3gTaQbBhMyyEtXpNGmVNskbIsnLBTQ8
       short-id: "0000008795147229"
     xudp: true
-  - type: vless
-    name: 4Jadi-a7da6f95fe
-    server: 89.46.131.91
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
   - type: vmess
     name: 4FreeIran-41da9fc8de
     server: 89.150.35.155
@@ -118,24 +117,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apjhdggyx.com
-  - type: vmess
-    name: 4Mohsen-9ea0a5adff
-    server: 89.150.35.155
-    port: 443
-    uuid: 5f72f180-b21b-4b7a-8484-240759012604
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: apjhdggyx.com
-    network: ws
-    ws-opts:
-      path: /5f72f180-b21b-4b7a-8484-240759096785
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: apjhdggyx.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -143,13 +124,12 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub-01
       - erfanandroid
       - MTMVPN
       - 4Kian-907f91389d
-      - 4Jadi-a7da6f95fe
       - 4FreeIran-41da9fc8de
       - 4Mohsen-2b5bdc6b2e
-      - 4Mohsen-9ea0a5adff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -158,12 +138,11 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub-01
       - erfanandroid
       - MTMVPN
       - 4Kian-907f91389d
-      - 4Jadi-a7da6f95fe
       - 4FreeIran-41da9fc8de
       - 4Mohsen-2b5bdc6b2e
-      - 4Mohsen-9ea0a5adff
 rules:
   - MATCH,Proxy
