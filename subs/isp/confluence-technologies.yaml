@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 159.112.235.52
+    port: 443
+    uuid: 83afd88f-200f-4d89-bfc7-66eff160c1d8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: josni.hoyes.cloudns.ch
+    xudp: true
+    network: ws
+    ws-opts:
+      path: musiclovers85?ed=512
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: josni.hoyes.cloudns.ch
+  - type: vless
+    name: 4Nika-2fb538cb51
+    server: 159.112.235.52
+    port: 443
+    uuid: 83afd88f-200f-4d89-bfc7-66eff160c1d8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: josni.hoyes.cloudns.ch
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /musiclovers85?ed=512
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: josni.hoyes.cloudns.ch
+  - type: vless
+    name: 4Mohsen-494ee0350f
+    server: 159.112.235.14
+    port: 8443
+    uuid: f775978b-6e22-41a8-ae5e-5f9779e6745f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: juzibaipiao.5112233.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: juzibaipiao.5112233.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Nika-2fb538cb51
+      - 4Mohsen-494ee0350f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Nika-2fb538cb51
+      - 4Mohsen-494ee0350f
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 89.37.192.178
+    port: 8443
+    uuid: 6607d677-f567-4692-af46-52d0e15808a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lp.cryptoofarm.com
+    reality-opts:
+      public-key: Ezu-OUgjepmy9XG8khX0Q8xQ_i0fGh6w_H4JO49TG34
+      short-id: 964fdf71ea78787f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 89.37.192.178
+    port: 8443
+    uuid: 6607d677-f567-4692-af46-52d0e15808a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lp.cryptoofarm.com
+    reality-opts:
+      public-key: Ezu-OUgjepmy9XG8khX0Q8xQ_i0fGh6w_H4JO49TG34
+      short-id: 964fdf71ea78787f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: GozargahAzad|🇷🇴
+    server: 89.37.192.178
+    port: 8443
+    uuid: 6607d677-f567-4692-af46-52d0e15808a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lp.cryptoofarm.com
+    reality-opts:
+      public-key: Ezu-OUgjepmy9XG8khX0Q8xQ_i0fGh6w_H4JO49TG34
+      short-id: 964fdf71ea78787f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇷🇴145852
+    server: 89.37.192.178
+    port: 8443
+    uuid: 6607d677-f567-4692-af46-52d0e15808a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lp.cryptoofarm.com
+    reality-opts:
+      public-key: Ezu-OUgjepmy9XG8khX0Q8xQ_i0fGh6w_H4JO49TG34
+      short-id: 964fdf71ea78787f
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - GozargahAzad|🇷🇴
+      - 🇷🇴145852
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - GozargahAzad|🇷🇴
+      - 🇷🇴145852
+rules:
+  - MATCH,Proxy

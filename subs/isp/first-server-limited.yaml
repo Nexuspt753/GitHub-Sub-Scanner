@@ -1,14 +1,5 @@
 proxies:
   - type: trojan
-    name: 🇷🇺
-    server: ru.techdatacloud.org
-    port: 8443
-    password: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
-    udp: true
-    tls: true
-    sni: cloud.mail.ru
-    client-fingerprint: chrome
-  - type: trojan
     name: DeltaKroneckerGithub
     server: 185.114.72.31
     port: 2053
@@ -38,8 +29,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub-02
+    server: 185.174.138.239
+    port: 443
+    password: NISHIKUITAN111
+    udp: true
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-03
     server: 45.43.88.13
     port: 2053
     cipher: none
@@ -64,10 +62,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 🇷🇺
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Sarina-d025244895
   - name: Auto
     type: url-test
@@ -75,10 +73,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 🇷🇺
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Sarina-d025244895
 rules:
   - MATCH,Proxy

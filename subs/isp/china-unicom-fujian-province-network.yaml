@@ -10,12 +10,24 @@ proxies:
     servername: sgg.knhqf.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-683ce6df77
+    server: 36.248.14.90
+    port: 14343
+    uuid: fb957ee2-2ca0-43f3-ab86-724a9ca0b628
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thuk.huaweiyouxuan.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-683ce6df77
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-683ce6df77
 rules:
   - MATCH,Proxy

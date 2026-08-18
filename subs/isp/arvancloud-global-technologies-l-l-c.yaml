@@ -1,63 +1,32 @@
 proxies:
   - type: vless
-    name: vless
-    server: 130.185.122.175
-    port: 8787
-    uuid: 34a506cf-b373-4cc2-8ed4-3954a234b208
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
     name: EPODONIOS
-    server: 130.185.122.175
-    port: 8888
-    uuid: 9b3aae44-12db-47e1-89e8-3b6bf67eedc2
+    server: 130.185.123.32
+    port: 443
+    uuid: 14f493a7-242a-4add-8413-cecc063b3ce3
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: 130.185.122.175
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS-01
-    server: 130.185.122.175
-    port: 8585
-    uuid: fbcef3f5-12d0-4f97-8309-c70ddf5c00b0
+    name: 🇦🇪AE-🚀@VPNine1
+    server: 130.185.123.32
+    port: 443
+    uuid: 14f493a7-242a-4add-8413-cecc063b3ce3
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: 130.185.122.175
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
       - EPODONIOS
-      - EPODONIOS-01
+      - 🇦🇪AE-🚀@VPNine1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - EPODONIOS
-      - EPODONIOS-01
+      - 🇦🇪AE-🚀@VPNine1
 rules:
   - MATCH,Proxy

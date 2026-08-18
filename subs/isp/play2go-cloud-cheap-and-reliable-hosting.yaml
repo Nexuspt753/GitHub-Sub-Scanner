@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 94.156.112.71
+    port: 443
+    uuid: f00984ef-f57e-41db-9182-b25f7bc3a1e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: germany2.stardevs.top
+    reality-opts:
+      public-key: tcGias3ywS5uxXzg5Bv-TNtxclCganaj3iFSjjHgMSQ
+      short-id: f37fb7531c60780d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-daa9ae0e95
+    server: 94.156.112.71
+    port: 443
+    uuid: f00984ef-f57e-41db-9182-b25f7bc3a1e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: germany2.stardevs.top
+    reality-opts:
+      public-key: tcGias3ywS5uxXzg5Bv-TNtxclCganaj3iFSjjHgMSQ
+      short-id: f37fb7531c60780d
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4Sarina-daa9ae0e95
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4Sarina-daa9ae0e95
+rules:
+  - MATCH,Proxy

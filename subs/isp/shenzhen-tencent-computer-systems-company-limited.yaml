@@ -16,6 +16,20 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
   - type: vless
+    name: EPODONIOS
+    server: 43.165.177.82
+    port: 443
+    uuid: 0b772594-d6b9-4f4f-849b-8a6f92f594fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: ZuN9nc78h4Ccb19eb9NpTCs0jZkhJB8L0i1ZoAhu0XU
+      short-id: b2f4518cf979889d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: DeltaKroneckerGithub-01
     server: 43.154.131.189
     port: 443
@@ -91,18 +105,30 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-d0baac38ab
+    server: v6.hdacd.com
+    port: 30806
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - 4FreeIran-149436844e
       - 4FreeIran-4ce6751e6f
       - 4Kian-6ce2a72235
+      - 4Kian-d0baac38ab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -110,11 +136,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - 4FreeIran-149436844e
       - 4FreeIran-4ce6751e6f
       - 4Kian-6ce2a72235
+      - 4Kian-d0baac38ab
 rules:
   - MATCH,Proxy

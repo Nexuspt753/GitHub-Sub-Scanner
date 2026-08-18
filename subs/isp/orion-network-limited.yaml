@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Sarina-f8e4e76621
+    server: fr.noooo.win
+    port: 443
+    uuid: 7b241232-208d-4d36-857e-913f91b044f4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-f8e4e76621
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-f8e4e76621
+rules:
+  - MATCH,Proxy

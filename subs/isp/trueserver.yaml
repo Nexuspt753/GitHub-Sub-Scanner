@@ -12,12 +12,72 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 213.193.254.131
+    port: 443
+    uuid: ea6db8fa-7e15-4eb2-87f1-22004ac00061
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: video.she-happ.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: video.she-happ.com
+    port: 443
+    uuid: ea6db8fa-7e15-4eb2-87f1-22004ac00061
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: video.she-happ.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇬🇧|GB|@wxgqlfx|166
+    server: 213.193.254.131
+    port: 443
+    uuid: ea6db8fa-7e15-4eb2-87f1-22004ac00061
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: video.she-happ.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇬🇧|GB|@wxgqlfx|149
+    server: video.she-happ.com
+    port: 443
+    uuid: ea6db8fa-7e15-4eb2-87f1-22004ac00061
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: video.she-happ.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇬🇧|GB|@wxgqlfx|166
+      - 🇬🇧|GB|@wxgqlfx|149
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +85,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇬🇧|GB|@wxgqlfx|166
+      - 🇬🇧|GB|@wxgqlfx|149
 rules:
   - MATCH,Proxy

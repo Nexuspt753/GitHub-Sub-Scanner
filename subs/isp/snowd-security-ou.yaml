@@ -13,12 +13,29 @@ proxies:
       short-id: 6ba85179e30d4fc2
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-723ed88167
+    server: 78.17.17.85
+    port: 2054
+    uuid: baadeb43-ab3d-40f2-b1e6-5e3d4104f06c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ibm.com
+    reality-opts:
+      public-key: WckOSneVajAzpH0sZSAFAWPnmwuuEXKZrTICNj5_hHU
+      short-id: 423bccc9c13fb509
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-9705fb400e
+      - 4Mohsen-723ed88167
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-9705fb400e
+      - 4Mohsen-723ed88167
 rules:
   - MATCH,Proxy

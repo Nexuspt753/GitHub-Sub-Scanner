@@ -1,0 +1,127 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 159.246.55.251
+    port: 443
+    uuid: AlfredConfig
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: alfi.yas-nowin.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: alfi.yas-nowin.ir
+  - type: vless
+    name: Alfred_Config
+    server: 159.246.55.251
+    port: 443
+    uuid: AlfredConfig
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: alfi.yas-nowin.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: alfi.yas-nowin.ir
+  - type: vless
+    name: 4Nika-236a225143
+    server: 159.246.55.251
+    port: 443
+    uuid: AlfredConfig
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: alfi.yas-nowin.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: alfi.yas-nowin.ir
+  - type: vless
+    name: 4Kian-9bb631ecd1
+    server: 159.246.55.253
+    port: 2096
+    uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gaosir.unfeeling.sbs
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /Telegram🇨🇳+@WangCai2+/?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gaosir.unfeeling.sbs
+  - type: vless
+    name: 4Mohsen-0d1c946b29
+    server: 159.246.55.253
+    port: 2096
+    uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gaosir.unfeeling.sbs
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Jadi-df11f35d37
+    server: 159.246.55.180
+    port: 443
+    uuid: 1af4ba3d-e60f-4f83-b38b-23fc181f676d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /11201
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - Alfred_Config
+      - 4Nika-236a225143
+      - 4Kian-9bb631ecd1
+      - 4Mohsen-0d1c946b29
+      - 4Jadi-df11f35d37
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - Alfred_Config
+      - 4Nika-236a225143
+      - 4Kian-9bb631ecd1
+      - 4Mohsen-0d1c946b29
+      - 4Jadi-df11f35d37
+rules:
+  - MATCH,Proxy
