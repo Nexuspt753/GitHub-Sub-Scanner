@@ -1,4 +1,31 @@
 proxies:
+  - type: trojan
+    name: EPODONIOS
+    server: 185.126.236.186
+    port: 443
+    password: sbp4kLxhRM
+    udp: true
+    tls: true
+    sni: amp-api-edge.apps.apple.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: EPODONIOS-01
+    server: 185.126.236.186
+    port: 443
+    password: sbp4kLxhRM
+    udp: true
+    tls: true
+    sni: amp-api-edge.apps.apple.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-61d6051eef
+    server: 185.126.236.186
+    port: 443
+    password: sbp4kLxhRM
+    udp: true
+    tls: true
+    sni: amp-api-edge.apps.apple.com
+    client-fingerprint: chrome
   - type: vless
     name: 4Mohsen-5bf2eaddcf
     server: 185.237.185.182
@@ -31,20 +58,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: 4Jadi-b190316bea
+    server: 185.237.185.182
+    port: 2053
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Kian-61d6051eef
       - 4Mohsen-5bf2eaddcf
       - 4Jadi-24c383315e
+      - 4Jadi-b190316bea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Kian-61d6051eef
       - 4Mohsen-5bf2eaddcf
       - 4Jadi-24c383315e
+      - 4Jadi-b190316bea
 rules:
   - MATCH,Proxy

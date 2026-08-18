@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: Luxembourg · 4Sarina-05077e9893
+    server: 80.93.223.38
+    port: 8020
+    uuid: ad313d8e-180d-42ae-b84c-b9c7c44c8b7e
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Luxembourg · 4Sarina-05077e9893
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Luxembourg · 4Sarina-05077e9893
+rules:
+  - MATCH,Proxy

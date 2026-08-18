@@ -8,27 +8,12 @@ proxies:
     tls: true
     sni: www.bilibili.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-68222c729d
-    server: us1.app-sync-data.space
-    port: 443
-    uuid: 8107d9b3-1acc-4da3-9a04-5fd0ba338b64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cloudflare.com
-    reality-opts:
-      public-key: Vq9OMOYjN0r0mOLhMMgW-u72T3qOibr2CK0RQNCJLEE
-      short-id: b5e8d1c3f7a20946
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-68222c729d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -36,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-68222c729d
 rules:
   - MATCH,Proxy

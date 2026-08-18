@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: fstbyeblog.uk
+    port: 8443
+    uuid: cf6beb27-c0b4-49e5-980b-8ff2486615fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: FTNpi9PhfU7Pvu4pZrHZzXRMdVLVonsXTpFxzZZz4Rg
+      short-id: b0
+    xudp: true
+  - type: vless
+    name: 🇮🇷146503
+    server: fstbyeblog.uk
+    port: 8443
+    uuid: cf6beb27-c0b4-49e5-980b-8ff2486615fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: FTNpi9PhfU7Pvu4pZrHZzXRMdVLVonsXTpFxzZZz4Rg
+      short-id: b0
+    xudp: true
+  - type: vless
+    name: 4Jadi-afe942331d
+    server: fstbyeblog.uk
+    port: 8443
+    uuid: cf6beb27-c0b4-49e5-980b-8ff2486615fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: FTNpi9PhfU7Pvu4pZrHZzXRMdVLVonsXTpFxzZZz4Rg
+      short-id: b0
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇮🇷146503
+      - 4Jadi-afe942331d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇮🇷146503
+      - 4Jadi-afe942331d
+rules:
+  - MATCH,Proxy

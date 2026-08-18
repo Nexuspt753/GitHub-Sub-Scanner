@@ -45,6 +45,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 38.128.251.24
+    port: 42538
+    uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
+    udp: true
+    xudp: true
+  - type: vless
     name: IR-@V2rayAlpha-14
     server: 38.93.136.8
     port: 443
@@ -89,23 +96,27 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-8616dadf21
-    server: silenceux.ir
-    port: 2087
-    uuid: 873a2c71-8f3f-4d66-a450-31b46ac8074e
+    name: 4Mohsen-33a8e3d5ea
+    server: 38.128.251.24
+    port: 42538
+    uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
     udp: true
     xudp: true
-  - type: vless
-    name: 4FreeIran-fe5d548224
-    server: 154.29.155.211
-    port: 443
-    uuid: e1588d14-0a16-483f-9d54-cf521541035b
+  - type: vmess
+    name: 4Mohsen-219e43fbd8
+    server: 38.246.226.240
+    port: 52080
+    uuid: 7d4bd961-230c-4b34-ab5d-05cf0dfb4ea5
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    flow: xtls-rprx-vision-udp443
     xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
@@ -115,12 +126,13 @@ proxy-groups:
       - 4Mohsen-bb0052ab63
       - 4Nika-63c4b34381
       - EPODONIOS
+      - EPODONIOS-01
       - IR-@V2rayAlpha-14
       - 🇨🇦146428
       - 🇨🇦CA-🚀@VPNine1
       - 4Nika-96a484718e
-      - 4Jadi-8616dadf21
-      - 4FreeIran-fe5d548224
+      - 4Mohsen-33a8e3d5ea
+      - 4Mohsen-219e43fbd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -131,11 +143,12 @@ proxy-groups:
       - 4Mohsen-bb0052ab63
       - 4Nika-63c4b34381
       - EPODONIOS
+      - EPODONIOS-01
       - IR-@V2rayAlpha-14
       - 🇨🇦146428
       - 🇨🇦CA-🚀@VPNine1
       - 4Nika-96a484718e
-      - 4Jadi-8616dadf21
-      - 4FreeIran-fe5d548224
+      - 4Mohsen-33a8e3d5ea
+      - 4Mohsen-219e43fbd8
 rules:
   - MATCH,Proxy

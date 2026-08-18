@@ -1,6 +1,36 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 86.107.197.239
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
+  - type: vless
     name: EPODONIOS
+    server: 95.169.201.169
+    port: 13868
+    uuid: 06d44c57-8e1a-41f4-b9c4-65d35869e078
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amd.com
+    reality-opts:
+      public-key: XxzDVidmyjuPnBKrFDwCpowaIdLth4-kJsqrDvdPPx8
+      short-id: e852dc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: meliproxyy
     server: 95.169.201.169
     port: 13868
     uuid: 06d44c57-8e1a-41f4-b9c4-65d35869e078
@@ -46,7 +76,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - meliproxyy
       - MTMVPN
       - 4Sarina-a02ad69605
   - name: Auto
@@ -55,7 +87,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - meliproxyy
       - MTMVPN
       - 4Sarina-a02ad69605
 rules:

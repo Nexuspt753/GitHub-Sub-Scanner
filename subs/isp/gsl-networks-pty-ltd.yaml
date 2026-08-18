@@ -1,5 +1,33 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 173.244.56.6
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: 🇺🇸
+    server: 173.244.56.6
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: 🇺🇸-01
+    server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
     name: 4Jadi-bafa6af781
     server: 173.244.56.6
     port: 443
@@ -27,13 +55,6 @@ proxies:
       short-id: 7ceaf5d4e008556d
     xudp: true
   - type: ss
-    name: EPODONIOS
-    server: 173.244.56.6
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
-  - type: ss
     name: ss
     server: 173.244.56.9
     port: 443
@@ -49,14 +70,14 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-02
-    server: 173.244.56.9
+    server: 173.244.56.6
     port: 443
-    cipher: YWVzLTEyOC1nY206c2hhZG93c29ja3M%3D
-    password: ""
+    cipher: aes-128-gcm
+    password: shadowsocks
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-03
-    server: 173.244.56.6
+    server: 173.244.56.9
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
@@ -82,28 +103,18 @@ proxies:
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
-  - type: vless
-    name: 4Nika-1df88aa5a8
-    server: 203.17.244.59
-    port: 8443
-    uuid: fcd673a5-8ecf-4a3c-a9e3-612dfd6c3fe2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: egg.mega-play.app
-    reality-opts:
-      public-key: E1zH5CmJ_y-wNDOObxwLrZ1nE9GV0om-5eoJamn9iGQ
-      short-id: 7ceaf5d4e008556d
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇺🇸
+      - 🇺🇸-01
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
       - DeltaKroneckerGithub
-      - EPODONIOS
       - ss
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -111,17 +122,19 @@ proxy-groups:
       - DeltaKroneckerGithub-04
       - 🇺🇸US-173.244.56.9-0050
       - 🇺🇸US-173.244.56.6-0052
-      - 4Nika-1df88aa5a8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇺🇸
+      - 🇺🇸-01
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
       - DeltaKroneckerGithub
-      - EPODONIOS
       - ss
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -129,6 +142,5 @@ proxy-groups:
       - DeltaKroneckerGithub-04
       - 🇺🇸US-173.244.56.9-0050
       - 🇺🇸US-173.244.56.6-0052
-      - 4Nika-1df88aa5a8
 rules:
   - MATCH,Proxy

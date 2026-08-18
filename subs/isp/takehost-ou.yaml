@@ -17,6 +17,19 @@ proxies:
     skip-cert-verify: true
   - type: vless
     name: EPODONIOS
+    server: 5.175.178.53
+    port: 443
+    uuid: f4dbc770-016d-4a0f-82f0-d83ee6f45da3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: spry-jolt.cdn.cachefleet.com
+    reality-opts:
+      public-key: ym3hAtR8IhSWN-uRGGRcjHm7tvaPfeVcBDW6DM8w_Ec
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: 94.249.225.79
     port: 443
     uuid: f4dbc770-016d-4a0f-82f0-d83ee6f45da3
@@ -24,19 +37,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: grand-lynx.cdn.cachefleet.com
-    reality-opts:
-      public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 94.249.225.83
-    port: 443
-    uuid: f4dbc770-016d-4a0f-82f0-d83ee6f45da3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: plucky-kestrel.cdn.cachefleet.com
     reality-opts:
       public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
     flow: xtls-rprx-vision
@@ -55,16 +55,16 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: TEHRANARGO
-    server: 5.175.178.53
+    name: EPODONIOS-03
+    server: 94.249.225.83
     port: 443
     uuid: f4dbc770-016d-4a0f-82f0-d83ee6f45da3
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: spry-jolt.cdn.cachefleet.com
+    servername: plucky-kestrel.cdn.cachefleet.com
     reality-opts:
-      public-key: ym3hAtR8IhSWN-uRGGRcjHm7tvaPfeVcBDW6DM8w_Ec
+      public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -91,19 +91,6 @@ proxies:
     servername: spry-jolt.cdn.cachefleet.com
     reality-opts:
       public-key: ym3hAtR8IhSWN-uRGGRcjHm7tvaPfeVcBDW6DM8w_Ec
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: ProxyMtpVPN-433
-    server: 94.249.225.79
-    port: 443
-    uuid: f4dbc770-016d-4a0f-82f0-d83ee6f45da3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: grand-lynx.cdn.cachefleet.com
-    reality-opts:
-      public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -146,6 +133,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Sarina-da2d75d2a4
+    server: 94.249.225.79
+    port: 443
+    uuid: f4dbc770-016d-4a0f-82f0-d83ee6f45da3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: grand-lynx.cdn.cachefleet.com
+    reality-opts:
+      public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-e1c23abd81
     server: 94.249.225.83
     port: 443
@@ -171,6 +171,22 @@ proxies:
       public-key: X6zcH8pCUXrauNQvbNkm8e_oTdB0wOr8eCMCzs3b1Tc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-b473b92296
+    server: 94.249.225.160
+    port: 443
+    uuid: fa98f221-29e1-4a7e-8797-3bf294aeda35
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -181,15 +197,16 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - TEHRANARGO
+      - EPODONIOS-03
       - mehrosaboran
       - TEHRANARGO@
-      - ProxyMtpVPN-433
       - appsooner
       - prrofile_purple
       - 4FreeIran-e9f750d6a5
+      - 4Sarina-da2d75d2a4
       - 4Jadi-e1c23abd81
       - 4FreeIran-1f0cbec484
+      - 4Kian-b473b92296
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -201,14 +218,15 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - TEHRANARGO
+      - EPODONIOS-03
       - mehrosaboran
       - TEHRANARGO@
-      - ProxyMtpVPN-433
       - appsooner
       - prrofile_purple
       - 4FreeIran-e9f750d6a5
+      - 4Sarina-da2d75d2a4
       - 4Jadi-e1c23abd81
       - 4FreeIran-1f0cbec484
+      - 4Kian-b473b92296
 rules:
   - MATCH,Proxy

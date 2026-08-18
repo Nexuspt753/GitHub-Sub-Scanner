@@ -13,41 +13,12 @@ proxies:
       short-id: a73cf719b624
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 194.0.194.38
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
-  - type: vless
-    name: 4Sarina-be3c9c5e73
-    server: id.tutdesignstudio.site
-    port: 8443
-    uuid: b9125df6-2a60-4643-bcba-a5f78cb663a7
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: id.tutdesignstudio.site
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Sarina-be3c9c5e73
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,7 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Sarina-be3c9c5e73
 rules:
   - MATCH,Proxy

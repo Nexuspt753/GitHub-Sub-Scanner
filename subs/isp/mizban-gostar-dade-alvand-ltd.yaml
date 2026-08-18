@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: free.soundfiy.ir
+    port: 4554
+    uuid: 682fdfcb-890c-4e1e-9050-f8331def3d03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: v-ydSy2Eb-YyiWYd3WyFoJc4Bjs9QPGRTsVac6SyO14
+      short-id: 515ed4da724702
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-6f3ba26dfa
+    server: free.soundfiy.ir
+    port: 4554
+    uuid: 682fdfcb-890c-4e1e-9050-f8331def3d03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: v-ydSy2Eb-YyiWYd3WyFoJc4Bjs9QPGRTsVac6SyO14
+      short-id: 515ed4da724702
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4Jadi-6f3ba26dfa
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4Jadi-6f3ba26dfa
+rules:
+  - MATCH,Proxy
