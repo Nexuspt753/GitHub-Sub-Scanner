@@ -1,16 +1,19 @@
 proxies:
+  - type: hysteria2
+    name: 4FreeIran-249ffb642c
+    server: kz.frkn.org
+    port: 443
+    password: 3b8c82ed-fe66-472d-915e-034ccb57103f
+    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: 5.180.40.9
-    port: 443
-    uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
+    server: 5.180.52.186
+    port: 8443
+    uuid: 7d641c2e-6897-4b9f-8a82-3f0cc8980db1
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: cloud.mail.ru
-    reality-opts:
-      public-key: 06GvG7PU5F3Hgq-vUH24tU0tpsbGMCCt26BSvlaBNUE
-      short-id: dfbfa87e9f37f1f0
+    servername: magazinetut.online
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,6 +21,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-249ffb642c
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -25,6 +29,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-249ffb642c
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

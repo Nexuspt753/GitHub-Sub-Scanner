@@ -24,6 +24,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
+  - type: trojan
+    name: filembad
+    server: 185.126.236.186
+    port: 443
+    password: sbp4kLxhRM
+    udp: true
+    tls: true
+    sni: amp-api-edge.apps.apple.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -31,6 +40,7 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - DeltaKroneckerGithub
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,5 +49,6 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - DeltaKroneckerGithub
+      - filembad
 rules:
   - MATCH,Proxy

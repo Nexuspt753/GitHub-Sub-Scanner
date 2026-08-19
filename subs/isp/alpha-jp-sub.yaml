@@ -1,6 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 14.137.238.40
+    port: 10000
+    uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
+    udp: true
+    xudp: true
+  - type: vless
     name: EPODONIOS
+    server: 14.137.238.40
+    port: 10000
+    uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-26341afb31
     server: 14.137.238.40
     port: 10000
     uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
@@ -11,13 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - 4Nika-26341afb31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - 4Nika-26341afb31
 rules:
   - MATCH,Proxy

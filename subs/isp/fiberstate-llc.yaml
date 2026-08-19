@@ -5,12 +5,26 @@ proxies:
     port: 50160
     password: 6f65680b8d4de72e9f7c030e92e27a32
     sni: 166-0-16-52.liao.kdns.fr
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 38.58.180.136
+    port: 3116
+    uuid: 5efabea4-f6d4-91fd-b8f0-17e004c89c60
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@s5gydl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: node67.lunes.host
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-9443fa602f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +32,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-9443fa602f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
