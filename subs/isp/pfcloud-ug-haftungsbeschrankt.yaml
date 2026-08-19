@@ -1,6 +1,13 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: ger.iranstoresf.ir
+    port: 443
+    uuid: 0da6bac1-644a-47d0-b9e8-03cb138079e8
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: 176.65.151.64
     port: 443
     uuid: 4411e63c-9d5f-403f-b8b4-89ea29fbde2a
@@ -42,6 +49,53 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-02
+    server: 176.65.151.215
+    port: 8443
+    uuid: a2f6c503-e8b3-4c97-ad52-15807c20ee6c
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
+    server: 176.65.151.215
+    port: 8443
+    uuid: bfd814a8-d377-4324-b23e-10d9dcd0a988
+    udp: true
+    xudp: true
+  - type: vless
+    name: vmesskhodam
+    server: 176.65.151.215
+    port: 8443
+    uuid: a2f6c503-e8b3-4c97-ad52-15807c20ee6c
+    udp: true
+    xudp: true
+  - type: vless
+    name: vpnsal
+    server: 176.65.151.215
+    port: 8443
+    uuid: bfd814a8-d377-4324-b23e-10d9dcd0a988
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-a9421b6b06
+    server: 176.65.151.215
+    port: 80
+    uuid: 10af0a09-4a6a-4938-8fef-085c495d1c2f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-90cf9e0212
+    server: 176.65.151.215
+    port: 8443
+    uuid: 10af0a09-4a6a-4938-8fef-085c495d1c2f
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Kian-6043078c83
     server: 176.65.151.64
     port: 443
@@ -55,15 +109,38 @@ proxies:
       short-id: 71c764
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-9b1c44ca6c
+    server: 176.65.151.215
+    port: 8443
+    uuid: a2f6c503-e8b3-4c97-ad52-15807c20ee6c
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-dbc746d2a3
+    server: 176.65.151.215
+    port: 8443
+    uuid: bfd814a8-d377-4324-b23e-10d9dcd0a988
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - v2ray313
       - 🇫🇷⇝
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - vmesskhodam
+      - vpnsal
+      - 4Jadi-a9421b6b06
+      - 4Kian-90cf9e0212
       - 4Kian-6043078c83
+      - 4FreeIran-9b1c44ca6c
+      - 4Sarina-dbc746d2a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,8 +148,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - v2ray313
       - 🇫🇷⇝
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - vmesskhodam
+      - vpnsal
+      - 4Jadi-a9421b6b06
+      - 4Kian-90cf9e0212
       - 4Kian-6043078c83
+      - 4FreeIran-9b1c44ca6c
+      - 4Sarina-dbc746d2a3
 rules:
   - MATCH,Proxy

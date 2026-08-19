@@ -1,4 +1,15 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 87.121.218.169
+    port: 8443
+    uuid: 9e1e2fad-b6ca-474b-a28d-4b52c7891da0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 87.121.218.169
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: EPODONIOS
     server: nl-vk.tkbvpcompany.site
@@ -9,7 +20,7 @@ proxies:
     sni: nl-vk.tkbvpcompany.site
     client-fingerprint: chrome
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: arc.magazinetut.online
     port: 443
     uuid: af2691c6-e6f2-49f1-ab60-87b6f766166a
@@ -20,15 +31,6 @@ proxies:
     xudp: true
   - type: trojan
     name: V2ray_Alpha🐌
-    server: nl-vk.tkbvpcompany.site
-    port: 443
-    password: SEYnpOitNLndBhDtkZyeAShl
-    udp: true
-    tls: true
-    sni: nl-vk.tkbvpcompany.site
-    client-fingerprint: chrome
-  - type: trojan
-    name: meliproxyy
     server: nl-vk.tkbvpcompany.site
     port: 443
     password: SEYnpOitNLndBhDtkZyeAShl
@@ -48,7 +50,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: nl-vk.tkbvpcompany.site
     port: 443
     password: SEYnpOitNLndBhDtkZyeAShl
@@ -67,6 +69,17 @@ proxies:
     servername: 87.121.218.169
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 31.76.49.185
+    port: 443
+    password: SEYnpOitNLndBhDtkZyeAShl
+    udp: true
+    tls: true
+    sni: nl-vk.tkbvpcompany.site
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
   - type: trojan
     name: EPODONIOS-02
     server: nl-vk.tkbvpcompany.site
@@ -93,7 +106,7 @@ proxies:
     sni: nl-vk.tkbvpcompany.site
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-04
     server: 87.121.218.169
     port: 443
     password: bptHV5U91mWneB61rRKhCQ8f
@@ -219,33 +232,23 @@ proxies:
     servername: 87.121.218.169
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-0bcdeb29ad
-    server: 87.121.218.169
-    port: 8443
-    uuid: 9e1e2fad-b6ca-474b-a28d-4b52c7891da0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 87.121.218.169
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - V2ray_Alpha🐌
-      - meliproxyy
-      - EPODONIOS-01
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - V2ray_Alpha🐌
+      - EPODONIOS-01
+      - DeltaKroneckerGithub-02
       - 🔰
+      - DeltaKroneckerGithub-03
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-04
       - ">>@oneclickvpnkeys::NL"
       - ">>@configV2rayNG::DE"
       - 🇳🇱NL-31.76.49.185-0283
@@ -259,24 +262,24 @@ proxy-groups:
       - 4Nika-6d92764b86
       - 4Jadi-b29ab5395d
       - 4Jadi-91fdf04339
-      - 4Jadi-0bcdeb29ad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - V2ray_Alpha🐌
-      - meliproxyy
-      - EPODONIOS-01
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - V2ray_Alpha🐌
+      - EPODONIOS-01
+      - DeltaKroneckerGithub-02
       - 🔰
+      - DeltaKroneckerGithub-03
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-04
       - ">>@oneclickvpnkeys::NL"
       - ">>@configV2rayNG::DE"
       - 🇳🇱NL-31.76.49.185-0283
@@ -290,6 +293,5 @@ proxy-groups:
       - 4Nika-6d92764b86
       - 4Jadi-b29ab5395d
       - 4Jadi-91fdf04339
-      - 4Jadi-0bcdeb29ad
 rules:
   - MATCH,Proxy

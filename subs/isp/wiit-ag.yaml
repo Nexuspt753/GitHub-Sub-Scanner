@@ -1,12 +1,12 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 213.202.223.13
     port: 443
     uuid: 163c901d-495c-42df-b6c7-82260e7f4b0c
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: server.dega-it.de
     reality-opts:
       public-key: Sk-lWpvoxFjjxCLLg5mWMXQzkGT65BsAxNIqs9POR2U
@@ -14,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 213.202.216.14
     port: 443
     password: 23391d1e-3567-4555-9e40-de87569d74f6
@@ -32,7 +32,7 @@ proxies:
     sni: downloadde.xn--mes358acgm99l.com
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 213.202.216.14
     port: 443
     password: 3f23c1eb-ace4-49ec-a7f0-f591b006b95a
@@ -52,7 +52,7 @@ proxies:
     sni: 18-140-66-207.nhost.00cdn.com
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 213.202.216.14
     port: 443
     password: 94fe4445-fc3f-4dd4-9bac-438b54f994c9
@@ -62,28 +62,60 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: 4Sarina-e562721449
+    server: 213.202.223.13
+    port: 443
+    uuid: 163c901d-495c-42df-b6c7-82260e7f4b0c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: server.dega-it.de
+    reality-opts:
+      public-key: Sk-lWpvoxFjjxCLLg5mWMXQzkGT65BsAxNIqs9POR2U
+      short-id: 0c2753c6d7aa5aea
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-69a3915e34
+    server: 213.202.223.13
+    port: 443
+    uuid: 163c901d-495c-42df-b6c7-82260e7f4b0c
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: server.dega-it.de
+    reality-opts:
+      public-key: Sk-lWpvoxFjjxCLLg5mWMXQzkGT65BsAxNIqs9POR2U
+      short-id: 0c2753c6d7aa5aea
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-ada0f21ea7
       - DeltaKroneckerGithub-01
-      - 4Sarina-91d7841ae6
+      - 4Sarina-ada0f21ea7
       - DeltaKroneckerGithub-02
+      - 4Sarina-91d7841ae6
+      - DeltaKroneckerGithub-03
+      - 4Sarina-e562721449
+      - 4FreeIran-69a3915e34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-ada0f21ea7
       - DeltaKroneckerGithub-01
-      - 4Sarina-91d7841ae6
+      - 4Sarina-ada0f21ea7
       - DeltaKroneckerGithub-02
+      - 4Sarina-91d7841ae6
+      - DeltaKroneckerGithub-03
+      - 4Sarina-e562721449
+      - 4FreeIran-69a3915e34
 rules:
   - MATCH,Proxy

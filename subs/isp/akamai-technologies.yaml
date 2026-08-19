@@ -1,19 +1,37 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: z1.dengta.lat
+    port: 443
+    uuid: 83efc3a0-05c6-462b-89f7-07c430f73c03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: apple.com
+    reality-opts:
+      public-key: kHFYHKGTtnXyXLBRrsgRygBIZ1G471pWw7h6MvpnuGo
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 172.105.169.70
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 172.105.169.70
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: trojan1.udpgw.com
     port: 443
     password: affae2e0-e84b-11ec-b09f-1239d0255272
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: trojan
     name: 4Jadi-b85d6c5f32
     server: trojan1.udpgw.com
@@ -45,6 +63,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-b85d6c5f32
       - 4Sarina-4ab167b05f
   - name: Auto
@@ -55,6 +74,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-b85d6c5f32
       - 4Sarina-4ab167b05f
 rules:

@@ -17,17 +17,20 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 95.163.232.54
-    port: 8443
-    uuid: 93fab704-cea7-4ca4-a9ac-5bb46aef263c
+    server: 80.78.246.205
+    port: 9882
+    uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: max.ru
+    servername: dl.google.com
     reality-opts:
-      public-key: M_V1dM8_wcpwnmh2VZp-s3LCBjy38ZWCRpxLrBc58Do
-      short-id: a48d397391861a3c
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabbccdd
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-02
     server: 95.163.232.165
@@ -45,6 +48,32 @@ proxies:
       path: /websocket?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 80.78.245.48
+    port: 8880
+    uuid: 6ed59a5b-efef-4ddf-99f2-57d200caed47
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/assets/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cnd.netherlands.myfilecdn.com
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 161.104.16.112
+    port: 8880
+    uuid: 6ed59a5b-efef-4ddf-99f2-57d200caed47
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/assets/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cnd.finland2.2.myfilecdn.com
   - type: vless
     name: 4Nika-7358d415f1
     server: 95.163.232.54
@@ -66,6 +95,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-7358d415f1
   - name: Auto
     type: url-test
@@ -76,6 +107,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-7358d415f1
 rules:
   - MATCH,Proxy

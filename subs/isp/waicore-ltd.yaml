@@ -1,21 +1,23 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: de3.techdatacloud.org
-    port: 443
-    uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cloud.mail.ru
-    reality-opts:
-      public-key: p3sQ8oByv8AXIm2jaOdFvAmxTeMGjr9uwCqyFvHpJz0
-      short-id: d2cf75c5e1482b4e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 138.124.33.169
+    port: 443
+    uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 138.124.37.164
     port: 443
     uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
     udp: true
@@ -78,7 +80,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 138.124.32.78
     port: 443
     password: "1234567890"
@@ -118,48 +120,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Jadi-726bece9cf
-    server: de.intfreed.ru
-    port: 443
-    uuid: bf92bdef-ab8d-4481-8798-2d39023357b2
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: video.intfreed.ru
-    reality-opts:
-      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
-      short-id: 7755e972daf8eec8
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
       - V2ray_Alpha🦝
       - erfanandroid
       - filembad
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
       - 4Mohsen-504653a53d
       - 4Sarina-e7da38ca7b
-      - 4Jadi-726bece9cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
       - V2ray_Alpha🦝
       - erfanandroid
       - filembad
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
       - 4Mohsen-504653a53d
       - 4Sarina-e7da38ca7b
-      - 4Jadi-726bece9cf
 rules:
   - MATCH,Proxy

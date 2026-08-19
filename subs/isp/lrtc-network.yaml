@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Kian-f70b4f0cfe
+    server: 89.116.250.75
+    port: 8443
+    uuid: 51d22c42-5342-4715-a927-1b76226dd4cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: join-telegram-channel-vipv2rey.mamare.ir
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Nika-55e4f4535e
     server: 89.116.250.6
     port: 2083
@@ -20,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-f70b4f0cfe
       - 4Nika-55e4f4535e
   - name: Auto
     type: url-test
@@ -27,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-f70b4f0cfe
       - 4Nika-55e4f4535e
 rules:
   - MATCH,Proxy
