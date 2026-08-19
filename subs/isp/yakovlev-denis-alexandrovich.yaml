@@ -1,6 +1,48 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 138.124.254.21
+    port: 2096
+    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: it-one.quiet-rogue.site
+    reality-opts:
+      public-key: pWPvxPIVtdzgaL0cdFZ73qn1FihjKDZ7TE55wg57Vl8
+      short-id: 9b43ece6010612b0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 138.124.254.68
+    port: 2053
+    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: fi-one.quiet-rogue.site
+    reality-opts:
+      public-key: AKUQO-fKsD19FFBxNq5XTFCRXWDZfes4zJjRINY1KUI
+      short-id: beff3ff061a64cfd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 138.124.254.68
+    port: 8443
+    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de-two.quiet-rogue.site
+    reality-opts:
+      public-key: QMJRGTqZRbpeLpIAdvn6dhftuzrpwbtwmVG2s5IuuU0
+      short-id: 00a02855ba568c29
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 95.85.240.30
     port: 443
     uuid: 423b1d79-08c4-0002-9d5e-c541f791b55f
@@ -11,6 +53,34 @@ proxies:
     reality-opts:
       public-key: ZXi0bwZwOe9e5CMticA2-bU7qamHgs_sN-2kHygbDyk
       short-id: e91da98020a38be9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 138.124.254.68
+    port: 2096
+    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: it-one.quiet-rogue.site
+    reality-opts:
+      public-key: pWPvxPIVtdzgaL0cdFZ73qn1FihjKDZ7TE55wg57Vl8
+      short-id: 9b43ece6010612b0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-05
+    server: 138.124.254.21
+    port: 8443
+    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de-two.quiet-rogue.site
+    reality-opts:
+      public-key: QMJRGTqZRbpeLpIAdvn6dhftuzrpwbtwmVG2s5IuuU0
+      short-id: 00a02855ba568c29
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -83,32 +153,22 @@ proxies:
       short-id: b0d8f964b7ac8ac0
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-ba23e3bdd7
-    server: 31.76.34.146
-    port: 443
-    uuid: 7bc2c010-dffd-4c81-8fa3-25e8f3781dca
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn3-85.cdn-vkvideo.com
-    reality-opts:
-      public-key: QC03TEA8YdxpkQyJ8duwrqaP1dWAIlCjONzicWlWDjs
-      short-id: b0d8f964b7ac8ac0
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - EPODONIOS
       - EPODONIOS-01
       - Ap_Ir6
       - 🇷🇺139803
       - 4FreeIran-fa5feb0295
-      - 4Nika-ba23e3bdd7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -116,11 +176,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - EPODONIOS
       - EPODONIOS-01
       - Ap_Ir6
       - 🇷🇺139803
       - 4FreeIran-fa5feb0295
-      - 4Nika-ba23e3bdd7
 rules:
   - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 200.234.227.64
+    port: 8443
+    uuid: 16ab4d4a-fd81-4535-9b7b-346677226ce8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sp.crsmaps.com
+    reality-opts:
+      public-key: OFK3xqhyTsDoJi8emuzmOCE9Xzwi0DyZPNj0X-E4iVE
+      short-id: 5326cc7587a9f0
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

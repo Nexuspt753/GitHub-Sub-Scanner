@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Mohsen-1abdfd718f
+    name: DeltaKroneckerGithub
     server: 176.117.75.143
     port: 2087
     uuid: d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70
@@ -8,6 +8,9 @@ proxies:
     tls: true
     client-fingerprint: firefox
     servername: www.cloudflare.com
+    reality-opts:
+      public-key: rIli6ATH6ttPnQ7AqIaWMjnCGu7LPMH082Zg4so0O00
+      short-id: 86f058f5
     xudp: true
     network: grpc
     grpc-opts:
@@ -17,13 +20,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1abdfd718f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1abdfd718f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

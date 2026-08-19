@@ -1,6 +1,43 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 128.204.223.94
+    port: 9815
+    uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: beichuan.serv00.net
+    port: 9815
+    uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: beichuan.serv00.net
+  - type: vless
     name: V2ray_Alpha🦝
+    server: 128.204.223.94
+    port: 9815
+    uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-5bd927ffd8
     server: 128.204.223.94
     port: 9815
     uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
@@ -16,13 +53,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - V2ray_Alpha🦝
+      - 4Mohsen-5bd927ffd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - V2ray_Alpha🦝
+      - 4Mohsen-5bd927ffd8
 rules:
   - MATCH,Proxy

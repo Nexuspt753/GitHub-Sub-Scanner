@@ -74,6 +74,17 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: XF0klw7870vXn3uQIxe19Q
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.221.222.19
+    port: 9443
+    password: d0a35aaeb22042e0909540e94c9765e9
+    udp: true
+    tls: true
+    sni: apple.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: EPODONIOS-02
     server: su.cryptoofarm.com
@@ -90,6 +101,15 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 185.81.114.88
+    port: 9443
+    password: 50ad7b7681494900887bbf80ab3722d0
+    udp: true
+    tls: true
+    sni: apple.com
+    client-fingerprint: chrome
   - type: vless
     name: All--@V2rayAlpha--14
     server: su.cryptoofarm.com
@@ -123,16 +143,21 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 185.221.222.19
+    name: DeltaKroneckerGithub-02
+    server: 185.81.115.150
     port: 9443
-    password: d0a35aaeb22042e0909540e94c9765e9
+    password: 54ae81edc69e476ea3a339e08ab3f5c7
     udp: true
     tls: true
     sni: apple.com
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 193.42.38.209
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
   - type: vless
     name: 4Mohsen-4e3467cfff
     server: su.cryptoofarm.com
@@ -165,10 +190,13 @@ proxy-groups:
       - 4Sarina-59f78cd2eb
       - 4FreeIran-4df001601d
       - 4Mohsen-befb653971
+      - DeltaKroneckerGithub
       - EPODONIOS-02
+      - DeltaKroneckerGithub-01
       - All--@V2rayAlpha--14
       - bisto4_service
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-4e3467cfff
   - name: Auto
     type: url-test
@@ -187,10 +215,13 @@ proxy-groups:
       - 4Sarina-59f78cd2eb
       - 4FreeIran-4df001601d
       - 4Mohsen-befb653971
+      - DeltaKroneckerGithub
       - EPODONIOS-02
+      - DeltaKroneckerGithub-01
       - All--@V2rayAlpha--14
       - bisto4_service
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-4e3467cfff
 rules:
   - MATCH,Proxy

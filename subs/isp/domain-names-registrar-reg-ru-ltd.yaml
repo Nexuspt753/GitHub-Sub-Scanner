@@ -1,80 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 168.222.194.138
-    port: 9880
-    uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    reality-opts:
-      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-      short-id: aabbccdd
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 80.78.246.205
-    port: 9882
-    uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    reality-opts:
-      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-      short-id: aabbccdd
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 95.163.232.165
-    port: 443
-    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cloudflare.vhub.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /websocket?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: DeltaKroneckerGithub-03
-    server: 80.78.245.48
-    port: 8880
-    uuid: 6ed59a5b-efef-4ddf-99f2-57d200caed47
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/assets/stream
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cnd.netherlands.myfilecdn.com
-  - type: vless
-    name: DeltaKroneckerGithub-04
-    server: 161.104.16.112
-    port: 8880
-    uuid: 6ed59a5b-efef-4ddf-99f2-57d200caed47
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/assets/stream
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cnd.finland2.2.myfilecdn.com
-  - type: vless
     name: 4Nika-7358d415f1
     server: 95.163.232.54
     port: 8443
@@ -92,11 +17,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Nika-7358d415f1
   - name: Auto
     type: url-test
@@ -104,11 +24,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Nika-7358d415f1
 rules:
   - MATCH,Proxy

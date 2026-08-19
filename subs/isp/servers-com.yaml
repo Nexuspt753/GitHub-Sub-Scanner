@@ -1,19 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 188.42.89.10
-    port: 443
-    uuid: 05000d14-abf6-45e0-b51a-16469cdea06a
+    server: 188.42.89.7
+    port: 8443
+    uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: feijige.rujiao.icu
+    servername: speed.dulacloud.store
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /dula?Telegram-WangCai2
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: speed.dulacloud.store
   - type: vless
     name: 4Sarina-1f611ede10
     server: 188.42.89.222
@@ -67,6 +68,22 @@ proxies:
       path: /wss51068
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-b1400237ed
+    server: 188.42.89.174
+    port: 443
+    uuid: b3a21def-5fcc-47a8-a6a0-a34e29d5288a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /wss51068
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -76,6 +93,7 @@ proxy-groups:
       - 4Sarina-1f611ede10
       - 4Kian-2c83e09ad5
       - 4Kian-983985acc0
+      - 4Nika-b1400237ed
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,5 +104,6 @@ proxy-groups:
       - 4Sarina-1f611ede10
       - 4Kian-2c83e09ad5
       - 4Kian-983985acc0
+      - 4Nika-b1400237ed
 rules:
   - MATCH,Proxy
