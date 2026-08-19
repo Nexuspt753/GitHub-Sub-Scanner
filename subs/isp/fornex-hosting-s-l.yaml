@@ -1,6 +1,22 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 5.187.6.30
+    port: 2053
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 194.154.30.154
     port: 443
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -15,6 +31,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: EPODONIOS
+    server: 5.187.7.220
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
   - type: vless
     name: 4Mohsen-fb4bf72f7a
     server: 185.18.52.77
@@ -48,6 +80,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
   - type: vless
+    name: 4Nika-a09ead71f8
+    server: 194.154.30.154
+    port: 443
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
+  - type: vless
     name: 4Jadi-f6460e5d42
     server: 194.154.30.154
     port: 443
@@ -63,15 +111,52 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: 4Mohsen-635f5ffdcc
+    server: 5.187.7.220
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
+  - type: vless
+    name: 4Mohsen-f9da9dd75b
+    server: 5.187.7.220
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 4Mohsen-fb4bf72f7a
       - 4Mohsen-30c8b1dba2
+      - 4Nika-a09ead71f8
       - 4Jadi-f6460e5d42
+      - 4Mohsen-635f5ffdcc
+      - 4Mohsen-f9da9dd75b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -79,8 +164,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 4Mohsen-fb4bf72f7a
       - 4Mohsen-30c8b1dba2
+      - 4Nika-a09ead71f8
       - 4Jadi-f6460e5d42
+      - 4Mohsen-635f5ffdcc
+      - 4Mohsen-f9da9dd75b
 rules:
   - MATCH,Proxy

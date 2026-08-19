@@ -74,6 +74,23 @@ proxies:
     udp: true
     xudp: true
   - type: vless
+    name: 4Kian-e17f79863d
+    server: 158.160.196.224
+    port: 443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
     port: 443
@@ -104,35 +121,14 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Kian-8406711aff
-    server: 51.250.95.143
-    port: 443
-    uuid: 5725a60c-34a5-476d-9ae3-9e43d945ca8f
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: www.mobile.yandex.ru
-    reality-opts:
-      public-key: dEHsPQQSnMJiHJKnJRbbLFKQmwIemUXQsQ1zIYbLZng
-      short-id: f6
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: vless-02
-    server: 188.72.103.4
-    port: 443
-    uuid: 6e719d4b-5b8f-4c97-b0aa-6f622d61d4a9
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-03
     server: 188.72.103.4
     port: 443
     uuid: 98ff0d56-32a7-4fce-9ed5-3b92fdc0b7fa
     udp: true
     xudp: true
   - type: vless
-    name: vless-04
+    name: vless-03
     server: 188.72.103.4
     port: 443
     uuid: ae7bcd74-7032-412b-83ca-bf1eb1599aab
@@ -149,12 +145,11 @@ proxy-groups:
       - DeltaKroneckerGithub-03
       - vless
       - vless-01
+      - 4Kian-e17f79863d
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
-      - 4Kian-8406711aff
       - vless-02
       - vless-03
-      - vless-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -167,11 +162,10 @@ proxy-groups:
       - DeltaKroneckerGithub-03
       - vless
       - vless-01
+      - 4Kian-e17f79863d
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
-      - 4Kian-8406711aff
       - vless-02
       - vless-03
-      - vless-04
 rules:
   - MATCH,Proxy

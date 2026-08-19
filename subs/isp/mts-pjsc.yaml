@@ -14,21 +14,61 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-dd49e7ea20
-    server: 176.109.85.71
-    port: 14443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    name: "2"
+    server: 176.109.88.216
+    port: 443
+    uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: mws.tunnelgate.org
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: oqRus6Z_Q1jqJaTEPu7ENbRL0-XKOw54K0jwCCGLtEk
+      short-id: a9c4f17e3b62d8
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ru
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: mws.tunnelgate.org
+  - type: vless
+    name: TEHRANARGO
+    server: 176.109.88.216
+    port: 443
+    uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: oqRus6Z_Q1jqJaTEPu7ENbRL0-XKOw54K0jwCCGLtEk
+      short-id: a9c4f17e3b62d8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: MTMVPN
+    server: 176.109.88.216
+    port: 443
+    uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: oqRus6Z_Q1jqJaTEPu7ENbRL0-XKOw54K0jwCCGLtEk
+      short-id: a9c4f17e3b62d8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Proxy_mtm
+    server: 176.109.88.216
+    port: 443
+    uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: oqRus6Z_Q1jqJaTEPu7ENbRL0-XKOw54K0jwCCGLtEk
+      short-id: a9c4f17e3b62d8
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Mohsen-61c38eb748
     server: 176.109.85.142
@@ -44,14 +84,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-a21851d0ae
+    server: 176.109.88.216
+    port: 443
+    uuid: bd33c069-8f8c-4da3-9d14-9f539597ab66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: oqRus6Z_Q1jqJaTEPu7ENbRL0-XKOw54K0jwCCGLtEk
+      short-id: a9c4f17e3b62d8
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4FreeIran-dd49e7ea20
+      - "2"
+      - TEHRANARGO
+      - MTMVPN
+      - Proxy_mtm
       - 4Mohsen-61c38eb748
+      - 4Kian-a21851d0ae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -59,7 +117,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4FreeIran-dd49e7ea20
+      - "2"
+      - TEHRANARGO
+      - MTMVPN
+      - Proxy_mtm
       - 4Mohsen-61c38eb748
+      - 4Kian-a21851d0ae
 rules:
   - MATCH,Proxy

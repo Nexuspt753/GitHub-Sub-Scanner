@@ -16,21 +16,31 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 143.246.198.91
-    port: 2054
-    uuid: f6da8274-44be-4599-a8d8-66929c980677
+    name: EPODONIOS
+    server: 143.246.196.157
+    port: 443
+    uuid: 45c595fa-988f-11f1-8024-54db13ea7d40
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.ibm.com
+    client-fingerprint: chrome
+    servername: www.blocket.se
     reality-opts:
-      public-key: z8O-5nI4-3eKexufSrkEUvAubPw7a73cQtTGNDp3Uxo
-      short-id: 6ffc74326185d4d6
+      public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: vpnsal
+    server: 143.246.196.157
+    port: 443
+    uuid: 45c595fa-988f-11f1-8024-54db13ea7d40
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.blocket.se
+    reality-opts:
+      public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Sarina-08104a0631
     server: 143.246.196.157
@@ -50,7 +60,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - vpnsal
       - 4Sarina-08104a0631
   - name: Auto
     type: url-test
@@ -59,7 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - vpnsal
       - 4Sarina-08104a0631
 rules:
   - MATCH,Proxy
