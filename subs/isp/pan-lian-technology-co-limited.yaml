@@ -1,23 +1,32 @@
 proxies:
   - type: ss
-    name: 香港
-    server: cccct.284.pics
-    port: 65011
-    cipher: 2022-blake3-aes-256-gcm
-    password: ZTEyY2ViOGU0MWJiNDcwN2VlYjU3MzkzODlhNjliNGY=:NGUxZmQ1NWUtOTQ5MS00NDc3LWE3ODItYjM3OGIyNjU=
+    name: ">>@v2rayNG_Matsuri::HK"
+    server: hk1.network-cdn-gw-yd.net
+    port: 32060
+    cipher: chacha20-ietf-poly1305
+    password: aed6e687-58a9-4836-ba62-7d8184c94df4
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: hk1.network-cdn-gw-yd.net
+    port: 32060
+    cipher: chacha20-ietf-poly1305
+    password: aed6e687-58a9-4836-ba62-7d8184c94df4
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 香港
+      - ">>@v2rayNG_Matsuri::HK"
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 香港
+      - ">>@v2rayNG_Matsuri::HK"
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

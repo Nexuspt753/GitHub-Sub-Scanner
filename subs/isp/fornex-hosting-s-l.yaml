@@ -1,22 +1,6 @@
 proxies:
   - type: vless
-    name: 4Mohsen-30c8b1dba2
-    server: 185.18.52.77
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
-  - type: vless
-    name: 4Jadi-d3f5098763
+    name: DeltaKroneckerGithub
     server: 194.154.30.154
     port: 443
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -32,37 +16,35 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
   - type: vless
-    name: 4Nika-12a3698181
-    server: 5.187.6.30
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    name: vpnsal
+    server: 5.187.7.220
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
+    servername: vod.ensf.top
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /api/v1/irc
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
+        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-30c8b1dba2
-      - 4Jadi-d3f5098763
-      - 4Nika-12a3698181
+      - DeltaKroneckerGithub
+      - vpnsal
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-30c8b1dba2
-      - 4Jadi-d3f5098763
-      - 4Nika-12a3698181
+      - DeltaKroneckerGithub
+      - vpnsal
 rules:
   - MATCH,Proxy

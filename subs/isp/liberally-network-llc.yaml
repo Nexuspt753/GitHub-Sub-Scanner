@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: hk.xswlbrand.xyz
+    port: 443
+    uuid: ce551b1c-95f5-4ea2-b6fc-5e9ef472fae1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hk4e-launcher-static.hoyoverse.com
+    reality-opts:
+      public-key: ZmT8Tizn4Dw0-f7H3yUN5gpNJTWqtq248U4Qpk16lXw
+      short-id: b0ca5b9b
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

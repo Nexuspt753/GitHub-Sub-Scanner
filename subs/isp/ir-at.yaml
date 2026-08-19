@@ -15,12 +15,46 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: Daily_Configs
+    server: adgof.mgodping12.xyz
+    port: 2086
+    uuid: 257c313c-36fa-4d99-ba06-bb4a02aae70d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-b8946c2024
+    server: adgof.mgodping12.xyz
+    port: 2086
+    uuid: 257c313c-36fa-4d99-ba06-bb4a02aae70d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - Daily_Configs
+      - 4Kian-b8946c2024
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +62,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - Daily_Configs
+      - 4Kian-b8946c2024
 rules:
   - MATCH,Proxy

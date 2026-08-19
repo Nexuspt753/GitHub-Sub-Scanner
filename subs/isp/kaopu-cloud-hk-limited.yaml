@@ -1,27 +1,6 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 38.54.13.189
-    port: 443
-    password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: vless
-    name: 4FreeIran-f7cee30ad9
-    server: omdr.whooisthebest.ir
-    port: 33353
-    uuid: 395ee0ee-4342-472a-9d2b-40a562a0eaa1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: lrJShu6JVnQQ54hKEmKWnj5DUcwalnWBbN_HjGFOeB8
-      short-id: ad51aa0889b8da46
-    xudp: true
-  - type: vless
-    name: 4Jadi-86d43a67b7
     server: 103.84.110.68
     port: 24443
     uuid: a68d59e6-bc1e-47ed-91bf-c3e02b18e5df
@@ -35,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-b5600a7dbd
+    name: DeltaKroneckerGithub-01
     server: hy2-tw.starq.me
     port: 24443
     uuid: a68d59e6-bc1e-47ed-91bf-c3e02b18e5df
@@ -48,15 +27,30 @@ proxies:
       short-id: ba2e8b0452447037
     flow: xtls-rprx-vision
     xudp: true
+  - type: ss
+    name: 4Nika-505a786556
+    server: 38.54.76.8
+    port: 11201
+    cipher: rc4-md5
+    password: 16fb12ff4eebd16f
+    udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 38.54.13.189
+    port: 443
+    password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
+    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-f7cee30ad9
-      - 4Jadi-86d43a67b7
-      - 4Nika-b5600a7dbd
+      - DeltaKroneckerGithub-01
+      - 4Nika-505a786556
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -64,8 +58,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-f7cee30ad9
-      - 4Jadi-86d43a67b7
-      - 4Nika-b5600a7dbd
+      - DeltaKroneckerGithub-01
+      - 4Nika-505a786556
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

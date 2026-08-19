@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: Skopje · @DeltaKroneckerGithub
+    server: 195.144.24.86
+    port: 443
+    uuid: f202c7ca-17b7-416d-b3a2-ac71d35afe9c
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: mk.cdn-global.pro
+    reality-opts:
+      public-key: BSPkA0yUFBZ7JS7rD69rLaTn_5QSAaPQZtO7HV_et30
+      short-id: b868b87c347a451e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Skopje · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Skopje · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.225.197.237
+    port: 443
+    uuid: 432ab7a2-6e2b-4f0b-be4a-06bdcc714624
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.bing.com
+    reality-opts:
+      public-key: mCDHZBY0AYAeY7Aj7COGaegrm7QAwfueYYSC02vqbSY
+      short-id: 0d8ca7e0b3d26321
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

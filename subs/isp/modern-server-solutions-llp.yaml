@@ -1,18 +1,20 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 111.88.143.139
-    port: 8443
-    uuid: 2b8c0574-ff6f-4975-8a06-e24ebefa1d1c
+    port: 51940
+    uuid: 03464802-b517-404b-b15c-7750ffc5e78f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.cloudflare.com
+    servername: yahoo.com
     reality-opts:
-      public-key: Ao_imnCEIGAaL1DZnjOK1SSPpjQOw_XJcgMpNLEZwg0
-      short-id: ac4b582e
-    flow: xtls-rprx-vision
+      public-key: uPHvFb_vZ3DKL-8Et_e9OliZskdSV5U1NZ66tHfC-2Y
+      short-id: fd7f
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: Net2ray
     server: 111.88.143.139
@@ -30,7 +32,23 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
+    server: 111.88.143.139
+    port: 51940
+    uuid: 03464802-b517-404b-b15c-7750ffc5e78f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: uPHvFb_vZ3DKL-8Et_e9OliZskdSV5U1NZ66tHfC-2Y
+      short-id: fd7f
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-bd90cf51e8
     server: 111.88.143.139
     port: 51940
     uuid: 03464802-b517-404b-b15c-7750ffc5e78f
@@ -64,9 +82,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - Net2ray
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
+      - 4Jadi-bd90cf51e8
       - 4Sarina-8c8bffbc27
   - name: Auto
     type: url-test
@@ -74,9 +93,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - Net2ray
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
+      - 4Jadi-bd90cf51e8
       - 4Sarina-8c8bffbc27
 rules:
   - MATCH,Proxy

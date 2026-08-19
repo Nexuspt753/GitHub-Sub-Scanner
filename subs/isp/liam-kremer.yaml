@@ -1,7 +1,7 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 212.46.33.38
+    server: 212.46.33.84
     port: 443
     uuid: 27b16a66-95e0-4c20-b00b-5dff91d9c9f5
     udp: true
@@ -17,6 +17,70 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: 212.46.33.38
+    port: 443
+    uuid: 2642342c-fa52-4f62-b44d-fb77de8f75e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: login.moktana.app
+    reality-opts:
+      public-key: C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4
+      short-id: 5d1e8b3f6c2a9d4e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 212.46.33.18
+    port: 443
+    uuid: 2642342c-fa52-4f62-b44d-fb77de8f75e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: login.moktana.app
+    reality-opts:
+      public-key: C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4
+      short-id: 5d1e8b3f6c2a9d4e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇳🇱
+    server: 212.46.33.18
+    port: 443
+    uuid: 27b16a66-95e0-4c20-b00b-5dff91d9c9f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: login.moktana.app
+    reality-opts:
+      public-key: C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4
+      short-id: 7c4b9a2e8d5f3c1b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇳🇱-01
+    server: 212.46.33.38
+    port: 443
+    uuid: 27b16a66-95e0-4c20-b00b-5dff91d9c9f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: login.moktana.app
+    reality-opts:
+      public-key: C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4
+      short-id: 7c4b9a2e8d5f3c1b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 212.46.33.18
     port: 443
     uuid: 27b16a66-95e0-4c20-b00b-5dff91d9c9f5
@@ -31,34 +95,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Kian-ecff8b405f
-    server: 212.46.33.32
-    port: 443
-    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl1.spidermanshopping.com
-    reality-opts:
-      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
-      short-id: 8718c58d3d51db59
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-b5d3c9879d
-    server: nl.gsupport.support
-    port: 443
-    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: video.intfreed.ru
-    reality-opts:
-      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
-      short-id: 7755e972daf8eec8
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -66,8 +102,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Kian-ecff8b405f
-      - 4Mohsen-b5d3c9879d
+      - DeltaKroneckerGithub-02
+      - 🇳🇱
+      - 🇳🇱-01
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -76,7 +114,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Kian-ecff8b405f
-      - 4Mohsen-b5d3c9879d
+      - DeltaKroneckerGithub-02
+      - 🇳🇱
+      - 🇳🇱-01
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.241.208.89
+    port: 2054
+    uuid: f6da8274-44be-4599-a8d8-66929c980677
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.ibm.com
+    reality-opts:
+      public-key: OyptJTnaUSyaiYY3_iB-Lrst04EoVetdB1ZMoHDViyI
+      short-id: e5fe88d9c232c341
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 45.92.1.131
     port: 443
@@ -38,37 +54,24 @@ proxies:
       public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-4d28d1fbb2
-    server: 45.92.1.131
-    port: 443
-    uuid: 32fff625-bdaa-4aad-8b45-14a02b1d5f9d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.ray-balance.space
-    reality-opts:
-      public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - configprxy
       - 4FreeIran-bd0a82a6f0
-      - 4Nika-4d28d1fbb2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - configprxy
       - 4FreeIran-bd0a82a6f0
-      - 4Nika-4d28d1fbb2
 rules:
   - MATCH,Proxy

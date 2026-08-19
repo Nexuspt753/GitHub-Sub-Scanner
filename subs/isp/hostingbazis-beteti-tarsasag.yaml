@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 217.70.14.216
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: 48UQWJVetDr7ETiOXF+aEQ==
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

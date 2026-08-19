@@ -1,23 +1,94 @@
 proxies:
   - type: vless
-    name: 4Mohsen-4a29d17d5c
-    server: 120.227.1.43
-    port: 12528
-    uuid: f0169b08-43fd-4dc3-8195-18f6ad2fe39d
+    name: DeltaKroneckerGithub
+    server: 36.151.187.225
+    port: 12884
+    uuid: 16b3793b-3335-4832-b1fd-877b2c5e15d6
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.spotify.com
+    reality-opts:
+      public-key: PZId4C7clCYYpoK4vHV9hJ7BNEz4J4tHxGicMeasriQ
+      short-id: 1b6028
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 36.151.187.225
+    port: 12878
+    uuid: 16b3793b-3335-4832-b1fd-877b2c5e15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.spotify.com
+    reality-opts:
+      public-key: oRpiuzgpCJp1KJYbpaQ46wt5QdaHXs4yHkyYxaG9600
+      short-id: b94602998b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 36.151.187.225
+    port: 12887
+    uuid: 16b3793b-3335-4832-b1fd-877b2c5e15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.spotify.com
+    reality-opts:
+      public-key: a3H5ffQkcW4xELeJEGQ8FsaXLG4sGomkB7_ms0d5xzc
+      short-id: b48d22a492
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 36.151.187.225
+    port: 12888
+    uuid: 16b3793b-3335-4832-b1fd-877b2c5e15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.tidal.com
+    reality-opts:
+      public-key: GUeUPPVhptRY2UH0BlLCqh5_WqPZp7Xu0rpqmifkNTk
+      short-id: 455a4f30c5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 36.151.187.225
+    port: 12889
+    uuid: 16b3793b-3335-4832-b1fd-877b2c5e15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.tidal.com
+    reality-opts:
+      public-key: GsFR0thPrJgbozfndeZBN2MsGnv-nU3u9zf39F9DxVg
+      short-id: 23eb48
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-4a29d17d5c
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-4a29d17d5c
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy

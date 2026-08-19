@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.133.158.108
+    port: 443
+    uuid: c08c499f-21bd-46ba-9146-5c770204342b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: Kh1-hdn9zTY5a1-3qP8L_6UTRL2iNZ1pIr_X8U94OQM
+      short-id: 872303cf1e28389f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 66.253.10.22
+    port: 443
+    uuid: 907a940c-bad0-4356-a280-7dec12f1479e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.bing.com
+    reality-opts:
+      public-key: zVJVCkcnyPjMZvx-GMQnnbkEgNiws80sppKB6A0uqBY
+      short-id: 83dee8596e65d99e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

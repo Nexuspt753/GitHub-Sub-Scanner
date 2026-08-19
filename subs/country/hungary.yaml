@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: Budapest · EPODONIOS
+    server: 217.70.14.216
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: 48UQWJVetDr7ETiOXF+aEQ==
+    udp: true
   - type: vless
     name: Budapest · @DeltaKroneckerGithub
     server: 45.195.111.15
@@ -28,54 +35,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
-  - type: trojan
-    name: Budapest · 4FreeIran-cf1318fe47
-    server: 185.225.68.232
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Budapest · 4FreeIran-14bea78807
-    server: 45.195.111.15
-    port: 443
-    uuid: 82e209b2-97a6-4d67-a10b-72627b9f6702
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    alpn:
-      - http/1.1
-    servername: storage.yandex.net
-    reality-opts:
-      public-key: 7zd9mJilgjOrg_ohtw23Vmio-pdnYqeP_r-kiWt87Cg
-      short-id: f4b4a6365558ea2e
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Budapest · EPODONIOS
       - Budapest · @DeltaKroneckerGithub
       - Budapest · @DeltaKroneckerGithub-01
-      - Budapest · 4FreeIran-cf1318fe47
-      - Budapest · 4FreeIran-14bea78807
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Budapest · EPODONIOS
       - Budapest · @DeltaKroneckerGithub
       - Budapest · @DeltaKroneckerGithub-01
-      - Budapest · 4FreeIran-cf1318fe47
-      - Budapest · 4FreeIran-14bea78807
 rules:
   - MATCH,Proxy

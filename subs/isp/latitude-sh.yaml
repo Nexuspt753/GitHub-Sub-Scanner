@@ -1,12 +1,20 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-83721249f9
-    server: 185.39.31.40
-    port: 8443
-    password: Foc_Mcxi45rM9v3ve_N92fdrK_10_Ssc5
-    sni: grape-beer.yyuyy.com
   - type: vless
     name: DeltaKroneckerGithub
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 45.134.9.133
     port: 8443
     uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
@@ -25,15 +33,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-83721249f9
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-83721249f9
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

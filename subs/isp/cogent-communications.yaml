@@ -1,34 +1,32 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 38.190.210.250
+    server: 38.244.21.190
     port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    uuid: f51be481-3bcb-4b69-b149-3c1f2e1cb3f8
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vp10.pages.dev
+    servername: www.apple.com
+    reality-opts:
+      public-key: HR2aptN8hqi90SHqL28BEsHnJGiZ18TQ6bdz8kyPyik
+      short-id: 72bc30ab684705ed
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: hysteria2
-    name: 4Mohsen-bb0052ab63
-    server: 154-49-127-140.liao.kdns.fr
-    port: 50160
-    password: 2630a66444286f47ce591752f28adf5e
-    sni: 154-49-127-140.liao.kdns.fr
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Nika-63c4b34381
-    server: 38.99.248.120
-    port: 50160
-    password: 2c1611f83747dd3694e0e90cbf7d4e29
-    sni: 38-99-248-120.liao.kdns.fr
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 38.244.21.216
+    port: 443
+    uuid: 93b20d00-c16c-4a49-8b66-4a1ee0b6da95
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: _hetCO1z82axzKuCWxc1rbdqd3NdtbcsXf2Y5p6UGQ8
+      short-id: 86c2e49f2e122d0b
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: EPODONIOS
     server: 38.93.136.8
@@ -45,12 +43,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 38.128.251.24
-    port: 42538
-    uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
+    name: DeltaKroneckerGithub-02
+    server: 38.190.210.250
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
   - type: vless
     name: IR-@V2rayAlpha-14
     server: 38.93.136.8
@@ -66,20 +73,20 @@ proxies:
       public-key: ckRcueERkPqqjZABwxqni_J_Nbb70Q6k5fEEUAjoImw
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 🇨🇦146428
-    server: 38.128.251.24
-    port: 42538
-    uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 154.12.240.141
+    port: 443
+    cipher: aes-256-gcm
+    password: 0A1XMqChmURuRChe
     udp: true
-    xudp: true
-  - type: vless
-    name: 🇨🇦CA-🚀@VPNine1
-    server: 38.128.251.24
-    port: 42538
-    uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
+  - type: ss
+    name: DeltaKroneckerGithub-04
+    server: 154.12.240.141
+    port: 443
+    cipher: aes-256-gcm
+    password: 0A1XMqChmURuRChe
     udp: true
-    xudp: true
   - type: vless
     name: 4Nika-96a484718e
     server: 38.93.136.8
@@ -102,37 +109,20 @@ proxies:
     uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
     udp: true
     xudp: true
-  - type: vmess
-    name: 4Mohsen-219e43fbd8
-    server: 38.246.226.240
-    port: 52080
-    uuid: 7d4bd961-230c-4b34-ab5d-05cf0dfb4ea5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-bb0052ab63
-      - 4Nika-63c4b34381
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
+      - DeltaKroneckerGithub-02
       - IR-@V2rayAlpha-14
-      - 🇨🇦146428
-      - 🇨🇦CA-🚀@VPNine1
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-96a484718e
       - 4Mohsen-33a8e3d5ea
-      - 4Mohsen-219e43fbd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -140,15 +130,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-bb0052ab63
-      - 4Nika-63c4b34381
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
+      - DeltaKroneckerGithub-02
       - IR-@V2rayAlpha-14
-      - 🇨🇦146428
-      - 🇨🇦CA-🚀@VPNine1
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-96a484718e
       - 4Mohsen-33a8e3d5ea
-      - 4Mohsen-219e43fbd8
 rules:
   - MATCH,Proxy

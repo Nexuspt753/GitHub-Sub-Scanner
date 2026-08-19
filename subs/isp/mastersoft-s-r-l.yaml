@@ -1,6 +1,76 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 188.130.208.141
+    port: 13443
+    uuid: b80b392c-0cf4-42f9-ae54-9f862e3ba276
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: test.bridge.anti-zapret.com
+    port: 443
+    uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: test.bridge.anti-zapret.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 103.112.71.84
+    port: 443
+    uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: test.bridge.anti-zapret.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 195.78.49.163
+    port: 443
+    uuid: ac6a8052-b2d2-4b75-9352-10756a445ca5
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: nl.hipertune.ru
+    reality-opts:
+      public-key: IzgffKkveDU5cboe6pVJz4wYxXYz9Vv3ll0kWym4VEI
+      short-id: c279a74d19205d38
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 103.112.71.83
+    port: 443
+    uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: test.bridge.anti-zapret.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-05
     server: 46.8.113.142
     port: 443
     password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
@@ -8,39 +78,27 @@ proxies:
     tls: true
     sni: ch-2.bexum.fun
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-cb8db03ccf
-    server: 103.119.19.208
+  - type: trojan
+    name: DeltaKroneckerGithub-06
+    server: ch-2.bexum.fun
     port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
     udp: true
     tls: true
+    sni: ch-2.bexum.fun
     client-fingerprint: chrome
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-4a6b17fdcf
-    server: 103.112.71.85
-    port: 443
-    uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: test.bridge.anti-zapret.com
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-cb8db03ccf
-      - 4Nika-4a6b17fdcf
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -48,7 +106,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-cb8db03ccf
-      - 4Nika-4a6b17fdcf
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
 rules:
   - MATCH,Proxy

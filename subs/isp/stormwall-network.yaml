@@ -1,0 +1,69 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.71.67.185
+    port: 443
+    uuid: fecd4358-c037-4ae2-bae0-c72792fd8e40
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: mlt.spbculture.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/upload/2aec3a50a58a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-ad0a6ce3e6
+    server: 185.71.67.185
+    port: 443
+    uuid: fecd4358-c037-4ae2-bae0-c72792fd8e40
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: mlt.spbculture.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/upload/2aec3a50a58a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-2ea03f56b9
+    server: 185.71.67.185
+    port: 443
+    uuid: fecd4358-c037-4ae2-bae0-c72792fd8e40
+    udp: true
+    tls: true
+    client-fingerprint: android
+    servername: mlt.spbculture.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/upload/2aec3a50a58a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Mohsen-ad0a6ce3e6
+      - 4Kian-2ea03f56b9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Mohsen-ad0a6ce3e6
+      - 4Kian-2ea03f56b9
+rules:
+  - MATCH,Proxy

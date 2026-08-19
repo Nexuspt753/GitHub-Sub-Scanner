@@ -1,9 +1,9 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 51.250.4.141
-    port: 8443
-    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    server: 158.160.196.224
+    port: 443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -16,19 +16,137 @@ proxies:
       path: /websocket?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cloudflare.vhub.pro
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 158.160.171.90
+    port: 443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 51.250.3.73
+    port: 443
+    uuid: b8783764-ad60-58bb-b2c9-349bfd373a72
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: QapbUJT61NbhceZHd1X5ylScWQpkHOEkUZ5VG6p53w4
+      short-id: ed1fd4c7
+    xudp: true
+  - type: vless
+    name: 4Kian-e17f79863d
+    server: 158.160.196.224
+    port: 443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-4aadd209d8
+    server: 51.250.25.32
+    port: 443
+    uuid: 3be2a136-6d29-44b5-a609-30cbab4606e5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: Y7b0W1h25Uw3ciuVSedT4OoGoiR1IGz9C46CECkKuyw
+      short-id: b7ef89dff65b02
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-b130ccff51
+    server: 51.250.106.64
+    port: 443
+    uuid: 4a6de183-2ad3-456c-b420-feeac81f6257
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: FCg2XiFJrpH-2XlELSSSyEC7zkeW29HOgp4rfrqXEAI
+      short-id: 123abc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: vless
     server: 188.72.103.4
     port: 443
-    uuid: f3c44fd2-a2f0-475d-864d-785403c4feec
+    uuid: 568e8ae3-14ca-4ef1-848d-2a798b851b86
     udp: true
     xudp: true
   - type: vless
     name: vless-01
     server: 188.72.103.4
     port: 443
-    uuid: fed28739-fcbc-4b28-867b-c241cf5b7c80
+    uuid: 56b0834d-cbe4-4774-ade7-80143f61451d
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Kian-8406711aff
+    server: 51.250.95.143
+    port: 443
+    uuid: 5725a60c-34a5-476d-9ae3-9e43d945ca8f
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.mobile.yandex.ru
+    reality-opts:
+      public-key: dEHsPQQSnMJiHJKnJRbbLFKQmwIemUXQsQ1zIYbLZng
+      short-id: f6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 188.72.103.4
+    port: 443
+    uuid: 65eef65c-0e7b-4919-8606-adb8140e8bdf
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-03
+    server: 188.72.103.4
+    port: 443
+    uuid: 9e2c96e9-b280-4142-bef3-0fa971784cf7
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-04
+    server: 188.72.103.4
+    port: 443
+    uuid: c90858de-68c4-4432-9b81-54933345c932
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-05
+    server: 188.72.103.4
+    port: 443
+    uuid: e6eb9433-f0d8-4257-97c8-1a32de1e0cdb
     udp: true
     xudp: true
 proxy-groups:
@@ -37,8 +155,18 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Kian-e17f79863d
+      - 4Nika-4aadd209d8
+      - 4Jadi-b130ccff51
       - vless
       - vless-01
+      - 4Kian-8406711aff
+      - vless-02
+      - vless-03
+      - vless-04
+      - vless-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,7 +174,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Kian-e17f79863d
+      - 4Nika-4aadd209d8
+      - 4Jadi-b130ccff51
       - vless
       - vless-01
+      - 4Kian-8406711aff
+      - vless-02
+      - vless-03
+      - vless-04
+      - vless-05
 rules:
   - MATCH,Proxy
