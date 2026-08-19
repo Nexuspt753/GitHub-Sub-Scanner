@@ -2,6 +2,18 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 45.90.32.132
+    port: 2200
+    uuid: aef0e934-09d7-4b8f-b3bc-de78d2eec928
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.90.32.132
     port: 4100
     uuid: 31c2a8e8-0ab2-4f3f-8767-11f3a35d4228
     udp: true
@@ -24,29 +36,14 @@ proxies:
       public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
       short-id: 23103e1e
     xudp: true
-  - type: vmess
-    name: 4Nika-f4154fad58
-    server: 45.144.179.138
-    port: 443
-    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-bffffd50a5
-      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -54,7 +51,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-bffffd50a5
-      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

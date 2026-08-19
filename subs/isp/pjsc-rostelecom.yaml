@@ -1,0 +1,33 @@
+proxies:
+  - type: vless
+    name: 4Kian-556f51ae6d
+    server: 217.150.197.54
+    port: 8443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: 2.26.148.147.tyr-agentstvo.tech
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-556f51ae6d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-556f51ae6d
+rules:
+  - MATCH,Proxy

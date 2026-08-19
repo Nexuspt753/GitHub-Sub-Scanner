@@ -46,17 +46,21 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-03
-    server: 80.78.245.48
-    port: 8880
-    uuid: 6ed59a5b-efef-4ddf-99f2-57d200caed47
+    server: 95.163.232.165
+    port: 443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
     xudp: true
     network: ws
     ws-opts:
-      path: /cdn/assets/stream
+      path: /websocket?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cnd.netherlands.myfilecdn.com
   - type: vless
     name: DeltaKroneckerGithub-04
     server: 161.104.16.112
@@ -70,6 +74,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cnd.finland2.2.myfilecdn.com
+  - type: vless
+    name: 4Nika-7358d415f1
+    server: 95.163.232.54
+    port: 8443
+    uuid: 93fab704-cea7-4ca4-a9ac-5bb46aef263c
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: max.ru
+    reality-opts:
+      public-key: M_V1dM8_wcpwnmh2VZp-s3LCBjy38ZWCRpxLrBc58Do
+      short-id: a48d397391861a3c
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -80,6 +97,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Nika-7358d415f1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,5 +109,6 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Nika-7358d415f1
 rules:
   - MATCH,Proxy
