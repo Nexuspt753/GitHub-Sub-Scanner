@@ -11,32 +11,6 @@ proxies:
       path: /vless
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Sofia · EPODONIOS
-    server: 91.92.136.28
-    port: 443
-    uuid: 52bc7468-0c2f-4e9d-bdfa-e266242ab44b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ripe.net
-    reality-opts:
-      public-key: VuM9HrCRtt7gaOXYkrPggV3GT_HKj18_5y6PcQKjWgQ
-      short-id: 0a076a71
-    xudp: true
-  - type: vless
-    name: Sofia · 🚀t.me/iProxyChannel
-    server: 91.92.136.28
-    port: 443
-    uuid: 52bc7468-0c2f-4e9d-bdfa-e266242ab44b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ripe.net
-    reality-opts:
-      public-key: VuM9HrCRtt7gaOXYkrPggV3GT_HKj18_5y6PcQKjWgQ
-      short-id: 0a076a71
-    xudp: true
   - type: trojan
     name: Sofia · @DeltaKroneckerGithub-01
     server: 193.239.160.134
@@ -52,6 +26,17 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
+  - type: trojan
+    name: Sofia · @DeltaKroneckerGithub-02
+    server: 91.227.77.87
+    port: 443
+    password: bpb-trojan
+    udp: true
+    tls: true
+    sni: skwygx.top
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: Sofia · 4Mohsen-f5114c935a
     server: 91.92.136.28
@@ -81,17 +66,33 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: tasnim.servecounterstrike.com
+  - type: vmess
+    name: Sofia · 4Jadi-867b1315d8
+    server: 5.101.219.5
+    port: 80
+    uuid: a9c33d66-e66f-4a53-9ef0-3f6c52c8d091
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /@forwardv2ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tasnim.servecounterstrike.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Sofia · @DeltaKroneckerGithub
-      - Sofia · EPODONIOS
-      - Sofia · 🚀t.me/iProxyChannel
       - Sofia · @DeltaKroneckerGithub-01
+      - Sofia · @DeltaKroneckerGithub-02
       - Sofia · 4Mohsen-f5114c935a
       - Sofia · 4Kian-d9522d0ee3
+      - Sofia · 4Jadi-867b1315d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -99,10 +100,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Sofia · @DeltaKroneckerGithub
-      - Sofia · EPODONIOS
-      - Sofia · 🚀t.me/iProxyChannel
       - Sofia · @DeltaKroneckerGithub-01
+      - Sofia · @DeltaKroneckerGithub-02
       - Sofia · 4Mohsen-f5114c935a
       - Sofia · 4Kian-d9522d0ee3
+      - Sofia · 4Jadi-867b1315d8
 rules:
   - MATCH,Proxy

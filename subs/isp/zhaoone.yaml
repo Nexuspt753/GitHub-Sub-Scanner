@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Mohsen-71a2cba307
+    server: 121.46.230.235
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-71a2cba307
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-71a2cba307
+rules:
+  - MATCH,Proxy

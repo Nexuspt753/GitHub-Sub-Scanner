@@ -13,19 +13,6 @@ proxies:
     uuid: c90858de-68c4-4432-9b81-54933345c932
     udp: true
     xudp: true
-  - type: vless
-    name: 4FreeIran-0a900356b8
-    server: 178.176.128.128
-    port: 443
-    uuid: c90858de-68c4-4432-9b81-54933345c932
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    alpn:
-      - h2
-      - http/1.1
-    servername: pop.vkaltakte.casa
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -33,7 +20,6 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
-      - 4FreeIran-0a900356b8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +28,5 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
-      - 4FreeIran-0a900356b8
 rules:
   - MATCH,Proxy

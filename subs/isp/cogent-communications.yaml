@@ -74,12 +74,50 @@ proxies:
     password: 0A1XMqChmURuRChe
     udp: true
   - type: vless
-    name: 4FreeIran-249222c066
-    server: 38.128.251.24
-    port: 42538
-    uuid: 5d07b438-63c1-43fa-aa45-b6810de6d030
+    name: 4Nika-96a484718e
+    server: 38.93.136.8
+    port: 443
+    uuid: 426b17cf-400c-417f-8b36-459a01e57351
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: miui.com
+    reality-opts:
+      public-key: ckRcueERkPqqjZABwxqni_J_Nbb70Q6k5fEEUAjoImw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vmess
+    name: 4FreeIran-c33b09d619
+    server: 38.246.226.240
+    port: 52080
+    uuid: 7d4bd961-230c-4b34-ab5d-05cf0dfb4ea5
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+  - type: vmess
+    name: 4Mohsen-219e43fbd8
+    server: 38.246.226.240
+    port: 52080
+    uuid: 7d4bd961-230c-4b34-ab5d-05cf0dfb4ea5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
@@ -91,7 +129,9 @@ proxy-groups:
       - IR-@V2rayAlpha-14
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 4FreeIran-249222c066
+      - 4Nika-96a484718e
+      - 4FreeIran-c33b09d619
+      - 4Mohsen-219e43fbd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -104,6 +144,8 @@ proxy-groups:
       - IR-@V2rayAlpha-14
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 4FreeIran-249222c066
+      - 4Nika-96a484718e
+      - 4FreeIran-c33b09d619
+      - 4Mohsen-219e43fbd8
 rules:
   - MATCH,Proxy

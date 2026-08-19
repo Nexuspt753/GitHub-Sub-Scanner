@@ -114,13 +114,31 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub-01
-    server: 193.42.38.209
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: XF0klw7870vXn3uQIxe19Q
+    server: 185.81.114.88
+    port: 9443
+    password: 50ad7b7681494900887bbf80ab3722d0
     udp: true
+    tls: true
+    sni: apple.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-4e3467cfff
+    server: su.cryptoofarm.com
+    port: 2053
+    uuid: 6607d677-f567-4692-af46-52d0e15808a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: su.cryptoofarm.com
+    reality-opts:
+      public-key: mxrrQlclXuv0Z7LX_NklhYaidSx_9QwP0sa2zeMsrmo
+      short-id: 43fac3bd1d8546a1
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -139,6 +157,7 @@ proxy-groups:
       - bisto4_service
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-4e3467cfff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -158,5 +177,6 @@ proxy-groups:
       - bisto4_service
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-4e3467cfff
 rules:
   - MATCH,Proxy
