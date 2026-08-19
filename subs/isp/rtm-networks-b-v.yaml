@@ -6,12 +6,26 @@ proxies:
     password: f056b41dc9f2b516e333738d1345a6be46a8ca80a3870ffe
     sni: n.nl.cleanersaz.help
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-c8b36e116d
+    server: n.nl.cleanersaz.help
+    port: 443
+    password: f056b41dc9f2b516e333738d1345a6be46a8ca80a3870ffe
+    sni: 127.0.0.1
+  - type: hysteria2
+    name: 4Jadi-e9c7ed45f0
+    server: n.nl.cleanersaz.help
+    port: 443
+    password: f056b41dc9f2b516e333738d1345a6be46a8ca80a3870ffe
+    sni: n.nl.cleanersaz.help
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-3049bb9bd5
+      - 4Mohsen-c8b36e116d
+      - 4Jadi-e9c7ed45f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +33,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-3049bb9bd5
+      - 4Mohsen-c8b36e116d
+      - 4Jadi-e9c7ed45f0
 rules:
   - MATCH,Proxy

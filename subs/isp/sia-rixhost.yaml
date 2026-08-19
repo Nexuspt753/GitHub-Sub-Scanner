@@ -13,12 +13,27 @@ proxies:
       short-id: 5629431325884ff0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-56cc5c053a
+    server: lit6.helper-internet.com
+    port: 443
+    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: lit6.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-22aa8083f9
+      - 4Jadi-56cc5c053a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-22aa8083f9
+      - 4Jadi-56cc5c053a
 rules:
   - MATCH,Proxy

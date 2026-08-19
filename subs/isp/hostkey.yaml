@@ -1,4 +1,30 @@
 proxies:
+  - type: hysteria2
+    name: 4Kian-da6a9ca037
+    server: 82.38.60.122
+    port: 8080
+    password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
+    sni: hopp-us.yyuyy.com
+  - type: hysteria2
+    name: 4Mohsen-01e2498f43
+    server: 82.38.60.122
+    port: 8443
+    password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
+    sni: hopp-us.yyuyy.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Kian-7cc70854ca
+    server: 82.38.60.15
+    port: 8080
+    password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
+    sni: hopp-us.yyuyy.com
+  - type: hysteria2
+    name: 4FreeIran-3fdeeaae48
+    server: 82.38.60.15
+    port: 8443
+    password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
+    sni: hopp-us.yyuyy.com
+    skip-cert-verify: true
   - type: vless
     name: EPODONIOS
     server: 205.172.59.52
@@ -47,22 +73,48 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-031ed7c905
+    server: 205.172.59.52
+    port: 33843
+    uuid: 139aa859-0297-4235-82fb-41678653978e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: timeline.www.cloudflare.com
+    reality-opts:
+      public-key: RA9NH_qGC2s6M4qRsEcTal72R407pHOo6xL5d9FhTQ0
+      short-id: 316dda
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-da6a9ca037
+      - 4Mohsen-01e2498f43
+      - 4Kian-7cc70854ca
+      - 4FreeIran-3fdeeaae48
       - EPODONIOS
       - •
       - 4Jadi-7e46faafab
+      - 4Mohsen-031ed7c905
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-da6a9ca037
+      - 4Mohsen-01e2498f43
+      - 4Kian-7cc70854ca
+      - 4FreeIran-3fdeeaae48
       - EPODONIOS
       - •
       - 4Jadi-7e46faafab
+      - 4Mohsen-031ed7c905
 rules:
   - MATCH,Proxy

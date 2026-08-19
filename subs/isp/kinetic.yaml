@@ -28,6 +28,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime02.workers.dev
+  - type: vless
+    name: 4Mohsen-979850f9cb
+    server: 80.93.202.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime02.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -35,6 +48,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-979850f9cb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,5 +57,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-979850f9cb
 rules:
   - MATCH,Proxy

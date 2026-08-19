@@ -1,5 +1,12 @@
 proxies:
   - type: hysteria2
+    name: 4FreeIran-8ce3738e8c
+    server: 179.61.227.102
+    port: 8443
+    password: 95e8532b-cc69-42d4-9553-e3c23292b15b
+    sni: 179.61.227.102
+    skip-cert-verify: true
+  - type: hysteria2
     name: 4Sarina-2fedfb101c
     server: 179.61.227.102
     port: 8443
@@ -11,6 +18,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-8ce3738e8c
       - 4Sarina-2fedfb101c
   - name: Auto
     type: url-test
@@ -18,6 +26,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-8ce3738e8c
       - 4Sarina-2fedfb101c
 rules:
   - MATCH,Proxy

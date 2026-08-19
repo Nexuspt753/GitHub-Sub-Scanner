@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Kian-fe4e7b50ba
+    server: 138.186.140.102
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: TUmKKAffXUUXAGqtqRC0V9
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-fe4e7b50ba
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-fe4e7b50ba
+rules:
+  - MATCH,Proxy

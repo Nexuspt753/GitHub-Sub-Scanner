@@ -1,35 +1,40 @@
 proxies:
   - type: hysteria2
-    name: 4Mohsen-94e0c4d357
+    name: 4Kian-1216dcfeee
     server: at164.mechvpn.online
     port: 443
     password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: 127.0.0.1
     skip-cert-verify: true
-    alpn:
-      - h3
   - type: hysteria2
-    name: 4Mohsen-31f797fb47
+    name: 4Nika-edbca2cb82
+    server: at164.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: at164.mechvpn.online___hash___🌐 неизвестно [___hash___ркп]
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-de301411f0
     server: at164.mechvpn.online
     port: 443
     password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
     sni: at164.mechvpn.online
-    skip-cert-verify: true
-    alpn:
-      - h3
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-94e0c4d357
-      - 4Mohsen-31f797fb47
+      - 4Kian-1216dcfeee
+      - 4Nika-edbca2cb82
+      - 4Nika-de301411f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-94e0c4d357
-      - 4Mohsen-31f797fb47
+      - 4Kian-1216dcfeee
+      - 4Nika-edbca2cb82
+      - 4Nika-de301411f0
 rules:
   - MATCH,Proxy
