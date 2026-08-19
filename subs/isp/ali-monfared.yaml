@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 🇮🇷147011
+    server: devip2.zeeshop.click
+    port: 443
+    uuid: 44e3bf2e-155f-43c0-a270-651ecadd16ce
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: devip2.zeeshop.click
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷147011
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷147011
+rules:
+  - MATCH,Proxy

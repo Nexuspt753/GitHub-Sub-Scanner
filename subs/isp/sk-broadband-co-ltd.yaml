@@ -6,20 +6,12 @@ proxies:
     cipher: aes-256-cfb
     password: qwerREWQ@@
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: glance.asuscomm.com
-    port: 10099
-    cipher: chacha20-ietf-poly1305
-    password: "12242"
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-41deed32ef
-      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-41deed32ef
-      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

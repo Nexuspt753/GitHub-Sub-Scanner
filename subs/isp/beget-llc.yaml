@@ -2,6 +2,18 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 45.90.32.132
+    port: 2200
+    uuid: aef0e934-09d7-4b8f-b3bc-de78d2eec928
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.90.32.132
     port: 4100
     uuid: 31c2a8e8-0ab2-4f3f-8767-11f3a35d4228
     udp: true
@@ -11,19 +23,6 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-ec281c3127
-    server: 85.198.101.160
-    port: 443
-    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
     name: 4Sarina-bdc0b294eb
     server: 45.11.92.100
@@ -62,7 +61,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-ec281c3127
+      - DeltaKroneckerGithub-01
       - 4Sarina-bdc0b294eb
       - 4Nika-87a480cf50
   - name: Auto
@@ -72,7 +71,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-ec281c3127
+      - DeltaKroneckerGithub-01
       - 4Sarina-bdc0b294eb
       - 4Nika-87a480cf50
 rules:
