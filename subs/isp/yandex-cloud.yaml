@@ -1,22 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 84.201.128.112
-    port: 443
-    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cloudflare.vhub.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /websocket?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Kian-0799016e32
     server: 84.201.128.112
     port: 443
@@ -38,7 +21,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Kian-0799016e32
   - name: Auto
     type: url-test
@@ -46,7 +28,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Kian-0799016e32
 rules:
   - MATCH,Proxy

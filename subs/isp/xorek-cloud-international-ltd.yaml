@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 194.26.229.222
+    port: 4100
+    uuid: a738eec8-f24f-422c-8eba-3538f93fdab1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
   - type: hysteria2
     name: 4Sarina-96d0e6bc15
     server: 150.241.102.127
@@ -6,22 +19,22 @@ proxies:
     password: 042a1881-44e4-4781-bd40-bf75164faf4f
     sni: 150.241.102.127
     skip-cert-verify: true
-  - type: ss
-    name: EPODONIOS
-    server: 193.124.203.144
-    port: 443
-    cipher: 2022-blake3-aes-256-gcm
-    password: mkKfxndCZ9c3YIkAAmANrtfI/mlGJwwV9/GdVTYgW3M=:JazxiYc3Mc5tLn/Te3T59W6Zw4Z/BPuepQ0VlVD/cZ8=
-    udp: true
-  - type: ss
-    name: Begoo_VPN
-    server: 193.124.203.144
-    port: 443
-    cipher: 2022-blake3-aes-256-gcm
-    password: mkKfxndCZ9c3YIkAAmANrtfI/mlGJwwV9/GdVTYgW3M=:JazxiYc3Mc5tLn/Te3T59W6Zw4Z/BPuepQ0VlVD/cZ8=
-    udp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
+    server: 150.241.94.59
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 150.241.72.5
     port: 443
     uuid: fc1b3bda-b226-452a-8c5c-b0e36a1f8f88
@@ -34,6 +47,22 @@ proxies:
       short-id: 00bca5982f82d083
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 89.169.52.230
+    port: 2054
+    uuid: f6da8274-44be-4599-a8d8-66929c980677
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.ibm.com
+    reality-opts:
+      public-key: CSJwWInaYhXDD1soBqp7u6RcTrAbB3Sj5NSZ0D4-qkY
+      short-id: e6762738de47f48c
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: ss
     name: 4Jadi-7390f10de3
     server: 193.188.21.165
@@ -42,33 +71,7 @@ proxies:
     password: EyGy11BMfeP-6UHjsgajWw
     udp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 194.226.169.36
-    port: 443
-    uuid: fae3277c-0541-4ae9-bbbb-8247453ea652
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yahoo.com
-    reality-opts:
-      public-key: i4Mx_tDND0Xxac3WyA7HgT9rvXdZlXpm5m1EGiQF-Uk
-      short-id: b8aa
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 194.226.169.36
-    port: 443
-    uuid: 4706d9c3-eec0-4666-9d84-e608a200e872
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yahoo.com
-    reality-opts:
-      public-key: i4Mx_tDND0Xxac3WyA7HgT9rvXdZlXpm5m1EGiQF-Uk
-      short-id: b8aa
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 150.241.86.150
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -82,7 +85,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-05
     server: 150.241.102.202
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -96,18 +99,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-05
-    server: 194.26.229.207
-    port: 2200
-    uuid: f2d2907c-1d74-43eb-8fd2-fc55dfd92427
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: DeltaKroneckerGithub-06
     server: 150.241.82.19
     port: 443
@@ -119,6 +110,20 @@ proxies:
     reality-opts:
       public-key: v1hVg2Uc7Wsc_bhlLfKkML_HUGogQA9O9n9uZFwzQSM
       short-id: 065cf4f1c7d83e79
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 150.241.94.59
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -192,20 +197,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-06
-    server: 150.241.94.59
-    port: 13443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: auto.cendora.ru
-    reality-opts:
-      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
-      short-id: a7f3c91b2e6d84c0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: DeltaKroneckerGithub-07
     server: 89.22.224.146
     port: 43788
@@ -222,7 +213,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev
   - type: vless
-    name: EPODONIOS-07
+    name: EPODONIOS-06
     server: as.pink-perfect.ru
     port: 443
     uuid: 5d8fcd24-9634-4dd7-845c-3dc2d6291942
@@ -268,7 +259,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
   - type: vless
-    name: 🎈34@oneclickvpnkeys
+    name: freenettir
     server: 150.241.94.59
     port: 13443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -283,6 +274,20 @@ proxies:
     xudp: true
   - type: vless
     name: meliproxyy
+    server: 150.241.94.59
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Alpha_v2rayIP
     server: 150.241.94.59
     port: 13443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -352,7 +357,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: freenettir
+    name: freenettir-01
     server: 150.241.94.59
     port: 13443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -478,7 +483,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: filembad-01
+    name: tootffarangi🍓-10
     server: 150.241.94.59
     port: 13443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -492,7 +497,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: filembad-02
+    name: Napsternetvirani
     server: 150.241.94.59
     port: 13443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -506,21 +511,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: filembad-03
-    server: 150.241.94.59
-    port: 13443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: auto.cendora.ru
-    reality-opts:
-      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
-      short-id: a7f3c91b2e6d84c0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-08
+    name: EPODONIOS-07
     server: files.toriva.click
     port: 443
     uuid: 9f2f92ed-3ed2-4ef3-88e4-c12c5be53b1a
@@ -546,7 +537,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-09
+    name: EPODONIOS-08
     server: v-de-node-03.bot-auth.com
     port: 8443
     uuid: b9b1e7c9-4160-49b4-85a4-2f096706509a
@@ -577,20 +568,6 @@ proxies:
       - http/1.1
     servername: files.toriva.click
     xudp: true
-  - type: vless
-    name: EPODONIOS-10
-    server: 150.241.72.5
-    port: 443
-    uuid: fc1b3bda-b226-452a-8c5c-b0e36a1f8f88
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub-11
     server: 194.87.77.91
@@ -613,22 +590,6 @@ proxies:
       public-key: dNfk0sOCzOlmE61B7ur7YzU2i08RqXIBcGVBA2Ne1Ck
       short-id: 7548bc
     xudp: true
-  - type: vless
-    name: EPODONIOS-11
-    server: 185.125.103.62
-    port: 8082
-    uuid: 7909e164-d482-4620-a370-07e6fda6676b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
   - type: vless
     name: 🇸🇪139845
     server: 150.241.72.5
@@ -664,6 +625,13 @@ proxies:
     cipher: 2022-blake3-aes-256-gcm
     password: mkKfxndCZ9c3YIkAAmANrtfI/mlGJwwV9/GdVTYgW3M=:JazxiYc3Mc5tLn/Te3T59W6Zw4Z/BPuepQ0VlVD/cZ8=
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-15
+    server: creativeboxvpnf.zanity.net
+    port: 5223
+    cipher: chacha20-ietf-poly1305
+    password: YwkJ1ViArbK6AZBCyjEC2p
+    udp: true
   - type: vless
     name: ">>@oneclickvpnkeys::DE"
     server: 185.125.103.62
@@ -681,7 +649,35 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
   - type: vless
+    name: 4FreeIran-01dbfcaa8f
+    server: 150.241.94.59
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-5ead58ca72
+    server: 150.241.94.59
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-68f8f17528
     server: 150.241.94.59
     port: 13443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -709,20 +705,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-095bc142d0
-    server: 150.241.94.59
-    port: 13443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: auto.cendora.ru
-    reality-opts:
-      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
-      short-id: a7f3c91b2e6d84c0@freenettir³
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-1cebfc1ecf
     server: 150.241.94.59
     port: 13443
@@ -734,20 +716,6 @@ proxies:
     reality-opts:
       public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
       short-id: a7f3c91b2e6d84c0@freenettirВі
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-d05d463a05
-    server: 150.241.94.59
-    port: 13443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: auto.cendora.ru
-    reality-opts:
-      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
-      short-id: a7f3c91b2e6d84c0
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -779,18 +747,28 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-983f0b60f6
-    server: as.pink-perfect.ru
-    port: 443
-    uuid: 5d8fcd24-9634-4dd7-845c-3dc2d6291942
+    name: 4Jadi-6e70c84f2b
+    server: 150.241.94.59
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: as.pink-perfect.ru
+    servername: auto.cendora.ru
     reality-opts:
-      public-key: DS9mX6cMb5wvwFzga8yN2NLbs7soXM7038_P23yPKwk
-      short-id: 8ffa160e608bf539
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-d42cd88a03
+    server: 150.241.70.0
+    port: 443
+    uuid: 5d577f62-28a8-4b7e-9441-9307b6132065
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: stats.vk-portal.net
     xudp: true
   - type: vless
     name: 4Nika-444d0e678d
@@ -825,6 +803,18 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
   - type: vless
+    name: 4FreeIran-72d8c06047
+    server: files.toriva.click
+    port: 443
+    uuid: 9f2f92ed-3ed2-4ef3-88e4-c12c5be53b1a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: files.toriva.click
+    xudp: true
+  - type: vless
     name: 4Nika-431bed1b9b
     server: files.toriva.click
     port: 443
@@ -849,53 +839,38 @@ proxies:
       public-key: dNfk0sOCzOlmE61B7ur7YzU2i08RqXIBcGVBA2Ne1Ck
       short-id: 7548bc
     xudp: true
-  - type: vless
-    name: 4Jadi-1037a3458f
-    server: 150.241.72.5
-    port: 443
-    uuid: fc1b3bda-b226-452a-8c5c-b0e36a1f8f88
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-96d0e6bc15
-      - EPODONIOS
-      - Begoo_VPN
       - DeltaKroneckerGithub
-      - 4Jadi-7390f10de3
+      - 4Sarina-96d0e6bc15
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Jadi-7390f10de3
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
+      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
       - EPODONIOS-05
-      - EPODONIOS-06
       - DeltaKroneckerGithub-07
-      - EPODONIOS-07
+      - EPODONIOS-06
       - DeltaKroneckerGithub-08
       - DeltaKroneckerGithub-09
-      - 🎈34@oneclickvpnkeys
+      - freenettir
       - meliproxyy
+      - Alpha_v2rayIP
       - FarazV2ray
       - V2rayng_Fast
       - erfanandroid
       - filembad
-      - freenettir
+      - freenettir-01
       - irconfiig
       - meliproxyy-01
       - v2raybaaz³
@@ -904,70 +879,68 @@ proxy-groups:
       - 🇳🇱@FreakConfig
       - MARAMBASHI
       - V2rayng_Fast-01
-      - filembad-01
-      - filembad-02
-      - filembad-03
-      - EPODONIOS-08
+      - tootffarangi🍓-10
+      - Napsternetvirani
+      - EPODONIOS-07
       - 🔥
-      - EPODONIOS-09
+      - EPODONIOS-08
       - DeltaKroneckerGithub-10
       - v2rayng3
-      - EPODONIOS-10
       - DeltaKroneckerGithub-11
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
-      - EPODONIOS-11
       - 🇸🇪139845
       - DeltaKroneckerGithub-12
       - DeltaKroneckerGithub-13
       - DeltaKroneckerGithub-14
+      - DeltaKroneckerGithub-15
       - ">>@oneclickvpnkeys::DE"
+      - 4FreeIran-01dbfcaa8f
       - 4Sarina-5ead58ca72
+      - 4Mohsen-68f8f17528
       - 4FreeIran-6600a30218
-      - 4Sarina-095bc142d0
       - 4Sarina-1cebfc1ecf
-      - 4FreeIran-d05d463a05
       - 4Mohsen-a7fe92299b
       - 4Sarina-4c7f2ac060
-      - 4Kian-983f0b60f6
+      - 4Jadi-6e70c84f2b
+      - 4Kian-d42cd88a03
       - 4Nika-444d0e678d
       - 4Mohsen-6aff101b6e
+      - 4FreeIran-72d8c06047
       - 4Nika-431bed1b9b
       - 4Sarina-7a9d537882
-      - 4Jadi-1037a3458f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-96d0e6bc15
-      - EPODONIOS
-      - Begoo_VPN
       - DeltaKroneckerGithub
-      - 4Jadi-7390f10de3
+      - 4Sarina-96d0e6bc15
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Jadi-7390f10de3
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
+      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
       - EPODONIOS-05
-      - EPODONIOS-06
       - DeltaKroneckerGithub-07
-      - EPODONIOS-07
+      - EPODONIOS-06
       - DeltaKroneckerGithub-08
       - DeltaKroneckerGithub-09
-      - 🎈34@oneclickvpnkeys
+      - freenettir
       - meliproxyy
+      - Alpha_v2rayIP
       - FarazV2ray
       - V2rayng_Fast
       - erfanandroid
       - filembad
-      - freenettir
+      - freenettir-01
       - irconfiig
       - meliproxyy-01
       - v2raybaaz³
@@ -976,35 +949,34 @@ proxy-groups:
       - 🇳🇱@FreakConfig
       - MARAMBASHI
       - V2rayng_Fast-01
-      - filembad-01
-      - filembad-02
-      - filembad-03
-      - EPODONIOS-08
+      - tootffarangi🍓-10
+      - Napsternetvirani
+      - EPODONIOS-07
       - 🔥
-      - EPODONIOS-09
+      - EPODONIOS-08
       - DeltaKroneckerGithub-10
       - v2rayng3
-      - EPODONIOS-10
       - DeltaKroneckerGithub-11
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
-      - EPODONIOS-11
       - 🇸🇪139845
       - DeltaKroneckerGithub-12
       - DeltaKroneckerGithub-13
       - DeltaKroneckerGithub-14
+      - DeltaKroneckerGithub-15
       - ">>@oneclickvpnkeys::DE"
+      - 4FreeIran-01dbfcaa8f
       - 4Sarina-5ead58ca72
+      - 4Mohsen-68f8f17528
       - 4FreeIran-6600a30218
-      - 4Sarina-095bc142d0
       - 4Sarina-1cebfc1ecf
-      - 4FreeIran-d05d463a05
       - 4Mohsen-a7fe92299b
       - 4Sarina-4c7f2ac060
-      - 4Kian-983f0b60f6
+      - 4Jadi-6e70c84f2b
+      - 4Kian-d42cd88a03
       - 4Nika-444d0e678d
       - 4Mohsen-6aff101b6e
+      - 4FreeIran-72d8c06047
       - 4Nika-431bed1b9b
       - 4Sarina-7a9d537882
-      - 4Jadi-1037a3458f
 rules:
   - MATCH,Proxy

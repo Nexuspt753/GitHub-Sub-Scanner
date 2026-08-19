@@ -1,6 +1,36 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 51.250.69.41
+    port: 443
+    uuid: b8783764-ad60-58bb-b2c9-349bfd373a72
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: U5CjlIXh-AGr8xxyqy8y8vH_oroqHYfwGKrk3O6WdjE
+      short-id: 7bb04fb6
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 158.160.196.224
+    port: 443
+    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 158.160.171.90
     port: 443
     uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
@@ -17,7 +47,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-03
     server: 51.250.3.73
     port: 443
     uuid: b8783764-ad60-58bb-b2c9-349bfd373a72
@@ -36,23 +66,6 @@ proxies:
     uuid: 18118602-454b-4891-9ad6-6899e90364c6
     udp: true
     xudp: true
-  - type: vless
-    name: 4Kian-e17f79863d
-    server: 158.160.196.224
-    port: 443
-    uuid: 391f093f-85fc-473d-abe2-ea607b9ff567
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cloudflare.vhub.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /websocket?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
@@ -87,39 +100,32 @@ proxies:
     name: vless-01
     server: 188.72.103.4
     port: 443
-    uuid: 56b0834d-cbe4-4774-ade7-80143f61451d
+    uuid: 568e8ae3-14ca-4ef1-848d-2a798b851b86
     udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-8406711aff
-    server: 51.250.95.143
-    port: 443
-    uuid: 5725a60c-34a5-476d-9ae3-9e43d945ca8f
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: www.mobile.yandex.ru
-    reality-opts:
-      public-key: dEHsPQQSnMJiHJKnJRbbLFKQmwIemUXQsQ1zIYbLZng
-      short-id: f6
-    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: vless-02
     server: 188.72.103.4
     port: 443
-    uuid: 65eef65c-0e7b-4919-8606-adb8140e8bdf
+    uuid: 56b0834d-cbe4-4774-ade7-80143f61451d
     udp: true
     xudp: true
   - type: vless
     name: vless-03
     server: 188.72.103.4
     port: 443
-    uuid: 9e2c96e9-b280-4142-bef3-0fa971784cf7
+    uuid: 65eef65c-0e7b-4919-8606-adb8140e8bdf
     udp: true
     xudp: true
   - type: vless
     name: vless-04
+    server: 188.72.103.4
+    port: 443
+    uuid: 9e2c96e9-b280-4142-bef3-0fa971784cf7
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-05
     server: 188.72.103.4
     port: 443
     uuid: c90858de-68c4-4432-9b81-54933345c932
@@ -139,7 +145,7 @@ proxies:
     servername: pnx.sasinax.icu
     xudp: true
   - type: vless
-    name: vless-05
+    name: vless-06
     server: 188.72.103.4
     port: 443
     uuid: e6eb9433-f0d8-4257-97c8-1a32de1e0cdb
@@ -152,17 +158,18 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - vless
-      - 4Kian-e17f79863d
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - vless-01
-      - 4Kian-8406711aff
       - vless-02
       - vless-03
       - vless-04
-      - 4Nika-c3bb0dfb6f
       - vless-05
+      - 4Nika-c3bb0dfb6f
+      - vless-06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -171,16 +178,17 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - vless
-      - 4Kian-e17f79863d
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - vless-01
-      - 4Kian-8406711aff
       - vless-02
       - vless-03
       - vless-04
-      - 4Nika-c3bb0dfb6f
       - vless-05
+      - 4Nika-c3bb0dfb6f
+      - vless-06
 rules:
   - MATCH,Proxy

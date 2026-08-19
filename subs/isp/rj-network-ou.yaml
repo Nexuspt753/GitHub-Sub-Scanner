@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: est.vrsvpn.com
+    port: 443
+    uuid: 0b9bcbc1-b289-4a64-86fa-a5b731b65384
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: web.max.ru
+    reality-opts:
+      public-key: SJkDT_L0eziQR2afDGrkN7-uRxjYu6bZxIGXlKeCvX4
+      short-id: 15aa18f971da1f81
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 185.155.97.241
     port: 443
     uuid: 0b9bcbc1-b289-4a64-86fa-a5b731b65384
@@ -13,42 +27,13 @@ proxies:
       short-id: 15aa18f971da1f81
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: est.vrsvpn.com
-    port: 443
-    uuid: 0b9bcbc1-b289-4a64-86fa-a5b731b65384
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: web.max.ru
-    reality-opts:
-      public-key: SJkDT_L0eziQR2afDGrkN7-uRxjYu6bZxIGXlKeCvX4
-      short-id: 15aa18f971da1f81
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-c02654d1da
-    server: est.vrsvpn.com
-    port: 443
-    uuid: 0b9bcbc1-b289-4a64-86fa-a5b731b65384
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: web.max.ru
-    reality-opts:
-      public-key: SJkDT_L0eziQR2afDGrkN7-uRxjYu6bZxIGXlKeCvX4
-      short-id: 15aa18f971da1f81
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Nika-c02654d1da
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Nika-c02654d1da
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
