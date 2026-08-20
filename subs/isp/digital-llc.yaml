@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: user.mizban-b.site
+    port: 2044
+    uuid: bf885c93-bec5-4175-a17f-3b038a92f2e3
+    udp: true
+    xudp: true
+  - type: vless
+    name: ✨
+    server: user.mizban-b.site
+    port: 2044
+    uuid: bf885c93-bec5-4175-a17f-3b038a92f2e3
+    udp: true
+    xudp: true
   - type: trojan
     name: 4Nika-300ddd31ef
     server: 104.253.175.16
@@ -13,18 +27,31 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-7b98b9b91f
+    server: user.mizban-b.site
+    port: 2044
+    uuid: bf885c93-bec5-4175-a17f-3b038a92f2e3
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - ✨
       - 4Nika-300ddd31ef
+      - 4Jadi-7b98b9b91f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - ✨
       - 4Nika-300ddd31ef
+      - 4Jadi-7b98b9b91f
 rules:
   - MATCH,Proxy

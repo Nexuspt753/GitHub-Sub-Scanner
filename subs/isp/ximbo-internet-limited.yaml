@@ -1,5 +1,35 @@
 proxies:
   - type: vmess
+    name: EPODONIOS
+    server: 43.228.126.187
+    port: 47630
+    uuid: 9e5c6ebf-35f9-49a3-9f12-cba2b7cdbccb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-01
+    server: 43.228.126.187
+    port: 47630
+    uuid: 9e5c6ebf-35f9-49a3-9f12-cba2b7cdbccb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-02
+    server: 43.228.126.187
+    port: 47630
+    uuid: 9e5c6ebf-35f9-49a3-9f12-cba2b7cdbccb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: Daily_Configs
     server: 43.228.126.187
     port: 47630
@@ -19,20 +49,50 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: channel_@networld_vpn
+    server: 43.228.126.187
+    port: 47630
+    uuid: 9e5c6ebf-35f9-49a3-9f12-cba2b7cdbccb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-425150e214
+    server: 43.228.126.187
+    port: 47630
+    uuid: 9e5c6ebf-35f9-49a3-9f12-cba2b7cdbccb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - Daily_Configs
       - tootffarangi🍓-2
+      - channel_@networld_vpn
+      - 4FreeIran-425150e214
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - Daily_Configs
       - tootffarangi🍓-2
+      - channel_@networld_vpn
+      - 4FreeIran-425150e214
 rules:
   - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Nika-e4c8c6d134
+    server: 184.75.221.134
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Vr06rU_v1vFPYeXq9zbsAA
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-e4c8c6d134
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-e4c8c6d134
+rules:
+  - MATCH,Proxy

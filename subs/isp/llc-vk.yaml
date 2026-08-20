@@ -1,12 +1,26 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 212.233.99.132
-    port: 6447
-    uuid: fe0138b5-ca60-4a67-91aa-b5a49266eeb5
+    server: finnode3.frost-api.com
+    port: 443
+    uuid: cbe5611f-392b-4ec3-9d8b-5bbe59c0fa68
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: eh.vk.com
+    reality-opts:
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 212.233.99.132
+    port: 6448
+    uuid: fe0138b5-ca60-4a67-91aa-b5a49266eeb5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: www.oracle.com
     reality-opts:
       public-key: aFbCyrLOre-V3ORpBjqenGfDt62Ng_i1sSq-DmZHVgc
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

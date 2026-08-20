@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 66.90.92.59
+    port: 8443
+    uuid: 52e591a5-0aed-007c-8749-3197b02e6525
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru1.convert-flow.net
+    reality-opts:
+      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+      short-id: 00a61d55a07de885
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 50.7.41.142
     port: 443
     uuid: b8794f67-80d9-4124-8fc5-2d2ce5516573
@@ -14,10 +28,27 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
+    server: 66.90.93.74
+    port: 8444
+    uuid: 6320cb90-3da4-4e13-9a07-cabc7918eeaf
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: gateway-v1.bosx.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 66.90.92.59
     port: 8443
-    uuid: 52e591a5-0aed-0310-8749-3197b02e6525
+    uuid: 52e591a5-0aed-0064-8749-3197b02e6525
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -78,6 +109,23 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: 4Sarina-df60000ae6
+    server: 66.90.93.74
+    port: 8443
+    uuid: 8364e505-9c81-4d72-a66b-fde0182be26b
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: gateway-v1.bosx.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Jadi-a99c377320
     server: 50.7.41.142
     port: 443
@@ -115,9 +163,12 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
       - v2ray313
       - 4Kian-9ee736aafc
+      - 4Sarina-df60000ae6
       - 4Jadi-a99c377320
       - 4FreeIran-e3d7a20e90
   - name: Auto
@@ -128,9 +179,12 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
       - v2ray313
       - 4Kian-9ee736aafc
+      - 4Sarina-df60000ae6
       - 4Jadi-a99c377320
       - 4FreeIran-e3d7a20e90
 rules:

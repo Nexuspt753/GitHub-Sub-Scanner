@@ -12,18 +12,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS-01
-    server: 128.204.223.94
-    port: 9815
-    uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: DeltaKroneckerGithub
     server: 128.204.223.94
     port: 9815
@@ -60,29 +48,15 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4FreeIran-d0a4e3d627
-    server: 128.204.223.94
-    port: 9815
-    uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Mohsen-5bd927ffd8
-      - 4FreeIran-d0a4e3d627
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -90,10 +64,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Mohsen-5bd927ffd8
-      - 4FreeIran-d0a4e3d627
 rules:
   - MATCH,Proxy
