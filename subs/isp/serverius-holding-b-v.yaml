@@ -15,26 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-1abdfd718f
-    server: 176.117.75.143
-    port: 2087
-    uuid: d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-1abdfd718f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-1abdfd718f
 rules:
   - MATCH,Proxy

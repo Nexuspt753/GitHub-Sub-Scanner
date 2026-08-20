@@ -13,12 +13,27 @@ proxies:
       short-id: a91045bc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-b7826f760c
+    server: 163.5.153.153
+    port: 443
+    uuid: 0a76a766-d141-44b8-944e-dff757d7116f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: aB_2Tcf0A5LoiIEZHztR_l-ZOFeJKxYRH67s_OVQ9C0
+      short-id: a91045bc
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4Sarina-b7826f760c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4Sarina-b7826f760c
 rules:
   - MATCH,Proxy

@@ -1,31 +1,22 @@
 proxies:
-  - type: vless
-    name: 4Jadi-f25ecc330a
-    server: 178.250.240.32
-    port: 2096
-    uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: v1.api2.ttpservers.ru
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: hysteria2
+    name: 4Kian-ea6231beeb
+    server: cns.dodostarscoffee.ru
+    port: 9443
+    password: 8569e507-8ef7-481d-9108-6bc7f040c2ff
+    sni: cns.dodostarscoffee.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-f25ecc330a
+      - 4Kian-ea6231beeb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-f25ecc330a
+      - 4Kian-ea6231beeb
 rules:
   - MATCH,Proxy

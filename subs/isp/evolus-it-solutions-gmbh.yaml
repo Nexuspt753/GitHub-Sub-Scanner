@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: 🇦🇹AT-🚀@VPNine1
+    server: nl5fg21.rushconfig1.com
+    port: 11873
+    uuid: cd7a6128-f1ed-4b2e-927d-665b9b47d6ab
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl5fg21.rushconfig1.com
+  - type: vless
+    name: 🇳🇱148254
+    server: nl5fg21.rushconfig1.com
+    port: 11873
+    uuid: cd7a6128-f1ed-4b2e-927d-665b9b47d6ab
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl5fg21.rushconfig1.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇦🇹AT-🚀@VPNine1
+      - 🇳🇱148254
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇦🇹AT-🚀@VPNine1
+      - 🇳🇱148254
+rules:
+  - MATCH,Proxy

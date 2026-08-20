@@ -3,7 +3,7 @@ proxies:
     name: DeltaKroneckerGithub
     server: 88.218.92.126
     port: 13443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    uuid: b80b392c-0cf4-42f9-ae54-9f862e3ba276
     udp: true
     tls: true
     client-fingerprint: qq
@@ -13,12 +13,26 @@ proxies:
       short-id: a7f3c91b2e6d84c0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Yerevan · @DeltaKroneckerGithub
+    server: 77.91.68.70
+    port: 55983
+    uuid: f667a096-5231-4cfb-8759-92bb32473139
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
+      short-id: 0e
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - Yerevan · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - Yerevan · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

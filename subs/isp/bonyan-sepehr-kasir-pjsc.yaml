@@ -1,0 +1,32 @@
+proxies:
+  - type: ss
+    name: 4Kian-cc6b3b9051
+    server: 185.215.228.132
+    port: 2044
+    cipher: chacha20-ietf-poly1305
+    password: 3rfnj11q5xvg72y1
+    udp: true
+  - type: ss
+    name: 4Jadi-e718155149
+    server: tt.hsrdnr.ir
+    port: 2044
+    cipher: chacha20-ietf-poly1305
+    password: 3rfnj11q5xvg72y1
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-cc6b3b9051
+      - 4Jadi-e718155149
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-cc6b3b9051
+      - 4Jadi-e718155149
+rules:
+  - MATCH,Proxy

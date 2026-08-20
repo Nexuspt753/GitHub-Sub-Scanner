@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: 🇮🇷148153
+    server: tin5.textupd.ir
+    port: 43234
+    uuid: 0847aeb1-4543-42d1-9bf3-39e752f51b1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
+      short-id: b7e45d3a65bfc319
+    xudp: true
+  - type: vless
+    name: 🇮🇷148152
+    server: viptun.aminicity.ir
+    port: 24443
+    uuid: 0847aeb1-4543-42d1-9bf3-39e752f51b1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
+      short-id: b7e45d3a65bfc319
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷148153
+      - 🇮🇷148152
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷148153
+      - 🇮🇷148152
+rules:
+  - MATCH,Proxy
