@@ -1,0 +1,65 @@
+proxies:
+  - type: trojan
+    name: 4Jadi-6ff522c3e5
+    server: 209.46.30.11
+    port: 443
+    password: 2e7d3f13-be1b-479c-94ff-0e95c2bd565d
+    udp: true
+    tls: true
+    sni: 2jp2.pqjc.buzz
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-f126e2fd4c
+    server: 209.46.30.17
+    port: 443
+    password: 2e7d3f13-be1b-479c-94ff-0e95c2bd565d
+    udp: true
+    tls: true
+    sni: 2jp4.pqjc.buzz
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-c66ac56886
+    server: 209.46.30.215
+    port: 443
+    password: 2e7d3f13-be1b-479c-94ff-0e95c2bd565d
+    udp: true
+    tls: true
+    sni: 2jp3.pqjc.buzz
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-5313306a39
+    server: 209.46.30.149
+    port: 443
+    uuid: 933e8995-3b6d-4d42-8b23-e649f0e7205f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: resources.office.com.r3xxe.eu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /us-gllc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: resources.office.com.r3xxe.eu.cc
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-6ff522c3e5
+      - 4Mohsen-f126e2fd4c
+      - 4Sarina-c66ac56886
+      - 4Kian-5313306a39
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-6ff522c3e5
+      - 4Mohsen-f126e2fd4c
+      - 4Sarina-c66ac56886
+      - 4Kian-5313306a39
+rules:
+  - MATCH,Proxy

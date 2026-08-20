@@ -1,6 +1,20 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
+    server: 103.195.4.7
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: asia.cendora.ru
+    reality-opts:
+      public-key: eaRNeC8fccrx0nBNvBpAXZgK4m4FxfnQ-t0W7NOM7mU
+      short-id: e53048e82bb20077
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-201f18fa46
     server: 103.195.4.7
     port: 13443
     uuid: b80b392c-0cf4-42f9-ae54-9f862e3ba276
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - 4Kian-201f18fa46
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - 4Kian-201f18fa46
 rules:
   - MATCH,Proxy

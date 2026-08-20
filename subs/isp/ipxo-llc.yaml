@@ -25,8 +25,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: join---i10vpn---join---i10vpn---join---i10vpn---join---i10vpn
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-02
+    server: 108.165.216.7
+    port: 8443
+    uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speed.dulacloud.store
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /dula?Telegram-WangCai2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: speed.dulacloud.store
+  - type: trojan
+    name: DeltaKroneckerGithub-03
     server: 157.254.38.210
     port: 20129
     password: 41c406e2-12b5-41f2-a329-d0621052d675
@@ -77,6 +93,36 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4FreeIran-7f84271ab8
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-dda805b2cd
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -85,10 +131,13 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Sarina-325c9a24f1
       - 4Sarina-5dde61a6f9
       - 4Kian-1e1c431400
       - 4Jadi-fe5a0e4112
+      - 4FreeIran-7f84271ab8
+      - 4Sarina-dda805b2cd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -98,9 +147,12 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Sarina-325c9a24f1
       - 4Sarina-5dde61a6f9
       - 4Kian-1e1c431400
       - 4Jadi-fe5a0e4112
+      - 4FreeIran-7f84271ab8
+      - 4Sarina-dda805b2cd
 rules:
   - MATCH,Proxy
