@@ -1,5 +1,12 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
     name: DeltaKroneckerGithub
     server: 175.41.234.16
     port: 443
@@ -33,11 +40,22 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: 4FreeIran-cd4304d2c5
+    name: 4FreeIran-0841b2467d
+    server: 175.41.234.16
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    sni: open-octopus.rooster465.autos
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-7831779bca
     server: open-octopus.rooster465.autos
     port: 443
     password: EQ30679154
     udp: true
+    tls: true
+    sni: open-octopus.rooster465.autos
     client-fingerprint: chrome
   - type: trojan
     name: 4Mohsen-2ba965bb72
@@ -48,28 +66,51 @@ proxies:
     tls: true
     sni: open-octopus.rooster465.autos
     client-fingerprint: chrome
+  - type: trojan
+    name: ">>@v2nodes::JP"
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 🇯🇵JP-175.41.234.16-0496
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 4FreeIran-cd4304d2c5
+      - 4FreeIran-0841b2467d
+      - 4Mohsen-7831779bca
       - 4Mohsen-2ba965bb72
+      - ">>@v2nodes::JP"
+      - 🇯🇵JP-175.41.234.16-0496
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 4FreeIran-cd4304d2c5
+      - 4FreeIran-0841b2467d
+      - 4Mohsen-7831779bca
       - 4Mohsen-2ba965bb72
+      - ">>@v2nodes::JP"
+      - 🇯🇵JP-175.41.234.16-0496
 rules:
   - MATCH,Proxy

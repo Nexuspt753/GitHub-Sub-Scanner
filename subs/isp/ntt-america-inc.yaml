@@ -1,4 +1,11 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.167.54.75
+    port: 47212
+    uuid: cd477134-ffce-473a-8dca-8ce5fc6eb3eb
+    udp: true
+    xudp: true
   - type: hysteria2
     name: 4FreeIran-baf23c5814
     server: 192.220.56.72
@@ -7,30 +14,25 @@ proxies:
     sni: bing.com
     skip-cert-verify: true
   - type: vless
-    name: 4Nika-a320b43ddc
-    server: 216.167.49.171
-    port: 51693
-    uuid: 0121a5ff-89da-4f0f-93e5-400370f91a96
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Jadi-cab12f4589
-    server: 128.241.25.215
-    port: 30036
-    uuid: 196b7228-58df-4bcf-af2a-2e96608d5add
+    name: vless
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
     xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
   - type: vless
-    name: 4FreeIran-a51c370a76
+    name: vless-01
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: 4Jadi-cab12f4589
     server: 128.241.25.215
     port: 30036
     uuid: 196b7228-58df-4bcf-af2a-2e96608d5add
@@ -66,10 +68,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-baf23c5814
-      - 4Nika-a320b43ddc
+      - vless
+      - vless-01
       - 4Jadi-cab12f4589
-      - 4FreeIran-a51c370a76
       - 4Kian-59ac62aadd
   - name: Auto
     type: url-test
@@ -77,10 +80,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-baf23c5814
-      - 4Nika-a320b43ddc
+      - vless
+      - vless-01
       - 4Jadi-cab12f4589
-      - 4FreeIran-a51c370a76
       - 4Kian-59ac62aadd
 rules:
   - MATCH,Proxy

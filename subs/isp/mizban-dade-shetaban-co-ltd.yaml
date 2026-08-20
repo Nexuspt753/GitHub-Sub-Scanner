@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-4a9bf5a9d4
+    server: ir.rootit.online
+    port: 443
+    password: iuD-0Q_Ree6KxsXayy0-UIBOtFRtXWlk
+    sni: ir.rootit.online
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-4a9bf5a9d4
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-4a9bf5a9d4
+rules:
+  - MATCH,Proxy

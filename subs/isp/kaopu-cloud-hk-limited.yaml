@@ -14,6 +14,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS
+    server: fr.hardvezoo.ir
+    port: 2053
+    uuid: 50c8b5db-c138-4074-9eb5-9bb04c338eef
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.speedtest.net
+  - type: vless
     name: 🇫🇷FR-🚀@VPNine1
     server: fr.hardvezoo.ir
     port: 2053
@@ -34,14 +47,29 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-3325418b19
+    server: fr.hardvezoo.ir
+    port: 2053
+    uuid: 50c8b5db-c138-4074-9eb5-9bb04c338eef
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.speedtest.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - 🇫🇷FR-🚀@VPNine1
       - DeltaKroneckerGithub-01
+      - 4Nika-3325418b19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,7 +77,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - 🇫🇷FR-🚀@VPNine1
       - DeltaKroneckerGithub-01
+      - 4Nika-3325418b19
 rules:
   - MATCH,Proxy

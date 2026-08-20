@@ -1,18 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-2eb72a6eca
-    server: 43.156.90.144
-    port: 34567
-    password: P6qkAwznuC076mbIR2cGPg==
-    sni: bing.com
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Kian-8095e4ae89
-    server: 43.156.90.144
-    port: 34567
-    password: P6qkAwznuC076mbIR2cGPg==
-    sni: bing.com
-    skip-cert-verify: true
   - type: vless
     name: EPODONIOS
     server: 43.165.177.82
@@ -87,15 +73,22 @@ proxies:
     tls: true
     sni: 43.133.253.211
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 43.156.253.94
-    port: 443
-    password: Aimer
+  - type: vmess
+    name: EPODONIOS-02
+    server: cc28.goingside.site
+    port: 8998
+    uuid: 4b019faa-38b0-473d-bc49-60bb68151c34
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    sni: ngepx.ambercc.filegear-sg.me
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cc28.goingside.site
   - type: vless
     name: 4Sarina-1f437d52a5
     server: 43.165.177.82
@@ -125,7 +118,37 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Mohsen-1c1f9be5b9
+    server: 43.165.177.82
+    port: 443
+    uuid: 0b772594-d6b9-4f4f-849b-8a6f92f594fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: ZuN9nc78h4Ccb19eb9NpTCs0jZkhJB8L0i1ZoAhu0XU
+      short-id: b2f4518cf979889d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-00bead0aef
+    server: 43.167.239.81
+    port: 443
+    uuid: 85819b3c-fe18-40bb-bd9a-f3cd194a8d28
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 43.167.239.81
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 43.167.239.81
+  - type: vless
+    name: 4FreeIran-bd2413b6b9
     server: 43.167.239.81
     port: 443
     uuid: 85819b3c-fe18-40bb-bd9a-f3cd194a8d28
@@ -156,42 +179,90 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cc28.goingside.site
+  - type: vmess
+    name: 4FreeIran-149436844e
+    server: sylva53.ceoiii.com
+    port: 36824
+    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4FreeIran-4ce6751e6f
+    server: sylva53.ceoiii.com
+    port: 36824
+    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Kian-6ce2a72235
+    server: v36.hdacd.com
+    port: 30836
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-2eb72a6eca
-      - 4Kian-8095e4ae89
       - EPODONIOS
       - EPODONIOS-01
       - 🇯🇵|JP|@wxgqlfx|147
       - vmesskhodam
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - EPODONIOS-02
       - 4Sarina-1f437d52a5
       - 4Sarina-a6ed60b83a
+      - 4Mohsen-1c1f9be5b9
       - 4Kian-00bead0aef
+      - 4FreeIran-bd2413b6b9
       - 4Jadi-e0671995de
+      - 4FreeIran-149436844e
+      - 4FreeIran-4ce6751e6f
+      - 4Kian-6ce2a72235
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-2eb72a6eca
-      - 4Kian-8095e4ae89
       - EPODONIOS
       - EPODONIOS-01
       - 🇯🇵|JP|@wxgqlfx|147
       - vmesskhodam
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - EPODONIOS-02
       - 4Sarina-1f437d52a5
       - 4Sarina-a6ed60b83a
+      - 4Mohsen-1c1f9be5b9
       - 4Kian-00bead0aef
+      - 4FreeIran-bd2413b6b9
       - 4Jadi-e0671995de
+      - 4FreeIran-149436844e
+      - 4FreeIran-4ce6751e6f
+      - 4Kian-6ce2a72235
 rules:
   - MATCH,Proxy
