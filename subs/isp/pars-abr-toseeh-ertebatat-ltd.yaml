@@ -1,29 +1,23 @@
 proxies:
   - type: vless
-    name: 4FreeIran-5d2233e6d5
-    server: direct.mynor.ir
-    port: 443
-    uuid: 273fd35b-bb19-4fec-8192-ab2c83e73d55
+    name: vless
+    server: vip.racab-plus.com
+    port: 8443
+    uuid: f234abc5-3a69-4b16-8344-46fc2ea103d3
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: myket.ir
-    reality-opts:
-      public-key: jdRc1m6H39-UZp0U8BkTwLpkZIZoyFEORGxEpcnKGAg
-      short-id: ee8fb0d94f
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5d2233e6d5
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5d2233e6d5
+      - vless
 rules:
   - MATCH,Proxy

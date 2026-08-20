@@ -1,13 +1,27 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 23.165.200.168
+    port: 49527
+    uuid: 853a3bff-2583-4908-9f16-934bb3077d24
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: apple.com
+    reality-opts:
+      public-key: IbI4GjOoEE7mFvOyegC2bdADUgDjzpz24OIIhQhzdnc
+      short-id: 9c4b91b9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 194.124.216.185
     port: 443
     password: M08tvzYWtUEJNtbpHp
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 194.124.216.192
     port: 443
     password: M08tvzYWtUEJNtbpHp
@@ -21,6 +35,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +44,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy
