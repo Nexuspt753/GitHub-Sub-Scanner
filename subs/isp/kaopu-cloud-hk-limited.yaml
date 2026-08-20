@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: fr.hardvezoo.ir
+    port: 2053
+    uuid: 50c8b5db-c138-4074-9eb5-9bb04c338eef
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.speedtest.net
+  - type: vless
     name: DeltaKroneckerGithub
     server: 103.84.110.68
     port: 24443
@@ -26,6 +39,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
   - name: Auto
@@ -34,6 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
 rules:

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 212.64.193.42
+    port: 443
+    uuid: 0b596551-26c0-4d8d-8a4a-231b54418c28
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bg.cloudtechone.org
+    reality-opts:
+      public-key: _IBXb9NfhsnS21XbU9PIl73ExvrjXGXVLO0Za1ui5Fo
+      short-id: f93c9d5127e622e4
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

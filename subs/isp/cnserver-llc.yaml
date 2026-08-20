@@ -1,13 +1,13 @@
 proxies:
   - type: hysteria2
-    name: 美国
+    name: EPODONIOS
     server: uswx4.wxgqlfx.vip
     port: 11683
     password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
     sni: 144.225.187.153
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
+    name: 美国
     server: uswx4.wxgqlfx.vip
     port: 11683
     password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
@@ -27,72 +27,24 @@ proxies:
     password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
     sni: 144.225.187.153
     skip-cert-verify: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 5.253.38.161
-    port: 443
-    uuid: 9bd29aae-51f9-31f3-a1dc-da8d01d68908
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 6099f3ccs374.csgfw.top
-    reality-opts:
-      public-key: ymymFdoobDai29Ww576QkQtEFftfyKFLAW58mPIJxkY
-      short-id: f4b54c0a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-3091a76eb0
-    server: 5.253.38.161
-    port: 443
-    uuid: 9bd29aae-51f9-31f3-a1dc-da8d01d68908
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 6099f3ccs374.csgfw.top
-    reality-opts:
-      public-key: ymymFdoobDai29Ww576QkQtEFftfyKFLAW58mPIJxkY
-      short-id: f4b54c0a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-7234913fd3
-    server: 5.253.38.161
-    port: 443
-    uuid: 9bd29aae-51f9-31f3-a1dc-da8d01d68908
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 6099f3ccs374.csgfw.top
-    reality-opts:
-      public-key: ymymFdoobDai29Ww576QkQtEFftfyKFLAW58mPIJxkY
-      short-id: f4b54c0a
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 美国
       - EPODONIOS
+      - 美国
       - 4Mohsen-2ffaf3a7ca
       - 4Kian-a5db2722e6
-      - EPODONIOS-01
-      - 4Sarina-3091a76eb0
-      - 4Mohsen-7234913fd3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 美国
       - EPODONIOS
+      - 美国
       - 4Mohsen-2ffaf3a7ca
       - 4Kian-a5db2722e6
-      - EPODONIOS-01
-      - 4Sarina-3091a76eb0
-      - 4Mohsen-7234913fd3
 rules:
   - MATCH,Proxy

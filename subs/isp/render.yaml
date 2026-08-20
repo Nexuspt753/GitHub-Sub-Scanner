@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.24.57.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime28.workers.dev
   - type: trojan
     name: EPODONIOS
     server: render.com
@@ -29,6 +42,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 216.24.57.1
+    port: 443
+    uuid: 974c2588-c1cd-43ac-8823-ce3d879b09fd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: somersby.pt.ex33r.eu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /id-amz
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 216.24.57.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime28.workers.dev
   - type: vless
     name: EPODONIOS-01
     server: hollowcon4.onrender.com
@@ -213,15 +254,6 @@ proxies:
     sni: www.ignitelimit.com
     client-fingerprint: chrome
   - type: trojan
-    name: 4Kian-e114777e1b
-    server: 216.24.57.1
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Kian-e79d86767c
     server: 216.24.57.1
     port: 443
@@ -319,6 +351,23 @@ proxies:
     tls: true
     sni: www.ignitelimit.com
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-4486f89e0d
+    server: 216.24.57.7
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.ignitelimit.com
   - type: trojan
     name: 4Jadi-9543478517
     server: 216.24.57.7
@@ -486,15 +535,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: 4FreeIran-20892b34ef
-    server: render.com
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Mohsen-c22d3b552f
     server: render.com
     port: 443
@@ -589,6 +629,24 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hollowcon-6ogo.onrender.com
   - type: vless
+    name: 4Jadi-4c6f90dd01
+    server: hollowcon6.onrender.com
+    port: 443
+    uuid: f40ef9e3-ce9d-438f-a421-2b3f3361c86a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: hollowcon6.onrender.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/f40ef9e3-ce9d-438f-a421-2b3f3361c86a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hollowcon6.onrender.com
+  - type: vless
     name: 4Kian-4f24164484
     server: hollowcon-c5lo.onrender.com
     port: 443
@@ -606,13 +664,33 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hollowcon-c5lo.onrender.com
+  - type: vmess
+    name: 4FreeIran-c6209ad8e0
+    server: 216.24.57.1
+    port: 443
+    uuid: a7ee85f4-2528-412e-994f-ce65f54754e4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: a7ee85f4
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dd2.1808.cf
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - prrofile_purple
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
@@ -624,7 +702,6 @@ proxy-groups:
       - hollowcon-03
       - ">>@prrofile_purple::FR"
       - 4Mohsen-34be3c930d
-      - 4Kian-e114777e1b
       - 4Kian-e79d86767c
       - 4Nika-023f9c89c5
       - 4Kian-315799c0fe
@@ -633,6 +710,7 @@ proxy-groups:
       - 4Sarina-500ff03c97
       - 4Mohsen-12ad158772
       - 4Mohsen-3e2f91c95a
+      - 4Sarina-4486f89e0d
       - 4Jadi-9543478517
       - 4Sarina-ce4d683e7e
       - 4Mohsen-044d1a0f8c
@@ -645,22 +723,26 @@ proxy-groups:
       - 4Sarina-b1b0049850
       - 4FreeIran-982ccc867b
       - 4Kian-7c3b533e7f
-      - 4FreeIran-20892b34ef
       - 4Mohsen-c22d3b552f
       - 4Nika-e9df4cc96b
       - 4Kian-4b01e31cf8
       - 4Sarina-84e8068e1b
       - 4Jadi-b49dc88d5e
       - 4FreeIran-8e427b502e
+      - 4Jadi-4c6f90dd01
       - 4Kian-4f24164484
+      - 4FreeIran-c6209ad8e0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - prrofile_purple
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
@@ -672,7 +754,6 @@ proxy-groups:
       - hollowcon-03
       - ">>@prrofile_purple::FR"
       - 4Mohsen-34be3c930d
-      - 4Kian-e114777e1b
       - 4Kian-e79d86767c
       - 4Nika-023f9c89c5
       - 4Kian-315799c0fe
@@ -681,6 +762,7 @@ proxy-groups:
       - 4Sarina-500ff03c97
       - 4Mohsen-12ad158772
       - 4Mohsen-3e2f91c95a
+      - 4Sarina-4486f89e0d
       - 4Jadi-9543478517
       - 4Sarina-ce4d683e7e
       - 4Mohsen-044d1a0f8c
@@ -693,13 +775,14 @@ proxy-groups:
       - 4Sarina-b1b0049850
       - 4FreeIran-982ccc867b
       - 4Kian-7c3b533e7f
-      - 4FreeIran-20892b34ef
       - 4Mohsen-c22d3b552f
       - 4Nika-e9df4cc96b
       - 4Kian-4b01e31cf8
       - 4Sarina-84e8068e1b
       - 4Jadi-b49dc88d5e
       - 4FreeIran-8e427b502e
+      - 4Jadi-4c6f90dd01
       - 4Kian-4f24164484
+      - 4FreeIran-c6209ad8e0
 rules:
   - MATCH,Proxy

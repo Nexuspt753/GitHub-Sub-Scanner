@@ -1,33 +1,5 @@
 proxies:
   - type: vless
-    name: Ho Chi Minh City · @DeltaKroneckerGithub
-    server: 216.133.158.108
-    port: 443
-    uuid: c08c499f-21bd-46ba-9146-5c770204342b
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: Kh1-hdn9zTY5a1-3qP8L_6UTRL2iNZ1pIr_X8U94OQM
-      short-id: 872303cf1e28389f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Ho Chi Minh City · @DeltaKroneckerGithub-01
-    server: wf1y-1o2rzho.rixora.top
-    port: 443
-    uuid: c08c499f-21bd-46ba-9146-5c770204342b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: Kh1-hdn9zTY5a1-3qP8L_6UTRL2iNZ1pIr_X8U94OQM
-      short-id: 872303cf1e28389f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Hanoi · @DeltaKroneckerGithub
     server: 103.225.197.237
     port: 443
@@ -41,12 +13,42 @@ proxies:
       short-id: 0d8ca7e0b3d26321
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Ho Chi Minh City · @DeltaKroneckerGithub
+    server: 216.133.158.108
+    port: 443
+    uuid: c08c499f-21bd-46ba-9146-5c770204342b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: Kh1-hdn9zTY5a1-3qP8L_6UTRL2iNZ1pIr_X8U94OQM
+      short-id: 872303cf1e28389f
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
-    name: Ho Chi Minh City · @DeltaKroneckerGithub-02
+    name: Ho Chi Minh City · @DeltaKroneckerGithub-01
     server: 36.50.134.29
     port: 443
     password: 94d219c9-1afc-4d42-b090-8b3794764380
     udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: Quận Bình Thạnh · 4Nika-1d5bff5b60
+    server: 103.195.236.24
+    port: 443
+    password: 5623be5f-c9da-4511-81a9-b4b39b16edae
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: Quận Bình Thạnh · 4FreeIran-1c5ebd34cc
+    server: 103.195.236.24
+    port: 443
+    password: 8078dd51-d4d9-4024-89df-50e358a00a54
+    udp: true
+    tls: true
     client-fingerprint: chrome
   - type: trojan
     name: Hanoi · @DeltaKroneckerGithub-01
@@ -65,22 +67,6 @@ proxies:
     udp: true
     tls: true
     sni: 103.9.77.6
-    client-fingerprint: chrome
-  - type: trojan
-    name: Quận Bình Thạnh · 4Nika-1d5bff5b60
-    server: 103.195.236.24
-    port: 443
-    password: 5623be5f-c9da-4511-81a9-b4b39b16edae
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: Quận Bình Thạnh · 4FreeIran-1c5ebd34cc
-    server: 103.195.236.24
-    port: 443
-    password: 8078dd51-d4d9-4024-89df-50e358a00a54
-    udp: true
-    tls: true
     client-fingerprint: chrome
   - type: vmess
     name: Dich Vong · 4Jadi-a0ee88c35b
@@ -128,38 +114,53 @@ proxies:
       path: /tandung288.click
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Hanoi · 4Jadi-70bdc269ec
+    server: 103.82.25.106
+    port: 80
+    uuid: ec7c94b5-6ca6-4289-b44b-c6583f2c5f6c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fuzzyng?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Hanoi · @DeltaKroneckerGithub
       - Ho Chi Minh City · @DeltaKroneckerGithub
       - Ho Chi Minh City · @DeltaKroneckerGithub-01
-      - Hanoi · @DeltaKroneckerGithub
-      - Ho Chi Minh City · @DeltaKroneckerGithub-02
-      - Hanoi · @DeltaKroneckerGithub-01
-      - Go Vap · @DeltaKroneckerGithub
       - Quận Bình Thạnh · 4Nika-1d5bff5b60
       - Quận Bình Thạnh · 4FreeIran-1c5ebd34cc
+      - Hanoi · @DeltaKroneckerGithub-01
+      - Go Vap · @DeltaKroneckerGithub
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Hanoi · @DeltaKroneckerGithub
       - Ho Chi Minh City · @DeltaKroneckerGithub
       - Ho Chi Minh City · @DeltaKroneckerGithub-01
-      - Hanoi · @DeltaKroneckerGithub
-      - Ho Chi Minh City · @DeltaKroneckerGithub-02
-      - Hanoi · @DeltaKroneckerGithub-01
-      - Go Vap · @DeltaKroneckerGithub
       - Quận Bình Thạnh · 4Nika-1d5bff5b60
       - Quận Bình Thạnh · 4FreeIran-1c5ebd34cc
+      - Hanoi · @DeltaKroneckerGithub-01
+      - Go Vap · @DeltaKroneckerGithub
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
 rules:
   - MATCH,Proxy

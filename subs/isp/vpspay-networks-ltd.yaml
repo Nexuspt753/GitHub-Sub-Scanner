@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.26.122.101
+    port: 8443
+    uuid: 658f7138-93c2-414d-a6c2-f332c94d4034
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.shopify.com
+    reality-opts:
+      public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
+      short-id: f747a7a5793b5714
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: ss
     name: EPODONIOS
     server: 31.76.30.79
@@ -20,19 +36,6 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
     udp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: nl.shhflow.xyz
-    port: 443
-    uuid: 2f919a1e-f00e-4538-b0a9-cf190721d578
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl.shhflow.xyz
-    reality-opts:
-      public-key: gjj7bNUAuBdJEANhEJogoCKXyXsKeCj0xphzhL3uUVU
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: 4Mohsen-ba9939bfec
     server: 31.76.30.79
@@ -41,20 +44,14 @@ proxies:
     password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
     udp: true
   - type: vless
-    name: 🇺🇸US-🚀@VPNine1
-    server: nl.shhflow.xyz
-    port: 443
-    uuid: 2f919a1e-f00e-4538-b0a9-cf190721d578
+    name: vless
+    server: 2.26.224.100
+    port: 8444
+    uuid: 15e83ced-7544-422e-863d-deafe29a1dbe
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl.shhflow.xyz
-    reality-opts:
-      public-key: gjj7bNUAuBdJEANhEJogoCKXyXsKeCj0xphzhL3uUVU
-    flow: xtls-rprx-vision
     xudp: true
   - type: ss
-    name: DeltaKroneckerGithub
+    name: ">>@FreakConfig::FI"
     server: 31.76.30.79
     port: 10808
     cipher: chacha20-ietf-poly1305
@@ -68,7 +65,7 @@ proxies:
     password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
     udp: true
   - type: ss
-    name: ">>@FreakConfig::FI"
+    name: DeltaKroneckerGithub-02
     server: 31.76.30.79
     port: 10808
     cipher: chacha20-ietf-poly1305
@@ -92,15 +89,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 4FreeIran-1d10058efc
       - T.me/Vpn_Mafia
-      - EPODONIOS-01
       - 4Mohsen-ba9939bfec
-      - 🇺🇸US-🚀@VPNine1
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - vless
       - ">>@FreakConfig::FI"
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-8a04a9ad0e
   - name: Auto
     type: url-test
@@ -108,15 +105,15 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 4FreeIran-1d10058efc
       - T.me/Vpn_Mafia
-      - EPODONIOS-01
       - 4Mohsen-ba9939bfec
-      - 🇺🇸US-🚀@VPNine1
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - vless
       - ">>@FreakConfig::FI"
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-8a04a9ad0e
 rules:
   - MATCH,Proxy

@@ -1,15 +1,5 @@
 proxies:
   - type: vmess
-    name: 4Jadi-b117898fdc
-    server: trf-nld.ip-static.com
-    port: 5001
-    uuid: 03bda96d-604a-4839-a087-fea6749f2918
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
     name: 4Kian-d1c07364e5
     server: trf-nld.ip-static.com
     port: 5001
@@ -29,22 +19,32 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-e7ef70a693
+    server: trf-nld.ip-static.com
+    port: 5006
+    uuid: de3aeea2-d8af-4fea-afdc-4d8a451f4d1f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-b117898fdc
       - 4Kian-d1c07364e5
       - 4Kian-0be85baefd
+      - 4Kian-e7ef70a693
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b117898fdc
       - 4Kian-d1c07364e5
       - 4Kian-0be85baefd
+      - 4Kian-e7ef70a693
 rules:
   - MATCH,Proxy

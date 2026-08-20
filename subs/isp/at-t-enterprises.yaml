@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 116.206.92.22
+    port: 443
+    uuid: fa5f6e68-f424-4069-9f49-68eee4e2d671
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 1sU0drvVBwukk44ZHs46cpG0tw42GjjDc3m2nzKwewI
+      short-id: 19a6c7093ddda9b2
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

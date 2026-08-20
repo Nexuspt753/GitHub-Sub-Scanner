@@ -1,6 +1,34 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 81.163.23.229
+    port: 443
+    uuid: b6f4433d-77f9-4c91-9284-881796437765
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: d3cdn4.cloud-cdn.xyz
+    reality-opts:
+      public-key: 73TR7OJB5qwHj6Wv84OOnMnc3XijQROD1j9Y6w7eHj8
+      short-id: 8af2a87ba6dd24bf
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 81.163.23.184
+    port: 443
+    uuid: b6f4433d-77f9-4c91-9284-881796437765
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: d3-de1.cloud-cdn.xyz
+    reality-opts:
+      public-key: 1VyI9uZhGNRHoWaKN64kdpA_quoVdF4ALFCXtsvM1k0
+      short-id: 36eead8266dadafb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: ru-1.krugvpn.com
     port: 443
     password: jj59d0f73f5d6
@@ -11,80 +39,14 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-9f03681ab7
-    server: 5.188.115.185
-    port: 8446
-    uuid: 427c1d7e-d485-44eb-a971-e3c35007b71e
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: eh.vk.com
-    reality-opts:
-      public-key: 7IOtSp0-n2_uNS5nMO9ywZbn2HibMRGy0KbLad3szXc
-      short-id: a1b2c3d4
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Jadi-7a4be36b4c
-    server: 5.188.115.185
-    port: 8446
-    uuid: b8aa8ce1-e5fe-43f6-ad47-c5e4ebaff812
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: eh.vk.com
-    reality-opts:
-      public-key: 7IOtSp0-n2_uNS5nMO9ywZbn2HibMRGy0KbLad3szXc
-      short-id: 5e6f7a8b
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-391d0ccc26
-    server: 5.188.115.185
-    port: 8446
-    uuid: b8aa8ce1-e5fe-43f6-ad47-c5e4ebaff812
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: eh.vk.com
-    reality-opts:
-      public-key: 7IOtSp0-n2_uNS5nMO9ywZbn2HibMRGy0KbLad3szXc
-      short-id: a1b2c3d4
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Kian-74493aae3b
-    server: 5.188.115.185
-    port: 8446
-    uuid: b8aa8ce1-e5fe-43f6-ad47-c5e4ebaff812
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: eh.vk.com
-    reality-opts:
-      public-key: 7IOtSp0-n2_uNS5nMO9ywZbn2HibMRGy0KbLad3szXc
-      short-id: b8cf9578640a9edf
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-9f03681ab7
-      - 4Jadi-7a4be36b4c
-      - 4Sarina-391d0ccc26
-      - 4Kian-74493aae3b
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -92,9 +54,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-9f03681ab7
-      - 4Jadi-7a4be36b4c
-      - 4Sarina-391d0ccc26
-      - 4Kian-74493aae3b
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

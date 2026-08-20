@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Kian-3459d018e0
+    name: DeltaKroneckerGithub
     server: 102.177.176.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -13,32 +13,32 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime28.workers.dev
   - type: vless
-    name: 4Mohsen-da4d83470f
-    server: 154.197.75.50
+    name: 4Kian-3459d018e0
+    server: 102.177.176.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
     xudp: true
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime37.workers.dev
+        Host: vms.lifetime28.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-3459d018e0
-      - 4Mohsen-da4d83470f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-3459d018e0
-      - 4Mohsen-da4d83470f
 rules:
   - MATCH,Proxy

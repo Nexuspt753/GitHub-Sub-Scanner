@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 77.239.114.194
+    port: 443
+    uuid: d325f389-7bc9-4d6a-8a2b-7dd4f7ab6e9f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: yahoo.com
+    reality-opts:
+      public-key: KQASJC-erEvv8cgBbvJRMfHq0Z0TApsQUNtdSwl0YQY
+      short-id: 8f3e9c4b1a8d6e21
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Sarina-e2a26a2a1d
     server: 138.124.100.128
     port: 443
@@ -17,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-e2a26a2a1d
   - name: Auto
     type: url-test
@@ -24,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-e2a26a2a1d
 rules:
   - MATCH,Proxy
