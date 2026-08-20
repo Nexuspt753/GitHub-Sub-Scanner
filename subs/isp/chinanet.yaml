@@ -1,41 +1,32 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: sd-sz.bx-xb.xyz
-    port: 62610
-    cipher: 2022-blake3-aes-128-gcm
-    password: qPPU4cGU59hjRnOyNTjacA==
+  - type: vmess
+    name: 4Kian-af1e86a671
+    server: visa.cn
+    port: 80
+    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
+    alterId: 0
+    cipher: auto
     udp: true
-  - type: ss
-    name: 🌍
-    server: sd-sz.bx-xb.xyz
-    port: 62610
-    cipher: 2022-blake3-aes-128-gcm
-    password: qPPU4cGU59hjRnOyNTjacA==
-    udp: true
-  - type: ss
-    name: 4Sarina-7f8b288047
-    server: sd-sz.bx-xb.xyz
-    port: 62610
-    cipher: 2022-blake3-aes-128-gcm
-    password: qPPU4cGU59hjRnOyNTjacA==
-    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /sba-vm?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deee.horryan4.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🌍
-      - 4Sarina-7f8b288047
+      - 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🌍
-      - 4Sarina-7f8b288047
+      - 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

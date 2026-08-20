@@ -1,23 +1,23 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 89.125.33.16
-    port: 1234
-    cipher: chacha20-ietf-poly1305
-    password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
-    udp: true
+  - type: hysteria2
+    name: 4Nika-50a165a985
+    server: dereserv.just-cloud.org
+    port: 443
+    password: d9a3a0a2-3bbf-4c04-9ca6-95c7c8390ae7
+    sni: dereserv.just-cloud.org
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-50a165a985
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-50a165a985
 rules:
   - MATCH,Proxy

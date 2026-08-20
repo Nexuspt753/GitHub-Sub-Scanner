@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-019ee5d8eb
+    server: player.wwwinternetvideo.click
+    port: 443
+    password: V1UQuwa-4PRIDW2paxrPe58RcxXHPGyFIGS-5QojaM8
+    sni: player.wwwinternetvideo.click
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-019ee5d8eb
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-019ee5d8eb
+rules:
+  - MATCH,Proxy

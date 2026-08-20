@@ -1,0 +1,25 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-a3e1064b62
+    server: nl01ntrhy01.tcp-reset-club.net
+    port: 443
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: nl01ntrhy01.tcp-reset-club.net
+    skip-cert-verify: true
+    alpn:
+      - h3
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-a3e1064b62
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-a3e1064b62
+rules:
+  - MATCH,Proxy
