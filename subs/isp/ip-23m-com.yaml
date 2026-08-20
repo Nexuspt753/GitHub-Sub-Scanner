@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Sarina-5aef907efd
+    server: 212.83.51.81
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-5aef907efd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-5aef907efd
+rules:
+  - MATCH,Proxy

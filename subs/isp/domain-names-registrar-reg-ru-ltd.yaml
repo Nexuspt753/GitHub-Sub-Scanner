@@ -12,12 +12,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cnd.netherlands.myfilecdn.com
+  - type: vless
+    name: 4Nika-7358d415f1
+    server: 95.163.232.54
+    port: 8443
+    uuid: 93fab704-cea7-4ca4-a9ac-5bb46aef263c
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: max.ru
+    reality-opts:
+      public-key: M_V1dM8_wcpwnmh2VZp-s3LCBjy38ZWCRpxLrBc58Do
+      short-id: a48d397391861a3c
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-7358d415f1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-7358d415f1
 rules:
   - MATCH,Proxy

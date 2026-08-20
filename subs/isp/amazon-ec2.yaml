@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: 4Mohsen-4c078f6d2c
+    server: sg10.459292.xyz
+    port: 8443
+    password: df1a0967-5b79-41ec-8d12-915e9056c6e2
+    sni: localhost
+    skip-cert-verify: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 122.248.251.235
@@ -13,6 +20,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-4c078f6d2c
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +28,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-4c078f6d2c
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

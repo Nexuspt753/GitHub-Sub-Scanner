@@ -1,17 +1,16 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 83.222.23.81
-    port: 38065
-    uuid: 4b9063e0-3288-44e9-9aac-80fbfce323a0
+    server: 45.90.32.132
+    port: 4100
+    uuid: 31c2a8e8-0ab2-4f3f-8767-11f3a35d4228
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yahoo.com
-    reality-opts:
-      public-key: dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo
-      short-id: fa
     xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 45.90.32.132
@@ -38,32 +37,6 @@ proxies:
       short-id: "08"
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-47c7a98333
-    server: 83.222.23.81
-    port: 38065
-    uuid: 4b9063e0-3288-44e9-9aac-80fbfce323a0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yahoo.com
-    reality-opts:
-      public-key: dSSDPTK6AHfAdRAXD9i4rzqcNIY65RxlF25UyCKdiyo
-      short-id: fa
-    xudp: true
-  - type: vless
-    name: 4Sarina-bffffd50a5
-    server: 45.12.75.242
-    port: 26424
-    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ya.ru
-    reality-opts:
-      public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-      short-id: 23103e1e
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -72,8 +45,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Jadi-47c7a98333
-      - 4Sarina-bffffd50a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -83,7 +54,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Jadi-47c7a98333
-      - 4Sarina-bffffd50a5
 rules:
   - MATCH,Proxy

@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 27.102.138.91
+    port: 443
+    uuid: fe0138b5-ca60-4a67-91aa-b5a49266eeb5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: kr.chick-team.ru
+    reality-opts:
+      public-key: d2SIGBcXOL_gjokJFWUZb42ZA2vRIpZZERDOTjFHElo
+      short-id: ecd1800c8d6098fb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 103.133.240.115
     port: 443
     password: eeb6823c-b926-4ea2-866a-5542edd26e59
@@ -28,6 +42,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-5872ad2981
   - name: Auto
     type: url-test
@@ -36,6 +51,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-5872ad2981
 rules:
   - MATCH,Proxy

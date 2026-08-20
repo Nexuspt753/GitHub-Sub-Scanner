@@ -27,18 +27,6 @@ proxies:
       short-id: 36eead8266dadafb
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: ru-1.krugvpn.com
-    port: 443
-    password: jj59d0f73f5d6
-    udp: true
-    tls: true
-    sni: ru-1.krugvpn.com
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -46,7 +34,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,6 +42,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

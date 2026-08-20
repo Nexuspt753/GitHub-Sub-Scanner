@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 212.135.38.193
-    port: 443
-    uuid: 601e4ca5-df0a-43a1-97c2-0b1f5c0ae413
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: LQ4cJhrzBRuRu3Nb3xUaHEBkPEJ7P5Uca5bFAbMj0is
-      short-id: b8e2ce6fc1d12895
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 217.217.222.230
@@ -22,36 +8,18 @@ proxies:
     tls: true
     sni: hk.catxstar.com
     client-fingerprint: android
-  - type: vless
-    name: 4Sarina-9e36427832
-    server: 212.135.38.193
-    port: 443
-    uuid: 601e4ca5-df0a-43a1-97c2-0b1f5c0ae413
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: LQ4cJhrzBRuRu3Nb3xUaHEBkPEJ7P5Uca5bFAbMj0is
-      short-id: b8e2ce6fc1d12895
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-9e36427832
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-9e36427832
 rules:
   - MATCH,Proxy

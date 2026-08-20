@@ -1,41 +1,39 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: finnode3.frost-api.com
-    port: 443
-    uuid: cbe5611f-392b-4ec3-9d8b-5bbe59c0fa68
+    server: 212.233.99.132
+    port: 6447
+    uuid: fe0138b5-ca60-4a67-91aa-b5a49266eeb5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: eh.vk.com
+    servername: www.oracle.com
     reality-opts:
-      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
-      short-id: e7
+      public-key: aFbCyrLOre-V3ORpBjqenGfDt62Ng_i1sSq-DmZHVgc
+      short-id: 89e0494514ec
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-c10e379c4e
-    server: 213.219.212.146
-    port: 8443
-    uuid: 7ae42823-b10a-4fd3-bf30-3441a4707673
+    name: DeltaKroneckerGithub-01
+    server: 212.233.99.132
+    port: 6448
+    uuid: fe0138b5-ca60-4a67-91aa-b5a49266eeb5
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: max.ru
+    servername: www.oracle.com
     reality-opts:
-      public-key: Qf5kMbpi0sUGV4ZB_2wVGdi-iACSFv47quZT-z-ymEo
-      short-id: a1b2c3d4
+      public-key: aFbCyrLOre-V3ORpBjqenGfDt62Ng_i1sSq-DmZHVgc
+      short-id: 89e0494514ec
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-c10e379c4e
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,6 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-c10e379c4e
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

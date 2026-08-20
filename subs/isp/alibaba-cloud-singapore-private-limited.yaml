@@ -1,25 +1,26 @@
 proxies:
-  - type: ss
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 8.219.154.217
-    port: 8443
-    cipher: none
-    password: 3e96ef7d-8637-42c2-ac73-75182196e755
+    server: 8.222.193.153
+    port: 443
+    uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 8.219.154.217
-    port: 8443
-    cipher: none
-    password: 3e96ef7d-8637-42c2-ac73-75182196e755
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: white-forest-2c01.alvlirm222.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: white-forest-2c01.alvlirm222.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

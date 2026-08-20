@@ -1,0 +1,26 @@
+proxies:
+  - type: vmess
+    name: 4Kian-95766b7acd
+    server: 193.24.120.18
+    port: 1070
+    uuid: d650af9f-bcbf-4c29-bd2b-ea5be51f45d8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-95766b7acd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-95766b7acd
+rules:
+  - MATCH,Proxy

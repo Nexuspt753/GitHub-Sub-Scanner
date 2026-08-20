@@ -6,12 +6,42 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: OiLR7aA0k5jJxv0uikQlTU
     udp: true
+  - type: vless
+    name: EPODONIOS
+    server: 95.154.221.155
+    port: 443
+    uuid: 9dfb0cb4-4fda-4a82-95fe-4d3b6f7ef8fa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: strapi.io
+    reality-opts:
+      public-key: tPyAWkalFM4yi9lYY0zLDRxQyfSwPDwiexAy9QOjrWI
+      short-id: 42171a632f3b99ed
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-9a7938b9cc
+    server: 95.154.221.155
+    port: 443
+    uuid: 9dfb0cb4-4fda-4a82-95fe-4d3b6f7ef8fa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: strapi.io
+    reality-opts:
+      public-key: tPyAWkalFM4yi9lYY0zLDRxQyfSwPDwiexAy9QOjrWI
+      short-id: 42171a632f3b99ed
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-8d08f415f7
+      - EPODONIOS
+      - 4Jadi-9a7938b9cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +49,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-8d08f415f7
+      - EPODONIOS
+      - 4Jadi-9a7938b9cc
 rules:
   - MATCH,Proxy

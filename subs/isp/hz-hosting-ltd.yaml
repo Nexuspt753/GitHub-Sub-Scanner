@@ -7,13 +7,6 @@ proxies:
     sni: nl174.mechvpn.online
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
-    server: nl174.mechvpn.online
-    port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: nl174.mechvpn.online
-    skip-cert-verify: true
-  - type: hysteria2
     name: 荷兰-01
     server: nl8.mechvpn.online
     port: 443
@@ -21,11 +14,11 @@ proxies:
     sni: nl8.mechvpn.online
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS-01
-    server: nl8.mechvpn.online
+    name: EPODONIOS
+    server: nl174.mechvpn.online
     port: 443
     password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: nl8.mechvpn.online
+    sni: nl174.mechvpn.online
     skip-cert-verify: true
   - type: hysteria2
     name: 4FreeIran-39eb28e8f8
@@ -33,6 +26,13 @@ proxies:
     port: 443
     password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
     sni: nl174.mechvpn.online
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS-01
+    server: nl8.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: nl8.mechvpn.online
     skip-cert-verify: true
   - type: hysteria2
     name: 4Nika-8dd5a4b379
@@ -67,6 +67,13 @@ proxies:
     port: 443
     password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
     sni: 127.0.0.1
+  - type: ss
+    name: 4Mohsen-befb653971
+    server: 193.42.38.209
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
   - type: vless
     name: EPODONIOS-02
     server: su.cryptoofarm.com
@@ -133,26 +140,44 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: XF0klw7870vXn3uQIxe19Q
     udp: true
+  - type: vless
+    name: 4Mohsen-4e3467cfff
+    server: su.cryptoofarm.com
+    port: 2053
+    uuid: 6607d677-f567-4692-af46-52d0e15808a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: su.cryptoofarm.com
+    reality-opts:
+      public-key: mxrrQlclXuv0Z7LX_NklhYaidSx_9QwP0sa2zeMsrmo
+      short-id: 43fac3bd1d8546a1
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 荷兰
-      - EPODONIOS
       - 荷兰-01
-      - EPODONIOS-01
+      - EPODONIOS
       - 4FreeIran-39eb28e8f8
+      - EPODONIOS-01
       - 4Nika-8dd5a4b379
       - 4Mohsen-28aa0cb3d8
       - 4Jadi-37abfe8182
       - 4Sarina-59f78cd2eb
       - 4FreeIran-4df001601d
+      - 4Mohsen-befb653971
       - EPODONIOS-02
       - All--@V2rayAlpha--14
       - bisto4_service
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-4e3467cfff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -160,19 +185,21 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 荷兰
-      - EPODONIOS
       - 荷兰-01
-      - EPODONIOS-01
+      - EPODONIOS
       - 4FreeIran-39eb28e8f8
+      - EPODONIOS-01
       - 4Nika-8dd5a4b379
       - 4Mohsen-28aa0cb3d8
       - 4Jadi-37abfe8182
       - 4Sarina-59f78cd2eb
       - 4FreeIran-4df001601d
+      - 4Mohsen-befb653971
       - EPODONIOS-02
       - All--@V2rayAlpha--14
       - bisto4_service
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-4e3467cfff
 rules:
   - MATCH,Proxy

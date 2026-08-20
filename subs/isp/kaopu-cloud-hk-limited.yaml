@@ -1,54 +1,40 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: fr.hardvezoo.ir
-    port: 2053
-    uuid: 50c8b5db-c138-4074-9eb5-9bb04c338eef
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.speedtest.net
-  - type: trojan
     name: DeltaKroneckerGithub
+    server: 103.84.110.68
+    port: 24443
+    uuid: a68d59e6-bc1e-47ed-91bf-c3e02b18e5df
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 09Cv8GzDb5G9R9MS37ajZQ8o489874sF9umFuNdCeEc
+      short-id: ba2e8b0452447037
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.54.13.189
     port: 443
     password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: 4Nika-3325418b19
-    server: fr.hardvezoo.ir
-    port: 2053
-    uuid: 50c8b5db-c138-4074-9eb5-9bb04c338eef
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.speedtest.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Nika-3325418b19
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Nika-3325418b19
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

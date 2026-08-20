@@ -28,24 +28,35 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
-    server: 67.159.42.154
-    port: 443
-    uuid: ca599ed4-f7a0-4ddf-a45d-3cb6276d6cd7
+    name: DeltaKroneckerGithub-02
+    server: 66.90.92.59
+    port: 8443
+    uuid: 52e591a5-0aed-0310-8749-3197b02e6525
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: cli-q.bosx.net
+    client-fingerprint: firefox
+    servername: ru1.convert-flow.net
+    reality-opts:
+      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+      short-id: 00a61d55a07de885
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/connect
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: v2ray313
+    name: DeltaKroneckerGithub-03
+    server: 66.90.92.59
+    port: 8443
+    uuid: 52e591a5-0aed-0064-8749-3197b02e6525
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru1.convert-flow.net
+    reality-opts:
+      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+      short-id: 00a61d55a07de885
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
     server: 67.159.42.154
     port: 443
     uuid: ca599ed4-f7a0-4ddf-a45d-3cb6276d6cd7
@@ -108,23 +119,6 @@ proxies:
       short-id: bd72
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-e3d7a20e90
-    server: 67.159.42.154
-    port: 443
-    uuid: ca599ed4-f7a0-4ddf-a45d-3cb6276d6cd7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: cli-q.bosx.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/connect
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -132,12 +126,12 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
-      - v2ray313
       - 4Kian-9ee736aafc
       - 4Sarina-df60000ae6
       - 4Jadi-a99c377320
-      - 4FreeIran-e3d7a20e90
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -146,11 +140,11 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
-      - v2ray313
       - 4Kian-9ee736aafc
       - 4Sarina-df60000ae6
       - 4Jadi-a99c377320
-      - 4FreeIran-e3d7a20e90
 rules:
   - MATCH,Proxy
