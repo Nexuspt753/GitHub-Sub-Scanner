@@ -1,65 +1,33 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: tutdesignstudio.site
-    port: 8443
-    uuid: 1f113ca6-7b95-4abb-9348-adfb2187e399
+  - type: vmess
+    name: 4Mohsen-a721b4e196
+    server: 194.15.196.172
+    port: 443
+    uuid: 4d0247e0-d1da-444c-9cda-8cc20e4e4435
+    alterId: 64
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 38.180.50.4
-    port: 8443
-    uuid: 38cc34e9-9973-439c-b61b-3d89b798d571
-    udp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: tutdesignstudio.site
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: hex_proxy
-    server: tutdesignstudio.site
-    port: 8443
-    uuid: 1f113ca6-7b95-4abb-9348-adfb2187e399
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-a7e5619dd9
-    server: tutdesignstudio.site
-    port: 8443
-    uuid: 1f113ca6-7b95-4abb-9348-adfb2187e399
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /path/191019072927
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.87416132.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - DeltaKroneckerGithub
-      - hex_proxy
-      - 4Mohsen-a7e5619dd9
+      - 4Mohsen-a721b4e196
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - DeltaKroneckerGithub
-      - hex_proxy
-      - 4Mohsen-a7e5619dd9
+      - 4Mohsen-a721b4e196
 rules:
   - MATCH,Proxy

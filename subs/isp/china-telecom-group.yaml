@@ -1,0 +1,68 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: sd-sh.bx-xb.xyz
+    port: 62740
+    cipher: 2022-blake3-aes-128-gcm
+    password: qPPU4cGU59hjRnOyNTjacA==
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: sd-sh.bx-xb.xyz
+    port: 62780
+    cipher: 2022-blake3-aes-128-gcm
+    password: qPPU4cGU59hjRnOyNTjacA==
+    udp: true
+  - type: ss
+    name: 🌍
+    server: sd-sh.bx-xb.xyz
+    port: 62740
+    cipher: 2022-blake3-aes-128-gcm
+    password: qPPU4cGU59hjRnOyNTjacA==
+    udp: true
+  - type: ss
+    name: 🌍-01
+    server: sd-sh.bx-xb.xyz
+    port: 62780
+    cipher: 2022-blake3-aes-128-gcm
+    password: qPPU4cGU59hjRnOyNTjacA==
+    udp: true
+  - type: ss
+    name: 4Jadi-8655049be3
+    server: sd-sh.bx-xb.xyz
+    port: 62740
+    cipher: 2022-blake3-aes-128-gcm
+    password: qPPU4cGU59hjRnOyNTjacA==
+    udp: true
+  - type: ss
+    name: 4FreeIran-22d5dac072
+    server: sd-sh.bx-xb.xyz
+    port: 62780
+    cipher: 2022-blake3-aes-128-gcm
+    password: qPPU4cGU59hjRnOyNTjacA==
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🌍
+      - 🌍-01
+      - 4Jadi-8655049be3
+      - 4FreeIran-22d5dac072
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🌍
+      - 🌍-01
+      - 4Jadi-8655049be3
+      - 4FreeIran-22d5dac072
+rules:
+  - MATCH,Proxy

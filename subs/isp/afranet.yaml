@@ -1,5 +1,40 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: tun.pcapps.ir
+    port: 2092
+    uuid: 1de11be7-1b7c-4143-8b04-fabd57078581
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: phonepanel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
+    server: tun2.pcapps.ir
+    port: 2092
+    uuid: 1de11be7-1b7c-4143-8b04-fabd57078581
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: phonepanel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rad.app9.ir
+  - type: vless
     name: 🇮🇷147662
     server: tun.pcapps.ir
     port: 2092
@@ -69,24 +104,50 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rad.app9.ir
+  - type: vless
+    name: 4FreeIran-d0efe63475
+    server: tun2.pcapps.ir
+    port: 2092
+    uuid: 1de11be7-1b7c-4143-8b04-fabd57078581
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: phonepanel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rad.app9.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - 🇮🇷147662
       - 🇮🇷IR-🚀@VPNine1
       - 🇮🇷147660
       - 🇮🇷IR-🚀@VPNine1-01
+      - 4FreeIran-d0efe63475
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - 🇮🇷147662
       - 🇮🇷IR-🚀@VPNine1
       - 🇮🇷147660
       - 🇮🇷IR-🚀@VPNine1-01
+      - 4FreeIran-d0efe63475
 rules:
   - MATCH,Proxy

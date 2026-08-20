@@ -1,0 +1,30 @@
+proxies:
+  - type: trojan
+    name: 4Nika-5d896b4bff
+    server: 199.193.125.72
+    port: 443
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
+    udp: true
+    tls: true
+    sni: hhcm.hhxaf.cc.cd
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-5d896b4bff
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-5d896b4bff
+rules:
+  - MATCH,Proxy

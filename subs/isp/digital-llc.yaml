@@ -1,23 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-8158da1d35
-    server: 104.253.134.220
-    port: 1080
-    uuid: 04341b83-fae3-4659-ac1b-08112bb847fd
+  - type: trojan
+    name: 4Nika-300ddd31ef
+    server: 104.253.175.16
+    port: 443
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
     udp: true
-    xudp: true
+    tls: true
+    sni: hhcm.hhxaf.cc.cd
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-8158da1d35
+      - 4Nika-300ddd31ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-8158da1d35
+      - 4Nika-300ddd31ef
 rules:
   - MATCH,Proxy

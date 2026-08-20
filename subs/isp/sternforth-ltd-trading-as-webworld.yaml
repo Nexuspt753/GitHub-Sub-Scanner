@@ -1,0 +1,33 @@
+proxies:
+  - type: vmess
+    name: 4Sarina-6193abbe0d
+    server: 185.108.128.57
+    port: 30000
+    uuid: 5aab3936-16d7-4377-8c33-0d77f2d295ee
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/191019072927
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.14601176.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-6193abbe0d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-6193abbe0d
+rules:
+  - MATCH,Proxy

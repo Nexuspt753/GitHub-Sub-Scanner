@@ -26,22 +26,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 132.243.174.112
-    port: 2054
-    uuid: f6da8274-44be-4599-a8d8-66929c980677
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.swisscom.ch
-    reality-opts:
-      public-key: JFzd2AbfzZSnMefyKEXNIae_QEZAo5o239pmuHHZsAY
-      short-id: 0c25988a
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Sarina-08104a0631
     server: 143.246.196.157
     port: 443
@@ -54,22 +38,6 @@ proxies:
       public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-9359958cc4
-    server: 132.243.174.112
-    port: 2054
-    uuid: f6da8274-44be-4599-a8d8-66929c980677
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.swisscom.ch
-    reality-opts:
-      public-key: JFzd2AbfzZSnMefyKEXNIae_QEZAo5o239pmuHHZsAY
-      short-id: 0c25988a
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -77,9 +45,7 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - vpnsal
-      - EPODONIOS-01
       - 4Sarina-08104a0631
-      - 4FreeIran-9359958cc4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -88,8 +54,6 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - vpnsal
-      - EPODONIOS-01
       - 4Sarina-08104a0631
-      - 4FreeIran-9359958cc4
 rules:
   - MATCH,Proxy
