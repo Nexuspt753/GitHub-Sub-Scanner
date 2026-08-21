@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 🇮🇷149180
+    server: 5.10.248.110
+    port: 53706
+    uuid: 40b1dc6a-e36e-44e2-b02f-2ea864e6bb11
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷149180
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷149180
+rules:
+  - MATCH,Proxy

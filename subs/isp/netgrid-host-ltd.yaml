@@ -1,29 +1,28 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 178.214.211.126
-    port: 8443
-    uuid: 8e85752d-c04f-427d-9d70-b10d144c8492
+    name: vless
+    server: cz.24outlook.space
+    port: 2053
+    uuid: e50f1e5f-2823-4030-9dd2-6c951b6b83d0
     udp: true
     tls: true
-    client-fingerprint: ios
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: CzI1Zft9ToNgciMIfMhtn_Q5RRO0Q3AyURYvrvnKL14
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - vless
 rules:
   - MATCH,Proxy

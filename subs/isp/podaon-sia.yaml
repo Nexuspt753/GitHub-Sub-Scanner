@@ -1,12 +1,30 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 45.91.202.27
-    port: 443
+    server: 45.91.202.232
+    port: 8444
     uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
     udp: true
     tls: true
     client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: relay.meshbeat.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/2545c190a7/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: relay.meshbeat.online
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: bridge.meshbeat.online
+    port: 443
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: yahoo.com
     reality-opts:
       public-key: XZa7f7bABj7lY4HuLopVCBBBYTu-RB7QyIZ96njvYwo
@@ -14,75 +32,25 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 45.91.202.27
+    port: 8444
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: bridge.meshbeat.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/c79c81b07c/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bridge.meshbeat.online
+  - type: vless
     name: EPODONIOS
-    server: 45.91.202.232
-    port: 8444
-    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: relay.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/2545c190a7/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: relay.meshbeat.online
-  - type: vless
-    name: EPODONIOS-01
-    server: relay.meshbeat.online
-    port: 8444
-    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: relay.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/2545c190a7/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: relay.meshbeat.online
-  - type: vless
-    name: 🇳🇱
-    server: 45.91.202.232
-    port: 8444
-    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: relay.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/2545c190a7/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: relay.meshbeat.online
-  - type: vless
-    name: 🇳🇱148905
-    server: relay.meshbeat.online
-    port: 8444
-    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: relay.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/2545c190a7/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: relay.meshbeat.online
-  - type: vless
-    name: 🇳🇱NL-🚀@VPNine1
     server: relay.meshbeat.online
     port: 8444
     uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
@@ -113,24 +81,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: relay.meshbeat.online
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.91.202.27
-    port: 8444
-    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: bridge.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/c79c81b07c/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: bridge.meshbeat.online
   - type: vless
     name: 4Jadi-bc4d2fa502
     server: 45.91.202.232
@@ -187,13 +137,10 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - EPODONIOS-01
-      - 🇳🇱
-      - 🇳🇱148905
-      - 🇳🇱NL-🚀@VPNine1
-      - 🍥67@oneclickvpnkeys
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
+      - 🍥67@oneclickvpnkeys
       - 4Jadi-bc4d2fa502
       - 4Mohsen-f8bd12bd82
       - 4Sarina-d36cd5ee7b
@@ -204,13 +151,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - EPODONIOS-01
-      - 🇳🇱
-      - 🇳🇱148905
-      - 🇳🇱NL-🚀@VPNine1
-      - 🍥67@oneclickvpnkeys
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
+      - 🍥67@oneclickvpnkeys
       - 4Jadi-bc4d2fa502
       - 4Mohsen-f8bd12bd82
       - 4Sarina-d36cd5ee7b

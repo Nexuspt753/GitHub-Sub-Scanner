@@ -1,0 +1,65 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 206.238.237.51
+    port: 443
+    uuid: 48198295-b7ba-4b5c-8d85-085d55a6c869
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: xini.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /blue
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Hope_Net-join-us-on-Telegram
+    server: 206.238.237.51
+    port: 443
+    uuid: 48198295-b7ba-4b5c-8d85-085d55a6c869
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: xini.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /blue
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-bc7cde75a2
+    server: 206.238.237.51
+    port: 443
+    uuid: 48198295-b7ba-4b5c-8d85-085d55a6c869
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: xini.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /blue
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - Hope_Net-join-us-on-Telegram
+      - 4Jadi-bc7cde75a2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - Hope_Net-join-us-on-Telegram
+      - 4Jadi-bc7cde75a2
+rules:
+  - MATCH,Proxy

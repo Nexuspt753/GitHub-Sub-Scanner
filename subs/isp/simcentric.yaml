@@ -1,6 +1,13 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 182.16.61.3
+    port: 45647
+    uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
+    udp: true
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 182.16.61.4
     port: 45647
     uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
@@ -90,12 +97,20 @@ proxies:
     uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
     udp: true
     xudp: true
+  - type: vless
+    name: 4Kian-6f57773e2f
+    server: 182.16.61.2
+    port: 45647
+    uuid: caec0d8d-ab2f-4247-b97d-7fb1a34ab195
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - •
       - EPODONIOS-01
@@ -108,6 +123,7 @@ proxy-groups:
       - 4Mohsen-496dc7cb3f
       - 4Kian-1ddef54209
       - 4Jadi-74cb3bedaf
+      - 4Kian-6f57773e2f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -115,6 +131,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - •
       - EPODONIOS-01
@@ -127,5 +144,6 @@ proxy-groups:
       - 4Mohsen-496dc7cb3f
       - 4Kian-1ddef54209
       - 4Jadi-74cb3bedaf
+      - 4Kian-6f57773e2f
 rules:
   - MATCH,Proxy

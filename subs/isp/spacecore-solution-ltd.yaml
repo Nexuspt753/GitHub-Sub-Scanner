@@ -1,23 +1,59 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
+  - type: ss
     name: v2ray_phoenix
     server: 89.125.33.16
     port: 1234
     cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
     password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
+    udp: true
+  - type: ss
+    name: v2ray_phoenix-01
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
+    udp: true
+  - type: ss
+    name: 4Kian-fba00e26e1
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - v2ray_phoenix
+      - EPODONIOS-01
+      - v2ray_phoenix-01
+      - 4Kian-fba00e26e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - v2ray_phoenix
+      - EPODONIOS-01
+      - v2ray_phoenix-01
+      - 4Kian-fba00e26e1
 rules:
   - MATCH,Proxy

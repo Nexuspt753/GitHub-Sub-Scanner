@@ -1,13 +1,13 @@
 proxies:
   - type: hysteria2
-    name: SG
+    name: EPODONIOS
     server: vip-sg-1.hkd4fwmg.vip
     port: 12645
     password: 9gWt2z3KdC9VI8kAQYVvvSvhT9e05CfI
     sni: vip-sg-1.hkd4fwmg.vip
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
+    name: SG
     server: vip-sg-1.hkd4fwmg.vip
     port: 12645
     password: 9gWt2z3KdC9VI8kAQYVvvSvhT9e05CfI
@@ -33,26 +33,46 @@ proxies:
     port: 12645
     password: 9gWt2z3KdC9VI8kAQYVvvSvhT9e05CfI
     sni: vip-sg-1.hkd4fwmg.vip
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: vip-sg-1.hkd4fwmg.vip
+    port: 21802
+    password: Edk07MJ3Xqg5cl1j5519zqwX2f2EFjON
+    udp: true
+    tls: true
+    sni: vip-sg-1.hkd4fwmg.vip
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: vip-sg-1.hkd4fwmg.vip
+    port: 25431
+    cipher: 2022-blake3-aes-256-gcm
+    password: Lwyg2X/0yl5/Fo6S2moyYU0vsJBr6fhPzSXDF1Gu8Wo=
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - SG
       - EPODONIOS
+      - SG
       - 4Kian-d4bd323caf
       - 4Nika-08b4c3470d
       - 4Mohsen-e7d093c1d8
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - SG
       - EPODONIOS
+      - SG
       - 4Kian-d4bd323caf
       - 4Nika-08b4c3470d
       - 4Mohsen-e7d093c1d8
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

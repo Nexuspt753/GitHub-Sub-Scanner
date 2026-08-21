@@ -1,22 +1,6 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: api.us.pngv.top
-    port: 4999
-    uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
-    udp: true
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 154.16.27.250
-    port: 27251
-    password: i99Cef
-    udp: true
-    tls: true
-    sni: ctldl.windowsupdate.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: psg2-ag.t.sgateway.link
     port: 5223
     password: Q9gofGxinwLv0TfDfdKmdttdPGxrhKQS
@@ -24,31 +8,29 @@ proxies:
     tls: true
     sni: pod-kr-g1.psusercontent.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-885e31e017
-    server: api.us.pngv.top
-    port: 4999
-    uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 154.16.27.250
+    port: 27251
+    password: i99Cef
     udp: true
-    xudp: true
+    tls: true
+    sni: ctldl.windowsupdate.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-885e31e017
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-885e31e017
 rules:
   - MATCH,Proxy

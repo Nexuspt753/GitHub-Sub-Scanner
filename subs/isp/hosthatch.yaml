@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 151.245.106.49
+    port: 2053
+    uuid: 9f7dddc4-6c77-4e2c-bfa4-7e5afdfd48f8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: Wg07hKwQjSVmOsEHn7X1iLAXR2wkKRSyv8TZmq9ZsRA
+      short-id: 58186df4a95a1504
+    xudp: true
+  - type: vless
     name: ">>@configV2rayNG::DE"
     server: 170.205.39.165
     port: 8443
@@ -47,22 +60,39 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rubifen.adaspoloandco.com
+  - type: vless
+    name: 4Nika-65987a43ef
+    server: 151.245.106.49
+    port: 2053
+    uuid: d6d7619a-6b7b-4a80-bd8c-5ddb645eba4a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: nNohnS45XyaEcSAKchLKkCTEBzVUc-PZ6UfbKo83z0E
+      short-id: 44e0e12bb5fcebe2
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - ">>@configV2rayNG::DE"
       - 4Nika-95f9bf4b72
       - 4FreeIran-188329b6cc
+      - 4Nika-65987a43ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - ">>@configV2rayNG::DE"
       - 4Nika-95f9bf4b72
       - 4FreeIran-188329b6cc
+      - 4Nika-65987a43ef
 rules:
   - MATCH,Proxy
