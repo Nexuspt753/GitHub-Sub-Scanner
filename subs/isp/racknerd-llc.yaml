@@ -1,0 +1,50 @@
+proxies:
+  - type: hysteria2
+    name: 4FreeIran-2fa6b3222b
+    server: us4.xiaoliyu.cyou
+    port: 4433
+    password: 1427eb10-7529-4d38-a6a2-01b337868b37
+    sni: 127.0.0.1
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-5050e813f2
+    server: us4.xiaoliyu.cyou
+    port: 4433
+    password: 1427eb10-7529-4d38-a6a2-01b337868b37
+    sni: us4.xiaoliyu.cyou
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-3892ecc0e0
+    server: us4.xiaoliyu.cyou
+    port: 4433
+    password: 6a3fe9d0-0d68-4f29-ae99-5771d4217a45
+    sni: 127.0.0.1
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-1873a227de
+    server: 107-173-165-41.liao.kdns.fr
+    port: 50160
+    password: 6f6f58431702c3aa0b55ddf3d0a63a2c
+    sni: 107-173-165-41.liao.kdns.fr
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-2fa6b3222b
+      - 4Jadi-5050e813f2
+      - 4FreeIran-3892ecc0e0
+      - 4Nika-1873a227de
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-2fa6b3222b
+      - 4Jadi-5050e813f2
+      - 4FreeIran-3892ecc0e0
+      - 4Nika-1873a227de
+rules:
+  - MATCH,Proxy

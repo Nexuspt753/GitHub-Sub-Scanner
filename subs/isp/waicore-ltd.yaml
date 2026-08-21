@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 193.233.134.246
-    port: 443
-    uuid: 8e85752d-c04f-427d-9d70-b10d144c8492
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: de.routeon.pro
-    reality-opts:
-      public-key: X9WkfIdd-rPRL5PwC34cN9pHBHYV2sLZFoaaaYzNo34
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 138.124.33.169
     port: 443
@@ -28,13 +15,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: EPODONIOS-01
-    server: 178.236.254.40
-    port: 445
-    uuid: 89a87e0f-6cf9-45d9-818e-b95c81a61acc
-    udp: true
-    xudp: true
   - type: vless
     name: V2ray_Alpha🦝
     server: 138.124.33.169
@@ -52,7 +32,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 138.124.32.78
     port: 443
     password: "1234567890"
@@ -60,69 +40,22 @@ proxies:
     tls: true
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
-  - type: vless
-    name: 4Mohsen-504653a53d
-    server: 138.124.33.169
-    port: 443
-    uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
-      short-id: 6ba85179e30d4fc2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-65023eef2a
-    server: 178.236.254.40
-    port: 445
-    uuid: 89a87e0f-6cf9-45d9-818e-b95c81a61acc
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4FreeIran-fa19a53aab
-    server: cdn7-02.cdn-vkvideo.com
-    port: 443
-    uuid: f4f2229e-ca2a-40b1-b4ae-24248c21b645
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn7-02.cdn-vkvideo.com
-    reality-opts:
-      public-key: MpuwI3YH2g3YWHKLuQwwgD_qLo-UmUtZe8L1KXOKxhA
-      short-id: b0d8f964b7ac8ac0
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - EPODONIOS-01
       - V2ray_Alpha🦝
-      - DeltaKroneckerGithub-01
-      - 4Mohsen-504653a53d
-      - 4Mohsen-65023eef2a
-      - 4FreeIran-fa19a53aab
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - EPODONIOS-01
       - V2ray_Alpha🦝
-      - DeltaKroneckerGithub-01
-      - 4Mohsen-504653a53d
-      - 4Mohsen-65023eef2a
-      - 4FreeIran-fa19a53aab
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

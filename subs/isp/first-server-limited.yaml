@@ -1,13 +1,36 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 185.174.138.239
-    port: 443
-    password: NISHIKUITAN111
+    server: 185.114.72.31
+    port: 2053
+    password: humanity
     udp: true
+    tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
-  - type: ss
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: DeltaKroneckerGithub-01
+    server: 193.239.160.134
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: ss
+    name: DeltaKroneckerGithub-02
     server: 45.43.88.13
     port: 2053
     cipher: none
@@ -48,6 +71,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-c4589db7fd
       - 4Sarina-d025244895
   - name: Auto
@@ -58,6 +82,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-c4589db7fd
       - 4Sarina-d025244895
 rules:

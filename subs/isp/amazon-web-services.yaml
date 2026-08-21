@@ -1,0 +1,142 @@
+proxies:
+  - type: trojan
+    name: EPODONIOS
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 🇯🇵
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    client-fingerprint: chrome
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 175.41.179.37
+    port: 51262
+    uuid: 903fed13-8e78-4fa2-a83e-b392b289741f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: JT80563429
+    udp: true
+    tls: true
+    sni: open-octopus.rooster465.autos
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 175.41.234.16
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    sni: open-octopus.rooster465.autos
+    client-fingerprint: chrome
+  - type: trojan
+    name: EPODONIOS-01
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-5ab3538cf7
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-fe985d6056
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-03f4becf64
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    sni: open-octopus.rooster465.autos
+    client-fingerprint: chrome
+  - type: trojan
+    name: ">>@v2nodes::JP"
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 🇯🇵JP-175.41.234.16-0252
+    server: open-octopus.rooster465.autos
+    port: 443
+    password: EQ30679154
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇯🇵
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - EPODONIOS-01
+      - 4FreeIran-5ab3538cf7
+      - 4Kian-fe985d6056
+      - 4Mohsen-03f4becf64
+      - ">>@v2nodes::JP"
+      - 🇯🇵JP-175.41.234.16-0252
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇯🇵
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - EPODONIOS-01
+      - 4FreeIran-5ab3538cf7
+      - 4Kian-fe985d6056
+      - 4Mohsen-03f4becf64
+      - ">>@v2nodes::JP"
+      - 🇯🇵JP-175.41.234.16-0252
+rules:
+  - MATCH,Proxy

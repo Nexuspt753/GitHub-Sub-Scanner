@@ -1,0 +1,32 @@
+proxies:
+  - type: vmess
+    name: 4Sarina-f315e9a254
+    server: 45.95.241.251
+    port: 443
+    uuid: d1ace408-1102-4919-9ee8-88f85c8a91e3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-f315e9a254
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-f315e9a254
+rules:
+  - MATCH,Proxy
