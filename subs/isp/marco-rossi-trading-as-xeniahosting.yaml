@@ -13,42 +13,12 @@ proxies:
       short-id: 62b6d6e51d461d78
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 37.202.205.75
-    port: 443
-    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: it.savesafe.cc
-    reality-opts:
-      public-key: UknJiwNyRmwBTaQCyY3mpq9blOPEgBFPV_NYJIgBKCs
-      short-id: 62b6d6e51d461d78
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: it.getsavesafe.com
-    port: 443
-    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: it.savesafe.cc
-    reality-opts:
-      public-key: UknJiwNyRmwBTaQCyY3mpq9blOPEgBFPV_NYJIgBKCs
-      short-id: 62b6d6e51d461d78
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - EPODONIOS
 rules:
   - MATCH,Proxy

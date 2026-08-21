@@ -35,6 +35,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cloudflare.vhub.pro
+  - type: vless
+    name: 4Kian-eeb632f8e7
+    server: 84.201.128.112
+    port: 443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
+  - type: vless
+    name: 4FreeIran-f3ed0ace6b
+    server: 84.201.128.112
+    port: 443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
 proxy-groups:
   - name: Proxy
     type: select
@@ -42,6 +76,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 4FreeIran-a7acdc8651
+      - 4Kian-eeb632f8e7
+      - 4FreeIran-f3ed0ace6b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -50,5 +86,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 4FreeIran-a7acdc8651
+      - 4Kian-eeb632f8e7
+      - 4FreeIran-f3ed0ace6b
 rules:
   - MATCH,Proxy

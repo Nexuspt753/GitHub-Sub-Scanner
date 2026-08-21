@@ -1,0 +1,41 @@
+proxies:
+  - type: hysteria2
+    name: EPODONIOS
+    server: deu0003ntrhy01.tcp-reset-club.net
+    port: 443
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: deu0003ntrhy01.tcp-reset-club.net
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 德国
+    server: deu0003ntrhy01.tcp-reset-club.net
+    port: 443
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: deu0003ntrhy01.tcp-reset-club.net
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-1b57fdab78
+    server: deu0003ntrhy01.tcp-reset-club.net
+    port: 443
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: deu0003ntrhy01.tcp-reset-club.net
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 德国
+      - 4Nika-1b57fdab78
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 德国
+      - 4Nika-1b57fdab78
+rules:
+  - MATCH,Proxy

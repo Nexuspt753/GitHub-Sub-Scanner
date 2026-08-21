@@ -1,19 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 188.225.27.238
-    port: 2200
-    uuid: 77fd4d9e-c314-4203-b3e0-b836a1d969b4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 188.225.47.234
     port: 4100
     uuid: 7b2ce6b0-6d2b-4926-b7bf-6247eb1a0050
@@ -30,7 +17,6 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +24,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -14,24 +14,23 @@ proxies:
     xudp: true
   - type: vless
     name: vless
-    server: cloud2.tsnet1.top
-    port: 1002
-    uuid: c930c363-1dc2-4c0f-8fa7-b540cf7089a3
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: cloud3.tsnet3.top
-    port: 1003
-    uuid: c930c363-1dc2-4c0f-8fa7-b540cf7089a3
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-02
     server: cloud4.tsnet3.top
     port: 1004
     uuid: c930c363-1dc2-4c0f-8fa7-b540cf7089a3
     udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: pichi.picmusic.ir
+    port: 15882
+    uuid: fe28f746-6051-481c-801c-1d153ebc5995
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: arxiv.org
+    reality-opts:
+      public-key: gZT_3S5MB7JX7lYznOoo9CgMXpJtwEy7ChVtybbUjz4
+      short-id: f378eb2f
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -40,8 +39,7 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - vless
-      - vless-01
-      - vless-02
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -50,7 +48,6 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - vless
-      - vless-01
-      - vless-02
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy
