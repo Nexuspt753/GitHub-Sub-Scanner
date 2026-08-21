@@ -14,12 +14,26 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: Tel Aviv · @DeltaKroneckerGithub
+    server: 85.209.157.25
+    port: 443
+    uuid: 20df893e-dcf4-491d-8261-6dbb24f9566b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 732.stream-host.site
+    reality-opts:
+      public-key: bO6oE5j-3-ONc3nqNsicX1hs6UhmrNLS5g_aMIRDUEc
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Jerusalem · @DeltaKroneckerGithub
+      - Tel Aviv · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Jerusalem · @DeltaKroneckerGithub
+      - Tel Aviv · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

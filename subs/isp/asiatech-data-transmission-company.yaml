@@ -1,23 +1,50 @@
 proxies:
-  - type: trojan
-    name: 4Mohsen-56931bb137
-    server: 212.33.206.111
-    port: 80
-    password: yu7AvNL9rW
+  - type: vless
+    name: FarazV2ray
+    server: cl.northbookway.shop
+    port: 9090
+    uuid: bba38246-7a7b-4dc9-a421-d29219ff4fa6
     udp: true
+    tls: true
     client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: MmgN7QjrLmvLBXvizo_j9va2vD_5Q4edahMmXAv6bRI
+      short-id: 2006495ca4229803
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇮🇷149258
+    server: cl.northbookway.shop
+    port: 9090
+    uuid: bba38246-7a7b-4dc9-a421-d29219ff4fa6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: MmgN7QjrLmvLBXvizo_j9va2vD_5Q4edahMmXAv6bRI
+      short-id: 2006495ca4229803
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-56931bb137
+      - FarazV2ray
+      - 🇮🇷149258
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-56931bb137
+      - FarazV2ray
+      - 🇮🇷149258
 rules:
   - MATCH,Proxy

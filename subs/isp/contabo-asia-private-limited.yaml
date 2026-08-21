@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 46.250.240.80
+    port: 2053
+    uuid: f2816a01-3555-4e79-9e26-770f050ea55a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: bRDaP068YgdwwdQgenUvKTNfPjIB_Dy-lJDFC9ZZEXU
+      short-id: 632a146bd581641a
+    xudp: true
   - type: ss
     name: EPODONIOS
     server: 84.247.155.196
@@ -20,19 +33,13 @@ proxies:
     cipher: aes-256-gcm
     password: 5QCeIKUZUEp4mR9Z
     udp: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 217.217.254.126
-    port: 2053
-    uuid: 30430ca4-9a16-4689-a276-4014599d2f39
+  - type: ss
+    name: Alpha_v2rayIP
+    server: 84.247.155.196
+    port: 80
+    cipher: aes-256-gcm
+    password: 3eOFeNssde7PYYMv
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: yVb3JqVqlnXhiIb3E-gAVvgsXCpWgoeLIAJau9yuZ1I
-      short-id: 3fc9b11ceeb2cc6b
-    xudp: true
   - type: ss
     name: v2rayng3
     server: 84.247.155.196
@@ -63,12 +70,16 @@ proxies:
     udp: true
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: sahanwickramasinghevip.shop
-    port: 443
-    uuid: 55d61055-1a7f-4bc5-aca2-4ee78c738b60
+    server: 217.217.254.126
+    port: 2053
+    uuid: 30430ca4-9a16-4689-a276-4014599d2f39
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: yVb3JqVqlnXhiIb3E-gAVvgsXCpWgoeLIAJau9yuZ1I
+      short-id: 3fc9b11ceeb2cc6b
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-02
@@ -85,19 +96,6 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-03
-    server: 46.250.240.80
-    port: 2053
-    uuid: f2816a01-3555-4e79-9e26-770f050ea55a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: bRDaP068YgdwwdQgenUvKTNfPjIB_Dy-lJDFC9ZZEXU
-      short-id: 632a146bd581641a
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-04
     server: 194.233.75.66
     port: 443
     uuid: 55d61055-1a7f-4bc5-aca2-4ee78c738b60
@@ -121,7 +119,7 @@ proxies:
     password: 5QCeIKUZUEp4mR9Z
     udp: true
   - type: ss
-    name: EPODONIOS-03
+    name: DeltaKroneckerGithub-04
     server: 84.247.155.196
     port: 80
     cipher: YWVzLTI1Ni1nY206M2VPRmVOc3NkZTdQWVlNdg%3D%3D
@@ -136,27 +134,6 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-06
-    server: 194.233.94.119
-    port: 80
-    cipher: aes-256-gcm
-    password: 5QCeIKUZUEp4mR9Z
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-07
-    server: 194.233.94.119
-    port: 443
-    cipher: aes-256-gcm
-    password: 5QCeIKUZUEp4mR9Z
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-08
-    server: 194.233.94.119
-    port: 443
-    cipher: aes-256-gcm
-    password: 5QCeIKUZUEp4mR9Z
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-09
     server: 84.247.155.196
     port: 80
     cipher: aes-256-gcm
@@ -232,6 +209,21 @@ proxies:
       short-id: 61abecf0a82c31f5
     xudp: true
   - type: vmess
+    name: 4Mohsen-04e5a85721
+    server: 109.123.237.41
+    port: 80
+    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4Sarina-be721ed6d8
     server: 109.123.237.41
     port: 80
@@ -251,10 +243,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - DeltaKroneckerGithub
+      - Alpha_v2rayIP
       - v2rayng3
       - vmesskhodam
       - Channel
@@ -262,21 +255,18 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Jadi-6d37a255c3
       - 4Kian-f37a3686e3
-      - EPODONIOS-03
+      - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
-      - DeltaKroneckerGithub-07
-      - DeltaKroneckerGithub-08
-      - DeltaKroneckerGithub-09
       - ">>@oneclickvpnkeys::SG"
       - 4Sarina-be7191b886
       - 4Jadi-38b2c4ef67
       - 4Mohsen-cd3857c54e
       - 4Kian-1b3d30de59
       - 4Sarina-b0356cdc6c
+      - 4Mohsen-04e5a85721
       - 4Sarina-be721ed6d8
   - name: Auto
     type: url-test
@@ -284,10 +274,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - DeltaKroneckerGithub
+      - Alpha_v2rayIP
       - v2rayng3
       - vmesskhodam
       - Channel
@@ -295,21 +286,18 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Jadi-6d37a255c3
       - 4Kian-f37a3686e3
-      - EPODONIOS-03
+      - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
-      - DeltaKroneckerGithub-07
-      - DeltaKroneckerGithub-08
-      - DeltaKroneckerGithub-09
       - ">>@oneclickvpnkeys::SG"
       - 4Sarina-be7191b886
       - 4Jadi-38b2c4ef67
       - 4Mohsen-cd3857c54e
       - 4Kian-1b3d30de59
       - 4Sarina-b0356cdc6c
+      - 4Mohsen-04e5a85721
       - 4Sarina-be721ed6d8
 rules:
   - MATCH,Proxy

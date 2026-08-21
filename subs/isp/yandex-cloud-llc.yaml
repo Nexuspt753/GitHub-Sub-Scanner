@@ -12,6 +12,13 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: 18ac1929-32d2-4b62-8e7f-379bae3072aa
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
     port: 443
@@ -56,38 +63,45 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-01
-    server: 188.72.103.4
-    port: 443
-    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
-    udp: true
-    xudp: true
-  - type: vless
     name: vless-02
     server: 188.72.103.4
     port: 443
-    uuid: 8d72a181-e349-423f-86e3-d66497cee9fd
+    uuid: 6355dfe8-82b7-46e6-b2b7-d4c005512ab6
     udp: true
     xudp: true
   - type: vless
     name: vless-03
     server: 188.72.103.4
     port: 443
-    uuid: a7f6cbca-0de4-4016-9563-ca5c9116475f
+    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
     udp: true
     xudp: true
   - type: vless
     name: vless-04
     server: 188.72.103.4
     port: 443
-    uuid: d2c89ab1-b500-4ce4-879b-49ef4b9b3ea8
+    uuid: 8d72a181-e349-423f-86e3-d66497cee9fd
     udp: true
     xudp: true
   - type: vless
     name: vless-05
     server: 188.72.103.4
     port: 443
-    uuid: e7f892f9-8ab4-41a1-a1b9-da5d797fd73b
+    uuid: 8e687f91-0242-4b5a-a5cc-78597a5dacd5
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-06
+    server: 188.72.103.4
+    port: 443
+    uuid: d2c89ab1-b500-4ce4-879b-49ef4b9b3ea8
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-07
+    server: 188.72.103.4
+    port: 443
+    uuid: f0882a8b-2650-4ceb-91b4-ba8df22fd6aa
     udp: true
     xudp: true
 proxy-groups:
@@ -96,14 +110,16 @@ proxy-groups:
     proxies:
       - Auto
       - vless
+      - vless-01
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
-      - vless-01
       - vless-02
       - vless-03
       - vless-04
       - vless-05
+      - vless-06
+      - vless-07
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -111,13 +127,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
-      - vless-01
       - vless-02
       - vless-03
       - vless-04
       - vless-05
+      - vless-06
+      - vless-07
 rules:
   - MATCH,Proxy

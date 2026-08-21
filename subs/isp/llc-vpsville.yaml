@@ -1,12 +1,28 @@
 proxies:
   - type: vless
-    name: 4Mohsen-47a0fa6d66
+    name: 4Jadi-bd1fc0d72f
     server: 45.139.184.183
     port: 2053
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: 4Mohsen-ecce29e977
+    server: 45.139.184.183
+    port: 2053
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: forfreeuse.rtqa.ru
     xudp: true
     network: ws
@@ -20,13 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-47a0fa6d66
+      - 4Jadi-bd1fc0d72f
+      - 4Mohsen-ecce29e977
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-47a0fa6d66
+      - 4Jadi-bd1fc0d72f
+      - 4Mohsen-ecce29e977
 rules:
   - MATCH,Proxy

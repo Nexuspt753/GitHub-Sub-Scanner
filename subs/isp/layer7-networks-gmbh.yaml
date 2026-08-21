@@ -1,17 +1,26 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 91.239.208.15
+    server: fr213.mechvpn.online
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: fr15.mechvpn.online
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: fr15.mechvpn.online
-    flow: xtls-rprx-vision-udp443
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 88.214.24.186
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
@@ -22,7 +31,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 91.239.208.213
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
@@ -32,14 +41,15 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-03
-    server: fr186.mechvpn.online
+    name: DeltaKroneckerGithub-04
+    server: 91.239.208.15
     port: 443
     uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
     udp: true
     tls: true
     client-fingerprint: chrome
-    flow: xtls-rprx-vision
+    servername: fr15.mechvpn.online
+    flow: xtls-rprx-vision-udp443
     xudp: true
   - type: vless
     name: EPODONIOS
@@ -115,6 +125,28 @@ proxies:
     servername: fr15.mechvpn.online
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-b17ddfd531
+    server: fr186.mechvpn.online
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr186.mechvpn.online
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-994e311927
+    server: fr213.mechvpn.online
+    port: 443
+    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr213.mechvpn.online
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -124,6 +156,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - ">>@v2nodes::FR"
       - 4Sarina-a3adadea00
@@ -131,6 +164,8 @@ proxy-groups:
       - 4Nika-860ffe9f30
       - 4Jadi-923f16c3f3
       - 4Nika-d828277b91
+      - 4Jadi-b17ddfd531
+      - 4Mohsen-994e311927
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -141,6 +176,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - ">>@v2nodes::FR"
       - 4Sarina-a3adadea00
@@ -148,5 +184,7 @@ proxy-groups:
       - 4Nika-860ffe9f30
       - 4Jadi-923f16c3f3
       - 4Nika-d828277b91
+      - 4Jadi-b17ddfd531
+      - 4Mohsen-994e311927
 rules:
   - MATCH,Proxy

@@ -1,0 +1,31 @@
+proxies:
+  - type: vmess
+    name: 4Nika-078509e9c2
+    server: 2.58.85.44
+    port: 444
+    uuid: aa606a23-5454-4b3b-fee6-e4ab981df030
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-078509e9c2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-078509e9c2
+rules:
+  - MATCH,Proxy

@@ -1,6 +1,20 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 5.10.248.110
+    port: 53706
+    uuid: 40b1dc6a-e36e-44e2-b02f-2ea864e6bb11
+    udp: true
+    xudp: true
+  - type: vless
     name: 🇮🇷149180
+    server: 5.10.248.110
+    port: 53706
+    uuid: 40b1dc6a-e36e-44e2-b02f-2ea864e6bb11
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-103bef1e32
     server: 5.10.248.110
     port: 53706
     uuid: 40b1dc6a-e36e-44e2-b02f-2ea864e6bb11
@@ -11,13 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇮🇷149180
+      - 4Sarina-103bef1e32
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇮🇷149180
+      - 4Sarina-103bef1e32
 rules:
   - MATCH,Proxy
