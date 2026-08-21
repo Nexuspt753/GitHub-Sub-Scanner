@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: SG
+    server: vip-sg-2.hkd4fwmg.vip
+    port: 55793
+    password: ZYTopBPE6fGijECIcT3KxqFEpjQJ44ND
+    sni: vip-sg-2.hkd4fwmg.vip
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - SG
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - SG
+rules:
+  - MATCH,Proxy

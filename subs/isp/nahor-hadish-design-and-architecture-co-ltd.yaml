@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: vless
+    server: cloud5.tsnet3.top
+    port: 1005
+    uuid: c930c363-1dc2-4c0f-8fa7-b540cf7089a3
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: cloud6.tsnet3.top
+    port: 1006
+    uuid: c930c363-1dc2-4c0f-8fa7-b540cf7089a3
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+      - vless-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+      - vless-01
+rules:
+  - MATCH,Proxy

@@ -18,6 +18,31 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cloudflare.vhub.pro
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 158.160.196.224
+    port: 443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
+  - type: vless
+    name: vless
+    server: 188.72.103.4
+    port: 443
+    uuid: 30f59511-b9ac-4f3d-bf11-9dacc607dd3c
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
     port: 443
@@ -30,6 +55,13 @@ proxies:
       public-key: Y7b0W1h25Uw3ciuVSedT4OoGoiR1IGz9C46CECkKuyw
       short-id: b7ef89dff65b02
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: 427c1d7e-d485-44eb-a971-e3c35007b71e
+    udp: true
     xudp: true
   - type: vless
     name: 4Jadi-b130ccff51
@@ -48,13 +80,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: vless
-    server: 188.72.103.4
-    port: 443
-    uuid: 56b0834d-cbe4-4774-ade7-80143f61451d
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Kian-8406711aff
     server: 51.250.95.143
     port: 443
@@ -69,12 +94,23 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-01
-    server: 188.72.103.4
-    port: 443
-    uuid: 6f9142de-1da2-4fdb-8163-dc50b04a35e8
+    name: 4Jadi-d28a013bee
+    server: 51.250.4.141
+    port: 8443
+    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cloudflare.vhub.pro
     xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560fp=firefox
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudflare.vhub.pro
   - type: vless
     name: vless-02
     server: 188.72.103.4
@@ -86,7 +122,28 @@ proxies:
     name: vless-03
     server: 188.72.103.4
     port: 443
-    uuid: d7363fbf-fb4f-48b0-9866-19ec739f243a
+    uuid: 9faa890b-dd3a-401d-89fd-83c1901454fe
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-04
+    server: 188.72.103.4
+    port: 443
+    uuid: d2c89ab1-b500-4ce4-879b-49ef4b9b3ea8
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-05
+    server: 188.72.103.4
+    port: 443
+    uuid: ef67e532-31af-4276-aa69-46ee2afec878
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-06
+    server: 188.72.103.4
+    port: 443
+    uuid: ff6c837f-5601-44ba-aeed-4f402586ae7b
     udp: true
     xudp: true
 proxy-groups:
@@ -95,13 +152,18 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-4aadd209d8
-      - 4Jadi-b130ccff51
+      - DeltaKroneckerGithub-01
       - vless
-      - 4Kian-8406711aff
+      - 4Nika-4aadd209d8
       - vless-01
+      - 4Jadi-b130ccff51
+      - 4Kian-8406711aff
+      - 4Jadi-d28a013bee
       - vless-02
       - vless-03
+      - vless-04
+      - vless-05
+      - vless-06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -109,12 +171,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-4aadd209d8
-      - 4Jadi-b130ccff51
+      - DeltaKroneckerGithub-01
       - vless
-      - 4Kian-8406711aff
+      - 4Nika-4aadd209d8
       - vless-01
+      - 4Jadi-b130ccff51
+      - 4Kian-8406711aff
+      - 4Jadi-d28a013bee
       - vless-02
       - vless-03
+      - vless-04
+      - vless-05
+      - vless-06
 rules:
   - MATCH,Proxy

@@ -1,23 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 157.22.207.182
-    port: 21098
-    uuid: dfb24a48-bda5-4a33-9124-183917fde270
+    name: 4Sarina-7e389ce4de
+    server: 91.240.87.170
+    port: 8444
+    uuid: 8054a79c-b602-48b6-9d54-702d713a2185
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: max.ru
+    reality-opts:
+      public-key: JjxjQ0bCB8UZDC4Tjs3FhWJciPB6jBd0846Ew31hSQk
+      short-id: a1b2c3d4
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-7e389ce4de
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-7e389ce4de
 rules:
   - MATCH,Proxy

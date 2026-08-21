@@ -1,13 +1,41 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-50a165a985
-    server: dereserv.just-cloud.org
-    port: 443
-    password: d9a3a0a2-3bbf-4c04-9ca6-95c7c8390ae7
-    sni: dereserv.just-cloud.org
-    skip-cert-verify: true
+  - type: ss
+    name: EPODONIOS
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
   - type: ss
     name: 4Kian-fba00e26e1
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
     server: 89.125.33.16
     port: 1234
     cipher: chacha20-ietf-poly1305
@@ -18,15 +46,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-50a165a985
+      - EPODONIOS
       - 4Kian-fba00e26e1
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-50a165a985
+      - EPODONIOS
       - 4Kian-fba00e26e1
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

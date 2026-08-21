@@ -1,142 +1,25 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 94.159.110.41
+    server: 194.55.239.17
     port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    uuid: 2c7e5320-7f9e-4af8-9024-c4790929ddef
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: harknmav.fun
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 94.159.97.247
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp58.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /Telegram🇨🇳 @VPNine1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp58.cc.cd
-  - type: vless
-    name: EPODONIOS
-    server: 94.159.110.41
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
-  - type: vless
-    name: 🇩🇪|DE|@wxgqlfx|5
-    server: 94.159.110.41
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
-  - type: ss
-    name: DeltaKroneckerGithub-02
-    server: 94.159.102.107
-    port: 8443
-    cipher: none
-    password: 3e96ef7d-8637-42c2-ac73-75182196e755
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-03
-    server: 94.159.102.107
-    port: 8443
-    cipher: none
-    password: 3e96ef7d-8637-42c2-ac73-75182196e755
-    udp: true
-  - type: vless
-    name: 4Mohsen-13be07cbec
-    server: 94.159.97.247
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /Telegram🇨🇳
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-2c312762d0
-    server: 94.159.110.41
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
-  - type: vless
-    name: 4Nika-79b22789e2
-    server: 94.159.110.41
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - 🇩🇪|DE|@wxgqlfx|5
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4Mohsen-13be07cbec
-      - 4Sarina-2c312762d0
-      - 4Nika-79b22789e2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -144,13 +27,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - 🇩🇪|DE|@wxgqlfx|5
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4Mohsen-13be07cbec
-      - 4Sarina-2c312762d0
-      - 4Nika-79b22789e2
 rules:
   - MATCH,Proxy

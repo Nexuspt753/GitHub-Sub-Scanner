@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.59.125.2
+    port: 443
+    uuid: 8e85752d-c04f-427d-9d70-b10d144c8492
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl3.routeon.pro
+    reality-opts:
+      public-key: vfFXlHEUEUzIJAr2qzlMSU4WIhNuDseYCqK8WbMitVY
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
