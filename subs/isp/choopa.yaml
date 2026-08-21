@@ -1,35 +1,28 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-d12d584813
-    server: 45.32.252.144
-    port: 443
-    password: 1e3a5c5fde1da9dd1358b4adeb0c4ca1
-    sni: vps.vpsv.cc
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 45.76.60.234
+    name: 4Nika-ab4e651797
+    server: 108.61.171.167
     port: 443
-    password: Bw5Mz7QkVp
+    password: mainssh-niwrhf87
     udp: true
     tls: true
-    sni: z-v2-074418.kailib.com
-    alpn:
-      - http/1.1
+    sni: getgrpc.mainssh.xyz
     client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-d12d584813
-      - DeltaKroneckerGithub
+      - 4Nika-ab4e651797
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-d12d584813
-      - DeltaKroneckerGithub
+      - 4Nika-ab4e651797
 rules:
   - MATCH,Proxy
