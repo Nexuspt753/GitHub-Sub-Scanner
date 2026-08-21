@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 31.76.30.79
+    port: 10808
+    cipher: chacha20-ietf-poly1305
+    password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
+    udp: true
+  - type: ss
     name: Selinc
     server: 31.76.30.79
     port: 10808
@@ -8,6 +15,13 @@ proxies:
     udp: true
   - type: ss
     name: V2ray_Alpha🐮
+    server: 31.76.30.79
+    port: 10808
+    cipher: chacha20-ietf-poly1305
+    password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
+    udp: true
+  - type: ss
+    name: meliproxyy
     server: 31.76.30.79
     port: 10808
     cipher: chacha20-ietf-poly1305
@@ -71,13 +85,25 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
     udp: true
+  - type: vless
+    name: 4Kian-e6b0e442af
+    server: 2.26.224.100
+    port: 8444
+    uuid: 15e83ced-7544-422e-863d-deafe29a1dbe
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Selinc
       - V2ray_Alpha🐮
+      - meliproxyy
       - T.me/Vpn_Mafia
       - 🇫🇮@FreakConfig
       - 4Mohsen-ba9939bfec
@@ -85,14 +111,17 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - ">>@FreakConfig::FI"
+      - 4Kian-e6b0e442af
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Selinc
       - V2ray_Alpha🐮
+      - meliproxyy
       - T.me/Vpn_Mafia
       - 🇫🇮@FreakConfig
       - 4Mohsen-ba9939bfec
@@ -100,5 +129,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - ">>@FreakConfig::FI"
+      - 4Kian-e6b0e442af
 rules:
   - MATCH,Proxy

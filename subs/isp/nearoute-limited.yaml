@@ -13,27 +13,12 @@ proxies:
       short-id: 6869a2f27528a6cf
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 103.76.85.207
-    port: 443
-    uuid: 6f339a8a-6c15-4104-a9ef-95f2082e8e53
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: wz7upg9oyxhWauuxq8wT0vwm-zwq2GlGqXPuRyjHVTs
-      short-id: d243260730435fb4
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

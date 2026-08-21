@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-54373998f6
+    server: family.bucket.9.kfc-520.com
+    port: 10046
+    uuid: 3979cfac-7f7b-3dcf-a4e4-513eb8d125a7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-54373998f6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-54373998f6
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vmess
+    name: 4Nika-9dff8d2dd2
+    server: s3.megaping.casa
+    port: 2082
+    uuid: 13188d38-4aa1-4071-86b9-a246193e5d69
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: s3.megaping.casa
+    alpn:
+      - http/1.1
+  - type: vmess
     name: 4Nika-11f0b20738
     server: s3.megaping.casa
     port: 2082
@@ -16,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-9dff8d2dd2
       - 4Nika-11f0b20738
   - name: Auto
     type: url-test
@@ -23,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-9dff8d2dd2
       - 4Nika-11f0b20738
 rules:
   - MATCH,Proxy
