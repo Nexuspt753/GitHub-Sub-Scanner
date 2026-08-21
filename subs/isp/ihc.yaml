@@ -13,12 +13,20 @@ proxies:
       short-id: c93743d8
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless
+    server: 46.254.18.60
+    port: 443
+    uuid: e784931b-d8de-4ea0-af9d-b42c40d7b6c3
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-07180320a9
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-07180320a9
+      - vless
 rules:
   - MATCH,Proxy

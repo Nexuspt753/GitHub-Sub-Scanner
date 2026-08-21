@@ -1,6 +1,34 @@
 proxies:
   - type: vless
+    name: Kharkiv · @DeltaKroneckerGithub
+    server: 193.238.153.15
+    port: 443
+    uuid: 40cfbd0a-f133-4174-8e03-ab0e587e1099
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: dzknsuwujuOacNHTXzdPxBLNUEJfEImiwLinPPNFmwU
+      short-id: 1ea21a140beaecc5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Kyiv · @DeltaKroneckerGithub
+    server: s282.wagahaha.xyz
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ubdb325a3s274.kukuss.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Kyiv · @DeltaKroneckerGithub-01
     server: 5.34.182.23
     port: 13443
     uuid: 5238521b-c5dd-42af-870e-c174a2aaaafe
@@ -13,20 +41,6 @@ proxies:
       short-id: a7f3c91b2e6d84c0
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Kyiv · @DeltaKroneckerGithub-01
-    server: 88.151.195.213
-    port: 443
-    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: u643766ubdb325a3s274.kukuss.top
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: Mykolayiv · 4Sarina-2139501856
     server: 194.54.80.37
@@ -34,15 +48,6 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: Vr06rU_v1vFPYeXq9zbsAA
     udp: true
-  - type: trojan
-    name: Kyiv · @DeltaKroneckerGithub-02
-    server: 130.0.236.88
-    port: 443
-    password: d2adff89-5143-4d67-921f-3478464de5bb
-    udp: true
-    tls: true
-    sni: ua.freeguard.org
-    client-fingerprint: chrome
   - type: vless
     name: Zaporizhzhya · 4FreeIran-94b7c04ac7
     server: 45.135.235.123
@@ -59,26 +64,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: notls.lukongtou.eu.org
+  - type: vless
+    name: Kyiv · 4Mohsen-974293914c
+    server: 5.34.182.23
+    port: 13443
+    uuid: 5238521b-c5dd-42af-870e-c174a2aaaafe
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Kharkiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub-01
       - Mykolayiv · 4Sarina-2139501856
-      - Kyiv · @DeltaKroneckerGithub-02
       - Zaporizhzhya · 4FreeIran-94b7c04ac7
+      - Kyiv · 4Mohsen-974293914c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Kharkiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub-01
       - Mykolayiv · 4Sarina-2139501856
-      - Kyiv · @DeltaKroneckerGithub-02
       - Zaporizhzhya · 4FreeIran-94b7c04ac7
+      - Kyiv · 4Mohsen-974293914c
 rules:
   - MATCH,Proxy

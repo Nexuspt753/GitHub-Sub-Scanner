@@ -1,13 +1,13 @@
 proxies:
   - type: hysteria2
-    name: EPODONIOS
+    name: 波兰
     server: streambox.wwwinternetvideo.click
     port: 443
     password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
     sni: streambox.wwwinternetvideo.click
     skip-cert-verify: true
   - type: hysteria2
-    name: 波兰
+    name: EPODONIOS
     server: streambox.wwwinternetvideo.click
     port: 443
     password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
@@ -52,32 +52,66 @@ proxies:
     port: 443
     password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
     sni: admin.wwwinternetvideo.click
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: ee.dealfre.xyz
+    port: 443
+    uuid: a261baf0-8e37-4ff0-b9d1-7180c570073a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ee.dealfre.xyz
+    reality-opts:
+      public-key: Zo3OftHANSWinV-kajh98gqzcjWnkB_q7JPaG87SMGA
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.56.187.86
+    port: 443
+    uuid: a261baf0-8e37-4ff0-b9d1-7180c570073a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ee.dealfre.xyz
+    reality-opts:
+      public-key: Zo3OftHANSWinV-kajh98gqzcjWnkB_q7JPaG87SMGA
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 波兰
+      - EPODONIOS
       - 4Kian-13bf1c3060
       - 4Sarina-cb0db85881
       - 4Jadi-d8f68871d9
       - 4Sarina-1c5131f6b0
       - 4Sarina-04f0c5ce68
       - 4Mohsen-5dcd72a9ed
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 波兰
+      - EPODONIOS
       - 4Kian-13bf1c3060
       - 4Sarina-cb0db85881
       - 4Jadi-d8f68871d9
       - 4Sarina-1c5131f6b0
       - 4Sarina-04f0c5ce68
       - 4Mohsen-5dcd72a9ed
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

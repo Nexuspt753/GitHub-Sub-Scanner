@@ -37,6 +37,22 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
+    name: vless-02
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 192.220.55.35
+    port: 48378
+    cipher: aes-256-gcm
+    password: America2026@LAX
+    udp: true
+  - type: vless
     name: 4Jadi-cab12f4589
     server: 128.241.25.215
     port: 30036
@@ -85,18 +101,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
   - type: vless
-    name: 4Jadi-1c2e34ffae
-    server: 157.238.208.110
-    port: 41834
-    uuid: 5adeccb9-dfca-41de-cdf7-4d901f2e70f5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /5adeccb9
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Kian-59ac62aadd
     server: 128.241.25.215
     port: 30036
@@ -112,6 +116,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  - type: vless
+    name: vless-03
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -121,11 +134,13 @@ proxy-groups:
       - 4FreeIran-baf23c5814
       - vless
       - vless-01
+      - vless-02
+      - DeltaKroneckerGithub-01
       - 4Jadi-cab12f4589
       - 4FreeIran-a51c370a76
       - 4Nika-a4e6ee3b45
-      - 4Jadi-1c2e34ffae
       - 4Kian-59ac62aadd
+      - vless-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -136,10 +151,12 @@ proxy-groups:
       - 4FreeIran-baf23c5814
       - vless
       - vless-01
+      - vless-02
+      - DeltaKroneckerGithub-01
       - 4Jadi-cab12f4589
       - 4FreeIran-a51c370a76
       - 4Nika-a4e6ee3b45
-      - 4Jadi-1c2e34ffae
       - 4Kian-59ac62aadd
+      - vless-03
 rules:
   - MATCH,Proxy

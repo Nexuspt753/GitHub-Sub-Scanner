@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 46.29.238.139
+    port: 40443
+    uuid: 8384341b-cd89-4a21-a022-cc4bd4e648ca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: deepl.com
+    reality-opts:
+      public-key: 7i4Y7v80NVAIi_4_9roDkqcXmexIHli87dfZuFaQMUI
+      short-id: 68da
+    xudp: true
+  - type: vless
     name: 4Nika-c1e41ddfca
     server: 46.29.238.139
     port: 40443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Nika-c1e41ddfca
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Nika-c1e41ddfca
 rules:
   - MATCH,Proxy

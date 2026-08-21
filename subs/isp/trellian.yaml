@@ -1,21 +1,5 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 103.224.212.217
-    port: 443
-    password: b379fd8e-75c6-4bd6-8a5b-88f3e64bb3fa
-    udp: true
-    tls: true
-    sni: dl.kgvn.garenanow.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: connectwithemployers.online
-    port: 443
-    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Sarina-04b8b3e290
     server: us2.trojanvh.xyz
     port: 80
@@ -297,13 +281,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 9.72img.xyz
+  - type: vmess
+    name: 4Sarina-ab4576c4d2
+    server: clash6.ssr-free.xyz
+    port: 443
+    uuid: 5f64fa65-7b14-49c5-954d-aa15c6bfcacd
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: clash6.ssr-free.xyz
+    network: ws
+    ws-opts:
+      path: /dongtaiwang.com
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: clash6.ssr-free.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
       - 4Mohsen-c44b8b697f
@@ -322,14 +322,13 @@ proxy-groups:
       - 4FreeIran-9a1eb65aac
       - 4Kian-a18d932697
       - 4Nika-1b54526fab
+      - 4Sarina-ab4576c4d2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
       - 4Mohsen-c44b8b697f
@@ -348,5 +347,6 @@ proxy-groups:
       - 4FreeIran-9a1eb65aac
       - 4Kian-a18d932697
       - 4Nika-1b54526fab
+      - 4Sarina-ab4576c4d2
 rules:
   - MATCH,Proxy

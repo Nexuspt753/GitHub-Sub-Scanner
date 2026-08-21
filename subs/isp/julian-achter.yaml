@@ -1,0 +1,34 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 92.119.165.177
+    port: 8204
+    uuid: ed1aaa45-18b3-4c07-a434-ea42e2dfba77
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: zeta.optiklink.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gayporn---gayporn---gayporn---gayporn---gayporn---gayporn---gayporn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: zeta.optiklink.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
