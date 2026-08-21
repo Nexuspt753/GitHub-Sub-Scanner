@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: Budapest · @DeltaKroneckerGithub
-    server: 45.195.111.15
-    port: 443
-    uuid: 82e209b2-97a6-4d67-a10b-72627b9f6702
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: storage.yandex.net
-    reality-opts:
-      public-key: 7zd9mJilgjOrg_ohtw23Vmio-pdnYqeP_r-kiWt87Cg
-      short-id: f4b4a6365558ea2e
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: Budapest · 4FreeIran-cf1318fe47
     server: 185.225.68.232
@@ -27,39 +13,36 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: Budapest · 4Mohsen-8ce7e601b5
-    server: 185.128.26.70
+  - type: vless
+    name: Budapest · 4FreeIran-14bea78807
+    server: 45.195.111.15
     port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
+    uuid: 82e209b2-97a6-4d67-a10b-72627b9f6702
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /path/191019072927
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.96437658.xyz
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: storage.yandex.net
+    reality-opts:
+      public-key: 7zd9mJilgjOrg_ohtw23Vmio-pdnYqeP_r-kiWt87Cg
+      short-id: f4b4a6365558ea2e
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Budapest · @DeltaKroneckerGithub
       - Budapest · 4FreeIran-cf1318fe47
-      - Budapest · 4Mohsen-8ce7e601b5
+      - Budapest · 4FreeIran-14bea78807
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Budapest · @DeltaKroneckerGithub
       - Budapest · 4FreeIran-cf1318fe47
-      - Budapest · 4Mohsen-8ce7e601b5
+      - Budapest · 4FreeIran-14bea78807
 rules:
   - MATCH,Proxy

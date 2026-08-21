@@ -1,6 +1,33 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: 178.236.254.40
+    port: 443
+    uuid: 1b1088fc-d595-481c-a82b-b410e0b0b7a8
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇩🇪148994
+    server: 178.236.254.40
+    port: 443
+    uuid: 1b1088fc-d595-481c-a82b-b410e0b0b7a8
+    udp: true
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 193.233.134.246
+    port: 443
+    uuid: 8e85752d-c04f-427d-9d70-b10d144c8492
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de.routeon.pro
+    reality-opts:
+      public-key: X9WkfIdd-rPRL5PwC34cN9pHBHYV2sLZFoaaaYzNo34
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: 138.124.33.169
     port: 443
     uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
@@ -32,7 +59,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 138.124.32.78
     port: 443
     password: "1234567890"
@@ -40,14 +67,42 @@ proxies:
     tls: true
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-5ca179e09e
+    server: 178.236.254.40
+    port: 443
+    uuid: 1b1088fc-d595-481c-a82b-b410e0b0b7a8
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-504653a53d
+    server: 138.124.33.169
+    port: 443
+    uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - V2ray_Alpha🦝
+      - 🇩🇪148994
       - DeltaKroneckerGithub
+      - EPODONIOS-01
+      - V2ray_Alpha🦝
+      - DeltaKroneckerGithub-01
+      - 4Kian-5ca179e09e
+      - 4Mohsen-504653a53d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,7 +110,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - V2ray_Alpha🦝
+      - 🇩🇪148994
       - DeltaKroneckerGithub
+      - EPODONIOS-01
+      - V2ray_Alpha🦝
+      - DeltaKroneckerGithub-01
+      - 4Kian-5ca179e09e
+      - 4Mohsen-504653a53d
 rules:
   - MATCH,Proxy

@@ -165,6 +165,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: relay.meshbeat.online
+  - type: vless
+    name: 4Sarina-d36cd5ee7b
+    server: relay.meshbeat.online
+    port: 8444
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: relay.meshbeat.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/2545c190a7/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: relay.meshbeat.online
 proxy-groups:
   - name: Proxy
     type: select
@@ -180,6 +196,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - 4Jadi-bc4d2fa502
       - 4Mohsen-f8bd12bd82
+      - 4Sarina-d36cd5ee7b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -196,5 +213,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - 4Jadi-bc4d2fa502
       - 4Mohsen-f8bd12bd82
+      - 4Sarina-d36cd5ee7b
 rules:
   - MATCH,Proxy

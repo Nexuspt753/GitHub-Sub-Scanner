@@ -1,26 +1,23 @@
 proxies:
-  - type: vmess
-    name: 4Nika-2f68eabdba
-    server: trf-nld.ip-static.com
-    port: 5001
-    uuid: 03bda96d-604a-4839-a087-fea6749f2918
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: cloud3.abalonhost.ir
+    port: 6003
+    uuid: 30bf05ac-45d1-4f6e-b511-01f46833c35f
     udp: true
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-2f68eabdba
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2f68eabdba
+      - vless
 rules:
   - MATCH,Proxy

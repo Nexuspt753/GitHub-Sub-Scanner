@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 🇮🇷149010
+    server: zephyr.mcinet.shop
+    port: 2096
+    uuid: 5a044a11-9738-474c-8180-093821a70453
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: cF3Y4-bXsmD6TKJTETjCwsIesD3PoFE8YDprf-J67C8
+      short-id: 0123abcd
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷149010
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷149010
+rules:
+  - MATCH,Proxy
