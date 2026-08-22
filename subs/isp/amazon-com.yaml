@@ -1,30 +1,5 @@
 proxies:
   - type: hysteria2
-    name: HK
-    server: fg7xl1div.d33tqmk.cc
-    port: 11173
-    password: 1dcc3b89-0b45-3908-9120-19741361d55d
-    sni: xk7qhk307.ckpfef.top
-    obfs: salamander
-    obfs-password: 1ol3tasb90
-  - type: hysteria2
-    name: 4Mohsen-8aa7a33598
-    server: fg7xl1div.d33tqmk.cc
-    port: 10030
-    password: 1dcc3b89-0b45-3908-9120-19741361d55d
-    sni: xk7q3.ckpfef.top
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: 1ol3tasb90
-  - type: hysteria2
-    name: 4Kian-650965b4df
-    server: fg7xl1div.d33tqmk.cc
-    port: 11173
-    password: 1dcc3b89-0b45-3908-9120-19741361d55d
-    sni: xk7qhk307.ckpfef.top
-    obfs: salamander
-    obfs-password: 1ol3tasb90
-  - type: hysteria2
     name: 4FreeIran-660f167ab4
     server: 7a322d16.459292.xyz
     port: 8443
@@ -58,6 +33,15 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-03
+    server: 63.179.149.234
+    port: 443
+    password: PQ05174892
+    udp: true
+    tls: true
+    sni: usable-dogfish.rooster465.autos
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-04
     server: able-dane.rooster465.autos
     port: 443
     password: NQ26071394
@@ -66,20 +50,13 @@ proxies:
     sni: able-dane.rooster465.autos
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-05
     server: 63.179.149.234
     port: 443
     password: EQ30679154
     udp: true
     tls: true
     sni: usable-dogfish.rooster465.autos
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-05
-    server: modest-coral.rooster465.autos
-    port: 443
-    password: XG59623478
-    udp: true
     client-fingerprint: chrome
   - type: trojan
     name: EPODONIOS
@@ -253,14 +230,28 @@ proxies:
     tls: true
     sni: usable-dogfish.rooster465.autos
     client-fingerprint: chrome
+  - type: vmess
+    name: 4FreeIran-bd4c536c31
+    server: mycfwork.herokuapp.com
+    port: 443
+    uuid: 07a3a1e3-d52e-4acc-958e-c301681b5f09
+    alterId: 4
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /07a3a1e3-d52e-4acc-958e-c301681b5f09-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mycfwork.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - HK
-      - 4Mohsen-8aa7a33598
-      - 4Kian-650965b4df
       - 4FreeIran-660f167ab4
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -288,15 +279,13 @@ proxy-groups:
       - 4FreeIran-94d5487a6b
       - 4Sarina-5abd090880
       - 4Mohsen-22b9c0a782
+      - 4FreeIran-bd4c536c31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - HK
-      - 4Mohsen-8aa7a33598
-      - 4Kian-650965b4df
       - 4FreeIran-660f167ab4
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -324,5 +313,6 @@ proxy-groups:
       - 4FreeIran-94d5487a6b
       - 4Sarina-5abd090880
       - 4Mohsen-22b9c0a782
+      - 4FreeIran-bd4c536c31
 rules:
   - MATCH,Proxy

@@ -20,6 +20,22 @@ proxies:
     password: P6qkAwznuC076mbIR2cGPg==
     sni: bing.com
     skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 43.154.131.189
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
   - type: hysteria2
     name: 4FreeIran-2eb72a6eca
     server: 43.156.90.144
@@ -28,7 +44,7 @@ proxies:
     sni: bing.com
     skip-cert-verify: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 43.165.177.82
     port: 443
     uuid: 0b772594-d6b9-4f4f-849b-8a6f92f594fe
@@ -42,7 +58,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 43.156.253.94
     port: 443
     password: Aimer
@@ -51,7 +67,7 @@ proxies:
     sni: ngepx.ambercc.filegear-sg.me
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 43.134.48.62
     port: 443
     password: 973c7f53-7411-4173-b805-d65c912e4d55
@@ -107,6 +123,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Nika-6ff5667d99
+    server: v45.hdacd.com
+    port: 30845
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -115,13 +141,15 @@ proxy-groups:
       - EPODONIOS
       - 🇸🇬SG
       - 4Sarina-3d2559cafb
-      - 4FreeIran-2eb72a6eca
       - DeltaKroneckerGithub
+      - 4FreeIran-2eb72a6eca
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Jadi-e0671995de
       - 4FreeIran-149436844e
       - 4FreeIran-4ce6751e6f
+      - 4Nika-6ff5667d99
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -131,12 +159,14 @@ proxy-groups:
       - EPODONIOS
       - 🇸🇬SG
       - 4Sarina-3d2559cafb
-      - 4FreeIran-2eb72a6eca
       - DeltaKroneckerGithub
+      - 4FreeIran-2eb72a6eca
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Jadi-e0671995de
       - 4FreeIran-149436844e
       - 4FreeIran-4ce6751e6f
+      - 4Nika-6ff5667d99
 rules:
   - MATCH,Proxy

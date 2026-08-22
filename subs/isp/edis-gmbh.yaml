@@ -1,13 +1,22 @@
 proxies:
-  - type: ss
-    name: 4Sarina-5d7380b002
-    server: 134.255.210.49
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: f8f7aCzcPKbsF8p3
-    udp: true
   - type: vless
     name: 4FreeIran-4748eede68
+    server: 95.156.205.244
+    port: 443
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: 4Sarina-23edb2c29f
     server: 95.156.205.244
     port: 443
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -27,15 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-5d7380b002
       - 4FreeIran-4748eede68
+      - 4Sarina-23edb2c29f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-5d7380b002
       - 4FreeIran-4748eede68
+      - 4Sarina-23edb2c29f
 rules:
   - MATCH,Proxy
