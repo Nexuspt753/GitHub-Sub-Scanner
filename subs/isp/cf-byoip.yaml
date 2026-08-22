@@ -16,23 +16,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: whitecreeper.pages.dev
   - type: vless
-    name: EPODONIOS
-    server: 188.164.248.143
-    port: 2087
+    name: DeltaKroneckerGithub-01
+    server: 188.164.248.67
+    port: 443
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vp24.cc.cd
+    servername: vp21.cc.cd
     xudp: true
     network: ws
     ws-opts:
-      path: /fp=chrome
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp24.cc.cd
+        Host: vp21.cc.cd
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: 188.164.248.190
     port: 2096
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
@@ -48,7 +48,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp40.cc.cd
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
+    server: 188.164.248.123
+    port: 8443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp21.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp21.cc.cd
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 188.164.248.96
     port: 8443
     uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
@@ -79,19 +95,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp24.cc.cd
-  - type: vless
-    name: EPODONIOS-02
-    server: 188.164.248.117
-    port: 2087
-    uuid: fb978279-0a28-4045-8258-e9ab97deaf2b
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /security=tls
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 3da0360c.myblog-2hd.pages.dev
   - type: vless
     name: 4Jadi-628227bd08
     server: 188.164.248.143
@@ -140,34 +143,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp21.cc.cd
-  - type: vless
-    name: 4Sarina-ebeae28a17
-    server: 188.164.248.117
-    port: 2087
-    uuid: fb978279-0a28-4045-8258-e9ab97deaf2b
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /security=tls
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 3da0360c.myblog-2hd.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 🇨🇦
-      - EPODONIOS-02
       - 4Jadi-628227bd08
       - 4Nika-9216c6432e
       - 4Mohsen-5ad98aeb01
-      - 4Sarina-ebeae28a17
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -175,14 +164,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 🇨🇦
-      - EPODONIOS-02
       - 4Jadi-628227bd08
       - 4Nika-9216c6432e
       - 4Mohsen-5ad98aeb01
-      - 4Sarina-ebeae28a17
 rules:
   - MATCH,Proxy

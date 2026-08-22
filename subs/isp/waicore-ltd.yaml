@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: 4Mohsen-288f278fff
+    server: newos.klzvezdi.ru
+    port: 9443
+    password: 8569e507-8ef7-481d-9108-6bc7f040c2ff
+    sni: newos.klzvezdi.ru
+    skip-cert-verify: true
   - type: vless
     name: EPODONIOS
     server: 138.124.6.85
@@ -47,24 +54,42 @@ proxies:
       public-key: 7VDaTbO6QMT8ZkkYSqFTiKLdu7RQGADy0u8pecwLF3A
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-726bece9cf
+    server: de.intfreed.ru
+    port: 443
+    uuid: bf92bdef-ab8d-4481-8798-2d39023357b2
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: video.intfreed.ru
+    reality-opts:
+      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
+      short-id: 7755e972daf8eec8
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-288f278fff
       - EPODONIOS
       - tootffarangi🍓-14
       - DeltaKroneckerGithub
       - 4Kian-2c7424d8a3
+      - 4Jadi-726bece9cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-288f278fff
       - EPODONIOS
       - tootffarangi🍓-14
       - DeltaKroneckerGithub
       - 4Kian-2c7424d8a3
+      - 4Jadi-726bece9cf
 rules:
   - MATCH,Proxy
