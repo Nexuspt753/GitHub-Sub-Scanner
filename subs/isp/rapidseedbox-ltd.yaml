@@ -1,0 +1,25 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-381dc5b582
+    server: hy2-wien.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-wien.unlimited-access.ru
+    skip-cert-verify: true
+    alpn:
+      - h3
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-381dc5b582
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-381dc5b582
+rules:
+  - MATCH,Proxy

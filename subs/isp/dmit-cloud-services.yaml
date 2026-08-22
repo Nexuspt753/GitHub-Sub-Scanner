@@ -26,24 +26,8 @@ proxies:
     password: c3e6fd601b53d080ed5099cbf325dede
     sni: 154.31.114.168
     skip-cert-verify: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 179.255.108.176
-    port: 443
-    uuid: 7893b302-3882-4c38-9ab6-6313f1575d1a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cf.udpid.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@zyzzzoao
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf.udpid.org
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 154.31.115.31
     port: 443
     password: TOZA9E6pyq4z3pFYeIeOC3ApaSDjR2wFueaO8uNDx0czDF3YCSwa3xjZ3qZAyB4YCKCZS
@@ -54,7 +38,7 @@ proxies:
       - http/1.1
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 154.17.16.149
     port: 443
     password: pBS63OYXOw3ATcOX5Cz0FEx4lS8CDCYZIBl3C3wzepKYa3SaSq9payCDRynqZxlKSea2A
@@ -62,7 +46,7 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 154.17.10.185
     port: 443
     password: Z3FSA9weaaRYpN89weaaRYpN89weaaRYpN80CDYFOxS5TSBqlCyAaXzaXzc7ZpngISBqlCyAaXzc7Zp
@@ -73,7 +57,7 @@ proxies:
       - http/1.1
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-03
     server: 136.175.177.136
     port: 8443
     password: "740628"
@@ -90,6 +74,22 @@ proxies:
     tls: true
     sni: bookmark.missionsec.io
     client-fingerprint: chrome
+  - type: vless
+    name: 4Jadi-40ed0b6924
+    server: 154.12.178.224
+    port: 443
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
 proxy-groups:
   - name: Proxy
     type: select
@@ -103,8 +103,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Mohsen-3da5d9f3e7
+      - 4Jadi-40ed0b6924
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -119,7 +119,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Mohsen-3da5d9f3e7
+      - 4Jadi-40ed0b6924
 rules:
   - MATCH,Proxy
