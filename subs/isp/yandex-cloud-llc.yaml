@@ -1,24 +1,29 @@
 proxies:
   - type: vless
     name: vless
-    server: 188.72.103.4
+    server: cdn-fi2.24outlook.space
     port: 443
-    uuid: 1d216358-bfe9-4978-9f78-fce22128ed51
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-4aadd209d8
-    server: 51.250.25.32
-    port: 443
-    uuid: 3be2a136-6d29-44b5-a609-30cbab4606e5
+    uuid: f1f9dfbc-b81d-423d-a9c1-80287dad1d8e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.google.com
-    reality-opts:
-      public-key: Y7b0W1h25Uw3ciuVSedT4OoGoiR1IGz9C46CECkKuyw
-      short-id: b7ef89dff65b02
-    flow: xtls-rprx-vision
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: 1da4659f-2d77-402e-a928-3f949cd8c85f
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 188.72.103.4
+    port: 443
+    uuid: 33865e39-c40f-4bc4-a7d8-daec140790ef
+    udp: true
     xudp: true
   - type: vless
     name: 4Jadi-b130ccff51
@@ -51,17 +56,10 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-01
+    name: vless-03
     server: 188.72.103.4
     port: 443
-    uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-02
-    server: 188.72.103.4
-    port: 443
-    uuid: c185124e-136f-424c-a44d-15108ecded8b
+    uuid: e1d52af6-4abf-48da-b330-9cb1376e3a16
     udp: true
     xudp: true
 proxy-groups:
@@ -70,11 +68,11 @@ proxy-groups:
     proxies:
       - Auto
       - vless
-      - 4Nika-4aadd209d8
-      - 4Jadi-b130ccff51
-      - 4Kian-8406711aff
       - vless-01
       - vless-02
+      - 4Jadi-b130ccff51
+      - 4Kian-8406711aff
+      - vless-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -82,10 +80,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Nika-4aadd209d8
-      - 4Jadi-b130ccff51
-      - 4Kian-8406711aff
       - vless-01
       - vless-02
+      - 4Jadi-b130ccff51
+      - 4Kian-8406711aff
+      - vless-03
 rules:
   - MATCH,Proxy

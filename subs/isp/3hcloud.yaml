@@ -1,59 +1,29 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: pl.hardvezoo.ir
-    port: 2053
-    uuid: ae685aee-6b93-4eb2-8998-537b0a9e7ad7
+    name: v2rayng3
+    server: tun.temas-bor.ir
+    port: 443
+    uuid: 38df5518-26c5-449b-98d9-a4f456f5f689
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: login.yahoo.com
+    reality-opts:
+      public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
+      short-id: c6e19c434dc87df7
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.speedtest.net
-  - type: vless
-    name: 🇵🇱
-    server: pl.hardvezoo.ir
-    port: 2053
-    uuid: ae685aee-6b93-4eb2-8998-537b0a9e7ad7
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.speedtest.net
-  - type: vless
-    name: 4Jadi-4a9cdbfd06
-    server: pl.hardvezoo.ir
-    port: 2053
-    uuid: ae685aee-6b93-4eb2-8998-537b0a9e7ad7
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.speedtest.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇵🇱
-      - 4Jadi-4a9cdbfd06
+      - v2rayng3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇵🇱
-      - 4Jadi-4a9cdbfd06
+      - v2rayng3
 rules:
   - MATCH,Proxy

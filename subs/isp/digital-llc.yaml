@@ -1,30 +1,23 @@
 proxies:
-  - type: trojan
-    name: 4Nika-300ddd31ef
-    server: 104.253.175.16
-    port: 443
-    password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  - type: vless
+    name: 4Sarina-699e7b0006
+    server: cpanel.linux-panel.com
+    port: 2044
+    uuid: ccf1120f-bfc6-4e0c-8f07-5b73566dc598
     udp: true
-    tls: true
-    sni: hhcm.hhxaf.cc.cd
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-300ddd31ef
+      - 4Sarina-699e7b0006
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-300ddd31ef
+      - 4Sarina-699e7b0006
 rules:
   - MATCH,Proxy

@@ -1,8 +1,8 @@
 proxies:
   - type: vmess
-    name: 4Jadi-bb0b9a5f59
-    server: yd4.ainivp.com
-    port: 33204
+    name: 4Jadi-d6c8443dd7
+    server: cu4.ainivp.com
+    port: 33402
     uuid: 9227afcd-026e-781f-1abc-c06efabd2338
     alterId: 0
     cipher: auto
@@ -15,19 +15,38 @@ proxies:
       path: /ray
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: yd4.ainivp.com
+        Host: cu4.ainivp.com
+  - type: vmess
+    name: 4FreeIran-4f458516f0
+    server: cu4.ainivp.com
+    port: 33402
+    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cu4.ainivp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-bb0b9a5f59
+      - 4Jadi-d6c8443dd7
+      - 4FreeIran-4f458516f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-bb0b9a5f59
+      - 4Jadi-d6c8443dd7
+      - 4FreeIran-4f458516f0
 rules:
   - MATCH,Proxy
