@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: Zaporizhzhya · @DeltaKroneckerGithub
-    server: 45.135.235.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime07.workers.dev
-  - type: vless
     name: Kyiv · @DeltaKroneckerGithub
     server: 5.34.182.23
     port: 443
@@ -27,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Zaporizhzhya · @DeltaKroneckerGithub-01
+    name: Zaporizhzhya · @DeltaKroneckerGithub
     server: 45.135.235.123
     port: 443
     uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
@@ -63,6 +50,20 @@ proxies:
       short-id: a7f3c91b2e6d84c0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Kharkiv · @DeltaKroneckerGithub
+    server: 193.238.153.15
+    port: 443
+    uuid: 40cfbd0a-f133-4174-8e03-ab0e587e1099
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: dzknsuwujuOacNHTXzdPxBLNUEJfEImiwLinPPNFmwU
+      short-id: 1ea21a140beaecc5
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: Kyiv · @DeltaKroneckerGithub-02
     server: 130.0.236.88
@@ -73,13 +74,13 @@ proxies:
     sni: ua.freeguard.org
     client-fingerprint: chrome
   - type: vless
-    name: Kharkiv · 4Nika-0671f40dc0
+    name: Kharkiv · 4Nika-e236d07df2
     server: 193.238.153.15
     port: 443
     uuid: 40cfbd0a-f133-4174-8e03-ab0e587e1099
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: www.cloudflare.com
     reality-opts:
       public-key: dzknsuwujuOacNHTXzdPxBLNUEJfEImiwLinPPNFmwU
@@ -105,13 +106,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Zaporizhzhya · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub
-      - Zaporizhzhya · @DeltaKroneckerGithub-01
+      - Zaporizhzhya · @DeltaKroneckerGithub
       - Mykolayiv · 4Sarina-2139501856
       - Kyiv · @DeltaKroneckerGithub-01
+      - Kharkiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub-02
-      - Kharkiv · 4Nika-0671f40dc0
+      - Kharkiv · 4Nika-e236d07df2
       - Kyiv · 4Mohsen-974293914c
   - name: Auto
     type: url-test
@@ -119,13 +120,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Zaporizhzhya · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub
-      - Zaporizhzhya · @DeltaKroneckerGithub-01
+      - Zaporizhzhya · @DeltaKroneckerGithub
       - Mykolayiv · 4Sarina-2139501856
       - Kyiv · @DeltaKroneckerGithub-01
+      - Kharkiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub-02
-      - Kharkiv · 4Nika-0671f40dc0
+      - Kharkiv · 4Nika-e236d07df2
       - Kyiv · 4Mohsen-974293914c
 rules:
   - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 146.255.188.164
+    port: 443
+    uuid: 5d3f2ace-1e1c-412e-91ad-ee4cfe1ec0f7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: ptxofoopyTPBZYp8iC-3x4V-GfN05OzYO9YH4ItnWXo
+      short-id: "84"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 193.38.235.129
     port: 443
@@ -25,35 +39,22 @@ proxies:
       public-key: LTnSFpfeU48eRXGHJdArwhxw4S0q-toyNKp4JUsjPhA
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-522d1e9dd0
-    server: 193.38.235.129
-    port: 443
-    uuid: c805b3d0-086b-44e8-81d0-ed6ad0ca8f8d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: microsoft.net
-    reality-opts:
-      public-key: LTnSFpfeU48eRXGHJdArwhxw4S0q-toyNKp4JUsjPhA
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🚀t.me/iProxyChannel
-      - 4Mohsen-522d1e9dd0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🚀t.me/iProxyChannel
-      - 4Mohsen-522d1e9dd0
 rules:
   - MATCH,Proxy

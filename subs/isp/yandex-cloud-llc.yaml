@@ -1,18 +1,6 @@
 proxies:
   - type: vless
     name: vless
-    server: cdn-fi2.24outlook.space
-    port: 443
-    uuid: f1f9dfbc-b81d-423d-a9c1-80287dad1d8e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
-    name: vless-01
     server: 188.72.103.4
     port: 443
     uuid: 1d216358-bfe9-4978-9f78-fce22128ed51
@@ -63,14 +51,14 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-02
+    name: vless-01
     server: 188.72.103.4
     port: 443
     uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
     udp: true
     xudp: true
   - type: vless
-    name: vless-03
+    name: vless-02
     server: 188.72.103.4
     port: 443
     uuid: c185124e-136f-424c-a44d-15108ecded8b
@@ -82,12 +70,11 @@ proxy-groups:
     proxies:
       - Auto
       - vless
-      - vless-01
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless-01
       - vless-02
-      - vless-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -95,11 +82,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - vless-01
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless-01
       - vless-02
-      - vless-03
 rules:
   - MATCH,Proxy
