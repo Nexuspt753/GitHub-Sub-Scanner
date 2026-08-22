@@ -1,4 +1,11 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 31.77.59.83
+    port: 9800
+    uuid: f4685d27-73e3-4588-9622-add50b84046a
+    udp: true
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 5.182.84.179
@@ -31,33 +38,26 @@ proxies:
     uuid: f4685d27-73e3-4588-9622-add50b84046a
     udp: true
     xudp: true
-  - type: vless
-    name: 4Jadi-9676cb5d5b
-    server: 31.77.59.83
-    port: 9800
-    uuid: f4685d27-73e3-4588-9622-add50b84046a
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - Netshot1
-      - 4Jadi-9676cb5d5b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - Netshot1
-      - 4Jadi-9676cb5d5b
 rules:
   - MATCH,Proxy

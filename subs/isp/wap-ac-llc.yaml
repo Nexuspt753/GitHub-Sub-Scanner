@@ -1,11 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-98b94d93f6
-    server: 85.237.207.49
-    port: 50160
-    password: a56619e2bed91121eabb97d20be207c3
-    sni: 85-237-207-49.liao.kdns.fr
-    skip-cert-verify: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 185.151.146.40
@@ -13,36 +6,40 @@ proxies:
     password: 3ac6a6ca99f74941b1eaf892818e2ddb
     udp: true
     client-fingerprint: chrome
-  - type: vless
-    name: 4Jadi-974c1fbd14
-    server: usrv2.sushi-node.uk
-    port: 9443
-    uuid: eef702e3-840a-461a-89e7-44720b0bef5e
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 45.149.92.71
+    port: 443
+    password: 92435aa8-f3b6-466a-ad58-c55cbb6d2acf
     udp: true
     tls: true
+    sni: hinet.mjt000.com
     client-fingerprint: chrome
-    servername: download-porter.hoyoverse.com
-    reality-opts:
-      public-key: IuNWoEP1jFflRBiNsM3FZpRtHmWTQmazXUan9r5cb1g
-      short-id: fc7b
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 45.149.92.71
+    port: 443
+    password: ad2b5cee-f61d-4060-8726-5fedf509ff5d
+    udp: true
+    tls: true
+    sni: kp.mjt000.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-98b94d93f6
       - DeltaKroneckerGithub
-      - 4Jadi-974c1fbd14
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-98b94d93f6
       - DeltaKroneckerGithub
-      - 4Jadi-974c1fbd14
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

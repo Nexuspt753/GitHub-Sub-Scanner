@@ -1,50 +1,31 @@
 proxies:
   - type: vmess
-    name: 4Kian-6ce2a72235
-    server: v36.hdacd.com
-    port: 30836
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
+    name: 4Nika-b8630bc7fb
+    server: 124.222.189.225
+    port: 80
+    uuid: a8c9ad5b-1f58-4234-b5fe-a895bee9a047
+    alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-c972aa51ce
-    server: v6.hdacd.com
-    port: 30806
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Kian-d0baac38ab
-    server: v6.hdacd.com
-    port: 30806
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-6ce2a72235
-      - 4Mohsen-c972aa51ce
-      - 4Kian-d0baac38ab
+      - 4Nika-b8630bc7fb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-6ce2a72235
-      - 4Mohsen-c972aa51ce
-      - 4Kian-d0baac38ab
+      - 4Nika-b8630bc7fb
 rules:
   - MATCH,Proxy

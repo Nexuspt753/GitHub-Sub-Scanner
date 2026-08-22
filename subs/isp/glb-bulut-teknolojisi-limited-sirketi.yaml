@@ -1,18 +1,20 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 189.74.124.42
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    name: EPODONIOS
+    server: 91.245.226.122
+    port: 2053
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: nordic.cendora.ru
-    reality-opts:
-      public-key: YQTixaXzPVImuRc4TUbrFAekjIiaYV-t5S-HTKlH0AU
-      short-id: 2186a755ed67b034
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
   - type: vless
     name: freenettir
     server: 91.245.226.122
@@ -31,22 +33,6 @@ proxies:
         Host: forfreeuse.rtqa.ru
   - type: vless
     name: meliproxyy
-    server: 91.245.226.122
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
-  - type: vless
-    name: 🔵@chillguy_vpn
     server: 91.245.226.122
     port: 2053
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -93,46 +79,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
-  - type: vless
-    name: 4Jadi-9b6752293f
-    server: 193.124.15.11
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - freenettir
       - meliproxyy
-      - 🔵@chillguy_vpn
       - 4Sarina-a4b09a6cf0
       - 4Jadi-3bd6c92d5f
-      - 4Jadi-9b6752293f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - freenettir
       - meliproxyy
-      - 🔵@chillguy_vpn
       - 4Sarina-a4b09a6cf0
       - 4Jadi-3bd6c92d5f
-      - 4Jadi-9b6752293f
 rules:
   - MATCH,Proxy

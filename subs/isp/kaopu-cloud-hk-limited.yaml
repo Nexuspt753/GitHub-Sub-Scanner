@@ -1,6 +1,34 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 38.60.255.97
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 366aa1ba14af3f1a
+    udp: true
+  - type: ss
+    name: filembad
+    server: 38.60.255.97
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 366aa1ba14af3f1a
+    udp: true
+  - type: ss
     name: hex_proxy
+    server: 38.60.255.97
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 366aa1ba14af3f1a
+    udp: true
+  - type: ss
+    name: کانال
+    server: 38.60.255.97
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 366aa1ba14af3f1a
+    udp: true
+  - type: ss
+    name: 🏳️
     server: 38.60.255.97
     port: 11201
     cipher: chacha20-ietf-poly1305
@@ -13,8 +41,36 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: 366aa1ba14af3f1a
     udp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 103.84.110.68
+    port: 24443
+    uuid: a68d59e6-bc1e-47ed-91bf-c3e02b18e5df
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 09Cv8GzDb5G9R9MS37ajZQ8o489874sF9umFuNdCeEc
+      short-id: ba2e8b0452447037
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: hy2-tw.starq.me
+    port: 24443
+    uuid: a68d59e6-bc1e-47ed-91bf-c3e02b18e5df
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 09Cv8GzDb5G9R9MS37ajZQ8o489874sF9umFuNdCeEc
+      short-id: ba2e8b0452447037
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.54.13.189
     port: 443
     password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
@@ -22,7 +78,7 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 38.60.255.97
     port: 11201
     cipher: chacha20-ietf-poly1305
@@ -33,19 +89,31 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - filembad
       - hex_proxy
+      - کانال
+      - 🏳️
       - 4FreeIran-07945b9040
       - DeltaKroneckerGithub
+      - EPODONIOS-01
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - filembad
       - hex_proxy
+      - کانال
+      - 🏳️
       - 4FreeIran-07945b9040
       - DeltaKroneckerGithub
+      - EPODONIOS-01
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy
