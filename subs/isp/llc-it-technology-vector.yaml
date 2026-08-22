@@ -1,0 +1,31 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 150.251.145.217
+    port: 443
+    uuid: 89ac0164-7f02-4acc-9efb-4c4fd386d496
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: yahoo.com
+    reality-opts:
+      public-key: x4jQNV_pclz1Io3q0Q0v14m2brXokhdFRQogubsHWlU
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

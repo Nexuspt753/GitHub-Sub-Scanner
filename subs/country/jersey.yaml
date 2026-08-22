@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: Saint Helier · @DeltaKroneckerGithub
+    server: 82.145.55.91
+    port: 443
+    uuid: 7c40a0f3-f8d4-48da-b257-53655651136d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: strapi.io
+    reality-opts:
+      public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
+      short-id: fd55b698ee8c3629
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Saint Helier · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Saint Helier · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

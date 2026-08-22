@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: vless
+    server: 46.254.18.60
+    port: 443
+    uuid: 1d216358-bfe9-4978-9f78-fce22128ed51
+    udp: true
+    xudp: true
+  - type: vless
     name: 4FreeIran-07180320a9
     server: 95.183.13.203
     port: 443
@@ -13,27 +20,20 @@ proxies:
       short-id: c93743d8
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: vless
-    server: 46.254.18.60
-    port: 443
-    uuid: e784931b-d8de-4ea0-af9d-b42c40d7b6c3
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-07180320a9
       - vless
+      - 4FreeIran-07180320a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-07180320a9
       - vless
+      - 4FreeIran-07180320a9
 rules:
   - MATCH,Proxy

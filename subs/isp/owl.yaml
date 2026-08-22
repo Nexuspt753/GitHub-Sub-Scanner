@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 149.62.44.239
+    port: 443
+    uuid: 7893b302-3882-4c38-9ab6-6313f1575d1a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cf.udpid.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@zyzzzoao
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf.udpid.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
