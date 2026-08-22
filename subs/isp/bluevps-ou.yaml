@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 213.109.147.242
+    port: 62685
+    cipher: chacha20-ietf-poly1305
+    password: VpKABcOpNNA0l5G2AVOmw8
+    udp: true
+  - type: ss
     name: 🇳🇱
     server: 213.109.147.242
     port: 62685
@@ -52,18 +59,12 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: VpKABcOpNNA0l5G2AVOmw8
     udp: true
-  - type: vless
-    name: 4FreeIran-72078c7ed1
-    server: Plelahoa.horlutr.ir
-    port: 2087
-    uuid: a622acbf-6990-4669-b7aa-39e42620e9cd
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇳🇱
       - 4FreeIran-a4c8260ccf
       - ✰𝗝𝗼𝗶𝗻
@@ -71,13 +72,13 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 🇳🇱NL-213.109.147.242-4943
-      - 4FreeIran-72078c7ed1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇳🇱
       - 4FreeIran-a4c8260ccf
       - ✰𝗝𝗼𝗶𝗻
@@ -85,6 +86,5 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 🇳🇱NL-213.109.147.242-4943
-      - 4FreeIran-72078c7ed1
 rules:
   - MATCH,Proxy

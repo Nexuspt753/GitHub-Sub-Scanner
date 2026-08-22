@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: hex_proxy
+    server: 193.124.45.154
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 91.245.226.122
     port: 2053
@@ -16,39 +30,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
   - type: vless
-    name: freenettir
-    server: 91.245.226.122
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
-  - type: vless
     name: meliproxyy
-    server: 91.245.226.122
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
-  - type: vless
-    name: 4Sarina-a4b09a6cf0
     server: 91.245.226.122
     port: 2053
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -84,10 +66,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - hex_proxy
       - EPODONIOS
-      - freenettir
       - meliproxyy
-      - 4Sarina-a4b09a6cf0
       - 4Jadi-3bd6c92d5f
   - name: Auto
     type: url-test
@@ -95,10 +76,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - hex_proxy
       - EPODONIOS
-      - freenettir
       - meliproxyy
-      - 4Sarina-a4b09a6cf0
       - 4Jadi-3bd6c92d5f
 rules:
   - MATCH,Proxy

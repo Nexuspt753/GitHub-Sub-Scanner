@@ -1,0 +1,86 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-6ecbc556bd
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 英国
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 🇺🇦UKraine
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS-01
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 🧮25@oneclickvpnkeys
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-bf0ea5d9fd
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Kian-35f76f0a91
+    server: hy2-germany.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-germany.unlimited-access.ru
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-6ecbc556bd
+      - 英国
+      - EPODONIOS
+      - 🇺🇦UKraine
+      - EPODONIOS-01
+      - 🧮25@oneclickvpnkeys
+      - 4Mohsen-bf0ea5d9fd
+      - 4Kian-35f76f0a91
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-6ecbc556bd
+      - 英国
+      - EPODONIOS
+      - 🇺🇦UKraine
+      - EPODONIOS-01
+      - 🧮25@oneclickvpnkeys
+      - 4Mohsen-bf0ea5d9fd
+      - 4Kian-35f76f0a91
+rules:
+  - MATCH,Proxy

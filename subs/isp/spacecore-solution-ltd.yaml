@@ -1,32 +1,32 @@
 proxies:
   - type: ss
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 89.125.33.16
     port: 1234
     cipher: chacha20-ietf-poly1305
     password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 89.125.33.16
     port: 1234
     cipher: chacha20-ietf-poly1305
-    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    password: Z3bYaWfgFo8K--R4ZTNLRwBvaJLUyoUe
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

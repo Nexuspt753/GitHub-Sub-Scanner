@@ -1,51 +1,21 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: EPODONIOS
-    server: 185.220.100.168
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
-  - type: trojan
-    name: ProxyMtpVPN-47
-    server: 185.220.100.168
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
-  - type: trojan
-    name: EPODONIOS-01
-    server: 185.220.100.168
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
-  - type: trojan
-    name: 4Mohsen-244c7f5762
     server: 185.220.100.168
     port: 443
     password: humanity
@@ -89,28 +59,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
+  - type: trojan
+    name: ">>@freeland8::FR"
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - ProxyMtpVPN-47
-      - EPODONIOS-01
-      - 4Mohsen-244c7f5762
       - 4Nika-7addafad73
       - 4Jadi-84005d6fff
+      - ">>@freeland8::FR"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - ProxyMtpVPN-47
-      - EPODONIOS-01
-      - 4Mohsen-244c7f5762
       - 4Nika-7addafad73
       - 4Jadi-84005d6fff
+      - ">>@freeland8::FR"
 rules:
   - MATCH,Proxy

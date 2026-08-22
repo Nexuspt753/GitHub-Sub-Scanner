@@ -1,5 +1,32 @@
 proxies:
   - type: vless
+    name: Zaporizhzhya · @DeltaKroneckerGithub
+    server: 45.135.235.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime07.workers.dev
+  - type: vless
+    name: Kyiv · @DeltaKroneckerGithub
+    server: 5.34.182.23
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Kyiv · EPODONIOS
     server: 104.245.242.9
     port: 8443
@@ -15,7 +42,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Zaporizhzhya · @DeltaKroneckerGithub
+    name: Zaporizhzhya · @DeltaKroneckerGithub-01
     server: 45.135.235.123
     port: 443
     uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
@@ -31,21 +58,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: notls.lukongtou.eu.org
   - type: vless
-    name: Kyiv · 🇺🇦149753
-    server: 104.245.242.9
-    port: 8443
-    uuid: 28a53b24-f7cc-c55d-75d6-86dfff4e3a4c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: hwwiWVqYq5b7S0JaXNSxjWSEv_1OUFMaWJGHzeAGyRM
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: Kyiv · 🧮55@oneclickvpnkeys
     server: 104.245.242.9
     port: 8443
@@ -60,20 +72,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: Kyiv · @DeltaKroneckerGithub
-    server: 5.34.182.23
-    port: 13443
-    uuid: 5238521b-c5dd-42af-870e-c174a2aaaafe
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: auto.cendora.ru
-    reality-opts:
-      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
-      short-id: a7f3c91b2e6d84c0
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: Kharkiv · @DeltaKroneckerGithub
     server: 193.238.153.15
@@ -112,32 +110,48 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: Kyiv · 4Jadi-66f6245d7b
+    server: 5.34.182.23
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Kyiv · EPODONIOS
       - Zaporizhzhya · @DeltaKroneckerGithub
-      - Kyiv · 🇺🇦149753
-      - Kyiv · 🧮55@oneclickvpnkeys
       - Kyiv · @DeltaKroneckerGithub
+      - Kyiv · EPODONIOS
+      - Zaporizhzhya · @DeltaKroneckerGithub-01
+      - Kyiv · 🧮55@oneclickvpnkeys
       - Kharkiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · 4FreeIran-72047af0df
+      - Kyiv · 4Jadi-66f6245d7b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Kyiv · EPODONIOS
       - Zaporizhzhya · @DeltaKroneckerGithub
-      - Kyiv · 🇺🇦149753
-      - Kyiv · 🧮55@oneclickvpnkeys
       - Kyiv · @DeltaKroneckerGithub
+      - Kyiv · EPODONIOS
+      - Zaporizhzhya · @DeltaKroneckerGithub-01
+      - Kyiv · 🧮55@oneclickvpnkeys
       - Kharkiv · @DeltaKroneckerGithub
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · 4FreeIran-72047af0df
+      - Kyiv · 4Jadi-66f6245d7b
 rules:
   - MATCH,Proxy

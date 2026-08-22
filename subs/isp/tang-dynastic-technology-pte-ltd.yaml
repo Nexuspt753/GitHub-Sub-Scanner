@@ -1,0 +1,53 @@
+proxies:
+  - type: vless
+    name: 4Jadi-fb78c8e3d5
+    server: 45.8.211.230
+    port: 443
+    uuid: 838f5273-5d2d-4630-a0f5-9cc8e4aef4d6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: CxNiMjJz.cAfUnEaR.InFo
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: CxNiMjJz.cAfUnEaR.InFo
+  - type: vless
+    name: 4Nika-efbacd4fec
+    server: 45.8.211.102
+    port: 8443
+    uuid: 96a1b724-68d2-4f4d-ab25-38ecd83577bc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: QtRkJtLt27.pRiMeXaD.OrG
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: QtRkJtLt27.pRiMeXaD.OrG
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-fb78c8e3d5
+      - 4Nika-efbacd4fec
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-fb78c8e3d5
+      - 4Nika-efbacd4fec
+rules:
+  - MATCH,Proxy

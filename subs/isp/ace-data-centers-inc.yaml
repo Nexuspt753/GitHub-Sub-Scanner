@@ -1,0 +1,32 @@
+proxies:
+  - type: ss
+    name: 🇫🇮
+    server: 166.1.129.245
+    port: 42607
+    cipher: chacha20-ietf-poly1305
+    password: f2FivziSooWMDzE6p2kBx7ri7owdLZyPnuQLPeDhnY8qXKm6zZ4M39pov4w7MfxRN5FjWqC1cCA8gGoLpZQVouPt9cCA9idN
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 166.1.129.245
+    port: 42607
+    cipher: chacha20-ietf-poly1305
+    password: f2FivziSooWMDzE6p2kBx7ri7owdLZyPnuQLPeDhnY8qXKm6zZ4M39pov4w7MfxRN5FjWqC1cCA8gGoLpZQVouPt9cCA9idN
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇫🇮
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇫🇮
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
