@@ -1,23 +1,62 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-b709f0da6d
-    server: 94-229-64-108.liao.kdns.fr
-    port: 50160
-    password: 725bc0b69e720cd5a2cd209252507c6e
-    sni: 94-229-64-108.liao.kdns.fr
-    skip-cert-verify: true
+  - type: vless
+    name: EPODONIOS
+    server: 178.159.10.78
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vodafone.co.uk
+    reality-opts:
+      public-key: 6tORX9bm6UlGJ4dR8L2kzOd21oSrOyzpN7gC6SqGGyc
+      short-id: d27683580fc15f1e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: کانال
+    server: 178.159.10.78
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vodafone.co.uk
+    reality-opts:
+      public-key: 6tORX9bm6UlGJ4dR8L2kzOd21oSrOyzpN7gC6SqGGyc
+      short-id: d27683580fc15f1e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-c210430a45
+    server: 178.159.10.78
+    port: 443
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vodafone.co.uk
+    reality-opts:
+      public-key: 6tORX9bm6UlGJ4dR8L2kzOd21oSrOyzpN7gC6SqGGyc
+      short-id: d27683580fc15f1e
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b709f0da6d
+      - EPODONIOS
+      - کانال
+      - 4Sarina-c210430a45
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b709f0da6d
+      - EPODONIOS
+      - کانال
+      - 4Sarina-c210430a45
 rules:
   - MATCH,Proxy
