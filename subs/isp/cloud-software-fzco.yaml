@@ -1,16 +1,16 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: 🇫🇷
     server: fr-po.pngv.top
     port: 4999
     uuid: 2e35ca4c-00cd-4e0b-bb51-f69d19c9f3df
     udp: true
     xudp: true
   - type: vless
-    name: 🇫🇷
+    name: EPODONIOS
     server: fr-po.pngv.top
     port: 4999
-    uuid: 2e35ca4c-00cd-4e0b-bb51-f69d19c9f3df
+    uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
     udp: true
     xudp: true
   - type: vless
@@ -21,30 +21,60 @@ proxies:
     udp: true
     xudp: true
   - type: vless
+    name: تلگرام
+    server: nok.iblamelooks.ir
+    port: 443
+    uuid: e4d70b4d-5e6d-4461-ab0f-1a778de9d7d1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
     name: 4Jadi-d68656afc7
     server: fr-po.pngv.top
     port: 4999
     uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-27a9ca16cf
+    server: nok.iblamelooks.ir
+    port: 443
+    uuid: e4d70b4d-5e6d-4461-ab0f-1a778de9d7d1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 🇫🇷
+      - EPODONIOS
       - 🇫🇷-01
+      - تلگرام
       - 4Jadi-d68656afc7
+      - 4FreeIran-27a9ca16cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 🇫🇷
+      - EPODONIOS
       - 🇫🇷-01
+      - تلگرام
       - 4Jadi-d68656afc7
+      - 4FreeIran-27a9ca16cf
 rules:
   - MATCH,Proxy

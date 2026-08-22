@@ -61,6 +61,22 @@ proxies:
     tls: true
     sni: mxlo.wsone.icu
     client-fingerprint: chrome
+  - type: vmess
+    name: 4Jadi-36e27d8749
+    server: cn2.soow.win
+    port: 50027
+    uuid: c1d0ae9e-f08a-3f81-962d-ca19b52c760d
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /video
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cn2.soow.win
 proxy-groups:
   - name: Proxy
     type: select
@@ -71,6 +87,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Jadi-36e27d8749
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -82,5 +99,6 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Jadi-36e27d8749
 rules:
   - MATCH,Proxy

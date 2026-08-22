@@ -1,22 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: rezeroooo3-hollowcon2.hf.space
-    port: 443
-    uuid: c8bc9e80-b5f3-4794-9b52-7be14118cbd8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: rezeroooo3-hollowcon2.hf.space
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/c8bc9e80-b5f3-4794-9b52-7be14118cbd8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rezeroooo3-hollowcon2.hf.space
   - type: trojan
     name: DeltaKroneckerGithub
     server: proper-marlin.rooster465.autos
@@ -77,7 +59,7 @@ proxies:
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: 63.179.149.234
     port: 443
     password: PQ05174892
@@ -86,7 +68,7 @@ proxies:
     sni: usable-dogfish.rooster465.autos
     client-fingerprint: chrome
   - type: trojan
-    name: EPODONIOS-02
+    name: EPODONIOS-01
     server: usable-dogfish.rooster465.autos
     port: 443
     password: PQ05174892
@@ -102,19 +84,19 @@ proxies:
     sni: usable-dogfish.rooster465.autos
     client-fingerprint: chrome
   - type: trojan
-    name: 4Sarina-e2752b1e9c
-    server: 63.179.149.234
+    name: DeltaKroneckerGithub-08
+    server: usable-dogfish.rooster465.autos
     port: 443
-    password: PQ05174892
+    password: ON38567014
     udp: true
     tls: true
     sni: usable-dogfish.rooster465.autos
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-08
-    server: usable-dogfish.rooster465.autos
+    name: 4Sarina-e2752b1e9c
+    server: 63.179.149.234
     port: 443
-    password: ON38567014
+    password: PQ05174892
     udp: true
     tls: true
     sni: usable-dogfish.rooster465.autos
@@ -178,12 +160,45 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rezeroooo3-hollowcon2.hf.space
+  - type: vmess
+    name: 4Nika-32e88b277a
+    server: ac2088.herokuapp.com
+    port: 443
+    uuid: d1babe08-f8ac-490b-b66f-9be27467f3cc
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /d1babe08-f8ac-490b-b66f-9be27467f3cc-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ac2088.herokuapp.com
+  - type: vmess
+    name: 4FreeIran-bd4c536c31
+    server: mycfwork.herokuapp.com
+    port: 443
+    uuid: 07a3a1e3-d52e-4acc-958e-c301681b5f09
+    alterId: 4
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /07a3a1e3-d52e-4acc-958e-c301681b5f09-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mycfwork.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -191,23 +206,24 @@ proxy-groups:
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
+      - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - DeltaKroneckerGithub-07
-      - 4Sarina-e2752b1e9c
       - DeltaKroneckerGithub-08
+      - 4Sarina-e2752b1e9c
       - 4Nika-f5a0380585
       - hollowcon
       - ">>@oneclickvpnkeys::DE"
       - ">>@oneclickvpnkeys::DE-01"
       - 4Mohsen-a9c63ded36
+      - 4Nika-32e88b277a
+      - 4FreeIran-bd4c536c31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -215,15 +231,17 @@ proxy-groups:
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
+      - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - DeltaKroneckerGithub-07
-      - 4Sarina-e2752b1e9c
       - DeltaKroneckerGithub-08
+      - 4Sarina-e2752b1e9c
       - 4Nika-f5a0380585
       - hollowcon
       - ">>@oneclickvpnkeys::DE"
       - ">>@oneclickvpnkeys::DE-01"
       - 4Mohsen-a9c63ded36
+      - 4Nika-32e88b277a
+      - 4FreeIran-bd4c536c31
 rules:
   - MATCH,Proxy

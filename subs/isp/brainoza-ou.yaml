@@ -1,32 +1,30 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-21d13b320c
-    server: 185.36.143.71
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.36.141.81
     port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    password: humanity
     udp: true
     tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
     network: ws
     ws-opts:
-      path: /api/v1/irc
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-21d13b320c
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-21d13b320c
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

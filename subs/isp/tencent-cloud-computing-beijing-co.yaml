@@ -1,30 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Jadi-32a9a77312
-    server: 124.156.182.132
-    port: 443
-    uuid: 1b6de5d8-3285-422c-b6fe-2989918f528b
+  - type: vmess
+    name: 4Kian-d0baac38ab
+    server: v6.hdacd.com
+    port: 30806
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: CdNLdccy_ALnjDvwZa14eP31CoJ_BLqJAS2OLCNwogg
-      short-id: d19dcb524604e214
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-32a9a77312
+      - 4Kian-d0baac38ab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-32a9a77312
+      - 4Kian-d0baac38ab
 rules:
   - MATCH,Proxy
