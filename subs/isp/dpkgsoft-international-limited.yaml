@@ -1,14 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 2.26.104.206
-    port: 443
-    uuid: 1b7dcb6a-4915-4741-92bf-bc1e7b531140
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
     name: DeltaKroneckerGithub
     server: 2.26.104.206
     port: 8443
@@ -24,6 +15,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: ger1.nihaovpn.ru
+    port: 443
+    uuid: d31aefb3-775b-4e87-a093-a4677addf10a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: stackoverflow.com
+    reality-opts:
+      public-key: 3EwukQs0ows0H4l2atTgz_Mo5SV-v5p14D4zfA41tU4
+      short-id: c010293d0bafac
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: hex_proxy
     server: ger1.nihaovpn.ru
@@ -67,44 +72,28 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
-  - type: vless
-    name: 4FreeIran-89fae2ec02
-    server: ger1.nihaovpn.ru
-    port: 443
-    uuid: d31aefb3-775b-4e87-a093-a4677addf10a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: stackoverflow.com
-    reality-opts:
-      public-key: 3EwukQs0ows0H4l2atTgz_Mo5SV-v5p14D4zfA41tU4
-      short-id: c010293d0bafac
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
       - DeltaKroneckerGithub
+      - EPODONIOS
       - hex_proxy
       - 4Sarina-97cf007c2f
       - 4Nika-6d92764b86
       - 4Jadi-b29ab5395d
-      - 4FreeIran-89fae2ec02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - DeltaKroneckerGithub
+      - EPODONIOS
       - hex_proxy
       - 4Sarina-97cf007c2f
       - 4Nika-6d92764b86
       - 4Jadi-b29ab5395d
-      - 4FreeIran-89fae2ec02
 rules:
   - MATCH,Proxy

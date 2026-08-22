@@ -1,20 +1,18 @@
 proxies:
-  - type: vless
-    name: 4Jadi-4ca2f5bd10
-    server: 185.36.143.166
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.36.141.81
     port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    password: humanity
     udp: true
     tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
     network: ws
     ws-opts:
-      path: /api/v1/irc
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
   - type: vless
     name: 4FreeIran-21d13b320c
     server: 185.36.143.71
@@ -36,7 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-4ca2f5bd10
+      - DeltaKroneckerGithub
       - 4FreeIran-21d13b320c
   - name: Auto
     type: url-test
@@ -44,7 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-4ca2f5bd10
+      - DeltaKroneckerGithub
       - 4FreeIran-21d13b320c
 rules:
   - MATCH,Proxy

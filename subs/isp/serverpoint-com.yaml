@@ -1,12 +1,5 @@
 proxies:
   - type: hysteria2
-    name: SG
-    server: vip-sg-1.hkd4fwmg.vip
-    port: 12645
-    password: 9gWt2z3KdC9VI8kAQYVvvSvhT9e05CfI
-    sni: vip-sg-1.hkd4fwmg.vip
-    skip-cert-verify: true
-  - type: hysteria2
     name: EPODONIOS
     server: vip-sg-1.hkd4fwmg.vip
     port: 12645
@@ -15,6 +8,13 @@ proxies:
     skip-cert-verify: true
   - type: hysteria2
     name: 4Kian-d4bd323caf
+    server: vip-sg-1.hkd4fwmg.vip
+    port: 12645
+    password: 9gWt2z3KdC9VI8kAQYVvvSvhT9e05CfI
+    sni: vip-sg-1.hkd4fwmg.vip
+    skip-cert-verify: true
+  - type: hysteria2
+    name: SG
     server: vip-sg-1.hkd4fwmg.vip
     port: 12645
     password: 9gWt2z3KdC9VI8kAQYVvvSvhT9e05CfI
@@ -38,15 +38,6 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: EPODONIOS-01
-    server: vip-sg-1.hkd4fwmg.vip
-    port: 21802
-    password: Edk07MJ3Xqg5cl1j5519zqwX2f2EFjON
-    udp: true
-    tls: true
-    sni: vip-sg-1.hkd4fwmg.vip
-    client-fingerprint: chrome
-  - type: trojan
-    name: EPODONIOS-02
     server: vip-sg-1.hkd4fwmg.vip
     port: 21802
     password: Edk07MJ3Xqg5cl1j5519zqwX2f2EFjON
@@ -81,47 +72,34 @@ proxies:
     tls: true
     sni: vip-sg-1.hkd4fwmg.vip
     client-fingerprint: chrome
-  - type: trojan
-    name: 🇸🇬SG-64.235.45.208-1032
-    server: vip-sg-1.hkd4fwmg.vip
-    port: 21802
-    password: Edk07MJ3Xqg5cl1j5519zqwX2f2EFjON
-    udp: true
-    tls: true
-    sni: vip-sg-1.hkd4fwmg.vip
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - SG
       - EPODONIOS
       - 4Kian-d4bd323caf
+      - SG
       - 4Nika-08b4c3470d
       - DeltaKroneckerGithub
       - EPODONIOS-01
-      - EPODONIOS-02
       - 4Sarina-05326bb67c
       - 4Sarina-84a18730d3
       - ">>@v2nodes::SG"
-      - 🇸🇬SG-64.235.45.208-1032
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - SG
       - EPODONIOS
       - 4Kian-d4bd323caf
+      - SG
       - 4Nika-08b4c3470d
       - DeltaKroneckerGithub
       - EPODONIOS-01
-      - EPODONIOS-02
       - 4Sarina-05326bb67c
       - 4Sarina-84a18730d3
       - ">>@v2nodes::SG"
-      - 🇸🇬SG-64.235.45.208-1032
 rules:
   - MATCH,Proxy
