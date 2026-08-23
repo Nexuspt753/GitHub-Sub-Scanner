@@ -13,12 +13,24 @@ proxies:
       short-id: 7a3f9e2b1c8d4f6a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-c45fd253c9
+    server: 31.76.246.60
+    port: 443
+    uuid: 2ab5d143-d8be-4506-b8ae-039fee32dfa2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: v.gb-cdn.ru
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-c45fd253c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-c45fd253c9
 rules:
   - MATCH,Proxy

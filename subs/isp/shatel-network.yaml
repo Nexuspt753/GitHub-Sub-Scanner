@@ -1,36 +1,26 @@
 proxies:
-  - type: trojan
-    name: EPODONIOS
-    server: 37.202.231.202
-    port: 2376
-    password: xrVEJA7RH7AKaJfOUVfsLA
+  - type: vmess
+    name: filembad
+    server: dashboard.afrapay.top
+    port: 5385
+    uuid: 76cefcd7-6b53-4c65-ad29-1a92734fc968
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    sni: pish-data-03.myket.ir
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Kian-923eb49017
-    server: 37.202.231.202
-    port: 2376
-    password: xrVEJA7RH7AKaJfOUVfsLA
-    udp: true
-    tls: true
-    sni: pish-data-03.myket.ir
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Kian-923eb49017
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Kian-923eb49017
+      - filembad
 rules:
   - MATCH,Proxy

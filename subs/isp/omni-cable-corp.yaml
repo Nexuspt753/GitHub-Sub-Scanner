@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: us.riotvpn.eu
+    port: 9443
+    uuid: 2e9d3568-f977-4cea-800d-fd9a876e7252
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: static.vkimages.io
+    reality-opts:
+      public-key: 8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho
+      short-id: 2f49bccf11150ef2
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

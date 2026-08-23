@@ -1,32 +1,28 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-6b80a83dc7
-    server: 5.188.115.241
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ru-1.krugvpn.com
     port: 443
-    uuid: ca1a0f7b-9703-44d3-9c90-ae93e97abdba
+    password: jj59d0f73f5d6
     udp: true
     tls: true
-    client-fingerprint: safari
-    servername: 5post-gate.x5.ru
-    reality-opts:
-      public-key: V6FabatADtcX7aO9KMjGCadJC4LuQ_5nRViab-z-nFQ
-      short-id: abcd
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    sni: ru-1.krugvpn.com
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-6b80a83dc7
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-6b80a83dc7
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

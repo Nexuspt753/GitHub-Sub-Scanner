@@ -27,6 +27,17 @@ proxies:
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-e5227af45e
+    server: 93.123.101.78
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: germ3.freeinternat.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,6 +45,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Sarina-e5227af45e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,5 +54,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Sarina-e5227af45e
 rules:
   - MATCH,Proxy

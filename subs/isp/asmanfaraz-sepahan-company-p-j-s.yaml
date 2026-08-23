@@ -6,12 +6,20 @@ proxies:
     uuid: ab5a2531-acc1-4a54-b16c-e14665dc88a5
     udp: true
     xudp: true
+  - type: vless
+    name: 4Sarina-9c74ab8a71
+    server: direct.freelauner.ir
+    port: 443
+    uuid: ab5a2531-acc1-4a54-b16c-e14665dc88a5
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4Sarina-9c74ab8a71
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4Sarina-9c74ab8a71
 rules:
   - MATCH,Proxy

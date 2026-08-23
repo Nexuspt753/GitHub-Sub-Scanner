@@ -1,0 +1,52 @@
+proxies:
+  - type: vless
+    name: کانال
+    server: T1.digikalamagg.com
+    port: 2096
+    uuid: 6d6f6286-1c99-4dfa-9698-72cc30665900
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: t1.digikalamagg.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇮🇷150224
+    server: T1.digikalamagg.com
+    port: 2096
+    uuid: 6d6f6286-1c99-4dfa-9698-72cc30665900
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: t1.digikalamagg.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - کانال
+      - 🇮🇷150224
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - کانال
+      - 🇮🇷150224
+rules:
+  - MATCH,Proxy
