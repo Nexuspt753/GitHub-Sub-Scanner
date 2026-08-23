@@ -1,5 +1,22 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 95.129.236.252
+    port: 443
+    uuid: 98c1aa63-6364-4d30-a9e8-db37ae737189
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: benzin.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/vms/stream/genka
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: 95.129.236.252
     port: 443
@@ -15,7 +32,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 95.129.236.252
     port: 443
     uuid: 52b309df-16e7-4a91-a864-8b7066def54a
@@ -66,23 +83,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: founders-blog.online
   - type: vless
-    name: 4Sarina-4240c57acc
-    server: 95.129.236.252
-    port: 443
-    uuid: 08835f14-cb9c-4513-87d0-68989d16e88d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: benzin.mapzapravki.space
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/partner/xafiz
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -120,11 +120,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - 🇷🇺139881
       - 4Sarina-6d6f02ceb3
-      - 4Sarina-4240c57acc
       - 4Mohsen-b66a7367f9
       - 4Nika-29f1339d00
   - name: Auto
@@ -133,11 +133,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - 🇷🇺139881
       - 4Sarina-6d6f02ceb3
-      - 4Sarina-4240c57acc
       - 4Mohsen-b66a7367f9
       - 4Nika-29f1339d00
 rules:

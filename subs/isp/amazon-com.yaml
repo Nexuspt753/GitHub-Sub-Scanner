@@ -18,6 +18,24 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rezeroooo3-hollowcon2.hf.space
   - type: vless
+    name: hollowcon
+    server: rezeroooo3-hollowcon2.hf.space
+    port: 443
+    uuid: c8bc9e80-b5f3-4794-9b52-7be14118cbd8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: rezeroooo3-hollowcon2.hf.space
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/c8bc9e80-b5f3-4794-9b52-7be14118cbd8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rezeroooo3-hollowcon2.hf.space
+  - type: vless
     name: 4Mohsen-a9c63ded36
     server: rezeroooo3-hollowcon2.hf.space
     port: 443
@@ -35,13 +53,33 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rezeroooo3-hollowcon2.hf.space
+  - type: vmess
+    name: 4Sarina-16984b6e1f
+    server: xr-1.herokuapp.com
+    port: 443
+    uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: xr-1.herokuapp.com
+    network: ws
+    ws-opts:
+      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xr-1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - hollowcon
       - 4Mohsen-a9c63ded36
+      - 4Sarina-16984b6e1f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,6 +87,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - hollowcon
       - 4Mohsen-a9c63ded36
+      - 4Sarina-16984b6e1f
 rules:
   - MATCH,Proxy
