@@ -1,44 +1,31 @@
 proxies:
   - type: vmess
-    name: 4Nika-9dff8d2dd2
-    server: s3.megaping.casa
+    name: 4Jadi-f5bbf8b537
+    server: markovps.iransazentworkteh.top
     port: 2082
-    uuid: 13188d38-4aa1-4071-86b9-a246193e5d69
+    uuid: 20f3d76e-5ecd-4dd0-8039-cbf690184cf8
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    tls: true
-    servername: s3.megaping.casa
-    alpn:
-      - http/1.1
-  - type: vmess
-    name: 4Sarina-87153656b2
-    server: s3.megaping.casa
-    port: 2082
-    uuid: 13188d38-4aa1-4071-86b9-a246193e5d69
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: s3.megaping.casa
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-9dff8d2dd2
-      - 4Sarina-87153656b2
+      - 4Jadi-f5bbf8b537
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9dff8d2dd2
-      - 4Sarina-87153656b2
+      - 4Jadi-f5bbf8b537
 rules:
   - MATCH,Proxy

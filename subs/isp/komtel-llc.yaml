@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: filembad
+    server: 94.228.166.11
+    port: 443
+    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    udp: true
+    xudp: true
+  - type: vless
+    name: proxyserverpanel@
+    server: 94.228.166.11
+    port: 443
+    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    udp: true
+    xudp: true
+  - type: vless
+    name: کانال
+    server: 94.228.166.11
+    port: 443
+    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇷🇺150627
+    server: 94.228.166.11
+    port: 443
+    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇷🇺RU-🚀@VPNine1
+    server: 94.228.166.11
+    port: 443
+    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4FreeIran-c94845e447
+    server: 94.228.166.11
+    port: 443
+    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - filembad
+      - proxyserverpanel@
+      - کانال
+      - 🇷🇺150627
+      - 🇷🇺RU-🚀@VPNine1
+      - 4FreeIran-c94845e447
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - filembad
+      - proxyserverpanel@
+      - کانال
+      - 🇷🇺150627
+      - 🇷🇺RU-🚀@VPNine1
+      - 4FreeIran-c94845e447
+rules:
+  - MATCH,Proxy

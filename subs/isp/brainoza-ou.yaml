@@ -17,6 +17,23 @@ proxies:
     name: DeltaKroneckerGithub-01
     server: 185.223.170.196
     port: 443
+    uuid: 9ede262c-37f9-4363-82cd-9802dafe9e1f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: ab-v1.bosx.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 185.223.170.196
+    port: 443
     uuid: f35afa9c-ed40-4b94-93c1-af420931fd91
     udp: true
     tls: true
@@ -31,7 +48,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -44,22 +61,8 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS
-    server: est3.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: est3.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 185.223.169.157
     port: 443
     uuid: 5f72f180-b21b-4b7a-8484-240759012604
@@ -75,48 +78,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apjhdggyx.com
-  - type: vless
-    name: 🇪🇪150474
-    server: est3.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: est3.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇪🇪EE-🚀@VPNine1
-    server: est3.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: est3.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-8fc8553ffe
-    server: est3.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: est3.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -125,11 +86,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - EPODONIOS
       - DeltaKroneckerGithub-03
-      - 🇪🇪150474
-      - 🇪🇪EE-🚀@VPNine1
-      - 4Mohsen-8fc8553ffe
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -139,10 +97,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - EPODONIOS
       - DeltaKroneckerGithub-03
-      - 🇪🇪150474
-      - 🇪🇪EE-🚀@VPNine1
-      - 4Mohsen-8fc8553ffe
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy

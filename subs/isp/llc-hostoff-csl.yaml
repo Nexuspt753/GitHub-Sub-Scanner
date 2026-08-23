@@ -2,15 +2,29 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 2.27.57.154
-    port: 143
+    port: 110
     uuid: 0a11d3b4-682c-4bfb-afb0-820b8285cb4b
     udp: true
     tls: true
-    client-fingerprint: safari
+    client-fingerprint: chrome
     servername: ubuntu.com
     reality-opts:
       public-key: 6LSBBaOUWujvSovACjcP7m-DI9u9R584qdJxNYnu-24
-      short-id: d1d36176bf36387e
+      short-id: 513ba6a361f14cbe
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 2.27.57.154
+    port: 995
+    uuid: 0a11d3b4-682c-4bfb-afb0-820b8285cb4b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ubuntu.com
+    reality-opts:
+      public-key: 6LSBBaOUWujvSovACjcP7m-DI9u9R584qdJxNYnu-24
+      short-id: 93e1b426caffbf75
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
