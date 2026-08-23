@@ -6,12 +6,26 @@ proxies:
     password: dbab9df7-5c0a-4726-8574-11e34972b67d
     sni: www.bing.com
     skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.36.104.12
+    port: 13779
+    uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tesla.com
+    reality-opts:
+      public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
+      short-id: af1bdd293097b664
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-9851c2ece0
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-9851c2ece0
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

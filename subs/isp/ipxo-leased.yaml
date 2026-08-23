@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-42114e5d3b
+    server: iq5ny.pleiades.codes
+    port: 8443
+    password: 95e8532b-cc69-42d4-9553-e3c23292b15b
+    sni: iq5ny.pleiades.codes
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-42114e5d3b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-42114e5d3b
+rules:
+  - MATCH,Proxy

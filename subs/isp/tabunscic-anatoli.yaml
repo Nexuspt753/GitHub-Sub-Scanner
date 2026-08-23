@@ -1,30 +1,68 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: fi.riotvpn.eu
-    port: 9443
-    uuid: 2e9d3568-f977-4cea-800d-fd9a876e7252
+    name: filembad
+    server: 45.149.147.231
+    port: 443
+    uuid: 8d44a812-229a-4c54-a461-8109b29621a7
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: static.vkimages.io
+    client-fingerprint: chrome
+    servername: dl.google.com
     reality-opts:
-      public-key: 8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho
-      short-id: 2f49bccf11150ef2
-    flow: xtls-rprx-vision
+      public-key: HFTFARa1OS53m4HWnjwtZ0J3lu7aoKkE7OujIyM62QI
+      short-id: 2a236a7fcbe0ce61
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: filembad-01
+    server: 45.149.147.231
+    port: 443
+    uuid: 8d44a812-229a-4c54-a461-8109b29621a7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: HFTFARa1OS53m4HWnjwtZ0J3lu7aoKkE7OujIyM62QI
+      short-id: 2a236a7fcbe0ce61
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: کانال
+    server: 45.149.147.231
+    port: 443
+    uuid: 8d44a812-229a-4c54-a461-8109b29621a7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: HFTFARa1OS53m4HWnjwtZ0J3lu7aoKkE7OujIyM62QI
+      short-id: 2a236a7fcbe0ce61
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - filembad
+      - filembad-01
+      - کانال
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - filembad
+      - filembad-01
+      - کانال
 rules:
   - MATCH,Proxy

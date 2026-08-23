@@ -15,6 +15,18 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: pl2.lckdwn.ru
+    port: 443
+    uuid: 78791f9e-fe09-4d4f-88ec-895764bae0d6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 94.183.209.43
     port: 443
     uuid: 5e7ecc47-e424-4653-876e-c7515a2c82b4
@@ -26,7 +38,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 94.183.209.59
     port: 443
     uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
@@ -38,7 +50,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: pl4.lckdwn.ru
     port: 443
     uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
@@ -98,19 +110,6 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-4bc3051aa2
-    server: pl4.lckdwn.ru
-    port: 443
-    uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: pl4.lckdwn.ru
 proxy-groups:
   - name: Proxy
     type: select
@@ -120,11 +119,11 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - ">>@oneclickvpnkeys::PL"
       - 4Nika-e555db77e7
       - 4Nika-a15188df8a
-      - 4Kian-4bc3051aa2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -135,10 +134,10 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - ">>@oneclickvpnkeys::PL"
       - 4Nika-e555db77e7
       - 4Nika-a15188df8a
-      - 4Kian-4bc3051aa2
 rules:
   - MATCH,Proxy

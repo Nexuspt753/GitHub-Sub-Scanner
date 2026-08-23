@@ -51,15 +51,19 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub-01
     server: sc-thenetherlands1.09vpn.com
-    port: 80
+    port: 8443
     uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sc-thenetherlands1.09vpn.com
     xudp: true
     network: ws
     ws-opts:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sc-thenetherlands1.09vpn.com
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: 163.172.211.74
@@ -160,6 +164,15 @@ proxies:
     sni: tci.ir
     client-fingerprint: chrome
   - type: trojan
+    name: DeltaKroneckerGithub-11
+    server: 163.172.211.74
+    port: 443
+    password: da622e00-ca3b-11ed-92a1-1239d0255272
+    udp: true
+    tls: true
+    sni: "@da622e00-ca3b-11ed-92a1-1239d0255272@163.172.211.74:443"
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Jadi-db7ab1b54f
     server: 51.159.59.186
     port: 443
@@ -241,6 +254,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
+    name: 4Jadi-714424c5a9
+    server: 51.15.19.206
+    port: 2083
+    uuid: d8d8b6c0-2ec6-11ee-b836-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /V2RayyNGvpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4Jadi-b879c74553
     server: eu-2.hihu.net
     port: 80
@@ -278,12 +307,14 @@ proxy-groups:
       - DeltaKroneckerGithub-08
       - DeltaKroneckerGithub-09
       - DeltaKroneckerGithub-10
+      - DeltaKroneckerGithub-11
       - 4Jadi-db7ab1b54f
       - v2ray313
       - 4Nika-dacab1c731
       - 4Kian-8ae8b568f2
       - 4Mohsen-a4de13a1ba
       - 4Nika-9dddc607bd
+      - 4Jadi-714424c5a9
       - 4Jadi-b879c74553
   - name: Auto
     type: url-test
@@ -308,12 +339,14 @@ proxy-groups:
       - DeltaKroneckerGithub-08
       - DeltaKroneckerGithub-09
       - DeltaKroneckerGithub-10
+      - DeltaKroneckerGithub-11
       - 4Jadi-db7ab1b54f
       - v2ray313
       - 4Nika-dacab1c731
       - 4Kian-8ae8b568f2
       - 4Mohsen-a4de13a1ba
       - 4Nika-9dddc607bd
+      - 4Jadi-714424c5a9
       - 4Jadi-b879c74553
 rules:
   - MATCH,Proxy

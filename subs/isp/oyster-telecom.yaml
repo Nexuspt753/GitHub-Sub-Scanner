@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 🇷🇺150527
+    server: 87.249.36.111
+    port: 443
+    uuid: 8d44a812-229a-4c54-a461-8109b29621a7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.ru
+    reality-opts:
+      public-key: vZ22ThhkpXUd5-tY-v5TTrouLHjgYYmeQgqeLt7HRz0
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇷🇺150527
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇷🇺150527
+rules:
+  - MATCH,Proxy

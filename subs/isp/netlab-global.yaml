@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 38.175.193.16
+    port: 443
+    uuid: faa360ca-6ec4-457a-8881-0f92989512d4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: Y-csa54knKKd97yx50oLRBXCs0At7Ch699jUo2D7BAo
+      short-id: 44209ff2b9206201
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: EPODONIOS
     server: 154.37.223.56
@@ -10,7 +24,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: ss
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 64.90.7.12
     port: 47509
     cipher: chacha20-ietf-poly1305
@@ -18,6 +32,16 @@ proxies:
     udp: true
   - type: vmess
     name: v2ray313 کانالمون 🥶
+    server: 154.37.223.56
+    port: 52080
+    uuid: f1ac5c82-00a4-400b-bb20-530c91b7c5bb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: v2ray313 کانالمون 🦋
     server: 154.37.223.56
     port: 52080
     uuid: f1ac5c82-00a4-400b-bb20-530c91b7c5bb
@@ -41,9 +65,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - v2ray313 کانالمون 🥶
+      - v2ray313 کانالمون 🦋
       - 4FreeIran-a0f7ad4ab4
   - name: Auto
     type: url-test
@@ -51,9 +77,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - v2ray313 کانالمون 🥶
+      - v2ray313 کانالمون 🦋
       - 4FreeIran-a0f7ad4ab4
 rules:
   - MATCH,Proxy
