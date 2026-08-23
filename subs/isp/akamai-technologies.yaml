@@ -25,14 +25,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: testcf.motherfuck.dpdns.org
-  - type: trojan
-    name: 4Jadi-b85d6c5f32
-    server: trojan1.udpgw.com
+  - type: vmess
+    name: 4Sarina-4ab167b05f
+    server: 172.104.78.98
     port: 443
-    password: affae2e0-e84b-11ec-b09f-1239d0255272
+    uuid: 927094d3-d678-4763-8591-e240d0bcae87
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /chat
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -40,7 +48,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Jadi-b85d6c5f32
+      - 4Sarina-4ab167b05f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,6 +57,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Jadi-b85d6c5f32
+      - 4Sarina-4ab167b05f
 rules:
   - MATCH,Proxy

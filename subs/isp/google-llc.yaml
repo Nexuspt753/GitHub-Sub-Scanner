@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: zs-hk4nu-t.center-link.org
+    port: 1035
+    uuid: 929c5ce8-222b-4d93-a80f-9ed580e2e8c1
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: sns-video-al.xhscdn.com
+    reality-opts:
+      public-key: EOwdLvCu7cpV1TrTdBd5F3pNs7Ltm9ncwEw4gpyJTFc
+      short-id: 7e62c0ce
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 34.96.200.38
     port: 443
     uuid: 2058418a-7718-4050-bdd5-db7487ffdb3b
@@ -13,20 +27,21 @@ proxies:
       short-id: 17d824dd68e24aaf
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 35.241.98.220
+    name: DeltaKroneckerGithub-02
+    server: sg3.miyazono-kaori.com
     port: 443
-    uuid: 96563f88-f743-4395-a3b2-27ec462ae45e
+    uuid: ef945624-a311-4766-b57a-c19e7e6bb73c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.cloudflare.com
+    servername: www.changiairport.com
     reality-opts:
-      public-key: bSK8gtmPMlw7gP415tmh6kQzzFiwzxBsT3Kuqql6cRo
-      short-id: ec2c7091fe76336c
+      public-key: jpn2pLj_p5lxGwycLht80v2qNeP7jHwh1Gv-nTU8zXY
+      short-id: ddcd71ec09e5893a
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 35.187.156.27
     port: 443
     uuid: b8ca2900-3ed7-4b58-970e-060d0a6cbf99
@@ -39,7 +54,7 @@ proxies:
       short-id: d79d3dc3816c329d
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 34.94.125.227
     port: 443
     password: M7v%w11Se*
@@ -63,39 +78,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cn2.soow.win
-  - type: vmess
-    name: 4Nika-ffd15315a4
-    server: aaaa.wxx.gay
-    port: 443
-    uuid: 8237ec34-143a-11ee-8019-000017022008
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /look
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: aaaa.wxx.gay
-  - type: vmess
-    name: 4Jadi-3ca055f16d
-    server: aaaa.wxx.gay
-    port: 443
-    uuid: 8237ec34-143a-11ee-8019-000017022008
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /look
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -105,9 +87,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Jadi-36e27d8749
-      - 4Nika-ffd15315a4
-      - 4Jadi-3ca055f16d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -118,8 +99,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Jadi-36e27d8749
-      - 4Nika-ffd15315a4
-      - 4Jadi-3ca055f16d
 rules:
   - MATCH,Proxy

@@ -8,30 +8,12 @@ proxies:
     tls: true
     sni: arbettp.freetrade.link
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Sarina-12fdb05684
-    server: 219.76.13.167
-    port: 443
-    uuid: 7fcb4a27-f818-3377-af56-cc08bcb42b5d
-    alterId: 1
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /db
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: e.cn-db.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-06c8f125f0
-      - 4Sarina-12fdb05684
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-06c8f125f0
-      - 4Sarina-12fdb05684
 rules:
   - MATCH,Proxy
