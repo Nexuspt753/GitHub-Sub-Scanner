@@ -13,24 +13,12 @@ proxies:
       short-id: 2f49bccf11150ef2
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-8672e5932c
-    server: fi.riotvpn.eu
-    port: 9443
-    uuid: 2e9d3568-f977-4cea-800d-fd9a876e7252
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: static.vkimages.io
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-8672e5932c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-8672e5932c
 rules:
   - MATCH,Proxy

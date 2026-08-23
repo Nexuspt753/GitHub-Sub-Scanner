@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-164312ff02
+    server: hy2-netherlands.unlimited-access.ru
+    port: 8443
+    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
+    sni: hy2-netherlands.unlimited-access.ru
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-164312ff02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-164312ff02
+rules:
+  - MATCH,Proxy

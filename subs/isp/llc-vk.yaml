@@ -1,19 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 84.23.54.213
-    port: 443
-    uuid: 710fc22f-06b2-03f6-bb3e-f57c17b670a6
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: www.ray-balance.space
-    reality-opts:
-      public-key: 3tOekmYYkNW9IwHGuui6Y9bLmXoyiAmwAgtAdUAmDis
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: ru.chick-team.ru
     port: 443
     uuid: 663836b2-f676-43fb-977f-47c495b1b383
@@ -27,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: in-ru-vk-01.ray-balance.space
     port: 443
     uuid: 710fc22f-06b2-03f6-bb3e-f57c17b670a6
@@ -39,17 +26,6 @@ proxies:
       public-key: 3tOekmYYkNW9IwHGuui6Y9bLmXoyiAmwAgtAdUAmDis
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-7fc8da313b
-    server: in-ru-vk-01.ray-balance.space
-    port: 443
-    uuid: 710fc22f-06b2-03f6-bb3e-f57c17b670a6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.ray-balance.space
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -57,8 +33,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Jadi-7fc8da313b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,7 +41,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Jadi-7fc8da313b
 rules:
   - MATCH,Proxy
