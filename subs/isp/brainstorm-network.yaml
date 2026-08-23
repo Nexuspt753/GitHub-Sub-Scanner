@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: swed2.freeinternat.com
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: swed2.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 103.75.118.144
     port: 2053
     uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
@@ -16,7 +30,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: notls.lukongtou.eu.org
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 103.75.118.228
     port: 11452
     uuid: 814bd064-544d-4255-a070-5705c03f6da9
@@ -36,6 +50,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,5 +59,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

@@ -1,15 +1,30 @@
 proxies:
   - type: vless
-    name: 4Sarina-e2a26a2a1d
-    server: 138.124.100.128
+    name: DeltaKroneckerGithub
+    server: 138.124.104.151
     port: 443
-    uuid: "8033102198"
+    uuid: 1a2edf79-257e-44c1-b17f-7299f04ce557
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: ee4.fast-connect-service.site
+    servername: pol.pinkmoon.pro
+    reality-opts:
+      public-key: DS9mX6cMb5wvwFzga8yN2NLbs7soXM7038_P23yPKwk
+      short-id: 8ffa160e608bf539
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: pol.pinkmoon.pro
+    port: 443
+    uuid: 1a2edf79-257e-44c1-b17f-7299f04ce557
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pol.pinkmoon.pro
+    reality-opts:
+      public-key: DS9mX6cMb5wvwFzga8yN2NLbs7soXM7038_P23yPKwk
+      short-id: 8ffa160e608bf539
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -17,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-e2a26a2a1d
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-e2a26a2a1d
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,10 +1,17 @@
 proxies:
   - type: vless
-    name: vless
-    server: 188.72.103.4
+    name: DeltaKroneckerGithub
+    server: 51.250.102.172
     port: 443
-    uuid: 095227a8-7b5b-4b5c-a8d8-fa489c8c958e
+    uuid: c47b421f-65f1-4190-b7ba-bd2045086fe4
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: r2z0sgaDnhJivtK4ptR1KytLtnkgF_qKEeGUEzalo0M
+      short-id: 3f3e9c3b3a3d3a33
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Nika-4aadd209d8
@@ -50,24 +57,33 @@ proxies:
       short-id: f6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless
+    server: 188.72.103.4
+    port: 443
+    uuid: 7f6c415f-a28e-4f91-a536-ee593ce85cf2
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless
 rules:
   - MATCH,Proxy

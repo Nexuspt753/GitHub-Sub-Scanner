@@ -29,21 +29,6 @@ proxies:
     skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: ul-mexico1.09vpn.com
-    port: 8443
-    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ul-mexico1.09vpn.com
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 45.134.9.133
     port: 8443
     uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
@@ -57,6 +42,35 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ul-mexico1.09vpn.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -68,6 +82,7 @@ proxy-groups:
       - 4Kian-17d3d42095
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -80,5 +95,6 @@ proxy-groups:
       - 4Kian-17d3d42095
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

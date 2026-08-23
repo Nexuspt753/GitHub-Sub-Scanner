@@ -1,85 +1,41 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-73cc4b1b55
-    server: els.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: els.mangshe.xyz
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Jadi-ca416e3717
-    server: els1.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: els1.mangshe.xyz
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Mohsen-67be3789bc
-    server: els1.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: 127.0.0.1
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Sarina-a50828a41c
-    server: els1.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: els1.mangshe.xyz
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4FreeIran-6ab63cde5b
-    server: 185-22-155-81.liao.kdns.fr
-    port: 50160
-    password: 2a0099ded5baa93c55823af39229c5b1
-    sni: 127.0.0.1
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4FreeIran-f6408f309f
-    server: 185.22.155.81
-    port: 50160
-    password: 2a0099ded5baa93c55823af39229c5b1
-    sni: 185.22.155.81
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Kian-aef16c7862
-    server: 185.22.155.81
-    port: 50160
-    password: 2a0099ded5baa93c55823af39229c5b1
-    sni: 185-22-155-81.liao.kdns.fr
   - type: ss
     name: DeltaKroneckerGithub
-    server: 195.133.23.200
-    port: 20990
+    server: 194.87.69.207
+    port: 40119
     cipher: aes-256-gcm
-    password: 81a20429165df87e
+    password: d99c422199e62b6b
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 46.17.40.234
+    port: 40112
+    cipher: aes-256-gcm
+    password: bdb313adf74c2ede
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 45.140.169.123
+    port: 40119
+    cipher: aes-256-gcm
+    password: 6b39ae3234dfd68b
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-73cc4b1b55
-      - 4Jadi-ca416e3717
-      - 4Mohsen-67be3789bc
-      - 4Sarina-a50828a41c
-      - 4FreeIran-6ab63cde5b
-      - 4FreeIran-f6408f309f
-      - 4Kian-aef16c7862
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-73cc4b1b55
-      - 4Jadi-ca416e3717
-      - 4Mohsen-67be3789bc
-      - 4Sarina-a50828a41c
-      - 4FreeIran-6ab63cde5b
-      - 4FreeIran-f6408f309f
-      - 4Kian-aef16c7862
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

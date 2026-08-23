@@ -28,19 +28,6 @@ proxies:
     sni: pg-usa2-hy2.gigatapbot.top
     skip-cert-verify: true
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 69.48.201.136
-    port: 30016
-    uuid: 03dc60cb-a8d4-4226-93fe-0e6cbf77fe5a
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /usserver
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: uspanel.unixzone.us
-  - type: vless
     name: EPODONIOS-01
     server: 212.227.102.223
     port: 443
@@ -52,6 +39,19 @@ proxies:
     reality-opts:
       public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
       short-id: 4f3e2491e42b6a
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 198.251.78.29
+    port: 2053
+    uuid: ba12daae-cba5-475b-9289-40a99c0d3f19
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: q-3ozCtN4ylZ-ribiIrhIYzMieCnRUvGfS34d_eWmCs
+      short-id: 063b573f23a2ee51
     xudp: true
   - type: vless
     name: Net2ray
@@ -68,7 +68,7 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: uspanel.unixzone.us
+    server: 69.48.201.136
     port: 30016
     uuid: 03dc60cb-a8d4-4226-93fe-0e6cbf77fe5a
     udp: true
@@ -81,30 +81,35 @@ proxies:
         Host: uspanel.unixzone.us
   - type: vless
     name: DeltaKroneckerGithub-02
-    server: 212.227.235.66
-    port: 2053
-    uuid: 6fbdbd3c-7696-4b9a-9a10-bcecc26e0f6f
+    server: uspanel.unixzone.us
+    port: 30016
+    uuid: 03dc60cb-a8d4-4226-93fe-0e6cbf77fe5a
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: XrPOJwmpnq8NeCXu6K68Mp59gQ56Dr4YYboxI70kqzA
-      short-id: 866af6e56606f2bc
     xudp: true
-  - type: vless
+    network: ws
+    ws-opts:
+      path: /usserver
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uspanel.unixzone.us
+  - type: vmess
     name: DeltaKroneckerGithub-03
-    server: 198.251.78.29
-    port: 2053
-    uuid: ba12daae-cba5-475b-9289-40a99c0d3f19
+    server: 194.164.192.16
+    port: 443
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: q-3ozCtN4ylZ-ribiIrhIYzMieCnRUvGfS34d_eWmCs
-      short-id: 063b573f23a2ee51
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: apjhdggyx.com
+    network: ws
+    ws-opts:
+      path: /5f72f180-b21b-4b7a-8484-240759096785
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
   - type: vless
     name: 4Kian-529143f444
     server: 212.227.102.223
@@ -118,42 +123,6 @@ proxies:
       public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
       short-id: 4f3e2491e42b6a
     xudp: true
-  - type: vmess
-    name: 4FreeIran-8d1a32bc8a
-    server: 194.164.192.16
-    port: 443
-    uuid: 5f72f180-b21b-4b7a-8484-240759012604
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: apjhdggyx.com
-    network: ws
-    ws-opts:
-      path: /5f72f180-b21b-4b7a-8484-240759096785
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: apjhdggyx.com
-  - type: vmess
-    name: 4Jadi-7cd50401c3
-    server: 194.164.192.16
-    port: 443
-    uuid: 5f72f180-b21b-4b7a-8484-240759012604
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: apjhdggyx.com
-    network: ws
-    ws-opts:
-      path: /5f72f180-b21b-4b7a-8484-240759096785
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: apjhdggyx.com
   - type: vmess
     name: 4Nika-ac582a5f49
     server: 194.164.192.16
@@ -180,15 +149,13 @@ proxy-groups:
       - 美国
       - EPODONIOS
       - 4Mohsen-fa3857d17c
-      - DeltaKroneckerGithub
       - EPODONIOS-01
+      - DeltaKroneckerGithub
       - Net2ray
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - 4Kian-529143f444
-      - 4FreeIran-8d1a32bc8a
-      - 4Jadi-7cd50401c3
       - 4Nika-ac582a5f49
   - name: Auto
     type: url-test
@@ -200,15 +167,13 @@ proxy-groups:
       - 美国
       - EPODONIOS
       - 4Mohsen-fa3857d17c
-      - DeltaKroneckerGithub
       - EPODONIOS-01
+      - DeltaKroneckerGithub
       - Net2ray
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - 4Kian-529143f444
-      - 4FreeIran-8d1a32bc8a
-      - 4Jadi-7cd50401c3
       - 4Nika-ac582a5f49
 rules:
   - MATCH,Proxy

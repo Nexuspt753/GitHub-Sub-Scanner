@@ -1,20 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 5.180.42.210
+    server: kz2.techdatacloud.org
     port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: nordic.cendora.ru
+    client-fingerprint: firefox
+    servername: cloud.mail.ru
     reality-opts:
-      public-key: YQTixaXzPVImuRc4TUbrFAekjIiaYV-t5S-HTKlH0AU
-      short-id: 2186a755ed67b034
+      public-key: 06GvG7PU5F3Hgq-vUH24tU0tpsbGMCCt26BSvlaBNUE
+      short-id: dfbfa87e9f37f1f0
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-c124fc6576
+    name: DeltaKroneckerGithub-01
     server: 5.180.40.9
     port: 443
     uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
@@ -27,13 +27,25 @@ proxies:
       short-id: dfbfa87e9f37f1f0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-b263da5b9f
+    server: 5.180.42.210
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nordic.cendora.ru
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-c124fc6576
+      - DeltaKroneckerGithub-01
+      - 4Nika-b263da5b9f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-c124fc6576
+      - DeltaKroneckerGithub-01
+      - 4Nika-b263da5b9f
 rules:
   - MATCH,Proxy

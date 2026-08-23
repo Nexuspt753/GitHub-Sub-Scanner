@@ -1,18 +1,20 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 193.239.160.134
-    port: 443
-    password: humanity
+    name: EPODONIOS
+    server: ru.techdatacloud.org
+    port: 8443
+    password: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
     udp: true
     tls: true
-    sni: www.calmlunch.com
+    sni: cloud.mail.ru
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.174.138.239
+    port: 443
+    password: NISHIKUITAN111
+    udp: true
+    client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 185.114.72.31
@@ -30,11 +32,18 @@ proxies:
         Host: www.calmlunch.com
   - type: trojan
     name: DeltaKroneckerGithub-02
-    server: 185.174.138.239
+    server: 193.239.160.134
     port: 443
-    password: NISHIKUITAN111
+    password: humanity
     udp: true
+    tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: ss
     name: DeltaKroneckerGithub-03
     server: 45.43.88.13
@@ -47,6 +56,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -57,6 +67,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02

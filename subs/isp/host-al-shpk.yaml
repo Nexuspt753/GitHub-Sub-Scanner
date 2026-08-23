@@ -1,15 +1,29 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 91.239.6.45
+    server: alban2.freeinternat.com
     port: 443
-    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: alban5.helper-internet.com
+    servername: alban2.freeinternat.com
     reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 91.239.6.19
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: alban2.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

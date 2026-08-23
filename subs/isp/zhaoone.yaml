@@ -1,14 +1,21 @@
 proxies:
   - type: ss
-    name: EPODONIOS
+    name: 日本
     server: 121.46.230.136
     port: 65443
     cipher: aes-256-cfb
     password: 7eadc6dbe2ae
     udp: true
   - type: ss
-    name: 日本
+    name: 🇯🇵JP
     server: 121.46.230.136
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: 中转
+    server: 121.46.230.138
     port: 65443
     cipher: aes-256-cfb
     password: 7eadc6dbe2ae
@@ -25,8 +32,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 日本
+      - 🇯🇵JP
+      - 中转
       - 🇰🇷KR
   - name: Auto
     type: url-test
@@ -34,8 +42,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 日本
+      - 🇯🇵JP
+      - 中转
       - 🇰🇷KR
 rules:
   - MATCH,Proxy

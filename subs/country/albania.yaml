@@ -1,18 +1,22 @@
 proxies:
   - type: vless
     name: Elbasan · @DeltaKroneckerGithub
-    server: 78.159.131.235
-    port: 443
+    server: nl6.unlockvpn.online
+    port: 8445
     uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: yahoo.com
-    reality-opts:
-      public-key: XZa7f7bABj7lY4HuLopVCBBBYTu-RB7QyIZ96njvYwo
-      short-id: 7bcfc0bc
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: nl6.unlockvpn.online
     xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/e1971f0b19/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl6.unlockvpn.online
   - type: ss
     name: Tirana · 4Sarina-bc33b18467
     server: 87.121.162.249
@@ -35,7 +39,56 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Elbasan · 𝗝𝗼𝗶𝗻➠@TEHRANARGO
+    name: Tirana · @DeltaKroneckerGithub
+    server: alban2.freeinternat.com
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: alban2.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Tirana · @DeltaKroneckerGithub-01
+    server: 91.239.6.19
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: alban2.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Elbasan · @DeltaKroneckerGithub-01
+    server: 78.159.131.235
+    port: 443
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: yahoo.com
+    reality-opts:
+      public-key: XZa7f7bABj7lY4HuLopVCBBBYTu-RB7QyIZ96njvYwo
+      short-id: 7bcfc0bc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: ss
+    name: Tirana · @DeltaKroneckerGithub-02
+    server: 157.22.240.141
+    port: 57925
+    cipher: chacha20-ietf-poly1305
+    password: THFFWv7np93DBLKZUvVm7u
+    udp: true
+  - type: vless
+    name: Elbasan · 4Kian-e64256ea32
     server: 78.159.131.235
     port: 443
     uuid: 1da18def-6804-44c8-bb6d-83cff995f567
@@ -48,13 +101,6 @@ proxies:
       short-id: 7bcfc0bc
     flow: xtls-rprx-vision
     xudp: true
-  - type: ss
-    name: Tirana · @DeltaKroneckerGithub
-    server: 157.22.240.141
-    port: 57925
-    cipher: chacha20-ietf-poly1305
-    password: THFFWv7np93DBLKZUvVm7u
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -63,8 +109,11 @@ proxy-groups:
       - Elbasan · @DeltaKroneckerGithub
       - Tirana · 4Sarina-bc33b18467
       - Elbasan · EPODONIOS
-      - Elbasan · 𝗝𝗼𝗶𝗻➠@TEHRANARGO
       - Tirana · @DeltaKroneckerGithub
+      - Tirana · @DeltaKroneckerGithub-01
+      - Elbasan · @DeltaKroneckerGithub-01
+      - Tirana · @DeltaKroneckerGithub-02
+      - Elbasan · 4Kian-e64256ea32
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,7 +123,10 @@ proxy-groups:
       - Elbasan · @DeltaKroneckerGithub
       - Tirana · 4Sarina-bc33b18467
       - Elbasan · EPODONIOS
-      - Elbasan · 𝗝𝗼𝗶𝗻➠@TEHRANARGO
       - Tirana · @DeltaKroneckerGithub
+      - Tirana · @DeltaKroneckerGithub-01
+      - Elbasan · @DeltaKroneckerGithub-01
+      - Tirana · @DeltaKroneckerGithub-02
+      - Elbasan · 4Kian-e64256ea32
 rules:
   - MATCH,Proxy

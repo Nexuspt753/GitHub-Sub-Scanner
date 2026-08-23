@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 199.34.228.2
+    port: 8880
+    uuid: fb5058f5-a9ed-424e-9ed7-33d455438286
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /pyip=telegram🇨🇳 @wangcai2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: old-violet-a5ce.29-440.workers.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
