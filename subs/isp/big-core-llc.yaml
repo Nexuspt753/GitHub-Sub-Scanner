@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: کانال
+    server: 185.226.92.143
+    port: 443
+    uuid: d0bc51a0-ba30-438d-82e2-84b7344273c2
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇹🇷150500
+    server: 185.226.92.143
+    port: 443
+    uuid: d0bc51a0-ba30-438d-82e2-84b7344273c2
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - کانال
+      - 🇹🇷150500
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - کانال
+      - 🇹🇷150500
+rules:
+  - MATCH,Proxy

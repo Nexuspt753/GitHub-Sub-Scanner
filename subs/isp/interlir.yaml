@@ -1,23 +1,59 @@
 proxies:
   - type: vless
-    name: 4Mohsen-c9b96609c0
-    server: 179.254.126.218
-    port: 9800
-    uuid: f4685d27-73e3-4588-9622-add50b84046a
+    name: EPODONIOS
+    server: 13.143.176.4
+    port: 443
+    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: promo1.cdn.cachefleet.com
+    reality-opts:
+      public-key: IOGLEFrp2Wmx35oItQew4x01q7c9zQW2AJndR2OetAc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: filembad-393
+    server: 13.143.176.4
+    port: 443
+    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: promo1.cdn.cachefleet.com
+    reality-opts:
+      public-key: IOGLEFrp2Wmx35oItQew4x01q7c9zQW2AJndR2OetAc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-af2166f2f3
+    server: 13.143.176.4
+    port: 443
+    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: promo1.cdn.cachefleet.com
+    reality-opts:
+      public-key: IOGLEFrp2Wmx35oItQew4x01q7c9zQW2AJndR2OetAc
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-c9b96609c0
+      - EPODONIOS
+      - filembad-393
+      - 4FreeIran-af2166f2f3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-c9b96609c0
+      - EPODONIOS
+      - filembad-393
+      - 4FreeIran-af2166f2f3
 rules:
   - MATCH,Proxy

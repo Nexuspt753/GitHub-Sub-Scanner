@@ -20,6 +20,38 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: bX297As31bQMRsLP
     udp: true
+  - type: trojan
+    name: Dublin · @DeltaKroneckerGithub
+    server: 54.216.143.197
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Dublin · 4Sarina-16984b6e1f
+    server: xr-1.herokuapp.com
+    port: 443
+    uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: xr-1.herokuapp.com
+    network: ws
+    ws-opts:
+      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xr-1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -28,6 +60,8 @@ proxy-groups:
       - Dublin · EPODONIOS
       - Dublin · @prrofile_purple
       - Dublin · 4FreeIran-45678018ee
+      - Dublin · @DeltaKroneckerGithub
+      - Dublin · 4Sarina-16984b6e1f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,5 +71,7 @@ proxy-groups:
       - Dublin · EPODONIOS
       - Dublin · @prrofile_purple
       - Dublin · 4FreeIran-45678018ee
+      - Dublin · @DeltaKroneckerGithub
+      - Dublin · 4Sarina-16984b6e1f
 rules:
   - MATCH,Proxy
