@@ -1,20 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: est2.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: est2.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: est3.freeinternat.com
     port: 443
     uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
@@ -28,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 185.36.141.211
     port: 443
     uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
@@ -42,7 +28,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 185.223.170.196
     port: 443
     uuid: f35afa9c-ed40-4b94-93c1-af420931fd91
@@ -59,7 +45,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-03
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -72,17 +58,6 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-c278718861
-    server: 185.36.142.111
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: est2.freeinternat.com
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -92,8 +67,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
-      - 4Sarina-c278718861
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -104,7 +77,5 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
-      - 4Sarina-c278718861
 rules:
   - MATCH,Proxy
