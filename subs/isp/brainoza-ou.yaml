@@ -1,20 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: est3.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: est3.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 185.36.141.211
     port: 443
     uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
@@ -27,6 +13,23 @@ proxies:
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.223.170.196
+    port: 443
+    uuid: 9ede262c-37f9-4363-82cd-9802dafe9e1f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: ab-v1.bosx.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: DeltaKroneckerGithub-02
     server: 185.223.170.196
@@ -44,20 +47,23 @@ proxies:
       path: /api/connect
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
+  - type: vmess
     name: DeltaKroneckerGithub-03
-    server: 185.36.141.81
+    server: 185.223.169.157
     port: 443
-    password: humanity
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
     tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /assignment
+      path: /5f72f180-b21b-4b7a-8484-240759096785
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
 proxy-groups:
   - name: Proxy
     type: select

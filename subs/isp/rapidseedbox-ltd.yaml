@@ -1,25 +1,31 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-381dc5b582
-    server: hy2-wien.unlimited-access.ru
-    port: 8443
-    password: GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
-    sni: hy2-wien.unlimited-access.ru
-    skip-cert-verify: true
-    alpn:
-      - h3
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hl-freedom-0.undef.network
+    port: 443
+    password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
+    udp: true
+    tls: true
+    sni: hl-freedom-0.undef.network
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-0.undef.network
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-381dc5b582
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-381dc5b582
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

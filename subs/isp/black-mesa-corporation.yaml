@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 134.195.101.137
+    port: 443
+    uuid: 8da48310-1642-483c-8791-f90b7d3bebb8
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: updates.cdn-apple.com
+    reality-opts:
+      public-key: AzQlCUikY30iQK5pgK2nW_AiYJkvi2Lm5rDjWGHvzUo
+      short-id: 182dc224
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 134.195.101.187
+    port: 443
+    uuid: 8da48310-1642-483c-8791-f90b7d3bebb8
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.mi.com
+    reality-opts:
+      public-key: CQqGVFQ65FCLJsqx2xb0RkfjZ6veJNaCsqazSYVvfgQ
+      short-id: d574526d
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

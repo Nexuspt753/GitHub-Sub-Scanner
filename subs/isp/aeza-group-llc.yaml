@@ -1,16 +1,82 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 193.233.217.140
-    port: 2200
-    uuid: 19365fd3-d23c-4a9e-a2ef-543d230e65c4
+    server: 45.152.198.111
+    port: 8443
+    uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: maps.apple.com
+    reality-opts:
+      public-key: OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY
+      short-id: 2da4299da566b7
     xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 77.110.104.190
+    port: 443
+    uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.google.com
+    reality-opts:
+      public-key: jowOwf_cxg_FNpG36QJcyqBWtDItBBYjqj7VGhD2lnw
+      short-id: d3124debabf1456c
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: de-pautina.unlimited-access.ru
+    port: 443
+    uuid: dfd586fd-f329-46c4-ba9a-b6c3cf8e06ba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: de-pautina.unlimited-access.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 45.152.198.111
+    port: 6443
+    uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: maps.apple.com
+    reality-opts:
+      public-key: OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY
+      short-id: 2da4299da566b7
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: lv2-pautina.unlimited-access.ru
+    port: 443
+    uuid: dfd586fd-f329-46c4-ba9a-b6c3cf8e06ba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: lv2-pautina.unlimited-access.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: EPODONIOS
     server: 45.146.131.154
@@ -39,6 +105,17 @@ proxies:
       short-id: 45b10e93bc618c2c
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-05
+    server: tr-at-pautina.unlimited-access.ru
+    port: 443
+    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
+    udp: true
+    tls: true
+    sni: tr-at-pautina.unlimited-access.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: 4Sarina-baf5d8f663
     server: 193.233.217.140
@@ -71,8 +148,13 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - leviconfigs🪐-24
+      - DeltaKroneckerGithub-05
       - 4Sarina-baf5d8f663
       - 4FreeIran-9f151be477
   - name: Auto
@@ -82,8 +164,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
       - leviconfigs🪐-24
+      - DeltaKroneckerGithub-05
       - 4Sarina-baf5d8f663
       - 4FreeIran-9f151be477
 rules:

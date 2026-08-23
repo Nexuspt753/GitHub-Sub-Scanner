@@ -1,20 +1,6 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 188.239.21.47
-    port: 8443
-    cipher: none
-    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 188.239.21.47
-    port: 8443
-    cipher: none
-    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-    udp: true
   - type: vless
-    name: 4Mohsen-96f1e839ef
+    name: DeltaKroneckerGithub
     server: 166.108.235.162
     port: 13779
     uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
@@ -22,7 +8,24 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: tesla.com
+    reality-opts:
+      public-key: llTyp52oRXnJmQ3I9UUrmlwbMA79B-wLCRHCu-8dLGg
+      short-id: af1bdd293097b664
     xudp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 188.239.21.47
+    port: 8443
+    cipher: none
+    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 188.239.21.47
+    port: 8443
+    cipher: none
+    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -30,7 +33,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Mohsen-96f1e839ef
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +42,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Mohsen-96f1e839ef
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

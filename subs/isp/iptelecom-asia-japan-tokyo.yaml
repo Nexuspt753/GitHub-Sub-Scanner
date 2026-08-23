@@ -1,26 +1,50 @@
 proxies:
   - type: vless
-    name: 4Nika-5b7480ada6
-    server: 202.144.192.76
-    port: 13779
-    uuid: 928e6cce-8ced-4243-9a48-a6642edd09b0
+    name: DeltaKroneckerGithub
+    server: 202.144.195.69
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: tesla.com
+    servername: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
     xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 202.144.194.241
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-5b7480ada6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-5b7480ada6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

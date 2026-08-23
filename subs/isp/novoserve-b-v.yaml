@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.105.208.121
+    port: 443
+    uuid: 91d0fa43-e557-43e7-a731-f0c3d1fb306a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n1.cloudgaming.one
+    reality-opts:
+      public-key: ivgTfLR13A6xBsicIA28OPoav2tXlsstTTmGuETfnSk
+      short-id: 6d6f13013d3e1d0c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 89.105.208.123
+    port: 443
+    uuid: 91d0fa43-e557-43e7-a731-f0c3d1fb306a
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: n1.cloudgaming.one
+    reality-opts:
+      public-key: ivgTfLR13A6xBsicIA28OPoav2tXlsstTTmGuETfnSk
+      short-id: 6d6f13013d3e1d0c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 89.105.197.203
     port: 443
@@ -14,17 +42,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
-    server: nl.riotvpn.eu
-    port: 9443
-    uuid: 2e9d3568-f977-4cea-800d-fd9a876e7252
+    name: DeltaKroneckerGithub-02
+    server: n1.cloudgaming.one
+    port: 443
+    uuid: 91d0fa43-e557-43e7-a731-f0c3d1fb306a
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: prod.vkimages.io
+    client-fingerprint: randomized
+    servername: n1.cloudgaming.one
     reality-opts:
-      public-key: 8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho
-      short-id: 2f49bccf11150ef2
+      public-key: ivgTfLR13A6xBsicIA28OPoav2tXlsstTTmGuETfnSk
+      short-id: 6d6f13013d3e1d0c
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -40,17 +68,6 @@ proxies:
       public-key: mza5Hn1aolSz65qu-UwvBP3oesxMe25r11o4nxvikF0
       short-id: 64c1fe36c7846400
     flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-617e7dec1d
-    server: nl.riotvpn.eu
-    port: 9443
-    uuid: 2e9d3568-f977-4cea-800d-fd9a876e7252
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: prod.vkimages.io
-    flow: xtls-rprx-vision-udp443
     xudp: true
   - type: vless
     name: 4Sarina-9e6c090c81
@@ -71,10 +88,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
       - v2rayng3
-      - 4Sarina-617e7dec1d
       - 4Sarina-9e6c090c81
   - name: Auto
     type: url-test
@@ -82,10 +100,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
       - v2rayng3
-      - 4Sarina-617e7dec1d
       - 4Sarina-9e6c090c81
 rules:
   - MATCH,Proxy

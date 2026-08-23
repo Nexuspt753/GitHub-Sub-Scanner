@@ -1,6 +1,36 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 8.209.74.72
+    port: 20001
+    cipher: chacha20-ietf-poly1305
+    password: PWpjPo3tqhPN4yRZ
+    udp: true
+  - type: ss
+    name: 4FreeIran-68907d0833
+    server: 8.209.74.72
+    port: 20001
+    cipher: chacha20-ietf-poly1305
+    password: PWpjPo3tqhPN4yRZ
+    udp: true
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 161.117.181.127
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 8.209.74.72
     port: 20001
     cipher: chacha20-ietf-poly1305
@@ -17,24 +47,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /ws-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: J3Nz0zA0r13AoVhH.v.3dns.vip
-  - type: vmess
-    name: 4Jadi-46118103cf
-    server: J3Nz0zA0r13AoVhH.v.3dns.vip
-    port: 443
-    uuid: 1abe49dedb6e4f65a0f0a5ea79ddefad
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: J3Nz0zA0r13AoVhH.v.3dns.vip
     network: ws
     ws-opts:
       path: /ws-vmess
@@ -64,9 +76,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 4FreeIran-68907d0833
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-8d901d28dd
-      - 4Jadi-46118103cf
       - 4Jadi-01e0dc8972
   - name: Auto
     type: url-test
@@ -74,9 +88,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 4FreeIran-68907d0833
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-8d901d28dd
-      - 4Jadi-46118103cf
       - 4Jadi-01e0dc8972
 rules:
   - MATCH,Proxy
