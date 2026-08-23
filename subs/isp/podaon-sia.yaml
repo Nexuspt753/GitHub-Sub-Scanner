@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 45.91.202.232
+    port: 8444
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: relay.meshbeat.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/2545c190a7/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: relay.meshbeat.online
+  - type: vless
     name: DeltaKroneckerGithub
     server: 45.91.202.232
     port: 8444
@@ -18,7 +36,25 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: relay.meshbeat.online
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
+    server: relay.meshbeat.online
+    port: 8444
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: relay.meshbeat.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/2545c190a7/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: relay.meshbeat.online
+  - type: vless
+    name: 4FreeIran-db8da89c7e
     server: relay.meshbeat.online
     port: 8444
     uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
@@ -76,8 +112,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub
+      - EPODONIOS-01
+      - 4FreeIran-db8da89c7e
       - 4FreeIran-9169c46a18
       - ">>@oneclickvpnkeys::NL"
   - name: Auto
@@ -86,8 +124,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub
+      - EPODONIOS-01
+      - 4FreeIran-db8da89c7e
       - 4FreeIran-9169c46a18
       - ">>@oneclickvpnkeys::NL"
 rules:

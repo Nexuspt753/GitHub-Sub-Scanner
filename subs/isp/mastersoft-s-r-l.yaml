@@ -1,20 +1,20 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 195.78.49.163
+    name: DeltaKroneckerGithub
+    server: 103.119.19.208
     port: 443
-    uuid: ac6a8052-b2d2-4b75-9352-10756a445ca5
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: nl.hipertune.ru
+    servername: eu-central.cendora.ru
     reality-opts:
-      public-key: IzgffKkveDU5cboe6pVJz4wYxXYz9Vv3ll0kWym4VEI
-      short-id: c279a74d19205d38
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 46.8.113.142
     port: 443
     password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
@@ -23,45 +23,29 @@ proxies:
     sni: ch-2.bexum.fun
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: ch-2.bexum.fun
     port: 443
     password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: MTMVPN
-    server: 195.78.49.163
-    port: 443
-    uuid: ac6a8052-b2d2-4b75-9352-10756a445ca5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl.hipertune.ru
-    reality-opts:
-      public-key: IzgffKkveDU5cboe6pVJz4wYxXYz9Vv3ll0kWym4VEI
-      short-id: c279a74d19205d38
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - MTMVPN
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - MTMVPN
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

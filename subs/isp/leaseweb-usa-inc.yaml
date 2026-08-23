@@ -14,7 +14,49 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: "3"
+    server: 209.50.241.126
+    port: 443
+    uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us.servers.gracevpnbuy.com
+    reality-opts:
+      public-key: i00_tpIO0Oe2TV2lxm2BLm6QUzzkncyJtauMa7Rn500
+      short-id: b91a73752053b039
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: v2ray_phoenix
+    server: 209.50.241.126
+    port: 443
+    uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us.servers.gracevpnbuy.com
+    reality-opts:
+      public-key: i00_tpIO0Oe2TV2lxm2BLm6QUzzkncyJtauMa7Rn500
+      short-id: b91a73752053b039
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: v2raybaaz
+    server: 209.50.241.126
+    port: 443
+    uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us.servers.gracevpnbuy.com
+    reality-opts:
+      public-key: i00_tpIO0Oe2TV2lxm2BLm6QUzzkncyJtauMa7Rn500
+      short-id: b91a73752053b039
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: GeneralConfiig
     server: 209.50.241.126
     port: 443
     uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
@@ -29,34 +71,6 @@ proxies:
     xudp: true
   - type: vless
     name: MARAMBASHI
-    server: 209.50.241.126
-    port: 443
-    uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us.servers.gracevpnbuy.com
-    reality-opts:
-      public-key: i00_tpIO0Oe2TV2lxm2BLm6QUzzkncyJtauMa7Rn500
-      short-id: b91a73752053b039
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-3da7f78e78
-    server: 209.50.241.126
-    port: 443
-    uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us.servers.gracevpnbuy.com
-    reality-opts:
-      public-key: i00_tpIO0Oe2TV2lxm2BLm6QUzzkncyJtauMa7Rn500
-      short-id: b91a73752053b039
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-d56e8f50a5
     server: 209.50.241.126
     port: 443
     uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
@@ -85,17 +99,37 @@ proxies:
       path: /ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-e5809b7141
+    server: 192.96.204.250
+    port: 443
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: usa-washington.lvuft.com
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: usa-washington.lvuft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
+      - "3"
+      - v2ray_phoenix
+      - v2raybaaz
+      - GeneralConfiig
       - MARAMBASHI
-      - 4Sarina-3da7f78e78
-      - 4FreeIran-d56e8f50a5
       - 4Sarina-eb907d44e0
+      - 4Nika-e5809b7141
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -103,10 +137,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
+      - "3"
+      - v2ray_phoenix
+      - v2raybaaz
+      - GeneralConfiig
       - MARAMBASHI
-      - 4Sarina-3da7f78e78
-      - 4FreeIran-d56e8f50a5
       - 4Sarina-eb907d44e0
+      - 4Nika-e5809b7141
 rules:
   - MATCH,Proxy

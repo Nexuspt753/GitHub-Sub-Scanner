@@ -1,34 +1,25 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-678ebcfee4
+  - type: trojan
+    name: 4Mohsen-0f0731395e
     server: 176.97.66.175
     port: 443
-    uuid: 0e40312c-892c-40de-ad50-5efc1e62d3d7
+    password: humanity
     udp: true
     tls: true
+    sni: www.ignitelimit.com
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: jolly-fog-dc78.aminth349.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /mobile/v2/update/ws-0e40312c
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jolly-fog-dc78.aminth349.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-678ebcfee4
+      - 4Mohsen-0f0731395e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-678ebcfee4
+      - 4Mohsen-0f0731395e
 rules:
   - MATCH,Proxy
