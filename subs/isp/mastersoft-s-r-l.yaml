@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Kian-cb8db03ccf
+    name: DeltaKroneckerGithub
     server: 103.119.19.208
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -13,18 +13,29 @@ proxies:
       short-id: 00bca5982f82d083
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 46.8.113.142
+    port: 443
+    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+    udp: true
+    tls: true
+    sni: ch-2.bexum.fun
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-cb8db03ccf
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-cb8db03ccf
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

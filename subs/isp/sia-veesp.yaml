@@ -1,32 +1,59 @@
 proxies:
   - type: vless
-    name: 4Jadi-e9eb99b134
-    server: 62.182.193.24
+    name: EPODONIOS
+    server: swa.mythos-wargame.fun
     port: 443
-    uuid: 6705ddbd-04cf-40f6-99b9-36846b08c2a9
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: kjgdksgghre466.pages.dev
+    servername: swa.mythos-wargame.fun
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kjgdksgghre466.pages.dev
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: کانال
+    server: swa.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swa.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇸🇪151659
+    server: swa.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swa.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-e9eb99b134
+      - EPODONIOS
+      - کانال
+      - 🇸🇪151659
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-e9eb99b134
+      - EPODONIOS
+      - کانال
+      - 🇸🇪151659
 rules:
   - MATCH,Proxy

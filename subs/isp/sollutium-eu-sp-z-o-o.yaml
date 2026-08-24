@@ -13,27 +13,12 @@ proxies:
       short-id: 05f6a5418c2a6865
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 202.71.14.156
-    port: 443
-    uuid: c72997ae-c6e1-4ead-8ca1-dd39dcde8384
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nt02.hirbilon.net
-    reality-opts:
-      public-key: 7ktX54khBm6yULcC-MYNj_qElBu6hwmcAsJjP5UcXHk
-      short-id: 05f6a5418c2a6865
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
