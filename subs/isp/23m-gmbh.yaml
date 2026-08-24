@@ -1,23 +1,41 @@
 proxies:
   - type: hysteria2
-    name: 4Kian-67553c3efe
+    name: 4Nika-3f0ca88b9a
     server: 185.230.44.170
     port: 9443
     password: e5gqbtu97umt992j
     sni: 185.230.44.170
     skip-cert-verify: false
+  - type: ss
+    name: 4Mohsen-eaadd34789
+    server: 62.113.194.158
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Vr06rU_v1vFPYeXq9zbsAA
+    udp: true
+  - type: ss
+    name: 4Mohsen-78ede6d5a2
+    server: 62.113.237.3
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Vr06rU_v1vFPYeXq9zbsAA
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-67553c3efe
+      - 4Nika-3f0ca88b9a
+      - 4Mohsen-eaadd34789
+      - 4Mohsen-78ede6d5a2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-67553c3efe
+      - 4Nika-3f0ca88b9a
+      - 4Mohsen-eaadd34789
+      - 4Mohsen-78ede6d5a2
 rules:
   - MATCH,Proxy

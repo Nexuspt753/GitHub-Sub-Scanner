@@ -8,22 +8,12 @@ proxies:
     tls: true
     sni: steampipe.akamaized.net
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: zbj7orix.ok7c5vvs.aliyunglsb.com
-    port: 443
-    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
-    udp: true
-    tls: true
-    sni: www.microsoft365.com
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

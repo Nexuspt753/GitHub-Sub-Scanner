@@ -1,12 +1,40 @@
 proxies:
   - type: vless
-    name: 4Nika-c1f0eca3f4
+    name: DeltaKroneckerGithub
     server: 151.242.168.181
     port: 443
-    uuid: b2963d78-6a98-4a9e-a20b-fa74dff5fde1
+    uuid: 6c52b79f-fd02-41bc-bf75-4c80fbc6a939
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: kibi-institut.de
+    reality-opts:
+      public-key: urD2miGxEfHylELSqqggBKCYIMSNXNTbdPijru7-eAQ
+      short-id: 46babe29a750b634
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-8bf4a09d5e
+    server: 151.242.168.181
+    port: 443
+    uuid: 57d437b6-d25d-4956-a297-07f066174d62
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: kibi-institut.de
+    reality-opts:
+      public-key: urD2miGxEfHylELSqqggBKCYIMSNXNTbdPijru7-eAQ
+      short-id: 46babe29a750b634
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-d6c691b925
+    server: 151.242.168.181
+    port: 443
+    uuid: 6c52b79f-fd02-41bc-bf75-4c80fbc6a939
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: kibi-institut.de
     reality-opts:
       public-key: urD2miGxEfHylELSqqggBKCYIMSNXNTbdPijru7-eAQ
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-c1f0eca3f4
+      - DeltaKroneckerGithub
+      - 4Nika-8bf4a09d5e
+      - 4Nika-d6c691b925
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-c1f0eca3f4
+      - DeltaKroneckerGithub
+      - 4Nika-8bf4a09d5e
+      - 4Nika-d6c691b925
 rules:
   - MATCH,Proxy

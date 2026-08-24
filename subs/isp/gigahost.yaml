@@ -14,13 +14,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: configprxy
     server: 194.110.207.48
     port: 443
-    uuid: d5383443-1e0d-4742-b973-44448ae8a1c4
+    uuid: 14eb2c19-89ba-4a10-bd52-cbf6a5f5cae0
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: kibi-institut.de
     reality-opts:
       public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
@@ -35,20 +35,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: kibi-institut.de
-    reality-opts:
-      public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
-      short-id: fd55b698ee8c3629
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 194.110.207.48
-    port: 443
-    uuid: 14eb2c19-89ba-4a10-bd52-cbf6a5f5cae0
-    udp: true
-    tls: true
-    client-fingerprint: firefox
     servername: kibi-institut.de
     reality-opts:
       public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
@@ -71,20 +57,6 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-02
-    server: 194.110.207.48
-    port: 443
-    uuid: d551dc1e-a0d3-4d52-a8bb-756cb9dac0b2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kibi-institut.de
-    reality-opts:
-      public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
-      short-id: fd55b698ee8c3629
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-03
     server: 194.110.207.48
     port: 443
     uuid: d551dc1e-a0d3-4d52-a8bb-756cb9dac0b2
@@ -125,50 +97,18 @@ proxies:
       short-id: fd55b698ee8c3629
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-4192ae8d1e
-    server: 194.110.207.48
-    port: 443
-    uuid: d551dc1e-a0d3-4d52-a8bb-756cb9dac0b2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kibi-institut.de
-    reality-opts:
-      public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
-      short-id: fd55b698ee8c3629
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-dd825cd2df
-    server: 194.110.207.48
-    port: 443
-    uuid: d551dc1e-a0d3-4d52-a8bb-756cb9dac0b2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kibi-institut.de
-    reality-opts:
-      public-key: SiSky02wHz-S0TDHKFTdYhnrlT8Y3CfRsekZlcdLXDY
-      short-id: fd55b698ee8c3629
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - DeltaKroneckerGithub
+      - configprxy
       - meliproxyy
-      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - 4Sarina-b98f92926d
       - 4Jadi-a5e1484bb4
-      - 4Nika-4192ae8d1e
-      - 4Sarina-dd825cd2df
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -176,15 +116,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - DeltaKroneckerGithub
+      - configprxy
       - meliproxyy
-      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - 4Sarina-b98f92926d
       - 4Jadi-a5e1484bb4
-      - 4Nika-4192ae8d1e
-      - 4Sarina-dd825cd2df
 rules:
   - MATCH,Proxy

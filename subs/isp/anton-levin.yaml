@@ -1,30 +1,30 @@
 proxies:
   - type: vless
-    name: vless
-    server: 103.102.228.113
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    name: DeltaKroneckerGithub
+    server: 81.85.75.85
+    port: 13443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: qq
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /TelegramU0001F1E8U0001F1F3
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

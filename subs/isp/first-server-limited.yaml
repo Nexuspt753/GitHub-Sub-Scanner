@@ -1,49 +1,18 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 185.114.72.31
-    port: 2053
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: 185.174.138.239
     port: 443
     password: NISHIKUITAN111
     udp: true
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Sarina-0428c0fced
-    server: 45.90.216.147
-    port: 8443
-    password: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 45.43.88.13
+    port: 2053
+    cipher: none
+    password: 3e96ef7d-8637-42c2-ac73-75182196e755
     udp: true
-    tls: true
-    sni: cloud.mail.ru
-    client-fingerprint: firefox
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 193.239.160.134
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: 4Nika-f3f7112b8b
     server: 193.239.160.134
@@ -59,7 +28,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: 4Sarina-2dd44932a4
+    name: 4Sarina-d025244895
     server: 193.239.160.134
     port: 443
     password: humanity
@@ -67,20 +36,11 @@ proxies:
     tls: true
     sni: www.calmlunch.com
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-03
-    server: 45.43.88.13
-    port: 2053
-    cipher: none
-    password: 3e96ef7d-8637-42c2-ac73-75182196e755
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-04
-    server: 45.43.88.13
-    port: 2053
-    cipher: none
-    password: 3e96ef7d-8637-42c2-ac73-75182196e755
-    udp: true
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -88,12 +48,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-0428c0fced
-      - DeltaKroneckerGithub-02
       - 4Nika-f3f7112b8b
-      - 4Sarina-2dd44932a4
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
+      - 4Sarina-d025244895
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -102,11 +58,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-0428c0fced
-      - DeltaKroneckerGithub-02
       - 4Nika-f3f7112b8b
-      - 4Sarina-2dd44932a4
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
+      - 4Sarina-d025244895
 rules:
   - MATCH,Proxy

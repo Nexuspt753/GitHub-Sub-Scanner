@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: 4Sarina-c5f1bc1868
+    server: 193.142.59.180
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ueff6480ds124.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-5b25794802
+    server: 193.142.59.97
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ubfb7b8f7s861.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-4af908cf9b
     server: s1243.gogocs.xyz
     port: 443
@@ -13,18 +41,54 @@ proxies:
     servername: u643766ubfb7b8f7s861.gogocs.xyz
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-6e2e0140c3
+    server: s128.sspcccdn.xyz
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ueff6480ds124.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-c1b33fd9aa
+    server: s148.uugfw.top
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ueff6480ds124.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-c5f1bc1868
+      - 4FreeIran-5b25794802
       - 4Nika-4af908cf9b
+      - 4Sarina-6e2e0140c3
+      - 4Nika-c1b33fd9aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-c5f1bc1868
+      - 4FreeIran-5b25794802
       - 4Nika-4af908cf9b
+      - 4Sarina-6e2e0140c3
+      - 4Nika-c1b33fd9aa
 rules:
   - MATCH,Proxy

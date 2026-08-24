@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-88ce7df930
+    server: 185.119.19.105
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766u757d49e4s8746.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-907e45dedc
+    server: s8747.okgfwbackxyz.xyz
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766u757d49e4s8746.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-88ce7df930
+      - 4FreeIran-907e45dedc
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-88ce7df930
+      - 4FreeIran-907e45dedc
+rules:
+  - MATCH,Proxy
