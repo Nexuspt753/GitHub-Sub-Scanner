@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 212.24.107.219
+    port: 37801
+    uuid: b827f606-137d-4d50-b478-43527304b393
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇱🇹
+    server: 212.24.107.219
+    port: 37801
+    uuid: b827f606-137d-4d50-b478-43527304b393
+    udp: true
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 195.181.244.216
@@ -14,18 +28,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
+  - type: vless
+    name: 4Mohsen-8565f3e977
+    server: 212.24.107.219
+    port: 37801
+    uuid: b827f606-137d-4d50-b478-43527304b393
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇱🇹
       - DeltaKroneckerGithub
+      - 4Mohsen-8565f3e977
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇱🇹
       - DeltaKroneckerGithub
+      - 4Mohsen-8565f3e977
 rules:
   - MATCH,Proxy

@@ -1,41 +1,29 @@
 proxies:
-  - type: ss
-    name: 4Sarina-98e67b409a
-    server: cdn11-1.netkhorplus.ir
-    port: 2082
-    cipher: chacha20-poly1305
-    password: YsIGl683z1sbSJqMO1RBFciUVBtQxGRJr6GztwNeK90=
+  - type: vless
+    name: 4Jadi-3ea31ad9b0
+    server: vl1.salar4040.ir
+    port: 4040
+    uuid: b1d2a517-3ff2-4eb7-a9cd-2a42a2eb1c29
     udp: true
-  - type: ss
-    name: 4Jadi-53082567dc
-    server: net12-newww.shaygan.site
-    port: 2095
-    cipher: chacha20-poly1305
-    password: YsIGl683z1sbSJqMO1RBFciUVBtQxGRJr6GztwNeK90=
-    udp: true
-  - type: ss
-    name: 4Nika-08099b6f97
-    server: net13.shaygan.site
-    port: 80
-    cipher: chacha20-poly1305
-    password: YsIGl683z1sbSJqMO1RBFciUVBtQxGRJr6GztwNeK90=
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: H9OGLRos1CxS7C197U2G6vmAINTN6GMasevL3gX9uEI
+      short-id: c57bcc26
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-98e67b409a
-      - 4Jadi-53082567dc
-      - 4Nika-08099b6f97
+      - 4Jadi-3ea31ad9b0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-98e67b409a
-      - 4Jadi-53082567dc
-      - 4Nika-08099b6f97
+      - 4Jadi-3ea31ad9b0
 rules:
   - MATCH,Proxy

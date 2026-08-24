@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.178.208.140
+    port: 443
+    uuid: 1c5803f0-9670-49bd-b9bf-830b4014064c
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h3
+      - h2
+    servername: cdn.sywl2live.us
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /content/cdn1499/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: 95.129.236.252
     port: 443
@@ -30,42 +48,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Jadi-3b769d4161
-    server: 185.178.208.140
-    port: 443
-    uuid: 1c5803f0-9670-49bd-b9bf-830b4014064c
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    alpn:
-      - h3
-      - h2
-    servername: cdn.sywl2live.us
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /content/cdn1499/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-5220698621
-    server: 95.129.236.216
-    port: 443
-    uuid: 5b674d07-5398-48c2-ab13-018a21c44bac
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cdnguard.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /origin/190546791/fetch
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdnguard.org
-  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -81,10 +63,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-97cc121b98
+    name: 4Kian-bb62ff0a87
+    server: 95.129.236.216
+    port: 443
+    uuid: a6734ebf-e7fc-4e8c-bd8e-abe32dea00ee
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cdnguard.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /origin/190546791/fetch
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdnguard.org
+  - type: vless
+    name: 4FreeIran-4471278617
     server: 185.178.208.176
     port: 443
-    uuid: f0822164-2c41-48b1-9fe5-fbfe368d04b8
+    uuid: d348f0b4-39b8-436c-9de6-c4fda621f523
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -100,10 +100,10 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: founders-blog.online
   - type: vless
-    name: 4Sarina-3e012d5618
+    name: 4Nika-785ce795db
     server: 95.129.236.252
     port: 443
-    uuid: f0822164-2c41-48b1-9fe5-fbfe368d04b8
+    uuid: d348f0b4-39b8-436c-9de6-c4fda621f523
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -121,25 +121,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - 4Jadi-3b769d4161
-      - 4Sarina-5220698621
       - 4Mohsen-b66a7367f9
-      - 4Nika-97cc121b98
-      - 4Sarina-3e012d5618
+      - 4Kian-bb62ff0a87
+      - 4FreeIran-4471278617
+      - 4Nika-785ce795db
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - 4Jadi-3b769d4161
-      - 4Sarina-5220698621
       - 4Mohsen-b66a7367f9
-      - 4Nika-97cc121b98
-      - 4Sarina-3e012d5618
+      - 4Kian-bb62ff0a87
+      - 4FreeIran-4471278617
+      - 4Nika-785ce795db
 rules:
   - MATCH,Proxy
