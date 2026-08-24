@@ -1,0 +1,50 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 193.0.179.84
+    port: 31348
+    cipher: chacha20-ietf-poly1305
+    password: 21DuJOEMxyefCUlK3Ees8urFzcpTw3XjLW3L9N
+    udp: true
+  - type: ss
+    name: کانال
+    server: 193.0.179.84
+    port: 31348
+    cipher: chacha20-ietf-poly1305
+    password: 21DuJOEMxyefCUlK3Ees8urFzcpTw3XjLW3L9N
+    udp: true
+  - type: ss
+    name: 🇳🇱150895
+    server: 193.0.179.84
+    port: 31348
+    cipher: chacha20-ietf-poly1305
+    password: 21DuJOEMxyefCUlK3Ees8urFzcpTw3XjLW3L9N
+    udp: true
+  - type: ss
+    name: 🇳🇱NL-🚀@VPNine1
+    server: 193.0.179.84
+    port: 31348
+    cipher: chacha20-ietf-poly1305
+    password: 21DuJOEMxyefCUlK3Ees8urFzcpTw3XjLW3L9N
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - کانال
+      - 🇳🇱150895
+      - 🇳🇱NL-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - کانال
+      - 🇳🇱150895
+      - 🇳🇱NL-🚀@VPNine1
+rules:
+  - MATCH,Proxy

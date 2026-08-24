@@ -13,27 +13,42 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rzd.ru
   - type: vless
-    name: 4Jadi-ec94c8dfa2
-    server: 200.165.232.160
-    port: 443
-    uuid: 0e75f6ee-9a4d-4019-8276-cacf388d2ec6
+    name: DeltaKroneckerGithub-01
+    server: 200.165.230.19
+    port: 2087
+    uuid: d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
+    client-fingerprint: qq
+    servername: vk.com
     reality-opts:
-      public-key: Vs7_XFo1cg224HiMYNRTJij_O4uyUIFtxMGGtBs_E3Q
+      public-key: iWxxH0TWB1Ciz6sEwtfjUVY61OcTDihou5IJfkt0O0Q
+      short-id: f2a4c6e8
     xudp: true
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 200.165.234.62
+    port: 4100
+    uuid: 5383fb97-1178-4709-9a25-b767b743e911
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-ec94c8dfa2
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-ec94c8dfa2
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

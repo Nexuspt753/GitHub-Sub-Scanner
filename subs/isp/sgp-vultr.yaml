@@ -8,7 +8,7 @@ proxies:
     skip-cert-verify: false
     ports: 5000-12000
   - type: ss
-    name: 🇸🇬
+    name: EPODONIOS
     server: 139.180.133.90
     port: 80
     cipher: aes-256-gcm
@@ -51,18 +51,45 @@ proxies:
     cipher: aes-256-gcm
     password: jSU7bGKupQ96YFvf
     udp: true
+  - type: vless
+    name: 4Nika-dbaca5dbbb
+    server: 66.42.62.84
+    port: 443
+    uuid: 389e0591-86d6-408f-bf24-18f611a0c94b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Sarina-385b3adc1f
+    server: 66.42.62.84
+    port: 443
+    uuid: 389e0591-86d6-408f-bf24-18f611a0c94b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: kxuW6rJkcKU88l_sgqezrcMFEy4yofrgouBoKufWASs
+      short-id: 2fadfe9a357ec21e
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-dbec38c246
-      - 🇸🇬
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Nika-dbaca5dbbb
+      - 4Sarina-385b3adc1f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -70,11 +97,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-dbec38c246
-      - 🇸🇬
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Nika-dbaca5dbbb
+      - 4Sarina-385b3adc1f
 rules:
   - MATCH,Proxy
