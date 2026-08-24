@@ -1,6 +1,23 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 58.152.46.127
+    port: 28443
+    password: a80dd76d-bf0f-47fe-8b66-c89572cf7e38
+    udp: true
+    tls: true
+    sni: vpn-node.internal
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /xVpnTrojanWsSvc7f3a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vpn-node.internal
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 58.152.18.71
     port: 443
     password: 76d630f2af6619c4a5de0ef953df3c6a
@@ -38,36 +55,15 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: "12306"
-  - type: vmess
-    name: 4Kian-7a9bd78854
-    server: v10.hdacd.com
-    port: 30807
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-dcd578beb5
-    server: v10.hdacd.com
-    port: 30807
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-a2a339e2e1
       - 4Sarina-8fbc48889f
-      - 4Kian-7a9bd78854
-      - 4Sarina-dcd578beb5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,9 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-a2a339e2e1
       - 4Sarina-8fbc48889f
-      - 4Kian-7a9bd78854
-      - 4Sarina-dcd578beb5
 rules:
   - MATCH,Proxy

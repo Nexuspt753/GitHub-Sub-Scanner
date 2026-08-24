@@ -21,12 +21,53 @@ proxies:
     udp: true
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.39.12.247
+    port: 2053
+    uuid: bd44419a-02a9-4c03-9cb8-a7f8ffd3ae68
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: w92oaftiqLJOMFy47hUWBixZEKwWJpHF4apaFTrh71w
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-02
+    server: nok.iblamelooks.ir
+    port: 443
+    uuid: e4d70b4d-5e6d-4461-ab0f-1a778de9d7d1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
     name: 🇫🇷-01
     server: fr-po.pngv.top
     port: 4999
     uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
     udp: true
     xudp: true
+  - type: vless
+    name: تلگرام
+    server: nok.iblamelooks.ir
+    port: 443
+    uuid: e4d70b4d-5e6d-4461-ab0f-1a778de9d7d1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
   - type: vless
     name: 4Nika-981824416b
     server: fr-po.pngv.top
@@ -41,6 +82,19 @@ proxies:
     uuid: 9627c5e0-9a11-4d36-a470-3ce64797149e
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-27a9ca16cf
+    server: nok.iblamelooks.ir
+    port: 443
+    uuid: e4d70b4d-5e6d-4461-ab0f-1a778de9d7d1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -49,9 +103,13 @@ proxy-groups:
       - EPODONIOS
       - 🇫🇷
       - EPODONIOS-01
+      - DeltaKroneckerGithub
+      - EPODONIOS-02
       - 🇫🇷-01
+      - تلگرام
       - 4Nika-981824416b
       - 4Jadi-d68656afc7
+      - 4FreeIran-27a9ca16cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -61,8 +119,12 @@ proxy-groups:
       - EPODONIOS
       - 🇫🇷
       - EPODONIOS-01
+      - DeltaKroneckerGithub
+      - EPODONIOS-02
       - 🇫🇷-01
+      - تلگرام
       - 4Nika-981824416b
       - 4Jadi-d68656afc7
+      - 4FreeIran-27a9ca16cf
 rules:
   - MATCH,Proxy

@@ -1,0 +1,33 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.27.208.13.blanesik.space
+    port: 443
+    uuid: c71b8709-0542-5345-a95b-719b6f20c79a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: 2.27.208.13.blanesik.space
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

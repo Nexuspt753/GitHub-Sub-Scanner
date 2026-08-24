@@ -1,74 +1,29 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 102.177.176.151
-    port: 2096
-    uuid: 1149be91-5a4f-47de-995f-66f8d7d64498
+    name: DeltaKroneckerGithub
+    server: 102.177.176.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: De13.SiMaNsAnAt.Ir.
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: De13.SiMaNsAnAt.Ir.
-  - type: vless
-    name: Hope_Net-join-us-on-Telegram
-    server: 102.177.176.151
-    port: 2096
-    uuid: 1149be91-5a4f-47de-995f-66f8d7d64498
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: De13.SiMaNsAnAt.Ir.
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: De13.SiMaNsAnAt.Ir.
-  - type: vless
-    name: 4Sarina-a1bdea0c76
-    server: 102.177.176.151
-    port: 2096
-    uuid: 1149be91-5a4f-47de-995f-66f8d7d64498
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: De13.SiMaNsAnAt.Ir.
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: De13.SiMaNsAnAt.Ir.
+        Host: vms.lifetime28.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - Hope_Net-join-us-on-Telegram
-      - 4Sarina-a1bdea0c76
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - Hope_Net-join-us-on-Telegram
-      - 4Sarina-a1bdea0c76
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

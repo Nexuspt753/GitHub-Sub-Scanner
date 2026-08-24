@@ -1,32 +1,33 @@
 proxies:
-  - type: vmess
-    name: 4Kian-af1e86a671
-    server: visa.cn
-    port: 80
-    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
-    alterId: 0
-    cipher: auto
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 221.230.19.73
+    port: 48966
+    password: 1addb6f6-c65a-4652-91e7-cbf3c6fa6f95
     udp: true
-    xudp: true
-    skip-cert-verify: false
+    tls: true
+    sni: vpn-node.internal
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /sba-vm?ed=2048
+      path: /xVpnTrojanWsSvc7f3a
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: deee.horryan4.eu.org
+        Host: vpn-node.internal
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-af1e86a671
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-af1e86a671
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

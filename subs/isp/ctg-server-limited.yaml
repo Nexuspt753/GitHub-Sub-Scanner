@@ -15,20 +15,29 @@ proxies:
     skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: 134.122.154.210
+    server: 192.252.179.26
     port: 443
-    uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub-01
     server: 134.122.154.210
     port: 443
     uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
     udp: true
     xudp: true
   - type: hysteria2
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: 202.146.222.29
     port: 443
     password: H7mP2xY9kJ4nQ8wR5tF6vB3z
@@ -41,13 +50,6 @@ proxies:
     password: H7mP2xY9kJ4nQ8wR5tF6vB3z
     sni: 202.146.222.29
     skip-cert-verify: true
-  - type: vless
-    name: 4Nika-71b33d234c
-    server: 134.122.154.210
-    port: 443
-    uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,10 +58,9 @@ proxy-groups:
       - 4Kian-eb043a049b
       - 4Nika-af58f5d5ba
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
       - ">>@oneclickvpnkeys::HK"
-      - 4Nika-71b33d234c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -69,9 +70,8 @@ proxy-groups:
       - 4Kian-eb043a049b
       - 4Nika-af58f5d5ba
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
       - ">>@oneclickvpnkeys::HK"
-      - 4Nika-71b33d234c
 rules:
   - MATCH,Proxy

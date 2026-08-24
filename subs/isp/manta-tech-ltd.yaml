@@ -1,12 +1,26 @@
 proxies:
   - type: vless
-    name: 4Mohsen-93573857e4
-    server: 2.26.135.197
+    name: DeltaKroneckerGithub
+    server: 2.26.128.76
     port: 443
-    uuid: a5eddeef-737a-4126-8d1e-527f85d7ed18
+    uuid: 627b1c2d-2905-470f-857a-da7589968fbc
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: wombat.mycdn-me.ru
+    reality-opts:
+      public-key: w88Ys8dVF9DuslGwUD05J9-FHNoAT9qmPysCvHiEmmg
+      short-id: 1b40e7c2a1d8f635
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 2.26.135.193
+    port: 443
+    uuid: 627b1c2d-2905-470f-857a-da7589968fbc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: smorodina.mycdn-me.ru
     reality-opts:
       public-key: 09O8bAlIWm9AGnNyxBtHwpYNQxlXPSQeQeKzS3ZMwGE
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-93573857e4
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-93573857e4
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,0 +1,25 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-c3141dbd74
+    server: 157.228.137.81
+    port: 443
+    password: 585b7bfe-6269-4149-ae22-ff07c57b5510
+    sni: msk2.nebuchadnezzar.ink
+    skip-cert-verify: true
+    obfs: salamander
+    obfs-password: Xydh1mcz51VQHbbJ
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-c3141dbd74
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-c3141dbd74
+rules:
+  - MATCH,Proxy

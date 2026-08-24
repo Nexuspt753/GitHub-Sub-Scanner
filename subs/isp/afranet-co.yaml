@@ -6,25 +6,12 @@ proxies:
     cipher: 2022-blake3-aes-256-gcm
     password: KComEQ28cVXIzVlxdpTy6LXLockXExZUh1xUJT49/nk=:hPqMImCwa6rdBbI/rlAMiUeSZEi5QpNNUZC5G/89ZHc=
     udp: true
-  - type: vless
-    name: vless
-    server: 79.175.134.57
-    port: 2000
-    uuid: 2d9de6ea-56c9-422d-a4ad-cac95b8e0881
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,6 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - vless
 rules:
   - MATCH,Proxy

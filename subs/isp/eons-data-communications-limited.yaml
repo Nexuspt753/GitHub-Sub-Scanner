@@ -1,12 +1,29 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 154.16.27.250
-    port: 27251
-    password: i99Cef
+    server: 64.118.128.180
+    port: 28443
+    password: ac9521a8-1cc5-495c-981c-3a61a2f25ca1
     udp: true
     tls: true
-    sni: ctldl.windowsupdate.com
+    sni: vpn-node.internal
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /xVpnTrojanWsSvc7f3a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vpn-node.internal
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: psg2-ag.t.sgateway.link
+    port: 5223
+    password: Q9gofGxinwLv0TfDfdKmdttdPGxrhKQS
+    udp: true
+    tls: true
+    sni: pod-kr-g1.psusercontent.com
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -14,6 +31,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

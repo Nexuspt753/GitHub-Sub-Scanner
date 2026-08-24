@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: nt02.hirbilon.net
+    port: 443
+    uuid: 2f36a588-4705-4d45-b7c2-711ec7b35851
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nt02.hirbilon.net
+    reality-opts:
+      public-key: 7ktX54khBm6yULcC-MYNj_qElBu6hwmcAsJjP5UcXHk
+      short-id: 05f6a5418c2a6865
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
