@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 94.183.157.203
+    port: 443
+    uuid: 1b627e4d-4ea4-4dce-8bd8-fc2d3ffbeaba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s3.storage.anti-zapret.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: kurdconfig
     server: 94.183.157.203
     port: 443
@@ -44,6 +58,20 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 94.183.157.249
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-9fcbc2c86b
     server: 94.183.157.203
     port: 443
@@ -71,26 +99,39 @@ proxies:
       short-id: cbb0a5c1dc905505
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-2666d8cb0f
+    server: ge-20b81e.atlanta-api.com
+    port: 443
+    uuid: 74099b9e-52fd-4540-b642-b8d60f3b5a2a
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - kurdconfig
       - 🇵🇱@FreakConfig
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-9fcbc2c86b
       - 4Nika-331bb4015e
+      - 4Nika-2666d8cb0f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - kurdconfig
       - 🇵🇱@FreakConfig
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-9fcbc2c86b
       - 4Nika-331bb4015e
+      - 4Nika-2666d8cb0f
 rules:
   - MATCH,Proxy

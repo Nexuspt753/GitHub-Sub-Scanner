@@ -1,50 +1,33 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-d5206ee8c6
-    server: mg2.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: mg2.mangshe.xyz
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 🇺🇸US
-    server: mg2.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: mg2.mangshe.xyz
-    skip-cert-verify: true
-  - type: hysteria2
-    name: EPODONIOS
-    server: mg2.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: mg2.mangshe.xyz
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Mohsen-2d8a35b10a
-    server: mg2.mangshe.xyz
-    port: 2056
-    password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
-    sni: mg2.mangshe.xyz
-    skip-cert-verify: true
+  - type: vmess
+    name: 4FreeIran-4f458516f0
+    server: cu4.ainivp.com
+    port: 33402
+    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cu4.ainivp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d5206ee8c6
-      - 🇺🇸US
-      - EPODONIOS
-      - 4Mohsen-2d8a35b10a
+      - 4FreeIran-4f458516f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d5206ee8c6
-      - 🇺🇸US
-      - EPODONIOS
-      - 4Mohsen-2d8a35b10a
+      - 4FreeIran-4f458516f0
 rules:
   - MATCH,Proxy

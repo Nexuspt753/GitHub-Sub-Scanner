@@ -7,14 +7,14 @@ proxies:
     sni: hk2.xiaoliyu.cyou
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
+    name: 香港
     server: hk2.xiaoliyu.cyou
     port: 4433
     password: 1427eb10-7529-4d38-a6a2-01b337868b37
     sni: hk2.xiaoliyu.cyou
     skip-cert-verify: true
   - type: hysteria2
-    name: 香港
+    name: EPODONIOS
     server: hk2.xiaoliyu.cyou
     port: 4433
     password: 1427eb10-7529-4d38-a6a2-01b337868b37
@@ -37,15 +37,6 @@ proxies:
     sni: 193.124.46.65
     client-fingerprint: chrome
   - type: trojan
-    name: icv2ray
-    server: 193.124.46.65
-    port: 443
-    password: 8bS8vVC5CQ2GsckhMh8IT1jv
-    udp: true
-    tls: true
-    sni: 193.124.46.65
-    client-fingerprint: chrome
-  - type: trojan
     name: leviconfigs🪐-13
     server: 193.124.46.65
     port: 443
@@ -54,6 +45,22 @@ proxies:
     tls: true
     sni: 193.124.46.65
     client-fingerprint: chrome
+  - type: vless
+    name: EPODONIOS-02
+    server: 103.110.66.43
+    port: 443
+    uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.se
+    reality-opts:
+      public-key: ECYE8G81FW1V__Y9yBYxIU0TWWcConhXoJncZG1D_0U
+      short-id: 7a08844f
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: Cfox_Server
     server: 103.110.66.43
@@ -127,23 +134,61 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Nika-8387fee72b
+    server: cg1c07.waimaojd.com
+    port: 443
+    uuid: be8e3136-b874-4085-bd23-ec3699300490
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: cg1c07.waimaojd.com
+    network: ws
+    ws-opts:
+      path: /api/v1/graphql
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cg1c07.waimaojd.com
+  - type: vmess
+    name: 4Mohsen-cd06b713f3
+    server: cg1c14.waimaojd.com
+    port: 443
+    uuid: be8e3136-b874-4085-bd23-ec3699300490
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: cg1c14.waimaojd.com
+    network: ws
+    ws-opts:
+      path: /api/v1/graphql
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cg1c14.waimaojd.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-565c0c181c
-      - EPODONIOS
       - 香港
+      - EPODONIOS
       - 4Mohsen-72f73d87c4
       - EPODONIOS-01
-      - icv2ray
       - leviconfigs🪐-13
+      - EPODONIOS-02
       - Cfox_Server
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-cb80581f91
       - 4Mohsen-e97df75d2a
+      - 4Nika-8387fee72b
+      - 4Mohsen-cd06b713f3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -151,16 +196,18 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-565c0c181c
-      - EPODONIOS
       - 香港
+      - EPODONIOS
       - 4Mohsen-72f73d87c4
       - EPODONIOS-01
-      - icv2ray
       - leviconfigs🪐-13
+      - EPODONIOS-02
       - Cfox_Server
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-cb80581f91
       - 4Mohsen-e97df75d2a
+      - 4Nika-8387fee72b
+      - 4Mohsen-cd06b713f3
 rules:
   - MATCH,Proxy

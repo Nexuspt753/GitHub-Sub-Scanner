@@ -1,19 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 45.135.235.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime07.workers.dev
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 45.135.235.123
     port: 443
     uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
@@ -34,7 +21,6 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
