@@ -13,20 +13,6 @@ proxies:
     uuid: 624845d3-2550-4150-920f-095a926453ce
     udp: true
     xudp: true
-  - type: vless
-    name: vless-02
-    server: 178.176.128.128
-    port: 443
-    uuid: b61b912a-2b4b-4659-acac-cc2d0bf254d8
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-03
-    server: 178.176.128.128
-    port: 443
-    uuid: f7aa993d-32b3-4b7f-8f39-f62f44ec5119
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,8 +20,6 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
-      - vless-02
-      - vless-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,7 +28,5 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
-      - vless-02
-      - vless-03
 rules:
   - MATCH,Proxy

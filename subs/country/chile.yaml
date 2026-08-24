@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: Santiago · 4FreeIran-1bb6a61eb2
+    server: 129.151.99.94
+    port: 23345
+    cipher: chacha20-ietf-poly1305
+    password: be6cbb46-ebb0-4726-9202-6a3bac1d0afb
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Santiago · 4FreeIran-1bb6a61eb2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Santiago · 4FreeIran-1bb6a61eb2
+rules:
+  - MATCH,Proxy
