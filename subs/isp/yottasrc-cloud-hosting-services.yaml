@@ -1,62 +1,50 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: wok6.api3-max.ru
+  - type: hysteria2
+    name: 4Jadi-c71aadbb37
+    server: gora4.api3-max.ru
     port: 443
-    uuid: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: wok6.api3-max.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 64.49.13.12
+    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
+    sni: gora4.api3-max.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS
+    server: gora4.api3-max.ru
     port: 443
-    uuid: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: wok6.api3-max.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-1fa0f06c45
-    server: wok6.api3-max.ru
+    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
+    sni: gora4.api3-max.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 土耳其
+    server: gora4.api3-max.ru
     port: 443
-    uuid: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: wok6.api3-max.ru
-    flow: xtls-rprx-vision-udp443
-    xudp: true
+    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
+    sni: gora4.api3-max.ru
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-39b68375a8
+    server: gora4.api3-max.ru
+    port: 443
+    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
+    sni: gora4.api3-max.ru
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Sarina-1fa0f06c45
+      - 4Jadi-c71aadbb37
+      - EPODONIOS
+      - 土耳其
+      - 4Nika-39b68375a8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Sarina-1fa0f06c45
+      - 4Jadi-c71aadbb37
+      - EPODONIOS
+      - 土耳其
+      - 4Nika-39b68375a8
 rules:
   - MATCH,Proxy

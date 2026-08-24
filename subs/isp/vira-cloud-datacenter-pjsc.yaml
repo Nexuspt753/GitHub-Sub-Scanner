@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-d05109f76e
+    server: 92.114.24.95
+    port: 43630
+    uuid: 01a95af3-a2f6-453e-9f88-b2fc011627cc
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-d05109f76e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-d05109f76e
+rules:
+  - MATCH,Proxy
