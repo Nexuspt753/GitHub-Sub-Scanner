@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: t17.qifei.app
+    port: 443
+    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+      short-id: 1a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 186.241.106.97
+    port: 443
+    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+      short-id: 1a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-0743bab79f
     server: 38.47.96.220
     port: 11424
@@ -20,6 +48,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-0743bab79f
   - name: Auto
     type: url-test
@@ -27,6 +57,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-0743bab79f
 rules:
   - MATCH,Proxy

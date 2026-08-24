@@ -15,29 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 🇩🇪
-    server: 151.242.17.99
-    port: 8443
-    uuid: a04814d9-d006-4e7b-ae20-8ab304b3b429
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: de.emvservice.com
-    reality-opts:
-      public-key: 6Yskxg5U0WxPGtuCAAGH9uD57T4U8LeGrErTBNvIrwM
-      short-id: bc
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 🇩🇪
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 🇩🇪
 rules:
   - MATCH,Proxy

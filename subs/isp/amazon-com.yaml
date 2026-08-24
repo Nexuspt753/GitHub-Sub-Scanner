@@ -1,7 +1,28 @@
 proxies:
   - type: ss
     name: EPODONIOS
+    server: 13.135.252.176
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: ss
+    name: 英国
     server: 13.135.161.144
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: ss
+    name: 英国-01
+    server: 13.135.252.176
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: ss
+    name: 英国-02
+    server: 13.135.73.177
     port: 443
     cipher: aes-256-cfb
     password: amazonskr05
@@ -57,31 +78,45 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rezeroooo3-hollowcon2.hf.space
   - type: ss
-    name: 🇬🇧GB-13.135.73.177-2462
-    server: 13.135.73.177
+    name: 🇨🇦CA-16.52.44.93-2461
+    server: 16.52.44.93
     port: 443
     cipher: aes-256-cfb
     password: amazonskr05
     udp: true
-  - type: ss
-    name: 🇬🇧GB-13.135.73.3-2468
-    server: 13.135.73.3
+  - type: vless
+    name: 4Mohsen-a9c63ded36
+    server: rezeroooo3-hollowcon2.hf.space
     port: 443
-    cipher: aes-256-cfb
-    password: amazonskr05
+    uuid: c8bc9e80-b5f3-4794-9b52-7be14118cbd8
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: rezeroooo3-hollowcon2.hf.space
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/c8bc9e80-b5f3-4794-9b52-7be14118cbd8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rezeroooo3-hollowcon2.hf.space
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 英国
+      - 英国-01
+      - 英国-02
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - hollowcon
-      - 🇬🇧GB-13.135.73.177-2462
-      - 🇬🇧GB-13.135.73.3-2468
+      - 🇨🇦CA-16.52.44.93-2461
+      - 4Mohsen-a9c63ded36
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -89,11 +124,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 英国
+      - 英国-01
+      - 英国-02
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - hollowcon
-      - 🇬🇧GB-13.135.73.177-2462
-      - 🇬🇧GB-13.135.73.3-2468
+      - 🇨🇦CA-16.52.44.93-2461
+      - 4Mohsen-a9c63ded36
 rules:
   - MATCH,Proxy
