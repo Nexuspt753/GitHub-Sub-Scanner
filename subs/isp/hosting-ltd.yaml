@@ -1,22 +1,32 @@
 proxies:
-  - type: hysteria2
-    name: 4Kian-ea6231beeb
-    server: cns.dodostarscoffee.ru
-    port: 9443
-    password: 8569e507-8ef7-481d-9108-6bc7f040c2ff
-    sni: cns.dodostarscoffee.ru
+  - type: vless
+    name: Channel
+    server: 178.250.242.219
+    port: 8444
+    uuid: 84e3de56-4917-4a35-a7db-9c3464e25a5a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: Ng71fIN6Rqh8dWkwWgoCUN6Qmsl4vkCjNZNLXT3_YHA
+      short-id: bd4a2659
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-ea6231beeb
+      - Channel
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-ea6231beeb
+      - Channel
 rules:
   - MATCH,Proxy

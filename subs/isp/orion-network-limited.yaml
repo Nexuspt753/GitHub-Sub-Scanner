@@ -1,26 +1,48 @@
 proxies:
   - type: vless
-    name: 4Sarina-f8e4e76621
-    server: fr.noooo.win
+    name: 4Nika-109569d36e
+    server: 196.196.35.36
     port: 443
-    uuid: 7b241232-208d-4d36-857e-913f91b044f4
+    uuid: 5e1a8b4d-dcb5-4651-a0a3-1b17476b1baa
     udp: true
     tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: korben.info
+    xudp: true
+  - type: vless
+    name: vless
+    server: 165.231.157.117
+    port: 443
+    uuid: f230254f-d4cd-4d83-8a2d-e83927ef98ac
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4FreeIran-0939993644
+    server: 165.231.99.26
+    port: 8443
+    uuid: f230254f-d4cd-4d83-8a2d-e83927ef98ac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: file-6a8c51f9.alpheratzz.org
+    flow: xtls-rprx-vision-udp443
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-f8e4e76621
+      - 4Nika-109569d36e
+      - vless
+      - 4FreeIran-0939993644
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-f8e4e76621
+      - 4Nika-109569d36e
+      - vless
+      - 4FreeIran-0939993644
 rules:
   - MATCH,Proxy

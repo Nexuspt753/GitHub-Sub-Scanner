@@ -6,50 +6,12 @@ proxies:
     password: 22d891f5-ad85-4824-b0b8-e30cf3d37eb5
     sni: 127.0.0.1
     skip-cert-verify: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 46.17.40.234
-    port: 19021
-    cipher: aes-256-gcm
-    password: bdb313adf74c2ede
-    udp: true
-  - type: vless
-    name: 4FreeIran-9001e810dc
-    server: 193.53.126.91
-    port: 443
-    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: u643766u53fe439es2358.gogocs.xyz
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-1e0b7f41dc
-    server: s2360.okgfwbackxyz.xyz
-    port: 443
-    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: u643766u53fe439es2358.gogocs.xyz
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-67be3789bc
-      - DeltaKroneckerGithub
-      - 4FreeIran-9001e810dc
-      - 4Mohsen-1e0b7f41dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -57,8 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-67be3789bc
-      - DeltaKroneckerGithub
-      - 4FreeIran-9001e810dc
-      - 4Mohsen-1e0b7f41dc
 rules:
   - MATCH,Proxy

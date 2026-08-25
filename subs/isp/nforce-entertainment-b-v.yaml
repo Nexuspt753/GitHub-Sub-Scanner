@@ -1,6 +1,13 @@
 proxies:
   - type: ss
-    name: 🇳🇱NL-109.201.152.181-0101
+    name: 4Jadi-2fc4f95145
+    server: 109.201.152.181
+    port: 443
+    cipher: aes-128-cfb
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: EPODONIOS
     server: 109.201.152.181
     port: 443
     cipher: aes-128-cfb
@@ -11,13 +18,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 🇳🇱NL-109.201.152.181-0101
+      - 4Jadi-2fc4f95145
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇳🇱NL-109.201.152.181-0101
+      - 4Jadi-2fc4f95145
+      - EPODONIOS
 rules:
   - MATCH,Proxy

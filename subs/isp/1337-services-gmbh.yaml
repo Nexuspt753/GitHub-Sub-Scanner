@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: Channel
+    server: 192.159.99.31
+    port: 443
+    uuid: 0e75f6ee-9a4d-4019-8276-cacf388d2ec6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us1.tsumshop.org
+    reality-opts:
+      public-key: 8aZEMoyzOdSoIbSp_6iuWr3dmuPkXrMqZlw_Pgn6yCw
+      short-id: 269d1166a11cf1b0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 194.26.192.76
     port: 443
@@ -11,20 +25,6 @@ proxies:
     reality-opts:
       public-key: tzOeyllk2VtPXZ_BJ2lOZcGtsnn41ZHBa9dE6s9sFiQ
       short-id: c8c75aaf699259b4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 45.138.16.56
-    port: 443
-    uuid: 626c0789-16d1-4815-be8b-bd03959d7d12
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pl1.tsumshop.org
-    reality-opts:
-      public-key: yDFddhm1RyVbvXv3gS-uQV9QLb2IwamkZ1hckGOag1E
-      short-id: 5ad3f69e926d3ecc
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -70,7 +70,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Channel
+    name: Channel-01
     server: 194.26.192.76
     port: 443
     uuid: 626c0789-16d1-4815-be8b-bd03959d7d12
@@ -84,45 +84,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: filembad
-    server: 45.138.16.56
+    name: filembad-214
+    server: 194.26.192.76
     port: 443
     uuid: 626c0789-16d1-4815-be8b-bd03959d7d12
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: pl1.tsumshop.org
+    servername: nl1.tsumshop.org
     reality-opts:
-      public-key: yDFddhm1RyVbvXv3gS-uQV9QLb2IwamkZ1hckGOag1E
-      short-id: 5ad3f69e926d3ecc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: کانال
-    server: 45.138.16.56
-    port: 443
-    uuid: 626c0789-16d1-4815-be8b-bd03959d7d12
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pl1.tsumshop.org
-    reality-opts:
-      public-key: yDFddhm1RyVbvXv3gS-uQV9QLb2IwamkZ1hckGOag1E
-      short-id: 5ad3f69e926d3ecc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇵🇱151669
-    server: 45.138.16.56
-    port: 443
-    uuid: 626c0789-16d1-4815-be8b-bd03959d7d12
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pl1.tsumshop.org
-    reality-opts:
-      public-key: yDFddhm1RyVbvXv3gS-uQV9QLb2IwamkZ1hckGOag1E
-      short-id: 5ad3f69e926d3ecc
+      public-key: tzOeyllk2VtPXZ_BJ2lOZcGtsnn41ZHBa9dE6s9sFiQ
+      short-id: c8c75aaf699259b4
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -139,52 +111,32 @@ proxies:
       short-id: c8c75aaf699259b4
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-1e9a265939
-    server: 45.138.16.56
-    port: 443
-    uuid: 626c0789-16d1-4815-be8b-bd03959d7d12
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pl1.tsumshop.org
-    reality-opts:
-      public-key: yDFddhm1RyVbvXv3gS-uQV9QLb2IwamkZ1hckGOag1E
-      short-id: 5ad3f69e926d3ecc
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Channel
       - EPODONIOS
-      - EPODONIOS-01
       - FarazV2ray
       - Nexus_Panell
       - erfanandroid
-      - Channel
-      - filembad
-      - کانال
-      - 🇵🇱151669
+      - Channel-01
+      - filembad-214
       - 4Mohsen-eb99b005c3
-      - 4Mohsen-1e9a265939
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Channel
       - EPODONIOS
-      - EPODONIOS-01
       - FarazV2ray
       - Nexus_Panell
       - erfanandroid
-      - Channel
-      - filembad
-      - کانال
-      - 🇵🇱151669
+      - Channel-01
+      - filembad-214
       - 4Mohsen-eb99b005c3
-      - 4Mohsen-1e9a265939
 rules:
   - MATCH,Proxy

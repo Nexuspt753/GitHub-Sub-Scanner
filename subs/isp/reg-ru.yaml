@@ -15,12 +15,40 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-6cbe053c85
+    server: 194.58.95.183
+    port: 9871
+    uuid: 130e6aab-9eba-441e-9021-22cbccc72832
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: dl.google.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-4566a23b8b
+    server: 194.58.95.183
+    port: 9871
+    uuid: f4685d27-73e3-4588-9622-add50b84046a
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: dl.google.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-6cbe053c85
+      - 4Mohsen-4566a23b8b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-6cbe053c85
+      - 4Mohsen-4566a23b8b
 rules:
   - MATCH,Proxy

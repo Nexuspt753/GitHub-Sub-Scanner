@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-a77c0bc437
+    server: gets.savesafe.run
+    port: 443
+    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gets.savesafe.run
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-a77c0bc437
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-a77c0bc437
+rules:
+  - MATCH,Proxy

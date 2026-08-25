@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 144.31.135.38
+    port: 9444
+    uuid: 01c96414-9fcd-4f79-9274-2c8d8045e48d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 144.31.138.127
     port: 443
     password: "1234567890"
@@ -14,6 +30,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

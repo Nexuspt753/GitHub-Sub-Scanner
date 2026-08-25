@@ -1,0 +1,104 @@
+proxies:
+  - type: vless
+    name: 4Kian-21655f7ea0
+    server: 185.32.6.100
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-ab1e45416d
+    server: 185.32.6.103
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-8c460a53ef
+    server: 185.32.6.106
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-3f0de70d35
+    server: 185.32.6.88
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-5819fe4115
+    server: 185.32.6.91
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-ab611f98b6
+    server: 185.32.6.94
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-21655f7ea0
+      - 4Mohsen-ab1e45416d
+      - 4Jadi-8c460a53ef
+      - 4Mohsen-3f0de70d35
+      - 4Jadi-5819fe4115
+      - 4Kian-ab611f98b6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-21655f7ea0
+      - 4Mohsen-ab1e45416d
+      - 4Jadi-8c460a53ef
+      - 4Mohsen-3f0de70d35
+      - 4Jadi-5819fe4115
+      - 4Kian-ab611f98b6
+rules:
+  - MATCH,Proxy

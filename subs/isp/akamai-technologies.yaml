@@ -9,6 +9,22 @@ proxies:
     client-fingerprint: chrome
     servername: 172.105.169.70
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 192.46.231.158
+    port: 443
+    uuid: d44ef49e-829f-4216-aac5-0565190fcd3b
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: testcf.motherfuck.dpdns.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?proxyip=192.46.231.158:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: testcf.motherfuck.dpdns.org
   - type: trojan
     name: 4Jadi-b85d6c5f32
     server: trojan1.udpgw.com
@@ -39,6 +55,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
       - 4Sarina-4ab167b05f
   - name: Auto
@@ -48,6 +65,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
       - 4Sarina-4ab167b05f
 rules:

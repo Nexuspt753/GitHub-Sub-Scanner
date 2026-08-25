@@ -1,7 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
-    server: mypanel.unixzone.us
+    server: 85.17.145.65
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
     udp: true
@@ -13,6 +25,30 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: EPODONIOS-01
+    server: 85.17.145.65
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-02
+    server: mypanel.unixzone.us
+    port: 12068
+    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-03
     server: netherlands.raikporertior.ir
     port: 2082
     uuid: 244b9f7a-2bec-4558-bb64-2437896923f9
@@ -45,18 +81,6 @@ proxies:
   - type: vless
     name: v2ray313-01
     server: 85.17.145.65
-    port: 12068
-    uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇳🇱
-    server: mypanel.unixzone.us
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
     udp: true
@@ -132,7 +156,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mypanel.unixzone.us
   - type: vless
-    name: 4Mohsen-bb8bc90347
+    name: 4Jadi-5acd16559c
     server: 85.17.145.65
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
@@ -144,8 +168,8 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Mohsen-d9e5b9554e
-    server: mypanel.unixzone.us
+    name: 4Mohsen-bb8bc90347
+    server: 85.17.145.65
     port: 12068
     uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
     udp: true
@@ -168,55 +192,50 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mypanel.unixzone.us
-  - type: vless
-    name: 4Jadi-ebee1db3aa
-    server: netherlands.raikporertior.ir
-    port: 2082
-    uuid: 244b9f7a-2bec-4558-bb64-2437896923f9
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
       - v2ray313
       - hopev2ray💛
       - v2ray313-01
-      - 🇳🇱
       - configprxy
       - 4Jadi-ac9107b7b5
       - 4Jadi-70808fc16c
       - 4Nika-a18103472e
       - 4Kian-3d40595abc
       - 4FreeIran-278b440c55
+      - 4Jadi-5acd16559c
       - 4Mohsen-bb8bc90347
-      - 4Mohsen-d9e5b9554e
       - 4Jadi-cf83be7b41
-      - 4Jadi-ebee1db3aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
       - v2ray313
       - hopev2ray💛
       - v2ray313-01
-      - 🇳🇱
       - configprxy
       - 4Jadi-ac9107b7b5
       - 4Jadi-70808fc16c
       - 4Nika-a18103472e
       - 4Kian-3d40595abc
       - 4FreeIran-278b440c55
+      - 4Jadi-5acd16559c
       - 4Mohsen-bb8bc90347
-      - 4Mohsen-d9e5b9554e
       - 4Jadi-cf83be7b41
-      - 4Jadi-ebee1db3aa
 rules:
   - MATCH,Proxy

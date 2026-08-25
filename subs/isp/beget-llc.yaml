@@ -13,12 +13,26 @@ proxies:
       short-id: 1a2b3c4d5e6f7a8b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-bffffd50a5
+    server: 45.12.75.242
+    port: 26424
+    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ya.ru
+    reality-opts:
+      public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+      short-id: 23103e1e
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-d9297328b6
+      - 4Sarina-bffffd50a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-d9297328b6
+      - 4Sarina-bffffd50a5
 rules:
   - MATCH,Proxy

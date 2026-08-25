@@ -13,19 +13,6 @@ proxies:
     cipher: aes-256-cfb
     password: 7eadc6dbe2ae
     udp: true
-  - type: vless
-    name: Beijing · @DeltaKroneckerGithub
-    server: bc-cn-hn.ray-balance.space
-    port: 443
-    uuid: 710fc22f-06b2-4b6d-bb3e-f57c17b670a6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.ray-balance.space
-    reality-opts:
-      public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: Beijing · 日本
     server: 121.46.230.136
@@ -36,6 +23,20 @@ proxies:
   - type: ss
     name: Beijing · 🇯🇵JP
     server: 121.46.230.136
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: Beijing · 中转
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: Beijing · 🇰🇷KR
+    server: 121.46.230.138
     port: 65443
     cipher: aes-256-cfb
     password: 7eadc6dbe2ae
@@ -73,7 +74,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.skylee4.cloudns.ch
   - type: vless
-    name: Beijing · @DeltaKroneckerGithub-01
+    name: Beijing · @DeltaKroneckerGithub
     server: 2.27.27.168
     port: 443
     uuid: 710fc22f-06b2-4b6d-bb3e-f57c17b670a6
@@ -85,10 +86,23 @@ proxies:
       public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Beijing · @DeltaKroneckerGithub-01
+    server: bc-cn-hn.ray-balance.space
+    port: 443
+    uuid: 710fc22f-06b2-4b6d-bb3e-f57c17b670a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ray-balance.space
+    reality-opts:
+      public-key: d1NlaZfnsYjWfxRTqIBk1ldBUmdE-kRTEQ_sWd1JYwI
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: Nanjing · @DeltaKroneckerGithub
-    server: 223.107.155.28
-    port: 43273
+    server: 221.181.169.196
+    port: 46867
     password: 0fca6e12-4c18-4adb-a6ed-747d3833cb40
     udp: true
     tls: true
@@ -121,9 +135,9 @@ proxies:
         Host: vpn-node.internal
   - type: trojan
     name: Nanjing · @DeltaKroneckerGithub-02
-    server: 221.230.19.73
-    port: 48966
-    password: 1addb6f6-c65a-4652-91e7-cbf3c6fa6f95
+    server: 223.107.155.28
+    port: 43273
+    password: 0fca6e12-4c18-4adb-a6ed-747d3833cb40
     udp: true
     tls: true
     sni: vpn-node.internal
@@ -138,9 +152,26 @@ proxies:
         Host: vpn-node.internal
   - type: trojan
     name: Nanjing · @DeltaKroneckerGithub-03
-    server: 221.181.169.196
-    port: 46867
-    password: 0fca6e12-4c18-4adb-a6ed-747d3833cb40
+    server: 221.181.169.52
+    port: 49319
+    password: 47c270a9-bce5-450e-8622-f2631070a012
+    udp: true
+    tls: true
+    sni: vpn-node.internal
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /xVpnTrojanWsSvc7f3a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vpn-node.internal
+  - type: trojan
+    name: Nanjing · @DeltaKroneckerGithub-04
+    server: 221.230.19.73
+    port: 48966
+    password: 1addb6f6-c65a-4652-91e7-cbf3c6fa6f95
     udp: true
     tls: true
     sni: vpn-node.internal
@@ -163,23 +194,6 @@ proxies:
     sni: tyy129.magiclampcloud.com
     client-fingerprint: chrome
   - type: trojan
-    name: Nanjing · @DeltaKroneckerGithub-04
-    server: 221.181.169.52
-    port: 49319
-    password: 47c270a9-bce5-450e-8622-f2631070a012
-    udp: true
-    tls: true
-    sni: vpn-node.internal
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /xVpnTrojanWsSvc7f3a
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vpn-node.internal
-  - type: trojan
     name: Suzhou · @DeltaKroneckerGithub-01
     server: tyy129.magiclampcloud.com
     port: 59443
@@ -188,8 +202,17 @@ proxies:
     tls: true
     sni: tyy129.magiclampcloud.com
     client-fingerprint: chrome
+  - type: trojan
+    name: Shenzhen · @DeltaKroneckerGithub
+    server: ja262.magiclampcloud.cn
+    port: 59443
+    password: 002023c45d18bca3eba2757bb683309a
+    udp: true
+    tls: true
+    sni: ja262.magiclampcloud.cn
+    client-fingerprint: chrome
   - type: vmess
-    name: Hefei · @DeltaKroneckerGithub
+    name: Hefei · 🇨🇳 Join+Telegram:@Farah_VPN 🇨🇳
     server: 112.132.215.108
     port: 50002
     uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
@@ -198,6 +221,22 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vless
+    name: Haidian · 4FreeIran-238f9d1c41
+    server: 43.169.18.179
+    port: 443
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sni.skylee4.cloudns.ch
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=ProxyIP.CMLiussss.net
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sni.skylee4.cloudns.ch
   - type: vless
     name: Changsha · 4Mohsen-4a29d17d5c
     server: 120.227.1.43
@@ -226,22 +265,17 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Shanghai · 4Nika-b8630bc7fb
-    server: 124.222.189.225
-    port: 80
-    uuid: a8c9ad5b-1f58-4234-b5fe-a895bee9a047
-    alterId: 0
+    name: Hefei · 4Nika-7e600e775c
+    server: 112.132.215.108
+    port: 50002
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: Guangzhou · 4Nika-72e98beb94
+    name: Nanjing · 4Nika-72e98beb94
     server: v24.hdacd.com
     port: 30824
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -251,37 +285,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Nanjing · 4Mohsen-07c0dbe509
-    server: v29.hdacd.com
-    port: 30829
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Nanjing · 4FreeIran-0e8af59261
-    server: v29.hdacd.com
-    port: 30829
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Chengdu · 4FreeIran-ccda6d3091
-    server: v35.hdacd.com
-    port: 30835
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Chengdu · 4FreeIran-0bbd9e4af6
+    name: Guangzhou · 4FreeIran-0bbd9e4af6
     server: v33.hdacd.com
     port: 30833
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -291,7 +295,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Beijing · 4Nika-bc08047da6
+    name: Guangzhou · 4Kian-a450730efa
     server: v33.hdacd.com
     port: 30833
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -301,7 +305,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Beijing · 4Kian-c2d9faf070
+    name: Guangzhou · 4Nika-bc08047da6
     server: v33.hdacd.com
     port: 30833
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -311,9 +315,9 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Nanjing · 4FreeIran-f6f6659ac7
-    server: v45.hdacd.com
-    port: 30845
+    name: Guangzhou · 4Kian-c2d9faf070
+    server: v33.hdacd.com
+    port: 30833
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 2
     cipher: auto
@@ -321,17 +325,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Nanjing · 4Nika-6ff5667d99
-    server: v45.hdacd.com
-    port: 30845
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Beijing · 4Sarina-861673acfd
+    name: Nanjing · 4Sarina-861673acfd
     server: v4.hdacd.com
     port: 30804
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -341,7 +335,17 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Guangzhou · 4Sarina-24437a7a37
+    name: Beijing · 4Kian-662e561095
+    server: v6.hdacd.com
+    port: 30806
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: Nanjing · 4Sarina-24437a7a37
     server: v8.hdacd.com
     port: 30808
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -351,7 +355,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Jinrongjie · 4Kian-af1e86a671
+    name: Chengde · 4Kian-af1e86a671
     server: visa.cn
     port: 80
     uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
@@ -373,36 +377,37 @@ proxy-groups:
       - Auto
       - Beijing · EPODONIOS
       - Beijing · EPODONIOS-01
-      - Beijing · @DeltaKroneckerGithub
       - Beijing · 日本
       - Beijing · 🇯🇵JP
+      - Beijing · 中转
+      - Beijing · 🇰🇷KR
       - Haidian · EPODONIOS
       - Haidian · @free_conf_iran
+      - Beijing · @DeltaKroneckerGithub
       - Beijing · @DeltaKroneckerGithub-01
       - Nanjing · @DeltaKroneckerGithub
       - Nanjing · @DeltaKroneckerGithub-01
       - Nanjing · @DeltaKroneckerGithub-02
       - Nanjing · @DeltaKroneckerGithub-03
-      - Suzhou · @DeltaKroneckerGithub
       - Nanjing · @DeltaKroneckerGithub-04
+      - Suzhou · @DeltaKroneckerGithub
       - Suzhou · @DeltaKroneckerGithub-01
-      - Hefei · @DeltaKroneckerGithub
+      - Shenzhen · @DeltaKroneckerGithub
+      - Hefei · 🇨🇳 Join+Telegram:@Farah_VPN 🇨🇳
+      - Haidian · 4FreeIran-238f9d1c41
       - Changsha · 4Mohsen-4a29d17d5c
       - Hefei · 4Jadi-75784dcd52
       - Hefei · 4Mohsen-7a4c5435ef
-      - Shanghai · 4Nika-b8630bc7fb
-      - Guangzhou · 4Nika-72e98beb94
-      - Nanjing · 4Mohsen-07c0dbe509
-      - Nanjing · 4FreeIran-0e8af59261
-      - Chengdu · 4FreeIran-ccda6d3091
-      - Chengdu · 4FreeIran-0bbd9e4af6
-      - Beijing · 4Nika-bc08047da6
-      - Beijing · 4Kian-c2d9faf070
-      - Nanjing · 4FreeIran-f6f6659ac7
-      - Nanjing · 4Nika-6ff5667d99
-      - Beijing · 4Sarina-861673acfd
-      - Guangzhou · 4Sarina-24437a7a37
-      - Jinrongjie · 4Kian-af1e86a671
+      - Hefei · 4Nika-7e600e775c
+      - Nanjing · 4Nika-72e98beb94
+      - Guangzhou · 4FreeIran-0bbd9e4af6
+      - Guangzhou · 4Kian-a450730efa
+      - Guangzhou · 4Nika-bc08047da6
+      - Guangzhou · 4Kian-c2d9faf070
+      - Nanjing · 4Sarina-861673acfd
+      - Beijing · 4Kian-662e561095
+      - Nanjing · 4Sarina-24437a7a37
+      - Chengde · 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -411,35 +416,36 @@ proxy-groups:
     proxies:
       - Beijing · EPODONIOS
       - Beijing · EPODONIOS-01
-      - Beijing · @DeltaKroneckerGithub
       - Beijing · 日本
       - Beijing · 🇯🇵JP
+      - Beijing · 中转
+      - Beijing · 🇰🇷KR
       - Haidian · EPODONIOS
       - Haidian · @free_conf_iran
+      - Beijing · @DeltaKroneckerGithub
       - Beijing · @DeltaKroneckerGithub-01
       - Nanjing · @DeltaKroneckerGithub
       - Nanjing · @DeltaKroneckerGithub-01
       - Nanjing · @DeltaKroneckerGithub-02
       - Nanjing · @DeltaKroneckerGithub-03
-      - Suzhou · @DeltaKroneckerGithub
       - Nanjing · @DeltaKroneckerGithub-04
+      - Suzhou · @DeltaKroneckerGithub
       - Suzhou · @DeltaKroneckerGithub-01
-      - Hefei · @DeltaKroneckerGithub
+      - Shenzhen · @DeltaKroneckerGithub
+      - Hefei · 🇨🇳 Join+Telegram:@Farah_VPN 🇨🇳
+      - Haidian · 4FreeIran-238f9d1c41
       - Changsha · 4Mohsen-4a29d17d5c
       - Hefei · 4Jadi-75784dcd52
       - Hefei · 4Mohsen-7a4c5435ef
-      - Shanghai · 4Nika-b8630bc7fb
-      - Guangzhou · 4Nika-72e98beb94
-      - Nanjing · 4Mohsen-07c0dbe509
-      - Nanjing · 4FreeIran-0e8af59261
-      - Chengdu · 4FreeIran-ccda6d3091
-      - Chengdu · 4FreeIran-0bbd9e4af6
-      - Beijing · 4Nika-bc08047da6
-      - Beijing · 4Kian-c2d9faf070
-      - Nanjing · 4FreeIran-f6f6659ac7
-      - Nanjing · 4Nika-6ff5667d99
-      - Beijing · 4Sarina-861673acfd
-      - Guangzhou · 4Sarina-24437a7a37
-      - Jinrongjie · 4Kian-af1e86a671
+      - Hefei · 4Nika-7e600e775c
+      - Nanjing · 4Nika-72e98beb94
+      - Guangzhou · 4FreeIran-0bbd9e4af6
+      - Guangzhou · 4Kian-a450730efa
+      - Guangzhou · 4Nika-bc08047da6
+      - Guangzhou · 4Kian-c2d9faf070
+      - Nanjing · 4Sarina-861673acfd
+      - Beijing · 4Kian-662e561095
+      - Nanjing · 4Sarina-24437a7a37
+      - Chengde · 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

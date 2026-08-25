@@ -1,26 +1,42 @@
 proxies:
-  - type: vmess
-    name: 4Nika-c9103d8916
-    server: iran.speedlrn.com
-    port: 5002
-    uuid: 80879c6d-44c7-4a9e-8ef2-c15318dcadda
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: GozargahAzad|🇮🇷
+    server: 46.100.133.11
+    port: 2029
+    uuid: 07e4cee1-fad4-4cb6-9b21-b6fc74bbc63a
     udp: true
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /wls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: 46.100.133.11
+    port: 2029
+    uuid: 07e4cee1-fad4-4cb6-9b21-b6fc74bbc63a
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /wls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-c9103d8916
+      - GozargahAzad|🇮🇷
+      - 🇮🇷IR-🚀@VPNine1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-c9103d8916
+      - GozargahAzad|🇮🇷
+      - 🇮🇷IR-🚀@VPNine1
 rules:
   - MATCH,Proxy

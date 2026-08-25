@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 151.245.106.49
+    port: 2053
+    uuid: 9f7dddc4-6c77-4e2c-bfa4-7e5afdfd48f8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: Wg07hKwQjSVmOsEHn7X1iLAXR2wkKRSyv8TZmq9ZsRA
+      short-id: 58186df4a95a1504
+    xudp: true
+  - type: vless
     name: 4FreeIran-531677a0b0
     server: 151.245.106.49
     port: 2053
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-531677a0b0
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-531677a0b0
 rules:
   - MATCH,Proxy

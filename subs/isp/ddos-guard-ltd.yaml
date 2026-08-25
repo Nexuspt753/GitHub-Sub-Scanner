@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.178.208.140
+    port: 443
+    uuid: 1c5803f0-9670-49bd-b9bf-830b4014064c
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h3
+      - h2
+    servername: cdn.sywl2live.us
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /content/cdn1499/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: 95.129.236.252
     port: 443
@@ -30,55 +48,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-394dfb03bf
-    server: 185.178.208.140
+    name: 4FreeIran-1bb0fda2f2
+    server: 185.178.208.176
     port: 443
-    uuid: 1c94c04a-b061-47e9-bc7d-d137f088fc75
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: mapgasstation.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v3/live/hls/segment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-b66a7367f9
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    uuid: 979c14ed-b489-4a80-b102-a1f2b6f883b2
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-e74a77d301
-    server: 95.129.236.216
-    port: 443
-    uuid: 95c7d665-30a2-45c0-80b1-b1bc5b4dd8a8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
     alpn:
-      - http/1.1
-    servername: cdnguard.org
+      - h3
+      - h2
+    servername: founders-blog.online
     xudp: true
     network: ws
     ws-opts:
-      path: /origin/190546791/fetch
+      path: /stream/615428/socket
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdnguard.org
+        Host: founders-blog.online
   - type: vless
     name: 4Jadi-816260e5e9
     server: 185.178.208.140
@@ -98,48 +85,45 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cloud.dev.fosonmine.site
   - type: vless
-    name: 4Mohsen-2d2f4d197b
-    server: 185.178.208.176
+    name: 4Mohsen-0865a95de0
+    server: 95.129.236.216
     port: 443
-    uuid: da1c2bcd-0862-4cab-ab23-08eae5f190b3
+    uuid: da218b8b-1656-43d8-87f2-87f8e5391c67
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     alpn:
-      - h3
-      - h2
-    servername: founders-blog.online
+      - http/1.1
+    servername: cdnguard.org
     xudp: true
     network: ws
     ws-opts:
-      path: /stream/615428/socket
+      path: /origin/190546791/fetch
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: founders-blog.online
+        Host: cdnguard.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - 4Nika-394dfb03bf
-      - 4Mohsen-b66a7367f9
-      - 4Mohsen-e74a77d301
+      - 4FreeIran-1bb0fda2f2
       - 4Jadi-816260e5e9
-      - 4Mohsen-2d2f4d197b
+      - 4Mohsen-0865a95de0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - 4Nika-394dfb03bf
-      - 4Mohsen-b66a7367f9
-      - 4Mohsen-e74a77d301
+      - 4FreeIran-1bb0fda2f2
       - 4Jadi-816260e5e9
-      - 4Mohsen-2d2f4d197b
+      - 4Mohsen-0865a95de0
 rules:
   - MATCH,Proxy
