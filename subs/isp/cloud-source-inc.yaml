@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-36e1591e29
+    server: us2.xiaoliyu.cyou
+    port: 4433
+    password: 39b27e20-16f5-45a1-8139-7c9b7f51b6f8
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-36e1591e29
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-36e1591e29
+rules:
+  - MATCH,Proxy

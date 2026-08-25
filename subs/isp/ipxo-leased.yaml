@@ -1,58 +1,23 @@
 proxies:
   - type: hysteria2
-    name: 4Mohsen-820e0a610d
-    server: iq5ny.pleiades.codes
-    port: 8443
-    password: 3aabd489-04af-42fb-87e2-363d1b83d335
-    sni: iq5ny.pleiades.codes
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Mohsen-3f7d98bb1c
-    server: iq5ny.pleiades.codes
-    port: 8443
-    password: 8f7eeebd-3378-4bf1-b80a-cb2a393a031d
-    sni: iq5ny.pleiades.codes
-    skip-cert-verify: true
-  - type: hysteria2
     name: 4Kian-38cbb37610
     server: 81.168.62.17
     port: 8443
     password: 95e8532b-cc69-42d4-9553-e3c23292b15b
     sni: iq5ny.pleiades.codes
     skip-cert-verify: true
-  - type: hysteria2
-    name: 4Kian-8b3c6a085a
-    server: iq5ny.pleiades.codes
-    port: 8443
-    password: 95e8532b-cc69-42d4-9553-e3c23292b15b
-    sni: 127.0.0.1
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Nika-d83bcb81d0
-    server: iq5ny.pleiades.codes
-    port: 8443
-    password: 95e8532b-cc69-42d4-9553-e3c23292b15b
-    sni: iq5ny.pleiades.codes
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-820e0a610d
-      - 4Mohsen-3f7d98bb1c
       - 4Kian-38cbb37610
-      - 4Kian-8b3c6a085a
-      - 4Nika-d83bcb81d0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-820e0a610d
-      - 4Mohsen-3f7d98bb1c
       - 4Kian-38cbb37610
-      - 4Kian-8b3c6a085a
-      - 4Nika-d83bcb81d0
 rules:
   - MATCH,Proxy
