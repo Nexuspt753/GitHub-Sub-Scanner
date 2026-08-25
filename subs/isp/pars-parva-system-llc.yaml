@@ -1,26 +1,44 @@
 proxies:
-  - type: vmess
-    name: v2raybaaz
-    server: ai.configfast.ir
-    port: 9992
-    uuid: 67e2444b-e4f5-4b25-89af-e0f47cdc20fd
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: 89.44.243.173
+    port: 8778
+    uuid: 419fd5e3-7a7e-452d-ad10-3442894bc415
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    servername: tk2.lion-lion.ir
     xudp: true
-    skip-cert-verify: false
+  - type: vless
+    name: 4Jadi-0262071fcc
+    server: 89.44.243.173
+    port: 8778
+    uuid: 419fd5e3-7a7e-452d-ad10-3442894bc415
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    servername: tk2.lion-lion.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - v2raybaaz
+      - vless
+      - 4Jadi-0262071fcc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - v2raybaaz
+      - vless
+      - 4Jadi-0262071fcc
 rules:
   - MATCH,Proxy

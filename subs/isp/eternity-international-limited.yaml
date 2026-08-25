@@ -1,12 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-d7419de570
-    server: de1.sferavpn.pro
-    port: 443
-    password: cd74c0a406664a5bc0bac098220a2468
-    sni: de1.sferavpn.pro
-    obfs: salamander
-    obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
   - type: vless
     name: DeltaKroneckerGithub
     server: 94.183.209.58
@@ -22,16 +14,32 @@ proxies:
         Host: pl2.lckdwn.ru
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 94.183.209.59
+    server: 144.31.237.206
     port: 443
-    uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+    uuid: 9500cf8b-020a-4a70-906c-e14bb5375875
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: 144.31.237.215
+    port: 443
+    uuid: 9500cf8b-020a-4a70-906c-e14bb5375875
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: DeltaKroneckerGithub-02
     server: 94.183.209.43
@@ -87,7 +95,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 94.183.209.43
     port: 443
     uuid: 5e7ecc47-e424-4653-876e-c7515a2c82b4
@@ -122,50 +130,36 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-a15188df8a
-    server: 94.183.209.43
-    port: 443
-    uuid: 5e7ecc47-e424-4653-876e-c7515a2c82b4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-d7419de570
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
       - 🇳🇱151829
       - 🇳🇱NL-🚀@VPNine1
       - 🍑38@oneclickvpnkeys
-      - EPODONIOS
+      - EPODONIOS-01
       - ">>@oneclickvpnkeys::PL"
       - 4Nika-e555db77e7
-      - 4Nika-a15188df8a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-d7419de570
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
       - 🇳🇱151829
       - 🇳🇱NL-🚀@VPNine1
       - 🍑38@oneclickvpnkeys
-      - EPODONIOS
+      - EPODONIOS-01
       - ">>@oneclickvpnkeys::PL"
       - 4Nika-e555db77e7
-      - 4Nika-a15188df8a
 rules:
   - MATCH,Proxy

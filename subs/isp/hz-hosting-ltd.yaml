@@ -1,5 +1,19 @@
 proxies:
   - type: hysteria2
+    name: 4FreeIran-39eb28e8f8
+    server: nl174.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: nl174.mechvpn.online
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-8dd5a4b379
+    server: nl8.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: nl8.mechvpn.online
+    skip-cert-verify: true
+  - type: hysteria2
     name: 荷兰
     server: nl174.mechvpn.online
     port: 443
@@ -27,8 +41,31 @@ proxies:
     password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
     sni: nl8.mechvpn.online
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-28aa0cb3d8
+    server: nl174.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: nl174.mechvpn.online
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-59f78cd2eb
+    server: nl8.mechvpn.online
+    port: 443
+    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+    sni: nl8.mechvpn.online
+    skip-cert-verify: true
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 185.81.115.150
+    port: 9443
+    password: 54ae81edc69e476ea3a339e08ab3f5c7
+    udp: true
+    tls: true
+    sni: apple.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 185.81.114.88
     port: 9443
     password: 50ad7b7681494900887bbf80ab3722d0
@@ -41,21 +78,31 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-39eb28e8f8
+      - 4Nika-8dd5a4b379
       - 荷兰
       - EPODONIOS
       - 荷兰-01
       - EPODONIOS-01
+      - 4Mohsen-28aa0cb3d8
+      - 4Sarina-59f78cd2eb
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-39eb28e8f8
+      - 4Nika-8dd5a4b379
       - 荷兰
       - EPODONIOS
       - 荷兰-01
       - EPODONIOS-01
+      - 4Mohsen-28aa0cb3d8
+      - 4Sarina-59f78cd2eb
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

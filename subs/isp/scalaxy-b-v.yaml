@@ -1,53 +1,4 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
-  - type: ss
-    name: Telegram:@v2rayng3
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
-  - type: ss
-    name: kurdconfig
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
-  - type: ss
-    name: تو
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
-  - type: ss
-    name: 🏓25@oneclickvpnkeys
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
-  - type: ss
-    name: 4Mohsen-cfa5ba411c
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 38.180.242.205
@@ -62,8 +13,18 @@ proxies:
       short-id: af1bdd293097b664
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: node-de.bangboonet.ru
+    port: 443
+    uuid: 15b154c3-b4f9-435d-9b46-bd096dec4be1
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vless
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 38.180.173.150
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -76,29 +37,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - Telegram:@v2rayng3
-      - kurdconfig
-      - تو
-      - 🏓25@oneclickvpnkeys
-      - 4Mohsen-cfa5ba411c
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - Telegram:@v2rayng3
-      - kurdconfig
-      - تو
-      - 🏓25@oneclickvpnkeys
-      - 4Mohsen-cfa5ba411c
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

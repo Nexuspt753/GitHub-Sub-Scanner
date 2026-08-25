@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 80.93.202.2
-    port: 443
-    uuid: Telegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: support.zoom.us.yxls.eu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /sg-amz
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: support.zoom.us.yxls.eu.cc
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 80.93.202.40
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -29,21 +13,18 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime02.workers.dev
   - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 80.93.202.147
-    port: 443
-    uuid: 50414e45-4c5f-5a45-5553-b52a90ada6ab
+    name: DeltaKroneckerGithub-01
+    server: 80.93.202.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: trex-panel-ew6n46.zeus-e0oqfp.workers.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /stream/TrexBridge/b52a90ada6ab
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: trex-panel-ew6n46.zeus-e0oqfp.workers.dev
+        Host: vms.lifetime02.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -51,7 +32,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -60,6 +40,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

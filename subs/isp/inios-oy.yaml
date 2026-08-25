@@ -9,23 +9,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-ec61e19be8
-    server: 141.0.184.113
-    port: 443
-    uuid: 15b154c3-b4f9-435d-9b46-bd096dec4be1
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-ec61e19be8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +22,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-ec61e19be8
 rules:
   - MATCH,Proxy

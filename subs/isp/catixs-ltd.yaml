@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: 4Jadi-1c0e593133
+    server: d3.catcat321.com
+    port: 20061
+    password: 7e70223b-f331-41d5-9313-02b8d2df2885
+    udp: true
+    tls: true
+    sni: hk.catxstar.com
+    client-fingerprint: chrome
+  - type: trojan
     name: DeltaKroneckerGithub
     server: krhtybay.catcat321.com
     port: 20104
@@ -10,18 +19,31 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 217.217.222.230
+    port: 20004
+    password: ba07a8af-5544-48ac-ab62-3b6c00a44fa6
+    udp: true
+    tls: true
+    sni: hk.catxstar.com
+    client-fingerprint: android
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-1c0e593133
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-1c0e593133
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

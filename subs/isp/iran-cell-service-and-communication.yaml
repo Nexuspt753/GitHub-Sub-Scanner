@@ -1,34 +1,15 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 2.144.22.87
-    port: 443
-    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: api.bgp6.ir
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: "[28104]"
-    server: 2.144.22.87
-    port: 443
-    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: api.bgp6.ir
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: 4FreeIran-912eaf6054
+    server: 2.144.21.112
+    port: 40443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-cbb749985f
     server: 2.144.21.112
     port: 40443
     password: humanity
@@ -60,42 +41,24 @@ proxies:
     tls: true
     sni: www.ignitelimit.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4FreeIran-617fee0c0c
-    server: 2.144.22.87
-    port: 443
-    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: api.bgp6.ir
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - "[28104]"
       - 4FreeIran-912eaf6054
+      - 4Sarina-cbb749985f
       - 4Kian-885649425e
       - 4Nika-c1e8132597
-      - 4FreeIran-617fee0c0c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - "[28104]"
       - 4FreeIran-912eaf6054
+      - 4Sarina-cbb749985f
       - 4Kian-885649425e
       - 4Nika-c1e8132597
-      - 4FreeIran-617fee0c0c
 rules:
   - MATCH,Proxy
