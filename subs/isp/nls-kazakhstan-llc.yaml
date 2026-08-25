@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 🇰🇿
+    name: EPODONIOS
     server: 5.180.42.210
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -14,7 +14,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-490b6c6ea4
+    name: DeltaKroneckerGithub
+    server: 5.180.42.210
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nordic.cendora.ru
+    reality-opts:
+      public-key: YQTixaXzPVImuRc4TUbrFAekjIiaYV-t5S-HTKlH0AU
+      short-id: 2186a755ed67b034
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇰🇿
     server: 5.180.42.210
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - DeltaKroneckerGithub
       - 🇰🇿
-      - 4Sarina-490b6c6ea4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - DeltaKroneckerGithub
       - 🇰🇿
-      - 4Sarina-490b6c6ea4
 rules:
   - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: vless
+    server: 84.201.152.230
+    port: 443
+    uuid: aec0d79c-7f35-4855-b794-14dd5739efa3
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+rules:
+  - MATCH,Proxy

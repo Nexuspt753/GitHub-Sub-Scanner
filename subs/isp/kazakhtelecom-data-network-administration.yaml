@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: GozargahAzad|🇰🇿
+    server: 89.218.15.129
+    port: 13140
+    uuid: 1d854335-2a80-4b9a-924d-82242ef508bb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: intel.com
+    reality-opts:
+      public-key: G1a4ULGPgotnlPvaRnjaoP9q_JPZoJp2-PJUzDvXvEs
+      short-id: "51"
+    xudp: true
+  - type: vless
+    name: کانال
+    server: 89.218.15.129
+    port: 13140
+    uuid: 1d854335-2a80-4b9a-924d-82242ef508bb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: intel.com
+    reality-opts:
+      public-key: G1a4ULGPgotnlPvaRnjaoP9q_JPZoJp2-PJUzDvXvEs
+      short-id: "51"
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - GozargahAzad|🇰🇿
+      - کانال
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - GozargahAzad|🇰🇿
+      - کانال
+rules:
+  - MATCH,Proxy

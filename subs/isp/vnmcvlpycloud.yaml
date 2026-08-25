@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 🇻🇳152300
+    server: vi.athforce.ir
+    port: 2525
+    uuid: 229b4a34-0393-42f8-aa75-6b64d97a2401
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇻🇳152300
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇻🇳152300
+rules:
+  - MATCH,Proxy

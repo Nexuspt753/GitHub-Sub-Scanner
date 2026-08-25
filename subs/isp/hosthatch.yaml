@@ -12,28 +12,12 @@ proxies:
       public-key: Wg07hKwQjSVmOsEHn7X1iLAXR2wkKRSyv8TZmq9ZsRA
       short-id: 58186df4a95a1504
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 167.104.104.138
-    port: 8443
-    uuid: a5194487-9b9a-462f-a047-ac7580d80201
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: n.tmkkarss.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

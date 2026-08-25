@@ -1,20 +1,5 @@
 proxies:
   - type: vmess
-    name: EPODONIOS
-    server: 23.137.249.110
-    port: 30011
-    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: 23.137.249.110
-    alpn:
-      - h2
-      - http/1.1
-  - type: vmess
     name: 4Nika-ddc100197b
     server: 23.137.249.110
     port: 30011
@@ -30,7 +15,7 @@ proxies:
       - h2
       - http/1.1
   - type: vmess
-    name: 4Sarina-b03d552259
+    name: 4Sarina-ec92b170a5
     server: 23.137.249.110
     port: 30011
     uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
@@ -46,17 +31,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 4Nika-ddc100197b
-      - 4Sarina-b03d552259
+      - 4Sarina-ec92b170a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 4Nika-ddc100197b
-      - 4Sarina-b03d552259
+      - 4Sarina-ec92b170a5
 rules:
   - MATCH,Proxy

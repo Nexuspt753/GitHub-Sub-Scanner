@@ -13,27 +13,12 @@ proxies:
       short-id: 92dca6
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: nl2.miyazono-kaori.com
-    port: 443
-    uuid: 1ea63dfb-03cc-41d1-8b73-9b7e172fed7d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.philips.com
-    reality-opts:
-      public-key: Ncb78PVwvwU2tB1eiOlJd0ZCG2CbqG7-dPIHztlq2yM
-      short-id: 69cc4c0d5e
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
