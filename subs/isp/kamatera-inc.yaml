@@ -1,4 +1,40 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 113.30.191.181
+    port: 443
+    uuid: c20c6ab3-0495-48e3-bf01-77144b2a89c1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: jacbgoff.davdlpck1znnhvqh64hl.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ranking/help/downloads?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jacbgoff.davdlpck1znnhvqh64hl.workers.dev
+  - type: vless
+    name: 🇩🇪
+    server: 113.30.191.181
+    port: 443
+    uuid: c20c6ab3-0495-48e3-bf01-77144b2a89c1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: jacbgoff.davdlpck1znnhvqh64hl.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ranking/help/downloads?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jacbgoff.davdlpck1znnhvqh64hl.workers.dev
   - type: trojan
     name: DeltaKroneckerGithub
     server: 45.91.171.116
@@ -13,6 +49,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇩🇪
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +58,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇩🇪
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

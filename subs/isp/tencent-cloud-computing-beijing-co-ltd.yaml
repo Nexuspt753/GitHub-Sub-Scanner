@@ -1,25 +1,38 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 49.51.179.33
-    port: 443
-    password: Aimer
+  - type: vmess
+    name: 4Kian-a450730efa
+    server: v33.hdacd.com
+    port: 30833
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
     udp: true
-    tls: true
-    sni: epccj.ambercc.filegear-sg.me
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-bc08047da6
+    server: v33.hdacd.com
+    port: 30833
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-a450730efa
+      - 4Nika-bc08047da6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-a450730efa
+      - 4Nika-bc08047da6
 rules:
   - MATCH,Proxy

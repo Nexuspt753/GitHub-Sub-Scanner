@@ -1,19 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 62.182.196.57
-    port: 443
-    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: swa.mythos-wargame.fun
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 45.43.76.227
     port: 443
     uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
@@ -28,27 +15,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: eded-52n.pages.dev
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: swa.mythos-wargame.fun
-    port: 443
-    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: swa.mythos-wargame.fun
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

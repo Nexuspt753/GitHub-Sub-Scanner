@@ -18,35 +18,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: chat.dev.fosonmine.site
   - type: vless
-    name: EPODONIOS
-    server: 95.129.236.252
+    name: DeltaKroneckerGithub-01
+    server: 185.178.208.140
     port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    uuid: a2ec6ed8-ef05-4fa9-b6c5-aec54186f89a
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: azs.benz.ink
+    alpn:
+      - http/1.1
+    servername: chat.dev.fosonmine.site
     xudp: true
     network: ws
     ws-opts:
-      path: /api/v2/camera/events/8f4c2d
+      path: /api/client/realtime/sync
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇷🇺139881
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: chat.dev.fosonmine.site
   - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
@@ -62,54 +50,14 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-dac7f566d6
-    server: 185.178.208.176
-    port: 443
-    uuid: 9a9209b4-f893-49e1-9431-03364d56aa83
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h3
-      - h2
-    servername: founders-blog.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /stream/615428/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: founders-blog.online
-  - type: vless
-    name: 4Kian-dcd532fa4f
-    server: 95.129.236.216
-    port: 443
-    uuid: de380809-d561-4fee-bbbf-b61dcce5af19
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cdnguard.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /origin/190546791/fetch
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdnguard.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇷🇺139881
+      - DeltaKroneckerGithub-01
       - 4Mohsen-b66a7367f9
-      - 4Sarina-dac7f566d6
-      - 4Kian-dcd532fa4f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -117,10 +65,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇷🇺139881
+      - DeltaKroneckerGithub-01
       - 4Mohsen-b66a7367f9
-      - 4Sarina-dac7f566d6
-      - 4Kian-dcd532fa4f
 rules:
   - MATCH,Proxy

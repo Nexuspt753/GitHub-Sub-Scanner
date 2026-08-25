@@ -13,12 +13,27 @@ proxies:
       short-id: 48050fab
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 103.75.118.228
+    port: 11452
+    uuid: 814bd064-544d-4255-a070-5705c03f6da9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
+      short-id: 48050fab
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy
