@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: Victoria · @DeltaKroneckerGithub
-    server: 200.165.234.119
-    port: 2200
-    uuid: 936b7663-a841-4b42-b639-6e3fab1dbf45
+    name: Victoria · EPODONIOS
+    server: 200.165.234.62
+    port: 4100
+    uuid: 5383fb97-1178-4709-9a25-b767b743e911
     udp: true
     xudp: true
     network: ws
@@ -11,9 +11,33 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
+  - type: vless
+    name: Victoria · @DeltaKroneckerGithub
+    server: 200.165.234.62
+    port: 4100
+    uuid: 5383fb97-1178-4709-9a25-b767b743e911
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
   - type: vless
     name: Victoria · @hex_proxy
+    server: 200.165.234.62
+    port: 4100
+    uuid: 5383fb97-1178-4709-9a25-b767b743e911
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Victoria · 4Kian-6e49de0acd
     server: 200.165.234.62
     port: 4100
     uuid: 5383fb97-1178-4709-9a25-b767b743e911
@@ -29,15 +53,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Victoria · EPODONIOS
       - Victoria · @DeltaKroneckerGithub
       - Victoria · @hex_proxy
+      - Victoria · 4Kian-6e49de0acd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Victoria · EPODONIOS
       - Victoria · @DeltaKroneckerGithub
       - Victoria · @hex_proxy
+      - Victoria · 4Kian-6e49de0acd
 rules:
   - MATCH,Proxy

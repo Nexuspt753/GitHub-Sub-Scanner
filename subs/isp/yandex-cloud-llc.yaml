@@ -50,6 +50,13 @@ proxies:
       short-id: f6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: f692476a-160a-460c-97ec-53ae3cc55265
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -59,6 +66,7 @@ proxy-groups:
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -69,5 +77,6 @@ proxy-groups:
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless-01
 rules:
   - MATCH,Proxy

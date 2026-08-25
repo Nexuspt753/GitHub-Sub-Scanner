@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: Elbasan · @DeltaKroneckerGithub
+    server: nl6.unlockvpn.online
+    port: 8445
+    uuid: 1f619326-cd93-4d6b-aebe-e0b5f8831d02
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: nl6.unlockvpn.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/e1971f0b19/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl6.unlockvpn.online
+  - type: vless
     name: Tirana · @DeltaKroneckerGithub
     server: 45.89.60.105
     port: 8443
@@ -11,20 +29,6 @@ proxies:
     reality-opts:
       public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
       short-id: 43dcff53849b81e6
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Elbasan · EPODONIOS
-    server: 78.159.131.235
-    port: 443
-    uuid: 1da18def-6804-44c8-bb6d-83cff995f567
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yahoo.com
-    reality-opts:
-      public-key: XZa7f7bABj7lY4HuLopVCBBBYTu-RB7QyIZ96njvYwo
-      short-id: 7bcfc0bc
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -56,6 +60,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: Elbasan · 🇦🇱
+    server: 78.159.131.235
+    port: 443
+    uuid: 1da18def-6804-44c8-bb6d-83cff995f567
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: XZa7f7bABj7lY4HuLopVCBBBYTu-RB7QyIZ96njvYwo
+      short-id: 7bcfc0bc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Tirana · @DeltaKroneckerGithub-02
     server: 85.155.228.228
     port: 1580
@@ -67,19 +85,6 @@ proxies:
     reality-opts:
       public-key: M3JXxo8ozG_kG2N5FpyQxwjZFLhXJpJJUP5bjhQrZks
       short-id: bbbd20a50eb58709
-    xudp: true
-  - type: vless
-    name: Tirana · 🇦🇱AL-🚀@VPNine1
-    server: iranalb.silicore.ir
-    port: 22216
-    uuid: ca7536cf-1c5b-4de7-b02b-645b6d24953b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: sTE0YXI6Pv6OQUNbM-hNpNOhzon0_m2YUd7B1_g-JAU
-      short-id: 0f4412d42129f080
     xudp: true
   - type: vless
     name: Elbasan · 4Kian-e64256ea32
@@ -102,47 +107,32 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: THFFWv7np93DBLKZUvVm7u
     udp: true
-  - type: vless
-    name: Tirana · 4Kian-100a6dd677
-    server: iranalb.silicore.ir
-    port: 22216
-    uuid: ca7536cf-1c5b-4de7-b02b-645b6d24953b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: sTE0YXI6Pv6OQUNbM-hNpNOhzon0_m2YUd7B1_g-JAU
-      short-id: 0f4412d42129f080
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Elbasan · @DeltaKroneckerGithub
       - Tirana · @DeltaKroneckerGithub
-      - Elbasan · EPODONIOS
       - Tirana · @DeltaKroneckerGithub-01
       - Elbasan · 𝗝𝗼𝗶𝗻➠@TEHRANARGO
+      - Elbasan · 🇦🇱
       - Tirana · @DeltaKroneckerGithub-02
-      - Tirana · 🇦🇱AL-🚀@VPNine1
       - Elbasan · 4Kian-e64256ea32
       - Tirana · @DeltaKroneckerGithub-03
-      - Tirana · 4Kian-100a6dd677
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Elbasan · @DeltaKroneckerGithub
       - Tirana · @DeltaKroneckerGithub
-      - Elbasan · EPODONIOS
       - Tirana · @DeltaKroneckerGithub-01
       - Elbasan · 𝗝𝗼𝗶𝗻➠@TEHRANARGO
+      - Elbasan · 🇦🇱
       - Tirana · @DeltaKroneckerGithub-02
-      - Tirana · 🇦🇱AL-🚀@VPNine1
       - Elbasan · 4Kian-e64256ea32
       - Tirana · @DeltaKroneckerGithub-03
-      - Tirana · 4Kian-100a6dd677
 rules:
   - MATCH,Proxy

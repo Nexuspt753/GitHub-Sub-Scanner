@@ -1,6 +1,13 @@
 proxies:
   - type: ss
-    name: EPODONIOS
+    name: 中转
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: 韩国
     server: 121.46.230.138
     port: 65443
     cipher: aes-256-cfb
@@ -18,7 +25,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 中转
+      - 韩国
       - 🇰🇷KR
   - name: Auto
     type: url-test
@@ -26,7 +34,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 中转
+      - 韩国
       - 🇰🇷KR
 rules:
   - MATCH,Proxy
