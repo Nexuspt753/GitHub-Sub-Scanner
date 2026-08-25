@@ -1,27 +1,62 @@
 proxies:
   - type: vless
-    name: 4Mohsen-424121c3e2
-    server: s7.objcache.anti-zapret.com
+    name: DeltaKroneckerGithub
+    server: 31.59.125.49
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.59.125.31
     port: 443
     uuid: d11613a1-2e1f-4209-a275-aabd986b7ad1
     udp: true
     tls: true
     client-fingerprint: firefox
     servername: s7.objcache.anti-zapret.com
-    flow: xtls-rprx-vision-udp443
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: 58fbcddfaae3ade9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 31.59.125.30
+    port: 443
+    uuid: d11613a1-2e1f-4209-a275-aabd986b7ad1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: s7.objcache.anti-zapret.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: 58fbcddfaae3ade9
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-424121c3e2
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-424121c3e2
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

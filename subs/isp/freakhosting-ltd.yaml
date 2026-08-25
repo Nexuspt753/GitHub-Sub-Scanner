@@ -35,34 +35,18 @@ proxies:
     skip-cert-verify: true
     obfs: salamander
     obfs-password: KevinZakarian
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 5.181.187.58
+    server: dec.mythos-wargame.fun
     port: 443
-    password: humanity
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
     udp: true
     tls: true
-    sni: www.calmlunch.com
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Kian-f8c73412d1
-    server: 5.181.187.58
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -73,7 +57,6 @@ proxy-groups:
       - 4Mohsen-0bfca9fba8
       - 4Kian-3ffc99d01d
       - DeltaKroneckerGithub
-      - 4Kian-f8c73412d1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -85,6 +68,5 @@ proxy-groups:
       - 4Mohsen-0bfca9fba8
       - 4Kian-3ffc99d01d
       - DeltaKroneckerGithub
-      - 4Kian-f8c73412d1
 rules:
   - MATCH,Proxy

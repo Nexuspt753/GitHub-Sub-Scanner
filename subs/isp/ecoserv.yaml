@@ -1,7 +1,7 @@
 proxies:
   - type: vless
-    name: 4Kian-642b4004c6
-    server: 128.204.223.94
+    name: DeltaKroneckerGithub
+    server: support.zoom.us.beichuan.serv00.net
     port: 9815
     uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
     udp: true
@@ -11,18 +11,34 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: support.zoom.us.beichuan.serv00.net
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: beichuan.serv00.net
+    port: 9815
+    uuid: 37a0bd7c-8b9f-4693-8916-bd1e2da0a817
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: beichuan.serv00.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-642b4004c6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-642b4004c6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

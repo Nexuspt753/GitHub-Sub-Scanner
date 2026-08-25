@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-149be0ddd0
+    server: 5.129.235.85
+    port: 443
+    password: gf1:gfhysteria2024
+    sni: www.linux.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-149be0ddd0
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-149be0ddd0
+rules:
+  - MATCH,Proxy

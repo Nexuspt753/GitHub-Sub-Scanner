@@ -1,22 +1,40 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 185.178.208.140
+    server: chat.dev.fosonmine.site
     port: 443
-    uuid: 1c5803f0-9670-49bd-b9bf-830b4014064c
+    uuid: a2ec6ed8-ef05-4fa9-b6c5-aec54186f89a
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: firefox
     alpn:
-      - h3
-      - h2
-    servername: cdn.sywl2live.us
+      - http/1.1
+    servername: chat.dev.fosonmine.site
     xudp: true
     network: ws
     ws-opts:
-      path: /content/cdn1499/socket
+      path: /api/client/realtime/sync
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: chat.dev.fosonmine.site
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.178.208.140
+    port: 443
+    uuid: a2ec6ed8-ef05-4fa9-b6c5-aec54186f89a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: chat.dev.fosonmine.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/client/realtime/sync
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: chat.dev.fosonmine.site
   - type: vless
     name: EPODONIOS
     server: 95.129.236.252
@@ -48,10 +66,27 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4FreeIran-1bb0fda2f2
+    name: 4Mohsen-a38a76451f
+    server: 185.178.208.140
+    port: 443
+    uuid: 5482f562-226e-4d2b-97c6-519d5188883c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: mapgasstation.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/live/hls/segment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-5d8d2271e4
     server: 185.178.208.176
     port: 443
-    uuid: 979c14ed-b489-4a80-b102-a1f2b6f883b2
+    uuid: 67b699c1-e445-41b2-a596-560fc7da3144
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -66,6 +101,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: founders-blog.online
+  - type: vless
+    name: 4Nika-0a482eb9c0
+    server: 185.178.208.176
+    port: 443
+    uuid: 76a8e474-179e-428e-a761-abfde0c09b19
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: founders-blog.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: founders-blog.online
+  - type: vless
+    name: 4Mohsen-b66a7367f9
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Jadi-816260e5e9
     server: 185.178.208.140
@@ -85,10 +154,27 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cloud.dev.fosonmine.site
   - type: vless
-    name: 4Mohsen-0865a95de0
+    name: 4Jadi-80e8df539b
+    server: 185.178.208.140
+    port: 443
+    uuid: d31f46d7-4d07-4ff2-a94d-25a969f42a27
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: mapgasstation.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/live/hls/segment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-e694b60e43
     server: 95.129.236.216
     port: 443
-    uuid: da218b8b-1656-43d8-87f2-87f8e5391c67
+    uuid: f1c450db-cf4b-4ed5-9c3c-c50918243341
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -108,11 +194,16 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - 🇷🇺139881
-      - 4FreeIran-1bb0fda2f2
+      - 4Mohsen-a38a76451f
+      - 4Jadi-5d8d2271e4
+      - 4Nika-0a482eb9c0
+      - 4Mohsen-b66a7367f9
       - 4Jadi-816260e5e9
-      - 4Mohsen-0865a95de0
+      - 4Jadi-80e8df539b
+      - 4Kian-e694b60e43
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -120,10 +211,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - 🇷🇺139881
-      - 4FreeIran-1bb0fda2f2
+      - 4Mohsen-a38a76451f
+      - 4Jadi-5d8d2271e4
+      - 4Nika-0a482eb9c0
+      - 4Mohsen-b66a7367f9
       - 4Jadi-816260e5e9
-      - 4Mohsen-0865a95de0
+      - 4Jadi-80e8df539b
+      - 4Kian-e694b60e43
 rules:
   - MATCH,Proxy

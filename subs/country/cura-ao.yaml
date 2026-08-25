@@ -1,0 +1,89 @@
+proxies:
+  - type: vless
+    name: Willemstad · @DeltaKroneckerGithub
+    server: 5.10.246.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime05.workers.dev
+  - type: vless
+    name: Willemstad · EPODONIOS
+    server: 5.10.247.142
+    port: 2087
+    uuid: probabblynot-ch
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: probabblynot.fazelextremeisreal.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@probabblynot
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: probabblynot.fazelextremeisreal.com
+  - type: vless
+    name: Willemstad · @probabblynot-mci2
+    server: 5.10.247.142
+    port: 2087
+    uuid: probabblynot-ch
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: probabblynot.fazelextremeisreal.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@probabblynot
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: probabblynot.fazelextremeisreal.com
+  - type: vless
+    name: Willemstad · 4Jadi-216bae7378
+    server: 5.10.247.142
+    port: 2087
+    uuid: probabblynot-ch
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: probabblynot.fazelextremeisreal.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@probabblynot
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: probabblynot.fazelextremeisreal.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Willemstad · @DeltaKroneckerGithub
+      - Willemstad · EPODONIOS
+      - Willemstad · @probabblynot-mci2
+      - Willemstad · 4Jadi-216bae7378
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Willemstad · @DeltaKroneckerGithub
+      - Willemstad · EPODONIOS
+      - Willemstad · @probabblynot-mci2
+      - Willemstad · 4Jadi-216bae7378
+rules:
+  - MATCH,Proxy

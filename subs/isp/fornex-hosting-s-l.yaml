@@ -1,5 +1,60 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: pl.node.ghostsyvpn.org
+    port: 443
+    uuid: 026ee970-e645-4062-899a-383d75767b48
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: pl.node.ghostsyvpn.org
+    reality-opts:
+      public-key: 03MJy26A8kc5c8aMMdkY3s_CX3qiw0eTmjrc3UCBLm0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: nl.monkeyvillage.pro
+    port: 443
+    uuid: 63b1d3af-d214-418c-9b9d-e4d31434a805
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl.monkeyvillage.pro
+    reality-opts:
+      public-key: Q7-sRiaAcmlJ_iwqiA46kDKso_r2kJ7X1mrVjL2illo
+      short-id: f3022c3cce210a53
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 2.58.66.76
+    port: 443
+    uuid: 026ee970-e645-4062-899a-383d75767b48
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl.node.ghostsyvpn.org
+    reality-opts:
+      public-key: 03MJy26A8kc5c8aMMdkY3s_CX3qiw0eTmjrc3UCBLm0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 2.58.66.76
+    port: 8443
+    uuid: 026ee970-e645-4062-899a-383d75767b48
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl.node.ghostsyvpn.org
+    reality-opts:
+      public-key: TFdwG8CeXXuQCAjT938e8gJtp84haHJilvGXxB0l6nQ
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 194.154.30.154
     port: 443
@@ -16,7 +71,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
   - type: vless
-    name: bored_vpn
+    name: DeltaKroneckerGithub-04
+    server: pl.node.ghostsyvpn.org
+    port: 8443
+    uuid: 026ee970-e645-4062-899a-383d75767b48
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl.node.ghostsyvpn.org
+    reality-opts:
+      public-key: TFdwG8CeXXuQCAjT938e8gJtp84haHJilvGXxB0l6nQ
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-9362ef1aea
     server: 194.154.30.154
     port: 443
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -36,15 +106,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
-      - bored_vpn
+      - DeltaKroneckerGithub-04
+      - 4FreeIran-9362ef1aea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
-      - bored_vpn
+      - DeltaKroneckerGithub-04
+      - 4FreeIran-9362ef1aea
 rules:
   - MATCH,Proxy

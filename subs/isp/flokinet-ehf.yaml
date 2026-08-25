@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.246.191.135
+    port: 2053
+    uuid: 203c2146-6620-4a5e-836c-7af5c75c9325
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.intel.com
+    reality-opts:
+      public-key: 7zv-3bWzr0wwe4vy1Z_35V-cLXjH07cSRuOw8tcX4wk
+      short-id: 9c
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,38 +1,23 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-755ae4c8c7
-    server: cdn-api.mrmtn.xyz
-    port: 2020
-    uuid: 29c4a3bd-9d8c-4ac3-b279-8b201560c227
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: paly.comalfa.kingsizeh.dpdns.org
+    port: 2029
+    uuid: 2b76d5ba-e8f5-49cd-b5cb-03a1884964d0
     udp: true
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4FreeIran-a9097e14ec
-    server: cdn-api.mrmtn.xyz
-    port: 2020
-    uuid: 29c4a3bd-9d8c-4ac3-b279-8b201560c227
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-755ae4c8c7
-      - 4FreeIran-a9097e14ec
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-755ae4c8c7
-      - 4FreeIran-a9097e14ec
+      - EPODONIOS
 rules:
   - MATCH,Proxy

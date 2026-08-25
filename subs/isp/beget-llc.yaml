@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: 4Sarina-d9297328b6
-    server: 85.198.70.200
-    port: 14406
-    uuid: 237f91bf-102e-4077-8cc3-baebccb42936
+    name: DeltaKroneckerGithub
+    server: rf3.helper-internet.com
+    port: 443
+    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
     udp: true
     tls: true
-    client-fingerprint: edge
-    servername: vk.ru
+    client-fingerprint: firefox
+    servername: rf3.helper-internet.com
     reality-opts:
-      public-key: ldAmsl3dqTCUBmlmA8CS9ZnpznP6cFWj9AxNddWnbxY
-      short-id: 1a2b3c4d5e6f7a8b
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 85.198.65.78
+    port: 443
+    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rf3.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -31,7 +45,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-d9297328b6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-bffffd50a5
   - name: Auto
     type: url-test
@@ -39,7 +54,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d9297328b6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-bffffd50a5
 rules:
   - MATCH,Proxy

@@ -1,0 +1,122 @@
+proxies:
+  - type: vmess
+    name: 4Mohsen-90c4fb059c
+    server: cindy50.ceoiii.com
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Sarina-ca314eb470
+    server: cindy50.ceoiii.com
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Jadi-38bd492ddf
+    server: cindy50.ceoiii.com
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Nika-d412a7b1a1
+    server: cindy50.ceoiii.com
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Sarina-f048ae380b
+    server: cindy50.ceoiii.com
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Jadi-b5d0d3a591
+    server: cindy50.ceoiii.com
+    port: 36801
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-90c4fb059c
+      - 4Sarina-ca314eb470
+      - 4Jadi-38bd492ddf
+      - 4Nika-d412a7b1a1
+      - 4Sarina-f048ae380b
+      - 4Jadi-b5d0d3a591
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-90c4fb059c
+      - 4Sarina-ca314eb470
+      - 4Jadi-38bd492ddf
+      - 4Nika-d412a7b1a1
+      - 4Sarina-f048ae380b
+      - 4Jadi-b5d0d3a591
+rules:
+  - MATCH,Proxy

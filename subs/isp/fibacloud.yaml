@@ -16,13 +16,33 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: plan.tabrizonlinemaku.ir
   - type: vless
-    name: v2ray313
+    name: DeltaKroneckerGithub
     server: plan.tabrizonlinemaku.ir
     port: 443
     uuid: 133f016d-81ad-4ed3-8fe1-e431a4134dca
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: plan.tabrizonlinemaku.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: plan.tabrizonlinemaku.ir
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 155.103.69.93
+    port: 443
+    uuid: 133f016d-81ad-4ed3-8fe1-e431a4134dca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
     servername: plan.tabrizonlinemaku.ir
     xudp: true
     network: ws
@@ -53,7 +73,8 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
-      - v2ray313
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-db4cf153c6
   - name: Auto
     type: url-test
@@ -62,7 +83,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - v2ray313
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-db4cf153c6
 rules:
   - MATCH,Proxy

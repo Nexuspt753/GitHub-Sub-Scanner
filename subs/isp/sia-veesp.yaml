@@ -1,5 +1,34 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 62.182.196.57
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: swa.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.43.76.227
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
+  - type: vless
     name: EPODONIOS
     server: swa.mythos-wargame.fun
     port: 443
@@ -39,6 +68,32 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: DeltaKroneckerGithub-02
+    server: swa.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: swa.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: lta.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: lta.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-2d2820c3d7
     server: swa.mythos-wargame.fun
     port: 443
@@ -68,9 +123,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - 🇸🇪151659
       - 🇸🇪SE-🚀@VPNine1
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Jadi-2d2820c3d7
       - 4FreeIran-5a2fa95a02
   - name: Auto
@@ -79,9 +138,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - 🇸🇪151659
       - 🇸🇪SE-🚀@VPNine1
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Jadi-2d2820c3d7
       - 4FreeIran-5a2fa95a02
 rules:

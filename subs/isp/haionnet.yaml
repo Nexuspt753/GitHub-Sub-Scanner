@@ -1,0 +1,32 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 49.254.204.133
+    port: 1774
+    cipher: aes-256-cfb
+    password: 1234!@#$
+    udp: true
+  - type: ss
+    name: ss
+    server: 49.254.204.133
+    port: 1774
+    cipher: aes-256-cfb
+    password: 1234!@#$
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - ss
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - ss
+rules:
+  - MATCH,Proxy

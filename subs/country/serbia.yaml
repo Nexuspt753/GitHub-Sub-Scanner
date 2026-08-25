@@ -6,12 +6,29 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: XF0klw7870vXn3uQIxe19Q
     udp: true
+  - type: vless
+    name: Belgrade · @DeltaKroneckerGithub
+    server: 185.48.250.138
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Belgrade · 4Jadi-57c31e99b9
+      - Belgrade · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +36,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Belgrade · 4Jadi-57c31e99b9
+      - Belgrade · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

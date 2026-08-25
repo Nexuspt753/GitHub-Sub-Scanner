@@ -1,15 +1,78 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 185.155.222.61
-    port: 443
-    uuid: 8e85752d-c04f-427d-9d70-b10d144c8492
+    server: est.riotvpn.eu
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: jobs.vkimages.io
+    reality-opts:
+      public-key: sgFFdQvfeujBKh6g7N7klU_u0mKYlr800MFbko5FzUg
+      short-id: e67fb918ed6b9ffb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.155.222.71
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: ee.convert-cloud.guru
+    servername: jobs.vkimages.io
     reality-opts:
-      public-key: 9kQGK7IuVFWU9xCb4g9ygL1CEv87QmVZJzWLz74pTSc
+      public-key: sgFFdQvfeujBKh6g7N7klU_u0mKYlr800MFbko5FzUg
+      short-id: e67fb918ed6b9ffb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: est.riotvpn.eu
+    port: 9443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: static.vkimages.io
+    reality-opts:
+      public-key: 8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho
+      short-id: b76dcf9e1183fe1b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 185.155.222.75
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: jobs.vkimages.io
+    reality-opts:
+      public-key: sgFFdQvfeujBKh6g7N7klU_u0mKYlr800MFbko5FzUg
+      short-id: e67fb918ed6b9ffb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 185.155.222.75
+    port: 9443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.vkimages.io
+    reality-opts:
+      public-key: 8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho
+      short-id: b76dcf9e1183fe1b
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,6 +81,10 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +92,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy

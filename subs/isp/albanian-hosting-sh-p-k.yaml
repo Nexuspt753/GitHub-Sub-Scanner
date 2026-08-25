@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: gimba.shhflow.xyz
+    port: 443
+    uuid: 2f919a1e-f00e-4538-b0a9-cf190721d578
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gimba.shhflow.xyz
+    reality-opts:
+      public-key: JceeRYV6A6gZp0wyPP6ddvwOUGlOYpCzNiw47KeFn0k
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.136.12.28
+    port: 443
+    uuid: 2f919a1e-f00e-4538-b0a9-cf190721d578
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gimba.shhflow.xyz
+    reality-opts:
+      public-key: JceeRYV6A6gZp0wyPP6ddvwOUGlOYpCzNiw47KeFn0k
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-6f7701bba1
     server: deu196.unboundaccess.org
     port: 443
@@ -17,6 +43,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-6f7701bba1
   - name: Auto
     type: url-test
@@ -24,6 +52,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-6f7701bba1
 rules:
   - MATCH,Proxy
