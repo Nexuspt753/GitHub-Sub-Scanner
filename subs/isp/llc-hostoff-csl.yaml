@@ -1,46 +1,59 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 2.27.57.154
-    port: 110
-    uuid: 0a11d3b4-682c-4bfb-afb0-820b8285cb4b
+    name: EPODONIOS
+    server: plb.webinarly.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ubuntu.com
-    reality-opts:
-      public-key: 6LSBBaOUWujvSovACjcP7m-DI9u9R584qdJxNYnu-24
-      short-id: 513ba6a361f14cbe
-    flow: xtls-rprx-vision
+    servername: plb.webinarly.fun
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 2.27.57.154
-    port: 995
-    uuid: 0a11d3b4-682c-4bfb-afb0-820b8285cb4b
+    name: hex_proxy
+    server: plb.webinarly.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ubuntu.com
-    reality-opts:
-      public-key: 6LSBBaOUWujvSovACjcP7m-DI9u9R584qdJxNYnu-24
-      short-id: 93e1b426caffbf75
-    flow: xtls-rprx-vision
+    servername: plb.webinarly.fun
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-5fa4fd5778
+    server: 13.143.139.174
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: plb.webinarly.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - hex_proxy
+      - 4Mohsen-5fa4fd5778
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - hex_proxy
+      - 4Mohsen-5fa4fd5778
 rules:
   - MATCH,Proxy

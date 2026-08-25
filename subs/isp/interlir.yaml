@@ -14,6 +14,19 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: dea.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: dea.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 13.143.176.128
     port: 443
     uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
@@ -25,6 +38,19 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-104ca88c3e
+    server: dea.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dea.mythos-wargame.fun
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -32,6 +58,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Kian-104ca88c3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,5 +68,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Kian-104ca88c3e
 rules:
   - MATCH,Proxy

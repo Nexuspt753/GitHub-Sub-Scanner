@@ -1,32 +1,40 @@
 proxies:
   - type: vless
-    name: 4FreeIran-07644da4cd
-    server: 185.229.9.31
-    port: 49175
-    uuid: 8054a79c-b602-48b6-9d54-702d713a2185
+    name: 4Jadi-33f808294d
+    server: 185.229.9.235
+    port: 49049
+    uuid: 5d362ec8-559e-4538-9e92-e091b4e3f935
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: max.ru
     reality-opts:
-      public-key: xnWGzgAkUvHwQ7iDHFhkgyRUmBL1VV-H-F1rfll48BI
-      short-id: a1b2c3d4
+      public-key: MobFN6snpaF7EcuVxJwYUnBaF8ZCxg8c2tKN6KuPQhs
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-9935ea42f1
+    server: 185.229.9.235
+    port: 49049
+    uuid: 5d362ec8-559e-4538-9e92-e091b4e3f935
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    reality-opts:
+      public-key: MobFN6snpaF7EcuVxJwYUnBaF8ZCxg8c2tKN6KuPQhs
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-07644da4cd
+      - 4Jadi-33f808294d
+      - 4Sarina-9935ea42f1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-07644da4cd
+      - 4Jadi-33f808294d
+      - 4Sarina-9935ea42f1
 rules:
   - MATCH,Proxy

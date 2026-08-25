@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 🇷🇺RU-🚀@VPNine1
+    server: ad-1.yandex-cloud.org
+    port: 443
+    uuid: bf33c47c-9f3d-4307-b999-6adfad61ab3c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ad-1.yandex-cloud.org
+    reality-opts:
+      public-key: IuvAXlAWBpeXehmEk0P-FIGTctUhny2H3UilbWWfJC0
+      short-id: 122218f4c1f172e4
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇷🇺RU-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇷🇺RU-🚀@VPNine1
+rules:
+  - MATCH,Proxy
