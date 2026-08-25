@@ -1,0 +1,65 @@
+proxies:
+  - type: vless
+    name: Hope_Net-join-us-on-Telegram
+    server: 158.224.83.164
+    port: 443
+    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kkh.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?proxyip
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: "[28546]"
+    server: 158.224.83.164
+    port: 443
+    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kkh.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?proxyip
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: کانال
+    server: 158.224.83.164
+    port: 443
+    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kkh.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?proxyip
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Hope_Net-join-us-on-Telegram
+      - "[28546]"
+      - کانال
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Hope_Net-join-us-on-Telegram
+      - "[28546]"
+      - کانال
+rules:
+  - MATCH,Proxy

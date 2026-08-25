@@ -1,43 +1,32 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
+    udp: true
+  - type: ss
     name: DeltaKroneckerGithub
     server: 89.125.33.16
     port: 1234
     cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpaM2JZYVdmZ0ZvOEstLVI0WlROTFJ3QnZhSkxVeW9VZQ%3D%3D
     password: ""
     udp: true
-  - type: vless
-    name: 4Sarina-443296ac42
-    server: 194.58.41.39
-    port: 443
-    uuid: 8c105407-82fb-4dd1-8df4-916d34a7d3fe
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.google.com
-    reality-opts:
-      public-key: sJTPQLMDCyPAbRcaJM-P8Y3_xRVpEEGrvv-kkIuIuQE
-    xudp: true
-    network: http
-    http-opts:
-      path:
-        - /
-      headers:
-        Host: www.google.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-443296ac42
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-443296ac42
 rules:
   - MATCH,Proxy

@@ -1,6 +1,27 @@
 proxies:
   - type: trojan
+    name: 4Nika-ab4e651797
+    server: 108.61.171.167
+    port: 443
+    password: mainssh-niwrhf87
+    udp: true
+    tls: true
+    sni: getgrpc.mainssh.xyz
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
     name: DeltaKroneckerGithub
+    server: 45.32.57.242
+    port: 27242
+    password: i99Cef
+    udp: true
+    tls: true
+    sni: download.windowsupdate.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.76.60.234
     port: 443
     password: Bw5Mz7QkVp
@@ -10,28 +31,12 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 45.32.129.84
-    port: 28443
-    password: 16ae55f9-6b9e-4e57-b494-7e0bba25bf3a
-    udp: true
-    tls: true
-    sni: vpn-node.internal
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /xVpnTrojanWsSvc7f3a
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vpn-node.internal
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-ab4e651797
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
   - name: Auto
@@ -40,6 +45,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-ab4e651797
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
 rules:

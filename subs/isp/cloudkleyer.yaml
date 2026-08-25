@@ -12,39 +12,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime51.workers.dev
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.80.110.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime51.workers.dev
-  - type: vless
-    name: 4FreeIran-897a689ce2
-    server: 45.80.110.201
-    port: 80
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: Twitterfreecodes
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-897a689ce2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -52,7 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-897a689ce2
 rules:
   - MATCH,Proxy

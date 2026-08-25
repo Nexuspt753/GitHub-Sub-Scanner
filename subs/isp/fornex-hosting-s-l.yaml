@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 103.228.168.182
+    port: 443
+    uuid: 0977bddb-a758-4033-96dd-57468e02ea81
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4qrnyf6s.5e6pmte8uw52n5ymvwx8.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /photos/register
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 4qrnyf6s.5e6pmte8uw52n5ymvwx8.workers.dev
+  - type: vless
     name: 🇩🇪
     server: 103.228.168.182
     port: 443
@@ -30,7 +46,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 194.154.30.154
     port: 443
     uuid: c7e9c591-2764-423a-afca-efbd010fd396
@@ -46,57 +62,41 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: forfreeuse.rtqa.ru
   - type: vless
-    name: bored_vpn
-    server: 194.154.30.154
+    name: 4Mohsen-c32367cb3a
+    server: 103.228.168.182
     port: 443
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    uuid: 0977bddb-a758-4033-96dd-57468e02ea81
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
+    servername: 4qrnyf6s.5e6pmte8uw52n5ymvwx8.workers.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /photos/register
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
-  - type: vless
-    name: 4FreeIran-9362ef1aea
-    server: 194.154.30.154
-    port: 443
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
+        Host: 4qrnyf6s.5e6pmte8uw52n5ymvwx8.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇩🇪
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - bored_vpn
-      - 4FreeIran-9362ef1aea
+      - EPODONIOS-01
+      - 4Mohsen-c32367cb3a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇩🇪
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - bored_vpn
-      - 4FreeIran-9362ef1aea
+      - EPODONIOS-01
+      - 4Mohsen-c32367cb3a
 rules:
   - MATCH,Proxy

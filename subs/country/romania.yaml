@@ -14,19 +14,40 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: ss
-    name: Voluntari · 🇷🇴
+    name: Voluntari · EPODONIOS
     server: 154.46.31.106
     port: 443
     cipher: chacha20-ietf-poly1305
     password: QFWzCw2uX9B9i6qAYeFBIE
     udp: true
+  - type: ss
+    name: Voluntari · EPODONIOS-01
+    server: bogging-eyeteeth-fly.freesocks.work
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: QFWzCw2uX9B9i6qAYeFBIE
+    udp: true
+  - type: vless
+    name: Bucharest · vless
+    server: ro.shanseto.com
+    port: 443
+    uuid: dd74ce5e-7ba0-4297-9fef-e9625c075f73
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Bucharest · @DeltaKroneckerGithub
-      - Voluntari · 🇷🇴
+      - Voluntari · EPODONIOS
+      - Voluntari · EPODONIOS-01
+      - Bucharest · vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -34,6 +55,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Bucharest · @DeltaKroneckerGithub
-      - Voluntari · 🇷🇴
+      - Voluntari · EPODONIOS
+      - Voluntari · EPODONIOS-01
+      - Bucharest · vless
 rules:
   - MATCH,Proxy
