@@ -1,36 +1,6 @@
 proxies:
   - type: vmess
-    name: 4Jadi-f5bbf8b537
-    server: markovps.iransazentworkteh.top
-    port: 2082
-    uuid: 20f3d76e-5ecd-4dd0-8039-cbf690184cf8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: 4Sarina-406ef6f8c8
-    server: s10.tiiizshop.com
-    port: 2082
-    uuid: 5aa3424e-b5c5-460c-bbf1-d6f6169d30f5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4FreeIran-4ae30968c8
     server: s10.tiiizshop.com
     port: 2082
     uuid: 5aa3424e-b5c5-460c-bbf1-d6f6169d30f5
@@ -58,24 +28,68 @@ proxies:
     servername: s3.megaping.casa
     alpn:
       - http/1.1
+  - type: vmess
+    name: 4FreeIran-b9b2752a64
+    server: s3.megaping.casa
+    port: 2082
+    uuid: 13188d38-4aa1-4071-86b9-a246193e5d69
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: s3.megaping.casa
+  - type: vmess
+    name: 4Jadi-30cf080784
+    server: s7.tiiizshop.com
+    port: 8880
+    uuid: bc7c3ef8-e853-469c-8feb-6b2d88576957
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Jadi-b79aa8c5ff
+    server: s7.tiiizshop.com
+    port: 8880
+    uuid: bc7c3ef8-e853-469c-8feb-6b2d88576957
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-f5bbf8b537
       - 4Sarina-406ef6f8c8
-      - 4FreeIran-4ae30968c8
       - 4Nika-9dff8d2dd2
+      - 4FreeIran-b9b2752a64
+      - 4Jadi-30cf080784
+      - 4Jadi-b79aa8c5ff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-f5bbf8b537
       - 4Sarina-406ef6f8c8
-      - 4FreeIran-4ae30968c8
       - 4Nika-9dff8d2dd2
+      - 4FreeIran-b9b2752a64
+      - 4Jadi-30cf080784
+      - 4Jadi-b79aa8c5ff
 rules:
   - MATCH,Proxy

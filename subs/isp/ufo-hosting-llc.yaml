@@ -1,34 +1,47 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-5c6d21d57c
-    server: 171.22.134.12
+  - type: vless
+    name: 4Kian-5e9915ea35
+    server: 45.150.64.157
     port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
+    client-fingerprint: qq
+    servername: alb1.abvpn.ru
+    xudp: true
     network: ws
     ws-opts:
-      path: /path/1689849487190
+      path: /websocket
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4FreeIran-91eab99662
-    server: 171.22.134.12
+  - type: vless
+    name: 4Nika-129ca05120
+    server: 45.150.64.157
     port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
+    client-fingerprint: chrome
+    servername: alb1.abvpn.ru
+    xudp: true
     network: ws
     ws-opts:
-      path: /path/1689935243027
+      path: /websocketfp=qq
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-cb2f4bd798
+    server: alb1.abvpn.ru
+    port: 443
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: alb1.abvpn.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocketfp=qq
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
@@ -36,15 +49,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-5c6d21d57c
-      - 4FreeIran-91eab99662
+      - 4Kian-5e9915ea35
+      - 4Nika-129ca05120
+      - 4Jadi-cb2f4bd798
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-5c6d21d57c
-      - 4FreeIran-91eab99662
+      - 4Kian-5e9915ea35
+      - 4Nika-129ca05120
+      - 4Jadi-cb2f4bd798
 rules:
   - MATCH,Proxy

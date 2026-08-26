@@ -19,6 +19,15 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 217.217.222.230
+    port: 20004
+    password: ba07a8af-5544-48ac-ab62-3b6c00a44fa6
+    udp: true
+    tls: true
+    sni: hk.catxstar.com
+    client-fingerprint: android
 proxy-groups:
   - name: Proxy
     type: select
@@ -26,6 +35,7 @@ proxy-groups:
       - Auto
       - 4Jadi-1c0e593133
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -34,5 +44,6 @@ proxy-groups:
     proxies:
       - 4Jadi-1c0e593133
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

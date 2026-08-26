@@ -11,29 +11,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: ">>@oneclickvpnkeys::PL"
-    server: 2.26.255.36
-    port: 8443
-    uuid: 8787dd0a-095a-414e-804f-a7d16a1ae166
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: po1.hys.braidx.tech
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-ba03012840
-    server: 2.26.255.36
-    port: 8443
-    uuid: 8787dd0a-095a-414e-804f-a7d16a1ae166
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: po1.hys.braidx.tech
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-5190273599
+    name: EPODONIOS
     server: 94.125.102.52
     port: 443
     uuid: e258977b-e413-4718-a3af-02d75492c349
@@ -50,15 +28,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ww1.aniuge.qzz.io
+  - type: vless
+    name: 🇵🇱
+    server: 94.125.102.52
+    port: 443
+    uuid: e258977b-e413-4718-a3af-02d75492c349
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: ww1.aniuge.qzz.io
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ww1.aniuge.qzz.io
+  - type: vless
+    name: 4Sarina-ba03012840
+    server: 2.26.255.36
+    port: 8443
+    uuid: 8787dd0a-095a-414e-804f-a7d16a1ae166
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: po1.hys.braidx.tech
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - ">>@oneclickvpnkeys::PL"
+      - EPODONIOS
+      - 🇵🇱
       - 4Sarina-ba03012840
-      - 4Mohsen-5190273599
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,8 +73,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - ">>@oneclickvpnkeys::PL"
+      - EPODONIOS
+      - 🇵🇱
       - 4Sarina-ba03012840
-      - 4Mohsen-5190273599
 rules:
   - MATCH,Proxy

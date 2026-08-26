@@ -8,31 +8,12 @@ proxies:
     tls: true
     sni: sto.freeguard.org
     client-fingerprint: chrome
-  - type: vless
-    name: 4Nika-2b4f58b579
-    server: 113.30.191.181
-    port: 443
-    uuid: c20c6ab3-0495-48e3-bf01-77144b2a89c1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: jacbgoff.davdlpck1znnhvqh64hl.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ranking/help/downloads?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jacbgoff.davdlpck1znnhvqh64hl.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-2b4f58b579
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-2b4f58b579
 rules:
   - MATCH,Proxy

@@ -1,23 +1,50 @@
 proxies:
   - type: hysteria2
+    name: 4Nika-20861cb96b
+    server: 2.26.26.164
+    port: 1935
+    password: hysteria2_fastlane_04ng96ah3:nqZabliS7TcydBDDKid682NfoWQxVzkM
+    sni: de9.h.fastlanehosting.ru
+    skip-cert-verify: false
+  - type: hysteria2
     name: 4Mohsen-bba9db03c7
     server: 2.26.26.164
     port: 443
     password: hysteria2_fastlane_04ng96ah3
     sni: de9.h.fastlanehosting.ru
     skip-cert-verify: false
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 144.31.135.38
+    port: 9444
+    uuid: 01c96414-9fcd-4f79-9274-2c8d8045e48d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-20861cb96b
       - 4Mohsen-bba9db03c7
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-20861cb96b
       - 4Mohsen-bba9db03c7
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
