@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 79.174.92.85
-    port: 6443
-    uuid: d34a3c99-5ea8-488b-8df4-a20af43b740b
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: iv.kommersant.ru
-    reality-opts:
-      public-key: lU1yF2A1b0lM9DZbXWPpLfoU7_KQpXOYX0NFrPEIJy8
-      short-id: bad5722c72a0
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: EPODONIOS
     server: 79.174.92.85
     port: 6443
@@ -48,39 +32,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Channel
-    server: 79.174.92.85
-    port: 6443
-    uuid: d34a3c99-5ea8-488b-8df4-a20af43b740b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: iv.kommersant.ru
-    reality-opts:
-      public-key: lU1yF2A1b0lM9DZbXWPpLfoU7_KQpXOYX0NFrPEIJy8
-      short-id: bad5722c72a0
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Jadi-f00677d377
-    server: 79.174.92.85
-    port: 6443
-    uuid: d34a3c99-5ea8-488b-8df4-a20af43b740b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: iv.kommersant.ru
-    reality-opts:
-      public-key: lU1yF2A1b0lM9DZbXWPpLfoU7_KQpXOYX0NFrPEIJy8
-      short-id: bad5722c72a0
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-bfae240679
     server: 79.174.92.85
     port: 6443
     uuid: d34a3c99-5ea8-488b-8df4-a20af43b740b
@@ -100,23 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - Napsternetvirani
-      - Channel
       - 4Jadi-f00677d377
-      - 4Sarina-bfae240679
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - Napsternetvirani
-      - Channel
       - 4Jadi-f00677d377
-      - 4Sarina-bfae240679
 rules:
   - MATCH,Proxy

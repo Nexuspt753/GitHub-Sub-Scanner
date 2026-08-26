@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Kian-54b306ec57
+    server: api.ferrin.uk
+    port: 443
+    uuid: 7402b3a6-9493-4277-b988-5ce9ba09791e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 7402b3a6.ferrin.uk
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-54b306ec57
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-54b306ec57
+rules:
+  - MATCH,Proxy

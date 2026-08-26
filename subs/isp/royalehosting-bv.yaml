@@ -1,32 +1,34 @@
 proxies:
   - type: vless
-    name: tootffarangi🍓-3
-    server: nl-grpc.letsconnectpoint.com
+    name: DeltaKroneckerGithub
+    server: holland.fqrrqfevk.top
     port: 443
-    uuid: a368752a-32fc-42f3-980a-6b049218b23f
+    uuid: 6ed49e74-b33b-46af-9b79-ef5e1429bfdf
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: nl-grpc.letsconnectpoint.com
-    reality-opts:
-      public-key: WJrP73M7px11xkHKhmEMKnaqUR-DPZnKbR2m_N3TwEE
-      short-id: 724d6cab
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: holland.fqrrqfevk.top
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /jSkSOxcaWoPMMU6Mp
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: holland.fqrrqfevk.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - tootffarangi🍓-3
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - tootffarangi🍓-3
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

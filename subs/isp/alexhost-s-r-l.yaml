@@ -6,12 +6,24 @@ proxies:
     password: 95e8532b-cc69-42d4-9553-e3c23292b15b
     sni: iq5ny.pleiades.codes
     skip-cert-verify: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: france.metricpipe.space
+    port: 9443
+    password: 4LR1nTjdxRQs2JGmzJnsRefgqQUYFEfo
+    udp: true
+    tls: true
+    sni: france.metricpipe.space
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-d8c3ab5368
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-d8c3ab5368
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: 4Kian-29db45928d
-    server: 91.147.92.153
+    name: DeltaKroneckerGithub
+    server: kz2.freeinternat.com
     port: 443
-    uuid: c80bbc09-837d-495f-bebc-3e8ac5dede41
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: hls-svod.itunes.apple.com
+    client-fingerprint: random
+    servername: kz2.freeinternat.com
     reality-opts:
-      public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
-      short-id: f79448a30d
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 195.49.215.98
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: kz2.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-29db45928d
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-29db45928d
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

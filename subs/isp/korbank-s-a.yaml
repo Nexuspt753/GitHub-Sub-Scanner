@@ -1,41 +1,54 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 83.168.91.69
-    port: 9443
-    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    server: 83.168.111.66
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: static.vkimages.io
+    servername: www.cloudflare.com
     reality-opts:
-      public-key: 8h8t5eBWL9oERK7xWHQLFJE5j6sZdgNDQAs3EGnNbho
-      short-id: b76dcf9e1183fe1b
+      public-key: QdGXMBWibJZdfDmDk3YcCMxNPd0yd_CkHAOt2yDYJCE
+      short-id: 97ac193c0962477c
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 83.168.91.69
-    port: 8443
-    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    name: کانال
+    server: 83.168.111.61
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: static.vkimages.io
+    client-fingerprint: chrome
+    servername: pol4.freeinternat.com
     reality-opts:
-      public-key: sgFFdQvfeujBKh6g7N7klU_u0mKYlr800MFbko5FzUg
-      short-id: e67fb918ed6b9ffb
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: 🇵🇱152557
+    server: 83.168.111.61
+    port: 443
+    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pol4.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - کانال
+      - 🇵🇱152557
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,6 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - کانال
+      - 🇵🇱152557
 rules:
   - MATCH,Proxy

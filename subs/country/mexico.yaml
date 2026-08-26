@@ -15,19 +15,29 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: Mexico City · @DeltaKroneckerGithub-01
-    server: ul-mexico1.09vpn.com
+    server: 45.134.9.133
     port: 8443
     uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: ul-mexico1.09vpn.com
     xudp: true
     network: ws
     ws-opts:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ul-mexico1.09vpn.com
+  - type: vless
+    name: Querétaro City · @DeltaKroneckerGithub
+    server: 158.23.49.45
+    port: 8443
+    uuid: 2808bf00-f7af-4b8b-85cb-6bb5cfa4cba6
+    udp: true
+    tls: true
+    client-fingerprint: "360"
+    servername: mexicotrash.duckdns.org
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -35,6 +45,7 @@ proxy-groups:
       - Auto
       - Mexico City · @DeltaKroneckerGithub
       - Mexico City · @DeltaKroneckerGithub-01
+      - Querétaro City · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,5 +54,6 @@ proxy-groups:
     proxies:
       - Mexico City · @DeltaKroneckerGithub
       - Mexico City · @DeltaKroneckerGithub-01
+      - Querétaro City · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

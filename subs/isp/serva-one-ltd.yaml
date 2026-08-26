@@ -12,12 +12,27 @@ proxies:
       public-key: OZVjfQBboTDTBw0baMFqzVPsVUI4FNQmspTEb0b0zW4
       short-id: a1b2c3d4
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.158.127.162
+    port: 443
+    uuid: 179e80d4-2b51-466c-9e1d-9057db06a1c8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: free.us1.laodavip.com
+    reality-opts:
+      public-key: 7_vH7zeCpAuc82hRhpewmCB0TGnF6EPfn7HZb4lDNmQ
+      short-id: a38fa7e8c1844957
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

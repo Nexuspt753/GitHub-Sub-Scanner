@@ -14,6 +14,18 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 159.195.80.233
+    port: 449
+    uuid: becd3b04-62a8-4b74-be67-be746008b4c2
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: fastkanfig
     server: 159.195.27.99
     port: 443
@@ -28,8 +40,8 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 152.53.228.86
+    name: DeltaKroneckerGithub-01
+    server: 159.195.5.181
     port: 443
     password: "1234567890"
     udp: true
@@ -37,8 +49,8 @@ proxies:
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 159.195.5.181
+    name: DeltaKroneckerGithub-02
+    server: 152.53.228.86
     port: 443
     password: "1234567890"
     udp: true
@@ -73,31 +85,30 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-4a5c21e357
-    server: 159.195.242.180
-    port: 443
-    uuid: d900a139-8b5f-4758-8a32-389c6f36fc86
+    name: 4Kian-9efd934cd8
+    server: 159.195.80.233
+    port: 449
+    uuid: becd3b04-62a8-4b74-be67-be746008b4c2
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: at2.tsumshop.org
-    reality-opts:
-      public-key: tzOeyllk2VtPXZ_BJ2lOZcGtsnn41ZHBa9dE6s9sFiQ
-      short-id: c8c75aaf699259b4
-    flow: xtls-rprx-vision
     xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - fastkanfig
       - DeltaKroneckerGithub
+      - fastkanfig
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-3bebab0340
       - 4Mohsen-9417ed71bb
-      - 4Jadi-4a5c21e357
+      - 4Kian-9efd934cd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -105,11 +116,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - fastkanfig
       - DeltaKroneckerGithub
+      - fastkanfig
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-3bebab0340
       - 4Mohsen-9417ed71bb
-      - 4Jadi-4a5c21e357
+      - 4Kian-9efd934cd8
 rules:
   - MATCH,Proxy

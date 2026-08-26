@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 103.36.91.32
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+    udp: true
+  - type: ss
     name: 4Sarina-e2b21b1e6a
     server: 103.36.91.32
     port: 8388
@@ -7,7 +14,7 @@ proxies:
     password: asd123456
     udp: true
   - type: ss
-    name: 🇸🇬SG-103.36.91.32-0232
+    name: EPODONIOS-01
     server: 103.36.91.32
     port: 8388
     cipher: chacha20-ietf
@@ -18,15 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Sarina-e2b21b1e6a
-      - 🇸🇬SG-103.36.91.32-0232
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Sarina-e2b21b1e6a
-      - 🇸🇬SG-103.36.91.32-0232
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

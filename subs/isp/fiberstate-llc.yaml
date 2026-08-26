@@ -1,19 +1,24 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 38.58.180.136
-    port: 3116
-    uuid: 5efabea4-f6d4-91fd-b8f0-17e004c89c60
+  - type: vmess
+    name: EPODONIOS
+    server: us-23.hihu.net
+    port: 443
+    uuid: e9674560-9d1a-11f1-b333-205c6d5f5d78
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: us-23.hihu.net
     network: ws
     ws-opts:
-      path: "/@s5gydl "
+      path: /ayve3q7z
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: node67.lunes.host
+        Host: chatbuzzteam.ir
   - type: vmess
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: us-23.hihu.net
     port: 443
     uuid: e9674560-9d1a-11f1-b333-205c6d5f5d78
@@ -52,8 +57,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-8c8fb6e2cd
   - name: Auto
     type: url-test
@@ -61,8 +66,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-8c8fb6e2cd
 rules:
   - MATCH,Proxy
