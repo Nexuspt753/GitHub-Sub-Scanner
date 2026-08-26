@@ -1,13 +1,27 @@
 proxies:
   - type: ss
-    name: EPODONIOS
+    name: v2ray_phoenix
     server: 89.125.33.16
     port: 1234
     cipher: chacha20-ietf-poly1305
     password: 36-MSsmwqV497atZ2dngqyJegd2kT6gf
     udp: true
+  - type: vless
+    name: EPODONIOS
+    server: 195.133.84.198
+    port: 8443
+    uuid: 263bae3e-f51c-4946-9c1f-2585347a3dd1
+    udp: true
+    xudp: true
   - type: ss
-    name: 4Kian-fba00e26e1
+    name: DeltaKroneckerGithub
+    server: 89.125.33.16
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: eDBb1j-EPxn9bKhW0hohx5-PH-P1uQPs
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 89.125.33.16
     port: 1234
     cipher: chacha20-ietf-poly1305
@@ -18,15 +32,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - v2ray_phoenix
       - EPODONIOS
-      - 4Kian-fba00e26e1
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray_phoenix
       - EPODONIOS
-      - 4Kian-fba00e26e1
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,6 +1,34 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: fl.musicperec.ru
+    port: 443
+    uuid: 31216f81-3139-0021-bac4-646680314264
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: www.amd.com
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: e1f8a3b6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 5.61.91.221
+    port: 443
+    uuid: 03446511-2806-0021-b02f-f10d2d3a33c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn-up.perecbass.ru
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 4a7b1c8d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 5.61.91.221
     port: 443
     uuid: 03446511-2806-0021-b02f-f10d2d3a33c6
@@ -14,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 5.61.91.207
     port: 443
     uuid: 9ec52cb8-8daa-0021-ac36-d38295a25e5b
@@ -27,20 +55,6 @@ proxies:
     reality-opts:
       public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
       short-id: a7b2c9d4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: GozargahAzad|🇫🇮
-    server: 5.61.91.221
-    port: 443
-    uuid: 03446511-2806-0021-b02f-f10d2d3a33c6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn-up.perecbass.ru
-    reality-opts:
-      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: 4a7b1c8d
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -58,7 +72,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 5.61.91.206
     port: 443
     uuid: d427a02f-e0ea-0021-9cfb-66c1866ca3ce
@@ -72,21 +86,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-03
-    server: 5.61.91.206
+    name: DeltaKroneckerGithub-04
+    server: fl.musicperec.ru
     port: 443
-    uuid: bd99da97-265e-0021-82cc-4ec009fe9ce2
+    uuid: f5a3bf49-07ca-0021-a96b-9606781e3600
     udp: true
     tls: true
     client-fingerprint: firefox
     servername: www.amd.com
     reality-opts:
       public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: 0a4b7c3d
+      short-id: 6e3f0a5b
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-05
     server: 5.61.91.218
     port: 443
     uuid: b97e287f-a24e-0021-a103-7e7ecef83139
@@ -100,7 +114,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-05
+    name: DeltaKroneckerGithub-06
     server: 5.61.91.206
     port: 443
     uuid: b97e287f-a24e-0021-a103-7e7ecef83139
@@ -113,19 +127,35 @@ proxies:
       short-id: e1f8a3b6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-7213736d28
+    server: 5.61.91.221
+    port: 443
+    uuid: 03446511-2806-0021-b02f-f10d2d3a33c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn-up.perecbass.ru
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 4a7b1c8d
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - GozargahAzad|🇫🇮
-      - 🇫🇮152549
       - DeltaKroneckerGithub-02
+      - 🇫🇮152549
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+      - 4Jadi-7213736d28
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -133,12 +163,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - GozargahAzad|🇫🇮
-      - 🇫🇮152549
       - DeltaKroneckerGithub-02
+      - 🇫🇮152549
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+      - 4Jadi-7213736d28
 rules:
   - MATCH,Proxy

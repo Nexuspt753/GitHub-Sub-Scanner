@@ -21,6 +21,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Jadi-b130ccff51
+    server: 51.250.106.64
+    port: 443
+    uuid: 4a6de183-2ad3-456c-b420-feeac81f6257
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: FCg2XiFJrpH-2XlELSSSyEC7zkeW29HOgp4rfrqXEAI
+      short-id: 123abc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Kian-8406711aff
     server: 51.250.95.143
     port: 443
@@ -45,21 +61,28 @@ proxies:
     name: vless-02
     server: 188.72.103.4
     port: 443
-    uuid: 9117e80e-07e3-4588-8f68-e6fe1f0ad022
+    uuid: 881c9ba2-35c4-4731-a761-ed130ea7371a
     udp: true
     xudp: true
   - type: vless
     name: vless-03
     server: 188.72.103.4
     port: 443
-    uuid: a5f75bd4-27c0-4927-892e-1e5994428704
+    uuid: 9117e80e-07e3-4588-8f68-e6fe1f0ad022
     udp: true
     xudp: true
   - type: vless
     name: vless-04
     server: 188.72.103.4
     port: 443
-    uuid: b2e540b4-ad79-438b-b51c-a4e79cc324e9
+    uuid: 9ec68cfa-1998-4483-b81e-516d14cf23e2
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-05
+    server: 188.72.103.4
+    port: 443
+    uuid: a5f75bd4-27c0-4927-892e-1e5994428704
     udp: true
     xudp: true
 proxy-groups:
@@ -69,11 +92,13 @@ proxy-groups:
       - Auto
       - vless
       - 4Nika-4aadd209d8
+      - 4Jadi-b130ccff51
       - 4Kian-8406711aff
       - vless-01
       - vless-02
       - vless-03
       - vless-04
+      - vless-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -82,10 +107,12 @@ proxy-groups:
     proxies:
       - vless
       - 4Nika-4aadd209d8
+      - 4Jadi-b130ccff51
       - 4Kian-8406711aff
       - vless-01
       - vless-02
       - vless-03
       - vless-04
+      - vless-05
 rules:
   - MATCH,Proxy
