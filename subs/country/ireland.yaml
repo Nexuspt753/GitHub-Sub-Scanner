@@ -7,6 +7,13 @@ proxies:
     password: bX297As31bQMRsLP
     udp: true
   - type: ss
+    name: Dublin · @prrofile_purple
+    server: 20.123.9.48
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: bX297As31bQMRsLP
+    udp: true
+  - type: ss
     name: Dublin · 4FreeIran-45678018ee
     server: 20.123.9.48
     port: 443
@@ -71,18 +78,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mycfwork.herokuapp.com
+  - type: vmess
+    name: Dublin · 4Sarina-16984b6e1f
+    server: xr-1.herokuapp.com
+    port: 443
+    uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: xr-1.herokuapp.com
+    network: ws
+    ws-opts:
+      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xr-1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Dublin · EPODONIOS
+      - Dublin · @prrofile_purple
       - Dublin · 4FreeIran-45678018ee
       - Dublin · @DeltaKroneckerGithub
       - Dublin · @DeltaKroneckerGithub-01
       - Dublin · @DeltaKroneckerGithub-02
       - Dublin · @DeltaKroneckerGithub-03
       - Dublin · 4FreeIran-bd4c536c31
+      - Dublin · 4Sarina-16984b6e1f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -90,11 +117,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Dublin · EPODONIOS
+      - Dublin · @prrofile_purple
       - Dublin · 4FreeIran-45678018ee
       - Dublin · @DeltaKroneckerGithub
       - Dublin · @DeltaKroneckerGithub-01
       - Dublin · @DeltaKroneckerGithub-02
       - Dublin · @DeltaKroneckerGithub-03
       - Dublin · 4FreeIran-bd4c536c31
+      - Dublin · 4Sarina-16984b6e1f
 rules:
   - MATCH,Proxy
