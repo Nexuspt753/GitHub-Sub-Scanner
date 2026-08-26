@@ -1,0 +1,28 @@
+proxies:
+  - type: vless
+    name: 4Kian-dc5fc86284
+    server: usab.mythos-wargame.fun
+    port: 443
+    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-dc5fc86284
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-dc5fc86284
+rules:
+  - MATCH,Proxy

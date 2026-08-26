@@ -7,35 +7,77 @@ proxies:
     password: amazonskr05
     udp: true
   - type: ss
-    name: 4FreeIran-5281fb96fb
-    server: 16.52.90.213
-    port: 443
-    cipher: aes-256-cfb
-    password: amazonskr05
-    udp: true
-  - type: ss
     name: EPODONIOS-01
-    server: 13.135.73.3
+    server: 13.135.252.176
     port: 443
     cipher: aes-256-cfb
     password: amazonskr05
     udp: true
   - type: ss
     name: EPODONIOS-02
+    server: 13.135.73.177
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: ss
+    name: EPODONIOS-03
+    server: 13.135.252.176
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: ss
+    name: EPODONIOS-04
+    server: 13.135.73.177
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: ss
+    name: EPODONIOS-05
     server: 16.52.44.93
     port: 443
     cipher: aes-256-cfb
     password: amazonskr05
     udp: true
+  - type: ss
+    name: 🇬🇧GB-13.135.252.176-0154
+    server: 13.135.252.176
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+    udp: true
+  - type: vmess
+    name: 4Nika-32e88b277a
+    server: ac2088.herokuapp.com
+    port: 443
+    uuid: d1babe08-f8ac-490b-b66f-9be27467f3cc
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /d1babe08-f8ac-490b-b66f-9be27467f3cc-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ac2088.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4FreeIran-5281fb96fb
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
+      - EPODONIOS-05
+      - 🇬🇧GB-13.135.252.176-0154
+      - 4Nika-32e88b277a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,8 +85,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4FreeIran-5281fb96fb
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
+      - EPODONIOS-05
+      - 🇬🇧GB-13.135.252.176-0154
+      - 4Nika-32e88b277a
 rules:
   - MATCH,Proxy

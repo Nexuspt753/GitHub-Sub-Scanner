@@ -1,6 +1,36 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 156.224.76.205
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: jp.wxgqlfx.top
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.com
+    reality-opts:
+      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
+      short-id: 6caead99
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 156.226.168.221
     port: 35193
     uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
@@ -13,63 +43,14 @@ proxies:
       short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: 82.152.91.210
-    port: 443
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-  - type: vless
-    name: 🇹🇼
-    server: 82.152.91.210
-    port: 443
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-  - type: vless
-    name: 4Mohsen-d29f92f9a6
-    server: 82.152.91.210
-    port: 443
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇹🇼
-      - 4Mohsen-d29f92f9a6
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -77,8 +58,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇹🇼
-      - 4Mohsen-d29f92f9a6
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

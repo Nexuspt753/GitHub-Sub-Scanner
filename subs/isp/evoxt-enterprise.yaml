@@ -14,12 +14,28 @@ proxies:
       path:
         - /
       headers: "{}"
+  - type: vmess
+    name: 4Mohsen-ebd819cfe4
+    server: 103.179.142.158
+    port: 50269
+    uuid: 84f238f6-28eb-48df-a7bc-a9bd9cf4abba
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-2f122c76a5
+      - 4Mohsen-ebd819cfe4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-2f122c76a5
+      - 4Mohsen-ebd819cfe4
 rules:
   - MATCH,Proxy

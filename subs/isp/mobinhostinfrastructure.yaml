@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: six.khomain.org
+    port: 80
+    uuid: d1276fda-a0a6-11f1-a546-d05099de93b5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 6.khomain.org
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: six.khomain.org
+    port: 80
+    uuid: d1276fda-a0a6-11f1-a546-d05099de93b5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 6.khomain.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇮🇷IR-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇮🇷IR-🚀@VPNine1
+rules:
+  - MATCH,Proxy

@@ -1,6 +1,19 @@
 proxies:
   - type: vless
-    name: Telegram
+    name: EPODONIOS
+    server: jsv-ir.randino.ir
+    port: 443
+    uuid: fc7f5780-4c4e-11f1-a3f8-b58432c62d9c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aparat.com
+    reality-opts:
+      public-key: fwS6bEyF28VsSapBZZ2vz6LJmVismH0NYupk6STFRWc
+      short-id: f373df45a687eaff
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: jsv-ir.randino.ir
     port: 443
     uuid: fc7f5780-4c4e-11f1-a3f8-b58432c62d9c
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Telegram
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Telegram
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy
