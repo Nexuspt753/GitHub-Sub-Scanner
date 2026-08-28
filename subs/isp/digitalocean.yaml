@@ -1,14 +1,26 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 139.59.108.29
+    server: 8.sahanwickramasinghe.me
     port: 443
-    password: 9flLNn3JNs
+    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: trojan
+    servername: 8.sahanwickramasinghe.me
+    xudp: true
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: 139.59.124.172
+    port: 443
+    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 8.sahanwickramasinghe.me
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 139.59.238.97
     port: 50573
     password: pvZE3UfT0ziK1omVLlsjINBqeqqwab1M
@@ -21,6 +33,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +42,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

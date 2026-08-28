@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 124.244.55.157
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4crmq.zz4z.ur1.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 4crmq.zz4z.ur1.hh.vavava.kdns.fr
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 119.246.1.143
     port: 443
     password: BxceQaOe
@@ -22,6 +38,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-f9a18aa50c
   - name: Auto
     type: url-test
@@ -30,6 +47,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-f9a18aa50c
 rules:
   - MATCH,Proxy

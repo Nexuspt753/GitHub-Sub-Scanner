@@ -11,15 +11,6 @@ proxies:
       - http/1.1
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 45.32.57.242
-    port: 27242
-    password: i99Cef
-    udp: true
-    tls: true
-    sni: download.windowsupdate.com
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Nika-ab4e651797
     server: 108.61.171.167
     port: 443
@@ -31,14 +22,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-d13517e219
+    server: 104.238.174.99
+    port: 24314
+    uuid: 59d79f8f-74a8-4d29-9ebd-8917d81f85a9
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Nika-ab4e651797
+      - 4Kian-d13517e219
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,7 +44,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Nika-ab4e651797
+      - 4Kian-d13517e219
 rules:
   - MATCH,Proxy

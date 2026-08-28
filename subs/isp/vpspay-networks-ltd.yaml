@@ -1,18 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-58f9225a80
-    server: 144.31.148.87
-    port: 443
-    password: 2691cbe7c20cced8b0aeb12c812d09077e5b3eec7669fb8f
-    sni: replay.wwwinternetvideo.click
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Kian-0ca934cee5
-    server: replay.wwwinternetvideo.click
-    port: 443
-    password: 2691cbe7c20cced8b0aeb12c812d09077e5b3eec7669fb8f
-    sni: replay.wwwinternetvideo.click
-    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 2.26.224.233
@@ -29,6 +15,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: hysteria2
+    name: 4Sarina-58f9225a80
+    server: 144.31.148.87
+    port: 443
+    password: 2691cbe7c20cced8b0aeb12c812d09077e5b3eec7669fb8f
+    sni: replay.wwwinternetvideo.click
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Kian-0ca934cee5
+    server: replay.wwwinternetvideo.click
+    port: 443
+    password: 2691cbe7c20cced8b0aeb12c812d09077e5b3eec7669fb8f
+    sni: replay.wwwinternetvideo.click
+    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 2.26.224.91
@@ -46,13 +46,15 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: 4Sarina-a5dca6aeab
     server: 2.26.122.101
     port: 8443
     uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: safari
+    alpn:
+      - http/1.1
     servername: cdn.shopify.com
     reality-opts:
       public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
@@ -66,21 +68,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-58f9225a80
       - 4Kian-0ca934cee5
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Sarina-a5dca6aeab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-58f9225a80
       - 4Kian-0ca934cee5
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Sarina-a5dca6aeab
 rules:
   - MATCH,Proxy

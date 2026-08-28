@@ -1,6 +1,40 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.178.208.176
+    port: 443
+    uuid: 72353b97-1471-4475-9535-04bbf1097181
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h3
+      - h2
+    servername: ncd.crsmaps.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/notify/817522358
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ncd.crsmaps.com
+  - type: vless
     name: EPODONIOS
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: NOFiLTERING2🇩🇪
     server: 95.129.236.252
     port: 443
     uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
@@ -30,24 +64,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-2c2f13ef92
-    server: 95.129.236.216
-    port: 443
-    uuid: 12d25536-bcb2-4eab-bb76-94a9f0b4ba1b
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cdnguard.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /origin/190546791/fetch
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdnguard.org
-  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -62,24 +78,47 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-6b3f18d4b6
+    server: 185.178.208.176
+    port: 443
+    uuid: abc068b5-e9a8-4888-a6c1-399d04c5687e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: founders-blog.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: founders-blog.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - NOFiLTERING2🇩🇪
       - 🇷🇺139881
-      - 4Nika-2c2f13ef92
       - 4Mohsen-b66a7367f9
+      - 4Kian-6b3f18d4b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - NOFiLTERING2🇩🇪
       - 🇷🇺139881
-      - 4Nika-2c2f13ef92
       - 4Mohsen-b66a7367f9
+      - 4Kian-6b3f18d4b6
 rules:
   - MATCH,Proxy

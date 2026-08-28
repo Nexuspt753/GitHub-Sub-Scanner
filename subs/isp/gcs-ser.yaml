@@ -1,13 +1,13 @@
 proxies:
   - type: hysteria2
-    name: 比利时
+    name: EPODONIOS
     server: 113.30.152.25
     port: 1935
     password: belgium_hysteria2_fastlane_a118d9y0r:mbZQuQoMqSphFg1FAhfonbRpduFn69k8
     sni: be1.h.fastlanehosting.ru
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
+    name: 比利时
     server: 113.30.152.25
     port: 1935
     password: belgium_hysteria2_fastlane_a118d9y0r:mbZQuQoMqSphFg1FAhfonbRpduFn69k8
@@ -27,33 +27,24 @@ proxies:
     password: belgium_hysteria2_fastlane_a118d9y0r
     sni: be1.h.fastlanehosting.ru
     skip-cert-verify: true
-  - type: ss
-    name: 4Jadi-ff0fe5e9dc
-    server: 138.124.67.26
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: AyyaPjnKFtJ6MSdUGG0pWn
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 比利时
       - EPODONIOS
+      - 比利时
       - 4Kian-dc72b844ec
       - 4Kian-c636ae225d
-      - 4Jadi-ff0fe5e9dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 比利时
       - EPODONIOS
+      - 比利时
       - 4Kian-dc72b844ec
       - 4Kian-c636ae225d
-      - 4Jadi-ff0fe5e9dc
 rules:
   - MATCH,Proxy

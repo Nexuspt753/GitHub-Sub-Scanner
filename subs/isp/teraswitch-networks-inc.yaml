@@ -1,23 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-e091d07688
-    server: srvhy1.ezcon24.online
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: fin4.freeinternat.com
     port: 443
-    password: 76186f1e-3062-4a2b-98c2-fab3c61a9511
-    sni: srvhy1.ezcon24.online
-    skip-cert-verify: true
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fin4.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-e091d07688
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-e091d07688
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

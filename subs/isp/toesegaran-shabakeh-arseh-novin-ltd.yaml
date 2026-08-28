@@ -1,0 +1,31 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: api.php.rest
+    port: 32010
+    uuid: dca189c2-b03f-4864-9fa0-e3b9c319cd5d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pish-data-14.myket.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

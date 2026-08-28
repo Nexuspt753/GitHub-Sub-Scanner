@@ -1,23 +1,30 @@
 proxies:
   - type: vless
-    name: vless
-    server: 46.254.18.60
+    name: 4FreeIran-07180320a9
+    server: 95.183.13.203
     port: 443
-    uuid: dd90c71d-83e8-4144-a737-8d0e3354b703
+    uuid: a698f2b0-130b-4625-8b57-ff888f7cc063
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ftp.debian.org
+    reality-opts:
+      public-key: thzNE1MsvEBRenhjsQaob_M6G7vhmpQDfS1sLe8AflQ
+      short-id: c93743d8
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4FreeIran-07180320a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4FreeIran-07180320a9
 rules:
   - MATCH,Proxy

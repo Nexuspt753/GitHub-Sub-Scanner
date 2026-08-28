@@ -1,0 +1,98 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: filembad
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: کانال
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🔵@chillguy_vpn
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-95f4e909fe
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - filembad
+      - کانال
+      - 🔵@chillguy_vpn
+      - 4Mohsen-95f4e909fe
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - filembad
+      - کانال
+      - 🔵@chillguy_vpn
+      - 4Mohsen-95f4e909fe
+rules:
+  - MATCH,Proxy

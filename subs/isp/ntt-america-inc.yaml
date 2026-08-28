@@ -1,51 +1,43 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 128.241.25.11
+    server: 128.241.25.3
     port: 30021
-    uuid: d5559133-e2f9-48be-812c-e9389bee0f5e
+    uuid: afec813e-a5c7-432d-be48-2803c30eea4e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+    servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
     xudp: true
     network: ws
     ws-opts:
       path: /@Marisa_kristi
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
+        Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
   - type: vless
-    name: vless
-    server: 192.220.15.222
-    port: 8443
-    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    name: DeltaKroneckerGithub-01
+    server: 128.241.25.11
+    port: 30021
+    uuid: 40ca0d8c-0641-4e2d-a701-9fd8330daf6d
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
     xudp: true
-  - type: vless
-    name: 4Mohsen-5099bd6fda
-    server: 192.220.9.89
-    port: 443
-    uuid: b355551d-b17f-4a60-81f4-f83efb694b6e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: addons.mozilla.org
-    reality-opts:
-      public-key: 4GNRhxYNHvLIJDBXZJrQzBTSYJ6PCBvNCXOhd-LUQyE
-      short-id: 445363b73c7ce4a2
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - vless
-      - 4Mohsen-5099bd6fda
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,7 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - vless
-      - 4Mohsen-5099bd6fda
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,81 +1,18 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 13.192.214.212
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: zcbse.jipk.pt9.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: zcbse.jipk.pt9.hh.vavava.kdns.fr
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: v2jp.k1.ssnss.live
     port: 44184
     password: d050aca3-9df2-4461-90ec-92373c1d7636
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 2c.fast9988.com
-    port: 50887
-    password: 6ec301428255a78a1d826988d86cc87e
-    udp: true
-    tls: true
-    sni: www.nintendogames.net
-    client-fingerprint: chrome
-  - type: vmess
-    name: EPODONIOS
-    server: kukuprogram1.herokuapp.com
-    port: 443
-    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kukuprogram1.herokuapp.com
-  - type: vmess
-    name: 🇺🇸US-3.219.96.23-0043
-    server: kukuprogram1.herokuapp.com
-    port: 443
-    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kukuprogram1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - EPODONIOS
-      - 🇺🇸US-3.219.96.23-0043
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -83,9 +20,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - EPODONIOS
-      - 🇺🇸US-3.219.96.23-0043
 rules:
   - MATCH,Proxy

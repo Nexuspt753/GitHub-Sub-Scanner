@@ -1,23 +1,39 @@
 proxies:
   - type: vless
-    name: 4Nika-4aadd209d8
-    server: 51.250.25.32
-    port: 443
-    uuid: 3be2a136-6d29-44b5-a609-30cbab4606e5
+    name: 🇷🇺@FreakConfig
+    server: 51.250.35.229
+    port: 9443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.google.com
+    servername: api-maps.yandex.ru
     reality-opts:
-      public-key: Y7b0W1h25Uw3ciuVSedT4OoGoiR1IGz9C46CECkKuyw
-      short-id: b7ef89dff65b02
-    flow: xtls-rprx-vision
+      public-key: yiAI7CwcT7kwvDnzYFIeJBrj9fs3_7_7UYtzelu8Fwo
+      short-id: 26b5f38e
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: vless
     server: 188.72.103.4
     port: 443
-    uuid: 4829405b-f24e-4b93-abe2-884114913026
+    uuid: 00fb1bd7-6c7c-4df5-8438-a31f50d77f62
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: 20dc7576-3a42-4184-9173-f83c89d79450
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 188.72.103.4
+    port: 443
+    uuid: 27e9ac0a-485c-4960-b202-0421d9213a52
     udp: true
     xudp: true
   - type: vless
@@ -51,48 +67,81 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-01
+    name: vless-03
     server: 188.72.103.4
     port: 443
-    uuid: ad136c94-4365-4e0c-8f76-d398329f961f
+    uuid: 884f9aa6-10b0-421b-958e-8e51fb4312b3
     udp: true
     xudp: true
   - type: vless
-    name: 4Sarina-3c95a4befd
-    server: 51.250.102.172
-    port: 443
-    uuid: c47b421f-65f1-4190-b7ba-bd2045086fe4
+    name: 4Kian-6e5df7d01b
+    server: 51.250.35.229
+    port: 9443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ads.x5.ru
+    servername: api-maps.yandex.ru
     reality-opts:
-      public-key: r2z0sgaDnhJivtK4ptR1KytLtnkgF_qKEeGUEzalo0M
-      short-id: 3f3e9c3b3a3d3a33
-    flow: xtls-rprx-vision
+      public-key: yiAI7CwcT7kwvDnzYFIeJBrj9fs3_7_7UYtzelu8Fwo
+      short-id: 26b5f38e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: vless-04
+    server: 188.72.103.4
+    port: 443
+    uuid: cab1dcdf-f334-417d-b92b-3a67e25cdf0e
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-05
+    server: 188.72.103.4
+    port: 443
+    uuid: ea823814-f3e5-43ab-86ac-2aa019c46f85
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-06
+    server: 188.72.103.4
+    port: 443
+    uuid: fb8a6b5f-5576-4fad-99db-891a36b8ced5
+    udp: true
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-4aadd209d8
+      - 🇷🇺@FreakConfig
       - vless
+      - vless-01
+      - vless-02
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
-      - vless-01
-      - 4Sarina-3c95a4befd
+      - vless-03
+      - 4Kian-6e5df7d01b
+      - vless-04
+      - vless-05
+      - vless-06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-4aadd209d8
+      - 🇷🇺@FreakConfig
       - vless
+      - vless-01
+      - vless-02
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
-      - vless-01
-      - 4Sarina-3c95a4befd
+      - vless-03
+      - 4Kian-6e5df7d01b
+      - vless-04
+      - vless-05
+      - vless-06
 rules:
   - MATCH,Proxy

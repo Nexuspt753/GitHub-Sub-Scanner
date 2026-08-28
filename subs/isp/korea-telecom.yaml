@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 121.173.93.124
+    port: 18047
+    uuid: a30a3f37-1ab2-46bd-8c6b-a26d7c775f2a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: grc.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: grc.ccwu.cc
+  - type: vless
     name: EPODONIOS
     server: 59.3.3.161
     port: 443
@@ -64,6 +80,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - configprxy
       - MIGAVPNPRO
@@ -74,6 +91,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - configprxy
       - MIGAVPNPRO
