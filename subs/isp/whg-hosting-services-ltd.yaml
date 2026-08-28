@@ -1,0 +1,43 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: uk60.mechvpn.online
+    port: 443
+    uuid: 50767b5d-7e5d-4aee-af39-5a07d36ccc36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: uk60.mechvpn.online
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: uk59.mechvpn.online
+    port: 443
+    uuid: 50767b5d-7e5d-4aee-af39-5a07d36ccc36
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

@@ -1,16 +1,15 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: yxsgvl.rvvs.im
+    port: 55766
+    password: fef70590-17a9-4ddc-a38c-2b7467c083b5
+    udp: true
+    tls: true
+    sni: yxsgvl.rvvs.im
+    client-fingerprint: chrome
   - type: vmess
     name: 4Sarina-be049276fe
-    server: 366-1095.rabbitpro-in-3.com
-    port: 29009
-    uuid: e351d6d8-c167-3e07-8fda-3f2f4ec0760b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-247454ed73
     server: 366-1095.rabbitpro-in-3.com
     port: 29009
     uuid: e351d6d8-c167-3e07-8fda-3f2f4ec0760b
@@ -34,8 +33,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-be049276fe
-      - 4Mohsen-247454ed73
       - 4Nika-b5f803a9db
   - name: Auto
     type: url-test
@@ -43,8 +42,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-be049276fe
-      - 4Mohsen-247454ed73
       - 4Nika-b5f803a9db
 rules:
   - MATCH,Proxy

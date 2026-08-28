@@ -14,6 +14,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vless
+    server: 188.72.103.4
+    port: 443
+    uuid: 4829405b-f24e-4b93-abe2-884114913026
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Jadi-b130ccff51
     server: 51.250.106.64
     port: 443
@@ -43,14 +50,38 @@ proxies:
       short-id: f6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless-01
+    server: 188.72.103.4
+    port: 443
+    uuid: ad136c94-4365-4e0c-8f76-d398329f961f
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-3c95a4befd
+    server: 51.250.102.172
+    port: 443
+    uuid: c47b421f-65f1-4190-b7ba-bd2045086fe4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: r2z0sgaDnhJivtK4ptR1KytLtnkgF_qKEeGUEzalo0M
+      short-id: 3f3e9c3b3a3d3a33
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-4aadd209d8
+      - vless
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless-01
+      - 4Sarina-3c95a4befd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,7 +89,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-4aadd209d8
+      - vless
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
+      - vless-01
+      - 4Sarina-3c95a4befd
 rules:
   - MATCH,Proxy

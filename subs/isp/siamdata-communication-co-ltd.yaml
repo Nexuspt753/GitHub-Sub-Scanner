@@ -1,6 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-3fc3199b17
+    name: EPODONIOS
+    server: 157.85.105.179
+    port: 80
+    uuid: 89c3b66f-c849-4602-a5a8-84b6f06af478
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: d2pwbkmfr5lxa4.cloudfront.net
+  - type: vless
+    name: "[023935]"
+    server: 157.85.105.179
+    port: 80
+    uuid: 89c3b66f-c849-4602-a5a8-84b6f06af478
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: d2pwbkmfr5lxa4.cloudfront.net
+  - type: vless
+    name: 4Sarina-f3789f92d1
     server: 157.85.105.179
     port: 80
     uuid: 89c3b66f-c849-4602-a5a8-84b6f06af478
@@ -17,13 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-3fc3199b17
+      - EPODONIOS
+      - "[023935]"
+      - 4Sarina-f3789f92d1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3fc3199b17
+      - EPODONIOS
+      - "[023935]"
+      - 4Sarina-f3789f92d1
 rules:
   - MATCH,Proxy

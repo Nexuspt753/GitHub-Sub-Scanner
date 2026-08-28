@@ -1,27 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: france.metricpipe.space
-    port: 9443
-    password: 4LR1nTjdxRQs2JGmzJnsRefgqQUYFEfo
+  - type: vless
+    name: 4Nika-819b13559e
+    server: 143.246.223.73
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
     udp: true
     tls: true
-    sni: france.metricpipe.space
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
+    servername: mold2.freeinternat.com
+    reality-opts:
+      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-819b13559e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-819b13559e
 rules:
   - MATCH,Proxy

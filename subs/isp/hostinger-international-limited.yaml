@@ -1,23 +1,32 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: v1in2.stableq.top
-    port: 24407
-    password: ed01085a-7657-4ded-85df-9621abd131e4
+  - type: vless
+    name: EPODONIOS
+    server: 84.32.84.33
+    port: 443
+    uuid: 3634eec4-e99b-46cc-824f-04e53d8d5484
     udp: true
-    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: 4Mohsen-03d92b45b5
+    server: 84.32.84.33
+    port: 443
+    uuid: 3634eec4-e99b-46cc-824f-04e53d8d5484
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Mohsen-03d92b45b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Mohsen-03d92b45b5
 rules:
   - MATCH,Proxy

@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Nika-a4c1f46349
-    server: s4.zynetraq.ir
+    name: vless
+    server: s3.zynetraq.ir
     port: 2087
-    uuid: 76680848-41e6-4700-0962-85930e685ebe
+    uuid: 34787117-384f-496f-8157-10366be268b2
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: s4.zynetraq.ir
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: s3.zynetraq.ir
+    port: 2087
+    uuid: 42343aa0-0a66-4424-e845-c124b6bf84eb
+    udp: true
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-a4c1f46349
+      - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-a4c1f46349
+      - vless
+      - vless-01
 rules:
   - MATCH,Proxy

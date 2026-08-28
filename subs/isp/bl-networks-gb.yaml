@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: node15.fastdatastream.com
+    port: 443
+    uuid: c19313e8-7dca-41ce-978d-ca5a0c32b8ba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cisco.com
+    reality-opts:
+      public-key: hVE3c59d8Fua3kD6lhp3bLvIgrTeqW7ZWsbYW4Mje2A
+      short-id: a9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: node15.fastdatastream.com
+    port: 443
+    uuid: c19313e8-7dca-41ce-978d-ca5a0c32b8ba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cisco.com
+    reality-opts:
+      public-key: hVE3c59d8Fua3kD6lhp3bLvIgrTeqW7ZWsbYW4Mje2A
+      short-id: a9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: icv2ray
+    server: node15.fastdatastream.com
+    port: 443
+    uuid: c19313e8-7dca-41ce-978d-ca5a0c32b8ba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cisco.com
+    reality-opts:
+      public-key: hVE3c59d8Fua3kD6lhp3bLvIgrTeqW7ZWsbYW4Mje2A
+      short-id: a9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-04e2125f9c
+    server: node15.fastdatastream.com
+    port: 443
+    uuid: c19313e8-7dca-41ce-978d-ca5a0c32b8ba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cisco.com
+    reality-opts:
+      public-key: hVE3c59d8Fua3kD6lhp3bLvIgrTeqW7ZWsbYW4Mje2A
+      short-id: a9
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - icv2ray
+      - 4Nika-04e2125f9c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - icv2ray
+      - 4Nika-04e2125f9c
+rules:
+  - MATCH,Proxy

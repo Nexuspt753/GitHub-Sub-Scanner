@@ -1,0 +1,41 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 217.23.13.210
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Lo1q87FqgIGUJ7k1NFoF1w
+    udp: true
+  - type: ss
+    name: 📍16@oneclickvpnkeys
+    server: 217.23.13.210
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Lo1q87FqgIGUJ7k1NFoF1w
+    udp: true
+  - type: ss
+    name: 4Sarina-d0b6e63ccd
+    server: 217.23.13.210
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Lo1q87FqgIGUJ7k1NFoF1w
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 📍16@oneclickvpnkeys
+      - 4Sarina-d0b6e63ccd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 📍16@oneclickvpnkeys
+      - 4Sarina-d0b6e63ccd
+rules:
+  - MATCH,Proxy

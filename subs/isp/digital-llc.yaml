@@ -1,32 +1,26 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 104.253.79.6
-    port: 443
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
+  - type: vmess
+    name: 4Jadi-084e5653e2
+    server: frkonkor.velmor.xyz
+    port: 6718
+    uuid: 1c46e7ee-ba01-4d3d-8625-7752253f70ac
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
     xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-084e5653e2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-084e5653e2
 rules:
   - MATCH,Proxy

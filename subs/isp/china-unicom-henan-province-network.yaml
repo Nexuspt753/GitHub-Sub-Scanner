@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ja262.magiclampcloud.cn
+    port: 59443
+    password: 002023c45d18bca3eba2757bb683309a
+    udp: true
+    tls: true
+    sni: ja262.magiclampcloud.cn
+    client-fingerprint: chrome
   - type: vmess
     name: 4Kian-af1e86a671
     server: visa.cn
@@ -20,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-af1e86a671
   - name: Auto
     type: url-test
@@ -27,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

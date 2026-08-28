@@ -1,20 +1,22 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 8.209.74.72
-    port: 20001
-    cipher: chacha20-ietf-poly1305
-    password: PWpjPo3tqhPN4yRZ
-    udp: true
-  - type: ss
-    name: 🇩🇪
-    server: 8.209.74.72
-    port: 20001
-    cipher: chacha20-ietf-poly1305
-    password: PWpjPo3tqhPN4yRZ
-    udp: true
-  - type: ss
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 161.117.181.127
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: zcbse.jipk.pt9.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: zcbse.jipk.pt9.hh.vavava.kdns.fr
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 8.209.74.72
     port: 20001
     cipher: chacha20-ietf-poly1305
@@ -60,9 +62,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇩🇪
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-8d901d28dd
       - 4Jadi-01e0dc8972
   - name: Auto
@@ -71,9 +72,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇩🇪
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-8d901d28dd
       - 4Jadi-01e0dc8972
 rules:

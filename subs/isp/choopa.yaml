@@ -12,21 +12,13 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: 45.32.129.84
-    port: 28443
-    password: 16ae55f9-6b9e-4e57-b494-7e0bba25bf3a
+    server: 45.32.57.242
+    port: 27242
+    password: i99Cef
     udp: true
     tls: true
-    sni: vpn-node.internal
-    alpn:
-      - http/1.1
+    sni: download.windowsupdate.com
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /xVpnTrojanWsSvc7f3a
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vpn-node.internal
   - type: trojan
     name: 4Nika-ab4e651797
     server: 108.61.171.167
@@ -39,15 +31,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 45.32.57.242
-    port: 27242
-    password: i99Cef
-    udp: true
-    tls: true
-    sni: download.windowsupdate.com
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,7 +39,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-ab4e651797
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,6 +48,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-ab4e651797
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

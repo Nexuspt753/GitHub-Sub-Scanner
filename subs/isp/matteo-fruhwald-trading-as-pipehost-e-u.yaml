@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 188.137.158.144
+    port: 443
+    uuid: 748ad1e3-0e23-4473-9aad-da0ace6a7d09
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: ezjb4e6x5ug0.bosfiles.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 188.137.158.144
+    port: 443
+    uuid: a502cb46-cf08-487a-a9bc-7a84076bb1a7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ezjb4e6x5ug0.bosfiles.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 188.137.158.144
+    port: 443
+    uuid: 8e2d40f9-86a3-4108-b527-bd8a62e5af73
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ezjb4e6x5ug0.bosfiles.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: ">>@configV2rayNG::AT"
+    server: 188.137.158.144
+    port: 443
+    uuid: e8652acb-1f75-4762-95eb-51d6bc44907f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: ezjb4e6x5ug0.bosfiles.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - ">>@configV2rayNG::AT"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - ">>@configV2rayNG::AT"
+rules:
+  - MATCH,Proxy

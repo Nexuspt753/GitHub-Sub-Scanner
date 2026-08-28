@@ -1,6 +1,20 @@
 proxies:
   - type: ss
-    name: 中转
+    name: EPODONIOS
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: 121.46.230.233
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: 4Nika-240038a188
     server: 121.46.230.138
     port: 65443
     cipher: aes-256-cfb
@@ -11,13 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 中转
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Nika-240038a188
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 中转
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Nika-240038a188
 rules:
   - MATCH,Proxy

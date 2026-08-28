@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: Victoria · @DeltaKroneckerGithub
+    server: 200.165.234.119
+    port: 2200
+    uuid: 936b7663-a841-4b42-b639-6e3fab1dbf45
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rzd.ru
+  - type: vless
+    name: Victoria · @DeltaKroneckerGithub-01
+    server: wstg.datasynctrue.online
+    port: 443
+    uuid: ff0b6ba8-bed0-4c4d-bbc9-23af47582615
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wstg.datasynctrue.online
+  - type: vless
     name: Victoria · EPODONIOS
     server: 200.165.234.62
     port: 4100
@@ -24,19 +52,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: Victoria · @DeltaKroneckerGithub
-    server: 200.165.234.119
-    port: 2200
-    uuid: 936b7663-a841-4b42-b639-6e3fab1dbf45
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
-  - type: vless
     name: Victoria · 4Kian-6e49de0acd
     server: 200.165.234.62
     port: 4100
@@ -53,9 +68,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Victoria · @DeltaKroneckerGithub
+      - Victoria · @DeltaKroneckerGithub-01
       - Victoria · EPODONIOS
       - Victoria · @hex_proxy
-      - Victoria · @DeltaKroneckerGithub
       - Victoria · 4Kian-6e49de0acd
   - name: Auto
     type: url-test
@@ -63,9 +79,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Victoria · @DeltaKroneckerGithub
+      - Victoria · @DeltaKroneckerGithub-01
       - Victoria · EPODONIOS
       - Victoria · @hex_proxy
-      - Victoria · @DeltaKroneckerGithub
       - Victoria · 4Kian-6e49de0acd
 rules:
   - MATCH,Proxy

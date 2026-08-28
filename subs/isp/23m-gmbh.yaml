@@ -1,23 +1,26 @@
 proxies:
   - type: vless
-    name: 4Mohsen-7986f611bf
-    server: 62.113.210.26
-    port: 301
-    uuid: efbd6d24-0475-4f2f-a548-f5950ce08214
+    name: DeltaKroneckerGithub
+    server: de62.mechvpn.online
+    port: 443
+    uuid: 50767b5d-7e5d-4aee-af39-5a07d36ccc36
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-7986f611bf
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-7986f611bf
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

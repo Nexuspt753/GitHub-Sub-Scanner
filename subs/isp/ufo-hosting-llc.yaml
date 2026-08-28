@@ -1,4 +1,34 @@
 proxies:
+  - type: vless
+    name: 4Nika-d8daf26fe9
+    server: 45.150.64.157
+    port: 443
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: alb1.abvpn.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-939fd72d9f
+    server: alb1.abvpn.ru
+    port: 443
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: alb1.abvpn.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /websocket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Jadi-5c6d21d57c
     server: 171.22.134.12
@@ -36,6 +66,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-d8daf26fe9
+      - 4Mohsen-939fd72d9f
       - 4Jadi-5c6d21d57c
       - 4FreeIran-91eab99662
   - name: Auto
@@ -44,6 +76,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-d8daf26fe9
+      - 4Mohsen-939fd72d9f
       - 4Jadi-5c6d21d57c
       - 4FreeIran-91eab99662
 rules:

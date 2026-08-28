@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: fr.vpber.info
-    port: 444
-    uuid: d89b3577-a0f4-4327-bb16-2313b02a25f2
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: fr.vpber.info
-    reality-opts:
-      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-      short-id: 4be4110078ebed4a
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: EPODONIOS
     server: 23.81.34.120
     port: 443
@@ -29,22 +13,6 @@ proxies:
       short-id: b91a73752053b039
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 23.81.34.207
-    port: 444
-    uuid: d89b3577-a0f4-4327-bb16-2313b02a25f2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fr.vpber.info
-    reality-opts:
-      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-      short-id: 4be4110078ebed4a
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: Nexus_Panell
     server: 23.81.34.120
@@ -73,26 +41,40 @@ proxies:
       short-id: b91a73752053b039
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-2e8bed9195
+    server: 23.81.34.207
+    port: 444
+    uuid: d89b3577-a0f4-4327-bb16-2313b02a25f2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr.vpber.info
+    reality-opts:
+      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+      short-id: 4be4110078ebed4a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - EPODONIOS-01
       - Nexus_Panell
       - 4Nika-89cb8c1f66
+      - 4Jadi-2e8bed9195
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - EPODONIOS-01
       - Nexus_Panell
       - 4Nika-89cb8c1f66
+      - 4Jadi-2e8bed9195
 rules:
   - MATCH,Proxy
