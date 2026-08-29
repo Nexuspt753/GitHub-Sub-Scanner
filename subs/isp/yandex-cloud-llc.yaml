@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 51.250.35.229
+    port: 9443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: yiAI7CwcT7kwvDnzYFIeJBrj9fs3_7_7UYtzelu8Fwo
+      short-id: 26b5f38e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 🇷🇺@FreakConfig
     server: 51.250.35.229
     port: 9443
@@ -19,28 +35,7 @@ proxies:
     name: vless
     server: 188.72.103.4
     port: 443
-    uuid: 00fb1bd7-6c7c-4df5-8438-a31f50d77f62
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 188.72.103.4
-    port: 443
-    uuid: 20dc7576-3a42-4184-9173-f83c89d79450
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-02
-    server: 188.72.103.4
-    port: 443
-    uuid: 27e9ac0a-485c-4960-b202-0421d9213a52
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-03
-    server: 188.72.103.4
-    port: 443
-    uuid: 2bfb2c0a-3a5f-4600-b4bb-313b4cbeb2d3
+    uuid: 053b4569-f2fc-4b58-99f9-6d81cb607059
     udp: true
     xudp: true
   - type: vless
@@ -88,13 +83,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-04
-    server: 188.72.103.4
-    port: 443
-    uuid: 884f9aa6-10b0-421b-958e-8e51fb4312b3
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Kian-6e5df7d01b
     server: 51.250.35.229
     port: 9443
@@ -111,31 +99,17 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: vless-05
+    name: vless-01
     server: 188.72.103.4
     port: 443
-    uuid: cab1dcdf-f334-417d-b92b-3a67e25cdf0e
+    uuid: b43099fa-ac5d-43e9-be15-1847e064651c
     udp: true
     xudp: true
   - type: vless
-    name: vless-06
+    name: vless-02
     server: 188.72.103.4
     port: 443
-    uuid: d1807489-9414-425b-97e4-4796f42351a4
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-07
-    server: 188.72.103.4
-    port: 443
-    uuid: ea823814-f3e5-43ab-86ac-2aa019c46f85
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-08
-    server: 188.72.103.4
-    port: 443
-    uuid: fb8a6b5f-5576-4fad-99db-891a36b8ced5
+    uuid: eb2eef32-e990-4927-afdd-5c4911e26526
     udp: true
     xudp: true
 proxy-groups:
@@ -143,39 +117,29 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇷🇺@FreakConfig
       - vless
-      - vless-01
-      - vless-02
-      - vless-03
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
-      - vless-04
       - 4Kian-6e5df7d01b
-      - vless-05
-      - vless-06
-      - vless-07
-      - vless-08
+      - vless-01
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇷🇺@FreakConfig
       - vless
-      - vless-01
-      - vless-02
-      - vless-03
       - 4Nika-4aadd209d8
       - 4Jadi-b130ccff51
       - 4Kian-8406711aff
-      - vless-04
       - 4Kian-6e5df7d01b
-      - vless-05
-      - vless-06
-      - vless-07
-      - vless-08
+      - vless-01
+      - vless-02
 rules:
   - MATCH,Proxy

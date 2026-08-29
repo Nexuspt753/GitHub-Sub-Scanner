@@ -1,33 +1,32 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 221.181.169.52
-    port: 49319
-    password: 47c270a9-bce5-450e-8622-f2631070a012
+  - type: vmess
+    name: 4FreeIran-bed40912dd
+    server: 120.240.142.21
+    port: 11972
+    uuid: d19c5396-aef2-b508-3abb-e9f93c8b0cfc
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    sni: vpn-node.internal
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /xVpnTrojanWsSvc7f3a
+      path: /adb4c2cc-9e77-d6fc-4dba-e06b15659469
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vpn-node.internal
+        Host: tms.dingtalk.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4FreeIran-bed40912dd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4FreeIran-bed40912dd
 rules:
   - MATCH,Proxy

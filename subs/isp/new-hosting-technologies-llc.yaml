@@ -13,12 +13,20 @@ proxies:
       short-id: c427
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless
+    server: 194.55.239.190
+    port: 8445
+    uuid: 7c59eef8-978a-4071-bda4-5bcaf6d8521f
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-2fe723886d
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-2fe723886d
+      - vless
 rules:
   - MATCH,Proxy
