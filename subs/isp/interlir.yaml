@@ -13,12 +13,27 @@ proxies:
       short-id: 3535e09c13bf7972
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 🇪🇪155248
+    server: lick.dlcloud.pro
+    port: 443
+    uuid: 00ff0097-8efb-4bca-9903-a0486506f86d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lick.dlcloud.pro
+    reality-opts:
+      public-key: z6vZsDu0En9PDZm5Muxtl3NBo8cFciJHAtt0pwKWhUs
+      short-id: 3535e09c13bf7972
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 🇪🇪155248
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 🇪🇪155248
 rules:
   - MATCH,Proxy

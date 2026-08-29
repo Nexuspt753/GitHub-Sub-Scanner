@@ -1,16 +1,23 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: 46.100.133.11
-    port: 2029
-    uuid: 07e4cee1-fad4-4cb6-9b21-b6fc74bbc63a
+    server: fr-emergency-service.pavilof.ir
+    port: 8443
+    uuid: a855c069-0173-4365-9a93-49e0fb3d3de1
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: fr-emergency-service.pavilof.ir
     xudp: true
     network: ws
     ws-opts:
-      path: /wls
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fr-emergency-service.pavilof.ir
 proxy-groups:
   - name: Proxy
     type: select

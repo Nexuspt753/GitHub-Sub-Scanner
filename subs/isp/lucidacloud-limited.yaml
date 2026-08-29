@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 68.64.179.129
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4crmq.zz4z.ur1.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 4crmq.zz4z.ur1.hh.vavava.kdns.fr
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 83.229.121.78
     port: 8443
     password: 8r<[9'l6hAO#8ZQi
@@ -8,29 +24,13 @@ proxies:
     tls: true
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
-  - type: vless
-    name: EPODONIOS
-    server: 193.134.209.123
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

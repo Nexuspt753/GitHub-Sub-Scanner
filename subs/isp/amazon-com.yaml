@@ -7,30 +7,12 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vmess
-    name: 4FreeIran-bd4c536c31
-    server: mycfwork.herokuapp.com
-    port: 443
-    uuid: 07a3a1e3-d52e-4acc-958e-c301681b5f09
-    alterId: 4
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /07a3a1e3-d52e-4acc-958e-c301681b5f09-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: mycfwork.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-bd4c536c31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +20,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-bd4c536c31
 rules:
   - MATCH,Proxy
