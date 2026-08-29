@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: irsrv1.e404ng.fun
+    port: 12794
+    uuid: d6f1ba48-5b76-49ed-8ab4-642fe18b0856
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

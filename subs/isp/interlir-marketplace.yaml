@@ -13,12 +13,57 @@ proxies:
       short-id: d42179376be1a110
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 153.76.204.82
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 153.76.204.82
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: vs-nl10.vibesignal.space
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
 rules:
   - MATCH,Proxy

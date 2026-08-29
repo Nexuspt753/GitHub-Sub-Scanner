@@ -13,12 +13,23 @@ proxies:
       short-id: c7158ef32c1d2a7e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: EPODONIOS
+    server: tre11.danqela.ir
+    port: 20728
+    uuid: 753e307d-3b17-4ae2-9345-3e0d906c11d5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy

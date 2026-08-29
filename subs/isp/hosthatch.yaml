@@ -27,6 +27,22 @@ proxies:
       public-key: Wg07hKwQjSVmOsEHn7X1iLAXR2wkKRSyv8TZmq9ZsRA
       short-id: 58186df4a95a1504
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 85.155.176.154
+    port: 8443
+    uuid: cf39fab0-bb85-42cb-9945-2ad69d78e575
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rubifen.adaspoloandco.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /GOrbEh
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rubifen.adaspoloandco.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,6 +50,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,5 +59,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
 rules:
   - MATCH,Proxy

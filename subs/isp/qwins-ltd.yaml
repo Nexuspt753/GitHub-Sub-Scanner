@@ -14,22 +14,6 @@ proxies:
     sni: www.cloudflare.com
     skip-cert-verify: true
   - type: vless
-    name: EPODONIOS
-    server: 31.77.170.30
-    port: 443
-    uuid: 00506574-3b10-4f7d-9b2f-8afdc5919b93
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: stackoverflow.com
-    reality-opts:
-      public-key: qNCzfY_ga5_n3NCD0g1XoiBWcnofF4SHUM27jvoBAyw
-      short-id: 0ea83f18e6b2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: MARAMBASHI
     server: 31.77.170.30
     port: 443
@@ -72,7 +56,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: 84.21.189.98
     port: 8443
     uuid: ed3a873c-aae2-4de0-9366-0fbea7f34acf
@@ -86,7 +70,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-01
     server: 31.77.170.110
     port: 443
     uuid: efd400cd-98e1-4a9b-a98c-6f4a3b7cce7f
@@ -187,6 +171,20 @@ proxies:
       short-id: 5c11551f290914
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-8e2b26df56
+    server: 31.77.170.110
+    port: 443
+    uuid: efd400cd-98e1-4a9b-a98c-6f4a3b7cce7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edge-nl.mystatic-cdn.ru
+    reality-opts:
+      public-key: TC8D2edifNXaro0S31ZiC9izi8tAmXJyxdOHptwNUTw
+      short-id: 660c1badc77a422b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -194,18 +192,18 @@ proxy-groups:
       - Auto
       - 4Mohsen-bb3775b11e
       - 4FreeIran-aa16499876
-      - EPODONIOS
       - MARAMBASHI
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - 4Kian-2ad0f93069
       - 4Kian-a7eb20a42e
       - Channel
       - leviconfigs🪐-4
       - 4Sarina-de895db47f
       - 4Kian-acf0c82e0d
+      - 4Mohsen-8e2b26df56
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -214,17 +212,17 @@ proxy-groups:
     proxies:
       - 4Mohsen-bb3775b11e
       - 4FreeIran-aa16499876
-      - EPODONIOS
       - MARAMBASHI
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - 4Kian-2ad0f93069
       - 4Kian-a7eb20a42e
       - Channel
       - leviconfigs🪐-4
       - 4Sarina-de895db47f
       - 4Kian-acf0c82e0d
+      - 4Mohsen-8e2b26df56
 rules:
   - MATCH,Proxy

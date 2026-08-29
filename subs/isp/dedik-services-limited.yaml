@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 89.34.90.68
-    port: 8443
-    uuid: fe8e2ffb-8796-408c-af5b-0d4774215e00
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: dTdncizxtVTqDZDkQoYdRTkf2Mn6XuKtkzg8vZhrkzA
-      short-id: 6ba85179e30d4fc2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: EPODONIOS
     server: 89.34.90.25
     port: 443
@@ -84,20 +68,6 @@ proxies:
     servername: test.cloudvk.cc
     reality-opts:
       public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-05
-    server: 176.65.144.24
-    port: 443
-    uuid: a6cf4b28-ba72-4e8c-90f8-6a884107ab3c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sw-ulra.whit3.net
-    reality-opts:
-      public-key: 0ye46nPo-GJ6b2FlbxOjrbTSwbNZ55EA3zd75AD8EVg
-      short-id: e19a72a150911331
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -256,18 +226,30 @@ proxies:
       public-key: Af5z1nqUp0NV9zY4hEtB66G1Df1vzs0TzX-ttU9BPA8
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-5bb64d5e84
+    server: 176.65.144.24
+    port: 443
+    uuid: a6cf4b28-ba72-4e8c-90f8-6a884107ab3c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sw-ulra.whit3.net
+    reality-opts:
+      public-key: 0ye46nPo-GJ6b2FlbxOjrbTSwbNZ55EA3zd75AD8EVg
+      short-id: e19a72a150911331
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
-      - EPODONIOS-05
       - tootffarangi🍓-7
       - tootffarangi🍓-12
       - tootffarangi🍓-9
@@ -279,19 +261,18 @@ proxy-groups:
       - 4Kian-760184e615
       - 4Nika-251af49384
       - 4FreeIran-0924af62f5
+      - 4FreeIran-5bb64d5e84
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
-      - EPODONIOS-05
       - tootffarangi🍓-7
       - tootffarangi🍓-12
       - tootffarangi🍓-9
@@ -303,5 +284,6 @@ proxy-groups:
       - 4Kian-760184e615
       - 4Nika-251af49384
       - 4FreeIran-0924af62f5
+      - 4FreeIran-5bb64d5e84
 rules:
   - MATCH,Proxy
