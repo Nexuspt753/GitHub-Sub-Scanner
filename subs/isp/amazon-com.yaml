@@ -1,16 +1,16 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 54.46.62.66
-    port: 38218
-    uuid: 0234cdd9-35ee-40a5-b698-9820f09a04f5
+    server: de1.miyazono-kaori.com
+    port: 443
+    uuid: 72f1338b-730e-4a3b-9f8e-eacec02a0bc1
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
+    client-fingerprint: chrome
+    servername: www.siemens.com
     reality-opts:
-      public-key: 03hWBp-xwElEmilVxbhasf1Al0MZnvARUr4zclCV6S0
-      short-id: 30752ffd01a85649
+      public-key: aEAdhhksLgyI_GWf7l_ES5hMZhigMAIWBn9emSXdaHc
+      short-id: 56f276ac52
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -35,23 +35,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vmess
-    name: 4FreeIran-bd4c536c31
-    server: mycfwork.herokuapp.com
-    port: 443
-    uuid: 07a3a1e3-d52e-4acc-958e-c301681b5f09
-    alterId: 4
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /07a3a1e3-d52e-4acc-958e-c301681b5f09-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: mycfwork.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -60,7 +43,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4FreeIran-bd4c536c31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -70,6 +52,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4FreeIran-bd4c536c31
 rules:
   - MATCH,Proxy

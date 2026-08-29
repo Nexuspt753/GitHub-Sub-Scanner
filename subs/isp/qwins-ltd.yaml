@@ -59,6 +59,19 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 132.243.223.227
+    port: 2101
+    uuid: 2edfd299-fd54-4056-9d79-3c99f19bdae1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 132-243-223-227.sslip.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS-01
     server: 84.21.189.98
     port: 8443
@@ -174,20 +187,6 @@ proxies:
       short-id: 5c11551f290914
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-8e2b26df56
-    server: 31.77.170.110
-    port: 443
-    uuid: efd400cd-98e1-4a9b-a98c-6f4a3b7cce7f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edge-nl.mystatic-cdn.ru
-    reality-opts:
-      public-key: TC8D2edifNXaro0S31ZiC9izi8tAmXJyxdOHptwNUTw
-      short-id: 660c1badc77a422b
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -198,6 +197,7 @@ proxy-groups:
       - EPODONIOS
       - MARAMBASHI
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - EPODONIOS-02
       - 4Kian-2ad0f93069
@@ -206,7 +206,6 @@ proxy-groups:
       - leviconfigs🪐-4
       - 4Sarina-de895db47f
       - 4Kian-acf0c82e0d
-      - 4Mohsen-8e2b26df56
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -218,6 +217,7 @@ proxy-groups:
       - EPODONIOS
       - MARAMBASHI
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - EPODONIOS-02
       - 4Kian-2ad0f93069
@@ -226,6 +226,5 @@ proxy-groups:
       - leviconfigs🪐-4
       - 4Sarina-de895db47f
       - 4Kian-acf0c82e0d
-      - 4Mohsen-8e2b26df56
 rules:
   - MATCH,Proxy
