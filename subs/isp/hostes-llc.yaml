@@ -15,12 +15,29 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-4c2a19b5a5
+    server: 94.183.219.243
+    port: 8443
+    uuid: 658f7138-93c2-414d-a6c2-f332c94d4034
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.shopify.com
+    reality-opts:
+      public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
+      short-id: f747a7a5793b5714
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Jadi-4c2a19b5a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Jadi-4c2a19b5a5
 rules:
   - MATCH,Proxy

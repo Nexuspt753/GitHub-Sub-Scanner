@@ -1,41 +1,34 @@
 proxies:
   - type: vless
-    name: ">>@FreakConfig::XX"
-    server: 193.124.204.145
-    port: 49853
-    uuid: 5ed7b151-b781-4dba-800d-e3f824f1416f
+    name: 4Sarina-12faf38834
+    server: 193.124.125.135
+    port: 443
+    uuid: 968469ec-67c9-4fe6-bf72-dd20716add3b
     udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: w2.tunnelgate.org
     xudp: true
-  - type: vless
-    name: 4Kian-e9064aea17
-    server: 193.124.204.145
-    port: 49853
-    uuid: 5ed7b151-b781-4dba-800d-e3f824f1416f
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-874f6c0f5e
-    server: 193.124.204.145
-    port: 49853
-    uuid: 5ed7b151-b781-4dba-800d-e3f824f1416f
-    udp: true
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/v1/ru
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: w2.tunnelgate.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ">>@FreakConfig::XX"
-      - 4Kian-e9064aea17
-      - 4Nika-874f6c0f5e
+      - 4Sarina-12faf38834
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ">>@FreakConfig::XX"
-      - 4Kian-e9064aea17
-      - 4Nika-874f6c0f5e
+      - 4Sarina-12faf38834
 rules:
   - MATCH,Proxy

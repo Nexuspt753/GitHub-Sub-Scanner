@@ -1,5 +1,19 @@
 proxies:
   - type: hysteria2
+    name: Bucharest · 4Mohsen-b2826b37ee
+    server: lmny.mangshe.xyz
+    port: 2056
+    password: 41f0d6d3-4a45-4635-8225-2abd2284189b
+    sni: lmny.mangshe.xyz
+    skip-cert-verify: true
+  - type: hysteria2
+    name: Bucharest · 罗马尼亚
+    server: lmny.mangshe.xyz
+    port: 2056
+    password: 41f0d6d3-4a45-4635-8225-2abd2284189b
+    sni: lmny.mangshe.xyz
+    skip-cert-verify: true
+  - type: hysteria2
     name: Bucharest · EPODONIOS
     server: lmny.mangshe.xyz
     port: 2056
@@ -34,62 +48,30 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: QFWzCw2uX9B9i6qAYeFBIE
     udp: true
-  - type: ss
-    name: Voluntari · @DeltaKroneckerGithub
-    server: 154.46.31.106
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: QFWzCw2uX9B9i6qAYeFBIE
-    udp: true
-  - type: ss
-    name: Voluntari · @DeltaKroneckerGithub-01
-    server: bogging-eyeteeth-fly.freesocks.work
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: QFWzCw2uX9B9i6qAYeFBIE
-    udp: true
-  - type: vless
-    name: Bucharest · 4FreeIran-70c15f982e
-    server: 85.90.196.38
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Bucharest · 4Mohsen-b2826b37ee
+      - Bucharest · 罗马尼亚
       - Bucharest · EPODONIOS
       - Voluntari · EPODONIOS
       - Voluntari · 🇷🇴
       - Voluntari · 🇷🇴139787
       - Voluntari · 4Kian-d5e2c15042
-      - Voluntari · @DeltaKroneckerGithub
-      - Voluntari · @DeltaKroneckerGithub-01
-      - Bucharest · 4FreeIran-70c15f982e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Bucharest · 4Mohsen-b2826b37ee
+      - Bucharest · 罗马尼亚
       - Bucharest · EPODONIOS
       - Voluntari · EPODONIOS
       - Voluntari · 🇷🇴
       - Voluntari · 🇷🇴139787
       - Voluntari · 4Kian-d5e2c15042
-      - Voluntari · @DeltaKroneckerGithub
-      - Voluntari · @DeltaKroneckerGithub-01
-      - Bucharest · 4FreeIran-70c15f982e
 rules:
   - MATCH,Proxy

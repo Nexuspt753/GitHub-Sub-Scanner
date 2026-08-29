@@ -1,29 +1,26 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-27a9ca16cf
-    server: nok.iblamelooks.ir
+  - type: vmess
+    name: 4Mohsen-e6a8688b34
+    server: 95.182.80.242
     port: 443
-    uuid: e4d70b4d-5e6d-4461-ab0f-1a778de9d7d1
+    uuid: 803cd116-56f6-4680-9ef7-82e2ded5810b
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-27a9ca16cf
+      - 4Mohsen-e6a8688b34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-27a9ca16cf
+      - 4Mohsen-e6a8688b34
 rules:
   - MATCH,Proxy

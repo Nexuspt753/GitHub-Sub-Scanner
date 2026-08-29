@@ -1,30 +1,31 @@
 proxies:
-  - type: vless
-    name: Vawkavysk · @DeltaKroneckerGithub
-    server: 45.134.26.97
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+  - type: trojan
+    name: Bol’shoye Stiklevo · @DeltaKroneckerGithub
+    server: by01.botovod.space
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
     udp: true
     tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: nordic.cendora.ru
-    reality-opts:
-      public-key: YQTixaXzPVImuRc4TUbrFAekjIiaYV-t5S-HTKlH0AU
-      short-id: 2186a755ed67b034
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Vawkavysk · @DeltaKroneckerGithub
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Vawkavysk · @DeltaKroneckerGithub
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
