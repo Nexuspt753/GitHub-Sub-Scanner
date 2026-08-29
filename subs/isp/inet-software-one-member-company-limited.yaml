@@ -1,31 +1,27 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-b122d56b50
-    server: 103.75.186.153
-    port: 80
-    uuid: ef919c67-6638-4416-91af-9a13ffe5b9ca
-    alterId: 0
-    cipher: auto
+  - type: trojan
+    name: 4Nika-c3e980ab30
+    server: 103.72.96.55
+    port: 443
+    password: c95357eb-2869-4511-8940-f0dc5e1ec9b1
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /tandung288.click
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    tls: true
+    sni: hanoiidc2.5gsieutocdo.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-b122d56b50
+      - 4Nika-c3e980ab30
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b122d56b50
+      - 4Nika-c3e980ab30
 rules:
   - MATCH,Proxy

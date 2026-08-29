@@ -8,12 +8,22 @@ proxies:
     tls: true
     sni: funky-opossum.rooster465.autos
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-4ea6796893
+    server: 108.131.117.154
+    port: 443
+    password: NQ26071394
+    udp: true
+    tls: true
+    sni: funky-opossum.rooster465.autos
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-4ea6796893
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-4ea6796893
 rules:
   - MATCH,Proxy

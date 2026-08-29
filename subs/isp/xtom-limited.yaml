@@ -8,12 +8,22 @@ proxies:
     tls: true
     sni: os-2.rise-fuji.com
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-a941788f77
+    server: os-2.rise-fuji.com
+    port: 443
+    password: Fn9TZuYXiFYhsyp65T
+    udp: true
+    tls: true
+    sni: os-2.rise-fuji.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-a941788f77
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-a941788f77
 rules:
   - MATCH,Proxy

@@ -31,12 +31,12 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-02
-    server: 156.246.88.125
+    server: jp.wxgqlfx.top
     port: 26518
     uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: github.com
     reality-opts:
       public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
@@ -73,6 +73,22 @@ proxies:
       short-id: 4bbe62498d4cc3c9
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-3a92d6c16c
+    server: 156.224.76.187
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -83,6 +99,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Mohsen-3a92d6c16c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -94,5 +111,6 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Mohsen-3a92d6c16c
 rules:
   - MATCH,Proxy

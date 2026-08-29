@@ -13,12 +13,27 @@ proxies:
       short-id: 56f57b965ff599bf
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-a922d5052e
+    server: gr2.panel11.ru
+    port: 443
+    uuid: 9aff0732-7ce4-4b34-ba20-e67c6df64fdd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gr2.panel11.ru
+    reality-opts:
+      public-key: 2fZTX_b8h4Cdf2xJCID00BqFzsjtKAAws4Y-OZtNLnE
+      short-id: 56f57b965ff599bf
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-a922d5052e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-a922d5052e
 rules:
   - MATCH,Proxy

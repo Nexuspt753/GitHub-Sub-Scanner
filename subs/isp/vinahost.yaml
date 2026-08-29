@@ -8,12 +8,22 @@ proxies:
     tls: true
     sni: 103.9.77.6
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-2647b5ded0
+    server: 103.9.77.6
+    port: 443
+    password: 5a92d674-308c-4d95-b283-28383e63a59b
+    udp: true
+    tls: true
+    sni: 103.9.77.6
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-2647b5ded0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-2647b5ded0
 rules:
   - MATCH,Proxy

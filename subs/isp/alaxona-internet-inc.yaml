@@ -13,6 +13,33 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rzd.ru
   - type: vless
+    name: EPODONIOS
+    server: 200.165.234.62
+    port: 4100
+    uuid: 5383fb97-1178-4709-9a25-b767b743e911
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: wstg.datasynctrue.online
+    port: 443
+    uuid: ff0b6ba8-bed0-4c4d-bbc9-23af47582615
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wstg.datasynctrue.online
+  - type: vless
     name: 🇩🇪
     server: 200.165.234.62
     port: 4100
@@ -25,7 +52,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 200.165.234.119
     port: 2200
     uuid: 936b7663-a841-4b42-b639-6e3fab1dbf45
@@ -49,6 +76,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: 4Nika-716fc0fb5f
+    server: 200.165.234.45
+    port: 4100
+    uuid: 39e0f41b-180b-4f7e-a607-37b135f0fd83
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
+  - type: vless
     name: 4Mohsen-b8904039af
     server: 200.165.234.119
     port: 2200
@@ -60,16 +100,35 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-63fbffb5ea
+    server: wstg.datasynctrue.online
+    port: 443
+    uuid: ff0b6ba8-bed0-4c4d-bbc9-23af47582615
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/connect
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wstg.datasynctrue.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 🇩🇪
       - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - 🇩🇪
+      - EPODONIOS-01
       - ">>@ShadowsocksM::XX"
+      - 4Nika-716fc0fb5f
       - 4Mohsen-b8904039af
+      - 4Jadi-63fbffb5ea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -77,9 +136,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 🇩🇪
       - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - 🇩🇪
+      - EPODONIOS-01
       - ">>@ShadowsocksM::XX"
+      - 4Nika-716fc0fb5f
       - 4Mohsen-b8904039af
+      - 4Jadi-63fbffb5ea
 rules:
   - MATCH,Proxy

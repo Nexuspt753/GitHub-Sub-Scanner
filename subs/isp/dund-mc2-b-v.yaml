@@ -43,6 +43,22 @@ proxies:
       short-id: 0a4b7c3d
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-7b70ef7a5b
+    server: 31.77.111.11
+    port: 43439
+    uuid: 428e923f-e608-412b-9e51-3b09ffab551f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.higames.ru
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 39ad36226f3abec8
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -51,6 +67,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Sarina-7b70ef7a5b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -60,5 +77,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Sarina-7b70ef7a5b
 rules:
   - MATCH,Proxy

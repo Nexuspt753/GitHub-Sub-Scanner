@@ -11,12 +11,25 @@ proxies:
       path: /v-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-12aa0a5b97
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-12aa0a5b97
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -24,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-12aa0a5b97
 rules:
   - MATCH,Proxy

@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: 4Sarina-bf146b800e
+    server: 213.130.137.130
+    port: 443
+    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: panel.freesavesafe.com
+    xudp: true
+  - type: vless
+    name: 4Jadi-c5681bad01
+    server: 213.130.137.190
+    port: 443
+    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: panel.freesavesafe.com
+    xudp: true
+  - type: vless
+    name: 4FreeIran-a7fa9eb2d9
+    server: 213.130.137.20
+    port: 443
+    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: panel.freesavesafe.com
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-bf146b800e
+      - 4Jadi-c5681bad01
+      - 4FreeIran-a7fa9eb2d9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-bf146b800e
+      - 4Jadi-c5681bad01
+      - 4FreeIran-a7fa9eb2d9
+rules:
+  - MATCH,Proxy

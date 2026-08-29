@@ -1,5 +1,45 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: iran.harmira.ir
+    port: 6895
+    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: iran.harmira.ir
+    port: 6895
+    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: iran.harmira.ir
+    port: 7990
+    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
+    server: iran.harmira.ir
+    port: 7990
+    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-04
+    server: neo.harmira.ir
+    port: 3454
+    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: icv2ray
     server: iran.harmira.ir
     port: 6895
@@ -8,13 +48,6 @@ proxies:
     xudp: true
   - type: vless
     name: filembad
-    server: iran.harmira.ir
-    port: 6895
-    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
-    udp: true
-    xudp: true
-  - type: vless
-    name: کانال
     server: iran.harmira.ir
     port: 6895
     uuid: 47c4ca1b-3190-460d-9956-95240e4de125
@@ -50,25 +83,6 @@ proxies:
     xudp: true
   - type: vless
     name: 🇮🇷IR-🚀@VPNine1-01
-    server: iran.harmira.ir
-    port: 7990
-    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
-    udp: true
-    xudp: true
-  - type: vless
-    name: 🇮🇷155958
-    server: neo.harmira.ir
-    port: 3454
-    uuid: 47c4ca1b-3190-460d-9956-95240e4de125
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇮🇷IR-🚀@VPNine1-02
     server: neo.harmira.ir
     port: 3454
     uuid: 47c4ca1b-3190-460d-9956-95240e4de125
@@ -84,31 +98,35 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
       - icv2ray
       - filembad
-      - کانال
       - 🇮🇷155960
       - 🇮🇷IR-🚀@VPNine1
       - icv2ray-01
       - 🇮🇷155959
       - 🇮🇷IR-🚀@VPNine1-01
-      - 🇮🇷155958
-      - 🇮🇷IR-🚀@VPNine1-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
       - icv2ray
       - filembad
-      - کانال
       - 🇮🇷155960
       - 🇮🇷IR-🚀@VPNine1
       - icv2ray-01
       - 🇮🇷155959
       - 🇮🇷IR-🚀@VPNine1-01
-      - 🇮🇷155958
-      - 🇮🇷IR-🚀@VPNine1-02
 rules:
   - MATCH,Proxy

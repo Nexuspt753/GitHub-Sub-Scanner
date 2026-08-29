@@ -1,5 +1,21 @@
 proxies:
   - type: vmess
+    name: EPODONIOS
+    server: us1.grpc.stream
+    port: 80
+    uuid: 6031b5c3-d8ba-5756-b708-f61084a2b678
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /us1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: us1.grpc.stream
+  - type: vmess
     name: 🇺🇸US-148.135.10.219-0046
     server: us1.grpc.stream
     port: 80
@@ -36,6 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇺🇸US-148.135.10.219-0046
       - 4FreeIran-b1bb5cb434
   - name: Auto
@@ -44,6 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇺🇸US-148.135.10.219-0046
       - 4FreeIran-b1bb5cb434
 rules:

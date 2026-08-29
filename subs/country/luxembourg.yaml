@@ -17,12 +17,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sb6anj3uz4gy.bosfiles.net
+  - type: vless
+    name: Luxembourg · 4Kian-1eaefd9050
+    server: 193.239.179.138
+    port: 443
+    uuid: cb10c0a7-b570-4ae8-a40c-2a8e31bc5a26
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: sb6anj3uz4gy.bosfiles.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1/data/sync
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sb6anj3uz4gy.bosfiles.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Luxembourg · @DeltaKroneckerGithub
+      - Luxembourg · 4Kian-1eaefd9050
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -30,5 +49,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Luxembourg · @DeltaKroneckerGithub
+      - Luxembourg · 4Kian-1eaefd9050
 rules:
   - MATCH,Proxy

@@ -14,29 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless
-    server: 185.209.15.198
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 185.209.15.198
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl8.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
     server: nl8.helper-internet.com
     port: 443
@@ -51,18 +28,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-03017119d8
-    server: nl8.helper-internet.com
+    name: vless
+    server: 185.209.15.198
     port: 443
-    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
+    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: nl8.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 185.209.15.198
+    port: 443
+    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4FreeIran-a4ff9b681e
@@ -78,32 +59,16 @@ proxies:
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-60b681b5cf
-    server: 185.209.15.198
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl8.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - vless
-      - EPODONIOS-01
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
-      - 4Nika-03017119d8
+      - vless
+      - vless-01
       - 4FreeIran-a4ff9b681e
-      - 4Jadi-60b681b5cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -111,11 +76,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - vless
-      - EPODONIOS-01
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
-      - 4Nika-03017119d8
+      - vless
+      - vless-01
       - 4FreeIran-a4ff9b681e
-      - 4Jadi-60b681b5cf
 rules:
   - MATCH,Proxy

@@ -8,12 +8,22 @@ proxies:
     tls: true
     sni: telegram.org
     client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-8bf4fc46a8
+    server: tr1.euroline.cloud
+    port: 443
+    password: AnadoluSpeed
+    udp: true
+    tls: true
+    sni: telegram.org
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-8bf4fc46a8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-8bf4fc46a8
 rules:
   - MATCH,Proxy

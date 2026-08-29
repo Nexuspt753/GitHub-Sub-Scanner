@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: usa1.selqora.ir
+    port: 50303
+    uuid: 4cdedbb5-20f6-4036-9e72-22ce1dfc0d4b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: XhfHr5VYPbNs6BrrsYc7Wd6-D2nJAO8QrixRuJarFkU
+      short-id: c7158ef32c1d2a7e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: filembad
     server: usa1.selqora.ir
     port: 50303
@@ -41,22 +55,48 @@ proxies:
       short-id: c7158ef32c1d2a7e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Jadi-9b28357f1a
+    server: usa.selqora.ir
+    port: 20728
+    uuid: ff96cb3b-4c7e-4f65-a69b-3f8670d3450c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-bf58ca7e4d
+    server: usa.selqora.ir
+    port: 20728
+    uuid: ff96cb3b-4c7e-4f65-a69b-3f8670d3450c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - filembad
       - کانال
       - 🔵@chillguy_vpn
+      - 4Jadi-9b28357f1a
+      - 4Kian-bf58ca7e4d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - filembad
       - کانال
       - 🔵@chillguy_vpn
+      - 4Jadi-9b28357f1a
+      - 4Kian-bf58ca7e4d
 rules:
   - MATCH,Proxy

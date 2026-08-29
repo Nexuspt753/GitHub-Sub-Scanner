@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: 4Jadi-db9f24ff19
+    server: 116.80.61.224
+    port: 443
+    password: BxceQaOe
+    udp: true
+    tls: true
+    sni: t.me/ripaojiedian
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-db9f24ff19
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-db9f24ff19
+rules:
+  - MATCH,Proxy

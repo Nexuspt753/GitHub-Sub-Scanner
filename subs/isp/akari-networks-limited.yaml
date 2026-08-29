@@ -1,50 +1,30 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 188.253.120.205
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  - type: trojan
+    name: 4FreeIran-a4d52c327c
+    server: 185.220.238.77
+    port: 11543
+    password: HutaoCloud
     udp: true
     tls: true
+    sni: 185.220.238.77
     client-fingerprint: chrome
-    servername: ne4d3.thir.mn8.hh.vavava.kdns.fr
-    xudp: true
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /api
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ne4d3.thir.mn8.hh.vavava.kdns.fr
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 188.253.120.208
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ne4d3.thir.mn8.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ne4d3.thir.mn8.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-a4d52c327c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-a4d52c327c
 rules:
   - MATCH,Proxy

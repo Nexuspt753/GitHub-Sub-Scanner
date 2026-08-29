@@ -2,6 +2,13 @@ proxies:
   - type: ss
     name: EPODONIOS
     server: mn.qwer-cn.org
+    port: 10929
+    cipher: aes-128-gcm
+    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: mn.qwer-cn.org
     port: 10931
     cipher: aes-128-gcm
     password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
@@ -66,12 +73,40 @@ proxies:
     password: 3ac6a6ca99f74941b1eaf892818e2ddb
     udp: true
     client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-cf4de338bb
+    server: 45.149.92.71
+    port: 443
+    password: 92435aa8-f3b6-466a-ad58-c55cbb6d2acf
+    udp: true
+    tls: true
+    sni: hinet.mjt000.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-d83264c195
+    server: 45.149.92.71
+    port: 443
+    password: ad2b5cee-f61d-4060-8726-5fedf509ff5d
+    udp: true
+    tls: true
+    sni: kp.mjt000.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-884566f5c4
+    server: 45.149.92.71
+    port: 443
+    password: c85761bc-5d74-4ae5-b525-0d32443182fa
+    udp: true
+    tls: true
+    sni: uk.mjt000.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - ProxyMtpVPN-15
       - کانال
       - 🇭🇰156020
@@ -80,6 +115,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4FreeIran-cf4de338bb
+      - 4Nika-d83264c195
+      - 4Jadi-884566f5c4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -87,6 +125,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - ProxyMtpVPN-15
       - کانال
       - 🇭🇰156020
@@ -95,5 +134,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4FreeIran-cf4de338bb
+      - 4Nika-d83264c195
+      - 4Jadi-884566f5c4
 rules:
   - MATCH,Proxy

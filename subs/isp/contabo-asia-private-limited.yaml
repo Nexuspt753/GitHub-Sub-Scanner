@@ -90,13 +90,6 @@ proxies:
     password: 3eOFeNssde7PYYMv
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-02
-    server: 84.247.155.196
-    port: 80
-    cipher: YWVzLTI1Ni1nY206M2VPRmVOc3NkZTdQWVlNdg%3D%3D
-    password: ""
-    udp: true
-  - type: ss
     name: EPODONIOS-03
     server: 84.247.155.196
     port: 80
@@ -104,7 +97,7 @@ proxies:
     password: ""
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 84.247.155.196
     port: 80
     cipher: aes-256-gcm
@@ -117,6 +110,34 @@ proxies:
     cipher: YWVzLTI1Ni1nY206M2VPRmVOc3NkZTdQWVlNdg%3D%3D
     password: ""
     udp: true
+  - type: vless
+    name: 4Mohsen-c2d1db19e9
+    server: 46.250.240.80
+    port: 2053
+    uuid: f2816a01-3555-4e79-9e26-770f050ea55a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: bRDaP068YgdwwdQgenUvKTNfPjIB_Dy-lJDFC9ZZEXU
+      short-id: 632a146bd581641a
+    xudp: true
+  - type: vmess
+    name: 4Sarina-be721ed6d8
+    server: 109.123.237.41
+    port: 80
+    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fastssh
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -134,10 +155,11 @@ proxy-groups:
       - 4Jadi-6d37a255c3
       - 4Kian-f37a3686e3
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS-03
-      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-02
       - ">>@V2rayNG3::JP"
+      - 4Mohsen-c2d1db19e9
+      - 4Sarina-be721ed6d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -156,9 +178,10 @@ proxy-groups:
       - 4Jadi-6d37a255c3
       - 4Kian-f37a3686e3
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS-03
-      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-02
       - ">>@V2rayNG3::JP"
+      - 4Mohsen-c2d1db19e9
+      - 4Sarina-be721ed6d8
 rules:
   - MATCH,Proxy

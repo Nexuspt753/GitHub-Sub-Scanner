@@ -1,4 +1,16 @@
 proxies:
+  - type: vless
+    name: Hanoi · @DeltaKroneckerGithub
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: Ho Chi Minh City · @DeltaKroneckerGithub
     server: 36.50.134.29
@@ -7,7 +19,7 @@ proxies:
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: Hanoi · @DeltaKroneckerGithub
+    name: Hanoi · @DeltaKroneckerGithub-01
     server: 160.30.160.134
     port: 443
     password: 25a0ffa0-725c-4d6f-b0d5-c74579753075
@@ -26,6 +38,45 @@ proxies:
     tls: true
     sni: 103.9.77.6
     client-fingerprint: chrome
+  - type: trojan
+    name: Go Vap · 4Sarina-2647b5ded0
+    server: 103.9.77.6
+    port: 443
+    password: 5a92d674-308c-4d95-b283-28383e63a59b
+    udp: true
+    tls: true
+    sni: 103.9.77.6
+    client-fingerprint: chrome
+  - type: trojan
+    name: Ho Chi Minh City · 4FreeIran-5e9d5cc229
+    server: 36.50.134.29
+    port: 443
+    password: 94d219c9-1afc-4d42-b090-8b3794764380
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: Dich Vong · 4Nika-c3e980ab30
+    server: 103.72.96.55
+    port: 443
+    password: c95357eb-2869-4511-8940-f0dc5e1ec9b1
+    udp: true
+    tls: true
+    sni: hanoiidc2.5gsieutocdo.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+  - type: vless
+    name: Hanoi · 4Nika-12aa0a5b97
+    server: 171.244.142.193
+    port: 8080
+    uuid: e2c6905e-46ec-434b-8400-0bc5bf0363e6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: Dich Vong · 4Jadi-a0ee88c35b
     server: 103.166.183.226
@@ -58,21 +109,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: Dich Vong · 4Jadi-b122d56b50
-    server: 103.75.186.153
-    port: 80
-    uuid: ef919c67-6638-4416-91af-9a13ffe5b9ca
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /tandung288.click
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: Hanoi · 4Jadi-70bdc269ec
     server: 103.82.25.106
     port: 80
@@ -92,12 +128,16 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Ho Chi Minh City · @DeltaKroneckerGithub
       - Hanoi · @DeltaKroneckerGithub
+      - Ho Chi Minh City · @DeltaKroneckerGithub
+      - Hanoi · @DeltaKroneckerGithub-01
       - Go Vap · @DeltaKroneckerGithub
+      - Go Vap · 4Sarina-2647b5ded0
+      - Ho Chi Minh City · 4FreeIran-5e9d5cc229
+      - Dich Vong · 4Nika-c3e980ab30
+      - Hanoi · 4Nika-12aa0a5b97
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
-      - Dich Vong · 4Jadi-b122d56b50
       - Hanoi · 4Jadi-70bdc269ec
   - name: Auto
     type: url-test
@@ -105,12 +145,16 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Ho Chi Minh City · @DeltaKroneckerGithub
       - Hanoi · @DeltaKroneckerGithub
+      - Ho Chi Minh City · @DeltaKroneckerGithub
+      - Hanoi · @DeltaKroneckerGithub-01
       - Go Vap · @DeltaKroneckerGithub
+      - Go Vap · 4Sarina-2647b5ded0
+      - Ho Chi Minh City · 4FreeIran-5e9d5cc229
+      - Dich Vong · 4Nika-c3e980ab30
+      - Hanoi · 4Nika-12aa0a5b97
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
-      - Dich Vong · 4Jadi-b122d56b50
       - Hanoi · 4Jadi-70bdc269ec
 rules:
   - MATCH,Proxy

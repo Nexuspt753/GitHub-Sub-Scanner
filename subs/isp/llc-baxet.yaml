@@ -1,32 +1,45 @@
 proxies:
   - type: ss
-    name: کانال
+    name: EPODONIOS
     server: 176.32.35.51
     port: 10081
     cipher: aes-256-gcm
     password: 895b4b796a357570
     udp: true
   - type: ss
-    name: 🇷🇺156080
+    name: کانال
     server: 176.32.35.51
     port: 10081
     cipher: aes-256-gcm
     password: 895b4b796a357570
     udp: true
+  - type: trojan
+    name: 4Sarina-8c3b9dcc52
+    server: 45.147.200.44
+    port: 443
+    password: 265f092f-418b-30c9-a479-4800fd44dd19mielink
+    udp: true
+    tls: true
+    sni: $$paydiu.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - کانال
-      - 🇷🇺156080
+      - 4Sarina-8c3b9dcc52
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - کانال
-      - 🇷🇺156080
+      - 4Sarina-8c3b9dcc52
 rules:
   - MATCH,Proxy
