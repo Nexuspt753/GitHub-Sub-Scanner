@@ -7,27 +7,72 @@ proxies:
     udp: true
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 185.215.234.3
+    port: 443
+    uuid: b584ac42-15cb-d8ad-5338-1d07a4e98a6e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: dl.artafarx.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl.artafarx.ir
+  - type: vless
     name: ✨
     server: germanndnew.mamadhpbot.ir
     port: 50118
     uuid: 93ee032f-b67f-4cac-a239-da1295aec528
     udp: true
     xudp: true
-  - type: vless
-    name: 4Nika-15b79b2fbf
-    server: germanndnew.mamadhpbot.ir
-    port: 50118
-    uuid: 93ee032f-b67f-4cac-a239-da1295aec528
+  - type: vmess
+    name: EPODONIOS-02
+    server: 130.185.122.177
+    port: 443
+    uuid: f232d454-b014-4e00-a7ae-430341909db4
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 130.185.122.177
+  - type: vmess
+    name: EPODONIOS-03
+    server: 130.185.122.177
+    port: 443
+    uuid: f232d454-b014-4e00-a7ae-430341909db4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 130.185.122.177
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - ✨
-      - 4Nika-15b79b2fbf
+      - EPODONIOS-02
+      - EPODONIOS-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,7 +80,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - ✨
-      - 4Nika-15b79b2fbf
+      - EPODONIOS-02
+      - EPODONIOS-03
 rules:
   - MATCH,Proxy

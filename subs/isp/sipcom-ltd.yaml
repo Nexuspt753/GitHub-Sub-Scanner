@@ -1,47 +1,34 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.135.235.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime07.workers.dev
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.135.235.123
-    port: 443
-    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    name: EPODONIOS
+    server: 45.135.235.155
+    port: 2096
+    uuid: 1149be91-5a4f-47de-995f-66f8d7d64498
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: notls.lukongtou.eu.org
+    alpn:
+      - h2
+    servername: GeR7.SimAnSaNat.iR.
     xudp: true
     network: ws
     ws-opts:
-      path: Telegram-WangCai2
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: notls.lukongtou.eu.org
+        Host: GeR7.SimAnSaNat.iR.
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
 rules:
   - MATCH,Proxy

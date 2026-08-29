@@ -1,34 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 138.124.8.117
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: fin2.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: fin2.helper-internet.com
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: fin2.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub
     server: 138.124.32.78
     port: 443
     password: "1234567890"
@@ -84,17 +56,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Sarina-2c80785ed7
+    server: 95.85.233.181
+    port: 443
+    uuid: e0bb3250-1873-4b9d-b9b5-7aa6c863885f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: c.primarymaster.online
+    reality-opts:
+      public-key: S05RWQUVH-p3uqekd0iRpIeH__NpCt0XEN2xCiQJs3Y
+      short-id: c56c3ba3b9f676c5
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS
       - v2rayng3
       - 4Kian-b315bcde51
+      - 4Sarina-2c80785ed7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -102,10 +89,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS
       - v2rayng3
       - 4Kian-b315bcde51
+      - 4Sarina-2c80785ed7
 rules:
   - MATCH,Proxy

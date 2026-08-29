@@ -15,12 +15,46 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 168.222.194.138
+    port: 9880
+    uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabbccdd
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 168.222.194.138
+    port: 9880
+    uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabbccdd
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +62,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

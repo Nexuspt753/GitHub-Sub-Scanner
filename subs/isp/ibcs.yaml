@@ -6,12 +6,28 @@ proxies:
     uuid: c14cad69-10c2-41bc-b116-d865ad2c52c6
     udp: true
     xudp: true
+  - type: vless
+    name: ShadowFlux2
+    server: 5.181.21.9
+    port: 1079
+    uuid: c14cad69-10c2-41bc-b116-d865ad2c52c6
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-329f830990
+    server: 5.181.21.9
+    port: 1079
+    uuid: c14cad69-10c2-41bc-b116-d865ad2c52c6
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - ShadowFlux2
+      - 4Nika-329f830990
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +35,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - ShadowFlux2
+      - 4Nika-329f830990
 rules:
   - MATCH,Proxy

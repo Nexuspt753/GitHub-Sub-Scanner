@@ -1,60 +1,24 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 109.176.19.174
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    server: 185.115.207.173
+    port: 3389
+    uuid: 825c049b-403c-49e0-b60f-379bdb8611e9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: a0hbm.jvb1.28f.hh.vavava.kdns.fr
+    servername: www.ntu.edu.sg
+    reality-opts:
+      public-key: s5t86eacAGCBMt6TWPF3Zhq8KFkBnmNZY3ZkKBrxHkY
+      short-id: a4115cac
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a0hbm.jvb1.28f.hh.vavava.kdns.fr
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 89.28.239.171
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: a0hbm.jvb1.28f.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a0hbm.jvb1.28f.hh.vavava.kdns.fr
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 109.176.19.244
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: a0hbm.jvb1.28f.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a0hbm.jvb1.28f.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -62,7 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

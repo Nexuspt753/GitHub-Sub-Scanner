@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 82.202.177.148
+    port: 5269
+    uuid: 2e483b48-ad25-4c80-8806-73000fd5b031
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: fFmp4fFO2wuoJKvc2_e5MF5C92H6Ei4c_AfV7toZO1c
+      short-id: a62ae57fa46a0d6d
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

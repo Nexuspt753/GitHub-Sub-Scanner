@@ -1,27 +1,46 @@
 proxies:
   - type: vless
-    name: 4Jadi-6ae5d7efe4
-    server: nl4.murhost.network
+    name: EPODONIOS
+    server: nl6.murhost.network
     port: 443
-    uuid: c6cff605-90cf-4953-bf97-0a44e43f229d
+    uuid: 419f25c1-bc35-412e-93fb-258efee859b5
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: nl4.murhost.network
-    flow: xtls-rprx-vision-udp443
+    client-fingerprint: chrome
+    servername: nl6.murhost.network
+    reality-opts:
+      public-key: XOcyZvF63CHDPnh3UCL-u-X8HYeNGiRtrwDVRLBC1DI
+      short-id: f41bc0b00ca1a978
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: nl6.murhost.network
+    port: 443
+    uuid: 419f25c1-bc35-412e-93fb-258efee859b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl6.murhost.network
+    reality-opts:
+      public-key: XOcyZvF63CHDPnh3UCL-u-X8HYeNGiRtrwDVRLBC1DI
+      short-id: f41bc0b00ca1a978
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6ae5d7efe4
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6ae5d7efe4
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

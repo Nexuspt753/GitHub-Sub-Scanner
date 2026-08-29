@@ -1,5 +1,41 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 155.103.69.93
+    port: 443
+    uuid: 133f016d-81ad-4ed3-8fe1-e431a4134dca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: plan.tabrizonlinemaku.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: plan.tabrizonlinemaku.ir
+  - type: vless
+    name: EPODONIOS
+    server: plan.tabrizonlinemaku.ir
+    port: 443
+    uuid: 133f016d-81ad-4ed3-8fe1-e431a4134dca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: plan.tabrizonlinemaku.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: plan.tabrizonlinemaku.ir
+  - type: vless
     name: v2ray313
     server: plan.tabrizonlinemaku.ir
     port: 443
@@ -16,7 +52,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: plan.tabrizonlinemaku.ir
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: plan.tabrizonlinemaku.ir
     port: 443
     uuid: 133f016d-81ad-4ed3-8fe1-e431a4134dca
@@ -32,31 +68,17 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: plan.tabrizonlinemaku.ir
   - type: vless
-    name: EPODONIOS
-    server: tur5.helper-internet.com
-    port: 443
-    uuid: a4ccca8a-dd5a-4935-80ea-53feafe195c9
+    name: EPODONIOS-01
+    server: pon.fereshtehagonahnemikonnad.ir
+    port: 2083
+    uuid: 79f23148-970d-48b3-860e-739f7feec8cd
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: tur5.helper-internet.com
+    servername: chatgpt.com
     reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇹🇷
-    server: tur5.helper-internet.com
-    port: 443
-    uuid: a4ccca8a-dd5a-4935-80ea-53feafe195c9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tur5.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
+      public-key: j4JiRjGdRBuUK5R4gKVnek1WR8cNiX9hrMTzP6C1iWs
+      short-id: d1bb8670a95a23aa
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -75,42 +97,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: plan.tabrizonlinemaku.ir
-  - type: vless
-    name: 4Nika-31ca7f73be
-    server: tur5.helper-internet.com
-    port: 443
-    uuid: a4ccca8a-dd5a-4935-80ea-53feafe195c9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tur5.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - v2ray313
       - DeltaKroneckerGithub
       - EPODONIOS
-      - 🇹🇷
+      - v2ray313
+      - DeltaKroneckerGithub-01
+      - EPODONIOS-01
       - 4Nika-db4cf153c6
-      - 4Nika-31ca7f73be
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - v2ray313
       - DeltaKroneckerGithub
       - EPODONIOS
-      - 🇹🇷
+      - v2ray313
+      - DeltaKroneckerGithub-01
+      - EPODONIOS-01
       - 4Nika-db4cf153c6
-      - 4Nika-31ca7f73be
 rules:
   - MATCH,Proxy

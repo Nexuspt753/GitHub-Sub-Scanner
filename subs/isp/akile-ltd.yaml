@@ -13,12 +13,27 @@ proxies:
       short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: jp.wxgqlfx.top
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.com
+    reality-opts:
+      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
+      short-id: 6caead99
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
