@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 45.40.145.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime35.workers.dev
   - type: trojan
     name: DeltaKroneckerGithub
     server: 184.168.127.50
@@ -25,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -34,6 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02

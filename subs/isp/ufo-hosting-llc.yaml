@@ -1,33 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 45.144.30.113
-    port: 443
-    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: zT1pXWygvJtVBuoanuZFDKNCvYyz5M-f8YSu68DG0wk
-      short-id: 095f70dc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 45.144.30.92
-    port: 443
-    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: 0l-_lPQW-ktNbUcXjrSyCx61ZGzA8OdWNwHHDT7l0S4
-      short-id: 28aa254f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Channel
     server: 45.144.30.113
     port: 443
@@ -83,64 +55,24 @@ proxies:
       short-id: 28aa254f
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Jadi-5c6d21d57c
-    server: 171.22.134.12
-    port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /path/1689849487190
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4FreeIran-91eab99662
-    server: 171.22.134.12
-    port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /path/1689935243027
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
       - Channel
       - Channel-01
       - 4Kian-2396345838
       - 4Jadi-ace1a5296a
-      - 4Jadi-5c6d21d57c
-      - 4FreeIran-91eab99662
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
       - Channel
       - Channel-01
       - 4Kian-2396345838
       - 4Jadi-ace1a5296a
-      - 4Jadi-5c6d21d57c
-      - 4FreeIran-91eab99662
 rules:
   - MATCH,Proxy

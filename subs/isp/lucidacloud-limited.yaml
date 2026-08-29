@@ -8,12 +8,29 @@ proxies:
     tls: true
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
+  - type: vless
+    name: EPODONIOS
+    server: 193.134.209.123
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy

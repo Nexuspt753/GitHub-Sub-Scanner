@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.175.161.47
+    port: 8443
+    uuid: eb85f61f-acb3-4689-8b7c-d8ad2a6aa43f
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 6hrP_JlRUK40WwXk9ZL0FpB19bTR0RnrUGYX5SaZkCE
+      short-id: 0501b478da6a4950
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 89.124.251.61
     port: 443
@@ -39,7 +55,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 5.175.161.47
     port: 443
     uuid: eb85f61f-acb3-4689-8b7c-d8ad2a6aa43f
@@ -140,10 +156,16 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-06
-    server: 93.123.85.118
-    port: 52
-    uuid: 48cee39b-c753-4df0-af05-3d52db41ef43
+    server: 176.96.138.122
+    port: 443
+    uuid: 518a99df-54f6-4f42-819d-b60abd880edf
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kind-vortex.cdn.cachefleet.com
+    reality-opts:
+      public-key: O_YZOJVON0LE1U01hAtNUOVRy7z6fkBUXbMtpCGoGEg
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 🇵🇱
@@ -164,13 +186,6 @@ proxies:
     server: gr-direct2.pngv.top
     port: 4999
     uuid: 2e35ca4c-00cd-4e0b-bb51-f69d19c9f3df
-    udp: true
-    xudp: true
-  - type: vless
-    name: "[026028]"
-    server: 93.123.85.118
-    port: 52
-    uuid: 48cee39b-c753-4df0-af05-3d52db41ef43
     udp: true
     xudp: true
   - type: vless
@@ -286,13 +301,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-e3c9ae8b55
-    server: 93.123.85.118
-    port: 52
-    uuid: 48cee39b-c753-4df0-af05-3d52db41ef43
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Kian-6d3bf8fec1
     server: 176.96.138.122
     port: 443
@@ -310,10 +318,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS-03
       - EPODONIOS-04
       - EPODONIOS-05
@@ -326,7 +335,6 @@ proxy-groups:
       - 🇵🇱
       - 🇩🇪
       - 🇩🇪2
-      - "[026028]"
       - appsooner
       - prrofile_purple
       - 4FreeIran-adf08d8efa
@@ -337,7 +345,6 @@ proxy-groups:
       - 4Nika-1d8fda852b
       - 4Nika-1cbdb055a7
       - ">>@oneclickvpnkeys::CH"
-      - 4Jadi-e3c9ae8b55
       - 4Kian-6d3bf8fec1
   - name: Auto
     type: url-test
@@ -345,10 +352,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS-03
       - EPODONIOS-04
       - EPODONIOS-05
@@ -361,7 +369,6 @@ proxy-groups:
       - 🇵🇱
       - 🇩🇪
       - 🇩🇪2
-      - "[026028]"
       - appsooner
       - prrofile_purple
       - 4FreeIran-adf08d8efa
@@ -372,7 +379,6 @@ proxy-groups:
       - 4Nika-1d8fda852b
       - 4Nika-1cbdb055a7
       - ">>@oneclickvpnkeys::CH"
-      - 4Jadi-e3c9ae8b55
       - 4Kian-6d3bf8fec1
 rules:
   - MATCH,Proxy
