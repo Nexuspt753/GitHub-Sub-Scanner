@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vod.ensf.top
+  - type: vless
+    name: tootffarangi🍓-9
+    server: 185.195.69.158
+    port: 443
+    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vod.ensf.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/irc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vod.ensf.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - tootffarangi🍓-9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - tootffarangi🍓-9
 rules:
   - MATCH,Proxy

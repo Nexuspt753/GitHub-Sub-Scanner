@@ -14,12 +14,27 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: Vawkavysk · 4Sarina-edcd7f06b6
+    server: 45.134.26.97
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nordic.cendora.ru
+    reality-opts:
+      public-key: YQTixaXzPVImuRc4TUbrFAekjIiaYV-t5S-HTKlH0AU
+      short-id: 2186a755ed67b034
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Bol’shoye Stiklevo · @DeltaKroneckerGithub
+      - Vawkavysk · 4Sarina-edcd7f06b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Bol’shoye Stiklevo · @DeltaKroneckerGithub
+      - Vawkavysk · 4Sarina-edcd7f06b6
 rules:
   - MATCH,Proxy

@@ -61,22 +61,36 @@ proxies:
     tls: true
     sni: mxlo.wsone.icu
     client-fingerprint: chrome
+  - type: vless
+    name: "[026027]"
+    server: 34.178.210.187
+    port: 15819
+    uuid: 6dc82a6d-8ceb-450c-959a-a25df17b6737
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: gOHfWuPrmwuyV3FV7A-L2r7bPlJm5CrkLoC2p_CacU8
+      short-id: 27caa7b9346d2a28
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
-    name: 4Jadi-3ca055f16d
-    server: aaaa.wxx.gay
-    port: 443
-    uuid: 8237ec34-143a-11ee-8019-000017022008
-    alterId: 64
+    name: 4Jadi-36e27d8749
+    server: cn2.soow.win
+    port: 50027
+    uuid: c1d0ae9e-f08a-3f81-962d-ca19b52c760d
+    alterId: 2
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    tls: true
     network: ws
     ws-opts:
-      path: /look
+      path: /video
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cn2.soow.win
 proxy-groups:
   - name: Proxy
     type: select
@@ -87,7 +101,8 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - EPODONIOS
       - DeltaKroneckerGithub-03
-      - 4Jadi-3ca055f16d
+      - "[026027]"
+      - 4Jadi-36e27d8749
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -99,6 +114,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - EPODONIOS
       - DeltaKroneckerGithub-03
-      - 4Jadi-3ca055f16d
+      - "[026027]"
+      - 4Jadi-36e27d8749
 rules:
   - MATCH,Proxy
