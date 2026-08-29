@@ -7,14 +7,14 @@ proxies:
     sni: md1.cnyvpn.com
     skip-cert-verify: true
   - type: hysteria2
-    name: 摩尔多瓦
+    name: EPODONIOS
     server: md1.cnyvpn.com
     port: 443
     password: 60e2a548-96aa-4850-a279-1edab743c39b
     sni: md1.cnyvpn.com
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
+    name: 摩尔多瓦
     server: md1.cnyvpn.com
     port: 443
     password: 60e2a548-96aa-4850-a279-1edab743c39b
@@ -104,20 +104,35 @@ proxies:
       short-id: a0a5d889
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-f07db06e70
+    server: 131.123.42.150
+    port: 443
+    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bul2.helper-internet.com
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-e84e9a8f73
-      - 摩尔多瓦
       - EPODONIOS
+      - 摩尔多瓦
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - vmesskhodam
       - Channel
       - 4Kian-7ef7e94027
+      - 4FreeIran-f07db06e70
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -125,13 +140,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-e84e9a8f73
-      - 摩尔多瓦
       - EPODONIOS
+      - 摩尔多瓦
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - vmesskhodam
       - Channel
       - 4Kian-7ef7e94027
+      - 4FreeIran-f07db06e70
 rules:
   - MATCH,Proxy
