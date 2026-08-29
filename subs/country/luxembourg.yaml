@@ -1,33 +1,34 @@
 proxies:
-  - type: vmess
-    name: Schieren · 4Kian-a611986852
-    server: 23.109.136.74
+  - type: vless
+    name: Luxembourg · @DeltaKroneckerGithub
+    server: 193.239.179.138
     port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
+    uuid: cb10c0a7-b570-4ae8-a40c-2a8e31bc5a26
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: sb6anj3uz4gy.bosfiles.net
+    xudp: true
     network: ws
     ws-opts:
-      path: /path/191019072927
+      path: /v1/data/sync
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.82710897.xyz
+        Host: sb6anj3uz4gy.bosfiles.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Schieren · 4Kian-a611986852
+      - Luxembourg · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Schieren · 4Kian-a611986852
+      - Luxembourg · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: s559.kukuss.top
+    port: 18443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: u643766u9fe36c25s848.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

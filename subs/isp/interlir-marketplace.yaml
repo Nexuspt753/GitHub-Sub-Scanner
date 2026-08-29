@@ -1,15 +1,30 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 153.76.204.2
+    server: vs-nl10.vibesignal.space
     port: 443
-    uuid: 8e85752d-c04f-427d-9d70-b10d144c8492
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 153.76.204.82
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: nl.dataroute.biz
+    servername: cdnjs.cloudflare.com
     reality-opts:
-      public-key: 9kQGK7IuVFWU9xCb4g9ygL1CEv87QmVZJzWLz74pTSc
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

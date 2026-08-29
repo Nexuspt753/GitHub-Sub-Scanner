@@ -3,13 +3,10 @@ proxies:
     name: DeltaKroneckerGithub
     server: 185.178.208.176
     port: 443
-    uuid: 72353b97-1471-4475-9535-04bbf1097181
+    uuid: d61e94ca-59a2-47ac-a172-15850c0e4f62
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - h3
-      - h2
     servername: ncd.crsmaps.com
     xudp: true
     network: ws
@@ -18,39 +15,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ncd.crsmaps.com
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 185.178.208.137
-    port: 443
-    uuid: 3069559b-3446-415e-8db0-633907b17871
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: games22.fun
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1/data/sync
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: games22.fun
-  - type: vless
-    name: EPODONIOS
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: NOFiLTERING2🇩🇪
     server: 95.129.236.252
@@ -64,38 +28,6 @@ proxies:
     network: ws
     ws-opts:
       path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇷🇺139881
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Jadi-b0c1bbe348
-    server: 185.178.208.140
-    port: 443
-    uuid: 8282ad90-748c-4858-a5f6-ac295ee4b174
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: mapgasstation.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v3/live/hls/segment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
@@ -113,18 +45,32 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-ef54084d3a
+    server: 185.178.208.140
+    port: 443
+    uuid: b701a239-f9fe-4167-9d81-4295490d9221
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: mapgasstation.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/live/hls/segment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - EPODONIOS
       - NOFiLTERING2🇩🇪
-      - 🇷🇺139881
-      - 4Jadi-b0c1bbe348
       - 4Mohsen-b66a7367f9
+      - 4Jadi-ef54084d3a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -132,11 +78,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - EPODONIOS
       - NOFiLTERING2🇩🇪
-      - 🇷🇺139881
-      - 4Jadi-b0c1bbe348
       - 4Mohsen-b66a7367f9
+      - 4Jadi-ef54084d3a
 rules:
   - MATCH,Proxy

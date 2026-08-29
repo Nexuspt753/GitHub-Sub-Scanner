@@ -1,23 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Kian-38cbb37610
-    server: 81.168.62.17
-    port: 8443
-    password: 95e8532b-cc69-42d4-9553-e3c23292b15b
-    sni: iq5ny.pleiades.codes
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: public-auth.savesafe.cc
+    port: 443
+    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: public-auth.savesafe.cc
+    reality-opts:
+      public-key: YULPgY4Knu4LVqKcc2uhzTcndqIWWKr74W1dVXcLQ0c
+      short-id: c37c2ae6f6eb0d71
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-38cbb37610
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-38cbb37610
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

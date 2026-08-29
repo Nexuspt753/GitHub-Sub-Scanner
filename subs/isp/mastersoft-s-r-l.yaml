@@ -1,12 +1,18 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: ch-2.bexum.fun
+    server: 103.119.19.208
     port: 443
-    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: eu-central.cendora.ru
+    reality-opts:
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 46.8.113.142
@@ -16,6 +22,14 @@ proxies:
     tls: true
     sni: ch-2.bexum.fun
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: ch-2.bexum.fun
+    port: 443
+    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -23,6 +37,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,5 +46,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

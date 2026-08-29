@@ -1,44 +1,46 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 143.14.11.236
-    port: 80
-    uuid: f55ce6cc-3f6b-40fc-9e3b-abe26db17009
+    name: DeltaKroneckerGithub
+    server: 162.141.142.146
+    port: 8443
+    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: th.loadpng.com
+    reality-opts:
+      public-key: qx0kATC_JzNqH-ZXOFEXWy3jknYjli5BWb8rtH8pdWQ
+      short-id: 5afead0ded6704
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
   - type: vless
-    name: "[023936]"
-    server: 143.14.11.236
-    port: 80
-    uuid: f55ce6cc-3f6b-40fc-9e3b-abe26db17009
+    name: DeltaKroneckerGithub-01
+    server: th.loadpng.com
+    port: 8443
+    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: th.loadpng.com
+    reality-opts:
+      public-key: qx0kATC_JzNqH-ZXOFEXWy3jknYjli5BWb8rtH8pdWQ
+      short-id: 5afead0ded6704
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - "[023936]"
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - "[023936]"
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

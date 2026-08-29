@@ -13,6 +13,13 @@ proxies:
     password: 6f7a8009ecf6a12e10d03f9d88493c89
     sni: gorbachev-th.kvnfreetest.uk
     skip-cert-verify: true
+  - type: ss
+    name: Bangkok · EPODONIOS
+    server: 103.169.67.34
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
   - type: vless
     name: Bangkok · @DeltaKroneckerGithub
     server: 18.239.134.69
@@ -26,20 +33,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
-  - type: ss
-    name: Bangkok · EPODONIOS
-    server: 103.169.67.34
-    port: 65443
-    cipher: aes-256-cfb
-    password: 7eadc6dbe2ae
+  - type: vless
+    name: Bangkok · @DeltaKroneckerGithub-01
+    server: 162.141.142.146
+    port: 8443
+    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
     udp: true
-  - type: ss
-    name: Bangkok · 泰国
-    server: 103.169.67.34
-    port: 65443
-    cipher: aes-256-cfb
-    password: 7eadc6dbe2ae
+    tls: true
+    client-fingerprint: firefox
+    servername: th.loadpng.com
+    reality-opts:
+      public-key: qx0kATC_JzNqH-ZXOFEXWy3jknYjli5BWb8rtH8pdWQ
+      short-id: 5afead0ded6704
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Bangkok · @DeltaKroneckerGithub-02
+    server: th.loadpng.com
+    port: 8443
+    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: th.loadpng.com
+    reality-opts:
+      public-key: qx0kATC_JzNqH-ZXOFEXWy3jknYjli5BWb8rtH8pdWQ
+      short-id: 5afead0ded6704
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: EPODONIOS
     server: bridge.sfproxy.fuck-rkn.dev
@@ -118,32 +139,6 @@ proxies:
       public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Bangkok · 4Jadi-0a96a14be7
-    server: 18.239.134.69
-    port: 80
-    uuid: de27291c-15a9-4256-9ba7-ad517569877e
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
-  - type: vless
-    name: Bangkok · 4FreeIran-3261360023
-    server: 18.239.134.69
-    port: 80
-    uuid: de27291c-15a9-4256-9ba7-ad517569877e
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -151,17 +146,16 @@ proxy-groups:
       - Auto
       - Chiang Mai · 4Kian-1595b02a8e
       - Chiang Mai · 4Sarina-2b10dcfe0a
-      - Bangkok · @DeltaKroneckerGithub
       - Bangkok · EPODONIOS
-      - Bangkok · 泰国
+      - Bangkok · @DeltaKroneckerGithub
+      - Bangkok · @DeltaKroneckerGithub-01
+      - Bangkok · @DeltaKroneckerGithub-02
       - EPODONIOS
       - EPODONIOS-01
       - 🇩🇪All¹⁰
       - icv2ray
       - 4Sarina-889775de77
       - 4Nika-16f484bf04
-      - Bangkok · 4Jadi-0a96a14be7
-      - Bangkok · 4FreeIran-3261360023
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -170,16 +164,15 @@ proxy-groups:
     proxies:
       - Chiang Mai · 4Kian-1595b02a8e
       - Chiang Mai · 4Sarina-2b10dcfe0a
-      - Bangkok · @DeltaKroneckerGithub
       - Bangkok · EPODONIOS
-      - Bangkok · 泰国
+      - Bangkok · @DeltaKroneckerGithub
+      - Bangkok · @DeltaKroneckerGithub-01
+      - Bangkok · @DeltaKroneckerGithub-02
       - EPODONIOS
       - EPODONIOS-01
       - 🇩🇪All¹⁰
       - icv2ray
       - 4Sarina-889775de77
       - 4Nika-16f484bf04
-      - Bangkok · 4Jadi-0a96a14be7
-      - Bangkok · 4FreeIran-3261360023
 rules:
   - MATCH,Proxy
