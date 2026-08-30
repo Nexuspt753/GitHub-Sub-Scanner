@@ -8,12 +8,21 @@ proxies:
     tls: true
     sni: ch-2.bexum.fun
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: ch-2.bexum.fun
+    port: 443
+    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +30,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

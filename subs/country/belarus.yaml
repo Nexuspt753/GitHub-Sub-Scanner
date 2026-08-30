@@ -1,6 +1,21 @@
 proxies:
   - type: trojan
     name: Bol’shoye Stiklevo · @DeltaKroneckerGithub
+    server: by01.botovod.space
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    udp: true
+    tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
     server: 178.172.227.178
     port: 500
     password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
@@ -14,29 +29,13 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: Orsha · 4Nika-84fc984191
-    server: 191.44.32.253
-    port: 443
-    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eded-52n.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: eded-52n.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Bol’shoye Stiklevo · @DeltaKroneckerGithub
-      - Orsha · 4Nika-84fc984191
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,6 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Bol’shoye Stiklevo · @DeltaKroneckerGithub
-      - Orsha · 4Nika-84fc984191
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

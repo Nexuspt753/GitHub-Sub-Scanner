@@ -1,22 +1,27 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.89.234.115
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  - type: ss
+    name: EPODONIOS
+    server: 193.111.30.213
+    port: 20000
+    cipher: chacha20-ietf-poly1305
+    password: 578686f5-9ff9-4ff7-9394-5d53133a2792
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: c7h4v.mnkl.d8e.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: c7h4v.mnkl.d8e.hh.vavava.kdns.fr
+  - type: ss
+    name: configprxy
+    server: 193.111.30.213
+    port: 20000
+    cipher: chacha20-ietf-poly1305
+    password: 578686f5-9ff9-4ff7-9394-5d53133a2792
+    udp: true
+  - type: ss
+    name: 4Sarina-c4d1c7bef0
+    server: 193.111.30.213
+    port: 20000
+    cipher: chacha20-ietf-poly1305
+    password: 578686f5-9ff9-4ff7-9394-5d53133a2792
+    udp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 185.184.223.47
     port: 443
     password: Aimer
@@ -25,7 +30,7 @@ proxies:
     sni: epme.ambercc.filegear-sg.me
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 95.214.166.83
     port: 443
     password: owreRY1bmquS1WcYN2
@@ -33,7 +38,7 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: ty-3.tr202605.com
     port: 443
     password: owreRY1bmquS1WcYN2
@@ -45,19 +50,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - configprxy
+      - 4Sarina-c4d1c7bef0
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - configprxy
+      - 4Sarina-c4d1c7bef0
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

@@ -1,4 +1,27 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 45.38.19.123
+    port: 6554
+    uuid: a61abe08-05d6-f72d-58ab-b92576abd790
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: ldKJPryKehb7higLXSUk90F8kNrvhQLj0o2MNN7TSjE
+      short-id: "458e130100"
+    xudp: true
+  - type: vmess
+    name: 4Jadi-084e5653e2
+    server: frkonkor.velmor.xyz
+    port: 6718
+    uuid: 1c46e7ee-ba01-4d3d-8625-7752253f70ac
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: 4Kian-94b552b8e9
     server: frkonkor.velmor.xyz
@@ -14,6 +37,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 4Jadi-084e5653e2
       - 4Kian-94b552b8e9
   - name: Auto
     type: url-test
@@ -21,6 +46,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 4Jadi-084e5653e2
       - 4Kian-94b552b8e9
 rules:
   - MATCH,Proxy

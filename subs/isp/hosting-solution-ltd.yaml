@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: N.FARS-REMEN.IR
+    port: 62510
+    uuid: b719fff1-ad00-4816-b42d-5007eaa2c4ff
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

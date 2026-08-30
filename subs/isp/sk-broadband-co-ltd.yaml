@@ -33,39 +33,27 @@ proxies:
         Host: ai-verps.pages.dev
   - type: ss
     name: EPODONIOS
-    server: 218.237.185.230
-    port: 4652
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: p141.panda001.net
-    port: 4652
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
-  - type: ss
-    name: EPODONIOS-02
     server: 221.139.79.57
     port: 13979
     cipher: aes-256-cfb
     password: qwerREWQ@@
     udp: true
-  - type: ss
-    name: 🇰🇷KR-218.237.185.230-0177
-    server: 218.237.185.230
-    port: 4652
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
+  - type: vless
+    name: 4FreeIran-3129f45608
+    server: kr.mkdir.kdns.fr
+    port: 443
+    uuid: 2cf94f4d-9d5b-49ca-81a3-ddc0529a2dac
     udp: true
-  - type: ss
-    name: 🇰🇷KR-221.139.79.57-0182
-    server: 221.139.79.57
-    port: 13979
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ai-verps.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ai-verps.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -74,10 +62,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
-      - 🇰🇷KR-218.237.185.230-0177
-      - 🇰🇷KR-221.139.79.57-0182
+      - 4FreeIran-3129f45608
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -87,9 +72,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
-      - 🇰🇷KR-218.237.185.230-0177
-      - 🇰🇷KR-221.139.79.57-0182
+      - 4FreeIran-3129f45608
 rules:
   - MATCH,Proxy

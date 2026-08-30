@@ -1,4 +1,24 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 104.194.149.74
+    port: 2083
+    uuid: 1db9c4df-bc08-4f67-928a-a4b8fa74a4c7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: KiUJE36LbdlikGcxBO67cJpWLMUrl5PBdAd-A2bvZRc
+      short-id: 298760d4a5dcc045
+    xudp: true
+  - type: vless
+    name: vless
+    server: 104.194.149.74
+    port: 443
+    uuid: 1db9c4df-bc08-4f67-928a-a4b8fa74a4c7
+    udp: true
+    xudp: true
   - type: ss
     name: DeltaKroneckerGithub
     server: 198.98.53.130
@@ -11,6 +31,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - vless
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -18,6 +40,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - vless
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
