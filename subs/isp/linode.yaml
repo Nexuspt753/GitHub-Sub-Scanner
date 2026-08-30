@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 4Sarina-aba7815a2f
-    server: 45.79.238.129
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: YUWX6COLZYmaHlUGiKwDaN
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 192.81.131.225
+    port: 11256
+    uuid: 4817e138-8370-4fdd-aa59-36a6ec0247e2
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.tesla.com
+    reality-opts:
+      public-key: TgKDlrMB3_LCRs_WBX4OMnt87rPc4XVqaPhEAtoXhDc
+      short-id: 352a7bbcc1ceeb
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-aba7815a2f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-aba7815a2f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

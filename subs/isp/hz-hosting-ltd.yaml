@@ -1,6 +1,6 @@
 proxies:
   - type: ss
-    name: 4Mohsen-befb653971
+    name: Lent_Gc
     server: 193.42.38.209
     port: 1080
     cipher: chacha20-ietf-poly1305
@@ -11,6 +11,15 @@ proxies:
     server: 185.81.114.88
     port: 9443
     password: 50ad7b7681494900887bbf80ab3722d0
+    udp: true
+    tls: true
+    sni: apple.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 185.81.115.150
+    port: 9443
+    password: 54ae81edc69e476ea3a339e08ab3f5c7
     udp: true
     tls: true
     sni: apple.com
@@ -29,8 +38,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-befb653971
+      - Lent_Gc
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-7c503ac483
   - name: Auto
     type: url-test
@@ -38,8 +48,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-befb653971
+      - Lent_Gc
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-7c503ac483
 rules:
   - MATCH,Proxy

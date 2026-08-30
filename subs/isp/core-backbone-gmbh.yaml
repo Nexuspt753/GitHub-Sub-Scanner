@@ -16,7 +16,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bab-6.site
   - type: vless
-    name: ">>@outline_vpn::FR"
+    name: EPODONIOS
+    server: 81.95.4.189
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
+  - type: vless
+    name: 4Nika-7a90388d61
     server: 81.95.4.189
     port: 443
     uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
@@ -37,7 +53,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - ">>@outline_vpn::FR"
+      - EPODONIOS
+      - 4Nika-7a90388d61
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +62,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - ">>@outline_vpn::FR"
+      - EPODONIOS
+      - 4Nika-7a90388d61
 rules:
   - MATCH,Proxy

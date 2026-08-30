@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-815dd5f5f9
+    server: 109.237.98.88
+    port: 8443
+    uuid: 9c1d8e93-85c8-412e-8d9d-14cd9e99e610
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-815dd5f5f9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-815dd5f5f9
+rules:
+  - MATCH,Proxy

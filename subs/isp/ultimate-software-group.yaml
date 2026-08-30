@@ -1,31 +1,29 @@
 proxies:
   - type: vless
-    name: 4Sarina-290499b031
-    server: 208.86.169.248
-    port: 443
-    uuid: 87ce58fe-f018-40a7-9826-43098e864e82
+    name: DeltaKroneckerGithub
+    server: 135.84.79.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kingniderlands.tolkun-tv.ru
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime35.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-290499b031
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-290499b031
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

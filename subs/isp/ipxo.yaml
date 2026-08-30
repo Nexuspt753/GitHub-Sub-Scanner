@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: "[027931]"
-    server: 102.129.165.81
-    port: 48905
-    uuid: 3e4d70e5-7ec9-48f9-a4e0-48c44c6063fd
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: gaming.radeon.com
-    reality-opts:
-      public-key: XIubADu7punjUa2oUfHj2vTmUzUJXN_xDrGsmf_LslY
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-5cdd7e1990
     server: 102.129.165.81
     port: 48905
@@ -25,20 +12,37 @@ proxies:
       public-key: XIubADu7punjUa2oUfHj2vTmUzUJXN_xDrGsmf_LslY
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Mohsen-7f65b48341
+    server: 193.160.130.117
+    port: 443
+    uuid: 9b456c2a-f2c1-45e1-87a9-b7628b04bb24
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /linkws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: beyonddsz.cfd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "[027931]"
       - 4Mohsen-5cdd7e1990
+      - 4Mohsen-7f65b48341
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "[027931]"
       - 4Mohsen-5cdd7e1990
+      - 4Mohsen-7f65b48341
 rules:
   - MATCH,Proxy
