@@ -10,24 +10,12 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Sarina-317d2990ed
-    server: 160.30.160.134
-    port: 443
-    password: 25a0ffa0-725c-4d6f-b0d5-c74579753075
-    udp: true
-    tls: true
-    sni: cmc5.5gsieuvip.vn
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-317d2990ed
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-317d2990ed
 rules:
   - MATCH,Proxy
