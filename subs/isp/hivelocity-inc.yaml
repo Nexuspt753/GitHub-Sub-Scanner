@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.180.141.48
+    port: 443
+    password: d30ab83dbde4480082048fb315bedebd
+    udp: true
+    tls: true
+    sni: 38.180.141.48
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Nika-79492b550d
     server: 38.180.141.48
     port: 443
@@ -13,6 +22,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-79492b550d
   - name: Auto
     type: url-test
@@ -20,6 +30,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-79492b550d
 rules:
   - MATCH,Proxy

@@ -13,27 +13,12 @@ proxies:
       short-id: 5afead0ded6704
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: th.loadpng.com
-    port: 8443
-    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: th.loadpng.com
-    reality-opts:
-      public-key: qx0kATC_JzNqH-ZXOFEXWy3jknYjli5BWb8rtH8pdWQ
-      short-id: 5afead0ded6704
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

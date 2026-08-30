@@ -1,25 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 108.165.255.5
+  - type: vless
+    name: EPODONIOS
+    server: us1.app-sync-data.space
     port: 443
-    password: 019a8c1f-3d28-74e8-8a8e-40045d7ec77f
+    uuid: 8107d9b3-1acc-4da3-9a04-5fd0ba338b64
     udp: true
     tls: true
-    sni: www.bilibili.com
     client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: Vq9OMOYjN0r0mOLhMMgW-u72T3qOibr2CK0RQNCJLEE
+      short-id: b5e8d1c3f7a20946
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy

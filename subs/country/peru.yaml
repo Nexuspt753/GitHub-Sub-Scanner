@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: Lima · @DeltaKroneckerGithub
+    server: 5r86-tuq187.operix.top
+    port: 443
+    uuid: 4caaaae0-516b-4026-b2b2-69fea69df19a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: LDpWYUJjGRJomvaN-gfgY96EJOF2DDHiFcNPEBLtoW0
+      short-id: 9019bbea8ff8781e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: Lima · @DeltaKroneckerGithub-01
     server: 38.180.173.150
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -17,28 +31,14 @@ proxies:
     tls: true
     sni: 38.180.173.150
     client-fingerprint: chrome
-  - type: vless
-    name: Lima · 4FreeIran-b11d40607c
-    server: 5r86-tuq187.operix.top
-    port: 443
-    uuid: 4caaaae0-516b-4026-b2b2-69fea69df19a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.bing.com
-    reality-opts:
-      public-key: LDpWYUJjGRJomvaN-gfgY96EJOF2DDHiFcNPEBLtoW0
-      short-id: 9019bbea8ff8781e
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Lima · @DeltaKroneckerGithub
+      - Lima · @DeltaKroneckerGithub-01
       - Lima · 4Mohsen-295088cf1e
-      - Lima · 4FreeIran-b11d40607c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,7 +46,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Lima · @DeltaKroneckerGithub
+      - Lima · @DeltaKroneckerGithub-01
       - Lima · 4Mohsen-295088cf1e
-      - Lima · 4FreeIran-b11d40607c
 rules:
   - MATCH,Proxy

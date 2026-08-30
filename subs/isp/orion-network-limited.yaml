@@ -1,29 +1,36 @@
 proxies:
   - type: vless
-    name: 4Jadi-ec3e0449d7
-    server: nl.alpheratzz.org
-    port: 8443
-    uuid: 379998c5-2a71-4202-9c74-522e0c3c5404
+    name: vless
+    server: 196.196.203.13
+    port: 443
+    uuid: 0d81b209-0722-4b32-9163-542f54ba56ed
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: file-6a917f32.alpheratzz.org
-    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 165.231.157.108
+    port: 443
+    uuid: 435fc5e1-f12b-468b-b1d4-802a9ce86ba3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-ec3e0449d7
+      - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-ec3e0449d7
+      - vless
+      - vless-01
 rules:
   - MATCH,Proxy
