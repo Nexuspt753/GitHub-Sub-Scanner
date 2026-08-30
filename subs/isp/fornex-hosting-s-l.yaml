@@ -13,12 +13,27 @@ proxies:
       short-id: f3c4d918e7c4f744
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-88ed16eb17
+    server: api-de.data-media-social.org
+    port: 443
+    uuid: ef4f4c3d-0b16-48ad-a8d8-2d22512b3b36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-de.data-media-social.org
+    reality-opts:
+      public-key: 7X8ifHa-K72alW7ly5SRYwotXdjA-gEQoEGUK1EagVM
+      short-id: f3c4d918e7c4f744
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4Jadi-88ed16eb17
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4Jadi-88ed16eb17
 rules:
   - MATCH,Proxy

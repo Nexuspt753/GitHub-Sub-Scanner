@@ -1,6 +1,6 @@
 proxies:
   - type: vmess
-    name: 4Mohsen-740c162309
+    name: 4Nika-09a9cb139b
     server: time.ir
     port: 443
     uuid: last-update-time
@@ -11,6 +11,9 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: time.ir
+    alpn:
+      - h2
+      - http/1.1
     network: ws
     ws-opts:
       path: /
@@ -22,13 +25,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-740c162309
+      - 4Nika-09a9cb139b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-740c162309
+      - 4Nika-09a9cb139b
 rules:
   - MATCH,Proxy
