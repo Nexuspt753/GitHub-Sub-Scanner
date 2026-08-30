@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 144.31.138.127
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: kfm-bn0.pages.dev
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Sarina-1071f7b231
     server: 144.31.138.127
     port: 443
@@ -13,6 +22,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-1071f7b231
   - name: Auto
     type: url-test
@@ -20,6 +30,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-1071f7b231
 rules:
   - MATCH,Proxy
