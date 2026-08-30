@@ -1,41 +1,30 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 94.228.166.11
-    port: 443
-    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
+    name: DeltaKroneckerGithub
+    server: 94.228.166.247
+    port: 2053
+    uuid: 9f5b9ca7-d0bb-4e50-a3ca-acf5968027fc
     udp: true
-    xudp: true
-  - type: vless
-    name: 🇹🇷
-    server: 94.228.166.11
-    port: 443
-    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4FreeIran-c94845e447
-    server: 94.228.166.11
-    port: 443
-    uuid: 1d101c24-541e-4f32-a747-b3b62d79cc4c
-    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fi-one.quiet-rogue.site
+    reality-opts:
+      public-key: AKUQO-fKsD19FFBxNq5XTFCRXWDZfes4zJjRINY1KUI
+      short-id: beff3ff061a64cfd
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇹🇷
-      - 4FreeIran-c94845e447
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇹🇷
-      - 4FreeIran-c94845e447
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

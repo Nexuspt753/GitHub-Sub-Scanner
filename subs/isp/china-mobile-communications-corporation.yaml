@@ -1,13 +1,4 @@
 proxies:
-  - type: trojan
-    name: 4Mohsen-744e7b87c0
-    server: 117.149.198.190
-    port: 10051
-    password: a13820c547fa34c5c45515c12f0cd576
-    udp: true
-    tls: true
-    sni: zz6.91js.pw
-    client-fingerprint: chrome
   - type: vmess
     name: 4FreeIran-bed40912dd
     server: 120.240.142.21
@@ -24,20 +15,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: tms.dingtalk.com
+  - type: vmess
+    name: 4Kian-af1e86a671
+    server: visa.cn
+    port: 80
+    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /sba-vm?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deee.horryan4.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-744e7b87c0
       - 4FreeIran-bed40912dd
+      - 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-744e7b87c0
       - 4FreeIran-bed40912dd
+      - 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

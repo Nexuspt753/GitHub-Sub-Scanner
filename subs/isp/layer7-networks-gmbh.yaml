@@ -1,26 +1,32 @@
 proxies:
-  - type: vless
-    name: 4Nika-860ffe9f30
-    server: fr15.mechvpn.online
-    port: 443
-    uuid: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
+  - type: trojan
+    name: trojan
+    server: node8.quaxly.com
+    port: 25040
+    password: Km/pIG4AGCjCOiGWj5FsWA==
     udp: true
     tls: true
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision-udp443
-    xudp: true
+    sni: node8.quaxly.com
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-860ffe9f30
+      - trojan
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-860ffe9f30
+      - trojan
 rules:
   - MATCH,Proxy

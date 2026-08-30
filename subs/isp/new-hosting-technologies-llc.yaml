@@ -1,23 +1,52 @@
 proxies:
   - type: vless
-    name: vless
-    server: 194.55.239.190
-    port: 8445
-    uuid: 7c59eef8-978a-4071-bda4-5bcaf6d8521f
+    name: DeltaKroneckerGithub
+    server: 194.55.239.20
+    port: 443
+    uuid: 303035c0-dd28-4568-87bb-9a11637c5407
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: harknmav.fun
     xudp: true
+    network: ws
+    ws-opts:
+      path: /live.stream.v1.Broadcast/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-7a48afa37e
+    server: 194.55.239.20
+    port: 443
+    uuid: 303035c0-dd28-4568-87bb-9a11637c5407
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: harknmav.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /live.stream.v1.Broadcast/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
+      - 4Nika-7a48afa37e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
+      - 4Nika-7a48afa37e
 rules:
   - MATCH,Proxy

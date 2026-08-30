@@ -1,5 +1,50 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 159.195.79.121
+    port: 2054
+    uuid: 82d145c1-d691-4eef-9de1-9c316db4859a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: K2S_Yf1hebZF6YMePh3YJWL1i3PQITYSHEo-Eaz1KEs
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 159.195.79.121
+    port: 2054
+    uuid: 75079a7f-75b5-418b-8a65-f7b2f438cd4a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: K2S_Yf1hebZF6YMePh3YJWL1i3PQITYSHEo-Eaz1KEs
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 159.195.244.171
+    port: 2054
+    uuid: 82d145c1-d691-4eef-9de1-9c316db4859a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.ibm.com
+    reality-opts:
+      public-key: 0-HIOsSIQTrTYc5PdFT0OSKGBiBUiGrJzgV6ctal8Fg
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 159.195.27.99
     port: 443
@@ -14,15 +59,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 152.53.228.86
-    port: 443
-    password: "1234567890"
-    udp: true
-    tls: true
-    sni: kfm-bn0.pages.dev
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Nika-6a091bcf98
     server: 152.53.228.86
     port: 443
@@ -33,15 +69,6 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: 4Sarina-519f4ba461
-    server: 159.195.5.181
-    port: 443
-    password: "1234567890"
-    udp: true
-    tls: true
-    sni: kfm-bn0.pages.dev
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: 159.195.5.181
     port: 443
     password: "1234567890"
@@ -63,6 +90,24 @@ proxies:
       short-id: 28415a7918168947
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 152.53.228.86
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: kfm-bn0.pages.dev
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-04
+    server: 159.195.5.181
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: kfm-bn0.pages.dev
+    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-3bebab0340
     server: 37.120.184.180
@@ -100,46 +145,40 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-4b7b7283e0
-    server: cdn-api.mrmtn.xyz
-    port: 2020
-    uuid: 29c4a3bd-9d8c-4ac3-b279-8b201560c227
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
       - 4Nika-6a091bcf98
       - 4Sarina-519f4ba461
-      - DeltaKroneckerGithub-01
       - fastkanfig
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Jadi-3bebab0340
       - 4Mohsen-9417ed71bb
       - 4Sarina-755ae4c8c7
-      - 4Mohsen-4b7b7283e0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
       - 4Nika-6a091bcf98
       - 4Sarina-519f4ba461
-      - DeltaKroneckerGithub-01
       - fastkanfig
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Jadi-3bebab0340
       - 4Mohsen-9417ed71bb
       - 4Sarina-755ae4c8c7
-      - 4Mohsen-4b7b7283e0
 rules:
   - MATCH,Proxy

@@ -1,6 +1,16 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 8.sahanwickramasinghe.me
+    port: 443
+    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 8.sahanwickramasinghe.me
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 139.59.124.172
     port: 443
     uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
@@ -9,72 +19,13 @@ proxies:
     client-fingerprint: firefox
     servername: 8.sahanwickramasinghe.me
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 8.sahanwickramasinghe.me
-    port: 443
-    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.sahanwickramasinghe.me
-    xudp: true
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub-02
-    server: 139.59.189.127
-    port: 443
-    uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: shy-fog-af06.alvlirm333.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /proxyip=104.223.62.204,99.254.66.219,45.133.17.106,40.233.87.120,40.233.110.251,40.233.68.138,68.233.122.42,144.217.76.62
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shy-fog-af06.alvlirm333.workers.dev
-  - type: trojan
-    name: DeltaKroneckerGithub-03
     server: 139.59.238.97
     port: 50573
     password: pvZE3UfT0ziK1omVLlsjINBqeqqwab1M
     udp: true
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Kian-58f13db2db
-    server: 139.59.238.97
-    port: 50573
-    password: pvZE3UfT0ziK1omVLlsjINBqeqqwab1M
-    udp: true
-    client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-9deff4721b
-    server: 8.sahanwickramasinghe.me
-    port: 443
-    uuid: 54a9c202-cfe9-4bb8-826c-653a52a96c6d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.sahanwickramasinghe.me
-    xudp: true
-  - type: vless
-    name: 4FreeIran-5dcdbdb649
-    server: 139.59.189.127
-    port: 443
-    uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: shy-fog-af06.alvlirm333.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /proxyip=104.223.62.204,99.254.66.219,45.133.17.106,40.233.87.120,40.233.110.251,40.233.68.138,68.233.122.42,144.217.76.62
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shy-fog-af06.alvlirm333.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -83,10 +34,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4Kian-58f13db2db
-      - 4Kian-9deff4721b
-      - 4FreeIran-5dcdbdb649
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -96,9 +43,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4Kian-58f13db2db
-      - 4Kian-9deff4721b
-      - 4FreeIran-5dcdbdb649
 rules:
   - MATCH,Proxy

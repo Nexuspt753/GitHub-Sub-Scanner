@@ -10,24 +10,12 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
-  - type: trojan
-    name: 4FreeIran-85fc917c5f
-    server: 125.179.4.175
-    port: 443
-    password: 6455f944-7c07-4ab0-b88f-440e581f41d9
-    udp: true
-    tls: true
-    sni: kr3.twincloud.xyz
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-85fc917c5f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-85fc917c5f
 rules:
   - MATCH,Proxy

@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 51.250.106.64
-    port: 443
-    cipher: bm9uZTrhrp17Xzfvv71m77-977-977-9Oe-_vc-b77-9bT5977-9c--_vV_vv71uew
-    password: ""
-    udp: true
   - type: vless
     name: 🇷🇺@FreakConfig
     server: 51.250.35.229
@@ -22,6 +15,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 51.250.106.64
+    port: 443
+    cipher: none
+    password: ᮝ{_7�f���9�ϛ�m>}�s�_�n{
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 51.250.106.64
+    port: 443
+    cipher: bm9uZTrhrp17Xzfvv71m77-977-977-9Oe-_vc-b77-9bT5977-9c--_vV_vv71uew
+    password: ""
+    udp: true
   - type: vless
     name: vless
     server: 188.72.103.3
@@ -51,13 +58,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless-02
-    server: 188.72.103.4
-    port: 443
-    uuid: 4783edd1-6c84-4124-bbec-937c1f86b06a
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Jadi-b130ccff51
     server: 51.250.106.64
     port: 443
@@ -74,13 +74,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: vless-03
-    server: 188.72.103.4
-    port: 443
-    uuid: 4ef3df91-d394-487c-92dc-46a89b56dbb1
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Kian-8406711aff
     server: 51.250.95.143
     port: 443
@@ -93,13 +86,6 @@ proxies:
       public-key: dEHsPQQSnMJiHJKnJRbbLFKQmwIemUXQsQ1zIYbLZng
       short-id: f6
     flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: vless-04
-    server: 188.72.103.4
-    port: 443
-    uuid: 652312e0-26db-4b1c-a658-c95d0f453f79
-    udp: true
     xudp: true
   - type: vless
     name: 4Kian-6e5df7d01b
@@ -117,56 +103,34 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: vless-05
-    server: 188.72.103.4
-    port: 443
-    uuid: b507c408-d6c9-4cbc-9a09-ebeb74832afa
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-06
-    server: 188.72.103.4
-    port: 443
-    uuid: efee313f-f3d5-4beb-b922-3dae03423a08
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 🇷🇺@FreakConfig
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - vless
       - vless-01
       - 4Nika-4aadd209d8
-      - vless-02
       - 4Jadi-b130ccff51
-      - vless-03
       - 4Kian-8406711aff
-      - vless-04
       - 4Kian-6e5df7d01b
-      - vless-05
-      - vless-06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 🇷🇺@FreakConfig
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - vless
       - vless-01
       - 4Nika-4aadd209d8
-      - vless-02
       - 4Jadi-b130ccff51
-      - vless-03
       - 4Kian-8406711aff
-      - vless-04
       - 4Kian-6e5df7d01b
-      - vless-05
-      - vless-06
 rules:
   - MATCH,Proxy

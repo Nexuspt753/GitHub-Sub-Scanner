@@ -1,50 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: EPODONIOS
-    server: uswx4.wxgqlfx.vip
-    port: 11683
-    password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
-    sni: 144.225.187.153
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 美国
-    server: uswx4.wxgqlfx.vip
-    port: 11683
-    password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
-    sni: 144.225.187.153
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Mohsen-2ffaf3a7ca
-    server: uswx4.wxgqlfx.vip
-    port: 11683
-    password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
-    sni: 144.225.187.153
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Kian-a5db2722e6
-    server: uswx4.wxgqlfx.vip
-    port: 11683
-    password: fe475179-d8a8-420d-a4ac-3e415ed8dc72
-    sni: 144.225.187.153
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.253.38.67
+    port: 40444
+    uuid: bf4701d6-de56-4d8a-b69c-cafd20db3b71
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.lovelive-anime.jp
+    reality-opts:
+      public-key: ZZK_Oo5-iDDgoWzxIURTLWoKPbC8NFto3Mk7OvAZgRU
+      short-id: b3f2a1c9
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 美国
-      - 4Mohsen-2ffaf3a7ca
-      - 4Kian-a5db2722e6
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 美国
-      - 4Mohsen-2ffaf3a7ca
-      - 4Kian-a5db2722e6
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
