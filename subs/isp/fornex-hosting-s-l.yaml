@@ -1,27 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: swenhy2.metricpipe.space
-    port: 9443
-    password: 4LR1nTjdxRQs2JGmzJnsRefgqQUYFEfo
+  - type: vless
+    name: EPODONIOS
+    server: api-de.data-media-social.org
+    port: 443
+    uuid: ef4f4c3d-0b16-48ad-a8d8-2d22512b3b36
     udp: true
     tls: true
-    sni: swenhy2.metricpipe.space
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
+    servername: api-de.data-media-social.org
+    reality-opts:
+      public-key: 7X8ifHa-K72alW7ly5SRYwotXdjA-gEQoEGUK1EagVM
+      short-id: f3c4d918e7c4f744
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy
