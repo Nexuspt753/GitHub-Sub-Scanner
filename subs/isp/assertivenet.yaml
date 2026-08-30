@@ -1,23 +1,23 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 66.154.102.234
-    port: 443
-    uuid: 8db91fcf-cdc5-4b12-bbd3-746e389f8d11
-    udp: true
-    xudp: true
+  - type: hysteria2
+    name: 4Sarina-df29bcae8d
+    server: 66.154.113.16
+    port: 7001
+    password: e9a98960-e28b-434d-984d-c0aee9df8978
+    sni: www.apple.com
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Sarina-df29bcae8d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Sarina-df29bcae8d
 rules:
   - MATCH,Proxy
