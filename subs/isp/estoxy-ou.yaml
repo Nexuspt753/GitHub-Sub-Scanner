@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 37.49.226.85
+    port: 443
+    uuid: c7ae1368-b6ca-4d11-beef-bb76f68d1b80
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: dQ1gH8wthrDqq1MkzQiLCuKDV0vtcYRDUOHgTU3znH8
+      short-id: 085d21ba5e089c9b
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: 4Nika-96b40985c0
     server: fr.cishosts.org
@@ -24,20 +38,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-4f0e1ed0ce
+    server: 37.49.226.85
+    port: 443
+    uuid: c7ae1368-b6ca-4d11-beef-bb76f68d1b80
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: dQ1gH8wthrDqq1MkzQiLCuKDV0vtcYRDUOHgTU3znH8
+      short-id: 085d21ba5e089c9b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-96b40985c0
       - 4Kian-06351586e0
+      - 4Kian-4f0e1ed0ce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-96b40985c0
       - 4Kian-06351586e0
+      - 4Kian-4f0e1ed0ce
 rules:
   - MATCH,Proxy

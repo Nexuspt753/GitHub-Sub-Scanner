@@ -1,6 +1,15 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: psg2-ag.t.sgateway.link
+    port: 5223
+    password: Q9gofGxinwLv0TfDfdKmdttdPGxrhKQS
+    udp: true
+    tls: true
+    sni: pod-kr-g1.psusercontent.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 154.16.27.250
     port: 27251
     password: i99Cef
@@ -17,13 +26,24 @@ proxies:
     tls: true
     sni: pod-kr-g1.psusercontent.com
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-8ebee8f9b7
+    server: 154.16.27.250
+    port: 27251
+    password: i99Cef
+    udp: true
+    tls: true
+    sni: ctldl.windowsupdate.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-65aade71ee
+      - 4Jadi-8ebee8f9b7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,6 +51,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-65aade71ee
+      - 4Jadi-8ebee8f9b7
 rules:
   - MATCH,Proxy

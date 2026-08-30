@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 168.222.203.14
-    port: 4100
-    uuid: 2e79f3ca-b8db-4d4d-a96e-8f7313480696
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: live.ok.ru
-  - type: vless
     name: 4Jadi-8a66c1e31f
     server: 168.222.203.14
     port: 4100
@@ -30,7 +17,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Jadi-8a66c1e31f
   - name: Auto
     type: url-test
@@ -38,7 +24,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Jadi-8a66c1e31f
 rules:
   - MATCH,Proxy

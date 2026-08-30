@@ -13,14 +13,23 @@ proxies:
       short-id: 56f276ac52
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: v2jp.k1.ssnss.live
-    port: 44184
-    password: d050aca3-9df2-4461-90ec-92373c1d7636
+  - type: vmess
+    name: EPODONIOS
+    server: kukuprogram1.herokuapp.com
+    port: 443
+    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kukuprogram1.herokuapp.com
   - type: trojan
     name: 4FreeIran-e38e83e245
     server: v2jp.k1.ssnss.live
@@ -29,14 +38,65 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vmess
+    name: 🇺🇸US-54.159.116.102-0273
+    server: kukuprogram1.herokuapp.com
+    port: 443
+    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kukuprogram1.herokuapp.com
+  - type: vless
+    name: 4Mohsen-1f16f83705
+    server: de1.miyazono-kaori.com
+    port: 443
+    uuid: 72f1338b-730e-4a3b-9f8e-eacec02a0bc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.siemens.com
+    reality-opts:
+      public-key: aEAdhhksLgyI_GWf7l_ES5hMZhigMAIWBn9emSXdaHc
+      short-id: 56f276ac52
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vmess
+    name: 4Sarina-c1c956f215
+    server: kukuprogram1.herokuapp.com
+    port: 443
+    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kukuprogram1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 4FreeIran-e38e83e245
+      - 🇺🇸US-54.159.116.102-0273
+      - 4Mohsen-1f16f83705
+      - 4Sarina-c1c956f215
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,7 +104,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 4FreeIran-e38e83e245
+      - 🇺🇸US-54.159.116.102-0273
+      - 4Mohsen-1f16f83705
+      - 4Sarina-c1c956f215
 rules:
   - MATCH,Proxy

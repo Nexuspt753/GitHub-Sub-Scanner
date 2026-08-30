@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: vless
+    server: 46.254.18.60
+    port: 443
+    uuid: 652312e0-26db-4b1c-a658-c95d0f453f79
+    udp: true
+    xudp: true
+  - type: vless
     name: 4FreeIran-07180320a9
     server: 95.183.13.203
     port: 443
@@ -18,6 +25,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
       - 4FreeIran-07180320a9
   - name: Auto
     type: url-test
@@ -25,6 +33,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - 4FreeIran-07180320a9
 rules:
   - MATCH,Proxy
