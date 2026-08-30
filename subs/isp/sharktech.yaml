@@ -17,31 +17,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cg1c04.waimaojd.com
-  - type: vmess
-    name: 4Mohsen-3e1f2e7f9c
-    server: cg1c01.waimaojd.com
-    port: 443
-    uuid: be8e3136-b874-4085-bd23-ec3699300490
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: cg1c01.waimaojd.com
-    network: ws
-    ws-opts:
-      path: /api/v1/graphql
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cg1c01.waimaojd.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-1d546defb5
-      - 4Mohsen-3e1f2e7f9c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,6 +30,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-1d546defb5
-      - 4Mohsen-3e1f2e7f9c
 rules:
   - MATCH,Proxy

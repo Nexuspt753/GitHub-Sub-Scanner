@@ -15,6 +15,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
   - type: trojan
+    name: B2Hub
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.ignitelimit.com
+  - type: trojan
     name: V2raySaman
     server: 130.250.137.171
     port: 443
@@ -45,7 +60,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
   - type: trojan
-    name: 🇫🇷@FreakConfig
+    name: kurdconfig
     server: 130.250.137.171
     port: 443
     password: humanity
@@ -89,17 +104,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
+  - type: trojan
+    name: 4Jadi-f59b109150
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - B2Hub
       - V2raySaman
       - Channel
-      - 🇫🇷@FreakConfig
+      - kurdconfig
       - 4Jadi-f97f40d96b
       - 4Sarina-6f1b48267d
+      - 4Jadi-f59b109150
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -107,10 +133,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - B2Hub
       - V2raySaman
       - Channel
-      - 🇫🇷@FreakConfig
+      - kurdconfig
       - 4Jadi-f97f40d96b
       - 4Sarina-6f1b48267d
+      - 4Jadi-f59b109150
 rules:
   - MATCH,Proxy

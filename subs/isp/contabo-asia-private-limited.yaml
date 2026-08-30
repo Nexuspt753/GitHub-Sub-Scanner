@@ -47,6 +47,19 @@ proxies:
       public-key: SIBS0hevQuPeJiBQUoN5MYq8Gs_ZWyBlkHK6miz__kM
       short-id: 90decc62dab9873f
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 46.250.240.80
+    port: 2053
+    uuid: f2816a01-3555-4e79-9e26-770f050ea55a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: bRDaP068YgdwwdQgenUvKTNfPjIB_Dy-lJDFC9ZZEXU
+      short-id: 632a146bd581641a
+    xudp: true
   - type: ss
     name: EPODONIOS-02
     server: 84.247.155.196
@@ -55,34 +68,19 @@ proxies:
     password: ""
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
+    server: 84.247.155.196
+    port: 80
+    cipher: aes-256-gcm
+    password: 3eOFeNssde7PYYMv
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
     server: 84.247.155.196
     port: 443
     cipher: aes-256-gcm
     password: 3eOFeNssde7PYYMv
     udp: true
-  - type: ss
-    name: ">>@V2rayNG3::JP"
-    server: 84.247.155.196
-    port: 80
-    cipher: YWVzLTI1Ni1nY206M2VPRmVOc3NkZTdQWVlNdg%3D%3D
-    password: ""
-    udp: true
-  - type: vmess
-    name: 4Sarina-be721ed6d8
-    server: 109.123.237.41
-    port: 80
-    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /fastssh
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -94,10 +92,10 @@ proxy-groups:
       - Telegram:@v2rayng3
       - 4Jadi-6d37a255c3
       - DeltaKroneckerGithub
-      - EPODONIOS-02
       - DeltaKroneckerGithub-01
-      - ">>@V2rayNG3::JP"
-      - 4Sarina-be721ed6d8
+      - EPODONIOS-02
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -110,9 +108,9 @@ proxy-groups:
       - Telegram:@v2rayng3
       - 4Jadi-6d37a255c3
       - DeltaKroneckerGithub
-      - EPODONIOS-02
       - DeltaKroneckerGithub-01
-      - ">>@V2rayNG3::JP"
-      - 4Sarina-be721ed6d8
+      - EPODONIOS-02
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

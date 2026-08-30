@@ -1,23 +1,26 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-e3193bab48
-    server: 37.46.199.229
+  - type: vless
+    name: 4Jadi-e4185ae78d
+    server: nl-xh01.tcp-reset-club.net
     port: 443
-    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-    sni: deu0003ntrhy01.tcp-reset-club.net
-    skip-cert-verify: true
+    uuid: 0678ed07-980a-49c1-9066-05caec654967
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: s3.netavex.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e3193bab48
+      - 4Jadi-e4185ae78d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e3193bab48
+      - 4Jadi-e4185ae78d
 rules:
   - MATCH,Proxy

@@ -1,23 +1,25 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 85.198.11.201
-    port: 13784
-    uuid: 356eb531-dbaa-45cf-b2cc-cef80a5fe379
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 193.151.134.182
+    port: 443
+    password: diCyRX1d
     udp: true
-    xudp: true
+    tls: true
+    sni: iprostable.enterprises
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: Yangon · 4Sarina-ba494b6a8b
+    server: 38.60.244.120
+    port: 43616
+    cipher: chacha20-ietf-poly1305
+    password: SV6VelccjXSqPLf/cwLCgOyC0aQ6MYgbcBiZzLNl3U8=
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Yangon · 4Sarina-ba494b6a8b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Yangon · 4Sarina-ba494b6a8b
+rules:
+  - MATCH,Proxy
