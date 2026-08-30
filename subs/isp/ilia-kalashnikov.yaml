@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: nid1th.jarvesitw.ru
+    port: 443
+    uuid: 84491c04-b011-4fdc-b97d-770975586f3a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: 1KFW6dRUTJyKwtB33w2A8Y0Fbcaexa_bE_pEqGTkuR0
+      short-id: af0fb079
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

@@ -1,18 +1,4 @@
 proxies:
-  - type: ss
-    name: FarazV2ray
-    server: 176.53.17.241
-    port: 1943
-    cipher: 2022-blake3-aes-256-gcm
-    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:aE6MxBTe+MXHd9HoF2FF/BzKFqGTReMpMevlQhvsu0s=
-    udp: true
-  - type: ss
-    name: v2ray313
-    server: 176.53.17.241
-    port: 1943
-    cipher: 2022-blake3-aes-256-gcm
-    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:aE6MxBTe+MXHd9HoF2FF/BzKFqGTReMpMevlQhvsu0s=
-    udp: true
   - type: vless
     name: EPODONIOS
     server: d7e209882c98f0ecd7e209882c98f0ec.ssdhdd.org
@@ -39,24 +25,35 @@ proxies:
       public-key: pvY1bX3eh_RHA2foDr82nB-0UgXu1uO7xjtYKRSFuCs
       short-id: 3b225391611b29e5
     xudp: true
+  - type: vless
+    name: 4Nika-dc5ede17cf
+    server: d7e209882c98f0ecd7e209882c98f0ec.ssdhdd.org
+    port: 443
+    uuid: 444f3779-cc79-4289-b22b-f75bc84be25e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tasnimnews.ir
+    reality-opts:
+      public-key: pvY1bX3eh_RHA2foDr82nB-0UgXu1uO7xjtYKRSFuCs
+      short-id: 3b225391611b29e5
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - FarazV2ray
-      - v2ray313
       - EPODONIOS
       - چنل
+      - 4Nika-dc5ede17cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - FarazV2ray
-      - v2ray313
       - EPODONIOS
       - چنل
+      - 4Nika-dc5ede17cf
 rules:
   - MATCH,Proxy

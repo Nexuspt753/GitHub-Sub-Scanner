@@ -8,12 +8,22 @@ proxies:
     tls: true
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 144.31.138.127
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: kfm-bn0.pages.dev
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-1071f7b231
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-1071f7b231
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
