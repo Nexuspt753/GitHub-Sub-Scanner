@@ -1,26 +1,46 @@
 proxies:
   - type: vless
-    name: 4Sarina-ef25ada2dd
-    server: 80.76.44.138
+    name: EPODONIOS
+    server: 193.160.71.250
     port: 443
-    uuid: b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb
+    uuid: f10d83e0-976a-4b02-81a9-1c89044ff728
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: note.savesafe.run
+    servername: edge-uk2.mystatic-cdn.ru
+    reality-opts:
+      public-key: 65d6SIYIqiX-SN4vx_BnNiQJ8Lnr0HAgUKoT7WgWRgI
+      short-id: ee169e93d3c277a1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-64f7523a6e
+    server: 193.160.71.250
+    port: 443
+    uuid: f10d83e0-976a-4b02-81a9-1c89044ff728
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edge-uk2.mystatic-cdn.ru
+    reality-opts:
+      public-key: 65d6SIYIqiX-SN4vx_BnNiQJ8Lnr0HAgUKoT7WgWRgI
+      short-id: ee169e93d3c277a1
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-ef25ada2dd
+      - EPODONIOS
+      - 4Kian-64f7523a6e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-ef25ada2dd
+      - EPODONIOS
+      - 4Kian-64f7523a6e
 rules:
   - MATCH,Proxy

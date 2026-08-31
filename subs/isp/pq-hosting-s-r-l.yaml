@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 138.124.180.137
     port: 443
     uuid: 5234b2b7-5e07-422c-8159-d62a676c00c6
@@ -21,20 +21,36 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-1301c7b236
+    server: 138.124.180.137
+    port: 443
+    uuid: 5234b2b7-5e07-422c-8159-d62a676c00c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c
+      short-id: 33acba1b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Jadi-02d698fdc9
+      - 4Kian-1301c7b236
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Jadi-02d698fdc9
+      - 4Kian-1301c7b236
 rules:
   - MATCH,Proxy

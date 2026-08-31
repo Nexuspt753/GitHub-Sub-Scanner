@@ -15,12 +15,29 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-5b40b4daf0
+    server: 185.189.46.63
+    port: 443
+    uuid: 04d17971-314f-4922-8e91-d03dc2303353
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: swe.denditop.site
+    reality-opts:
+      public-key: HZiMehwH6sQf4bDkLiXJ0KslpYqz0mNFwBr34-e6RRM
+      short-id: 9c2378562188c3cb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-5b40b4daf0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-5b40b4daf0
 rules:
   - MATCH,Proxy

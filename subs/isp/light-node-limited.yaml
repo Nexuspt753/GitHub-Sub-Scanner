@@ -1,27 +1,48 @@
 proxies:
-  - type: vless
-    name: 4Jadi-fbc7bc1f6d
-    server: 38.54.45.184
-    port: 443
-    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+  - type: vmess
+    name: EPODONIOS
+    server: 130.94.93.63
+    port: 14812
+    uuid: 777d0ead-970a-4144-b8aa-e3aaf3a621f6
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: r1.mizulina.top
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /777d0ead
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-77126005a3
+    server: 130.94.93.63
+    port: 14812
+    uuid: 777d0ead-970a-4144-b8aa-e3aaf3a621f6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /777d0ead
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-fbc7bc1f6d
+      - EPODONIOS
+      - 4Nika-77126005a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-fbc7bc1f6d
+      - EPODONIOS
+      - 4Nika-77126005a3
 rules:
   - MATCH,Proxy
