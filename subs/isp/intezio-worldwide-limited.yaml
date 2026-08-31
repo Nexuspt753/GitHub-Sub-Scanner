@@ -1,16 +1,30 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: pol.freeinternat.com
+    server: 95.85.254.0
     port: 443
-    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    uuid: 65329316-aca9-4825-8118-f85786865f0f
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: pol.freeinternat.com
+    servername: tradingview.com
     reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
+      public-key: _vshz5EVuJotoxbktvMilwOl9pbFXlgogPoSNwPoDSo
+      short-id: "50"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: po.iovosfaq.xyz
+    port: 443
+    uuid: 65329316-aca9-4825-8118-f85786865f0f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tradingview.com
+    reality-opts:
+      public-key: _vshz5EVuJotoxbktvMilwOl9pbFXlgogPoSNwPoDSo
+      short-id: "50"
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

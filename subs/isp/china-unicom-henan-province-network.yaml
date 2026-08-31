@@ -1,33 +1,6 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 42.51.25.69
-    port: 59443
-    password: 254a0b7402009010a3740e084dff6b56
-    udp: true
-    tls: true
-    sni: ja262.magiclampcloud.cn
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: ja262.magiclampcloud.cn
-    port: 59443
-    password: 002023c45d18bca3eba2757bb683309a
-    udp: true
-    tls: true
-    sni: ja262.magiclampcloud.cn
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 42.51.25.69
-    port: 59443
-    password: 002023c45d18bca3eba2757bb683309a
-    udp: true
-    tls: true
-    sni: ja262.magiclampcloud.cn
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-03
     server: ja262.magiclampcloud.cn
     port: 59443
     password: 254a0b7402009010a3740e084dff6b56
@@ -53,17 +26,34 @@ proxies:
     tls: true
     sni: ja262.magiclampcloud.cn
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 42.51.25.69
+    port: 59443
+    password: 002023c45d18bca3eba2757bb683309a
+    udp: true
+    tls: true
+    sni: ja262.magiclampcloud.cn
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: ja262.magiclampcloud.cn
+    port: 59443
+    password: 002023c45d18bca3eba2757bb683309a
+    udp: true
+    tls: true
+    sni: ja262.magiclampcloud.cn
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - 4Jadi-6e5a43b7bd
       - 4FreeIran-61285beaba
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,10 +61,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - 4Jadi-6e5a43b7bd
       - 4FreeIran-61285beaba
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

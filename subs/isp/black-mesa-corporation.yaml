@@ -1,99 +1,26 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 134.195.101.129
+    server: 103.152.113.60
     port: 443
-    uuid: 78a0e582-25f7-47f4-a973-1d8624e17311
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
     udp: true
     tls: true
-    client-fingerprint: ios
-    servername: updates.cdn-apple.com
-    reality-opts:
-      public-key: XpaYw0-hwSPxgV8K-WUbEaxbAwxjYVpDkDGOMONwUiA
-      short-id: 79f44f5c
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: a3f19.fwu4.6bv.hh.vavava.kdns.fr
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 134.195.101.207
-    port: 443
-    uuid: 78a0e582-25f7-47f4-a973-1d8624e17311
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: iosapps.itunes.apple.com
-    reality-opts:
-      public-key: 20zgmuoZYL5ngyWwzwJSaNpfaRAOhX2UdND6RVVswm0
-      short-id: 71c05500
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 134.195.101.122
-    port: 443
-    uuid: 78a0e582-25f7-47f4-a973-1d8624e17311
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: www.mi.com
-    reality-opts:
-      public-key: ptYLYuVba16lu-OtadiE8Wd-cGHHVZh0XkxVUqrhmDE
-      short-id: 2546d239
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-03
-    server: 134.195.101.178
-    port: 443
-    uuid: 78a0e582-25f7-47f4-a973-1d8624e17311
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: iosapps.itunes.apple.com
-    reality-opts:
-      public-key: "-Cc9Wduo_L3TI70LPHFamFOaQer2Lzzux-vwAVDn5ns"
-      short-id: f0dc50e8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-1e44d388c7
-    server: 134.195.101.178
-    port: 443
-    uuid: 78a0e582-25f7-47f4-a973-1d8624e17311
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: iosapps.itunes.apple.com
-    reality-opts:
-      public-key: "-Cc9Wduo_L3TI70LPHFamFOaQer2Lzzux-vwAVDn5ns"
-      short-id: f0dc50e8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-6fc9b9c251
-    server: 134.195.101.207
-    port: 443
-    uuid: 78a0e582-25f7-47f4-a973-1d8624e17311
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: iosapps.itunes.apple.com
-    reality-opts:
-      public-key: 20zgmuoZYL5ngyWwzwJSaNpfaRAOhX2UdND6RVVswm0
-      short-id: 71c05500
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: a3f19.fwu4.6bv.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4Kian-1e44d388c7
-      - 4Kian-6fc9b9c251
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -101,10 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4Kian-1e44d388c7
-      - 4Kian-6fc9b9c251
 rules:
   - MATCH,Proxy

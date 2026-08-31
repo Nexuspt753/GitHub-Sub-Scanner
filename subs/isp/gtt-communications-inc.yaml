@@ -1,23 +1,25 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-9851c2ece0
-    server: 86.53.105.117
-    port: 33015
-    password: dbab9df7-5c0a-4726-8574-11e34972b67d
-    sni: www.bing.com
-    skip-cert-verify: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 195.72.191.147
+    port: 443
+    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    udp: true
+    tls: true
+    sni: origin-a.akamaihd.net
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-9851c2ece0
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-9851c2ece0
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,43 +1,19 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 193.46.218.181
+    server: 23.177.185.138
     port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    password: 8r<[9'l6hAO#8ZQi
     udp: true
     tls: true
+    sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
-    servername: c7h4v.mnkl.d8e.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: c7h4v.mnkl.d8e.hh.vavava.kdns.fr
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 193.17.180.221
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: c7h4v.mnkl.d8e.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: c7h4v.mnkl.d8e.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

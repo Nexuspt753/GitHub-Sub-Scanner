@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 109.104.106.135
+    port: 443
+    uuid: 36a9a243-84aa-4bbf-8a1d-fc4739795d46
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: d2-ro.cloud-cdn.xyz
+    reality-opts:
+      public-key: 6HRVYg1i4ah9VhuV5hne2-JA8Z5HTV5jbFi-h3qKsDQ
+      short-id: dd4d615422c6424c
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

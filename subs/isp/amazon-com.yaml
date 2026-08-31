@@ -1,14 +1,34 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: v2jp.k1.ssnss.live
-    port: 44184
-    password: d050aca3-9df2-4461-90ec-92373c1d7636
+    server: pq.aws57.yydjc.top
+    port: 443
+    uuid: ac4fd71f-4a8c-4af2-8343-6935cf6c0a34
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: updates.cdn-apple.com
+    reality-opts:
+      public-key: KeIvEyXB-ftboKdIoaSDyUKJPQpmcZiVaqY2JndkX08
+      short-id: 55fbcc37
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: de1.miyazono-kaori.com
+    port: 443
+    uuid: 09558890-0fa4-4d55-96b5-f9a5675c2625
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: www.siemens.com
+    reality-opts:
+      public-key: aEAdhhksLgyI_GWf7l_ES5hMZhigMAIWBn9emSXdaHc
+      short-id: 56f276ac52
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 13.192.234.192
     port: 44184
     password: d050aca3-9df2-4461-90ec-92373c1d7636
@@ -16,10 +36,10 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: vmess
-    name: EPODONIOS
-    server: kukuprogram1.herokuapp.com
+    name: 4Nika-32e88b277a
+    server: ac2088.herokuapp.com
     port: 443
-    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
+    uuid: d1babe08-f8ac-490b-b66f-9be27467f3cc
     alterId: 0
     cipher: auto
     udp: true
@@ -28,44 +48,10 @@ proxies:
     tls: true
     network: ws
     ws-opts:
-      path: /
+      path: /d1babe08-f8ac-490b-b66f-9be27467f3cc-vmess
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kukuprogram1.herokuapp.com
-  - type: vmess
-    name: 🇺🇸US-174.129.128.48-0226
-    server: kukuprogram1.herokuapp.com
-    port: 443
-    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kukuprogram1.herokuapp.com
-  - type: vmess
-    name: 4Sarina-c1c956f215
-    server: kukuprogram1.herokuapp.com
-    port: 443
-    uuid: d170fb8f-bb43-41a0-930b-5889483c087f
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kukuprogram1.herokuapp.com
+        Host: ac2088.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -73,9 +59,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - 🇺🇸US-174.129.128.48-0226
-      - 4Sarina-c1c956f215
+      - DeltaKroneckerGithub-02
+      - 4Nika-32e88b277a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -84,8 +69,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - 🇺🇸US-174.129.128.48-0226
-      - 4Sarina-c1c956f215
+      - DeltaKroneckerGithub-02
+      - 4Nika-32e88b277a
 rules:
   - MATCH,Proxy

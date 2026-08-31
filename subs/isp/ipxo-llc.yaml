@@ -1,6 +1,19 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 104.129.164.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime40.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 157.254.38.210
     port: 20068
     password: a126f35c-e832-4115-8593-b723ade3f7be
@@ -24,7 +37,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 172.111.146.64
     port: 80
     uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
@@ -39,36 +52,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 172.111.146.64
-  - type: vmess
-    name: 🇯🇵JP-172.111.146.64-4943
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 🇯🇵JP-172.111.146.64-0126
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Kian-1e1c431400
     server: 104.129.164.253
@@ -137,10 +120,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - 🇯🇵JP-172.111.146.64-4943
-      - 🇯🇵JP-172.111.146.64-0126
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
       - 4Kian-1e1c431400
       - 4Nika-ee8fb5f300
       - 4Sarina-dda805b2cd
@@ -152,10 +134,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - 🇯🇵JP-172.111.146.64-4943
-      - 🇯🇵JP-172.111.146.64-0126
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
       - 4Kian-1e1c431400
       - 4Nika-ee8fb5f300
       - 4Sarina-dda805b2cd

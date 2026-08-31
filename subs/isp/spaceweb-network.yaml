@@ -12,26 +12,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rzd.ru
-  - type: vless
-    name: 4Nika-e4af5d5183
-    server: 77.222.53.218
-    port: 2200
-    uuid: 1cb011db-0211-4120-8984-13d8510a612b
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-e4af5d5183
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-e4af5d5183
 rules:
   - MATCH,Proxy

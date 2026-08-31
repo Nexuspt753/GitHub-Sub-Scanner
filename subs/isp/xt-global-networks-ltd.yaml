@@ -3,7 +3,7 @@ proxies:
     name: DeltaKroneckerGithub
     server: 185.189.46.63
     port: 443
-    uuid: a98f627f-99ff-44fc-89fc-b5aed8db49f9
+    uuid: 04d17971-314f-4922-8e91-d03dc2303353
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -15,27 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 185.189.46.46
-    port: 443
-    uuid: 348b1b7d-fe7b-43f9-84b5-a2917925c8a8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: sw1.freehiliters.com
-    reality-opts:
-      public-key: hyOYRfDSIYyqALQt3N2H0RjK8gbV1JvPTkNACC4PJF8
-      short-id: 8718c58d3d51db59
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
