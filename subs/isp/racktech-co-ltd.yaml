@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: 138.16.141.59
+    port: 7443
+    uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ibm.com
+    reality-opts:
+      public-key: RY7zkFQ01lI92jxNAyCa8T33UBW1fgpJgg8ZEqMA10k
+      short-id: a09ff9f8
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: ne1385.cdn-video.pro
     port: 443
     uuid: f980aecd-d243-4910-b231-db172d434541
@@ -12,7 +25,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: V2raySaman
+    name: کانال
     server: 138.16.141.59
     port: 7443
     uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
@@ -60,16 +73,30 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-25caa96483
+    server: ne1385.cdn-video.pro
+    port: 443
+    uuid: f980aecd-d243-4910-b231-db172d434541
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - V2raySaman
+      - EPODONIOS-01
+      - کانال
       - "[029413]"
       - 🇳🇱156929
       - 🇳🇱NL-🚀@VPNine1
+      - 4Kian-25caa96483
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -77,9 +104,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - V2raySaman
+      - EPODONIOS-01
+      - کانال
       - "[029413]"
       - 🇳🇱156929
       - 🇳🇱NL-🚀@VPNine1
+      - 4Kian-25caa96483
 rules:
   - MATCH,Proxy

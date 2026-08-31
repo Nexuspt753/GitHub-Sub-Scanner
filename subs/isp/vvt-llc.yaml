@@ -1,22 +1,32 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-130a7fc55e
-    server: 139.28.168.58
-    port: 8080
-    password: 0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-    sni: grape-honk.yyuyy.com
+  - type: vless
+    name: 4Mohsen-6496dd3515
+    server: 139.28.169.107
+    port: 2046
+    uuid: 8535e46f-4c0b-4b02-9369-d4d553c9a892
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: f5link.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: f5link.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-130a7fc55e
+      - 4Mohsen-6496dd3515
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-130a7fc55e
+      - 4Mohsen-6496dd3515
 rules:
   - MATCH,Proxy

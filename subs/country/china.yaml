@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: Beijing · EPODONIOS
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
     name: Beijing · 韩国
     server: 121.46.230.138
     port: 65443
@@ -135,6 +142,16 @@ proxies:
     tls: true
     sni: tyy129.magiclampcloud.com
     client-fingerprint: chrome
+  - type: vmess
+    name: Hefei · EPODONIOS
+    server: 112.132.215.108
+    port: 50002
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: Haidian · 4FreeIran-238f9d1c41
     server: 43.169.18.179
@@ -203,26 +220,6 @@ proxies:
     password: 7eadc6dbe2ae
     udp: true
   - type: vmess
-    name: Hefei · 4Sarina-ea1a547251
-    server: 112.132.215.108
-    port: 50002
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Hefei · 4Nika-7e600e775c
-    server: 112.132.215.108
-    port: 50002
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
     name: Hefei · 4Nika-f506a097f4
     server: 112.132.215.108
     port: 50002
@@ -232,22 +229,6 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: Guangzhou · 4FreeIran-bed40912dd
-    server: 120.240.142.21
-    port: 11972
-    uuid: d19c5396-aef2-b508-3abb-e9f93c8b0cfc
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /adb4c2cc-9e77-d6fc-4dba-e06b15659469
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tms.dingtalk.com
   - type: vmess
     name: Kunming · 4Nika-91d10da546
     server: 150.242.244.116
@@ -259,7 +240,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Beijing · 4Kian-7dd9202caf
+    name: Guangzhou · 4Mohsen-07c0dbe509
     server: v29.hdacd.com
     port: 30829
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -269,7 +250,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Beijing · 4Mohsen-07c0dbe509
+    name: Guangzhou · 4Sarina-1d4477f897
     server: v29.hdacd.com
     port: 30829
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -279,47 +260,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Beijing · 4Sarina-1d4477f897
-    server: v29.hdacd.com
-    port: 30829
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Nanjing · 4Mohsen-74efada7de
-    server: v4.hdacd.com
-    port: 30804
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Nanjing · 4Sarina-f6345d464c
-    server: v4.hdacd.com
-    port: 30804
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Guangzhou · 4Kian-d0baac38ab
-    server: v6.hdacd.com
-    port: 30806
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Qingyuan · 4Kian-af1e86a671
+    name: Guangzhou · 4Kian-af1e86a671
     server: visa.cn
     port: 80
     uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
@@ -339,6 +280,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Beijing · EPODONIOS
       - Beijing · 韩国
       - Beijing · 香港
       - Haidian · EPODONIOS
@@ -353,6 +295,7 @@ proxy-groups:
       - Shenzhen · 4FreeIran-61285beaba
       - Suzhou · @DeltaKroneckerGithub-02
       - Suzhou · @DeltaKroneckerGithub-03
+      - Hefei · EPODONIOS
       - Haidian · 4FreeIran-238f9d1c41
       - Kunming · @DeltaKroneckerGithub
       - Hefei · @DeltaKroneckerGithub
@@ -360,24 +303,18 @@ proxy-groups:
       - Beijing · 🇨🇳CN-121.46.230.233-0143
       - Beijing · 🇨🇳CN-121.46.230.138-0148
       - Beijing · 🇨🇳CN-121.46.230.232-0127
-      - Hefei · 4Sarina-ea1a547251
-      - Hefei · 4Nika-7e600e775c
       - Hefei · 4Nika-f506a097f4
-      - Guangzhou · 4FreeIran-bed40912dd
       - Kunming · 4Nika-91d10da546
-      - Beijing · 4Kian-7dd9202caf
-      - Beijing · 4Mohsen-07c0dbe509
-      - Beijing · 4Sarina-1d4477f897
-      - Nanjing · 4Mohsen-74efada7de
-      - Nanjing · 4Sarina-f6345d464c
-      - Guangzhou · 4Kian-d0baac38ab
-      - Qingyuan · 4Kian-af1e86a671
+      - Guangzhou · 4Mohsen-07c0dbe509
+      - Guangzhou · 4Sarina-1d4477f897
+      - Guangzhou · 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Beijing · EPODONIOS
       - Beijing · 韩国
       - Beijing · 香港
       - Haidian · EPODONIOS
@@ -392,6 +329,7 @@ proxy-groups:
       - Shenzhen · 4FreeIran-61285beaba
       - Suzhou · @DeltaKroneckerGithub-02
       - Suzhou · @DeltaKroneckerGithub-03
+      - Hefei · EPODONIOS
       - Haidian · 4FreeIran-238f9d1c41
       - Kunming · @DeltaKroneckerGithub
       - Hefei · @DeltaKroneckerGithub
@@ -399,17 +337,10 @@ proxy-groups:
       - Beijing · 🇨🇳CN-121.46.230.233-0143
       - Beijing · 🇨🇳CN-121.46.230.138-0148
       - Beijing · 🇨🇳CN-121.46.230.232-0127
-      - Hefei · 4Sarina-ea1a547251
-      - Hefei · 4Nika-7e600e775c
       - Hefei · 4Nika-f506a097f4
-      - Guangzhou · 4FreeIran-bed40912dd
       - Kunming · 4Nika-91d10da546
-      - Beijing · 4Kian-7dd9202caf
-      - Beijing · 4Mohsen-07c0dbe509
-      - Beijing · 4Sarina-1d4477f897
-      - Nanjing · 4Mohsen-74efada7de
-      - Nanjing · 4Sarina-f6345d464c
-      - Guangzhou · 4Kian-d0baac38ab
-      - Qingyuan · 4Kian-af1e86a671
+      - Guangzhou · 4Mohsen-07c0dbe509
+      - Guangzhou · 4Sarina-1d4477f897
+      - Guangzhou · 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

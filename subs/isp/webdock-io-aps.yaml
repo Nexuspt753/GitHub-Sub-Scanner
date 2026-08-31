@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: dk2.darknet-bot.co.uk
+    port: 443
+    uuid: 3f373e36-6363-4f3e-8ca3-0504612f490e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: "[029425]"
     server: dk2.darknet-bot.co.uk
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - "[029425]"
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - "[029425]"
 rules:
   - MATCH,Proxy

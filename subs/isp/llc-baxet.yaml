@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 176.32.35.51
-    port: 10081
-    cipher: aes-256-gcm
-    password: 895b4b796a357570
-    udp: true
-  - type: ss
     name: 4Sarina-e1ef18ccf4
     server: 176.32.35.51
     port: 10081
@@ -27,24 +20,34 @@ proxies:
     cipher: aes-256-gcm
     password: 895b4b796a357570
     udp: true
+  - type: vless
+    name: 4Nika-020824b7e5
+    server: rua02.333210.best
+    port: 40000
+    uuid: e103b504-eb8c-4ddb-8c60-9921133e77d4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 4Sarina-e1ef18ccf4
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Nika-020824b7e5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 4Sarina-e1ef18ccf4
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Nika-020824b7e5
 rules:
   - MATCH,Proxy
