@@ -1,6 +1,15 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 185.81.115.150
+    port: 9443
+    password: 54ae81edc69e476ea3a339e08ab3f5c7
+    udp: true
+    tls: true
+    sni: apple.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 185.81.114.88
     port: 9443
     password: 50ad7b7681494900887bbf80ab3722d0
@@ -14,6 +23,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,20 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: germany.superbuba.top
-    port: 443
-    uuid: d4cae7df-50a1-428c-bd62-881c8f3bbd90
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: germany.superbuba.top
-    reality-opts:
-      public-key: rCkSHJ7goy7ZvSlau4LfXF-QLloOJMNeMxpeeQtwtVs
-      short-id: 4fa44664f6a566d3
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 45.95.96.225
     port: 443
     uuid: d4cae7df-50a1-428c-bd62-881c8f3bbd90
@@ -28,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 45.95.96.227
     port: 443
     uuid: d4cae7df-50a1-428c-bd62-881c8f3bbd90
@@ -55,17 +41,6 @@ proxies:
       short-id: 4fa44664f6a566d3
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-ab240625a7
-    server: 45.95.96.225
-    port: 443
-    uuid: d4cae7df-50a1-428c-bd62-881c8f3bbd90
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: germany.superbuba.top
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -73,9 +48,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Sarina-606db88a1c
-      - 4Nika-ab240625a7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -84,8 +57,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Sarina-606db88a1c
-      - 4Nika-ab240625a7
 rules:
   - MATCH,Proxy
