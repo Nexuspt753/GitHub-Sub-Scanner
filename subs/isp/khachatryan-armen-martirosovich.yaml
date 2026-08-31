@@ -1,30 +1,53 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 189.74.117.11
+    name: 4Nika-0736c7593c
+    server: 189.74.117.12
     port: 443
-    uuid: 9ea6d970-f854-4d6e-aa60-a097346dd9e3
+    uuid: 31e0b987-6ef0-4f61-9257-bdc57120a7f2
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: ios
     servername: deepl.com
-    reality-opts:
-      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
-      short-id: a8
-    flow: xtls-rprx-vision
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Sarina-7ab9fb3297
+    server: api.yandex-dev.org
+    port: 443
+    uuid: 31e0b987-6ef0-4f61-9257-bdc57120a7f2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.yandex-dev.org
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Nika-d186b193aa
+    server: api.yandex-developer.org
+    port: 443
+    uuid: 31e0b987-6ef0-4f61-9257-bdc57120a7f2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.yandex-developer.org
+    flow: xtls-rprx-vision-udp443
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-0736c7593c
+      - 4Sarina-7ab9fb3297
+      - 4Nika-d186b193aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-0736c7593c
+      - 4Sarina-7ab9fb3297
+      - 4Nika-d186b193aa
 rules:
   - MATCH,Proxy

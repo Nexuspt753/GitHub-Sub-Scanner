@@ -1,6 +1,38 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 181.36.229.212
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
+  - type: vless
     name: 🇩🇴
+    server: 181.36.229.212
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
+  - type: vless
+    name: 4FreeIran-6d14b94c65
     server: 181.36.229.212
     port: 443
     uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
@@ -20,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇩🇴
+      - 4FreeIran-6d14b94c65
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇩🇴
+      - 4FreeIran-6d14b94c65
 rules:
   - MATCH,Proxy

@@ -7,14 +7,14 @@ proxies:
     sni: md1.cnyvpn.com
     skip-cert-verify: true
   - type: hysteria2
-    name: 摩尔多瓦
+    name: EPODONIOS
     server: md1.cnyvpn.com
     port: 443
     password: 60e2a548-96aa-4850-a279-1edab743c39b
     sni: md1.cnyvpn.com
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
+    name: 摩尔多瓦
     server: md1.cnyvpn.com
     port: 443
     password: 60e2a548-96aa-4850-a279-1edab743c39b
@@ -69,18 +69,33 @@ proxies:
       short-id: a0a5d889
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-7ef7e94027
+    server: 85.120.216.178
+    port: 443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: RTJejnFwln1GAFLeyZ4NRcMpvsRiL1Yu-WFRy8NtIwU
+      short-id: a0a5d889
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-e84e9a8f73
-      - 摩尔多瓦
       - EPODONIOS
+      - 摩尔多瓦
       - 4Mohsen-f71b8e81f1
       - DeltaKroneckerGithub
       - EPODONIOS-01
       - Channel
+      - 4Kian-7ef7e94027
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -88,11 +103,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-e84e9a8f73
-      - 摩尔多瓦
       - EPODONIOS
+      - 摩尔多瓦
       - 4Mohsen-f71b8e81f1
       - DeltaKroneckerGithub
       - EPODONIOS-01
       - Channel
+      - 4Kian-7ef7e94027
 rules:
   - MATCH,Proxy

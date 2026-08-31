@@ -13,13 +13,6 @@ proxies:
       short-id: b11138e86cd6
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 185.110.189.172
-    port: 443
-    uuid: d70e525c-67bd-4261-b7f5-96589be5b3b0
-    udp: true
-    xudp: true
-  - type: vless
     name: 🦉@FreeConfigForYou
     server: turkbot1.namirasly.com
     port: 8888
@@ -33,7 +26,7 @@ proxies:
       short-id: b11138e86cd6
     xudp: true
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-01
     server: 185.110.189.172
     port: 443
     uuid: fb9b7935-e1d8-4342-b26c-d71c439fa29d
@@ -88,20 +81,32 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Mohsen-eff5c37f2f
+    server: de2.lion-lion.ir
+    port: 8853
+    uuid: 31477bd9-a29c-490c-b29d-69328ec307f1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: de2.lion-lion.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - 🦉@FreeConfigForYou
-      - EPODONIOS-02
+      - EPODONIOS-01
       - Capoit
       - Capoit-01
       - 4Nika-c208430b91
       - 4FreeIran-31d51256e2
       - 4Jadi-73ab4a9389
+      - 4Mohsen-eff5c37f2f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -109,13 +114,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - 🦉@FreeConfigForYou
-      - EPODONIOS-02
+      - EPODONIOS-01
       - Capoit
       - Capoit-01
       - 4Nika-c208430b91
       - 4FreeIran-31d51256e2
       - 4Jadi-73ab4a9389
+      - 4Mohsen-eff5c37f2f
 rules:
   - MATCH,Proxy

@@ -1,50 +1,26 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: rah.ultranv.ir
-    port: 8080
-    uuid: 8923c300-c8f7-4c9c-9b0c-32a35ff7464a
+  - type: vmess
+    name: 4Nika-0595140de6
+    server: vip1.showtimeless.site
+    port: 8880
+    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip.dokhtaroune.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip.dokhtaroune.ir
-  - type: vless
-    name: 4Kian-48f822be54
-    server: rah.ultranv.ir
-    port: 8080
-    uuid: 8923c300-c8f7-4c9c-9b0c-32a35ff7464a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip.dokhtaroune.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip.dokhtaroune.ir
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Kian-48f822be54
+      - 4Nika-0595140de6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Kian-48f822be54
+      - 4Nika-0595140de6
 rules:
   - MATCH,Proxy

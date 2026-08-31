@@ -1,6 +1,38 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 142.248.218.34
+    port: 2053
+    uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edge.yzkvm.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edge.yzkvm.top
+  - type: vless
     name: 🇺🇸
+    server: 142.248.218.34
+    port: 2053
+    uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edge.yzkvm.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edge.yzkvm.top
+  - type: vless
+    name: 4Kian-dd8bf15ad4
     server: 142.248.218.34
     port: 2053
     uuid: bba95b1f-f48c-454b-897b-a6c6bc307df1
@@ -20,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇺🇸
+      - 4Kian-dd8bf15ad4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇺🇸
+      - 4Kian-dd8bf15ad4
 rules:
   - MATCH,Proxy
