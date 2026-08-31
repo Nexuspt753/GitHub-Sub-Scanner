@@ -1,6 +1,34 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 153.76.204.82
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: MTMVPN
+    server: 153.76.204.82
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-4697653aa8
     server: 153.76.204.82
     port: 443
     uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - MTMVPN
+      - 4Sarina-4697653aa8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - MTMVPN
+      - 4Sarina-4697653aa8
 rules:
   - MATCH,Proxy

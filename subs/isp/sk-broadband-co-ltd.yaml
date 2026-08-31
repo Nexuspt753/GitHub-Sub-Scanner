@@ -6,20 +6,12 @@ proxies:
     cipher: aes-256-cfb
     password: qwerREWQ@@
     udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: 221.139.79.57
-    port: 13979
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
 rules:
   - MATCH,Proxy
