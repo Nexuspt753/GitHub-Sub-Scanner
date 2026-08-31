@@ -17,7 +17,7 @@ proxies:
         Host: vp10.pages.dev
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 219.76.13.167
+    server: 219.76.13.177
     port: 443
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
@@ -33,6 +33,22 @@ proxies:
         Host: vp10.pages.dev
   - type: vless
     name: DeltaKroneckerGithub-02
+    server: 219.76.13.167
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 219.76.13.166
     port: 443
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
@@ -48,7 +64,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 58.152.110.111
     port: 443
     password: 4843e94d205f3893f588255a591abe94
@@ -57,7 +73,7 @@ proxies:
     sni: www.nintendogames.net
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-05
     server: 58.152.110.111
     port: 443
     password: 61d8077bfb174e171b8283f155a555ad
@@ -91,6 +107,21 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: e.cn-db.top
+  - type: vmess
+    name: 4Sarina-a2a339e2e1
+    server: hk01.653ebeeb-5f60-4be5-958d-7bf4839cdccd.ef6616fd-5b06-482f-9d64-183745659cbf.byteprivatelink.com
+    port: 443
+    uuid: f018361c-3d66-4635-80c9-22be36b70ac4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: www.12306.cn
+    network: grpc
+    grpc-opts:
+      grpc-service-name: "12306"
 proxy-groups:
   - name: Proxy
     type: select
@@ -101,8 +132,10 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - 4Nika-06c8f125f0
       - 4Sarina-12fdb05684
+      - 4Sarina-a2a339e2e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -114,7 +147,9 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - 4Nika-06c8f125f0
       - 4Sarina-12fdb05684
+      - 4Sarina-a2a339e2e1
 rules:
   - MATCH,Proxy

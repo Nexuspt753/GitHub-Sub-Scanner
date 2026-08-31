@@ -27,42 +27,28 @@ proxies:
       short-id: 56f276ac52
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-02
+    server: hk5.miyazono-kaori.com
+    port: 443
+    uuid: 09558890-0fa4-4d55-96b5-f9a5675c2625
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.hsbc.com.hk
+    reality-opts:
+      public-key: HbjpGbCmp7lBysnS-twEYgGoriXACHZQObIpU9zJWVc
+      short-id: a273e9ee6ac0a466
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-03
     server: 13.192.234.192
     port: 44184
     password: d050aca3-9df2-4461-90ec-92373c1d7636
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: EPODONIOS
-    server: 13.135.176.1
-    port: 22222
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 13.135.176.1
-    port: 22222
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS-02
-    server: 13.135.176.1
-    port: 22223
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS-03
-    server: 13.135.176.1
-    port: 22224
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
   - type: vless
     name: 4Jadi-5ee2f26b3d
     server: de1.miyazono-kaori.com
@@ -77,51 +63,6 @@ proxies:
       short-id: 56f276ac52
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-512b56a6ce
-    server: 13.135.176.1
-    port: 22222
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-6df0bc8e15
-    server: 13.135.176.1
-    port: 22222
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-6881e25b9b
-    server: 13.135.176.1
-    port: 22223
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Mohsen-d27fcf8507
-    server: 13.135.176.1
-    port: 22224
-    uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-    udp: true
-    xudp: true
-  - type: vmess
-    name: 4Nika-32e88b277a
-    server: ac2088.herokuapp.com
-    port: 443
-    uuid: d1babe08-f8ac-490b-b66f-9be27467f3cc
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /d1babe08-f8ac-490b-b66f-9be27467f3cc-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ac2088.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -130,16 +71,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
-      - EPODONIOS-03
+      - DeltaKroneckerGithub-03
       - 4Jadi-5ee2f26b3d
-      - 4Kian-512b56a6ce
-      - 4Kian-6df0bc8e15
-      - 4Nika-6881e25b9b
-      - 4Mohsen-d27fcf8507
-      - 4Nika-32e88b277a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -149,15 +82,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
-      - EPODONIOS-03
+      - DeltaKroneckerGithub-03
       - 4Jadi-5ee2f26b3d
-      - 4Kian-512b56a6ce
-      - 4Kian-6df0bc8e15
-      - 4Nika-6881e25b9b
-      - 4Mohsen-d27fcf8507
-      - 4Nika-32e88b277a
 rules:
   - MATCH,Proxy

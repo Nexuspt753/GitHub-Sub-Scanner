@@ -13,12 +13,27 @@ proxies:
       short-id: 2c4d005b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 82.38.46.66
+    port: 15006
+    uuid: 399c4c9b-27e1-37f1-9dce-22ccc2727a86
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.adobe.com
+    reality-opts:
+      public-key: g9KZONtwSL8mL772rps2nXVAuQpsgHY33K_pHpI89Rg
+      short-id: 029a6cc4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

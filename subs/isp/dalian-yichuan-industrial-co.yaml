@@ -13,12 +13,28 @@ proxies:
       short-id: af1bdd293097b664
     flow: xtls-rprx-vision
     xudp: true
+  - type: ss
+    name: EPODONIOS
+    server: 103.149.182.79
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+    udp: true
+  - type: ss
+    name: 🇭🇰HK-103.149.182.79-0128
+    server: 103.149.182.79
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇭🇰HK-103.149.182.79-0128
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +42,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇭🇰HK-103.149.182.79-0128
 rules:
   - MATCH,Proxy
