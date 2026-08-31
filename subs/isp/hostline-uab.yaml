@@ -14,7 +14,35 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: lit5.freeinternat.com
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lit5.freeinternat.com
+    reality-opts:
+      public-key: pgG2grngQEtOFJImLfz0AEm-O2IodM2jCY4aMCYQI1U
+      short-id: 6aa2d2e950441a9a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: ShadowProxy66
+    server: 88.119.176.28
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lit5.freeinternat.com
+    reality-opts:
+      public-key: pgG2grngQEtOFJImLfz0AEm-O2IodM2jCY4aMCYQI1U
+      short-id: 6aa2d2e950441a9a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: hex_proxy
     server: 88.119.176.28
     port: 443
     uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
@@ -55,30 +83,17 @@ proxies:
       short-id: 6aa2d2e950441a9a
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-62900195b6
-    server: lit5.freeinternat.com
-    port: 443
-    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: lit5.freeinternat.com
-    reality-opts:
-      public-key: pgG2grngQEtOFJImLfz0AEm-O2IodM2jCY4aMCYQI1U
-      short-id: 6aa2d2e950441a9a
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - ShadowProxy66
+      - hex_proxy
       - ShadowProxy66-01
       - 4Mohsen-1c2649196a
-      - 4Mohsen-62900195b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,9 +101,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - ShadowProxy66
+      - hex_proxy
       - ShadowProxy66-01
       - 4Mohsen-1c2649196a
-      - 4Mohsen-62900195b6
 rules:
   - MATCH,Proxy
