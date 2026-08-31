@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Sarina-6dc51976c3
+    server: 45.149.12.254
+    port: 8443
+    uuid: d12e7198-95d4-41f1-b4d2-a94a1ee28546
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kanal-ma-falcunargo.2bddce6dfd.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kanal-ma-falcunargo.2bddce6dfd.workers.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-6dc51976c3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-6dc51976c3
+rules:
+  - MATCH,Proxy

@@ -1,32 +1,4 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: mn.qwer-cn.org
-    port: 10931
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: mn.qwer-cn.org
-    port: 10936
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: v2ray313
-    server: mn.qwer-cn.org
-    port: 10931
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: 4Mohsen-9f95212127
-    server: mn.qwer-cn.org
-    port: 10931
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 154.16.183.190
@@ -43,48 +15,18 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: gy-cffc6-node-xw970584qgunk36s.lancelot.dpdns.org
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 45.149.92.71
-    port: 443
-    password: ad2b5cee-f61d-4060-8726-5fedf509ff5d
-    udp: true
-    tls: true
-    sni: kp.mjt000.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 45.149.92.71
-    port: 443
-    password: 92435aa8-f3b6-466a-ad58-c55cbb6d2acf
-    udp: true
-    tls: true
-    sni: hinet.mjt000.com
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - v2ray313
-      - 4Mohsen-9f95212127
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - v2ray313
-      - 4Mohsen-9f95212127
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

@@ -15,6 +15,24 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vmess
+    name: 4Sarina-16984b6e1f
+    server: xr-1.herokuapp.com
+    port: 443
+    uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: xr-1.herokuapp.com
+    network: ws
+    ws-opts:
+      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xr-1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -22,6 +40,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Sarina-16984b6e1f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -30,5 +49,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Sarina-16984b6e1f
 rules:
   - MATCH,Proxy

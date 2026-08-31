@@ -1,0 +1,50 @@
+proxies:
+  - type: hysteria2
+    name: 芬兰
+    server: 45.149.147.194
+    port: 443
+    password: becd3b04-62a8-4b74-be67-be746008b4c2
+    sni: hys-mesh.spliceflowtech.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS
+    server: 45.149.147.194
+    port: 443
+    password: becd3b04-62a8-4b74-be67-be746008b4c2
+    sni: hys-mesh.spliceflowtech.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Kian-40a25f6a31
+    server: 45.149.147.194
+    port: 443
+    password: becd3b04-62a8-4b74-be67-be746008b4c2
+    sni: hys-mesh.spliceflowtech.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-ca31872b5f
+    server: 45.149.147.194
+    port: 443
+    password: becd3b04-62a8-4b74-be67-be746008b4c2
+    sni: hys-mesh.spliceflowtech.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 芬兰
+      - EPODONIOS
+      - 4Kian-40a25f6a31
+      - 4Jadi-ca31872b5f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 芬兰
+      - EPODONIOS
+      - 4Kian-40a25f6a31
+      - 4Jadi-ca31872b5f
+rules:
+  - MATCH,Proxy

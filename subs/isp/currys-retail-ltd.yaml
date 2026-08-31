@@ -1,0 +1,54 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 164.38.155.135
+    port: 443
+    uuid: AlfredConfig
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: alfi.yas-nowin.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: alfi.yas-nowin.ir
+  - type: vless
+    name: 4FreeIran-e9b9d154f9
+    server: 164.38.155.135
+    port: 443
+    uuid: AlfredConfig
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: alfi.yas-nowin.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: alfi.yas-nowin.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4FreeIran-e9b9d154f9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4FreeIran-e9b9d154f9
+rules:
+  - MATCH,Proxy

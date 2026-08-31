@@ -13,27 +13,12 @@ proxies:
       short-id: a8b9c0d1e2f34567
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: appsooner
-    server: 31.76.109.7
-    port: 80
-    uuid: 9e09f1ce-45d4-0920-b077-81b0dae00db2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: console.cloud.yandex.ru
-    reality-opts:
-      public-key: 4iWZChsH0rnqtn89xiB1evDLkFjmgh-3WYjx8cknZC0
-      short-id: a8b9c0d1e2f34567
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - appsooner
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - appsooner
 rules:
   - MATCH,Proxy

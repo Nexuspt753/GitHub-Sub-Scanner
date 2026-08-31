@@ -1,0 +1,58 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: uae.unixzone.us
+    port: 22573
+    uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇦🇪
+    server: uae.unixzone.us
+    port: 22573
+    uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uae.unixzone.us
+  - type: vless
+    name: 4Sarina-e06c151208
+    server: uae.unixzone.us
+    port: 22573
+    uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uae.unixzone.us
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 🇦🇪
+      - 4Sarina-e06c151208
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 🇦🇪
+      - 4Sarina-e06c151208
+rules:
+  - MATCH,Proxy

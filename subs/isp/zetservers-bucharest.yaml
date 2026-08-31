@@ -1,0 +1,118 @@
+proxies:
+  - type: hysteria2
+    name: 4Jadi-76ad0b73ce
+    server: 85.204.107.174
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-c8336a84af
+    server: 85.204.107.178
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-a0cc505add
+    server: 85.204.107.181
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+  - type: hysteria2
+    name: 德国
+    server: 85.204.107.174
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 德国-01
+    server: 85.204.107.178
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 德国-02
+    server: 85.204.107.181
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+  - type: hysteria2
+    name: EPODONIOS
+    server: 85.204.107.174
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS-01
+    server: 85.204.107.178
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS-02
+    server: 85.204.107.181
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+  - type: hysteria2
+    name: 4Mohsen-4472e2e399
+    server: 85.204.107.174
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-6b608fa9df
+    server: 85.204.107.178
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-c88ad79493
+    server: 85.204.107.181
+    port: 8080
+    password: Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
+    sni: hopp-romania-new.roxa.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-76ad0b73ce
+      - 4FreeIran-c8336a84af
+      - 4FreeIran-a0cc505add
+      - 德国
+      - 德国-01
+      - 德国-02
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Mohsen-4472e2e399
+      - 4Mohsen-6b608fa9df
+      - 4Sarina-c88ad79493
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-76ad0b73ce
+      - 4FreeIran-c8336a84af
+      - 4FreeIran-a0cc505add
+      - 德国
+      - 德国-01
+      - 德国-02
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Mohsen-4472e2e399
+      - 4Mohsen-6b608fa9df
+      - 4Sarina-c88ad79493
+rules:
+  - MATCH,Proxy
