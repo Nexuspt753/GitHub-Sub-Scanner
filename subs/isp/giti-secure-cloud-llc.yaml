@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: vless
+    server: s5.zynetrax.ir
+    port: 2087
+    uuid: 11cb0c12-7d9f-4286-759d-3428e7505337
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    servername: s5.zynetrax.ir
+    xudp: true
+  - type: vless
+    name: vless-01
     server: s4.zynetrax.ir
     port: 2087
     uuid: 3b7fe306-6526-49df-23b2-28097a44c492
@@ -8,6 +21,24 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: t1ti.blazenetwork.ir
+    port: 443
+    uuid: e4f2f3ac-11e8-4bb0-8c19-81dc30258e60
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: t1ti.blazenetwork.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t/assets
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: t1ti.blazenetwork.ir
   - type: vless
     name: icv2ray
     server: t1ti.blazenetwork.ir
@@ -50,6 +81,8 @@ proxy-groups:
     proxies:
       - Auto
       - vless
+      - vless-01
+      - EPODONIOS
       - icv2ray
       - 4Nika-e0513f0b70
   - name: Auto
@@ -59,6 +92,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
+      - EPODONIOS
       - icv2ray
       - 4Nika-e0513f0b70
 rules:

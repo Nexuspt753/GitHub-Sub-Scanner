@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 5.188.141.67
-    port: 8449
-    uuid: 2dfd0db2-cd4e-4c09-97fc-67c3d8ee9409
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: edge-vk.vpn.partners
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: ru.chick-team.ru
     port: 443
@@ -110,12 +97,25 @@ proxies:
       short-id: ab532d3308daa67b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-d654530e7a
+    server: ru.chick-team.ru
+    port: 443
+    uuid: d62d49cb-a9b5-4f1f-90a4-316ecc3dadc4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: res.chick-team.ru
+    reality-opts:
+      public-key: NBiCX_Tj3BeMAyG-GbLLKpGjW_qacm3A2Mz5mN8v3Xk
+      short-id: ab532d3308daa67b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - 🇷🇺@
@@ -123,13 +123,13 @@ proxy-groups:
       - 🇷🇺@vpnserverrr
       - 4Mohsen-54397e958d
       - 4Nika-8b69f4c592
+      - 4Sarina-d654530e7a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - 🇷🇺@
@@ -137,5 +137,6 @@ proxy-groups:
       - 🇷🇺@vpnserverrr
       - 4Mohsen-54397e958d
       - 4Nika-8b69f4c592
+      - 4Sarina-d654530e7a
 rules:
   - MATCH,Proxy

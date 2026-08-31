@@ -1,56 +1,86 @@
 proxies:
   - type: vless
-    name: ✰𝗝𝗼𝗶𝗻
-    server: nl-emergency-service.relqino.ir
-    port: 443
-    uuid: a855c069-0173-4365-9a93-49e0fb3d3de1
+    name: EPODONIOS
+    server: albani-emergency-service.relqino.ir
+    port: 8443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: nl-emergency-service.relqino.ir
+    servername: albani-emergency-service.relqino.ir
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl-emergency-service.relqino.ir
+        Host: albani-emergency-service.relqino.ir
   - type: vless
-    name: 4Sarina-bedc368a69
-    server: nl-emergency-service.relqino.ir
+    name: EPODONIOS-01
+    server: armenia-emergency-service.relqino.ir
     port: 443
-    uuid: a855c069-0173-4365-9a93-49e0fb3d3de1
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: nl-emergency-service.relqino.ir
+    servername: armenia-emergency-service.relqino.ir
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl-emergency-service.relqino.ir
+        Host: armenia-emergency-service.relqino.ir
+  - type: vless
+    name: EPODONIOS-02
+    server: ukraine-emergency-service.relqino.ir
+    port: 443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ukraine-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ukraine-emergency-service.relqino.ir
+  - type: vless
+    name: EPODONIOS-03
+    server: usa-emergency-service.relqino.ir
+    port: 8443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: usa-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: usa-emergency-service.relqino.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ✰𝗝𝗼𝗶𝗻
-      - 4Sarina-bedc368a69
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ✰𝗝𝗼𝗶𝗻
-      - 4Sarina-bedc368a69
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
 rules:
   - MATCH,Proxy

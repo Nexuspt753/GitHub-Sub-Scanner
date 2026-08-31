@@ -1,23 +1,26 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-b3a9c987ab
-    server: srv-40a0eb.21freedom.net
-    port: 11592
-    password: 3ec082d54e
-    sni: srv-40a0eb.21freedom.net
-    skip-cert-verify: true
+  - type: vless
+    name: EPODONIOS
+    server: 185.126.238.87
+    port: 2083
+    uuid: 7668f678-faee-40cc-9b56-9c39dc773388
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-b3a9c987ab
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b3a9c987ab
+      - EPODONIOS
 rules:
   - MATCH,Proxy

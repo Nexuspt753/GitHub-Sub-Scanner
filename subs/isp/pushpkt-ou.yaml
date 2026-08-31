@@ -14,24 +14,26 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: polniybak.info
+    port: 443
+    uuid: ed7b335a-f61a-4f2d-8a91-a7de6570ff1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: polniybak.info
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /notvlessklyanus
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: polniybak.info
+  - type: vless
     name: vmesskhodam
     server: 185.209.15.198
     port: 443
     uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl8.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-03017119d8
-    server: nl8.helper-internet.com
-    port: 443
-    uuid: 670decfe-68cc-499e-8cb1-22b39c20acbb
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -61,8 +63,8 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - vmesskhodam
-      - 4Nika-03017119d8
       - 4Sarina-0ab2e1248f
   - name: Auto
     type: url-test
@@ -71,8 +73,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - vmesskhodam
-      - 4Nika-03017119d8
       - 4Sarina-0ab2e1248f
 rules:
   - MATCH,Proxy

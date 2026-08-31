@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+  - type: ss
     name: United+States
     server: 198.98.53.130
     port: 443
@@ -7,7 +14,7 @@ proxies:
     password: eDfN7SODQceIOmIAbtJJtK
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub
+    name: EPODONIOS-01
     server: 198.98.53.130
     port: 443
     cipher: chacha20-ietf-poly1305
@@ -18,15 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - United+States
-      - DeltaKroneckerGithub
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - United+States
-      - DeltaKroneckerGithub
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

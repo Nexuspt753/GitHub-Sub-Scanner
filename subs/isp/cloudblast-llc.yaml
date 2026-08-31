@@ -28,6 +28,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: bored_vpn
+    server: 192.166.82.74
+    port: 8443
+    uuid: 414b2c7f-26e8-4c08-a357-a4f00043804e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: vmfswX2VwSAGOSd9gleiWLfZK8BVyMI7D6oMDPUjpCk
+      short-id: f15240e5244c7ba8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: mehrosaboran
     server: 192.166.82.74
     port: 8443
@@ -70,33 +84,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-a2e65f8931
-    server: 192.166.82.74
-    port: 8443
-    uuid: 414b2c7f-26e8-4c08-a357-a4f00043804e
+    name: 4Mohsen-fdc68a4fdf
+    server: 151.242.2.81
+    port: 443
+    uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
     udp: true
     tls: true
-    client-fingerprint: ios
-    servername: www.google.com
-    reality-opts:
-      public-key: vmfswX2VwSAGOSd9gleiWLfZK8BVyMI7D6oMDPUjpCk
-      short-id: f15240e5244c7ba8
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: cf9.rumedia-cdn.com
     xudp: true
-  - type: vless
-    name: 4Mohsen-eb41d4a5c3
-    server: 192.166.82.74
-    port: 8443
-    uuid: 414b2c7f-26e8-4c08-a357-a4f00043804e
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: www.google.com
-    reality-opts:
-      public-key: vmfswX2VwSAGOSd9gleiWLfZK8BVyMI7D6oMDPUjpCk
-      short-id: f15240e5244c7ba8
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf9.rumedia-cdn.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -104,11 +106,11 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - V2ray_Alpha🌇
+      - bored_vpn
       - mehrosaboran
       - meliproxyy
       - vmesskhodam
-      - 4Jadi-a2e65f8931
-      - 4Mohsen-eb41d4a5c3
+      - 4Mohsen-fdc68a4fdf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -117,10 +119,10 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - V2ray_Alpha🌇
+      - bored_vpn
       - mehrosaboran
       - meliproxyy
       - vmesskhodam
-      - 4Jadi-a2e65f8931
-      - 4Mohsen-eb41d4a5c3
+      - 4Mohsen-fdc68a4fdf
 rules:
   - MATCH,Proxy

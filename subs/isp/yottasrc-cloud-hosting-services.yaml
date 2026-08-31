@@ -1,41 +1,17 @@
 proxies:
-  - type: hysteria2
+  - type: vless
     name: EPODONIOS
-    server: gora4.api3-max.ru
+    server: tutaim.k44lawm.ir
     port: 443
-    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    sni: gora4.api3-max.ru
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Jadi-c71aadbb37
-    server: gora4.api3-max.ru
-    port: 443
-    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    sni: gora4.api3-max.ru
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 土耳其
-    server: gora4.api3-max.ru
-    port: 443
-    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    sni: gora4.api3-max.ru
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Nika-39b68375a8
-    server: gora4.api3-max.ru
-    port: 443
-    password: ac7fb60f-0b7a-465d-a002-05160ec04ed6
-    sni: gora4.api3-max.ru
-    skip-cert-verify: true
+    uuid: f281ecb9-1bfd-426d-afdf-14985d45d71a
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Jadi-c71aadbb37
-      - 土耳其
-      - 4Nika-39b68375a8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,8 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Jadi-c71aadbb37
-      - 土耳其
-      - 4Nika-39b68375a8
 rules:
   - MATCH,Proxy

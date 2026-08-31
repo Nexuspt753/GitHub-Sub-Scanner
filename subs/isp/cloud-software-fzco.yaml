@@ -1,26 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-e6a8688b34
-    server: 95.182.80.242
-    port: 443
-    uuid: 803cd116-56f6-4680-9ef7-82e2ded5810b
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: lavi.shapii.ir
+    port: 52970
+    uuid: e427b802-91d8-4171-bb96-605d791533a7
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: GUFegdYriD2BtuhNH9d_rVaR_bFxExagRB_rB09zMAY
+      short-id: ea09ec0ab22a1d24
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e6a8688b34
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e6a8688b34
+      - EPODONIOS
 rules:
   - MATCH,Proxy

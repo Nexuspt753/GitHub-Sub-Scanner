@@ -15,6 +15,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
   - type: trojan
+    name: 4Kian-6f03607c7b
+    server: 168.100.9.178
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: DeltaKroneckerGithub-01
     server: 45.61.136.197
     port: 443
@@ -23,13 +38,31 @@ proxies:
     tls: true
     sni: z-v2-077015.kailib.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-117bd31700
+    server: 149.248.79.235
+    port: 17301
+    uuid: 3571b127-4b3b-4c01-8249-1684daf586b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: nadshlxG0RqC6om__cf9E4F6qolRmHJLcNtReBTr9xY
+      short-id: 5d
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-6f03607c7b
       - DeltaKroneckerGithub-01
+      - 4Mohsen-117bd31700
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-6f03607c7b
       - DeltaKroneckerGithub-01
+      - 4Mohsen-117bd31700
 rules:
   - MATCH,Proxy

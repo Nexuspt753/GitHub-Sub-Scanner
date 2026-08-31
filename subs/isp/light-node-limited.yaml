@@ -1,6 +1,18 @@
 proxies:
-  - type: vmess
+  - type: vless
     name: EPODONIOS
+    server: 130.94.29.111
+    port: 2087
+    uuid: 84da6391-1539-4583-a3d9-d6efd796b4d6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /e17586a75123
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: EPODONIOS-01
     server: 130.94.93.63
     port: 14812
     uuid: 777d0ead-970a-4144-b8aa-e3aaf3a621f6
@@ -15,7 +27,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: Net2ray 1
+    name: EPODONIOS-02
     server: 130.94.93.63
     port: 14812
     uuid: 777d0ead-970a-4144-b8aa-e3aaf3a621f6
@@ -50,7 +62,8 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
-      - Net2ray 1
+      - EPODONIOS-01
+      - EPODONIOS-02
       - 4Nika-77126005a3
   - name: Auto
     type: url-test
@@ -59,7 +72,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - Net2ray 1
+      - EPODONIOS-01
+      - EPODONIOS-02
       - 4Nika-77126005a3
 rules:
   - MATCH,Proxy
