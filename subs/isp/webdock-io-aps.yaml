@@ -1,86 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 193.180.213.30
-    port: 2087
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
+    name: "[029425]"
+    server: dk2.darknet-bot.co.uk
+    port: 443
+    uuid: 3f373e36-6363-4f3e-8ca3-0504612f490e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
+    alpn:
+      - h2
     xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-  - type: vless
-    name: EPODONIOS
-    server: 193.180.213.30
-    port: 2087
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-  - type: vless
-    name: 🇩🇰
-    server: 193.180.213.30
-    port: 2087
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-  - type: vless
-    name: 4Kian-c6356b6c27
-    server: 193.180.213.30
-    port: 2087
-    uuid: 9ce4c9e2-1dcc-abe8-9abf-9bf8bc1269f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pg/10086-dfc816f117c49173
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8.o.8.e.t.g.7.w.8.n.e.1.l.e.us.art-us.kdns.fr
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇩🇰
-      - 4Kian-c6356b6c27
+      - "[029425]"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇩🇰
-      - 4Kian-c6356b6c27
+      - "[029425]"
 rules:
   - MATCH,Proxy

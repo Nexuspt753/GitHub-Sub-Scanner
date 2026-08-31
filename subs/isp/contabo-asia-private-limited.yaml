@@ -7,13 +7,6 @@ proxies:
     password: 3eOFeNssde7PYYMv
     udp: true
   - type: ss
-    name: EPODONIOS-01
-    server: 84.247.155.196
-    port: 80
-    cipher: aes-256-gcm
-    password: 3eOFeNssde7PYYMv
-    udp: true
-  - type: ss
     name: v2rayng3
     server: 84.247.155.196
     port: 80
@@ -61,7 +54,7 @@ proxies:
       short-id: 632a146bd581641a
     xudp: true
   - type: ss
-    name: EPODONIOS-02
+    name: EPODONIOS-01
     server: 84.247.155.196
     port: 80
     cipher: YWVzLTI1Ni1nY206M2VPRmVOc3NkZTdQWVlNdg%3D%3D
@@ -81,21 +74,36 @@ proxies:
     cipher: aes-256-gcm
     password: 3eOFeNssde7PYYMv
     udp: true
+  - type: vmess
+    name: 4Mohsen-04e5a85721
+    server: 109.123.237.41
+    port: 80
+    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - v2rayng3
       - Telegram:@v2rayng3
       - 4Jadi-6d37a255c3
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS-02
+      - EPODONIOS-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Mohsen-04e5a85721
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -103,14 +111,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - v2rayng3
       - Telegram:@v2rayng3
       - 4Jadi-6d37a255c3
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS-02
+      - EPODONIOS-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Mohsen-04e5a85721
 rules:
   - MATCH,Proxy

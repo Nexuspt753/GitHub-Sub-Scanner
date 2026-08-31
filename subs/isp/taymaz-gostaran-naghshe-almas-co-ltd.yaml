@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: ewes.aminicity.ir
-    port: 24443
-    uuid: 0ca90640-136d-46c1-9b7a-947add043ec0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
-      short-id: b7e45d3a65bfc319
-    xudp: true
-  - type: vless
     name: 4Nika-4e78a55bf4
     server: germani.maniran-v3.ir
     port: 443
@@ -29,35 +16,18 @@ proxies:
       short-id: 04ac4765d572b7b7
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-92a035acac
-    server: ewes.aminicity.ir
-    port: 24443
-    uuid: 0ca90640-136d-46c1-9b7a-947add043ec0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
-      short-id: b7e45d3a65bfc319
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 4Nika-4e78a55bf4
-      - 4FreeIran-92a035acac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 4Nika-4e78a55bf4
-      - 4FreeIran-92a035acac
 rules:
   - MATCH,Proxy
