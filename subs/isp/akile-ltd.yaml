@@ -55,6 +55,23 @@ proxies:
       short-id: 4bbe62498d4cc3c9
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: DeltaKroneckerGithub-04
+    server: 45.192.206.6
+    port: 8080
+    uuid: 9ebecf5e-b160-43bd-806e-54cd994fc4c3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: images-na.ssl-images-amazon.com
+    network: ws
+    ws-opts:
+      path: /image
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: images-na.ssl-images-amazon.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -64,6 +81,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,5 +92,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy
