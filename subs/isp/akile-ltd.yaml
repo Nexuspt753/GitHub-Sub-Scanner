@@ -43,23 +43,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
-  - type: vmess
-    name: 4Jadi-0dfee17b38
-    server: 45.192.206.6
-    port: 8080
-    uuid: 9ebecf5e-b160-43bd-806e-54cd994fc4c3
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: proxyip.hk.cmliussss.net
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
     xudp: true
-    skip-cert-verify: false
-    servername: images-na.ssl-images-amazon.com
     network: ws
     ws-opts:
-      path: /image
+      path: /fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: images-na.ssl-images-amazon.com
+        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -68,7 +67,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Jadi-0dfee17b38
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -78,6 +77,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Jadi-0dfee17b38
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

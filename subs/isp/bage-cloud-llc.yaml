@@ -15,12 +15,27 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
+  - type: vless
+    name: 4Sarina-868ffdc082
+    server: 162.141.131.102
+    port: 50159
+    uuid: 063e01c2-4c0f-418e-9375-3cc1312f635b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: fLtEa_5BiN89xQDypfFMOu5o6DoUf6ch42jGdkXy6zE
+      short-id: 7f24526f7307c07a
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-868ffdc082
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-868ffdc082
 rules:
   - MATCH,Proxy
