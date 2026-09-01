@@ -16,21 +16,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Kian-2ca5d20873
-    server: 45.159.51.180
-    port: 39618
-    uuid: 09d4921e-13e9-426f-8cd3-73556e8a0199
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
@@ -38,7 +23,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Kian-2ca5d20873
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -47,6 +31,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Kian-2ca5d20873
 rules:
   - MATCH,Proxy

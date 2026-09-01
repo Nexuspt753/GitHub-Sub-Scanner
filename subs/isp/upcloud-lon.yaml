@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Sarina-8157d68857
+    server: eg.linuxbase.ir
+    port: 443
+    uuid: ffaa4b21-9842-4206-8f4c-20588033c481
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: amp-api-edge.apps.apple.com
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-8157d68857
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-8157d68857
+rules:
+  - MATCH,Proxy

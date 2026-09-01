@@ -1,6 +1,27 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 176.32.35.51
+    port: 10081
+    cipher: aes-256-gcm
+    password: 895b4b796a357570
+    udp: true
+  - type: ss
+    name: 🇷🇺
+    server: 176.32.35.51
+    port: 10081
+    cipher: aes-256-gcm
+    password: 895b4b796a357570
+    udp: true
+  - type: ss
     name: DeltaKroneckerGithub
+    server: 176.32.35.51
+    port: 10081
+    cipher: aes-256-gcm
+    password: 895b4b796a357570
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 176.32.35.51
     port: 10081
     cipher: aes-256-gcm
@@ -11,13 +32,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇷🇺
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇷🇺
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

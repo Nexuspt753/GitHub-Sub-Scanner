@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 130.78.12.6
+    port: 443
+    uuid: 5253095b-2287-4fef-a0e7-f467c810b440
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: enterprise.api-maps.yandex.ru
+    reality-opts:
+      public-key: qLfOLGFFtYp6G5qekM0_Vay79ba-DZQ8DC2EYiJ3Vmg
+      short-id: "86"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: "[33916]"
+    server: 130.78.12.6
+    port: 443
+    uuid: 5253095b-2287-4fef-a0e7-f467c810b440
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: enterprise.api-maps.yandex.ru
+    reality-opts:
+      public-key: qLfOLGFFtYp6G5qekM0_Vay79ba-DZQ8DC2EYiJ3Vmg
+      short-id: "86"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪157740
+    server: 130.78.12.6
+    port: 443
+    uuid: 5253095b-2287-4fef-a0e7-f467c810b440
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: enterprise.api-maps.yandex.ru
+    reality-opts:
+      public-key: qLfOLGFFtYp6G5qekM0_Vay79ba-DZQ8DC2EYiJ3Vmg
+      short-id: "86"
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - "[33916]"
+      - 🇩🇪157740
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - "[33916]"
+      - 🇩🇪157740
+rules:
+  - MATCH,Proxy
