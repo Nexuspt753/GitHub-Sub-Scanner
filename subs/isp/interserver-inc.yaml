@@ -1,32 +1,23 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-f8f3bde294
-    server: 162.35.171.144
-    port: 9443
-    uuid: 73c400f1-e308-4187-a205-33477e6c331c
+  - type: ss
+    name: 4Kian-abe0c848bd
+    server: 161.129.71.148
+    port: 17913
+    cipher: aes-128-gcm
+    password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: github.io
-    reality-opts:
-      public-key: KWaem_I_hIt5r5AqlBTdZDtRYXS-Hm6M8OKrYBd7tzk
-      short-id: 3f439edb403e
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-f8f3bde294
+      - 4Kian-abe0c848bd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-f8f3bde294
+      - 4Kian-abe0c848bd
 rules:
   - MATCH,Proxy

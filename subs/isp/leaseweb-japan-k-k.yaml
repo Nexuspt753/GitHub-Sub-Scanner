@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 142.91.105.104
+    port: 443
+    uuid: bb05f9d7-a3d1-4b81-a790-f6dba0301907
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp.servers.gracevpnbuy.com
+    reality-opts:
+      public-key: i00_tpIO0Oe2TV2lxm2BLm6QUzzkncyJtauMa7Rn500
+      short-id: b91a73752053b039
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: ✅
     server: 142.91.105.104
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - ✅
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - ✅
 rules:
   - MATCH,Proxy

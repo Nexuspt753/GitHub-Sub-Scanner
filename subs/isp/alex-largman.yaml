@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: 4Nika-a14eb42f44
-    server: 170.168.97.5
+    name: 4Jadi-7f984d19ad
+    server: 170.168.97.3
     port: 8443
-    uuid: c6f220ed-41f2-21ba-438c-80f05ebbf92a
+    uuid: 5e243126-4a2a-84b6-782a-73b14797fb5f
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -14,18 +14,33 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Nika-0c7c4ef9dc
+    server: 170.168.97.3
+    port: 993
+    uuid: e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: D2SXHZRRYM0WcFChGWd57XB-U73aIsGfMpe2-Gq5XSs
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-a14eb42f44
+      - 4Jadi-7f984d19ad
+      - 4Nika-0c7c4ef9dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-a14eb42f44
+      - 4Jadi-7f984d19ad
+      - 4Nika-0c7c4ef9dc
 rules:
   - MATCH,Proxy

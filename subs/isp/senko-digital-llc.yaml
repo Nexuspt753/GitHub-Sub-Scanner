@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-1400de48cd
+    server: 2.27.28.106
+    port: 443
+    password: hysteria2_fastlane_qn9oi6zlt
+    sni: de8.h.fastlanehosting.ru
+    skip-cert-verify: false
   - type: vless
     name: DeltaKroneckerGithub
     server: 150.241.64.1
@@ -13,6 +20,22 @@ proxies:
       short-id: 0f00666a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 144.31.135.38
+    port: 9444
+    uuid: 01c96414-9fcd-4f79-9274-2c8d8045e48d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@VPNine1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 144.31.138.127
@@ -22,20 +45,42 @@ proxies:
     tls: true
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
+  - type: vless
+    name: 4Jadi-147599c162
+    server: 144.31.135.38
+    port: 9444
+    uuid: 01c96414-9fcd-4f79-9274-2c8d8045e48d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@VPNine1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-1400de48cd
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - 4Jadi-147599c162
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-1400de48cd
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - 4Jadi-147599c162
 rules:
   - MATCH,Proxy

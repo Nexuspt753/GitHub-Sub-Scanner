@@ -1,0 +1,41 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-eb043a049b
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+  - type: hysteria2
+    name: ">>@oneclickvpnkeys::HK"
+    server: 202.146.222.29
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    sni: 202.146.222.29
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-eb043a049b
+      - EPODONIOS
+      - ">>@oneclickvpnkeys::HK"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-eb043a049b
+      - EPODONIOS
+      - ">>@oneclickvpnkeys::HK"
+rules:
+  - MATCH,Proxy

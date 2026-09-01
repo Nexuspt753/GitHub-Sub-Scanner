@@ -1,7 +1,7 @@
 proxies:
   - type: vless
-    name: 4Mohsen-8b89be3da5
-    server: 154.84.154.37
+    name: EPODONIOS
+    server: proxyip.hk.cmliussss.net
     port: 443
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
@@ -11,7 +11,39 @@ proxies:
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: proxyip.hk.cmliussss.net
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: 4Jadi-8544eebf16
+    server: proxyip.hk.cmliussss.net
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
@@ -20,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-8b89be3da5
+      - EPODONIOS
+      - DeltaKroneckerGithub
+      - 4Jadi-8544eebf16
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-8b89be3da5
+      - EPODONIOS
+      - DeltaKroneckerGithub
+      - 4Jadi-8544eebf16
 rules:
   - MATCH,Proxy

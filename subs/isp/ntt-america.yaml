@@ -1,6 +1,20 @@
 proxies:
   - type: ss
+    name: 4FreeIran-930e9c942a
+    server: 207.57.129.169
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: Qeo9YJ6qkTUEV6mT2dgPurd6
+    udp: true
+  - type: ss
     name: DeltaKroneckerGithub
+    server: 207.57.129.169
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: Qeo9YJ6qkTUEV6mT2dgPurd6
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 207.57.129.169
     port: 8388
     cipher: chacha20-ietf-poly1305
@@ -11,13 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-930e9c942a
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-930e9c942a
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,29 +1,62 @@
 proxies:
   - type: vless
-    name: 4Nika-7e1083195f
-    server: t1.syslogd.ir
-    port: 9093
-    uuid: 2ebd4c15-8aeb-4789-be11-4d119fb634d3
+    name: EPODONIOS
+    server: tunel.blueheartz.ir
+    port: 27195
+    uuid: c45460b9-3224-446e-b823-587fe215bf5d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: h2IZ2DHQ-ibHC8NzuO7TVo3wS7G8DBV1hoCCR5cbRko
+      short-id: a9dc264d7346
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/com.trezor.io?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
+  - type: vless
+    name: ✅
+    server: tunel.blueheartz.ir
+    port: 27195
+    uuid: c45460b9-3224-446e-b823-587fe215bf5d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: h2IZ2DHQ-ibHC8NzuO7TVo3wS7G8DBV1hoCCR5cbRko
+      short-id: a9dc264d7346
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-2d5a88f50f
+    server: tunel.blueheartz.ir
+    port: 27195
+    uuid: c45460b9-3224-446e-b823-587fe215bf5d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: h2IZ2DHQ-ibHC8NzuO7TVo3wS7G8DBV1hoCCR5cbRko
+      short-id: a9dc264d7346
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-7e1083195f
+      - EPODONIOS
+      - ✅
+      - 4Jadi-2d5a88f50f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-7e1083195f
+      - EPODONIOS
+      - ✅
+      - 4Jadi-2d5a88f50f
 rules:
   - MATCH,Proxy

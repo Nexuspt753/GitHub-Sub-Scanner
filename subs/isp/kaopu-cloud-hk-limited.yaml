@@ -1,24 +1,26 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 38.54.13.189
-    port: 443
-    password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
+  - type: vmess
+    name: 4Kian-f79e56c8ea
+    server: 119.46.51.45
+    port: 37515
+    uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-f79e56c8ea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-f79e56c8ea
 rules:
   - MATCH,Proxy
