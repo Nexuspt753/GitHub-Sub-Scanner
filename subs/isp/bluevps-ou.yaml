@@ -1,11 +1,18 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 194.61.121.93
-    port: 7538
-    cipher: chacha20-ietf-poly1305
-    password: U9YAoqBgg5VyGBc6vQv1sN
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.143.167.154
+    port: 8443
+    uuid: f374a660-2dc5-11f1-9ec5-baabcd4be2cd
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: FVL0r87K3-vUP2KXQX1juLMFEHJtvxwKM-nm6_PYllc
+      short-id: deadbeef42
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: configprxy
     server: 194.61.121.93
@@ -70,7 +77,7 @@ proxies:
     udp: true
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 91.227.77.87
     port: 443
     password: bpb-trojan
@@ -80,8 +87,15 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-d63799d1d2
+    server: bolguarmarz.horlutr.ir
+    port: 2087
+    uuid: 289c4c75-9ea6-4c23-bda2-17d32c533db4
+    udp: true
+    xudp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 194.61.121.93
     port: 7538
     cipher: chacha20-ietf-poly1305
@@ -99,7 +113,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - configprxy
       - ghand_sheken
       - hex_proxy
@@ -109,8 +123,9 @@ proxy-groups:
       - 🇵🇱158189
       - 4Nika-d32c3cc750
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Nika-d63799d1d2
+      - DeltaKroneckerGithub-02
       - ">>@ShadowsocksM::XX"
   - name: Auto
     type: url-test
@@ -118,7 +133,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - configprxy
       - ghand_sheken
       - hex_proxy
@@ -128,8 +143,9 @@ proxy-groups:
       - 🇵🇱158189
       - 4Nika-d32c3cc750
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Nika-d63799d1d2
+      - DeltaKroneckerGithub-02
       - ">>@ShadowsocksM::XX"
 rules:
   - MATCH,Proxy

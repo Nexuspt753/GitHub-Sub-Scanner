@@ -7,7 +7,7 @@ proxies:
     sni: de8.h.fastlanehosting.ru
     skip-cert-verify: false
   - type: vless
-    name: MTMVPN
+    name: EPODONIOS
     server: 150.241.64.1
     port: 443
     uuid: 52b140a1-1e12-4410-9532-ebaee7cec3a1
@@ -21,7 +21,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: کانال
+    name: EPODONIOS-01
     server: 150.241.64.1
     port: 443
     uuid: 52b140a1-1e12-4410-9532-ebaee7cec3a1
@@ -33,6 +33,19 @@ proxies:
       public-key: ikKnBJfcuPy1U0O3Cb71zv_G1liM5QcAYhR10A0Ech0
       short-id: 0f00666a
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: Dash.trexnet.shop
+    port: 443
+    uuid: 838f0ff9-7ee8-4e9a-87d3-2c7916714b7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: 2e2nvZhmOUkyYuLPewZPzB2fzxnQW64kz8rrdHGFnXc
+      short-id: 52ef3f1d4248ff9a
     xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
@@ -43,30 +56,16 @@ proxies:
     tls: true
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-f96b439ab5
-    server: 150.241.64.1
-    port: 443
-    uuid: 52b140a1-1e12-4410-9532-ebaee7cec3a1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.deutsche-bank.de
-    reality-opts:
-      public-key: ikKnBJfcuPy1U0O3Cb71zv_G1liM5QcAYhR10A0Ech0
-      short-id: 0f00666a
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-c8d4cda8c0
-      - MTMVPN
-      - کانال
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - DeltaKroneckerGithub
-      - 4Kian-f96b439ab5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,9 +73,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-c8d4cda8c0
-      - MTMVPN
-      - کانال
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - DeltaKroneckerGithub
-      - 4Kian-f96b439ab5
 rules:
   - MATCH,Proxy

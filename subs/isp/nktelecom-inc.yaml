@@ -1,32 +1,32 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.112.192.72
-    port: 603
-    uuid: becd3b04-62a8-4b74-be67-be746008b4c2
+  - type: ss
+    name: EPODONIOS
+    server: 213.108.198.158
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.amd.com
-    reality-opts:
-      public-key: ZImM_302-Dd9aumzyY5I_P_K7C7WfihoSdFb28ZnDhw
-      short-id: 91b7c3a4e6d2f058
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: ss
+    name: EPODONIOS-01
+    server: 213.108.198.158
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

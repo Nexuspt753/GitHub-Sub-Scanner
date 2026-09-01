@@ -1,4 +1,37 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 178.214.100.10
+    port: 9443
+    uuid: e6b5e08a-83fa-48d2-8a94-c6cc01fc35fd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: beast.locallynet.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: beast.locallynet.org
+    port: 9443
+    uuid: e6b5e08a-83fa-48d2-8a94-c6cc01fc35fd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: beast.locallynet.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: beast.locallynet.org
+    port: 9443
+    uuid: e6b5e08a-83fa-48d2-8a94-c6cc01fc35fd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: beast.locallynet.org
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 37.49.230.24
@@ -36,49 +69,28 @@ proxies:
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: vless-01
-    server: 185.209.15.198
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: 4Sarina-0ab2e1248f
-    server: 185.209.15.198
-    port: 443
-    uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl8.helper-internet.com
-    reality-opts:
-      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - DeltaKroneckerGithub
       - vless
       - vmesskhodam
-      - vless-01
-      - 4Sarina-0ab2e1248f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - DeltaKroneckerGithub
       - vless
       - vmesskhodam
-      - vless-01
-      - 4Sarina-0ab2e1248f
 rules:
   - MATCH,Proxy

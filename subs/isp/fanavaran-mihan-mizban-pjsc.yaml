@@ -1,32 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: t3.syslogd.ir
-    port: 9093
-    uuid: 2ebd4c15-8aeb-4789-be11-4d119fb634d3
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/com.trezor.io?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
-  - type: vless
     name: کانال
-    server: t3.syslogd.ir
-    port: 9093
-    uuid: 2ebd4c15-8aeb-4789-be11-4d119fb634d3
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/com.trezor.io?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
-  - type: vless
-    name: 🇮🇷158242
     server: t3.syslogd.ir
     port: 9093
     uuid: 2ebd4c15-8aeb-4789-be11-4d119fb634d3
@@ -52,7 +26,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: tunel.blueheartz.ir
     port: 27195
     uuid: c45460b9-3224-446e-b823-587fe215bf5d
@@ -65,26 +39,53 @@ proxies:
       short-id: a9dc264d7346
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: ✅
+    server: tunel.blueheartz.ir
+    port: 27195
+    uuid: c45460b9-3224-446e-b823-587fe215bf5d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: h2IZ2DHQ-ibHC8NzuO7TVo3wS7G8DBV1hoCCR5cbRko
+      short-id: a9dc264d7346
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-50debe0cc7
+    server: t3.syslogd.ir
+    port: 9093
+    uuid: 2ebd4c15-8aeb-4789-be11-4d119fb634d3
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/com.trezor.io?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - کانال
-      - 🇮🇷158242
       - 🇮🇷IR-🚀@VPNine1
-      - EPODONIOS-01
+      - EPODONIOS
+      - ✅
+      - 4FreeIran-50debe0cc7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - کانال
-      - 🇮🇷158242
       - 🇮🇷IR-🚀@VPNine1
-      - EPODONIOS-01
+      - EPODONIOS
+      - ✅
+      - 4FreeIran-50debe0cc7
 rules:
   - MATCH,Proxy

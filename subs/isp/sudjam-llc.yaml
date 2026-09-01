@@ -1,5 +1,41 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 176.111.218.212
+    port: 2087
+    uuid: 7c04b737-d6a7-47ec-99bf-94e668090fcf
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ffc10963e4f8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
+    server: 176.111.218.212
+    port: 2087
+    uuid: 7c04b737-d6a7-47ec-99bf-94e668090fcf
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ffc10963e4f8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-02
+    server: 176.111.218.212
+    port: 2087
+    uuid: 7c04b737-d6a7-47ec-99bf-94e668090fcf
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ffc10963e4f8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Mohsen-9940e84565
     server: 176.111.218.212
     port: 2087
@@ -16,6 +52,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - 4Mohsen-9940e84565
   - name: Auto
     type: url-test
@@ -23,6 +62,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - 4Mohsen-9940e84565
 rules:
   - MATCH,Proxy
