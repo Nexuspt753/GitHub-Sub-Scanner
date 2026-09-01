@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: Kyiv · EPODONIOS
-    server: 91.218.49.99
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: XF0klw7870vXn3uQIxe19Q
-    udp: true
   - type: vless
     name: Zaporizhzhya · @DeltaKroneckerGithub
     server: 45.135.235.30
@@ -19,6 +12,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime07.workers.dev
+  - type: vless
+    name: Kyiv · EPODONIOS
+    server: 213.111.149.58
+    port: 8443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
+  - type: vless
+    name: Kyiv · EPODONIOS-01
+    server: 91.218.212.223
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
   - type: vless
     name: Ukrayinka · @DeltaKroneckerGithub
     server: 91.224.87.22
@@ -68,21 +93,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: eded-52n.pages.dev
   - type: vless
-    name: Kyiv · @DeltaKroneckerGithub
-    server: 5.34.182.23
+    name: Kyiv · 🇺🇦-01
+    server: 91.218.212.223
     port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
+    servername: eded-52n.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
   - type: vless
-    name: Ukrayinka · Channel
+    name: Ukrayinka · EPODONIOS
     server: 91.224.86.107
     port: 9830
     uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
@@ -98,23 +125,21 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Ukrayinka · Channel-01
-    server: 91.224.87.22
-    port: 9873
-    uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
+    name: Kyiv · @DeltaKroneckerGithub
+    server: 5.34.182.23
+    port: 443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: dl.google.com
+    servername: eu-central.cendora.ru
     reality-opts:
-      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-      short-id: aabbccdd
+      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
+      short-id: 00bca5982f82d083
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
-    name: Ukrayinka · EPODONIOS
+    name: Ukrayinka · EPODONIOS-01
     server: 91.224.86.107
     port: 9830
     uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
@@ -201,22 +226,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Ukrayinka · 4Sarina-8873ef64ca
-    server: 91.224.86.107
-    port: 9830
-    uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    reality-opts:
-      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-      short-id: aabbccdd
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: Ukrayinka · 4Kian-e2666b94d4
     server: 91.224.86.107
     port: 9830
@@ -285,21 +294,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Kyiv · EPODONIOS
       - Zaporizhzhya · @DeltaKroneckerGithub
+      - Kyiv · EPODONIOS
+      - Kyiv · EPODONIOS-01
       - Ukrayinka · @DeltaKroneckerGithub
       - Ukrayinka · @DeltaKroneckerGithub-01
       - Kyiv · 🇺🇦
-      - Kyiv · @DeltaKroneckerGithub
-      - Ukrayinka · Channel
-      - Ukrayinka · Channel-01
+      - Kyiv · 🇺🇦-01
       - Ukrayinka · EPODONIOS
+      - Kyiv · @DeltaKroneckerGithub
+      - Ukrayinka · EPODONIOS-01
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · 4Sarina-867e8ade13
       - Kyiv · 4Nika-657cfd45ae
       - Kyiv · 4Jadi-66f6245d7b
       - Ukrayinka · >>@configV2rayNG::DE
-      - Ukrayinka · 4Sarina-8873ef64ca
       - Ukrayinka · 4Kian-e2666b94d4
       - Ukrayinka · 4Mohsen-7e88ee6f30
       - Ukrayinka · 4FreeIran-8f4e790c00
@@ -310,21 +319,21 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Kyiv · EPODONIOS
       - Zaporizhzhya · @DeltaKroneckerGithub
+      - Kyiv · EPODONIOS
+      - Kyiv · EPODONIOS-01
       - Ukrayinka · @DeltaKroneckerGithub
       - Ukrayinka · @DeltaKroneckerGithub-01
       - Kyiv · 🇺🇦
-      - Kyiv · @DeltaKroneckerGithub
-      - Ukrayinka · Channel
-      - Ukrayinka · Channel-01
+      - Kyiv · 🇺🇦-01
       - Ukrayinka · EPODONIOS
+      - Kyiv · @DeltaKroneckerGithub
+      - Ukrayinka · EPODONIOS-01
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · 4Sarina-867e8ade13
       - Kyiv · 4Nika-657cfd45ae
       - Kyiv · 4Jadi-66f6245d7b
       - Ukrayinka · >>@configV2rayNG::DE
-      - Ukrayinka · 4Sarina-8873ef64ca
       - Ukrayinka · 4Kian-e2666b94d4
       - Ukrayinka · 4Mohsen-7e88ee6f30
       - Ukrayinka · 4FreeIran-8f4e790c00

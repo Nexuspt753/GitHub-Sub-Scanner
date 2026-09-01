@@ -15,12 +15,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
+  - type: trojan
+    name: 4Mohsen-32e553f3cf
+    server: 185.212.56.168
+    port: 443
+    password: share.mjj-home.com
+    udp: true
+    tls: true
+    sni: tw.softbank.mjj-home.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-32e553f3cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-32e553f3cf
 rules:
   - MATCH,Proxy

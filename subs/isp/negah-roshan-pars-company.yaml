@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: ar.shotorfree.shop
+    port: 17476
+    uuid: 37f80d6d-53d8-4c12-8ea3-7a6889a921b2
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
