@@ -1,14 +1,37 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 211.49.57.134
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
   - type: ss
-    name: 🇰🇷KR-218.237.185.230-0151
-    server: p141.panda001.net
-    port: 4652
+    name: EPODONIOS
+    server: 211.178.105.134
+    port: 6123
     cipher: aes-256-cfb
     password: qwerREWQ@@
     udp: true
   - type: ss
-    name: 🇰🇷KR-218.237.185.230-0153
-    server: 218.237.185.230
+    name: 🇰🇷KR-221.139.79.57-0165
+    server: 221.139.79.57
+    port: 13979
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+    udp: true
+  - type: ss
+    name: 🇰🇷KR-218.237.185.230-0151
+    server: p141.panda001.net
     port: 4652
     cipher: aes-256-cfb
     password: qwerREWQ@@
@@ -18,15 +41,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇰🇷KR-221.139.79.57-0165
       - 🇰🇷KR-218.237.185.230-0151
-      - 🇰🇷KR-218.237.185.230-0153
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇰🇷KR-221.139.79.57-0165
       - 🇰🇷KR-218.237.185.230-0151
-      - 🇰🇷KR-218.237.185.230-0153
 rules:
   - MATCH,Proxy

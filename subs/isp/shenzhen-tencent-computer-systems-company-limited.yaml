@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 43.133.191.142
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 43.154.131.189
     port: 443
     uuid: 7b102311-43fd-4e8f-877e-8090623c101d
@@ -32,7 +16,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 43.155.208.254
     port: 443
     uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
@@ -57,7 +41,16 @@ proxies:
     sni: jp200m.jiasu.asia
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
+    server: jp200m.jiasu.asia
+    port: 50000
+    password: 8539b07d-4a48-46ca-8ce7-f961f4e35b0c
+    udp: true
+    tls: true
+    sni: jp200m.jiasu.asia
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-9645975559
     server: jp200m.jiasu.asia
     port: 50000
     password: 8539b07d-4a48-46ca-8ce7-f961f4e35b0c
@@ -84,7 +77,7 @@ proxies:
     sni: jp200m.jiasu.asia
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-03
     server: jp200m.jiasu.asia
     port: 50000
     password: d9ac7c6d-9ca8-4e1b-af9f-d268f69249b5
@@ -93,7 +86,7 @@ proxies:
     sni: jp200m.jiasu.asia
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-05
+    name: DeltaKroneckerGithub-04
     server: 43.134.48.62
     port: 443
     password: 973c7f53-7411-4173-b805-d65c912e4d55
@@ -102,10 +95,19 @@ proxies:
     sni: 86sg.ljydw.top
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-06
+    name: DeltaKroneckerGithub-05
     server: 43.165.185.191
     port: 50000
     password: d9ac7c6d-9ca8-4e1b-af9f-d268f69249b5
+    udp: true
+    tls: true
+    sni: jp200m.jiasu.asia
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-06
+    server: 43.165.185.191
+    port: 50000
+    password: 8539b07d-4a48-46ca-8ce7-f961f4e35b0c
     udp: true
     tls: true
     sni: jp200m.jiasu.asia
@@ -202,6 +204,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Sarina-24437a7a37
+    server: v8.hdacd.com
+    port: 30808
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -209,11 +221,12 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Kian-3710392c99
-      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-02
+      - 4Mohsen-9645975559
       - 4Mohsen-6b93a69b73
       - 4Sarina-ccaff86e1f
+      - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
@@ -223,6 +236,7 @@ proxy-groups:
       - 4Jadi-e0671995de
       - 4FreeIran-149436844e
       - 4FreeIran-4ce6751e6f
+      - 4Sarina-24437a7a37
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -231,11 +245,12 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Kian-3710392c99
-      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-02
+      - 4Mohsen-9645975559
       - 4Mohsen-6b93a69b73
       - 4Sarina-ccaff86e1f
+      - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
@@ -245,5 +260,6 @@ proxy-groups:
       - 4Jadi-e0671995de
       - 4FreeIran-149436844e
       - 4FreeIran-4ce6751e6f
+      - 4Sarina-24437a7a37
 rules:
   - MATCH,Proxy

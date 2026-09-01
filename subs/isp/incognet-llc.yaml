@@ -29,6 +29,18 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Nika-263397ebff
+    server: 23.137.249.110
+    port: 30011
+    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
 proxy-groups:
   - name: Proxy
     type: select
@@ -36,6 +48,7 @@ proxy-groups:
       - Auto
       - 4Nika-e7651a1b70
       - 4Nika-ddc100197b
+      - 4Nika-263397ebff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,5 +57,6 @@ proxy-groups:
     proxies:
       - 4Nika-e7651a1b70
       - 4Nika-ddc100197b
+      - 4Nika-263397ebff
 rules:
   - MATCH,Proxy
