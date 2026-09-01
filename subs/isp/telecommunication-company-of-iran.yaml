@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: albani-emergency-service.relqino.ir
-    port: 8443
-    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: albani-emergency-service.relqino.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: albani-emergency-service.relqino.ir
-  - type: vless
-    name: EPODONIOS-01
     server: armenia-emergency-service.relqino.ir
     port: 443
     uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
@@ -32,7 +16,39 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: armenia-emergency-service.relqino.ir
   - type: vless
+    name: EPODONIOS-01
+    server: nl-emergency-service.relqino.ir
+    port: 443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl-emergency-service.relqino.ir
+  - type: vless
     name: EPODONIOS-02
+    server: tr-emergency-service.pavilof.ir
+    port: 443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tr-emergency-service.pavilof.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr-emergency-service.pavilof.ir
+  - type: vless
+    name: EPODONIOS-03
     server: ukraine-emergency-service.relqino.ir
     port: 443
     uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
@@ -48,7 +64,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ukraine-emergency-service.relqino.ir
   - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-04
     server: usa-emergency-service.relqino.ir
     port: 8443
     uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
@@ -63,6 +79,54 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: usa-emergency-service.relqino.ir
+  - type: vless
+    name: Web
+    server: albani-emergency-service.relqino.ir
+    port: 8443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: albani-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: albani-emergency-service.relqino.ir
+  - type: vless
+    name: Fast
+    server: de-emergency-service.pavilof.ir
+    port: 443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de-emergency-service.pavilof.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: de-emergency-service.pavilof.ir
+  - type: vless
+    name: Fast-01
+    server: nl-emergency-service.relqino.ir
+    port: 443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl-emergency-service.relqino.ir
 proxy-groups:
   - name: Proxy
     type: select
@@ -72,6 +136,10 @@ proxy-groups:
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
+      - EPODONIOS-04
+      - Web
+      - Fast
+      - Fast-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -82,5 +150,9 @@ proxy-groups:
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
+      - EPODONIOS-04
+      - Web
+      - Fast
+      - Fast-01
 rules:
   - MATCH,Proxy

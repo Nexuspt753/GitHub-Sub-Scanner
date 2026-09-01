@@ -1,33 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Nika-4e78a55bf4
-    server: germani.maniran-v3.ir
-    port: 443
-    uuid: 002deb3f-7b0b-4c78-ac4b-3701f0c96d9f
+  - type: vmess
+    name: 4Jadi-b082450f5d
+    server: de1.trb2v.blog
+    port: 8880
+    uuid: 2559f36a-9e7a-41d4-84f2-0f60e0e7ae27
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: edge
-    alpn:
-      - h2
-      - http/1.1
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: EW4wbYV1o5FPKkOVHx4Z572oP__5usAVE7K8bXtxzQ8
-      short-id: 04ac4765d572b7b7
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-4e78a55bf4
+      - 4Jadi-b082450f5d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-4e78a55bf4
+      - 4Jadi-b082450f5d
 rules:
   - MATCH,Proxy

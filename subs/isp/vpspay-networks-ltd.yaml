@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: T.me/Vpn_Mafia
+    server: 31.76.30.79
+    port: 10808
+    cipher: chacha20-ietf-poly1305
+    password: TmXSpcRBbhvHDg66bo2w89bToxQsbMoa
+    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 31.76.245.149
@@ -77,44 +84,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-875757a2c3
-    server: 2.26.224.91
-    port: 8443
-    uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cdn.shopify.com
-    reality-opts:
-      public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
-      short-id: f747a7a5793b5714
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - T.me/Vpn_Mafia
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - 4Nika-d39134eb62
-      - 4FreeIran-875757a2c3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - T.me/Vpn_Mafia
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - 4Nika-d39134eb62
-      - 4FreeIran-875757a2c3
 rules:
   - MATCH,Proxy
