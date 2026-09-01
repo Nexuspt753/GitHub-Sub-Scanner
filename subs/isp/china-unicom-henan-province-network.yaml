@@ -10,7 +10,7 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: 42.51.25.69
+    server: ja262.magiclampcloud.cn
     port: 59443
     password: 002023c45d18bca3eba2757bb683309a
     udp: true
@@ -19,13 +19,29 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
-    server: ja262.magiclampcloud.cn
+    server: 42.51.25.69
     port: 59443
     password: 002023c45d18bca3eba2757bb683309a
     udp: true
     tls: true
     sni: ja262.magiclampcloud.cn
     client-fingerprint: chrome
+  - type: vmess
+    name: 4Kian-af1e86a671
+    server: visa.cn
+    port: 80
+    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /sba-vm?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deee.horryan4.eu.org
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,6 +50,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,5 +60,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

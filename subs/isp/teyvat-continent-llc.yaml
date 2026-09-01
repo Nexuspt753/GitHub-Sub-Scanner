@@ -1,0 +1,33 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 152.175.28.15
+    port: 28443
+    password: 04e30e9f-661a-4a40-9973-4f2961298e99
+    udp: true
+    tls: true
+    sni: vpn-node.internal
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /xVpnTrojanWsSvc7f3a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vpn-node.internal
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

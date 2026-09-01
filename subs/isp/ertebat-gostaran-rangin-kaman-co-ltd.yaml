@@ -1,0 +1,41 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: e3.cover20.ir
+    port: 56985
+    cipher: chacha20-ietf-poly1305
+    password: IlSY+D+ttxp8OM8tXCCsWnKh3Eh6Kl4rAAv3nE0X08Q=
+    udp: true
+  - type: ss
+    name: 🇮🇷139797
+    server: e3.cover20.ir
+    port: 56985
+    cipher: chacha20-ietf-poly1305
+    password: IlSY+D+ttxp8OM8tXCCsWnKh3Eh6Kl4rAAv3nE0X08Q=
+    udp: true
+  - type: ss
+    name: 4Sarina-d8bcb3a67e
+    server: e3.cover20.ir
+    port: 56985
+    cipher: chacha20-ietf-poly1305
+    password: IlSY+D+ttxp8OM8tXCCsWnKh3Eh6Kl4rAAv3nE0X08Q=
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇮🇷139797
+      - 4Sarina-d8bcb3a67e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇮🇷139797
+      - 4Sarina-d8bcb3a67e
+rules:
+  - MATCH,Proxy

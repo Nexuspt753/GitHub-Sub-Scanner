@@ -1,6 +1,13 @@
 proxies:
   - type: ss
     name: DeltaKroneckerGithub
+    server: 149.104.107.41
+    port: 8090
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 149.104.109.252
     port: 8882
     cipher: aes-256-gcm
@@ -12,6 +19,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

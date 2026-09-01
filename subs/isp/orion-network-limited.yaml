@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 196.245.156.29
+    port: 443
+    uuid: f5e98e30-28b8-468a-a5a5-c6c22be64055
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rm2.magazinnarubeva.ru
+    reality-opts:
+      public-key: hyOYRfDSIYyqALQt3N2H0RjK8gbV1JvPTkNACC4PJF8
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vless
     server: 196.196.203.13
     port: 443
@@ -7,6 +21,20 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 196.245.156.30
+    port: 443
+    uuid: f5e98e30-28b8-468a-a5a5-c6c22be64055
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rm2.magazinnarubeva.ru
+    reality-opts:
+      public-key: hyOYRfDSIYyqALQt3N2H0RjK8gbV1JvPTkNACC4PJF8
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: vless-01
@@ -31,7 +59,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
+      - DeltaKroneckerGithub-01
       - vless-01
       - vless-02
   - name: Auto
@@ -40,7 +70,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
+      - DeltaKroneckerGithub-01
       - vless-01
       - vless-02
 rules:

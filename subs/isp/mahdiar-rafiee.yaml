@@ -1,17 +1,12 @@
 proxies:
   - type: vless
     name: vless
-    server: 193.39.9.135
-    port: 6100
-    uuid: 1e92ff56-ed7a-4bc3-95ac-64733655c340
+    server: 185.218.139.222
+    port: 8080
+    uuid: f07b0239-d5a4-42c4-b5a8-fc64902ebe5c
     udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 193.39.9.135
-    port: 6100
-    uuid: 1e92ff56-ed7a-4bc3-95ac-64733655c340
-    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -19,7 +14,6 @@ proxy-groups:
     proxies:
       - Auto
       - vless
-      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - vless-01
 rules:
   - MATCH,Proxy

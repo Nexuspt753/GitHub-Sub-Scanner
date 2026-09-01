@@ -1,32 +1,25 @@
 proxies:
-  - type: vmess
-    name: 4Kian-af1e86a671
-    server: visa.cn
-    port: 80
-    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
-    alterId: 0
-    cipher: auto
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ja304.magiclampcloud.cn
+    port: 59443
+    password: 2ddeb5f43bbb897b13db728b2dfbef92
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /sba-vm?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: deee.horryan4.eu.org
+    tls: true
+    sni: ja304.magiclampcloud.cn
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-af1e86a671
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-af1e86a671
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

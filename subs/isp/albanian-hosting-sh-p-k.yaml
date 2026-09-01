@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: al.sixseven.network
+    port: 25026
+    uuid: 62a05f8e-eedf-4500-8c79-c9315f565bcc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: proxy11.h1guro.ovh
+    reality-opts:
+      public-key: 3qBfeZG4LvSGPNSacB-tCpO91TtLVLftWwNeNg5jplU
+      short-id: bc1c3578b48ae7cc
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: 4Sarina-bc33b18467
     server: 87.121.162.249
@@ -6,6 +20,20 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: JGv616hMWdjfuZ00jYfq7XkBHJZrOBrg
     udp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 151.123.186.124
+    port: 25026
+    uuid: 62a05f8e-eedf-4500-8c79-c9315f565bcc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: proxy11.h1guro.ovh
+    reality-opts:
+      public-key: 3qBfeZG4LvSGPNSacB-tCpO91TtLVLftWwNeNg5jplU
+      short-id: bc1c3578b48ae7cc
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Nika-6f7701bba1
     server: deu196.unboundaccess.org
@@ -24,7 +52,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-bc33b18467
+      - DeltaKroneckerGithub-01
       - 4Nika-6f7701bba1
   - name: Auto
     type: url-test
@@ -32,7 +62,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-bc33b18467
+      - DeltaKroneckerGithub-01
       - 4Nika-6f7701bba1
 rules:
   - MATCH,Proxy

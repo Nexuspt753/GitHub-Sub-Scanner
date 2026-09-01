@@ -1,14 +1,5 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 103.235.46.40
-    port: 443
-    password: 72d8e820-7926-4ce3-a87c-b6969f425c79
-    udp: true
-    tls: true
-    sni: www.baidu.com
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Jadi-b8f7f93ddb
     server: 103.235.46.40
     port: 443
@@ -18,30 +9,28 @@ proxies:
     sni: www.baidu.com
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 103.235.46.102
+    name: DeltaKroneckerGithub
+    server: 103.235.46.40
     port: 443
     password: 72d8e820-7926-4ce3-a87c-b6969f425c79
     udp: true
     tls: true
-    sni: $$www.baidu.com
+    sni: www.baidu.com
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Jadi-b8f7f93ddb
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Jadi-b8f7f93ddb
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

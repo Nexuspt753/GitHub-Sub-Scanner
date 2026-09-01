@@ -13,19 +13,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 200.165.234.119
-    port: 2200
-    uuid: 936b7663-a841-4b42-b639-6e3fab1dbf45
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: 200.165.231.209
     port: 443
     uuid: ff0b6ba8-bed0-4c4d-bbc9-23af47582615
@@ -40,10 +27,10 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: wstg.datasynctrue.online
   - type: vless
-    name: DeltaKroneckerGithub-03
-    server: 200.165.234.119
+    name: DeltaKroneckerGithub-02
+    server: 200.165.234.45
     port: 4100
-    uuid: 099f0859-cb81-4a57-b6d8-2c8e18030627
+    uuid: 39e0f41b-180b-4f7e-a607-37b135f0fd83
     udp: true
     xudp: true
     network: ws
@@ -53,29 +40,52 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: live.ok.ru
   - type: vless
-    name: 🇩🇪
-    server: 200.165.234.62
-    port: 4100
-    uuid: 5383fb97-1178-4709-9a25-b767b743e911
+    name: DeltaKroneckerGithub-03
+    server: eu-gw.videomonitor.cloud
+    port: 2053
+    uuid: b1e4bfe2-2b12-11f1-92cb-12ba70109d32
     udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: dzen.ru
+    reality-opts:
+      public-key: j8OW1foMwfeiy3VMbNPHLgTXgy_ZPdFFxv-H3HrbNF0
+      short-id: f0c18fcc1d09b637
     xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: ">>@ShadowsocksM::RU"
-    server: 200.165.234.119
-    port: 2200
-    uuid: 936b7663-a841-4b42-b639-6e3fab1dbf45
+    name: DeltaKroneckerGithub-04
+    server: wstg.datasynctrue.online
+    port: 443
+    uuid: ff0b6ba8-bed0-4c4d-bbc9-23af47582615
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
     network: ws
     ws-opts:
-      path: /v1
+      path: /api/connect
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wstg.datasynctrue.online
+  - type: vless
+    name: DeltaKroneckerGithub-05
+    server: 200.165.235.43
+    port: 2053
+    uuid: b1e4bfe2-2b12-11f1-92cb-12ba70109d32
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dzen.ru
+    reality-opts:
+      public-key: j8OW1foMwfeiy3VMbNPHLgTXgy_ZPdFFxv-H3HrbNF0
+      short-id: f0c18fcc1d09b637
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: 4Kian-6e49de0acd
     server: 200.165.234.62
@@ -97,8 +107,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 🇩🇪
-      - ">>@ShadowsocksM::RU"
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - 4Kian-6e49de0acd
   - name: Auto
     type: url-test
@@ -110,8 +120,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 🇩🇪
-      - ">>@ShadowsocksM::RU"
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - 4Kian-6e49de0acd
 rules:
   - MATCH,Proxy
