@@ -15,6 +15,13 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
   - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 185.174.138.239
+    port: 443
+    password: NISHIKUITAN111
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Sarina-12d66c1629
     server: 185.114.72.31
     port: 2053
@@ -29,13 +36,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 185.174.138.239
-    port: 443
-    password: NISHIKUITAN111
-    udp: true
-    client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: 193.239.160.134
@@ -57,16 +57,24 @@ proxies:
     cipher: none
     password: 3e96ef7d-8637-42c2-ac73-75182196e755
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-04
+    server: 45.43.88.13
+    port: 2053
+    cipher: none
+    password: 3e96ef7d-8637-42c2-ac73-75182196e755
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-12d66c1629
       - DeltaKroneckerGithub-01
+      - 4Sarina-12d66c1629
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,9 +82,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-12d66c1629
       - DeltaKroneckerGithub-01
+      - 4Sarina-12d66c1629
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy

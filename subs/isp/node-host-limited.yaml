@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 2.26.255.36
-    port: 8443
-    uuid: 8787dd0a-095a-414e-804f-a7d16a1ae166
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: po1.hys.braidx.tech
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 81.90.17.117
     port: 443
@@ -124,12 +113,25 @@ proxies:
     servername: po1.hys.braidx.tech
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-06abc6dade
+    server: 81.90.17.117
+    port: 443
+    uuid: 9bbd487f-8f84-4ad7-b897-681c3f7d95dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: magazin6.mervi.icu
+    reality-opts:
+      public-key: VoUKOKxP103a3-SYTAOKlXsxaBtpyVSE4G2cadWXJgE
+      short-id: d98c716c17c0dc68
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - meliproxyy
       - "[33925]"
@@ -139,13 +141,13 @@ proxy-groups:
       - ">>@oneclickvpnkeys::PL"
       - 4Sarina-ba03012840
       - 4Sarina-9bf88db80f
+      - 4Sarina-06abc6dade
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - meliproxyy
       - "[33925]"
@@ -155,5 +157,6 @@ proxy-groups:
       - ">>@oneclickvpnkeys::PL"
       - 4Sarina-ba03012840
       - 4Sarina-9bf88db80f
+      - 4Sarina-06abc6dade
 rules:
   - MATCH,Proxy

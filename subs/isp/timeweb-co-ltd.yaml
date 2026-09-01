@@ -24,19 +24,6 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4FreeIran-86c0afae5e
-    server: 188.225.25.113
-    port: 4100
-    uuid: ed1fd11d-cbf7-4a73-9e98-c7f332b37117
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: live.ok.ru
 proxy-groups:
   - name: Proxy
     type: select
@@ -44,7 +31,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4FreeIran-86c0afae5e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,6 +39,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4FreeIran-86c0afae5e
 rules:
   - MATCH,Proxy

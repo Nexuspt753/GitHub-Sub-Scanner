@@ -1,5 +1,17 @@
 proxies:
   - type: trojan
+    name: 4Kian-0b2e45a063
+    server: 90.156.218.126
+    port: 2223
+    password: 47SXGr72f1wpGNkZzLUUExRDHuVQypaW
+    udp: true
+    tls: true
+    sni: vkc7.secured-by-tenzo.sbs
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: android
+  - type: trojan
     name: DeltaKroneckerGithub
     server: 90.156.218.126
     port: 2223
@@ -16,6 +28,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-0b2e45a063
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -23,6 +36,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-0b2e45a063
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

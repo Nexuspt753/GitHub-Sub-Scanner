@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
+  - type: vless
+    name: 4Nika-a7b80f43b6
+    server: 103.219.194.43
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-a7b80f43b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-a7b80f43b6
 rules:
   - MATCH,Proxy

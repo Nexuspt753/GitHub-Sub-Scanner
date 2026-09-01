@@ -1,5 +1,28 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 64.49.12.115
+    port: 2083
+    uuid: 70e42a70-f73c-4317-8793-774105a66c44
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: MlRM646jm530R9ARWkIVz5T_TEOUDfmiRDFVnzQI12g
+      short-id: b40a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: d5g36fh5.helpower.ir
+    port: 2036
+    uuid: 7bdfad05-e335-4394-8299-5d127cf5802a
+    udp: true
+    xudp: true
+  - type: vless
     name: B2Hub
     server: d5g36fh5.helpower.ir
     port: 2036
@@ -63,34 +86,72 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Jadi-6fb50665cf
+    server: 64.49.12.115
+    port: 2083
+    uuid: 70e42a70-f73c-4317-8793-774105a66c44
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: MlRM646jm530R9ARWkIVz5T_TEOUDfmiRDFVnzQI12g
+      short-id: b40a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4FreeIran-7cdc2b3c39
     server: d5g36fh5.helpower.ir
     port: 2036
     uuid: 7bdfad05-e335-4394-8299-5d127cf5802a
     udp: true
     xudp: true
+  - type: vless
+    name: 4Jadi-8cf3fcbb9c
+    server: 185.121.179.114
+    port: 443
+    uuid: c6cff605-90cf-4953-bf97-0a44e43f229d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de3.murhost.network
+    reality-opts:
+      public-key: gp5Y1WaGDOTX6j-qjIjK6e2DnDtylcAX-Kkb-DnPMHs
+      short-id: 51b1a84d8ed1568f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - B2Hub
       - meliproxyy
       - 🇳🇿157712
       - 🇺🇸US-🚀@VPNine1
       - 🔵@chillguy_vpn
+      - 4Jadi-6fb50665cf
       - 4FreeIran-7cdc2b3c39
+      - 4Jadi-8cf3fcbb9c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - B2Hub
       - meliproxyy
       - 🇳🇿157712
       - 🇺🇸US-🚀@VPNine1
       - 🔵@chillguy_vpn
+      - 4Jadi-6fb50665cf
       - 4FreeIran-7cdc2b3c39
+      - 4Jadi-8cf3fcbb9c
 rules:
   - MATCH,Proxy
