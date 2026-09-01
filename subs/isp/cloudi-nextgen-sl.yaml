@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS
+    server: ww8.levikogjgfdd.ir
+    port: 34710
+    uuid: dd7429eb-b77b-4a8d-be86-c34cac86faf7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: MXOVePed0T2SVOfYSEtecn2yApnsVC12dJ6nkujWTVU
+      short-id: 14b0eb7919eb7d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: configprxy
     server: ww8.levikogjgfdd.ir
     port: 34710
@@ -41,44 +55,15 @@ proxies:
       short-id: 14b0eb7919eb7d
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-aa4ef98e20
-    server: 93.189.94.67
-    port: 48296
-    uuid: 898537d9-ce3a-4937-bbef-c0fa61c07791
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.sony.com
-    reality-opts:
-      public-key: ga1wUMMknP4pwJfUNOOvD9I35XV4q3c73byXPYbRxBE
-      short-id: 109657bb2dbe99
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Jadi-3208dde109
-    server: ww8.levikogjgfdd.ir
-    port: 34710
-    uuid: dd7429eb-b77b-4a8d-be86-c34cac86faf7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: MXOVePed0T2SVOfYSEtecn2yApnsVC12dJ6nkujWTVU
-      short-id: 14b0eb7919eb7d
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - configprxy
       - meliproxyy
-      - 4FreeIran-aa4ef98e20
-      - 4Jadi-3208dde109
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,9 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - configprxy
       - meliproxyy
-      - 4FreeIran-aa4ef98e20
-      - 4Jadi-3208dde109
 rules:
   - MATCH,Proxy

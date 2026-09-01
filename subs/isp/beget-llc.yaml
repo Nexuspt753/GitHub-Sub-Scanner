@@ -7,13 +7,6 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 31.128.37.67
-    port: 16560
-    uuid: 6d60c73d-5915-4cf8-b155-e522dfd863bb
-    udp: true
-    xudp: true
-  - type: vless
     name: v2ray313
     server: 31.128.37.67
     port: 16560
@@ -56,42 +49,41 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: 4Kian-80f0b1b651
-    server: 31.128.37.67
-    port: 16560
-    uuid: 6d60c73d-5915-4cf8-b155-e522dfd863bb
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-a1d35c9e64
-    server: 31.128.37.67
-    port: 16560
-    uuid: 6d60c73d-5915-4cf8-b155-e522dfd863bb
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Mohsen-522cedf559
     server: 31.128.37.67
     port: 16560
     uuid: 6d60c73d-5915-4cf8-b155-e522dfd863bb
     udp: true
     xudp: true
+  - type: vmess
+    name: 4Nika-f4154fad58
+    server: 45.144.179.138
+    port: 443
+    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - v2ray313
       - Begoo_VPN
       - Capoit
       - Nexus_Panell
       - V2ray_Alpha🍅
       - ">>@oneclickvpnkeys::RU"
-      - 4Kian-80f0b1b651
-      - 4Kian-a1d35c9e64
       - 4Mohsen-522cedf559
+      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -99,15 +91,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - v2ray313
       - Begoo_VPN
       - Capoit
       - Nexus_Panell
       - V2ray_Alpha🍅
       - ">>@oneclickvpnkeys::RU"
-      - 4Kian-80f0b1b651
-      - 4Kian-a1d35c9e64
       - 4Mohsen-522cedf559
+      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

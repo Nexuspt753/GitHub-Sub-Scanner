@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 🇩🇪
+    server: de.convert-flow.net
+    port: 443
+    uuid: defd7be5-3090-4f97-9d46-823087b2345d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de.convert-flow.net
+    reality-opts:
+      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+      short-id: 00a61d55a07de885
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-8e86697c15
+    server: de.convert-flow.net
+    port: 443
+    uuid: defd7be5-3090-4f97-9d46-823087b2345d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de.convert-flow.net
+    reality-opts:
+      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
+      short-id: 00a61d55a07de885
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇩🇪
+      - 4Kian-8e86697c15
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇩🇪
+      - 4Kian-8e86697c15
+rules:
+  - MATCH,Proxy
