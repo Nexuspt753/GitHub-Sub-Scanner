@@ -1,32 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 172.105.169.70
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 172.105.169.70
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 172.104.59.187
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: 172.105.104.54
     port: 58676
     uuid: e9076558-2c9b-4c39-9b52-220f932c570f
@@ -39,6 +13,24 @@ proxies:
       short-id: ee94ded352b795
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 172.105.169.70
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 172.105.169.70
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: trojan1.udpgw.com
+    port: 443
+    password: affae2e0-e84b-11ec-b09f-1239d0255272
+    udp: true
+    tls: true
+    client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-b85d6c5f32
     server: trojan1.udpgw.com
@@ -47,13 +39,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-03
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: vless
     name: 4Sarina-ac5f56422c
     server: 172.105.104.54
@@ -93,7 +78,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Jadi-b85d6c5f32
-      - DeltaKroneckerGithub-03
       - 4Sarina-ac5f56422c
       - 4Sarina-4ab167b05f
   - name: Auto
@@ -106,7 +90,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Jadi-b85d6c5f32
-      - DeltaKroneckerGithub-03
       - 4Sarina-ac5f56422c
       - 4Sarina-4ab167b05f
 rules:

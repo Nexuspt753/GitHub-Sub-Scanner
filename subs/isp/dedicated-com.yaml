@@ -1,5 +1,21 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 216.105.168.18
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: hCCWOcIsK5wrFz4OX70rWf
+    udp: true
+  - type: trojan
+    name: EPODONIOS-01
+    server: 64.94.95.118
+    port: 57142
+    password: kkzh2prsyr2ik47as615
+    udp: true
+    tls: true
+    sni: 64.94.95.118
+    client-fingerprint: chrome
+  - type: ss
     name: 4Mohsen-6afa29ebda
     server: 216.105.168.18
     port: 443
@@ -15,23 +31,17 @@ proxies:
     tls: true
     sni: 64.94.95.117
     client-fingerprint: chrome
-  - type: ss
-    name: EPODONIOS
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
-    udp: true
   - type: trojan
-    name: 4Nika-631930b7bc
-    server: 64.94.95.118
+    name: DeltaKroneckerGithub-01
+    server: 64.94.95.114
     port: 57142
     password: kkzh2prsyr2ik47as615
     udp: true
     tls: true
+    sni: static.rutube.ru
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: 4Nika-631930b7bc
     server: 64.94.95.118
     port: 57142
     password: kkzh2prsyr2ik47as615
@@ -47,12 +57,11 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-03
-    server: 64.94.95.114
+    server: 64.94.95.118
     port: 57142
     password: kkzh2prsyr2ik47as615
     udp: true
     tls: true
-    sni: static.rutube.ru
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-04
@@ -61,6 +70,13 @@ proxies:
     password: kkzh2prsyr2ik47as615
     udp: true
     client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-05
+    server: 216.105.168.18
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: hCCWOcIsK5wrFz4OX70rWf
+    udp: true
   - type: ss
     name: 🇺🇸US-216.105.168.18-0138
     server: 216.105.168.18
@@ -73,14 +89,16 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Nika-631930b7bc
       - DeltaKroneckerGithub-01
+      - 4Nika-631930b7bc
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - 🇺🇸US-216.105.168.18-0138
   - name: Auto
     type: url-test
@@ -88,14 +106,16 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Nika-631930b7bc
       - DeltaKroneckerGithub-01
+      - 4Nika-631930b7bc
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
       - 🇺🇸US-216.105.168.18-0138
 rules:
   - MATCH,Proxy

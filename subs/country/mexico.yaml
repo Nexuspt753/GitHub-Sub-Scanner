@@ -13,12 +13,65 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub-01
+    server: 45.134.9.133
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ul-mexico1.09vpn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub-02
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Querétaro City · @DeltaKroneckerGithub
+    server: 158.23.49.45
+    port: 8443
+    uuid: 2808bf00-f7af-4b8b-85cb-6bb5cfa4cba6
+    udp: true
+    tls: true
+    client-fingerprint: "360"
+    servername: mexicotrash.duckdns.org
+    xudp: true
+  - type: vless
+    name: Querétaro City · 4Mohsen-c2c960211e
+    server: 158.23.49.45
+    port: 8443
+    uuid: 2808bf00-f7af-4b8b-85cb-6bb5cfa4cba6
+    udp: true
+    tls: true
+    client-fingerprint: "360"
+    servername: mexicotrash.duckdns.org
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Mexico City · @DeltaKroneckerGithub
+      - Mexico City · @DeltaKroneckerGithub-01
+      - Mexico City · @DeltaKroneckerGithub-02
+      - Querétaro City · @DeltaKroneckerGithub
+      - Querétaro City · 4Mohsen-c2c960211e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +79,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Mexico City · @DeltaKroneckerGithub
+      - Mexico City · @DeltaKroneckerGithub-01
+      - Mexico City · @DeltaKroneckerGithub-02
+      - Querétaro City · @DeltaKroneckerGithub
+      - Querétaro City · 4Mohsen-c2c960211e
 rules:
   - MATCH,Proxy
