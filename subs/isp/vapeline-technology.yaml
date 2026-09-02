@@ -1,32 +1,23 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: proxyip.hk.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  - type: ss
+    name: EPODONIOS
+    server: vpn.yuzhe.cc.cd
+    port: 18888
+    cipher: aes-128-gcm
+    password: 86663f7a-6001-4cd0-9c44-953fe785c6ce
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy

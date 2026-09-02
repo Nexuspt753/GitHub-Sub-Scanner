@@ -1,46 +1,34 @@
 proxies:
   - type: vless
-    name: "[32455]"
-    server: pon.fereshtehagonahnemikonnad.ir
-    port: 2083
-    uuid: c949cd77-a313-45ef-97ed-ac7e10511198
+    name: EPODONIOS
+    server: sinavm.soft10.ir
+    port: 443
+    uuid: 3a09e0c9-4194-4b85-8d7f-fd1fc38f00b2
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: chatgpt.com
-    reality-opts:
-      public-key: j4JiRjGdRBuUK5R4gKVnek1WR8cNiX9hrMTzP6C1iWs
-      short-id: d1bb8670a95a23aa
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: sinavm.soft10.ir
     xudp: true
-  - type: vless
-    name: 4Mohsen-8ad708d981
-    server: pon.fereshtehagonahnemikonnad.ir
-    port: 2083
-    uuid: c949cd77-a313-45ef-97ed-ac7e10511198
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: chatgpt.com
-    reality-opts:
-      public-key: j4JiRjGdRBuUK5R4gKVnek1WR8cNiX9hrMTzP6C1iWs
-      short-id: d1bb8670a95a23aa
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /assignment----SiNAVM----SiNAVM----SiNAVM----SiNAVM----SiNAVM----SiNAVM----SiNAVM
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sinavm.soft10.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "[32455]"
-      - 4Mohsen-8ad708d981
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "[32455]"
-      - 4Mohsen-8ad708d981
+      - EPODONIOS
 rules:
   - MATCH,Proxy

@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: 🇮🇷
     server: tv.tetrov.top
     port: 9899
     uuid: 6838085d-93dd-44b9-9cfe-140e718a96c5
@@ -27,20 +27,32 @@ proxies:
       short-id: f9fe9522b62bac68
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Jadi-b082450f5d
+    server: de1.trb2v.blog
+    port: 8880
+    uuid: 2559f36a-9e7a-41d4-84f2-0f60e0e7ae27
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 🇮🇷
       - 4Mohsen-410682e373
+      - 4Jadi-b082450f5d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 🇮🇷
       - 4Mohsen-410682e373
+      - 4Jadi-b082450f5d
 rules:
   - MATCH,Proxy

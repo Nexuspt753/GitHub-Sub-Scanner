@@ -1,4 +1,16 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 0e05f970-tki800-traezq-1t5n1.hk2.hyhuawei.com
+    port: 443
+    uuid: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: download.windowsupdate.com
+    reality-opts:
+      public-key: c9DdggKaJGSH7FN3JgGbi9ZvsUqOGGpIr7BhzTWeTCo
+    xudp: true
   - type: trojan
     name: 4Nika-06c8f125f0
     server: 219.76.13.181
@@ -37,22 +49,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: e.cn-db.top
+  - type: vmess
+    name: 4Sarina-a2a339e2e1
+    server: hk01.653ebeeb-5f60-4be5-958d-7bf4839cdccd.ef6616fd-5b06-482f-9d64-183745659cbf.byteprivatelink.com
+    port: 443
+    uuid: f018361c-3d66-4635-80c9-22be36b70ac4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: www.12306.cn
+    network: grpc
+    grpc-opts:
+      grpc-service-name: "12306"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-06c8f125f0
       - 4Jadi-ce6417eb2f
       - 4Sarina-12fdb05684
+      - 4Sarina-a2a339e2e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-06c8f125f0
       - 4Jadi-ce6417eb2f
       - 4Sarina-12fdb05684
+      - 4Sarina-a2a339e2e1
 rules:
   - MATCH,Proxy
