@@ -14,6 +14,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: ss
+    name: EPODONIOS
+    server: 194.61.121.93
+    port: 7538
+    cipher: chacha20-ietf-poly1305
+    password: U9YAoqBgg5VyGBc6vQv1sN
+    udp: true
+  - type: ss
     name: configprxy
     server: 194.61.121.93
     port: 7538
@@ -62,8 +69,26 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: U9YAoqBgg5VyGBc6vQv1sN
     udp: true
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub-01
+    server: 91.227.77.87
+    port: 443
+    password: bpb-trojan
+    udp: true
+    tls: true
+    sni: skwygx.top
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-d63799d1d2
+    server: bolguarmarz.horlutr.ir
+    port: 2087
+    uuid: 289c4c75-9ea6-4c23-bda2-17d32c533db4
+    udp: true
+    xudp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
     server: 194.61.121.93
     port: 7538
     cipher: chacha20-ietf-poly1305
@@ -76,12 +101,20 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: U9YAoqBgg5VyGBc6vQv1sN
     udp: true
+  - type: vless
+    name: 4Nika-e0aba33d6f
+    server: i---s---r---a.cd2-ger1.ir
+    port: 2087
+    uuid: 5643695e-10bf-4260-be2b-719cd3d2cdf7
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - configprxy
       - ghand_sheken
       - hex_proxy
@@ -90,7 +123,10 @@ proxy-groups:
       - T.me/Vpn_Mafia
       - 4Nika-d32c3cc750
       - DeltaKroneckerGithub-01
+      - 4Nika-d63799d1d2
+      - DeltaKroneckerGithub-02
       - ">>@ShadowsocksM::XX"
+      - 4Nika-e0aba33d6f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -98,6 +134,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - configprxy
       - ghand_sheken
       - hex_proxy
@@ -106,6 +143,9 @@ proxy-groups:
       - T.me/Vpn_Mafia
       - 4Nika-d32c3cc750
       - DeltaKroneckerGithub-01
+      - 4Nika-d63799d1d2
+      - DeltaKroneckerGithub-02
       - ">>@ShadowsocksM::XX"
+      - 4Nika-e0aba33d6f
 rules:
   - MATCH,Proxy

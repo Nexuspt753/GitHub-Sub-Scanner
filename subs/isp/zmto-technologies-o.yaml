@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Kian-34d4f2da24
+    server: us5-r.link-t7.com
+    port: 10242
+    uuid: 31904E3E-F57B-41D1-BDB2-CB6D3A496232
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
+      short-id: 686c0ef0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4FreeIran-4abb179a18
     server: us5-r.link-t7.com
     port: 10242
@@ -17,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-34d4f2da24
       - 4FreeIran-4abb179a18
   - name: Auto
     type: url-test
@@ -24,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-34d4f2da24
       - 4FreeIran-4abb179a18
 rules:
   - MATCH,Proxy

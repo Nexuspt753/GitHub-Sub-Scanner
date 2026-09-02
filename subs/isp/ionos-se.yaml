@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 212.227.102.223
+    port: 443
+    uuid: 2042e1e6-7175-4604-9e0a-b13284ffeb54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: npv.tosiko.com
+    reality-opts:
+      public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
+      short-id: 4f3e2491e42b6a
+    xudp: true
+  - type: vless
     name: Net2ray
     server: 212.227.102.223
     port: 443
@@ -68,8 +81,41 @@ proxies:
       public-key: XrPOJwmpnq8NeCXu6K68Mp59gQ56Dr4YYboxI70kqzA
       short-id: 866af6e56606f2bc
     xudp: true
+  - type: vless
+    name: 4FreeIran-0e00464279
+    server: 198.251.78.29
+    port: 2053
+    uuid: ba12daae-cba5-475b-9289-40a99c0d3f19
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - networld_vpn-channel@.networld_vpn-channel@.networld_vpn-channel@.networld_vpn-channel@.networld_vpn-channel@.networld_vpn-channel@.networld_vpn-
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: q-3ozCtN4ylZ-ribiIrhIYzMieCnRUvGfS34d_eWmCs
+      short-id: 063b573f23a2ee51
+    xudp: true
   - type: vmess
     name: 4FreeIran-8d1a32bc8a
+    server: 194.164.192.16
+    port: 443
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: apjhdggyx.com
+    network: ws
+    ws-opts:
+      path: /5f72f180-b21b-4b7a-8484-240759096785
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
+  - type: vmess
+    name: 4Kian-f86cc8c643
     server: 194.164.192.16
     port: 443
     uuid: 5f72f180-b21b-4b7a-8484-240759012604
@@ -108,12 +154,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Net2ray
       - DeltaKroneckerGithub
       - 4FreeIran-bd7562becc
       - 4Kian-529143f444
       - 4Mohsen-e77703b778
+      - 4FreeIran-0e00464279
       - 4FreeIran-8d1a32bc8a
+      - 4Kian-f86cc8c643
       - 4Nika-ac582a5f49
   - name: Auto
     type: url-test
@@ -121,12 +170,15 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Net2ray
       - DeltaKroneckerGithub
       - 4FreeIran-bd7562becc
       - 4Kian-529143f444
       - 4Mohsen-e77703b778
+      - 4FreeIran-0e00464279
       - 4FreeIran-8d1a32bc8a
+      - 4Kian-f86cc8c643
       - 4Nika-ac582a5f49
 rules:
   - MATCH,Proxy

@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-be4f355613
+    server: 195.19.164.87
+    port: 443
+    uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sellflow.org
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ">>@configV2rayNG::RU"
+    server: 195.19.164.87
+    port: 443
+    uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sellflow.org
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-be4f355613
+      - ">>@configV2rayNG::RU"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-be4f355613
+      - ">>@configV2rayNG::RU"
+rules:
+  - MATCH,Proxy
