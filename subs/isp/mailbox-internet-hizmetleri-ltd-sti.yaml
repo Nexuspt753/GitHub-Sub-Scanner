@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 84.32.230.37
+    port: 64373
+    uuid: c3aeb32c-ec2f-4a29-9a50-f4c058beb6a9
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Kian-fe283cdcb3
     server: 84.32.230.160
     port: 443
@@ -20,6 +27,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Kian-fe283cdcb3
   - name: Auto
     type: url-test
@@ -27,6 +35,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Kian-fe283cdcb3
 rules:
   - MATCH,Proxy

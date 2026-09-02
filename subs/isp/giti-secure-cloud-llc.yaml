@@ -12,72 +12,12 @@ proxies:
       - ""
     servername: s5.zynetrax.ir
     xudp: true
-  - type: vless
-    name: vless-01
-    server: s5.zynetrax.ir
-    port: 2087
-    uuid: 82825709-f11d-43e5-6a83-b81b4b5bfcc6
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-3e8a981bc4
-    server: s5.zynetrax.ir
-    port: 2087
-    uuid: 11cb0c12-7d9f-4286-759d-3428e7505337
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - ""
-    servername: s5.zynetrax.ir
-    xudp: true
-  - type: vless
-    name: icv2ray
-    server: t1ti.blazenetwork.ir
-    port: 443
-    uuid: e4f2f3ac-11e8-4bb0-8c19-81dc30258e60
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: t1ti.blazenetwork.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /t/assets
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: t1ti.blazenetwork.ir
-  - type: vless
-    name: 4Nika-e0513f0b70
-    server: t1ti.blazenetwork.ir
-    port: 443
-    uuid: e4f2f3ac-11e8-4bb0-8c19-81dc30258e60
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: t1ti.blazenetwork.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /t/assets
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: t1ti.blazenetwork.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - vless-01
-      - 4Nika-3e8a981bc4
-      - icv2ray
-      - 4Nika-e0513f0b70
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -85,9 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - vless-01
-      - 4Nika-3e8a981bc4
-      - icv2ray
-      - 4Nika-e0513f0b70
 rules:
   - MATCH,Proxy

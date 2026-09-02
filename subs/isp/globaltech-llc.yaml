@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 153.76.208.232
+    port: 443
+    uuid: c87e551b-3999-4b76-b3bf-bdfd6ef176fd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.com.am
+    reality-opts:
+      public-key: kCKXYcvEQ2cz4d0jBmBjyzbesUZ3AHQBukhqXWPiRlA
+      short-id: f3deb2
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

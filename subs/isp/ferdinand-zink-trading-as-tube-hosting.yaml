@@ -1,23 +1,37 @@
 proxies:
   - type: vless
-    name: 4FreeIran-79a4574eb2
-    server: cls.mhrzanet.ir
-    port: 49136
-    uuid: e427b802-91d8-4171-bb96-605d791533a7
+    name: EPODONIOS
+    server: 176.120.17.126
+    port: 27725
+    uuid: f04828df-7021-44b3-8019-9db3a5a20cd6
     udp: true
     xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 176.120.17.126
+    port: 54752
+    uuid: f04828df-7021-44b3-8019-9db3a5a20cd6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-79a4574eb2
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-79a4574eb2
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

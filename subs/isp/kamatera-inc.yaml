@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: fuckme.jo3.org
+    port: 8090
+    uuid: 96bb03a3-c70f-4332-8f19-48cda364a9ed
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: _LQ5mD3yW4ElPwTvqRBpHE0NAwQ_oc1Cgp0axsjex30
+      short-id: b2c4e8
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 45.91.171.116
@@ -13,6 +26,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +34,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

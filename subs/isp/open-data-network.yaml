@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: dcvbdb3bh4s76yfh.89dc3f43.e.yuetong.online
+    port: 443
+    uuid: a8be5b28-7b6b-4682-896e-bf8b7569db41
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.westerndigital.com
+    reality-opts:
+      public-key: IIYRxWpNMlMUosNL887OF2QhpQZywVApJyrfUMzFMTU
+      short-id: 50458d1d
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy
