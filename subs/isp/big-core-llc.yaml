@@ -8,22 +8,12 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vless
-    name: vless-01
-    server: dda685345af09097dda685345af09097.drwrdoh.org
-    port: 2025
-    uuid: 65e294c6-9733-40cd-ade4-9bcf4017a1bd
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - vless-01
 rules:
   - MATCH,Proxy

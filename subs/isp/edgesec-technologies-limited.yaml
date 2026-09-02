@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 31.77.100.49
+    port: 2087
+    uuid: 235fab16-5bb4-4593-b125-09f2e7ba7aa3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: jowOwf_cxg_FNpG36QJcyqBWtDItBBYjqj7VGhD2lnw
+      short-id: d3124debabf1456c
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: Channel
     server: 31.77.100.49
     port: 2087
@@ -16,6 +32,20 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: MTMVPN
+    server: 153.76.204.82
+    port: 443
+    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdnjs.cloudflare.com
+    reality-opts:
+      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
+      short-id: d42179376be1a110
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-3cd882aa98
     server: 31.77.100.49
     port: 2087
@@ -31,36 +61,24 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Sarina-4697653aa8
-    server: 153.76.204.82
-    port: 443
-    uuid: d2aeb078-90db-4f90-b334-623bcbea8d31
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdnjs.cloudflare.com
-    reality-opts:
-      public-key: VutAa_22WFsG2kth-PT-Ry4ZxhwtJT930N6DGT5JgF8
-      short-id: d42179376be1a110
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Channel
+      - MTMVPN
       - 4FreeIran-3cd882aa98
-      - 4Sarina-4697653aa8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Channel
+      - MTMVPN
       - 4FreeIran-3cd882aa98
-      - 4Sarina-4697653aa8
 rules:
   - MATCH,Proxy

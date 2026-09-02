@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-57c4ad65e7
+    server: 31.76.106.61
+    port: 443
+    password: 1a17fbd6-a54f-456c-8e71-5282893e2b69
+    sni: gos.ultimagamest.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-57c4ad65e7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-57c4ad65e7
+rules:
+  - MATCH,Proxy
