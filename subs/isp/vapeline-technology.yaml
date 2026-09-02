@@ -6,12 +6,28 @@ proxies:
     cipher: aes-128-gcm
     password: 86663f7a-6001-4cd0-9c44-953fe785c6ce
     udp: true
+  - type: ss
+    name: ASN
+    server: vpn.yuzhe.cc.cd
+    port: 18888
+    cipher: aes-128-gcm
+    password: 86663f7a-6001-4cd0-9c44-953fe785c6ce
+    udp: true
+  - type: ss
+    name: 4Jadi-0cc154838e
+    server: vpn.yuzhe.cc.cd
+    port: 18888
+    cipher: aes-128-gcm
+    password: 86663f7a-6001-4cd0-9c44-953fe785c6ce
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - ASN
+      - 4Jadi-0cc154838e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +35,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - ASN
+      - 4Jadi-0cc154838e
 rules:
   - MATCH,Proxy

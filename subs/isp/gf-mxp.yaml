@@ -1,46 +1,28 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 46.28.68.63
-    port: 443
-    uuid: 44927d9f-1a75-4c03-ab8c-79898adaaece
+    name: EPODONIOS
+    server: italyyyyy.banibus.ir
+    port: 1280
+    uuid: aa6b9a9d-84d4-49e5-93f7-90404b112634
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: LS-zg9fF_5TvNfMCIKngy5AMue1hF-hsk3hShsHGXT4
-      short-id: e5fa48b9363c6a88
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-364d4beaf3
-    server: 46.28.68.63
-    port: 443
-    uuid: 44927d9f-1a75-4c03-ab8c-79898adaaece
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: LS-zg9fF_5TvNfMCIKngy5AMue1hF-hsk3hShsHGXT4
-      short-id: e5fa48b9363c6a88
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=1024
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Sarina-364d4beaf3
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Sarina-364d4beaf3
+      - EPODONIOS
 rules:
   - MATCH,Proxy

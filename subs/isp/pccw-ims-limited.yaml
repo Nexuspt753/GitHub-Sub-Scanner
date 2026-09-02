@@ -11,15 +11,6 @@ proxies:
     reality-opts:
       public-key: c9DdggKaJGSH7FN3JgGbi9ZvsUqOGGpIr7BhzTWeTCo
     xudp: true
-  - type: trojan
-    name: 4Nika-06c8f125f0
-    server: 219.76.13.181
-    port: 443
-    password: SyOxpKxC8u5jgNa3DCZ34y3D9CRenFcaABpYATEeqI2RSaXD76zS8YF0Owl3lZ
-    udp: true
-    tls: true
-    sni: arbettp.freetrade.link
-    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-ce6417eb2f
     server: 0e05f970-tki800-traezq-1t5n1.hk2.hyhuawei.com
@@ -49,31 +40,14 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: e.cn-db.top
-  - type: vmess
-    name: 4Sarina-a2a339e2e1
-    server: hk01.653ebeeb-5f60-4be5-958d-7bf4839cdccd.ef6616fd-5b06-482f-9d64-183745659cbf.byteprivatelink.com
-    port: 443
-    uuid: f018361c-3d66-4635-80c9-22be36b70ac4
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: www.12306.cn
-    network: grpc
-    grpc-opts:
-      grpc-service-name: "12306"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-06c8f125f0
       - 4Jadi-ce6417eb2f
       - 4Sarina-12fdb05684
-      - 4Sarina-a2a339e2e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -81,9 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-06c8f125f0
       - 4Jadi-ce6417eb2f
       - 4Sarina-12fdb05684
-      - 4Sarina-a2a339e2e1
 rules:
   - MATCH,Proxy

@@ -1,23 +1,28 @@
 proxies:
-  - type: ss
-    name: 4Jadi-e43fbeb926
-    server: payanpishl.rjwarehousing.ir
-    port: 9093
-    cipher: chacha20-ietf-poly1305
-    password: QjoYQMeVpjovC78w5b1Xx_2mzJ7-Y9YY
+  - type: vless
+    name: EPODONIOS
+    server: out1.tehranionliine.ir
+    port: 80
+    uuid: 515d680d-65ed-4233-8345-1bfb7914372f
     udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-e43fbeb926
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-e43fbeb926
+      - EPODONIOS
 rules:
   - MATCH,Proxy

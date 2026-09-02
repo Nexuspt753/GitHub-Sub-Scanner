@@ -13,18 +13,33 @@ proxies:
       short-id: 4f3e2491e42b6a
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 217.154.244.251
-    port: 8443
-    uuid: 8787dd0a-095a-414e-804f-a7d16a1ae166
+    name: Net2ray
+    server: 212.227.102.223
+    port: 443
+    uuid: 2042e1e6-7175-4604-9e0a-b13284ffeb54
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: de1.hys.braidx.tech
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: npv.tosiko.com
+    reality-opts:
+      public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
+      short-id: 4f3e2491e42b6a
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 212.227.144.37
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
   - type: vless
     name: 4Kian-529143f444
     server: 212.227.102.223
@@ -56,15 +71,53 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apjhdggyx.com
+  - type: vmess
+    name: 4Mohsen-8a1042c7cd
+    server: 194.164.192.16
+    port: 443
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: apjhdggyx.com
+    network: ws
+    ws-opts:
+      path: /5f72f180-b21b-4b7a-8484-240759096785
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
+  - type: vmess
+    name: 4Nika-ac582a5f49
+    server: 194.164.192.16
+    port: 443
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /5f72f180-b21b-4b7a-8484-240759096785
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - Net2ray
       - DeltaKroneckerGithub
       - 4Kian-529143f444
       - 4FreeIran-8d1a32bc8a
+      - 4Mohsen-8a1042c7cd
+      - 4Nika-ac582a5f49
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -72,8 +125,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - Net2ray
       - DeltaKroneckerGithub
       - 4Kian-529143f444
       - 4FreeIran-8d1a32bc8a
+      - 4Mohsen-8a1042c7cd
+      - 4Nika-ac582a5f49
 rules:
   - MATCH,Proxy

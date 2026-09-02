@@ -1,30 +1,28 @@
 proxies:
   - type: vless
-    name: Lisbon · 4Nika-4c68bbf359
-    server: pp.alertyagency.com
-    port: 443
-    uuid: c7fc6e44-d57b-49b9-9ff2-a4e0aa9e9b8c
+    name: Sines Municipality · EPODONIOS
+    server: 93.119.168.18
+    port: 1280
+    uuid: aa6b9a9d-84d4-49e5-93f7-90404b112634
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: kUuy5M4V5bfjri7m_XBryv1YTLLlPLPIwPotJJgpgEc
-      short-id: "87922049"
-    flow: xtls-rprx-vision
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Lisbon · 4Nika-4c68bbf359
+      - Sines Municipality · EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Lisbon · 4Nika-4c68bbf359
+      - Sines Municipality · EPODONIOS
 rules:
   - MATCH,Proxy

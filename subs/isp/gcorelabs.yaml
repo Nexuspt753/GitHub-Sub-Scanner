@@ -1,41 +1,28 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 93.119.168.215
-    port: 60771
-    uuid: 060a5db6-7ff9-4a64-87c1-8a27be4f11ab
+    name: EPODONIOS
+    server: 93.119.168.18
+    port: 1280
+    uuid: aa6b9a9d-84d4-49e5-93f7-90404b112634
     udp: true
     xudp: true
-  - type: vless
-    name: 🇵🇹
-    server: 93.119.168.215
-    port: 60771
-    uuid: 060a5db6-7ff9-4a64-87c1-8a27be4f11ab
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Jadi-4737ae0f16
-    server: 93.119.168.215
-    port: 60771
-    uuid: 060a5db6-7ff9-4a64-87c1-8a27be4f11ab
-    udp: true
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 🇵🇹
-      - 4Jadi-4737ae0f16
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 🇵🇹
-      - 4Jadi-4737ae0f16
+      - EPODONIOS
 rules:
   - MATCH,Proxy

@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 45.78.68.134
+    port: 46028
+    uuid: 72c3c771-a721-4646-98d8-2bacfeead232
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 7fnTqbsj7tf1vmq6F2FvKEvdLzn5tphpz0k6MkHeDTY
+      short-id: 387416d7
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -13,6 +27,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Mohsen-32e553f3cf
   - name: Auto
     type: url-test
@@ -20,6 +35,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Mohsen-32e553f3cf
 rules:
   - MATCH,Proxy

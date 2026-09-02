@@ -1,6 +1,18 @@
 proxies:
   - type: vless
-    name: 4Mohsen-9940e84565
+    name: "[033944]"
+    server: 176.111.218.212
+    port: 2087
+    uuid: 7c04b737-d6a7-47ec-99bf-94e668090fcf
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ffc10963e4f8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-a5c6d79973
     server: 176.111.218.212
     port: 2087
     uuid: 7c04b737-d6a7-47ec-99bf-94e668090fcf
@@ -16,13 +28,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-9940e84565
+      - "[033944]"
+      - 4Mohsen-a5c6d79973
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-9940e84565
+      - "[033944]"
+      - 4Mohsen-a5c6d79973
 rules:
   - MATCH,Proxy

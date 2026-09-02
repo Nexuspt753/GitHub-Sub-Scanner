@@ -1,12 +1,15 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 62.113.37.80
+    name: EPODONIOS
+    server: bz11.wba-pn.ru
     port: 2053
     uuid: bd7501b8-5c29-4b4d-a060-76446349c835
     udp: true
     tls: true
-    client-fingerprint: safari
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     servername: bz11.wba-pn.ru
     xudp: true
     network: ws
@@ -19,13 +22,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy
