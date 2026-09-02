@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 153.75.88.69
+    port: 110
+    uuid: 8c2c4ddd-26c1-43e9-8c1a-557c50762adc
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 153.75.88.69
+    port: 443
+    uuid: 8c2c4ddd-26c1-43e9-8c1a-557c50762adc
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+rules:
+  - MATCH,Proxy
