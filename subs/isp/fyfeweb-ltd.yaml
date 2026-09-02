@@ -1,0 +1,27 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 45.85.88.194
+    port: 2234
+    password: tripitropa994825
+    udp: true
+    tls: true
+    sni: vps.tropicalhosting.net
+    alpn:
+      - http/1.1
+    client-fingerprint: android
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

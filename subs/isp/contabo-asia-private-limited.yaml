@@ -6,6 +6,13 @@ proxies:
     cipher: aes-256-gcm
     password: 5QCeIKUZUEp4mR9Z
     udp: true
+  - type: ss
+    name: "[033457]"
+    server: 194.233.94.119
+    port: 80
+    cipher: aes-256-gcm
+    password: 5QCeIKUZUEp4mR9Z
+    udp: true
   - type: vmess
     name: 4Mohsen-04e5a85721
     server: 109.123.237.41
@@ -21,29 +28,14 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Sarina-be721ed6d8
-    server: 109.123.237.41
-    port: 80
-    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /fastssh
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - "[033457]"
       - 4Mohsen-04e5a85721
-      - 4Sarina-be721ed6d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -51,7 +43,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - "[033457]"
       - 4Mohsen-04e5a85721
-      - 4Sarina-be721ed6d8
 rules:
   - MATCH,Proxy

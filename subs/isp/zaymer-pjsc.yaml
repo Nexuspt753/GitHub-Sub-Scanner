@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: vless
+    server: page.irhubby.ir
+    port: 2053
+    uuid: 0a7ef86e-b897-4358-b57f-215d05a26d0b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
     name: DeltaKroneckerGithub
     server: 45.67.215.233
     port: 443
@@ -18,7 +30,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 057.electrocellco-cf-057.workers.dev
   - type: vless
-    name: vless
+    name: vless-01
     server: page.irhubby.ir
     port: 2053
     uuid: 7b74b750-a5f4-4b67-82c3-ae9f92cabc6d
@@ -154,8 +166,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - vless
+      - DeltaKroneckerGithub
+      - vless-01
       - EPODONIOS
       - EPODONIOS-01
       - 4Jadi-2c356a6d1e
@@ -169,8 +182,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - vless
+      - DeltaKroneckerGithub
+      - vless-01
       - EPODONIOS
       - EPODONIOS-01
       - 4Jadi-2c356a6d1e

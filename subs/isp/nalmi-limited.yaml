@@ -12,12 +12,46 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime11.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.207.198.123
+    port: 443
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: Telegram-WangCai2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 185.207.197.123
+    port: 443
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: Telegram-WangCai2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +59,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy
