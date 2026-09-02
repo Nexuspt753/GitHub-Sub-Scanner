@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: albani-emergency-service.relqino.ir
-    port: 8443
-    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: albani-emergency-service.relqino.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: albani-emergency-service.relqino.ir
-  - type: vless
     name: Fast
     server: de-emergency-service.pavilof.ir
     port: 443
@@ -32,10 +16,10 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: de-emergency-service.pavilof.ir
   - type: vless
-    name: EPODONIOS-01
+    name: Gaming
     server: tr-emergency-service.pavilof.ir
     port: 443
-    uuid: d4e041e6-6960-4723-9fab-75839c9705ef
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -47,6 +31,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: tr-emergency-service.pavilof.ir
+  - type: vless
+    name: 4Mohsen-842b450da9
+    server: ukraine-emergency-service.relqino.ir
+    port: 443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ukraine-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ukraine-emergency-service.relqino.ir
+  - type: vless
+    name: 4Kian-c67009e4d2
+    server: usa-emergency-service.relqino.ir
+    port: 8443
+    uuid: 26a3cb0e-6c4f-46ed-8330-69ae3000a506
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: usa-emergency-service.relqino.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: usa-emergency-service.relqino.ir
   - type: vmess
     name: 4Sarina-0dd3eeb678
     server: 176.65.140.210
@@ -143,52 +159,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bobo.badrangteb.ir
-  - type: vmess
-    name: 4Nika-c1680aa587
-    server: 176.65.140.210
-    port: 23981
-    uuid: e2ab9425-a3d5-4001-8b31-6a259935fe72
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: bobo.badrangteb.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - Fast
-      - EPODONIOS-01
+      - Gaming
+      - 4Mohsen-842b450da9
+      - 4Kian-c67009e4d2
       - 4Sarina-0dd3eeb678
       - 4Nika-4e7b78735f
       - 4Mohsen-0cef8c0dd4
       - 4FreeIran-07faa59a10
       - 4Sarina-6fc4243a66
       - 4FreeIran-53d2398ea1
-      - 4Nika-c1680aa587
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - Fast
-      - EPODONIOS-01
+      - Gaming
+      - 4Mohsen-842b450da9
+      - 4Kian-c67009e4d2
       - 4Sarina-0dd3eeb678
       - 4Nika-4e7b78735f
       - 4Mohsen-0cef8c0dd4
       - 4FreeIran-07faa59a10
       - 4Sarina-6fc4243a66
       - 4FreeIran-53d2398ea1
-      - 4Nika-c1680aa587
 rules:
   - MATCH,Proxy

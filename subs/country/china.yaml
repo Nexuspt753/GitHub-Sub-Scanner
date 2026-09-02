@@ -1,5 +1,19 @@
 proxies:
   - type: ss
+    name: Beijing · EPODONIOS
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: Beijing · EPODONIOS-01
+    server: 121.46.230.233
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
     name: Beijing · 香港
     server: 121.46.230.233
     port: 65443
@@ -75,6 +89,16 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: Hefei · EPODONIOS-01
+    server: 112.132.215.108
+    port: 50002
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: trojan
     name: Qingyuan · @DeltaKroneckerGithub
     server: 118.253.167.243
@@ -118,6 +142,15 @@ proxies:
     tls: true
     sni: tyy129.magiclampcloud.com
     client-fingerprint: chrome
+  - type: trojan
+    name: Qingyuan · @DeltaKroneckerGithub-03
+    server: tyy129.magiclampcloud.com
+    port: 59443
+    password: 14bac0e43c849123ccb0fd0690f24316
+    udp: true
+    tls: true
+    sni: tyy129.magiclampcloud.com
+    client-fingerprint: chrome
   - type: vmess
     name: Hefei · 🇨🇳 CN
     server: 112.132.215.108
@@ -139,20 +172,15 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Shanghai · 4Nika-b8630bc7fb
-    server: 124.222.189.225
-    port: 80
-    uuid: a8c9ad5b-1f58-4234-b5fe-a895bee9a047
-    alterId: 0
+    name: Hefei · 4Sarina-ea1a547251
+    server: 112.132.215.108
+    port: 50002
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: Kunming · 4Nika-91d10da546
     server: 150.242.244.116
@@ -164,7 +192,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Beijing · 4FreeIran-5ff821a4fd
+    name: Chengdu · 4FreeIran-5ff821a4fd
     server: v33.hdacd.com
     port: 30833
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -174,7 +202,17 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Nanjing · 4Nika-c45ac285fd
+    name: Chengdu · 4Sarina-f6345d464c
+    server: v4.hdacd.com
+    port: 30804
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: Shanghai · 4Nika-c45ac285fd
     server: v6.hdacd.com
     port: 30806
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -183,11 +221,29 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: Hangzhou · 4Kian-af1e86a671
+    server: visa.cn
+    port: 80
+    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /sba-vm?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deee.horryan4.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Beijing · EPODONIOS
+      - Beijing · EPODONIOS-01
       - Beijing · 香港
       - Haidian · EPODONIOS
       - Haidian · @free_conf_iran
@@ -195,22 +251,28 @@ proxy-groups:
       - Shenzhen · @DeltaKroneckerGithub-01
       - Guancheng · @DeltaKroneckerGithub
       - Hefei · EPODONIOS
+      - Hefei · EPODONIOS-01
       - Qingyuan · @DeltaKroneckerGithub
       - Qingyuan · @DeltaKroneckerGithub-01
       - Haidian · 4FreeIran-238f9d1c41
       - Qingyuan · @DeltaKroneckerGithub-02
+      - Qingyuan · @DeltaKroneckerGithub-03
       - Hefei · 🇨🇳 CN
       - Hefei · @DeltaKroneckerGithub
-      - Shanghai · 4Nika-b8630bc7fb
+      - Hefei · 4Sarina-ea1a547251
       - Kunming · 4Nika-91d10da546
-      - Beijing · 4FreeIran-5ff821a4fd
-      - Nanjing · 4Nika-c45ac285fd
+      - Chengdu · 4FreeIran-5ff821a4fd
+      - Chengdu · 4Sarina-f6345d464c
+      - Shanghai · 4Nika-c45ac285fd
+      - Hangzhou · 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Beijing · EPODONIOS
+      - Beijing · EPODONIOS-01
       - Beijing · 香港
       - Haidian · EPODONIOS
       - Haidian · @free_conf_iran
@@ -218,15 +280,19 @@ proxy-groups:
       - Shenzhen · @DeltaKroneckerGithub-01
       - Guancheng · @DeltaKroneckerGithub
       - Hefei · EPODONIOS
+      - Hefei · EPODONIOS-01
       - Qingyuan · @DeltaKroneckerGithub
       - Qingyuan · @DeltaKroneckerGithub-01
       - Haidian · 4FreeIran-238f9d1c41
       - Qingyuan · @DeltaKroneckerGithub-02
+      - Qingyuan · @DeltaKroneckerGithub-03
       - Hefei · 🇨🇳 CN
       - Hefei · @DeltaKroneckerGithub
-      - Shanghai · 4Nika-b8630bc7fb
+      - Hefei · 4Sarina-ea1a547251
       - Kunming · 4Nika-91d10da546
-      - Beijing · 4FreeIran-5ff821a4fd
-      - Nanjing · 4Nika-c45ac285fd
+      - Chengdu · 4FreeIran-5ff821a4fd
+      - Chengdu · 4Sarina-f6345d464c
+      - Shanghai · 4Nika-c45ac285fd
+      - Hangzhou · 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

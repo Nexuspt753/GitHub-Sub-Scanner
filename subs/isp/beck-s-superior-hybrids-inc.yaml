@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 141.193.27.4
+    port: 80
+    uuid: e403856e-4e50-49e6-9edc-d9536a803a6a
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /pyip=Telegram🇨🇳+@WangCai2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proud-cloud-5c50.113-8dc.workers.dev
+  - type: vless
     name: ">>@oneclickvpnkeys::US"
     server: 141.193.27.4
     port: 80
@@ -25,35 +38,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: proud-cloud-5c50.113-8dc.workers.dev
-  - type: vless
-    name: 4Sarina-b4f98c8480
-    server: 141.193.27.4
-    port: 80
-    uuid: e403856e-4e50-49e6-9edc-d9536a803a6a
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pyip=Telegram🇨🇳 @WangCai2
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proud-cloud-5c50.113-8dc.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - ">>@oneclickvpnkeys::US"
       - 4Nika-c21d3eebbc
-      - 4Sarina-b4f98c8480
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - ">>@oneclickvpnkeys::US"
       - 4Nika-c21d3eebbc
-      - 4Sarina-b4f98c8480
 rules:
   - MATCH,Proxy
