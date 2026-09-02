@@ -1,6 +1,13 @@
 proxies:
   - type: ss
-    name: meliproxyy
+    name: EPODONIOS
+    server: Irj.jobwebs.ir
+    port: 25341
+    cipher: chacha20-ietf-poly1305
+    password: qb0uRN2r8CACi1tqOsZN3n5j_IcyqcEm
+    udp: true
+  - type: ss
+    name: configprxy
     server: Irj.jobwebs.ir
     port: 25341
     cipher: chacha20-ietf-poly1305
@@ -11,13 +18,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - meliproxyy
+      - EPODONIOS
+      - configprxy
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - meliproxyy
+      - EPODONIOS
+      - configprxy
 rules:
   - MATCH,Proxy

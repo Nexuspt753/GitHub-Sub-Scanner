@@ -12,19 +12,21 @@ proxies:
       public-key: SIBS0hevQuPeJiBQUoN5MYq8Gs_ZWyBlkHK6miz__kM
       short-id: 90decc62dab9873f
     xudp: true
-  - type: vless
-    name: 4Mohsen-c2d1db19e9
-    server: 46.250.240.80
-    port: 2053
-    uuid: f2816a01-3555-4e79-9e26-770f050ea55a
+  - type: vmess
+    name: 4Mohsen-04e5a85721
+    server: 109.123.237.41
+    port: 80
+    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: bRDaP068YgdwwdQgenUvKTNfPjIB_Dy-lJDFC9ZZEXU
-      short-id: 632a146bd581641a
     xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Sarina-be721ed6d8
     server: 109.123.237.41
@@ -46,7 +48,7 @@ proxy-groups:
     proxies:
       - Auto
       - 4FreeIran-dc44b01c0f
-      - 4Mohsen-c2d1db19e9
+      - 4Mohsen-04e5a85721
       - 4Sarina-be721ed6d8
   - name: Auto
     type: url-test
@@ -55,7 +57,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-dc44b01c0f
-      - 4Mohsen-c2d1db19e9
+      - 4Mohsen-04e5a85721
       - 4Sarina-be721ed6d8
 rules:
   - MATCH,Proxy

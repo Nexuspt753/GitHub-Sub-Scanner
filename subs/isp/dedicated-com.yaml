@@ -1,13 +1,22 @@
 proxies:
   - type: ss
-    name: EPODONIOS
+    name: 🇺🇸
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
     password: hCCWOcIsK5wrFz4OX70rWf
     udp: true
   - type: trojan
-    name: EPODONIOS-01
+    name: EPODONIOS
+    server: 64.94.95.118
+    port: 57142
+    password: kkzh2prsyr2ik47as615
+    udp: true
+    tls: true
+    sni: 64.94.95.118
+    client-fingerprint: chrome
+  - type: trojan
+    name: 🇺🇸-01
     server: 64.94.95.118
     port: 57142
     password: kkzh2prsyr2ik47as615
@@ -63,22 +72,8 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: trojan
+  - type: ss
     name: DeltaKroneckerGithub-04
-    server: 64.94.95.115
-    port: 57142
-    password: kkzh2prsyr2ik47as615
-    udp: true
-    client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-05
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
-    udp: true
-  - type: ss
-    name: 🇺🇸US-216.105.168.18-0138
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
@@ -89,8 +84,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇺🇸
       - EPODONIOS
-      - EPODONIOS-01
+      - 🇺🇸-01
       - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -98,16 +94,15 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
-      - 🇺🇸US-216.105.168.18-0138
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇺🇸
       - EPODONIOS
-      - EPODONIOS-01
+      - 🇺🇸-01
       - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -115,7 +110,5 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
-      - 🇺🇸US-216.105.168.18-0138
 rules:
   - MATCH,Proxy

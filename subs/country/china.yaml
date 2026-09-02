@@ -1,13 +1,6 @@
 proxies:
   - type: ss
-    name: Beijing · EPODONIOS
-    server: 121.46.230.138
-    port: 65443
-    cipher: aes-256-cfb
-    password: 7eadc6dbe2ae
-    udp: true
-  - type: ss
-    name: Beijing · EPODONIOS-01
+    name: Beijing · 香港
     server: 121.46.230.233
     port: 65443
     cipher: aes-256-cfb
@@ -125,37 +118,18 @@ proxies:
     tls: true
     sni: tyy129.magiclampcloud.com
     client-fingerprint: chrome
-  - type: trojan
-    name: Qingyuan · @DeltaKroneckerGithub-03
-    server: tyy129.magiclampcloud.com
-    port: 59443
-    password: 14bac0e43c849123ccb0fd0690f24316
+  - type: vmess
+    name: Hefei · 🇨🇳 CN
+    server: 112.132.215.108
+    port: 50002
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
     udp: true
-    tls: true
-    sni: tyy129.magiclampcloud.com
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: Hefei · @DeltaKroneckerGithub
-    server: 112.132.215.108
-    port: 50002
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Hefei · 4Mohsen-5081bad55a
-    server: 112.132.215.108
-    port: 50002
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Hefei · 4Sarina-ea1a547251
     server: 112.132.215.108
     port: 50002
     uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
@@ -190,29 +164,31 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Huizhou · 4FreeIran-4f458516f0
-    server: cu4.ainivp.com
-    port: 33402
-    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
-    alterId: 0
+    name: Beijing · 4FreeIran-5ff821a4fd
+    server: v33.hdacd.com
+    port: 30833
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /ray
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cu4.ainivp.com
+  - type: vmess
+    name: Nanjing · 4Nika-c45ac285fd
+    server: v6.hdacd.com
+    port: 30806
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Beijing · EPODONIOS
-      - Beijing · EPODONIOS-01
+      - Beijing · 香港
       - Haidian · EPODONIOS
       - Haidian · @free_conf_iran
       - Shenzhen · @DeltaKroneckerGithub
@@ -223,21 +199,19 @@ proxy-groups:
       - Qingyuan · @DeltaKroneckerGithub-01
       - Haidian · 4FreeIran-238f9d1c41
       - Qingyuan · @DeltaKroneckerGithub-02
-      - Qingyuan · @DeltaKroneckerGithub-03
+      - Hefei · 🇨🇳 CN
       - Hefei · @DeltaKroneckerGithub
-      - Hefei · 4Mohsen-5081bad55a
-      - Hefei · 4Sarina-ea1a547251
       - Shanghai · 4Nika-b8630bc7fb
       - Kunming · 4Nika-91d10da546
-      - Huizhou · 4FreeIran-4f458516f0
+      - Beijing · 4FreeIran-5ff821a4fd
+      - Nanjing · 4Nika-c45ac285fd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Beijing · EPODONIOS
-      - Beijing · EPODONIOS-01
+      - Beijing · 香港
       - Haidian · EPODONIOS
       - Haidian · @free_conf_iran
       - Shenzhen · @DeltaKroneckerGithub
@@ -248,12 +222,11 @@ proxy-groups:
       - Qingyuan · @DeltaKroneckerGithub-01
       - Haidian · 4FreeIran-238f9d1c41
       - Qingyuan · @DeltaKroneckerGithub-02
-      - Qingyuan · @DeltaKroneckerGithub-03
+      - Hefei · 🇨🇳 CN
       - Hefei · @DeltaKroneckerGithub
-      - Hefei · 4Mohsen-5081bad55a
-      - Hefei · 4Sarina-ea1a547251
       - Shanghai · 4Nika-b8630bc7fb
       - Kunming · 4Nika-91d10da546
-      - Huizhou · 4FreeIran-4f458516f0
+      - Beijing · 4FreeIran-5ff821a4fd
+      - Nanjing · 4Nika-c45ac285fd
 rules:
   - MATCH,Proxy
