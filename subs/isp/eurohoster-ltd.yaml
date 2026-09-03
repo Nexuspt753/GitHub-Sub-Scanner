@@ -13,12 +13,27 @@ proxies:
       short-id: f648da8196bdb32e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-2a5b74d442
+    server: 62.171.228.244
+    port: 8443
+    uuid: 05bfcbaa-cba0-4bce-9103-09fe3f5f0667
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: PiMm8p728z5Z3ukO__9Y1pqXKv2PBQWq99ifoxRHJzU
+      short-id: face912fc5a49158
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4Sarina-2a5b74d442
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4Sarina-2a5b74d442
 rules:
   - MATCH,Proxy
