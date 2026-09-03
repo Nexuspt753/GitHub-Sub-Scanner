@@ -1,43 +1,23 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 188.130.234.239
-    port: 443
-    uuid: 308cf8e0-e922-49bb-9b68-203e5aafcc97
+    server: 109.248.170.119
+    port: 13447
+    uuid: b573cefb-7bc7-4a42-b407-b8b534e66773
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: kz.node.goidanet.com
+    servername: yahoo.com
     reality-opts:
-      public-key: xXxqDpB8gQjBddOHSOFb52xVS2Odmb63z1PYhMqe0Uo
-      short-id: 1a55b8fd25417fbf
+      public-key: _0wM2ep44eAcrgf5PflKaBivknCWT6kMvQBQUoScCkE
+      short-id: "83"
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: kz.node.goidanet.com
-    port: 443
-    uuid: 308cf8e0-e922-49bb-9b68-203e5aafcc97
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: kz.node.goidanet.com
-    reality-opts:
-      public-key: xXxqDpB8gQjBddOHSOFb52xVS2Odmb63z1PYhMqe0Uo
-      short-id: 1a55b8fd25417fbf
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

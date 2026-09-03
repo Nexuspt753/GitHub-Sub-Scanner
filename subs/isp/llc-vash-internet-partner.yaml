@@ -1,5 +1,20 @@
 proxies:
   - type: trojan
+    name: 4Jadi-46a5ce5d8d
+    server: by01.botovod.space
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    udp: true
+    tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
     name: DeltaKroneckerGithub
     server: by01.botovod.space
     port: 500
@@ -15,8 +30,8 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: 4Jadi-46a5ce5d8d
-    server: by01.botovod.space
+    name: DeltaKroneckerGithub-01
+    server: 178.172.227.178
     port: 500
     password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
     udp: true
@@ -34,15 +49,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Jadi-46a5ce5d8d
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Jadi-46a5ce5d8d
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

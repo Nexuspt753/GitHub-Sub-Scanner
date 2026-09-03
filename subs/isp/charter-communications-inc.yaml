@@ -1,0 +1,23 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: bright.bitgas.org
+    port: 443
+    password: UQfj7bdfjibTjpUHfg72aew51S7fB32g
+    udp: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

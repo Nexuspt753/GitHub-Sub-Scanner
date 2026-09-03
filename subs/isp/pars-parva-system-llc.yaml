@@ -1,23 +1,44 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: my.configfast.site
-    port: 4013
-    uuid: 44de73bc-eb6d-429d-9c2f-ec0a6e4a6681
+    name: tanhanet
+    server: connect.nyxserver.ir
+    port: 80
+    uuid: cef2e5c6-23d6-415a-ac38-8d96e10b9053
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /arvan-tuel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: connect.nyxserver.ir
+  - type: vless
+    name: 4Mohsen-464b65fb2a
+    server: connect.nyxserver.ir
+    port: 80
+    uuid: cef2e5c6-23d6-415a-ac38-8d96e10b9053
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /arvan-tuel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: connect.nyxserver.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - tanhanet
+      - 4Mohsen-464b65fb2a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - tanhanet
+      - 4Mohsen-464b65fb2a
 rules:
   - MATCH,Proxy

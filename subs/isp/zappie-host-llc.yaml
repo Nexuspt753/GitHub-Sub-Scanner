@@ -1,43 +1,46 @@
 proxies:
   - type: vless
-    name: 4Jadi-6fb50665cf
-    server: 64.49.12.115
-    port: 2083
-    uuid: 70e42a70-f73c-4317-8793-774105a66c44
+    name: DeltaKroneckerGithub
+    server: kola1.api3-max.ru
+    port: 443
+    uuid: ac7fb60f-0b7a-465d-a002-05160ec04ed6
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: MlRM646jm530R9ARWkIVz5T_TEOUDfmiRDFVnzQI12g
-      short-id: b40a
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: kola1.api3-max.ru
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
-    name: vless
-    server: 64.49.12.115
-    port: 2087
-    uuid: 70e42a70-f73c-4317-8793-774105a66c44
+    name: DeltaKroneckerGithub-01
+    server: 64.49.12.158
+    port: 443
+    uuid: ac7fb60f-0b7a-465d-a002-05160ec04ed6
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: kola1.api3-max.ru
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6fb50665cf
-      - vless
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6fb50665cf
-      - vless
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

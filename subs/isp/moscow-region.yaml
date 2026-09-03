@@ -3,6 +3,18 @@ proxies:
     name: DeltaKroneckerGithub
     server: 90.156.218.126
     port: 2223
+    password: DQMH0rnu-nQ2FL7fddCA306ApdzGuvFA
+    udp: true
+    tls: true
+    sni: vkc7.secured-by-tenzo.sbs
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: firefox
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 90.156.218.126
+    port: 2223
     password: 47SXGr72f1wpGNkZzLUUExRDHuVQypaW
     udp: true
     tls: true
@@ -11,26 +23,13 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: android
-  - type: vless
-    name: 4FreeIran-7f03067ae4
-    server: 90.156.218.143
-    port: 443
-    uuid: d7430ae7-320c-4658-808b-3006d0627d82
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: mint.ubuntuhosting.host
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-7f03067ae4
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-7f03067ae4
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,0 +1,33 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 5.249.164.28
+    port: 25615
+    password: kakashka13222
+    udp: true
+    tls: true
+    sni: op-1.firecone.eu
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: /femboyporn--femboyporn--femboyporn--femboyporn/free-trojan-node/only-smux-supported
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: op-1.firecone.eu
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

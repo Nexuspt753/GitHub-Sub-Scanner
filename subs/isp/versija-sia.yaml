@@ -1,6 +1,34 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 185.220.223.61
+    port: 8443
+    uuid: 2181d0c8-448a-4f75-b848-1718029baef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: "-Dg4mGAAM5Lwe9ri7Bx5WlYdPBsyYJy-Pai2Z0FGlyc"
+      short-id: afee962d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: "[034518]"
+    server: 185.220.223.61
+    port: 8443
+    uuid: 2181d0c8-448a-4f75-b848-1718029baef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: "-Dg4mGAAM5Lwe9ri7Bx5WlYdPBsyYJy-Pai2Z0FGlyc"
+      short-id: afee962d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-1780581079
     server: 185.220.223.61
     port: 8443
     uuid: 2181d0c8-448a-4f75-b848-1718029baef9
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - "[034518]"
+      - 4FreeIran-1780581079
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - "[034518]"
+      - 4FreeIran-1780581079
 rules:
   - MATCH,Proxy

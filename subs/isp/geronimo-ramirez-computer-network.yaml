@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Kian-15d7ab2c9d
+    server: ch-xh01.tcp-reset-club.net
+    port: 443
+    uuid: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s3.netavex.com
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-15d7ab2c9d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-15d7ab2c9d
+rules:
+  - MATCH,Proxy

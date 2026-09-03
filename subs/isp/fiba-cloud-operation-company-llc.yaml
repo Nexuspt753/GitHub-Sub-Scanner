@@ -1,50 +1,46 @@
 proxies:
-  - type: vmess
-    name: EPODONIOS
-    server: 103.83.87.229
-    port: 31973
-    uuid: c0d6667a-d257-4724-bca0-18c33fdd6b4a
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: tr-docs.savesafe.cc
+    port: 443
+    uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr-docs.savesafe.cc
+    reality-opts:
+      public-key: fyOnHd_PZ6UjxCLPDFfxrT3XIJnjTpHXyluFakC3v14
+      short-id: 95d36da964f4e951
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: EPODONIOS-01
-    server: 103.83.87.229
-    port: 31973
-    uuid: c0d6667a-d257-4724-bca0-18c33fdd6b4a
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 103.83.87.226
+    port: 443
+    uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr-docs.savesafe.cc
+    reality-opts:
+      public-key: fyOnHd_PZ6UjxCLPDFfxrT3XIJnjTpHXyluFakC3v14
+      short-id: 95d36da964f4e951
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4FreeIran-991c0ebada
-    server: 103.83.87.229
-    port: 31973
-    uuid: c0d6667a-d257-4724-bca0-18c33fdd6b4a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - 4FreeIran-991c0ebada
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - 4FreeIran-991c0ebada
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

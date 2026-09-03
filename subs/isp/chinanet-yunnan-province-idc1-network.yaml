@@ -1,5 +1,26 @@
 proxies:
   - type: vmess
+    name: DeltaKroneckerGithub
+    server: 150.242.244.116
+    port: 2648
+    uuid: aeff933f-0ae6-4465-85bf-12f1394f35af
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-01
+    server: 150.242.244.116
+    port: 2648
+    uuid: 44712929-c2b7-4fa4-93bd-9de332a78c8c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: 150.242.244.116
+  - type: vmess
     name: 4Nika-91d10da546
     server: 150.242.244.116
     port: 2648
@@ -14,6 +35,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-91d10da546
   - name: Auto
     type: url-test
@@ -21,6 +44,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-91d10da546
 rules:
   - MATCH,Proxy

@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-4ec22ce6df
+    server: cdg.quicksavesafe.com
+    port: 443
+    uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdg.quicksavesafe.com
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-4ec22ce6df
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-4ec22ce6df
+rules:
+  - MATCH,Proxy

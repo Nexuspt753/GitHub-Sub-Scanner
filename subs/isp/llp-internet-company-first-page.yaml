@@ -1,16 +1,32 @@
 proxies:
   - type: vless
-    name: 4FreeIran-5a0929c452
-    server: 109.248.18.63
+    name: DeltaKroneckerGithub
+    server: 109.248.18.208
     port: 443
-    uuid: 62a08ea5-0564-47b4-a92c-25be07ad6358
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: 360.yandex.ru
+    servername: garuda.ubuntuhosting.host
     reality-opts:
-      public-key: ne8wv6o6AYcQoVvz30PiTjSxviGa3_Kw5ClIEDdg-3A
-      short-id: 6ba85179e30d4fc2
+      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
+      short-id: 3fa234ea9feaa048
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: garuda.ubuntuhosting.host
+    port: 443
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: garuda.ubuntuhosting.host
+    reality-opts:
+      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
+      short-id: 3fa234ea9feaa048
     xudp: true
     network: grpc
     grpc-opts:
@@ -20,13 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5a0929c452
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5a0929c452
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

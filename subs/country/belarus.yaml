@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: Minsk · EPODONIOS
+    server: 185.179.82.246
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
+  - type: vless
     name: Minsk · 🇵🇱
     server: 185.179.82.246
     port: 443
@@ -16,6 +32,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: eded-52n.pages.dev
   - type: trojan
+    name: Bol’shoye Stiklevo · 4Jadi-46a5ce5d8d
+    server: by01.botovod.space
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    udp: true
+    tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
     name: Bol’shoye Stiklevo · @DeltaKroneckerGithub
     server: by01.botovod.space
     port: 500
@@ -31,8 +62,8 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: Bol’shoye Stiklevo · 4Jadi-46a5ce5d8d
-    server: by01.botovod.space
+    name: Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
+    server: 178.172.227.178
     port: 500
     password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
     udp: true
@@ -45,22 +76,44 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: Minsk · 4Nika-c0632c0b16
+    server: 185.179.82.246
+    port: 443
+    uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eded-52n.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eded-52n.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Minsk · EPODONIOS
       - Minsk · 🇵🇱
-      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
       - Bol’shoye Stiklevo · 4Jadi-46a5ce5d8d
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
+      - Minsk · 4Nika-c0632c0b16
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Minsk · EPODONIOS
       - Minsk · 🇵🇱
-      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
       - Bol’shoye Stiklevo · 4Jadi-46a5ce5d8d
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
+      - Minsk · 4Nika-c0632c0b16
 rules:
   - MATCH,Proxy

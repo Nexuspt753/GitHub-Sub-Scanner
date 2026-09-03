@@ -1,0 +1,36 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hu2.vpnjantit.com
+    port: 4443
+    password: C0ldyfh-vpnjantit.com
+    udp: true
+    tls: true
+    sni: hu2.vpnjantit.com
+    client-fingerprint: android
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 46.29.142.57
+    port: 4443
+    password: C0ldyfh-vpnjantit.com
+    udp: true
+    tls: true
+    sni: hu2.vpnjantit.com
+    client-fingerprint: android
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

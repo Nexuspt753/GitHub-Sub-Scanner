@@ -1,6 +1,34 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 178.250.186.139
+    port: 8443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇷🇺
+    server: 178.250.186.139
+    port: 8443
+    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: auto.cendora.ru
+    reality-opts:
+      public-key: gc9oXe37KCCm3J1dJ03wdGsnxPBdeEkRPOvl_t-vfVM
+      short-id: a7f3c91b2e6d84c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-b52925c302
     server: 178.250.186.139
     port: 8443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇷🇺
+      - 4Nika-b52925c302
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇷🇺
+      - 4Nika-b52925c302
 rules:
   - MATCH,Proxy
