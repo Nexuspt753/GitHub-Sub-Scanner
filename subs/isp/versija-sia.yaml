@@ -1,27 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: lvhy2.metricpipe.space
-    port: 9443
-    password: 4LR1nTjdxRQs2JGmzJnsRefgqQUYFEfo
+  - type: vless
+    name: "[034518]"
+    server: 185.220.223.61
+    port: 8443
+    uuid: 2181d0c8-448a-4f75-b848-1718029baef9
     udp: true
     tls: true
-    sni: lvhy2.metricpipe.space
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: "-Dg4mGAAM5Lwe9ri7Bx5WlYdPBsyYJy-Pai2Z0FGlyc"
+      short-id: afee962d
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - "[034518]"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - "[034518]"
 rules:
   - MATCH,Proxy

@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
     name: KR
     server: 121.46.230.138
     port: 65443
@@ -20,31 +27,24 @@ proxies:
     cipher: aes-256-cfb
     password: 7eadc6dbe2ae
     udp: true
-  - type: ss
-    name: 🇨🇳CN-121.46.230.138-0145
-    server: 121.46.230.138
-    port: 65443
-    cipher: aes-256-cfb
-    password: 7eadc6dbe2ae
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - KR
       - Unknown
       - 韩国
-      - 🇨🇳CN-121.46.230.138-0145
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - KR
       - Unknown
       - 韩国
-      - 🇨🇳CN-121.46.230.138-0145
 rules:
   - MATCH,Proxy

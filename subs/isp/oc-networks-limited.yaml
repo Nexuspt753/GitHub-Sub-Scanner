@@ -7,13 +7,6 @@ proxies:
     sni: crt.ultimagamest.com
     skip-cert-verify: true
   - type: hysteria2
-    name: EPODONIOS
-    server: 31.76.22.210
-    port: 443
-    password: 8674df07-56b3-43ea-b687-aef2b1a20137
-    sni: crt.ultimagamest.com
-    skip-cert-verify: true
-  - type: hysteria2
     name: 波兰
     server: 31.76.22.210
     port: 443
@@ -22,6 +15,13 @@ proxies:
     skip-cert-verify: true
   - type: hysteria2
     name: 🇬🇧GB
+    server: 31.76.22.210
+    port: 443
+    password: 8674df07-56b3-43ea-b687-aef2b1a20137
+    sni: crt.ultimagamest.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: EPODONIOS
     server: 31.76.22.210
     port: 443
     password: 8674df07-56b3-43ea-b687-aef2b1a20137
@@ -190,19 +190,43 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇩🇪
-    server: 144.31.168.95
+    name: hex_proxy
+    server: 95.85.248.50
     port: 443
     uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: eu-central.cendora.ru
+    servername: eu-west.cendora.ru
     reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
+      public-key: m6RDw1b8R4lCaRUIzhHpy6TtX2Dhk6nyby8dWzeQqA0
+      short-id: dd3ff38418d29d22
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS-08
+    server: de.alertyagency.com
+    port: 443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: wDJibB6Rd20xkiSeIKLLo60DsKqB3il6gtXlpYxITj4
+      short-id: 977aa6df
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
+    server: 95.85.224.3
+    port: 8443
+    uuid: 7e8f7489-e65f-4be6-93ed-867a74ec6759
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: leviconfigs🪐-14
     server: 95.85.224.3
@@ -245,6 +269,20 @@ proxies:
       - h2
       - http/1.1
     servername: pl6.fast-connect-service.site
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: outline_ir
+    server: de.alertyagency.com
+    port: 443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: wDJibB6Rd20xkiSeIKLLo60DsKqB3il6gtXlpYxITj4
+      short-id: 977aa6df
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -371,15 +409,29 @@ proxies:
     servername: pl6.fast-connect-service.site
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-96299f885b
+    server: de.alertyagency.com
+    port: 443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: wDJibB6Rd20xkiSeIKLLo60DsKqB3il6gtXlpYxITj4
+      short-id: 977aa6df
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-10b238ce1b
-      - EPODONIOS
       - 波兰
       - 🇬🇧GB
+      - EPODONIOS
       - 4Kian-8f87e3d251
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -393,11 +445,14 @@ proxy-groups:
       - EPODONIOS-06
       - EPODONIOS-07
       - DeltaKroneckerGithub-04
-      - 🇩🇪
+      - hex_proxy
+      - EPODONIOS-08
+      - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
       - leviconfigs🪐-14
       - v2rayng3
       - v2rayng3-01
       - prrofile_purple
+      - outline_ir
       - 4FreeIran-558e12ca7f
       - 4FreeIran-7057296065
       - 4Mohsen-ecfccb7f27
@@ -408,6 +463,7 @@ proxy-groups:
       - 4Nika-83a4fd7d79
       - 4Sarina-3109bcb0c8
       - 4FreeIran-8158825ee9
+      - 4FreeIran-96299f885b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -415,9 +471,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-10b238ce1b
-      - EPODONIOS
       - 波兰
       - 🇬🇧GB
+      - EPODONIOS
       - 4Kian-8f87e3d251
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -431,11 +487,14 @@ proxy-groups:
       - EPODONIOS-06
       - EPODONIOS-07
       - DeltaKroneckerGithub-04
-      - 🇩🇪
+      - hex_proxy
+      - EPODONIOS-08
+      - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
       - leviconfigs🪐-14
       - v2rayng3
       - v2rayng3-01
       - prrofile_purple
+      - outline_ir
       - 4FreeIran-558e12ca7f
       - 4FreeIran-7057296065
       - 4Mohsen-ecfccb7f27
@@ -446,5 +505,6 @@ proxy-groups:
       - 4Nika-83a4fd7d79
       - 4Sarina-3109bcb0c8
       - 4FreeIran-8158825ee9
+      - 4FreeIran-96299f885b
 rules:
   - MATCH,Proxy

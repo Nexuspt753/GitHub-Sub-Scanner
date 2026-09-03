@@ -1,28 +1,31 @@
 proxies:
   - type: trojan
-    name: 4Nika-865d24c5a9
+    name: 4Mohsen-3ece71e9ee
     server: 185.75.243.102
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.ignitelimit.com
-    alpn:
-      - h3
-      - ""
-    client-fingerprint: chrome
+    client-fingerprint: android
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.ignitelimit.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-865d24c5a9
+      - 4Mohsen-3ece71e9ee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-865d24c5a9
+      - 4Mohsen-3ece71e9ee
 rules:
   - MATCH,Proxy
