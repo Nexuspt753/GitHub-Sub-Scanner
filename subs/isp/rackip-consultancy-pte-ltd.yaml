@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 134.122.202.244
+    port: 44915
+    uuid: 0ca45842-71e2-47fe-889f-9e75f93ea459
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Nika-6c49ffa5f8
     server: 134.122.202.244
     port: 44915
@@ -11,6 +18,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-6c49ffa5f8
   - name: Auto
     type: url-test
@@ -18,6 +26,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-6c49ffa5f8
 rules:
   - MATCH,Proxy

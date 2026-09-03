@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 193.42.38.209
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 185.81.114.88
@@ -9,7 +16,7 @@ proxies:
     sni: apple.com
     client-fingerprint: chrome
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 185.174.135.28
     port: 443
     uuid: ae8e0f7d-b661-41ca-b55d-d8c383adb2f8
@@ -45,6 +52,13 @@ proxies:
       short-id: ff776ff77be48b88
     flow: xtls-rprx-vision
     xudp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 193.42.38.209
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
   - type: vless
     name: 4Jadi-b7e58ed3e3
     server: 185.174.135.28
@@ -64,10 +78,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub
+      - EPODONIOS-01
       - DeltaKroneckerGithub-01
       - "☑➜چنلمون:"
+      - DeltaKroneckerGithub-02
       - 4Jadi-b7e58ed3e3
   - name: Auto
     type: url-test
@@ -75,10 +91,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub
+      - EPODONIOS-01
       - DeltaKroneckerGithub-01
       - "☑➜چنلمون:"
+      - DeltaKroneckerGithub-02
       - 4Jadi-b7e58ed3e3
 rules:
   - MATCH,Proxy

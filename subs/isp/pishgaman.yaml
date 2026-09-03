@@ -1,32 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Nika-3e4962894a
-    server: tun.ultranv.ir
-    port: 8585
-    uuid: e327b6a6-b491-49f3-928a-30e4058d802d
+  - type: ss
+    name: 4Kian-b917d88448
+    server: novin.amozesh-kade.ir
+    port: 4096
+    cipher: chacha20-ietf-poly1305
+    password: o0zuUSnCcGdPlqJG4GT4Dw
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tls.codmaxx.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tls.codmaxx.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-3e4962894a
+      - 4Kian-b917d88448
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-3e4962894a
+      - 4Kian-b917d88448
 rules:
   - MATCH,Proxy

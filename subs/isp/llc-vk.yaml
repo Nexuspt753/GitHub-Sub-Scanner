@@ -13,12 +13,27 @@ proxies:
       short-id: ab532d3308daa67b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-54397e958d
+    server: ru.chick-team.ru
+    port: 443
+    uuid: d62d49cb-a9b5-4f1f-90a4-316ecc3dadc4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: res.chick-team.ru
+    reality-opts:
+      public-key: NBiCX_Tj3BeMAyG-GbLLKpGjW_qacm3A2Mz5mN8v3Xk
+      short-id: ab532d3308daa67b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 🇷🇺@SiNAVM
+      - 4Mohsen-54397e958d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 🇷🇺@SiNAVM
+      - 4Mohsen-54397e958d
 rules:
   - MATCH,Proxy
