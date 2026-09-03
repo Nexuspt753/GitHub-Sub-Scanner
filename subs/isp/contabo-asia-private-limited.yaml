@@ -1,19 +1,32 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 46.250.240.80
+    server: 194.61.31.126
     port: 2053
-    uuid: 7dc2737e-1155-42f6-aec4-6b2b001001ae
+    uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: www.cloudflare.com
+    servername: www.apple.com
     reality-opts:
-      public-key: AttEUIEavqeVE5oz4_AxJPrcwx3IgcFElW2OoF8qTAg
-      short-id: b895d279c8cc40f9
+      public-key: R06_DTSjzQI9DswvRz9OqSBECfSwlpCMPR4DCc9oXyw
+      short-id: c0cb7457deebbc70
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: 46.250.250.149
+    port: 2053
+    uuid: 59bf58d9-ddaf-42cd-a0ca-db3559ad8714
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: eUjgCl7-ujbXq11kaSLe-8q1LJJfSueB5Vkh24wKgk8
+      short-id: cf081ff86b298c48
+    xudp: true
+  - type: vless
+    name: 4Kian-bc0c9b787c
     server: 194.61.31.126
     port: 2053
     uuid: 50ddfd92-dc79-4777-a256-41e34d56836e
@@ -40,6 +53,21 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-be721ed6d8
+    server: 109.123.237.41
+    port: 80
+    uuid: 03a77360-808d-11ed-b736-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fastssh
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -47,7 +75,9 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Kian-bc0c9b787c
       - 4Mohsen-04e5a85721
+      - 4Sarina-be721ed6d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,6 +86,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Kian-bc0c9b787c
       - 4Mohsen-04e5a85721
+      - 4Sarina-be721ed6d8
 rules:
   - MATCH,Proxy

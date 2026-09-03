@@ -1,62 +1,22 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.66.228.146
-    port: 2053
-    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: google.com
-    reality-opts:
-      public-key: R_OswGSrQj4jSA8QhDZDv072JOtb7CFtFcERvTV8A1s
-      short-id: 68e919d92ec047
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: lat.crsmaps.com
-    port: 2053
-    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: google.com
-    reality-opts:
-      public-key: R_OswGSrQj4jSA8QhDZDv072JOtb7CFtFcERvTV8A1s
-      short-id: 68e919d92ec047
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-ab03a2a3af
-    server: 45.66.228.146
-    port: 2053
-    uuid: 58f133a9-0b8c-4237-ba40-c69d32a35e27
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: google.com
-    reality-opts:
-      public-key: R_OswGSrQj4jSA8QhDZDv072JOtb7CFtFcERvTV8A1s
-      short-id: 68e919d92ec047
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: DE
+    server: de1.apexvpn.space
+    port: 443
+    password: dffb4c3d-1e84-4938-8881-cad917e8efb2
+    sni: de1.apexvpn.space
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-ab03a2a3af
+      - DE
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-ab03a2a3af
+      - DE
 rules:
   - MATCH,Proxy
