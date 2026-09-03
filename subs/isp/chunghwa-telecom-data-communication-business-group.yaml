@@ -1,74 +1,36 @@
 proxies:
   - type: trojan
-    name: 4Nika-0c566c8f6e
-    server: official.taipeicitygovernment.cn.ua
-    port: 8443
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-e52fc4d9db
-    server: official.taipeicitygovernment.net.ua
-    port: 8443
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
     name: DeltaKroneckerGithub
-    server: 125.227.152.109
-    port: 8443
-    password: 96983eb4-cr8f1-316e-ab00-500014ed3d8b
+    server: 61.228.92.161
+    port: 3462
+    password: 6e1b9a65-884f-3aa9-9469-bf6ec0f08610
     udp: true
     tls: true
+    sni: a03.taipeicitygovernment.cn.ua
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: official.taipeicitygovernment.cn.ua
-    port: 8443
-    password: 96983eb4-cr8f1-316e-ab00-500014ed3d8b
+    server: 61.228.84.250
+    port: 3462
+    password: 6e1b9a65-884f-3aa9-9469-bf6ec0f08610
     udp: true
     tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: official.taipeicitygovernment.cn.ua
-    port: 8443
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-03
-    server: 125.227.152.109
-    port: 8443
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-    udp: true
-    tls: true
+    sni: a03.taipeicitygovernment.cn.ua
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-0c566c8f6e
-      - 4Mohsen-e52fc4d9db
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-0c566c8f6e
-      - 4Mohsen-e52fc4d9db
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

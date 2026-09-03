@@ -1,14 +1,5 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
-    server: xn--1ugy405pdua.gayvibe.dpdns.org
-    port: 2174
-    password: tripitropa444
-    udp: true
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
-  - type: trojan
     name: DeltaKroneckerGithub
     server: xn--1ugy405pdua.gayvibe.dpdns.org
     port: 2174
@@ -56,28 +47,39 @@ proxies:
     tls: true
     sni: vps.tropicalhosting.net
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 45.85.88.194
+    port: 2234
+    password: tripitropa994825
+    udp: true
+    tls: true
+    sni: vps.tropicalhosting.net
+    alpn:
+      - http/1.1
+    client-fingerprint: android
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-093317adb1
       - 4Mohsen-85f4552f4a
       - 4Kian-616387ae44
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-093317adb1
       - 4Mohsen-85f4552f4a
       - 4Kian-616387ae44
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy
