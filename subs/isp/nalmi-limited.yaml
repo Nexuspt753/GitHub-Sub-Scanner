@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: vless
     server: 185.207.197.12
     port: 80
     uuid: 080fad7c-ff4b-499f-ab5d-52d69ea5745a
@@ -39,22 +39,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime11.workers.dev
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 185.207.199.7
-    port: 8443
-    uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: speed.dulacloud.store
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /dula?Telegram-WangCai2
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: speed.dulacloud.store
-  - type: vless
     name: 4FreeIran-7358c41e87
     server: 185.207.197.12
     port: 80
@@ -67,44 +51,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: calm-tree-22b0.215-d2a.workers.dev
-  - type: vless
-    name: 4Nika-beb2fe15b1
-    server: 185.207.199.7
-    port: 8443
-    uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: speed.dulacloud.store
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /dula?Telegram-WangCai2
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: speed.dulacloud.store
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - vless
       - Capoit
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4FreeIran-7358c41e87
-      - 4Nika-beb2fe15b1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - vless
       - Capoit
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4FreeIran-7358c41e87
-      - 4Nika-beb2fe15b1
 rules:
   - MATCH,Proxy

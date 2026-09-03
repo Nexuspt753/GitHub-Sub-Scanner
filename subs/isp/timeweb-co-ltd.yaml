@@ -12,12 +12,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: live.ok.ru
+  - type: vless
+    name: "[034850]"
+    server: 188.225.25.113
+    port: 4100
+    uuid: ed1fd11d-cbf7-4a73-9e98-c7f332b37117
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - "[034850]"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - "[034850]"
 rules:
   - MATCH,Proxy

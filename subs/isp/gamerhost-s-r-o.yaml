@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 5.39.202.127
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: czek1.kovsh.lol
+    reality-opts:
+      public-key: crRdG3Hd_QtGCJi9fd1rtHpDIB7vnCx1Yexfu6XkIzU
+      short-id: 2cec07a8614696e5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: czek1.kovsh.lol
     port: 443
     uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
