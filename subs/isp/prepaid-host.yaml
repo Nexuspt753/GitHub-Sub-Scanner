@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Kian-816f188215
+    server: sell77n.arakphone.ir
+    port: 43277
+    uuid: c29a8191-1757-4cf9-b9ae-c033bad76445
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-816f188215
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-816f188215
+rules:
+  - MATCH,Proxy
