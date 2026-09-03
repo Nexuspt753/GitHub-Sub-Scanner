@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: 🇺🇸
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
-    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 64.94.95.115
@@ -23,6 +16,15 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
+    server: 64.94.95.117
+    port: 57142
+    password: kkzh2prsyr2ik47as615
+    udp: true
+    tls: true
+    sni: 64.94.95.117
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
     server: 64.94.95.114
     port: 57142
     password: kkzh2prsyr2ik47as615
@@ -31,7 +33,7 @@ proxies:
     sni: static.rutube.ru
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 64.74.163.118
     port: 58536
     password: lEjtI3pFYfU7O1UYozJcfZV5K6Fwfths
@@ -45,28 +47,37 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: ss
+    name: 🇺🇸US-216.105.168.18-0158
+    server: 216.105.168.18
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: hCCWOcIsK5wrFz4OX70rWf
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇺🇸
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-631930b7bc
+      - 🇺🇸US-216.105.168.18-0158
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇺🇸
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-631930b7bc
+      - 🇺🇸US-216.105.168.18-0158
 rules:
   - MATCH,Proxy

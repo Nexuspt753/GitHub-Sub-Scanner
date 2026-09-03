@@ -13,12 +13,27 @@ proxies:
       short-id: 3fa234ea9feaa048
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-f5748ba4c2
+    server: 185.246.191.243
+    port: 443
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: endeavouros.ubuntuhosting.host
+    reality-opts:
+      public-key: n_-rh8EC8zmzkuu2AmCnKoh09omlYONdgS_F7CStITk
+      short-id: 3fa234ea9feaa048
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-f5748ba4c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-f5748ba4c2
 rules:
   - MATCH,Proxy
