@@ -11,12 +11,38 @@ proxies:
       path: "%2"
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: "[034169]"
+    server: out1.tehranionliine.ir
+    port: 80
+    uuid: 515d680d-65ed-4233-8345-1bfb7914372f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-1a0ab36037
+    server: out1.tehranionliine.ir
+    port: 80
+    uuid: 515d680d-65ed-4233-8345-1bfb7914372f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - "[034169]"
+      - 4Sarina-1a0ab36037
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -24,5 +50,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - "[034169]"
+      - 4Sarina-1a0ab36037
 rules:
   - MATCH,Proxy

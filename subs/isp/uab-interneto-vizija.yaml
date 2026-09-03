@@ -14,6 +14,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
+    name: 4Jadi-3deb238922
+    server: 195.181.244.216
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: DeltaKroneckerGithub-01
     server: 195.181.244.216
     port: 443
@@ -34,6 +49,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Jadi-3deb238922
       - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
@@ -42,6 +58,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Jadi-3deb238922
       - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
