@@ -1,28 +1,23 @@
 proxies:
-  - type: vless
-    name: Sines Municipality · EPODONIOS
-    server: 93.119.168.18
-    port: 1280
-    uuid: aa6b9a9d-84d4-49e5-93f7-90404b112634
+  - type: ss
+    name: Porto · [035687]
+    server: pt-1.stunnel.cc
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_pt
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Sines Municipality · EPODONIOS
+      - Porto · [035687]
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Sines Municipality · EPODONIOS
+      - Porto · [035687]
 rules:
   - MATCH,Proxy

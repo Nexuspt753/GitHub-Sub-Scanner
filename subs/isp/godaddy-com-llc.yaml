@@ -38,8 +38,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime47.workers.dev
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub-03
+    server: 184.168.127.50
+    port: 443
+    password: 28d98f761aca9d636f44db62544628eb
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-04
+    server: 184.168.127.50
+    port: 443
+    password: 36ebef7d1b1d6205fd0c55f28800e674
+    udp: true
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-05
     server: 50.62.88.16
     port: 443
     cipher: none
@@ -54,6 +68,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -64,5 +80,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
 rules:
   - MATCH,Proxy
