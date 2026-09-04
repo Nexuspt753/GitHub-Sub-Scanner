@@ -1,26 +1,28 @@
 proxies:
-  - type: vmess
-    name: 4Nika-0595140de6
-    server: vip1.showtimeless.site
-    port: 8880
-    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: 95.38.195.130
+    port: 80
+    uuid: 675ee872-adb2-4c66-8358-bd360259311f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-0595140de6
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-0595140de6
+      - vless
 rules:
   - MATCH,Proxy

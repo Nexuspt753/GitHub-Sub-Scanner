@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.126.238.87
+    port: 2083
+    uuid: 7668f678-faee-40cc-9b56-9c39dc773388
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 185.126.238.87
     port: 2083
@@ -44,6 +54,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - ShadowFlux2
       - 4Jadi-5f3b2753ab
@@ -54,6 +65,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - ShadowFlux2
       - 4Jadi-5f3b2753ab
