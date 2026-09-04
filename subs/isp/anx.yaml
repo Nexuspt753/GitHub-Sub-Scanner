@@ -1,6 +1,20 @@
 proxies:
   - type: vless
-    name: 4Mohsen-e87c09ab55
+    name: DeltaKroneckerGithub
+    server: 152.53.1.40
+    port: 443
+    uuid: edde565e-41f5-400e-84ea-7b87a3e84488
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: at.quattro-tech.ru
+    reality-opts:
+      public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
+      short-id: 43dcff53849b81e6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-74e7dc611f
     server: 152.53.1.40
     port: 443
     uuid: edde565e-41f5-400e-84ea-7b87a3e84488
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e87c09ab55
+      - DeltaKroneckerGithub
+      - 4Nika-74e7dc611f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e87c09ab55
+      - DeltaKroneckerGithub
+      - 4Nika-74e7dc611f
 rules:
   - MATCH,Proxy

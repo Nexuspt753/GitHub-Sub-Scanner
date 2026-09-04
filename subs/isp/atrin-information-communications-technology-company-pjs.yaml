@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: vless
+    name: 4FreeIran-ec19594c9b
     server: 95.38.195.145
     port: 80
     uuid: 675ee872-adb2-4c66-8358-bd360259311f
@@ -12,18 +12,30 @@ proxies:
       - ""
     servername: finland2.hopegiver.ir
     xudp: true
+  - type: vmess
+    name: 4Nika-0595140de6
+    server: vip1.showtimeless.site
+    port: 8880
+    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4FreeIran-ec19594c9b
+      - 4Nika-0595140de6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4FreeIran-ec19594c9b
+      - 4Nika-0595140de6
 rules:
   - MATCH,Proxy
