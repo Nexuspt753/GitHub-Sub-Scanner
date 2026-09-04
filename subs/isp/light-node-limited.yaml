@@ -1,6 +1,18 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 130.94.29.111
+    port: 2087
+    uuid: 84da6391-1539-4583-a3d9-d6efd796b4d6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /e17586a75123
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 154.90.62.70
     port: 56127
     password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
@@ -20,26 +32,14 @@ proxies:
       path: /e17586a75123
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-28abc2504f
-    server: 130.94.29.111
-    port: 2087
-    uuid: 84da6391-1539-4583-a3d9-d6efd796b4d6
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /e17586a75123
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-68823fee63
-      - 4Sarina-28abc2504f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -47,7 +47,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-68823fee63
-      - 4Sarina-28abc2504f
 rules:
   - MATCH,Proxy
