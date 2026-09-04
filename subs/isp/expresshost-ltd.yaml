@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: srv-21bac9.vless.monster
+    port: 2087
+    uuid: df9f5aca-eda0-428f-a752-e53866153d12
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: srv-21bac9.vless.monster
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: mg-42.whit3.net
     port: 443
@@ -11,20 +26,6 @@ proxies:
     reality-opts:
       public-key: nNg-TAbG5N2ZU2q2esoguL7gOIgcGu4iJ4BASrP5BFI
       short-id: 08e09895b90eea7a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: srv-21bac9.vless.monster
-    port: 8765
-    uuid: df9f5aca-eda0-428f-a752-e53866153d12
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: srv-21bac9.vless.monster
-    reality-opts:
-      public-key: M08l5tDmJUYELykZCNYQyFgtR9Zc-A4ZGlUSLcUeS2c
-      short-id: 1bcc9177f3124b25
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -70,6 +71,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Nika-4b2b1bbd2d
+    server: 31.56.189.27
+    port: 8765
+    uuid: df9f5aca-eda0-428f-a752-e53866153d12
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: srv-21bac9.vless.monster
+    reality-opts:
+      public-key: M08l5tDmJUYELykZCNYQyFgtR9Zc-A4ZGlUSLcUeS2c
+      short-id: 1bcc9177f3124b25
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-9020dfa1a9
     server: srv-21bac9.vless.monster
     port: 8765
@@ -88,11 +103,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
       - Channel
       - 4Jadi-8020a9c143
+      - 4Nika-4b2b1bbd2d
       - 4Mohsen-9020dfa1a9
   - name: Auto
     type: url-test
@@ -100,11 +116,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
       - Channel
       - 4Jadi-8020a9c143
+      - 4Nika-4b2b1bbd2d
       - 4Mohsen-9020dfa1a9
 rules:
   - MATCH,Proxy

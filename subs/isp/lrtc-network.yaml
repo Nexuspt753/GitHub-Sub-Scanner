@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: 4Jadi-50c7a29301
-    server: 89.116.250.135
-    port: 443
-    uuid: 14b59caf-a196-4ec2-8c70-c7b388062f5b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vangoghhh.info
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /rdfgtws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vangoghhh.info
-  - type: vless
     name: 4Jadi-8410807b5e
     server: 89.116.161.250
     port: 8443
@@ -44,40 +28,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-55e4f4535e
-    server: 89.116.250.6
-    port: 2083
-    uuid: f775978b-6e22-41a8-ae5e-5f9779e6745f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: juzibaipiao.5112233.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: juzibaipiao.5112233.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-50c7a29301
       - 4Jadi-8410807b5e
       - 4Kian-f70b4f0cfe
-      - 4Nika-55e4f4535e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-50c7a29301
       - 4Jadi-8410807b5e
       - 4Kian-f70b4f0cfe
-      - 4Nika-55e4f4535e
 rules:
   - MATCH,Proxy
