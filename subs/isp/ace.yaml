@@ -1,0 +1,34 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: tg.wxgqlfx.top
+    port: 443
+    uuid: a36d383f-5ea0-4b5f-99ef-20e68cdbd32c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: hk59.wxgqlfx.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /f004ff67-afbd-43c3-9db1-7b6a123e337d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hk59.wxgqlfx.top
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

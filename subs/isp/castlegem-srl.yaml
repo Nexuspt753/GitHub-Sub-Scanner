@@ -1,13 +1,25 @@
 proxies:
   - type: trojan
-    name: 4Jadi-43859d6308
+    name: 4Nika-865d24c5a9
     server: 185.75.243.102
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.ignitelimit.com
-    client-fingerprint: android
+    alpn:
+      - h3
+      - ""
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-d7faa7194b
+    server: 185.75.243.102
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /assignment
@@ -18,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-43859d6308
+      - 4Nika-865d24c5a9
+      - 4Jadi-d7faa7194b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-43859d6308
+      - 4Nika-865d24c5a9
+      - 4Jadi-d7faa7194b
 rules:
   - MATCH,Proxy

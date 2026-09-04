@@ -1,0 +1,24 @@
+proxies:
+  - type: trojan
+    name: 4Kian-d74047569a
+    server: 45.9.10.103
+    port: 443
+    password: WpfQAbO2wg
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-d74047569a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-d74047569a
+rules:
+  - MATCH,Proxy

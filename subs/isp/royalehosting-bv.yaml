@@ -1,21 +1,38 @@
 proxies:
-  - type: vmess
-    name: 4FreeIran-f6fbe9a42d
-    server: 185.227.252.204
-    port: 8080
-    uuid: 3b8687aa-e824-4a29-a6f7-d21297545c3f
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: 203.188.173.2
+    port: 443
+    uuid: 67f6f0f8-65bd-4900-9c82-7b63ca9b2404
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: royalehosting.net
+    reality-opts:
+      public-key: 14mbxpFBwnpp817ZLgT-6dVqsOmNPIaH7ygYcYScjGg
+      short-id: 2b4790ccbac1edb2
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: holland.fqrrqfevk.top
+    port: 443
+    uuid: 6ed49e74-b33b-46af-9b79-ef5e1429bfdf
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: holland.fqrrqfevk.top
+    xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /jSkSOxcaWoPMMU6Mp
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: holland.fqrrqfevk.top
   - type: vmess
-    name: 4Kian-85ae648c71
+    name: 4FreeIran-f6fbe9a42d
     server: 185.227.252.204
     port: 8080
     uuid: 3b8687aa-e824-4a29-a6f7-d21297545c3f
@@ -49,8 +66,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - DeltaKroneckerGithub
       - 4FreeIran-f6fbe9a42d
-      - 4Kian-85ae648c71
       - 4Mohsen-a1948a3bfa
   - name: Auto
     type: url-test
@@ -58,8 +76,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - DeltaKroneckerGithub
       - 4FreeIran-f6fbe9a42d
-      - 4Kian-85ae648c71
       - 4Mohsen-a1948a3bfa
 rules:
   - MATCH,Proxy

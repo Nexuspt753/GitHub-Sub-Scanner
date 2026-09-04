@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 8970141323_a39b.t3a.syslogd.ir
+    port: 9093
+    uuid: c422f575-a7ea-4bac-897a-e29021ec8cab
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/com.trezor.io?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

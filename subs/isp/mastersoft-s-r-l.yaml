@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 46.8.113.253
-    port: 443
-    uuid: 87337a16-94c4-4288-94b5-c2108874ed49
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: simracing.su
-    reality-opts:
-      public-key: 1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs
-      short-id: 428ef87fd47a3a32
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: ch-2.bexum.fun
@@ -44,24 +30,38 @@ proxies:
     tls: true
     sni: ch-2.bexum.fun
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-4fb57a1967
+    server: 46.8.113.253
+    port: 443
+    uuid: 87337a16-94c4-4288-94b5-c2108874ed49
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: simracing.su
+    reality-opts:
+      public-key: 1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs
+      short-id: 428ef87fd47a3a32
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - "[036659]"
       - DeltaKroneckerGithub-01
+      - 4Mohsen-4fb57a1967
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - "[036659]"
       - DeltaKroneckerGithub-01
+      - 4Mohsen-4fb57a1967
 rules:
   - MATCH,Proxy
