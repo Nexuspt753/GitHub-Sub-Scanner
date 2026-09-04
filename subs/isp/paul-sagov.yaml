@@ -1,12 +1,44 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
+    server: 150.251.141.91
+    port: 8443
+    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl4.pad-service.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /NL4W
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl4.pad-service.com
+  - type: vless
+    name: EPODONIOS-01
+    server: 150.251.141.91
+    port: 8443
+    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl4.pad-service.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /NL4W
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl4.pad-service.com
+  - type: vless
+    name: 4FreeIran-fb3931c02a
     server: sa-ee0441551507e46c.sr-cbeea22261c8564d.r.vpvpn.club
     port: 8443
     uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: nl4.pad-service.com
     xudp: true
     network: ws
@@ -20,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4FreeIran-fb3931c02a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4FreeIran-fb3931c02a
 rules:
   - MATCH,Proxy

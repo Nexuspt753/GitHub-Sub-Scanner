@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 196.196.206.34
+    port: 443
+    uuid: dabb9a19-03ab-4cdf-8963-d3c45eb0f80d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: finkankvd.kovsh.lol
+    reality-opts:
+      public-key: YBKHp6R7xp2Ss2kxbvDNMFPpRrf3oh1wQ2dVMukPHmA
+      short-id: d110331f200987ae
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vless
     server: 165.231.157.108
     port: 443
@@ -36,38 +50,24 @@ proxies:
       short-id: 8718c58d3d51db59
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-9e40db596c
-    server: 196.245.156.30
-    port: 443
-    uuid: f5e98e30-28b8-468a-a5a5-c6c22be64055
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: rm2.magazinnarubeva.ru
-    reality-opts:
-      public-key: hyOYRfDSIYyqALQt3N2H0RjK8gbV1JvPTkNACC4PJF8
-      short-id: 8718c58d3d51db59
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
       - EPODONIOS
       - V2ray_confiig
-      - 4Mohsen-9e40db596c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
       - EPODONIOS
       - V2ray_confiig
-      - 4Mohsen-9e40db596c
 rules:
   - MATCH,Proxy

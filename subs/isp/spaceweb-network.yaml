@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 77.222.53.158
+    port: 4100
+    uuid: 6bd3e20b-4be0-41df-a1e0-5c147cc8fbfc
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: live.ok.ru
+  - type: vless
     name: کانال
     server: 77.222.53.158
     port: 4100
@@ -39,10 +52,10 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: live.ok.ru
   - type: vless
-    name: 4FreeIran-e11742b261
-    server: 77.222.52.61
-    port: 2200
-    uuid: d46b4fca-2352-4557-a6d5-e8c45b27618c
+    name: 4Jadi-793b13a1e4
+    server: 77.222.53.158
+    port: 4100
+    uuid: 6bd3e20b-4be0-41df-a1e0-5c147cc8fbfc
     udp: true
     xudp: true
     network: ws
@@ -50,25 +63,27 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
+        Host: live.ok.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - کانال
       - 🇷🇺160794
       - 🇷🇺RU-🚀@VPNine1
-      - 4FreeIran-e11742b261
+      - 4Jadi-793b13a1e4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - کانال
       - 🇷🇺160794
       - 🇷🇺RU-🚀@VPNine1
-      - 4FreeIran-e11742b261
+      - 4Jadi-793b13a1e4
 rules:
   - MATCH,Proxy
