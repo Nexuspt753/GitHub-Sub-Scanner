@@ -1,27 +1,27 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: ukhy2.metricpipe.space
-    port: 9443
-    password: 4LR1nTjdxRQs2JGmzJnsRefgqQUYFEfo
+  - type: vless
+    name: 4Mohsen-f552f023b0
+    server: 179.255.190.30
+    port: 443
+    uuid: ec972f43-cdfa-4d88-a020-64e17eeabc99
     udp: true
     tls: true
-    sni: ukhy2.metricpipe.space
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: cdn-330cd9.vless.monster
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Mohsen-f552f023b0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Mohsen-f552f023b0
 rules:
   - MATCH,Proxy

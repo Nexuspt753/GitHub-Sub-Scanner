@@ -1,32 +1,29 @@
 proxies:
   - type: vless
-    name: 4FreeIran-596b90869b
-    server: 80.93.202.147
-    port: 443
-    uuid: 50414e45-4c5f-5a45-5553-b52a90ada6ab
+    name: 4Jadi-474a29a59b
+    server: 80.93.202.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: trex-panel-ew6n46.zeus-e0oqfp.workers.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /stream/TrexBridge/b52a90ada6ab
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: trex-panel-ew6n46.zeus-e0oqfp.workers.dev
+        Host: vms.lifetime02.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-596b90869b
+      - 4Jadi-474a29a59b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-596b90869b
+      - 4Jadi-474a29a59b
 rules:
   - MATCH,Proxy

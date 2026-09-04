@@ -1,64 +1,26 @@
 proxies:
-  - type: trojan
-    name: Moscow · @DeltaKroneckerGithub
-    server: ru-1.krugvpn.com
-    port: 443
-    password: jj59d0f73f5d6
-    udp: true
-    tls: true
-    sni: ru-1.krugvpn.com
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
-  - type: trojan
-    name: Moscow · @DeltaKroneckerGithub-01
-    server: 77.223.97.221
-    port: 443
-    password: jj59d0f73f5d6
-    udp: true
-    tls: true
-    sni: ru-1.krugvpn.com
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
   - type: vless
-    name: Moscow · 4Nika-947e2de1b5
-    server: 77.110.104.125
+    name: Moscow · @DeltaKroneckerGithub
+    server: 79.174.92.85
     port: 6443
-    uuid: 235fab16-5bb4-4593-b125-09f2e7ba7aa3
+    uuid: 545d7cfe-152e-46d5-a868-914522b447b9
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: maps.apple.com
+    client-fingerprint: firefox
+    servername: iv.kommersant.ru
     reality-opts:
-      public-key: OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY
-      short-id: 2da4299da566b7
+      public-key: lU1yF2A1b0lM9DZbXWPpLfoU7_KQpXOYX0NFrPEIJy8
+      short-id: bad5722c72a0
     xudp: true
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: Moscow · 4Jadi-bb7b535d75
-    server: 72.56.38.83
-    port: 443
-    uuid: Fluffy_VPN-zKZUa4Ie
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: absolute-disaster.org
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Moscow · @DeltaKroneckerGithub
-      - Moscow · @DeltaKroneckerGithub-01
-      - Moscow · 4Nika-947e2de1b5
-      - Moscow · 4Jadi-bb7b535d75
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,8 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Moscow · @DeltaKroneckerGithub
-      - Moscow · @DeltaKroneckerGithub-01
-      - Moscow · 4Nika-947e2de1b5
-      - Moscow · 4Jadi-bb7b535d75
 rules:
   - MATCH,Proxy

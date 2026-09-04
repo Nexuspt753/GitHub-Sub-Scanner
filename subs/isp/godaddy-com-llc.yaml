@@ -14,6 +14,19 @@ proxies:
         Host: vms.lifetime17.workers.dev
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: 104.238.68.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime47.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 104.238.68.50
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -26,19 +39,78 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime47.workers.dev
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 184.168.127.50
     port: 443
     password: 28d98f761aca9d636f44db62544628eb
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 184.168.127.50
     port: 443
     password: 36ebef7d1b1d6205fd0c55f28800e674
     udp: true
     client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-05
+    server: 50.62.88.16
+    port: 443
+    cipher: none
+    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+    udp: true
+  - type: vless
+    name: 4Jadi-036ba2bb0a
+    server: 198.71.191.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime06.workers.dev
+  - type: vless
+    name: 4Sarina-85c5e372d0
+    server: 45.40.149.50
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime39.workers.dev
+  - type: vless
+    name: 4Nika-7f89b0e3b7
+    server: 45.40.151.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime42.workers.dev
+  - type: vless
+    name: 4Sarina-f43041869d
+    server: 50.62.198.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime39.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -48,6 +120,12 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - 4Jadi-036ba2bb0a
+      - 4Sarina-85c5e372d0
+      - 4Nika-7f89b0e3b7
+      - 4Sarina-f43041869d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,5 +136,11 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - 4Jadi-036ba2bb0a
+      - 4Sarina-85c5e372d0
+      - 4Nika-7f89b0e3b7
+      - 4Sarina-f43041869d
 rules:
   - MATCH,Proxy

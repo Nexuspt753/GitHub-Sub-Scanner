@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+  - type: vless
+    name: 4Jadi-557b087532
+    server: 203.137.165.164
+    port: 57554
+    uuid: 9d81ab94-494c-4507-bc63-334db46e80d9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Jadi-557b087532
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Jadi-557b087532
 rules:
   - MATCH,Proxy

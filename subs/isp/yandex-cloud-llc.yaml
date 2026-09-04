@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 158.160.198.63
-    port: 8443
-    uuid: 1cf3c15c-16ce-46cc-8a96-b33c33b8a20f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cloudflare.fwqfw783rg2dad.website
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /websocket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cloudflare.fwqfw783rg2dad.website
-  - type: vless
     name: 4Nika-4aadd209d8
     server: 51.250.25.32
     port: 443
@@ -29,20 +13,47 @@ proxies:
       short-id: b7ef89dff65b02
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: ">>@configV2rayNG::DE"
+    server: 93.77.188.102
+    port: 443
+    uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: wde5.whitedeu.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-8406711aff
+    server: 51.250.95.143
+    port: 443
+    uuid: 5725a60c-34a5-476d-9ae3-9e43d945ca8f
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.mobile.yandex.ru
+    reality-opts:
+      public-key: dEHsPQQSnMJiHJKnJRbbLFKQmwIemUXQsQ1zIYbLZng
+      short-id: f6
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Nika-4aadd209d8
+      - ">>@configV2rayNG::DE"
+      - 4Kian-8406711aff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Nika-4aadd209d8
+      - ">>@configV2rayNG::DE"
+      - 4Kian-8406711aff
 rules:
   - MATCH,Proxy

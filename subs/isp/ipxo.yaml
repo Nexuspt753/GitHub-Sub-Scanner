@@ -1,28 +1,33 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 178.95.170.115
-    port: 2087
-    uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  - type: vmess
+    name: 4Mohsen-7f65b48341
+    server: 193.160.130.117
+    port: 443
+    uuid: 9b456c2a-f2c1-45e1-87a9-b7628b04bb24
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
-      path: /4bc027a44532
+      path: /linkws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: beyonddsz.cfd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Mohsen-7f65b48341
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Mohsen-7f65b48341
 rules:
   - MATCH,Proxy
