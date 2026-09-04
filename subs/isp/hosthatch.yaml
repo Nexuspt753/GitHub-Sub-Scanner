@@ -16,19 +16,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 151.245.106.49
-    port: 2053
-    uuid: 579ac5bd-a43d-49d4-b83e-a9e3ddd1f706
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: k9narlSK7fUqy94_p0rrqKl52W35QLNsp3W8xaGq_Go
-      short-id: 37b4f3ae8bf23763
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: 85.155.178.96
     port: 443
     uuid: d7430ae7-320c-4658-808b-3006d0627d82
@@ -75,22 +62,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-f370a84b99
-    server: 85.155.178.96
-    port: 443
-    uuid: d7430ae7-320c-4658-808b-3006d0627d82
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us03.glaveda.net
-    reality-opts:
-      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
-      short-id: 3fa234ea9feaa048
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -98,10 +69,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS
       - Channel
-      - 4Nika-f370a84b99
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -110,9 +79,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS
       - Channel
-      - 4Nika-f370a84b99
 rules:
   - MATCH,Proxy

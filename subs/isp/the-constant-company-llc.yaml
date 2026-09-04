@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 80.240.18.227
+    port: 10051
+    uuid: 73996ef7-544c-45e7-abc0-973218c727e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 65.20.82.177
     port: 443
     password: Tg3RnK7Xp8B1
@@ -9,7 +25,7 @@ proxies:
     sni: ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 199.247.27.91
     port: 443
     password: Bw5Mz7QkVp
@@ -18,6 +34,15 @@ proxies:
     sni: z-v2-078331.kailib.com
     alpn:
       - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 216.128.184.4
+    port: 443
+    password: qr5nXh3P7K6T
+    udp: true
+    tls: true
+    sni: ash.d22e0961-e0a7-49b8-8259-eac71e24d27b.kailib.com
     client-fingerprint: chrome
   - type: trojan
     name: 4Nika-41dad45536
@@ -43,29 +68,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 65.20.102.54
-    port: 443
-    password: 842b5f9dd11e458d8613c907c4cc5723
-    udp: true
-    tls: true
-    sni: www.gpt123.one
-    client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-03
-    server: 64.176.73.160
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: VJtsgllDDJfNmaTe
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-04
-    server: 139.84.247.164
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: tfAcRikawhNoZAhu
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -73,11 +75,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Nika-41dad45536
-      - 4Mohsen-1572c1e513
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
+      - 4Nika-41dad45536
+      - 4Mohsen-1572c1e513
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,10 +87,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Nika-41dad45536
-      - 4Mohsen-1572c1e513
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
+      - 4Nika-41dad45536
+      - 4Mohsen-1572c1e513
 rules:
   - MATCH,Proxy

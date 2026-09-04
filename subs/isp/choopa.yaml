@@ -1,6 +1,24 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: tg.wxgqlfx.top
+    port: 443
+    uuid: a36d383f-5ea0-4b5f-99ef-20e68cdbd32c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: hk59.wxgqlfx.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /f004ff67-afbd-43c3-9db1-7b6a123e337d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hk59.wxgqlfx.top
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.76.60.234
     port: 443
     password: Bw5Mz7QkVp
@@ -28,6 +46,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-ab4e651797
   - name: Auto
     type: url-test
@@ -36,6 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-ab4e651797
 rules:
   - MATCH,Proxy

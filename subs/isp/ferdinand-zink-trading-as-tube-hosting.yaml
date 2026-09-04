@@ -1,37 +1,41 @@
 proxies:
   - type: vless
-    name: 4Mohsen-b48e92adc7
+    name: EPODONIOS
     server: 176.120.17.126
     port: 27725
-    uuid: f04828df-7021-44b3-8019-9db3a5a20cd6
+    uuid: cb5c1257-ab40-4287-a21d-ed54229572c8
     udp: true
     xudp: true
   - type: vless
-    name: 4FreeIran-a9252848ba
+    name: filembad
     server: 176.120.17.126
-    port: 54752
-    uuid: f04828df-7021-44b3-8019-9db3a5a20cd6
+    port: 27725
+    uuid: cb5c1257-ab40-4287-a21d-ed54229572c8
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-3e38796d8c
+    server: 176.120.17.126
+    port: 27725
+    uuid: cb5c1257-ab40-4287-a21d-ed54229572c8
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-b48e92adc7
-      - 4FreeIran-a9252848ba
+      - EPODONIOS
+      - filembad
+      - 4Jadi-3e38796d8c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-b48e92adc7
-      - 4FreeIran-a9252848ba
+      - EPODONIOS
+      - filembad
+      - 4Jadi-3e38796d8c
 rules:
   - MATCH,Proxy
