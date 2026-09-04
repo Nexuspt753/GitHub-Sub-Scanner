@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 81.27.110.79
+    port: 8080
+    uuid: cde8e374-bf71-4a1f-9386-db050bc46190
+    udp: true
+    xudp: true
+  - type: vless
     name: ✨
     server: 81.27.110.79
     port: 8080
@@ -7,26 +14,32 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: 4Sarina-30040c8e34
-    server: 81.27.110.79
-    port: 8080
-    uuid: cde8e374-bf71-4a1f-9386-db050bc46190
+    name: 4Nika-e7181a3588
+    server: 87.58.152.18
+    port: 8443
+    uuid: fe73f296-e5c0-45a6-8064-f8e76a75e946
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: v-y…
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - ✨
-      - 4Sarina-30040c8e34
+      - 4Nika-e7181a3588
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - ✨
-      - 4Sarina-30040c8e34
+      - 4Nika-e7181a3588
 rules:
   - MATCH,Proxy
