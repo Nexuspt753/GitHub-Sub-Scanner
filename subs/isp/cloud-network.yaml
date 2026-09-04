@@ -1,46 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-1dd822cef5
-    server: 176.97.66.175
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 176.97.68.17
     port: 443
-    password: humanity
+    uuid: f745e508-9ec3-489c-a81d-8cd345006be5
     udp: true
     tls: true
-    sni: www.ignitelimit.com
     client-fingerprint: chrome
+    servername: cc1359linuxdo6.pages.dev
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /video/HRVATBVQEgIPTRARXQ8YGlEMXhVWUAlIGllGBgYbAQkDTFADSAYCAUcZEkhCSxFBCR4ADwEe
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Jadi-365e1c43b2
-    server: 176.97.66.175
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cc1359linuxdo6.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-1dd822cef5
-      - 4Jadi-365e1c43b2
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-1dd822cef5
-      - 4Jadi-365e1c43b2
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,23 +1,50 @@
 proxies:
-  - type: ss
-    name: 4Kian-4a331250a6
-    server: 46.246.96.30
-    port: 31561
-    cipher: chacha20-ietf-poly1305
-    password: hc8LMJew3Fl9MbcFCoFgT0
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: popos.ubuntuhosting.host
+    port: 443
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
     udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: popos.ubuntuhosting.host
+    reality-opts:
+      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
+      short-id: 3fa234ea9feaa048
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 46.246.97.225
+    port: 443
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: popos.ubuntuhosting.host
+    reality-opts:
+      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
+      short-id: 3fa234ea9feaa048
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-4a331250a6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-4a331250a6
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

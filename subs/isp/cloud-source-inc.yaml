@@ -1,6 +1,19 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
+    server: 23.170.40.21
+    port: 443
+    uuid: 6f0621e4-488c-448a-891c-ddc298e48e8c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dusebafke.mvp-rk.site
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: dusebafke.mvp-rk.site
     port: 443
     uuid: 6f0621e4-488c-448a-891c-ddc298e48e8c
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

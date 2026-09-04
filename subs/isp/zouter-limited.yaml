@@ -1,5 +1,35 @@
 proxies:
   - type: vmess
+    name: 4Sarina-7a29a06ca1
+    server: jp.6807251.xyz
+    port: 47431
+    uuid: 7aa3a024-e333-4b63-99a2-3db9d3b2054e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4FreeIran-500107502a
+    server: jp.6807251.xyz
+    port: 47431
+    uuid: 7aa3a024-e333-4b63-99a2-3db9d3b2054e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4FreeIran-df6c225eb8
     server: jp.6807251.xyz
     port: 34228
@@ -20,6 +50,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-7a29a06ca1
+      - 4FreeIran-500107502a
       - 4FreeIran-df6c225eb8
   - name: Auto
     type: url-test
@@ -27,6 +59,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-7a29a06ca1
+      - 4FreeIran-500107502a
       - 4FreeIran-df6c225eb8
 rules:
   - MATCH,Proxy

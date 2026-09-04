@@ -1,13 +1,45 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 137.220.221.179
     port: 443
     uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
     udp: true
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: DeltaKroneckerGithub-01
+    server: 134.122.164.41
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 134.122.164.55
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: EPODONIOS
     server: 137.220.221.179
     port: 443
     uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
@@ -85,29 +117,15 @@ proxies:
       path: /path/080712342310
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4FreeIran-8645697622
-    server: 202.79.172.53
-    port: 443
-    uuid: 30216206-14b7-40e7-995d-61c1219ba584
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /path/220128071100
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
-      - EPODONIOS-01
       - GozargahAzad|🇯🇵
       - AZARBAYJAB1🇮🇩
       - Telegram:@v2rayng3
@@ -117,15 +135,16 @@ proxy-groups:
       - 4FreeIran-ed6f2562c4
       - 4Kian-14d2d84466
       - 4Sarina-b7d95beabc
-      - 4FreeIran-8645697622
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
-      - EPODONIOS-01
       - GozargahAzad|🇯🇵
       - AZARBAYJAB1🇮🇩
       - Telegram:@v2rayng3
@@ -135,6 +154,5 @@ proxy-groups:
       - 4FreeIran-ed6f2562c4
       - 4Kian-14d2d84466
       - 4Sarina-b7d95beabc
-      - 4FreeIran-8645697622
 rules:
   - MATCH,Proxy

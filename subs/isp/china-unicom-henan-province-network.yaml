@@ -8,12 +8,22 @@ proxies:
     tls: true
     sni: ja262.magiclampcloud.cn
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: ja262.magiclampcloud.cn
+    port: 59443
+    password: 6edc9363c16bb2f7861bc1ab96edd69f
+    udp: true
+    tls: true
+    sni: ja262.magiclampcloud.cn
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

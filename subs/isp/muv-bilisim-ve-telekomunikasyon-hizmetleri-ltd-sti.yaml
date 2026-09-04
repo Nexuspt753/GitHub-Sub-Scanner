@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 109.230.196.66
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: rW22y9q2M55PcoUL1a_HgQ
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

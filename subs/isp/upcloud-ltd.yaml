@@ -1,5 +1,27 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 81.27.110.79
+    port: 8080
+    uuid: cde8e374-bf71-4a1f-9386-db050bc46190
+    udp: true
+    xudp: true
+  - type: vmess
+    name: EPODONIOS-01
+    server: 85.9.206.125
+    port: 443
+    uuid: 1713ee75-0a5c-404c-a759-a12a59de7df3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: api.xavino-shop.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vless
     name: ✨
     server: 81.27.110.79
     port: 8080
@@ -31,6 +53,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - ✨
       - 4Sarina-30040c8e34
       - 4Sarina-f68834300d
@@ -40,6 +64,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - ✨
       - 4Sarina-30040c8e34
       - 4Sarina-f68834300d
