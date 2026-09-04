@@ -31,6 +31,13 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 172.105.39.124
+    port: 7002
+    cipher: aes-256-gcm
+    password: RexnBgU7EV5ADxG
+    udp: true
   - type: vless
     name: 4Jadi-630d9a0dc0
     server: 172.105.104.54
@@ -59,6 +66,22 @@ proxies:
       short-id: ee94ded352b795
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Sarina-4ab167b05f
+    server: 172.104.78.98
+    port: 443
+    uuid: 927094d3-d678-4763-8591-e240d0bcae87
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /chat
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -67,8 +90,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
+      - DeltaKroneckerGithub-02
       - 4Jadi-630d9a0dc0
       - 4Sarina-ac5f56422c
+      - 4Sarina-4ab167b05f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -78,7 +103,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
+      - DeltaKroneckerGithub-02
       - 4Jadi-630d9a0dc0
       - 4Sarina-ac5f56422c
+      - 4Sarina-4ab167b05f
 rules:
   - MATCH,Proxy

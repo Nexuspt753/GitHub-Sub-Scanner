@@ -1,7 +1,7 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 5.61.91.221
+    server: 5.61.91.207
     port: 443
     uuid: 31216f81-3139-0021-bac4-646680314264
     udp: true
@@ -15,22 +15,34 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 5.61.91.207
+    server: 5.61.91.221
     port: 443
-    uuid: 9ec52cb8-8daa-0021-ac36-d38295a25e5b
+    uuid: 31216f81-3139-0021-bac4-646680314264
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
+    client-fingerprint: edge
     servername: www.amd.com
     reality-opts:
       public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: a7b2c9d4
+      short-id: e1f8a3b6
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-02
+    server: 5.61.91.206
+    port: 443
+    uuid: bd99da97-265e-0021-82cc-4ec009fe9ce2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 0a4b7c3d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 5.61.91.206
     port: 443
     uuid: d427a02f-e0ea-0021-9cfb-66c1866ca3ce
@@ -51,6 +63,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -60,5 +73,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

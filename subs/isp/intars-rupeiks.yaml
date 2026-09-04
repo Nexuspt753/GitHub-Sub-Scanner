@@ -1,6 +1,13 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: vless
+    server: 31.76.106.68
+    port: 10443
+    uuid: 1a17fbd6-a54f-456c-8e71-5282893e2b69
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-53801c5d10
     server: 31.76.106.68
     port: 10443
     uuid: 1a17fbd6-a54f-456c-8e71-5282893e2b69
@@ -11,13 +18,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - vless
+      - 4Mohsen-53801c5d10
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - vless
+      - 4Mohsen-53801c5d10
 rules:
   - MATCH,Proxy
