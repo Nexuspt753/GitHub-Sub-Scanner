@@ -1,5 +1,17 @@
 proxies:
   - type: trojan
+    name: trojan
+    server: 185.75.243.102
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    alpn:
+      - h3
+      - " h2"
+      - " http/1.1"
+    client-fingerprint: chrome
+  - type: trojan
     name: 4FreeIran-318a606ed3
     server: 185.75.243.102
     port: 443
@@ -28,6 +40,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - trojan
       - 4FreeIran-318a606ed3
       - 4Mohsen-3ece71e9ee
   - name: Auto
@@ -36,6 +49,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - trojan
       - 4FreeIran-318a606ed3
       - 4Mohsen-3ece71e9ee
 rules:
