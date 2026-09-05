@@ -45,6 +45,20 @@ proxies:
         Host: nl4.pad-service.com
   - type: vless
     name: Channel
+    server: good-route.whit3.net
+    port: 443
+    uuid: 1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: good-route.whit3.net
+    reality-opts:
+      public-key: ehV9fMGFDWwsPUWRkobxvVxcUrCIPgt8ZXqGDdHjAU4
+      short-id: fd293de22205201b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Channel-01
     server: pets.whit3.net
     port: 443
     uuid: 1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a
@@ -133,22 +147,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nl4.pad-service.com
-  - type: vless
-    name: 4Kian-1612dba815
-    server: sa-f606a5f231034c1a.sr-707a137c909a984d.r.vpvpn.club
-    port: 8443
-    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl3.pad-service.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /NL3W
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl3.pad-service.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -158,12 +156,12 @@ proxy-groups:
       - EPODONIOS-01
       - EPODONIOS-02
       - Channel
+      - Channel-01
       - V2ray_Alpha🥨
       - icv2ray
       - 4Nika-fe79cdf3d2
       - 4FreeIran-9ad129d0b1
       - 4Kian-0d2f3874d4
-      - 4Kian-1612dba815
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -174,11 +172,11 @@ proxy-groups:
       - EPODONIOS-01
       - EPODONIOS-02
       - Channel
+      - Channel-01
       - V2ray_Alpha🥨
       - icv2ray
       - 4Nika-fe79cdf3d2
       - 4FreeIran-9ad129d0b1
       - 4Kian-0d2f3874d4
-      - 4Kian-1612dba815
 rules:
   - MATCH,Proxy

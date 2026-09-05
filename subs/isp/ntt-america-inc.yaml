@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.167.94.71
+    port: 25711
+    uuid: c45bc46e-d2e6-4049-b2d1-31b466d1629e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.intel.com
+    reality-opts:
+      public-key: nZTIbfG5GiuGVsNvTrsCAoNT9Fr198HmwMhzzca7Cws
+      short-id: e1d048284849e63e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 216.167.94.71
+    port: 25711
+    uuid: c45bc46e-d2e6-4049-b2d1-31b466d1629e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: nZTIbfG5GiuGVsNvTrsCAoNT9Fr198HmwMhzzca7Cws
+      short-id: e1d048284849e63e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vless
     server: 192.220.15.222
     port: 8443
@@ -9,21 +37,19 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: 4Nika-a4e6ee3b45
-    server: 128.241.25.215
-    port: 30036
-    uuid: 196b7228-58df-4bcf-af2a-2e96608d5add
+    name: 🇺🇸
+    server: 216.167.94.71
+    port: 25711
+    uuid: c45bc46e-d2e6-4049-b2d1-31b466d1629e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+    servername: www.intel.com
+    reality-opts:
+      public-key: nZTIbfG5GiuGVsNvTrsCAoNT9Fr198HmwMhzzca7Cws
+      short-id: e1d048284849e63e
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
   - type: vless
     name: 4Nika-122a1e7923
     server: 128.241.25.11
@@ -88,46 +114,32 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
-  - type: vless
-    name: 4FreeIran-89958f0ce6
-    server: 128.241.25.3
-    port: 30021
-    uuid: afec813e-a5c7-432d-be48-2803c30eea4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - vless
-      - 4Nika-a4e6ee3b45
+      - 🇺🇸
       - 4Nika-122a1e7923
       - 4Sarina-e7c8e4485b
       - 4Jadi-cb148057de
       - 4Kian-59ac62aadd
-      - 4FreeIran-89958f0ce6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - vless
-      - 4Nika-a4e6ee3b45
+      - 🇺🇸
       - 4Nika-122a1e7923
       - 4Sarina-e7c8e4485b
       - 4Jadi-cb148057de
       - 4Kian-59ac62aadd
-      - 4FreeIran-89958f0ce6
 rules:
   - MATCH,Proxy

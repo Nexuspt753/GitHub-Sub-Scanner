@@ -13,12 +13,27 @@ proxies:
       short-id: 2c5d0e9f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-530be51601
+    server: 109.121.44.81
+    port: 443
+    uuid: 6179ce37-97b2-4ac7-9591-b4b2bfaca09d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 0a4b7c3d
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-05d8a74d73
+      - 4FreeIran-530be51601
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-05d8a74d73
+      - 4FreeIran-530be51601
 rules:
   - MATCH,Proxy
