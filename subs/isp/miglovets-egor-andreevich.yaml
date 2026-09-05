@@ -1,20 +1,34 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 193.163.203.253
+    name: EPODONIOS
+    server: 193.163.203.170
     port: 443
-    uuid: 441afe11-a180-4516-bb80-80a8a6b38705
+    uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: yandex.ru
     reality-opts:
-      public-key: gE8LUmGFXik94SoDXNiAG5KprGyhjoRwDuhGebgAVWk
-      short-id: 5ee019e02e6ed99a
+      public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
+      short-id: b28db60d77c50b4f
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: EPODONIOS-01
+    server: 193.163.203.170
+    port: 443
+    uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.ru
+    reality-opts:
+      public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
+      short-id: b28db60d77c50b4f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub
     server: bl3fk52.sysopnova.art
     port: 443
     uuid: 441afe11-a180-4516-bb80-80a8a6b38705
@@ -28,73 +42,37 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
-    server: 87.251.77.95
+    name: 4Jadi-1bd5e331e9
+    server: 193.163.203.170
     port: 443
-    uuid: 61b08368-97cf-4f24-9e17-8c4a20cc2eea
+    uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.apple.com
+    servername: yandex.ru
     reality-opts:
-      public-key: S4n22MVLxeJL3E58_Jm6x5X2RtRvGZRi0fcGUZp27lQ
-      short-id: fa3c4d0d247a82d8
+      public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
+      short-id: b28db60d77c50b4f
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇩🇪139833
-    server: 87.251.77.95
-    port: 443
-    uuid: 61b08368-97cf-4f24-9e17-8c4a20cc2eea
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: S4n22MVLxeJL3E58_Jm6x5X2RtRvGZRi0fcGUZp27lQ
-      short-id: fa3c4d0d247a82d8
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Jadi-153b6529cc
-    server: 87.251.77.95
-    port: 443
-    uuid: 61b08368-97cf-4f24-9e17-8c4a20cc2eea
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: S4n22MVLxeJL3E58_Jm6x5X2RtRvGZRi0fcGUZp27lQ
-      short-id: fa3c4d0d247a82d8
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - 🇩🇪139833
-      - 4Jadi-153b6529cc
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
+      - 4Jadi-1bd5e331e9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - 🇩🇪139833
-      - 4Jadi-153b6529cc
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
+      - 4Jadi-1bd5e331e9
 rules:
   - MATCH,Proxy

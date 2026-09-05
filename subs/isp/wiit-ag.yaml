@@ -1,4 +1,19 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: o11111o.club
+    port: 8082
+    uuid: 39d927a4-b8c7-4dc7-91f1-8b2e05d8b6b6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: trojan
     name: 4Sarina-91d7841ae6
     server: 217.79.184.76
@@ -13,6 +28,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-91d7841ae6
   - name: Auto
     type: url-test
@@ -20,6 +36,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-91d7841ae6
 rules:
   - MATCH,Proxy

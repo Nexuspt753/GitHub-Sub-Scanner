@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 86.110.38.108
+    port: 443
+    uuid: 1b5e85e9-fda3-4738-8ff1-1696b2bc994d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: estonia.whiteconnect.lol
+    reality-opts:
+      public-key: Cve6RU_xmFPAsLiW2eIucli0lwEZyf7XFj6_rR8LukI
+      short-id: 671047edbaa38eef
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

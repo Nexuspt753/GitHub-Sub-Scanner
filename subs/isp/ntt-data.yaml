@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 140.174.25.216
+    port: 27533
+    uuid: 2e69a1a6-b2ef-4b6d-838e-c61ea7c6936d
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

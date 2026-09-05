@@ -1,52 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 219.76.13.166
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 219.76.13.167
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 219.76.13.169
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
   - type: trojan
     name: 4Nika-06c8f125f0
     server: 219.76.13.181
@@ -56,22 +8,6 @@ proxies:
     tls: true
     sni: arbettp.freetrade.link
     client-fingerprint: chrome
-  - type: vless
-    name: 4Mohsen-863ab405a4
-    server: 219.76.13.166
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
   - type: vless
     name: 4Sarina-4e32224437
     server: 219.76.13.167
@@ -121,32 +57,48 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: e.cn-db.top
+  - type: vmess
+    name: 4Jadi-9b9bc37778
+    server: v29.hdacd.com
+    port: 30829
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-6ff5667d99
+    server: v45.hdacd.com
+    port: 30845
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Nika-06c8f125f0
-      - 4Mohsen-863ab405a4
       - 4Sarina-4e32224437
       - 4FreeIran-af8b339493
       - 4Sarina-12fdb05684
+      - 4Jadi-9b9bc37778
+      - 4Nika-6ff5667d99
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Nika-06c8f125f0
-      - 4Mohsen-863ab405a4
       - 4Sarina-4e32224437
       - 4FreeIran-af8b339493
       - 4Sarina-12fdb05684
+      - 4Jadi-9b9bc37778
+      - 4Nika-6ff5667d99
 rules:
   - MATCH,Proxy
