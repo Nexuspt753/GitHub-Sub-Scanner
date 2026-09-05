@@ -1,5 +1,15 @@
 proxies:
   - type: vmess
+    name: 4FreeIran-ccda6d3091
+    server: v35.hdacd.com
+    port: 30835
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Nika-3899f87578
     server: v36.hdacd.com
     port: 30836
@@ -10,7 +20,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4FreeIran-5ff821a4fd
+    name: 4FreeIran-d6daf3d8dc
     server: v33.hdacd.com
     port: 30833
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
@@ -24,15 +34,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-ccda6d3091
       - 4Nika-3899f87578
-      - 4FreeIran-5ff821a4fd
+      - 4FreeIran-d6daf3d8dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-ccda6d3091
       - 4Nika-3899f87578
-      - 4FreeIran-5ff821a4fd
+      - 4FreeIran-d6daf3d8dc
 rules:
   - MATCH,Proxy

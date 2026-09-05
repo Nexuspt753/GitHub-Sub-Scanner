@@ -1,25 +1,28 @@
 proxies:
   - type: trojan
-    name: 4FreeIran-318a606ed3
+    name: trojan
     server: 185.75.243.102
     port: 443
     password: humanity
     udp: true
     tls: true
-    sni: www.ignitelimit.com
+    alpn:
+      - h3
+      - " h2"
+      - " http/1.1"
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-318a606ed3
+      - trojan
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-318a606ed3
+      - trojan
 rules:
   - MATCH,Proxy

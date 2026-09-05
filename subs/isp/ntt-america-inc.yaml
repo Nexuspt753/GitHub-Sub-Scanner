@@ -22,6 +22,15 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: vless-01
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -29,6 +38,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,5 +47,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - vless
+      - vless-01
 rules:
   - MATCH,Proxy

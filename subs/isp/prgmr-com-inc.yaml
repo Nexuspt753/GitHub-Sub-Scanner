@@ -1,0 +1,41 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: hackney-latest-strike.freesocks.work
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: XUMTygEM1jVYIvysXKqA5T
+    udp: true
+  - type: ss
+    name: "[038463]"
+    server: hackney-latest-strike.freesocks.work
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: XUMTygEM1jVYIvysXKqA5T
+    udp: true
+  - type: ss
+    name: 4Sarina-fb06d074cd
+    server: hackney-latest-strike.freesocks.work
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: XUMTygEM1jVYIvysXKqA5T
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - "[038463]"
+      - 4Sarina-fb06d074cd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - "[038463]"
+      - 4Sarina-fb06d074cd
+rules:
+  - MATCH,Proxy

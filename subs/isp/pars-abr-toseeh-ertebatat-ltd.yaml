@@ -1,5 +1,15 @@
 proxies:
   - type: vmess
+    name: EPODONIOS
+    server: hyper.jahancompany.sbs
+    port: 443
+    uuid: 52d8e118-7853-47f9-8efc-e990f3f8e7c9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Sarina-b659cc76f1
     server: ar1.gsmvptun.com
     port: 2052
@@ -20,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Sarina-b659cc76f1
   - name: Auto
     type: url-test
@@ -27,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Sarina-b659cc76f1
 rules:
   - MATCH,Proxy
