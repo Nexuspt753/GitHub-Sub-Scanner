@@ -56,6 +56,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf2.rumedia-cdn.com
   - type: vless
+    name: 4Jadi-a62e863544
+    server: 202.155.11.249
+    port: 443
+    uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cf2.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf2.rumedia-cdn.com
+  - type: vless
     name: 4Nika-589b238f5c
     server: 178.83.226.55
     port: 443
@@ -78,6 +94,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Mohsen-a5cad1cbdc
+    server: tr.privatevip.ir
+    port: 2503
+    uuid: 85b27fbd-33d6-4a3a-bf5b-c3cf97772893
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: tr.privatevip.ir
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    network: ws
+    ws-opts:
+      path: /WS
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr.privatevip.ir
 proxy-groups:
   - name: Proxy
     type: select
@@ -87,8 +125,10 @@ proxy-groups:
       - EPODONIOS
       - EVAY_VPN
       - 4Nika-0fe68afb4e
+      - 4Jadi-a62e863544
       - 4Nika-589b238f5c
       - 4Sarina-b78e2ea264
+      - 4Mohsen-a5cad1cbdc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -99,7 +139,9 @@ proxy-groups:
       - EPODONIOS
       - EVAY_VPN
       - 4Nika-0fe68afb4e
+      - 4Jadi-a62e863544
       - 4Nika-589b238f5c
       - 4Sarina-b78e2ea264
+      - 4Mohsen-a5cad1cbdc
 rules:
   - MATCH,Proxy

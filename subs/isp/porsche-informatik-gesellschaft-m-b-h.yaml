@@ -1,6 +1,36 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: EPODONIOS
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: 🇫🇷
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: vless
+    name: EPODONIOS-01
     server: 212.183.88.232
     port: 443
     uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
@@ -14,6 +44,21 @@ proxies:
       path: /?proxyip
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
   - type: vless
     name: Hope_Net-join-us-on-Telegram
     server: 212.183.88.232
@@ -29,29 +74,32 @@ proxies:
       path: /?proxyip
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-be8c5ac439
-    server: 212.183.88.232
+  - type: trojan
+    name: 4Kian-4804934255
+    server: 212.183.88.136
     port: 443
-    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    password: humanity
     udp: true
     tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
-    servername: hkg.ylks.link
-    xudp: true
     network: ws
     ws-opts:
-      path: /?proxyip
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 🇫🇷
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
       - Hope_Net-join-us-on-Telegram
-      - 4Kian-be8c5ac439
+      - 4Kian-4804934255
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -59,7 +107,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 🇫🇷
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
       - Hope_Net-join-us-on-Telegram
-      - 4Kian-be8c5ac439
+      - 4Kian-4804934255
 rules:
   - MATCH,Proxy

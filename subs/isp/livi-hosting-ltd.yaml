@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-fc14281083
+    server: jackvpn22.mooo.com
+    port: 2110
+    password: 036c648f927d4d86a82dcf629db8cbe1
+    sni: jackvpn22.mooo.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-fc14281083
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-fc14281083
+rules:
+  - MATCH,Proxy

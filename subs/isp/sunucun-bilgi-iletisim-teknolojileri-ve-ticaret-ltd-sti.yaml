@@ -1,6 +1,47 @@
 proxies:
+  - type: vless
+    name: 4Jadi-c1118637f2
+    server: nkjernvjilbf.tr.snapeurop.com
+    port: 444
+    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ads.mohsen3.ir
+  - type: vless
+    name: 4Mohsen-d5554b31d8
+    server: ntrkglkjrtngjknetjgnv.tr.snapeurop.com
+    port: 555
+    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ads.mohsen3.ir
   - type: vmess
     name: 4Mohsen-8df24e1bfd
+    server: sacda.tr.snapeurop.com
+    port: 80
+    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-7961a640fd
     server: sacda.tr.snapeurop.com
     port: 80
     uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
@@ -35,7 +76,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-c1118637f2
+      - 4Mohsen-d5554b31d8
       - 4Mohsen-8df24e1bfd
+      - 4Kian-7961a640fd
       - 4FreeIran-2bd2b4ec66
   - name: Auto
     type: url-test
@@ -43,7 +87,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-c1118637f2
+      - 4Mohsen-d5554b31d8
       - 4Mohsen-8df24e1bfd
+      - 4Kian-7961a640fd
       - 4FreeIran-2bd2b4ec66
 rules:
   - MATCH,Proxy

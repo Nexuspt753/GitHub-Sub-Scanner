@@ -1,4 +1,14 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 172.105.169.70
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 172.105.169.70
+    xudp: true
   - type: trojan
     name: 4Jadi-b85d6c5f32
     server: trojan1.udpgw.com
@@ -7,13 +17,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: vmess
     name: 4Sarina-4ab167b05f
     server: 172.104.78.98
@@ -35,8 +38,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-b85d6c5f32
       - DeltaKroneckerGithub
+      - 4Jadi-b85d6c5f32
       - 4Sarina-4ab167b05f
   - name: Auto
     type: url-test
@@ -44,8 +47,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b85d6c5f32
       - DeltaKroneckerGithub
+      - 4Jadi-b85d6c5f32
       - 4Sarina-4ab167b05f
 rules:
   - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 38.180.216.110
+    port: 20861
+    uuid: f219800f-9c62-46c9-b518-df996f754b61
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amd.com
+    reality-opts:
+      public-key: 5d3R0LwRP61nCvkcSy7j3byPLnC7U3fucNyec4UHRyc
+      short-id: "2759"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: ICV2RAY
     server: 38.180.216.110
     port: 20861
@@ -32,6 +46,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - ICV2RAY
       - 4FreeIran-2dc0e1defe
   - name: Auto
@@ -40,6 +55,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - ICV2RAY
       - 4FreeIran-2dc0e1defe
 rules:

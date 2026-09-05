@@ -1,0 +1,41 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-683d0c58d4
+    server: 89.125.156.80
+    port: 443
+    password: 2vwMMy8t5Sjl5lfK9dNF1OrU9d0K25V2RNWLbTKwJ6o
+    sni: pixelcast.wwwinternetvideo.click
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Kian-1236d63c13
+    server: pixelcast.wwwinternetvideo.click
+    port: 443
+    password: 2vwMMy8t5Sjl5lfK9dNF1OrU9d0K25V2RNWLbTKwJ6o
+    sni: 127.0.0.1
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Mohsen-dbcc0389c0
+    server: pixelcast.wwwinternetvideo.click
+    port: 443
+    password: 2vwMMy8t5Sjl5lfK9dNF1OrU9d0K25V2RNWLbTKwJ6o
+    sni: pixelcast.wwwinternetvideo.click
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-683d0c58d4
+      - 4Kian-1236d63c13
+      - 4Mohsen-dbcc0389c0
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-683d0c58d4
+      - 4Kian-1236d63c13
+      - 4Mohsen-dbcc0389c0
+rules:
+  - MATCH,Proxy
