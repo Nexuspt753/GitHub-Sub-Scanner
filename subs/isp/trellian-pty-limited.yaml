@@ -74,6 +74,23 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vmess
+    name: 4FreeIran-280e4e18eb
+    server: cdnde.irteyz.today
+    port: 443
+    uuid: 3b5e258e-8c5e-45d3-b7d2-02c8f5fc0bb2
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdnde.irteyz.today
 proxy-groups:
   - name: Proxy
     type: select
@@ -87,6 +104,7 @@ proxy-groups:
       - 4FreeIran-1ea2eefe37
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
+      - 4FreeIran-280e4e18eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -101,5 +119,6 @@ proxy-groups:
       - 4FreeIran-1ea2eefe37
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
+      - 4FreeIran-280e4e18eb
 rules:
   - MATCH,Proxy

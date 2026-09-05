@@ -14,12 +14,44 @@ proxies:
       path: /?proxyip
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: vless
+    name: Hope_Net-join-us-on-Telegram
+    server: 212.183.88.232
+    port: 443
+    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hkg.ylks.link
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?proxyip
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - DeltaKroneckerGithub
+      - Hope_Net-join-us-on-Telegram
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +59,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - DeltaKroneckerGithub
+      - Hope_Net-join-us-on-Telegram
 rules:
   - MATCH,Proxy

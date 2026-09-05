@@ -1,5 +1,16 @@
 proxies:
   - type: trojan
+    name: 4Mohsen-faf0ded945
+    server: 185.75.243.102
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    alpn:
+      - h3
+      - ""
+    client-fingerprint: chrome
+  - type: trojan
     name: trojan
     server: 185.75.243.102
     port: 443
@@ -10,17 +21,6 @@ proxies:
       - h3
       - " h2"
       - " http/1.1"
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-faf0ded945
-    server: 185.75.243.102
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    alpn:
-      - h3
-      - ""
     client-fingerprint: chrome
   - type: trojan
     name: 4FreeIran-318a606ed3
@@ -36,8 +36,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - trojan
       - 4Mohsen-faf0ded945
+      - trojan
       - 4FreeIran-318a606ed3
   - name: Auto
     type: url-test
@@ -45,8 +45,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - trojan
       - 4Mohsen-faf0ded945
+      - trojan
       - 4FreeIran-318a606ed3
 rules:
   - MATCH,Proxy
