@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: کانال
+    server: domain.portal.login.us.info.support.iranvatanam.com
+    port: 800
+    uuid: b18410c3-4bd6-4a99-838a-5907da83d32e
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - کانال
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - کانال
+rules:
+  - MATCH,Proxy

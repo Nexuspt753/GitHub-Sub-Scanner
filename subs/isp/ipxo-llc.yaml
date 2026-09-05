@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 104.129.164.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime40.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 206.206.78.36
     port: 443
     uuid: e3f0c894-0f76-4683-a751-6a93da8fd14d
@@ -14,7 +27,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 140.99.243.19
     port: 443
     uuid: d7430ae7-320c-4658-808b-3006d0627d82
@@ -58,6 +71,38 @@ proxies:
       short-id: 133a3f10a1581047
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4FreeIran-7f84271ab8
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-5500ec4ae5
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: 172.111.146.64
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 172.111.146.64
 proxy-groups:
   - name: Proxy
     type: select
@@ -65,8 +110,11 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-1e1c431400
       - 4Sarina-ca3afdec8a
+      - 4FreeIran-7f84271ab8
+      - 4Sarina-5500ec4ae5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,7 +123,10 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-1e1c431400
       - 4Sarina-ca3afdec8a
+      - 4FreeIran-7f84271ab8
+      - 4Sarina-5500ec4ae5
 rules:
   - MATCH,Proxy
