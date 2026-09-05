@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: "[037495]"
+    server: ae-1.stunnel.cc
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official-ae
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - "[037495]"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - "[037495]"
+rules:
+  - MATCH,Proxy

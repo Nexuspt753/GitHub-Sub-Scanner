@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: Fujairah · [037495]
+    server: ae-1.stunnel.cc
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official-ae
+    udp: true
   - type: vless
     name: Dubai · @DeltaKroneckerGithub
     server: 185.225.195.30
@@ -12,6 +19,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime18.workers.dev
+  - type: vless
+    name: Dubai · @DeltaKroneckerGithub-01
+    server: 84.235.244.108
+    port: 22573
+    uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uae.unixzone.us
   - type: vless
     name: Dubai · EPODONIOS
     server: pk-play.mobileemdad.top
@@ -113,6 +133,13 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: ss
+    name: Dubai · EPODONIOS-05
+    server: 20.216.40.219
+    port: 8080
+    cipher: aes-256-gcm
+    password: d218e51a-258f-43d2-8ce3-c8872611bf28
+    udp: true
   - type: vless
     name: Dubai · @VConfing
     server: sell66n.arakphone.ir
@@ -268,27 +295,14 @@ proxies:
       public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
       short-id: "08"
     xudp: true
-  - type: vmess
-    name: Dubai · 4Mohsen-a2474c0b08
-    server: 20.216.40.219
-    port: 80
-    uuid: d218e51a-258f-43d2-8ce3-c8872611bf28
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Fujairah · [037495]
       - Dubai · @DeltaKroneckerGithub
+      - Dubai · @DeltaKroneckerGithub-01
       - Dubai · EPODONIOS
       - Dubai · EPODONIOS-01
       - Dubai · 4FreeIran-fb9563383d
@@ -297,6 +311,7 @@ proxy-groups:
       - Dubai · 🇦🇪
       - Dubai · EPODONIOS-03
       - Dubai · EPODONIOS-04
+      - Dubai · EPODONIOS-05
       - Dubai · @VConfing
       - Dubai · Channel
       - Dubai · 4Mohsen-9ef81a538c
@@ -309,14 +324,15 @@ proxy-groups:
       - Dubai · 4Sarina-6ab995b432
       - Motor City · 4Kian-d2df018c9a
       - Dubai · 4Jadi-4ec45bc197
-      - Dubai · 4Mohsen-a2474c0b08
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Fujairah · [037495]
       - Dubai · @DeltaKroneckerGithub
+      - Dubai · @DeltaKroneckerGithub-01
       - Dubai · EPODONIOS
       - Dubai · EPODONIOS-01
       - Dubai · 4FreeIran-fb9563383d
@@ -325,6 +341,7 @@ proxy-groups:
       - Dubai · 🇦🇪
       - Dubai · EPODONIOS-03
       - Dubai · EPODONIOS-04
+      - Dubai · EPODONIOS-05
       - Dubai · @VConfing
       - Dubai · Channel
       - Dubai · 4Mohsen-9ef81a538c
@@ -337,6 +354,5 @@ proxy-groups:
       - Dubai · 4Sarina-6ab995b432
       - Motor City · 4Kian-d2df018c9a
       - Dubai · 4Jadi-4ec45bc197
-      - Dubai · 4Mohsen-a2474c0b08
 rules:
   - MATCH,Proxy
