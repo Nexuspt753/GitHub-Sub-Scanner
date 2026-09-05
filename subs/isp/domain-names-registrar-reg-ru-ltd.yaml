@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 79.174.92.85
+    port: 6443
+    uuid: 2324f230-0341-47c7-8aac-8974fd48f0a4
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: iv.kommersant.ru
+    reality-opts:
+      public-key: lU1yF2A1b0lM9DZbXWPpLfoU7_KQpXOYX0NFrPEIJy8
+      short-id: bad5722c72a0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 168.222.194.138
     port: 9880
@@ -260,6 +276,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
@@ -282,6 +299,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02

@@ -6,12 +6,20 @@ proxies:
     uuid: 2e69a1a6-b2ef-4b6d-838e-c61ea7c6936d
     udp: true
     xudp: true
+  - type: vless
+    name: 4Sarina-162f01464a
+    server: 140.174.25.216
+    port: 27533
+    uuid: 2e69a1a6-b2ef-4b6d-838e-c61ea7c6936d
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-162f01464a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-162f01464a
 rules:
   - MATCH,Proxy

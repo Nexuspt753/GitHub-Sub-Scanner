@@ -1,0 +1,56 @@
+proxies:
+  - type: vless
+    name: 4Kian-9f6c346c64
+    server: 147.189.141.104
+    port: 2087
+    uuid: 4a269a45-a9e3-4272-b04a-1d42d581150f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /4de527ea5ed9
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-68e5dec901
+    server: 147.189.141.106
+    port: 2087
+    uuid: 4a269a45-a9e3-4272-b04a-1d42d581150f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /4de527ea5ed9
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-738f5cd7e2
+    server: 147.189.141.114
+    port: 2087
+    uuid: 4a269a45-a9e3-4272-b04a-1d42d581150f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /4de527ea5ed9
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-9f6c346c64
+      - 4Jadi-68e5dec901
+      - 4Nika-738f5cd7e2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-9f6c346c64
+      - 4Jadi-68e5dec901
+      - 4Nika-738f5cd7e2
+rules:
+  - MATCH,Proxy
