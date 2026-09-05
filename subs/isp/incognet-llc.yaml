@@ -1,6 +1,6 @@
 proxies:
   - type: vmess
-    name: 4Nika-3fb7987789
+    name: 4Nika-ddc100197b
     server: 23.137.249.110
     port: 30011
     uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
@@ -11,18 +11,21 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: 23.137.249.110
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-3fb7987789
+      - 4Nika-ddc100197b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-3fb7987789
+      - 4Nika-ddc100197b
 rules:
   - MATCH,Proxy
