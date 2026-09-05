@@ -12,12 +12,29 @@ proxies:
       public-key: 4h74KXbkBMYOhJkZabJNsf85cI91ytap_gkl56mzjTU
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-8db4a6e009
+    server: 185.32.6.112
+    port: 8443
+    uuid: 20c72888-b83e-4309-82a4-aab4a2dda778
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: static.vkimages.io
+    reality-opts:
+      public-key: sgFFdQvfeujBKh6g7N7klU_u0mKYlr800MFbko5FzUg
+      short-id: e67fb918ed6b9ffb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-8db4a6e009
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-8db4a6e009
 rules:
   - MATCH,Proxy

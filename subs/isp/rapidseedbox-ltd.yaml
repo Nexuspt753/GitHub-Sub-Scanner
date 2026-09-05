@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.131.215.220
-    port: 443
-    uuid: 9323430f-0c13-4cd0-a84b-639fabcbe018
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: au.plombir.me
-    reality-opts:
-      public-key: zd3QY_x47nF1n4poR_nUDCOyVzaaDBqU1VWF06alCzk
-      short-id: ff
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 45.133.210.83
     port: 443
@@ -41,6 +27,17 @@ proxies:
       short-id: a2eb8d694a5480ff
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: tr-wien.unlimited-access.ru
+    port: 443
+    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
+    udp: true
+    tls: true
+    sni: tr-wien.unlimited-access.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
   - type: vless
     name: 4Mohsen-0cc9aa2dbf
     server: 45.133.210.83
@@ -60,9 +57,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - ✰𝗝𝗼𝗶𝗻
+      - DeltaKroneckerGithub
       - 4Mohsen-0cc9aa2dbf
   - name: Auto
     type: url-test
@@ -70,9 +67,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - ✰𝗝𝗼𝗶𝗻
+      - DeltaKroneckerGithub
       - 4Mohsen-0cc9aa2dbf
 rules:
   - MATCH,Proxy

@@ -1,26 +1,41 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-06670394c2
-    server: 45.32.57.118
-    port: 4433
-    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
-    alterId: 0
-    cipher: auto
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 45.76.60.234
+    port: 443
+    password: Bw5Mz7QkVp
     udp: true
-    xudp: true
-    skip-cert-verify: false
+    tls: true
+    sni: z-v2-074418.kailib.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-ab4e651797
+    server: 108.61.171.167
+    port: 443
+    password: mainssh-niwrhf87
+    udp: true
+    tls: true
+    sni: getgrpc.mainssh.xyz
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-06670394c2
+      - DeltaKroneckerGithub
+      - 4Nika-ab4e651797
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-06670394c2
+      - DeltaKroneckerGithub
+      - 4Nika-ab4e651797
 rules:
   - MATCH,Proxy

@@ -1,22 +1,19 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 192.0.63.138
-    port: 2096
+    name: DeltaKroneckerGithub
+    server: 192.0.54.30
+    port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sni.111000.indevs.in
     xudp: true
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sni.111000.indevs.in
+        Host: vms.lifetime35.workers.dev
   - type: vless
-    name: 4FreeIran-3b084bfe18
+    name: EPODONIOS
     server: 192.0.63.138
     port: 2096
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -36,15 +33,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4FreeIran-3b084bfe18
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4FreeIran-3b084bfe18
 rules:
   - MATCH,Proxy
