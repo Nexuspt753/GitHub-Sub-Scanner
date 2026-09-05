@@ -1,0 +1,94 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 162.128.71.118
+    port: 443
+    uuid: 690ad3be-991b-4a2c-b351-42dd06789d03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: 3ZKNZEktRaPxt-XoWmx68EGsFwglnICVkvIl96973iA
+      short-id: 4014ce9b0d82ad9d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: vj37-1936vtw.fincore.top
+    port: 443
+    uuid: 5e8e81ac-a1c4-4543-b81e-651bf9872b54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: TP_bpIPUtjdxxGA9j7mpsHtSDfM2HMSZFNWW9MtDPT0
+      short-id: 14156e3ac23212cc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Telegram:@v2rayng3
+    server: 162.128.71.118
+    port: 443
+    uuid: 690ad3be-991b-4a2c-b351-42dd06789d03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: 3ZKNZEktRaPxt-XoWmx68EGsFwglnICVkvIl96973iA
+      short-id: 4014ce9b0d82ad9d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-fec73b3bc9
+    server: 162.128.157.164
+    port: 443
+    uuid: 5e8e81ac-a1c4-4543-b81e-651bf9872b54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.bing.com
+    reality-opts:
+      public-key: TP_bpIPUtjdxxGA9j7mpsHtSDfM2HMSZFNWW9MtDPT0
+      short-id: 14156e3ac23212cc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-227a29fa1d
+    server: 162.128.71.118
+    port: 443
+    uuid: 690ad3be-991b-4a2c-b351-42dd06789d03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: 3ZKNZEktRaPxt-XoWmx68EGsFwglnICVkvIl96973iA
+      short-id: 4014ce9b0d82ad9d
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - DeltaKroneckerGithub
+      - Telegram:@v2rayng3
+      - 4Nika-fec73b3bc9
+      - 4FreeIran-227a29fa1d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - DeltaKroneckerGithub
+      - Telegram:@v2rayng3
+      - 4Nika-fec73b3bc9
+      - 4FreeIran-227a29fa1d
+rules:
+  - MATCH,Proxy

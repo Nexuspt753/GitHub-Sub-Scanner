@@ -10,27 +10,12 @@ proxies:
     servername: po1.hys.braidx.tech
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 81.90.17.164
-    port: 443
-    uuid: cb784d00-d34a-4389-b938-8717f7b28353
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yastatic.net
-    reality-opts:
-      public-key: v0XQn6uvyC8q5CThcRYLer1F1OOYpZDn5NLOvDicaWg
-      short-id: b31c2b75add2e5fa
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

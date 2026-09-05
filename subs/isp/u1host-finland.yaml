@@ -1,30 +1,74 @@
 proxies:
   - type: vless
-    name: 4Jadi-c7318c6590
-    server: 77.91.84.45
-    port: 22
-    uuid: 81a22b78-3f31-45df-b2b9-702f56f71bd5
+    name: EPODONIOS
+    server: 31.76.88.10
+    port: 443
+    uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: speed.cloudflare.com
-    reality-opts:
-      public-key: edaKSRy-jLqqq7IQzRWfiqrrT4VD8D-gLQjoZ05VKTg
-      short-id: 697a8acea036101f
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: cf5.rumedia-cdn.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf5.rumedia-cdn.com
+  - type: vless
+    name: B2Hub
+    server: 31.76.88.10
+    port: 443
+    uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cf5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf5.rumedia-cdn.com
+  - type: vless
+    name: 4Sarina-afbcdd60bc
+    server: 31.76.88.10
+    port: 443
+    uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cf5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf5.rumedia-cdn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-c7318c6590
+      - EPODONIOS
+      - B2Hub
+      - 4Sarina-afbcdd60bc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-c7318c6590
+      - EPODONIOS
+      - B2Hub
+      - 4Sarina-afbcdd60bc
 rules:
   - MATCH,Proxy

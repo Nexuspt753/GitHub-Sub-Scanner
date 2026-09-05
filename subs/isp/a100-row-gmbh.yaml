@@ -1,35 +1,26 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: complete-chipmunk.rooster465.autos
+    server: 35.157.240.237
     port: 443
-    password: XG59623478
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: pleased-albacore.rooster465.autos
-    port: 443
-    password: PQ05174892
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
     udp: true
     tls: true
-    sni: pleased-albacore.rooster465.autos
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: pleased-albacore.rooster465.autos
-    port: 443
-    password: XG59623478
-    udp: true
-    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,7 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

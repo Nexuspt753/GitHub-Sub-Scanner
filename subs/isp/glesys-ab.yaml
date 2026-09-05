@@ -15,12 +15,46 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: popos.ubuntuhosting.host
+    port: 443
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: popos.ubuntuhosting.host
+    reality-opts:
+      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
+      short-id: 3fa234ea9feaa048
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 1🩳@oneclickvpnkeys
+    server: popos.ubuntuhosting.host
+    port: 443
+    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: popos.ubuntuhosting.host
+    reality-opts:
+      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
+      short-id: 3fa234ea9feaa048
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 1🩳@oneclickvpnkeys
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +62,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 1🩳@oneclickvpnkeys
 rules:
   - MATCH,Proxy

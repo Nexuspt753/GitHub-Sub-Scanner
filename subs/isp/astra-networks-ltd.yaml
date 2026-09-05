@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: good-route.whit3.net
+    port: 443
+    uuid: 1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: good-route.whit3.net
+    reality-opts:
+      public-key: ehV9fMGFDWwsPUWRkobxvVxcUrCIPgt8ZXqGDdHjAU4
+      short-id: fd293de22205201b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Channel
+    server: good-route.whit3.net
+    port: 443
+    uuid: 1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: good-route.whit3.net
+    reality-opts:
+      public-key: ehV9fMGFDWwsPUWRkobxvVxcUrCIPgt8ZXqGDdHjAU4
+      short-id: fd293de22205201b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-fe79cdf3d2
+    server: good-route.whit3.net
+    port: 443
+    uuid: 1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: good-route.whit3.net
+    reality-opts:
+      public-key: ehV9fMGFDWwsPUWRkobxvVxcUrCIPgt8ZXqGDdHjAU4
+      short-id: fd293de22205201b
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - Channel
+      - 4Nika-fe79cdf3d2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - Channel
+      - 4Nika-fe79cdf3d2
+rules:
+  - MATCH,Proxy
