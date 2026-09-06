@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 158.160.17.175
+    port: 8443
+    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ya.ru
+    reality-opts:
+      public-key: BVwyZUEoTujbWy-7QczfJyYAsHw2y_H8SMMfbK5AEho
+      short-id: 81dd866769f057
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vless
     server: xs13.mcufa.pro
     port: 443
@@ -31,22 +45,36 @@ proxies:
       short-id: f6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-64de1f0c06
+    server: 188.72.103.3
+    port: 443
+    uuid: 5d8cf280-e0f4-4539-b35c-7ff90659c0d0
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: cdnapi.streamru10.net
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
       - 4Jadi-845cfde738
       - 4Kian-8406711aff
+      - 4Sarina-64de1f0c06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
       - 4Jadi-845cfde738
       - 4Kian-8406711aff
+      - 4Sarina-64de1f0c06
 rules:
   - MATCH,Proxy

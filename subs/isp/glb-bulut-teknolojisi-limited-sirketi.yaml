@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 138.249.20.37
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 🇮🇹⇝
     server: 138.249.20.37
     port: 443
@@ -43,6 +29,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
   - type: trojan
+    name: 4Jadi-3898d145c8
+    server: 91.245.225.79
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: 4Mohsen-92f82875ea
     server: 91.245.225.79
     port: 2053
@@ -56,40 +57,24 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Jadi-fbedb461c4
-    server: 138.249.20.37
-    port: 443
-    uuid: 423b1d79-08c4-403f-9d5e-c541f791b55f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eu-central.cendora.ru
-    reality-opts:
-      public-key: b-Cm9hX-3UHsS1L_lnUB6AMjuKhlN1IDdBbZ506itjI
-      short-id: 00bca5982f82d083
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 🇮🇹⇝
       - DeltaKroneckerGithub
+      - 4Jadi-3898d145c8
       - 4Mohsen-92f82875ea
-      - 4Jadi-fbedb461c4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 🇮🇹⇝
       - DeltaKroneckerGithub
+      - 4Jadi-3898d145c8
       - 4Mohsen-92f82875ea
-      - 4Jadi-fbedb461c4
 rules:
   - MATCH,Proxy

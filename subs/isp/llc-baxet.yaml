@@ -1,23 +1,46 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-a975da685a
-    server: ru1.xiaoliyu.cyou
-    port: 4433
-    password: 19f72087-4591-4d72-930b-2697078ec2be
-    sni: ru1.xiaoliyu.cyou
-    skip-cert-verify: true
+  - type: vless
+    name: 4Nika-acd494f9ef
+    server: 45.89.229.79
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ua3515167s394.csgfw.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-785d2c8b86
+    server: s100.kukuss.top
+    port: 443
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766ua3515167s394.csgfw.top
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-a975da685a
+      - 4Nika-acd494f9ef
+      - 4Jadi-785d2c8b86
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-a975da685a
+      - 4Nika-acd494f9ef
+      - 4Jadi-785d2c8b86
 rules:
   - MATCH,Proxy

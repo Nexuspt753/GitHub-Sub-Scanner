@@ -1,0 +1,59 @@
+proxies:
+  - type: ss
+    name: filembad
+    server: 86.38.182.226
+    port: 97
+    cipher: chacha20-ietf-poly1305
+    password: T6IcUpcVx0Y85DxSTgXe4A
+    udp: true
+  - type: ss
+    name: vpnbaz
+    server: 86.38.182.226
+    port: 97
+    cipher: chacha20-ietf-poly1305
+    password: T6IcUpcVx0Y85DxSTgXe4A
+    udp: true
+  - type: ss
+    name: کانال
+    server: 86.38.182.226
+    port: 97
+    cipher: chacha20-ietf-poly1305
+    password: T6IcUpcVx0Y85DxSTgXe4A
+    udp: true
+  - type: ss
+    name: 🇫🇮163991
+    server: 86.38.182.226
+    port: 97
+    cipher: chacha20-ietf-poly1305
+    password: T6IcUpcVx0Y85DxSTgXe4A
+    udp: true
+  - type: ss
+    name: 🇫🇮FI-🚀@VPNine1
+    server: 86.38.182.226
+    port: 97
+    cipher: chacha20-ietf-poly1305
+    password: T6IcUpcVx0Y85DxSTgXe4A
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - filembad
+      - vpnbaz
+      - کانال
+      - 🇫🇮163991
+      - 🇫🇮FI-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - filembad
+      - vpnbaz
+      - کانال
+      - 🇫🇮163991
+      - 🇫🇮FI-🚀@VPNine1
+rules:
+  - MATCH,Proxy
