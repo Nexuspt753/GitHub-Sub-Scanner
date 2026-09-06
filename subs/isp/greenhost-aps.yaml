@@ -1,0 +1,40 @@
+proxies:
+  - type: vless
+    name: vless
+    server: mnv2fr.atinad-cdn.ir
+    port: 443
+    uuid: 9b216249-38b1-4383-939d-9f15becb3b75
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: mnv7gr.atinad-cdn.ir
+    port: 443
+    uuid: 9b216249-38b1-4383-939d-9f15becb3b75
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+      - vless-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+      - vless-01
+rules:
+  - MATCH,Proxy
