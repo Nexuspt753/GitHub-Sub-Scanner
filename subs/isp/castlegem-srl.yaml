@@ -12,6 +12,14 @@ proxies:
       - " http/1.1"
     client-fingerprint: chrome
   - type: trojan
+    name: trojan-01
+    server: 185.75.243.102
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Jadi-e9f7ba6331
     server: 185.75.243.102
     port: 443
@@ -31,6 +39,7 @@ proxy-groups:
     proxies:
       - Auto
       - trojan
+      - trojan-01
       - 4Jadi-e9f7ba6331
   - name: Auto
     type: url-test
@@ -39,6 +48,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - trojan
+      - trojan-01
       - 4Jadi-e9f7ba6331
 rules:
   - MATCH,Proxy
