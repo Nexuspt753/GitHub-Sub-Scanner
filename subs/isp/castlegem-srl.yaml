@@ -20,20 +20,16 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: 4Mohsen-3ece71e9ee
+    name: 4Mohsen-faf0ded945
     server: 185.75.243.102
     port: 443
     password: humanity
     udp: true
     tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: android
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.ignitelimit.com
+    alpn:
+      - h3
+      - ""
+    client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-e9f7ba6331
     server: 185.75.243.102
@@ -55,7 +51,7 @@ proxy-groups:
       - Auto
       - trojan
       - trojan-01
-      - 4Mohsen-3ece71e9ee
+      - 4Mohsen-faf0ded945
       - 4Jadi-e9f7ba6331
   - name: Auto
     type: url-test
@@ -65,7 +61,7 @@ proxy-groups:
     proxies:
       - trojan
       - trojan-01
-      - 4Mohsen-3ece71e9ee
+      - 4Mohsen-faf0ded945
       - 4Jadi-e9f7ba6331
 rules:
   - MATCH,Proxy
