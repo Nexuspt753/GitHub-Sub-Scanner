@@ -1,30 +1,54 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-c44735cfd8
-    server: de104.mechvpn.online
+  - type: vmess
+    name: 4Jadi-ffa553b567
+    server: 108.165.236.142
     port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: 127.0.0.1
-  - type: hysteria2
-    name: 4Mohsen-eb5b161d82
-    server: de104.mechvpn.online
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-4fddf074b9
+    server: 108.165.236.142
     port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: de104.mechvpn.online
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-c44735cfd8
-      - 4Mohsen-eb5b161d82
+      - 4Jadi-ffa553b567
+      - 4Sarina-4fddf074b9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-c44735cfd8
-      - 4Mohsen-eb5b161d82
+      - 4Jadi-ffa553b567
+      - 4Sarina-4fddf074b9
 rules:
   - MATCH,Proxy

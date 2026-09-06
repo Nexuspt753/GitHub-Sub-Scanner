@@ -13,12 +13,27 @@ proxies:
       short-id: 86229a5e3b1e6ef4
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-93ac45c5b5
+    server: 2.56.120.24
+    port: 443
+    uuid: eec2f6a7-c10f-43b0-b133-61f9bf9bbc27
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ikea.com
+    reality-opts:
+      public-key: vnUSQFujh6K08KR6FHYWoBkZCAEZNWSKji0PPw9eMWM
+      short-id: 86229a5e3b1e6ef4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Jadi-93ac45c5b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Jadi-93ac45c5b5
 rules:
   - MATCH,Proxy

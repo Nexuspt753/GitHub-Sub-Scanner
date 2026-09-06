@@ -6,12 +6,20 @@ proxies:
     cipher: chacha20-ietf
     password: asd123456
     udp: true
+  - type: ss
+    name: 🇸🇬SG-103.36.91.32-0210
+    server: 103.36.91.32
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 🇸🇬SG-103.36.91.32-0210
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 🇸🇬SG-103.36.91.32-0210
 rules:
   - MATCH,Proxy

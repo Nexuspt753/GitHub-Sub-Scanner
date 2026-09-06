@@ -1,0 +1,108 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 46.8.21.191
+    port: 30001
+    uuid: 721df957-3c91-439d-b937-0c620d8d56bd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus
+    servername: www.google.com
+    reality-opts:
+      public-key: kAEICRYinsD6ypo3aR950HLemR5D715_8FYbO58Whgs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 46.8.21.191
+    port: 30001
+    uuid: 721df957-3c91-439d-b937-0c620d8d56bd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: kAEICRYinsD6ypo3aR950HLemR5D715_8FYbO58Whgs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vasl_bashim
+    server: 46.8.158.15
+    port: 8443
+    uuid: 721df957-3c91-439d-b937-0c620d8d56bd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: XQWcPhNNEoRc8g-9m7eArmb28TA_CpTimb1R7Dy_Qzw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: کانال
+    server: 46.8.21.191
+    port: 30001
+    uuid: 721df957-3c91-439d-b937-0c620d8d56bd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus
+    servername: www.google.com
+    reality-opts:
+      public-key: kAEICRYinsD6ypo3aR950HLemR5D715_8FYbO58Whgs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-3aeea19e21
+    server: 46.8.158.15
+    port: 8443
+    uuid: 721df957-3c91-439d-b937-0c620d8d56bd
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.google.com
+    reality-opts:
+      public-key: XQWcPhNNEoRc8g-9m7eArmb28TA_CpTimb1R7Dy_Qzw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-5b99d42aa2
+    server: 46.8.158.17
+    port: 2083
+    uuid: 721df957-3c91-439d-b937-0c620d8d56bd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: kAEICRYinsD6ypo3aR950HLemR5D715_8FYbO58Whgs
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - vasl_bashim
+      - کانال
+      - 4FreeIran-3aeea19e21
+      - 4FreeIran-5b99d42aa2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - vasl_bashim
+      - کانال
+      - 4FreeIran-3aeea19e21
+      - 4FreeIran-5b99d42aa2
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 195.133.80.8
+    port: 443
+    uuid: f26d7d58-1e5d-4ff2-b56a-42f3792de323
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: uuidp.aeternavpn.space
+    reality-opts:
+      public-key: BfWH0Semc11YkTslIO_Igss921A5J3JMmq_i2FaZxDo
+      short-id: a1b2c3d4
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy
