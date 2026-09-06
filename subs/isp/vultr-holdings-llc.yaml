@@ -1,34 +1,28 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 64.176.37.227
+    name: 4Nika-ab4e651797
+    server: 108.61.171.167
     port: 443
-    password: Bw5Mz7QkVp
+    password: mainssh-niwrhf87
     udp: true
     tls: true
-    sni: z-v2-082533.kailib.com
+    sni: getgrpc.mainssh.xyz
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 64.176.73.160
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: VJtsgllDDJfNmaTe
-    udp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-ab4e651797
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-ab4e651797
 rules:
   - MATCH,Proxy

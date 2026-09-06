@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: NOFiLTERING2🇩🇪
+    name: EPODONIOS
     server: 95.129.236.252
     port: 443
     uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
@@ -30,6 +30,25 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: 4Mohsen-a97caa2b7f
+    server: 185.178.208.176
+    port: 443
+    uuid: 3ed5d560-8cfd-48b2-aaa0-b561987812fc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: founders-blog.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: founders-blog.online
+  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -44,22 +63,44 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-83a269ddad
+    server: 95.129.236.216
+    port: 443
+    uuid: dfe8f892-b71b-4dd7-bdf8-5797d5f84e2e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cdnguard.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /origin/190546791/fetch
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdnguard.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - NOFiLTERING2🇩🇪
+      - EPODONIOS
       - 🇷🇺139881
+      - 4Mohsen-a97caa2b7f
       - 4Mohsen-b66a7367f9
+      - 4Nika-83a269ddad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - NOFiLTERING2🇩🇪
+      - EPODONIOS
       - 🇷🇺139881
+      - 4Mohsen-a97caa2b7f
       - 4Mohsen-b66a7367f9
+      - 4Nika-83a269ddad
 rules:
   - MATCH,Proxy

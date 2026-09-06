@@ -1,12 +1,48 @@
 proxies:
   - type: vless
-    name: 4Kian-dc5fc86284
-    server: usab.mythos-wargame.fun
-    port: 443
-    uuid: 2dd48980-5c2a-4f3b-bc8f-e20a8ae24ab1
+    name: EPODONIOS
+    server: 109.176.229.45
+    port: 2083
+    uuid: 60e2a548-96aa-4850-a279-1edab743c39b
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
+    servername: autotrader.co.uk
+    reality-opts:
+      public-key: 5_kjhGPcPUiUNJ0Mt4-YoRjphhDz3Hfvx1YCdbBRUA0
+      short-id: 8b71da690c3d5d03
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 109.176.229.45
+    port: 2083
+    uuid: 60e2a548-96aa-4850-a279-1edab743c39b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: autotrader.co.uk
+    reality-opts:
+      public-key: 5_kjhGPcPUiUNJ0Mt4-YoRjphhDz3Hfvx1YCdbBRUA0
+      short-id: 8b71da690c3d5d03
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-bd6d0d945d
+    server: 109.176.229.45
+    port: 2083
+    uuid: 60e2a548-96aa-4850-a279-1edab743c39b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: autotrader.co.uk
+    reality-opts:
+      public-key: 5_kjhGPcPUiUNJ0Mt4-YoRjphhDz3Hfvx1YCdbBRUA0
+      short-id: 8b71da690c3d5d03
     xudp: true
     network: grpc
     grpc-opts:
@@ -16,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-dc5fc86284
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4FreeIran-bd6d0d945d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-dc5fc86284
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4FreeIran-bd6d0d945d
 rules:
   - MATCH,Proxy
