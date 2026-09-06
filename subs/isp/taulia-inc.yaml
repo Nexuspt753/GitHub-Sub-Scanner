@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Jadi-8491d247a2
+    server: 205.233.181.106
+    port: 2096
+    uuid: c5e14fbc-2026-423b-87f5-9ddb5ca8bb94
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: Join-Te1egram.eiiim.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: join.----------------Telegram-EiiiM----------------Telegram-EiiiM---------------.Telegram-EiiiM.
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eiiim.eiiim.online
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-8491d247a2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-8491d247a2
+rules:
+  - MATCH,Proxy

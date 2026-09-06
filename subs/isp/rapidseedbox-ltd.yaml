@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: ✰𝗝𝗼𝗶𝗻
+    name: EPODONIOS
     server: 45.133.210.83
     port: 443
     uuid: 392058de-bb7e-44f5-b5bf-9184109cb42b
@@ -24,6 +24,35 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: firefox
+  - type: vless
+    name: ✰𝗝𝗼𝗶𝗻
+    server: 45.133.210.83
+    port: 443
+    uuid: 392058de-bb7e-44f5-b5bf-9184109cb42b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: cttKOS1BlF-u-mvX63PWNPJK6W_RXfx1wo8yjBEt1hI
+      short-id: a2eb8d694a5480ff
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: hl-freedom-0.undef.network
+    port: 443
+    password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
+    udp: true
+    tls: true
+    sni: hl-freedom-0.undef.network
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-0.undef.network
   - type: vless
     name: 4Mohsen-0cc9aa2dbf
     server: 45.133.210.83
@@ -57,8 +86,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - ✰𝗝𝗼𝗶𝗻
+      - EPODONIOS
       - DeltaKroneckerGithub
+      - ✰𝗝𝗼𝗶𝗻
+      - DeltaKroneckerGithub-01
       - 4Mohsen-0cc9aa2dbf
       - 4Mohsen-798c0c2345
   - name: Auto
@@ -67,8 +98,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - ✰𝗝𝗼𝗶𝗻
+      - EPODONIOS
       - DeltaKroneckerGithub
+      - ✰𝗝𝗼𝗶𝗻
+      - DeltaKroneckerGithub-01
       - 4Mohsen-0cc9aa2dbf
       - 4Mohsen-798c0c2345
 rules:

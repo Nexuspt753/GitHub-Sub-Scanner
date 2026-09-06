@@ -1,41 +1,30 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: sw.sinner.website
-    port: 2087
-    uuid: ce3d89da-f418-4c38-a1f3-ef243be06044
+    name: DeltaKroneckerGithub
+    server: 206.251.54.34
+    port: 55596
+    uuid: 9fc6444b-987a-41d5-9bf5-195d147e0a05
     udp: true
-    xudp: true
-  - type: vless
-    name: meliproxyy
-    server: sw.sinner.website
-    port: 2087
-    uuid: ce3d89da-f418-4c38-a1f3-ef243be06044
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Mohsen-dc7d5f7560
-    server: sw.sinner.website
-    port: 2087
-    uuid: ce3d89da-f418-4c38-a1f3-ef243be06044
-    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: QQUHUyF5Wb3XeRRrky-WOaRTxBtHokNaMec02HURWSI
+      short-id: 6ac09686189038
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - meliproxyy
-      - 4Mohsen-dc7d5f7560
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - meliproxyy
-      - 4Mohsen-dc7d5f7560
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

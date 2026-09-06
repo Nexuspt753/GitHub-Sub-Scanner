@@ -14,22 +14,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: trojan
-    name: 4Sarina-91d7841ae6
-    server: 217.79.184.76
-    port: 443
-    password: 41bec492-cd79-4b57-9a15-7d2bb00fcfca
-    udp: true
-    tls: true
-    sni: 18-140-66-207.nhost.00cdn.com
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-91d7841ae6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +27,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-91d7841ae6
 rules:
   - MATCH,Proxy

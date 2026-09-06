@@ -1,26 +1,39 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 188.255.156.143
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    server: 5.253.38.67
+    port: 40444
+    uuid: 1fe9b260-89df-4f03-bdf9-2264fd2f29da
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
+    servername: www.lovelive-anime.jp
+    reality-opts:
+      public-key: ZZK_Oo5-iDDgoWzxIURTLWoKPbC8NFto3Mk7OvAZgRU
+      short-id: b3f2a1c9
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 5.253.38.67
+    port: 40444
+    uuid: aa85d7ab-36e7-453f-857e-a440c32a2383
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.lovelive-anime.jp
+    reality-opts:
+      public-key: ZZK_Oo5-iDDgoWzxIURTLWoKPbC8NFto3Mk7OvAZgRU
+      short-id: b3f2a1c9
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
