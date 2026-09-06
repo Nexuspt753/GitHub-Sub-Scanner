@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 216.167.21.32
-    port: 40573
-    uuid: 095d1015-70da-4eff-af6d-962ff619a679
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.tesla.com
-    reality-opts:
-      public-key: aqAR_yPgXQtOazW4nR1Q5RmGIVLQ5TV2ztUWmsjSFVw
-      short-id: 2012d3de918e0d20
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: DeltaKroneckerGithub
     server: 216.167.94.71
     port: 25711
@@ -26,6 +12,24 @@ proxies:
       public-key: nZTIbfG5GiuGVsNvTrsCAoNT9Fr198HmwMhzzca7Cws
       short-id: e1d048284849e63e
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4Kian-7a5ecd1274
@@ -46,8 +50,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - vless
+      - vless-01
       - 4Kian-7a5ecd1274
   - name: Auto
     type: url-test
@@ -55,8 +60,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - vless
+      - vless-01
       - 4Kian-7a5ecd1274
 rules:
   - MATCH,Proxy

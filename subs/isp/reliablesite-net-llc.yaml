@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 4Kian-e19fa08499
-    server: q5h8zr.5tencent.asia
-    port: 40022
-    cipher: aes-128-gcm
-    password: 07c79546-2bf5-446b-b817-0c0084ffb770
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 172.96.141.210
+    port: 8443
+    uuid: 2c366360-0333-4738-9423-6d5b378e3594
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: room.rootvana.top
+    reality-opts:
+      public-key: Y0zCjvOLHuHWgv4HUyqb9O0lSMnTrl26XO8qwnWoQXw
+      short-id: b85875a13da4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-e19fa08499
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-e19fa08499
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
