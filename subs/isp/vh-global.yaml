@@ -1,26 +1,27 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-21de500c23
-    server: 103.240.197.112
-    port: 55314
-    uuid: bdb68629-1c6a-4eed-8083-7d4379a2dd52
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Kian-948cf2a428
+    server: 155.103.156.60
+    port: 8443
+    uuid: 74e2bf55-8495-49bc-99be-4a4d4ce2d2bf
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ibm.com
+    flow: xtls-rprx-vision-udp443
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-21de500c23
+      - 4Kian-948cf2a428
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-21de500c23
+      - 4Kian-948cf2a428
 rules:
   - MATCH,Proxy

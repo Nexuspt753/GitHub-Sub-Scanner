@@ -29,6 +29,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.111000.indevs.in
   - type: vless
+    name: کانال
+    server: 192.0.63.138
+    port: 2096
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sni.111000.indevs.in
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sni.111000.indevs.in
+  - type: vless
     name: 4Mohsen-30b02f498e
     server: 192.0.63.4
     port: 80
@@ -69,19 +85,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.111000.indevs.in
-  - type: vless
-    name: 4Mohsen-6a9bf4df09
-    server: 192.0.63.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime36.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -89,10 +92,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - EPODONIOS
+      - کانال
       - 4Mohsen-30b02f498e
       - 4Jadi-b1de663920
       - 4FreeIran-3b084bfe18
-      - 4Mohsen-6a9bf4df09
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -101,9 +104,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - EPODONIOS
+      - کانال
       - 4Mohsen-30b02f498e
       - 4Jadi-b1de663920
       - 4FreeIran-3b084bfe18
-      - 4Mohsen-6a9bf4df09
 rules:
   - MATCH,Proxy

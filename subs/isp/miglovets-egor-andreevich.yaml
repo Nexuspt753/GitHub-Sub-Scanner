@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 193.163.203.170
+    port: 443
+    uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.ru
+    reality-opts:
+      public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
+      short-id: b28db60d77c50b4f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇸🇪
+    server: 193.163.203.170
+    port: 443
+    uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.ru
+    reality-opts:
+      public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
+      short-id: b28db60d77c50b4f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: DeltaKroneckerGithub
     server: bl3fk52.sysopnova.art
     port: 443
@@ -14,7 +42,39 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 87.251.77.95
+    port: 443
+    uuid: 61b08368-97cf-4f24-9e17-8c4a20cc2eea
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: S4n22MVLxeJL3E58_Jm6x5X2RtRvGZRi0fcGUZp27lQ
+      short-id: fa3c4d0d247a82d8
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 🇩🇪139833
+    server: 87.251.77.95
+    port: 443
+    uuid: 61b08368-97cf-4f24-9e17-8c4a20cc2eea
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: S4n22MVLxeJL3E58_Jm6x5X2RtRvGZRi0fcGUZp27lQ
+      short-id: fa3c4d0d247a82d8
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-153b6529cc
     server: 87.251.77.95
     port: 443
     uuid: 61b08368-97cf-4f24-9e17-8c4a20cc2eea
@@ -34,15 +94,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇸🇪
       - DeltaKroneckerGithub
+      - EPODONIOS-01
       - 🇩🇪139833
+      - 4Jadi-153b6529cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇸🇪
       - DeltaKroneckerGithub
+      - EPODONIOS-01
       - 🇩🇪139833
+      - 4Jadi-153b6529cc
 rules:
   - MATCH,Proxy

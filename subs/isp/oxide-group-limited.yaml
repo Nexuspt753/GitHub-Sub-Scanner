@@ -14,12 +14,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-03ab6d26ca
+    server: 185.227.70.42
+    port: 8082
+    uuid: 53b7fdec-4ccb-481a-8d98-83aa19509330
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-82594c8d85
+      - 4FreeIran-03ab6d26ca
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-82594c8d85
+      - 4FreeIran-03ab6d26ca
 rules:
   - MATCH,Proxy
