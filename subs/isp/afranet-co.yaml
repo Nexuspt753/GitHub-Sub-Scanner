@@ -17,31 +17,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: uae1-ravannet-dl-persianmusics.xirnaro.ir
-  - type: vless
-    name: 4Mohsen-a946f08789
-    server: uae1-ravannet-dl-persianmusics.xirnaro.ir
-    port: 20588
-    uuid: 09e90d43-f7de-48ef-947f-c584144f75d9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: uae1-ravannet-dl-persianmusics.xirnaro.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/movies/download/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: uae1-ravannet-dl-persianmusics.xirnaro.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Mohsen-a946f08789
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,6 +30,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Mohsen-a946f08789
 rules:
   - MATCH,Proxy

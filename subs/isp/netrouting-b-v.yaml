@@ -1,26 +1,31 @@
 proxies:
-  - type: vless
-    name: 4Jadi-a53d1cfd5a
-    server: ro-xh01.tcp-reset-club.net
+  - type: hysteria2
+    name: 4Nika-e54ea1c1a5
+    server: rou0001ntrhy01.tcp-reset-club.net
     port: 443
-    uuid: aa6f8aaf-d7ff-46f8-a9a0-d143d7e71f71
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: s3.netavex.com
-    xudp: true
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: rou0001ntrhy01.tcp-reset-club.net
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-4382d6db3e
+    server: rou0001ntrhy01.tcp-reset-club.net
+    port: 443
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: 127.0.0.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-a53d1cfd5a
+      - 4Nika-e54ea1c1a5
+      - 4Jadi-4382d6db3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-a53d1cfd5a
+      - 4Nika-e54ea1c1a5
+      - 4Jadi-4382d6db3e
 rules:
   - MATCH,Proxy

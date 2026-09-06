@@ -20,6 +20,13 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: connect.nyxserver.ir
   - type: vless
+    name: "[38705]"
+    server: 171.22.24.101
+    port: 4443
+    uuid: a3e097da-b8ba-47b8-a181-44a916bceca3
+    udp: true
+    xudp: true
+  - type: vless
     name: tanhanet
     server: connect.nyxserver.ir
     port: 80
@@ -33,12 +40,18 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: connect.nyxserver.ir
   - type: vless
-    name: 4Nika-b7670f9fb7
-    server: 171.22.24.101
-    port: 4443
-    uuid: a3e097da-b8ba-47b8-a181-44a916bceca3
+    name: 4Mohsen-464b65fb2a
+    server: connect.nyxserver.ir
+    port: 80
+    uuid: cef2e5c6-23d6-415a-ac38-8d96e10b9053
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /arvan-tuel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: connect.nyxserver.ir
 proxy-groups:
   - name: Proxy
     type: select
@@ -46,8 +59,9 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - EPODONIOS-01
+      - "[38705]"
       - tanhanet
-      - 4Nika-b7670f9fb7
+      - 4Mohsen-464b65fb2a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +70,8 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - EPODONIOS-01
+      - "[38705]"
       - tanhanet
-      - 4Nika-b7670f9fb7
+      - 4Mohsen-464b65fb2a
 rules:
   - MATCH,Proxy

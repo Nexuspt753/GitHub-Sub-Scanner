@@ -1,26 +1,43 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-c8444facc2
-    server: de-xh01.tcp-reset-club.net
+  - type: hysteria2
+    name: 4Sarina-1d5664f044
+    server: nl01ntrhy01.tcp-reset-club.net
     port: 443
-    uuid: 0678ed07-980a-49c1-9066-05caec654967
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: nl01ntrhy01.tcp-reset-club.net
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-99584c0491
+    server: nl01ntrhy01.tcp-reset-club.net
+    port: 443
+    password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
+    sni: 127.0.0.1
+  - type: vless
+    name: 4Kian-bb5e96a46e
+    server: nld-0001.api.packet-drop-society.net
+    port: 443
+    uuid: eb0e3aec-f67f-4fa2-8577-b0bff0484e77
     udp: true
     tls: true
     client-fingerprint: edge
-    servername: s3.netavex.com
+    servername: sstats.vk-portal.net
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-c8444facc2
+      - 4Sarina-1d5664f044
+      - 4FreeIran-99584c0491
+      - 4Kian-bb5e96a46e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-c8444facc2
+      - 4Sarina-1d5664f044
+      - 4FreeIran-99584c0491
+      - 4Kian-bb5e96a46e
 rules:
   - MATCH,Proxy

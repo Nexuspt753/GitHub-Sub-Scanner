@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 82.148.21.26
+    port: 443
+    uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: crypt-obhod-15.mystatic-cdn.ru
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: کانال
+    server: 82.148.21.26
+    port: 443
+    uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: crypt-obhod-15.mystatic-cdn.ru
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇷🇺163408
     server: 82.148.21.26
     port: 443
@@ -51,39 +79,28 @@ proxies:
     servername: crypt-obhod-15.mystatic-cdn.ru
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-4d7b9b40e0
-    server: 82.148.21.26
-    port: 443
-    uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: crypt-obhod-15.mystatic-cdn.ru
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - کانال
       - 🇷🇺163408
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-c3482e634d
-      - 4Sarina-4d7b9b40e0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - کانال
       - 🇷🇺163408
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-c3482e634d
-      - 4Sarina-4d7b9b40e0
 rules:
   - MATCH,Proxy

@@ -17,24 +17,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf5.rumedia-cdn.com
-  - type: vmess
-    name: DeltaKroneckerGithub
-    server: 64.188.97.153
+  - type: vless
+    name: B2Hub
+    server: 31.76.88.10
     port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
+    uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-62.mirra.now
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cf5.rumedia-cdn.com
+    xudp: true
     network: ws
     ws-opts:
-      path: /api/v1/gpu-stream/socket
+      path: /cdn/v3/live
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
+        Host: cf5.rumedia-cdn.com
   - type: vless
     name: 4Sarina-afbcdd60bc
     server: 31.76.88.10
@@ -54,19 +54,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf5.rumedia-cdn.com
   - type: vless
-    name: 4Kian-b46ab68e18
-    server: 77.239.104.82
+    name: 4Jadi-5bea724176
+    server: 31.76.88.10
     port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cf5.rumedia-cdn.com
     xudp: true
     network: ws
     ws-opts:
-      path: /Telegram🇨🇳
+      path: /cdn/v3/live
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf5.rumedia-cdn.com
   - type: vless
     name: 4Jadi-c7318c6590
     server: 77.91.84.45
@@ -99,17 +103,55 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4FreeIran-8ef799d08e
+    server: 64.188.97.153
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-e6ec53fede
+    server: 64.188.97.153
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - DeltaKroneckerGithub
+      - B2Hub
       - 4Sarina-afbcdd60bc
-      - 4Kian-b46ab68e18
+      - 4Jadi-5bea724176
       - 4Jadi-c7318c6590
       - 4Mohsen-fcb4241d8a
+      - 4FreeIran-8ef799d08e
+      - 4Sarina-e6ec53fede
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -117,10 +159,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - DeltaKroneckerGithub
+      - B2Hub
       - 4Sarina-afbcdd60bc
-      - 4Kian-b46ab68e18
+      - 4Jadi-5bea724176
       - 4Jadi-c7318c6590
       - 4Mohsen-fcb4241d8a
+      - 4FreeIran-8ef799d08e
+      - 4Sarina-e6ec53fede
 rules:
   - MATCH,Proxy

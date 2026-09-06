@@ -14,6 +14,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.77.111.31
+    port: 43435
+    uuid: 2feda6f7-8baa-4591-a851-1e2037a58572
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.higames.ru
+    reality-opts:
+      public-key: mc5GFUALNT1V4TgYZ4OWJHB2DQ-G-b4qLYsRlgWB-VQ
+      short-id: 37dc4f92a7470fa0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 109.121.44.61
     port: 443
@@ -150,20 +166,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Jadi-05d8a74d73
-    server: 109.121.44.41
-    port: 443
-    uuid: 00706a0e-de50-40f0-b6e0-e50b8d727d88
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: www.amd.com
-    reality-opts:
-      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: 2c5d0e9f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-da4585da0b
     server: 109.121.44.61
     port: 443
@@ -193,26 +195,13 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-530be51601
-    server: 109.121.44.81
-    port: 443
-    uuid: 6179ce37-97b2-4ac7-9591-b4b2bfaca09d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.amd.com
-    reality-opts:
-      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: 0a4b7c3d
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - کانال
@@ -222,10 +211,8 @@ proxy-groups:
       - کانال-01
       - 🇸🇪163375
       - 🇸🇪SE-🚀@VPNine1
-      - 4Jadi-05d8a74d73
       - 4Sarina-da4585da0b
       - 4Jadi-8c56e07b05
-      - 4FreeIran-530be51601
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -233,6 +220,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - کانال
@@ -242,9 +230,7 @@ proxy-groups:
       - کانال-01
       - 🇸🇪163375
       - 🇸🇪SE-🚀@VPNine1
-      - 4Jadi-05d8a74d73
       - 4Sarina-da4585da0b
       - 4Jadi-8c56e07b05
-      - 4FreeIran-530be51601
 rules:
   - MATCH,Proxy

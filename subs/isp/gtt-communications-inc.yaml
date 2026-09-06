@@ -1,25 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 195.72.191.147
+  - type: vless
+    name: 4Jadi-734cd05d50
+    server: 70.39.196.142
     port: 443
-    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    uuid: 4856478b-95a8-4417-83e4-3fd51bc6238a
     udp: true
     tls: true
-    sni: origin-a.akamaihd.net
-    client-fingerprint: chrome
+    client-fingerprint: safari
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: hdZ4qUCdNtIkIfhb1KPVxxDt4rsseFxaFH093kVfRkE
+      short-id: 7efbd378
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-734cd05d50
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-734cd05d50
 rules:
   - MATCH,Proxy
