@@ -51,6 +51,20 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp10.pages.dev
   - type: vless
+    name: 4Nika-21b7178942
+    server: 156.246.88.125
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
+      short-id: 6caead99
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-9623b8b145
     server: 156.226.169.208
     port: 443
@@ -64,6 +78,23 @@ proxies:
       short-id: 5af35fb2
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4FreeIran-d4025024da
+    server: 156.231.116.156
+    port: 8080
+    uuid: 9ebecf5e-b160-43bd-806e-54cd994fc4c3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: images-na.ssl-images-amazon.com
+    network: ws
+    ws-opts:
+      path: /image
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: images-na.ssl-images-amazon.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -74,7 +105,9 @@ proxy-groups:
       - 4Nika-0f87d3f3e7
       - DeltaKroneckerGithub
       - 4Nika-58b235bd69
+      - 4Nika-21b7178942
       - 4Jadi-9623b8b145
+      - 4FreeIran-d4025024da
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,6 +119,8 @@ proxy-groups:
       - 4Nika-0f87d3f3e7
       - DeltaKroneckerGithub
       - 4Nika-58b235bd69
+      - 4Nika-21b7178942
       - 4Jadi-9623b8b145
+      - 4FreeIran-d4025024da
 rules:
   - MATCH,Proxy

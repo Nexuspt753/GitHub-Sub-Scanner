@@ -15,6 +15,21 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: NOFiLTERING2🇩🇪
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 🇷🇺139881
     server: 95.129.236.252
     port: 443
@@ -63,34 +78,16 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-83a269ddad
-    server: 95.129.236.216
-    port: 443
-    uuid: dfe8f892-b71b-4dd7-bdf8-5797d5f84e2e
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cdnguard.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /origin/190546791/fetch
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdnguard.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - NOFiLTERING2🇩🇪
       - 🇷🇺139881
       - 4Mohsen-a97caa2b7f
       - 4Mohsen-b66a7367f9
-      - 4Nika-83a269ddad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -98,9 +95,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - NOFiLTERING2🇩🇪
       - 🇷🇺139881
       - 4Mohsen-a97caa2b7f
       - 4Mohsen-b66a7367f9
-      - 4Nika-83a269ddad
 rules:
   - MATCH,Proxy
