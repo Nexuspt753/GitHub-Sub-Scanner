@@ -1,70 +1,25 @@
 proxies:
-  - type: vless
-    name: "[39175]"
-    server: Fn-2-port-tun.gorqino.ir
-    port: 9859
-    uuid: 41dbfa9b-0a8f-4db0-a98d-694dbd0d0344
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 193.151.134.182
+    port: 443
+    password: diCyRX1d
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: کانال
-    server: Fn-2-port-tun.gorqino.ir
-    port: 9859
-    uuid: 41dbfa9b-0a8f-4db0-a98d-694dbd0d0344
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇮🇷163926
-    server: Fn-2-port-tun.gorqino.ir
-    port: 9859
-    uuid: 41dbfa9b-0a8f-4db0-a98d-694dbd0d0344
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇮🇷IR-🚀@VPNine1
-    server: Fn-2-port-tun.gorqino.ir
-    port: 9859
-    uuid: 41dbfa9b-0a8f-4db0-a98d-694dbd0d0344
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    tls: true
+    sni: iprostable.enterprises
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "[39175]"
-      - کانال
-      - 🇮🇷163926
-      - 🇮🇷IR-🚀@VPNine1
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "[39175]"
-      - کانال
-      - 🇮🇷163926
-      - 🇮🇷IR-🚀@VPNine1
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

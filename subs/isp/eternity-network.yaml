@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-31758834c9
+    server: 94.183.239.34
+    port: 2053
+    uuid: 7ab9fe4f-6699-427f-a828-9fcf2496d714
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: KDSUEqv-3PLzq_HIWHTk1TxXk-JovF9VeWtrMY4S_yM
+      short-id: 836466be157f908f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-1833889dfc
+    server: 94.183.239.49
+    port: 2053
+    uuid: 7ab9fe4f-6699-427f-a828-9fcf2496d714
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 5d67LPhAdb5qQz4mc1bcu00KDWEZxIR1cUJ8_N6xt0I
+      short-id: 8315f191292663bc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-31758834c9
+      - 4Mohsen-1833889dfc
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-31758834c9
+      - 4Mohsen-1833889dfc
+rules:
+  - MATCH,Proxy
