@@ -13,12 +13,27 @@ proxies:
       short-id: cb55f541
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-b5a96643b7
+    server: 178.83.31.93
+    port: 443
+    uuid: 4a97788b-5d8a-410c-875c-ba36930e185e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 989gq45ogQSZLDoUTcLNSYW5v_3ER7W_6Oi_8swZzXo
+      short-id: cb55f541
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Jadi-b5a96643b7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Jadi-b5a96643b7
 rules:
   - MATCH,Proxy

@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: vless
+    server: 91.201.203.233
+    port: 2083
+    uuid: 4b91ef3c-8bdf-4c6c-86be-8b6e92712bff
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+rules:
+  - MATCH,Proxy
