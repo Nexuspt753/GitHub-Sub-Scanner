@@ -1,26 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-aac7987e82
-    server: dashboard.afrashop.top
-    port: 5381
-    uuid: 130b0fbf-4f19-44d0-911f-95355e9632e4
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: javd.fotofix.ir
+    port: 49800
+    uuid: f8bc3fcc-55d5-4376-8e34-6f7ce40916c3
     udp: true
     xudp: true
-    skip-cert-verify: false
+  - type: vless
+    name: 4Sarina-08584f2e1a
+    server: javd.fotofix.ir
+    port: 49800
+    uuid: f8bc3fcc-55d5-4376-8e34-6f7ce40916c3
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-aac7987e82
+      - EPODONIOS
+      - 4Sarina-08584f2e1a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-aac7987e82
+      - EPODONIOS
+      - 4Sarina-08584f2e1a
 rules:
   - MATCH,Proxy

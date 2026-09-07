@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 195.123.235.177
+    port: 443
+    uuid: 729dd5f2-f5ff-4070-8c10-863eceded0b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 5B83otQ5ZQwtBFhR7xzsGJRXflkFKRJpQguYbE5JWGI
+      short-id: c85d029f5e8eb393
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 195.123.220.91
     port: 443
     password: opentunnel.net-12qwe
@@ -28,6 +42,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-0183d94605
   - name: Auto
     type: url-test
@@ -36,6 +51,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-0183d94605
 rules:
   - MATCH,Proxy

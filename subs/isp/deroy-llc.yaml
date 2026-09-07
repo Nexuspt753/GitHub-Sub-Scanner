@@ -2,6 +2,13 @@ proxies:
   - type: vless
     name: vless
     server: 91.201.203.233
+    port: 8443
+    uuid: 4212aae8-26d4-4ac0-aa18-5f0ae5ede797
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 91.201.203.233
     port: 2083
     uuid: 4b91ef3c-8bdf-4c6c-86be-8b6e92712bff
     udp: true
@@ -10,12 +17,21 @@ proxies:
     alpn:
       - h2
     xudp: true
+  - type: vless
+    name: vless-02
+    server: 91.201.203.233
+    port: 8443
+    uuid: c9cff9f3-2396-4675-bb70-b5e45c89f38f
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - vless-01
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +39,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
+      - vless-02
 rules:
   - MATCH,Proxy

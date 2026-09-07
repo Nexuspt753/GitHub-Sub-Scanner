@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Nika-aa9fa46986
+    server: 156.38.168.58
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-aa9fa46986
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-aa9fa46986
+rules:
+  - MATCH,Proxy
