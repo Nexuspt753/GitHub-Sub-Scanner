@@ -1,7 +1,7 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: ru-1.krugvpn.com
+    server: 77.223.97.221
     port: 443
     password: jj59d0f73f5d6
     udp: true
@@ -13,7 +13,7 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: 77.223.97.221
+    server: ru-1.krugvpn.com
     port: 443
     password: jj59d0f73f5d6
     udp: true
@@ -23,20 +23,6 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-a2182cf8b7
-    server: 82.148.21.26
-    port: 443
-    uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    alpn:
-      - h2
-      - http/1.1
-    servername: crypt-obhod-15.mystatic-cdn.ru
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -44,7 +30,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Kian-a2182cf8b7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,6 +38,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Kian-a2182cf8b7
 rules:
   - MATCH,Proxy

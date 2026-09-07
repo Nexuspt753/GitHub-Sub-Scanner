@@ -1,8 +1,8 @@
 proxies:
   - type: ss
-    name: 🇰🇷163959
-    server: 211.178.105.134
-    port: 6123
+    name: EPODONIOS
+    server: 218.237.185.230
+    port: 4652
     cipher: aes-256-cfb
     password: qwerREWQ@@
     udp: true
@@ -13,29 +13,38 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: "12242"
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: glance.asuscomm.com
-    port: 10099
-    cipher: chacha20-ietf-poly1305
-    password: "12242"
+  - type: vless
+    name: 4FreeIran-50107a2220
+    server: kr.mkdir.kdns.fr
+    port: 443
+    uuid: 2cf94f4d-9d5b-49ca-81a3-ddc0529a2dac
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ai-verps.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ai-verps.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇰🇷163959
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-50107a2220
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇰🇷163959
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-50107a2220
 rules:
   - MATCH,Proxy

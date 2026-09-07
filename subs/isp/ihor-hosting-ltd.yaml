@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Kian-000a9b586e
+    name: DeltaKroneckerGithub
     server: 185.58.207.249
     port: 443
     uuid: e24cf9d3-e936-4a90-9932-33931b6a9b45
@@ -8,20 +8,23 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: yandex.ru
-    flow: xtls-rprx-vision-udp443
+    reality-opts:
+      public-key: 7sFZz7V1r5qtysLzjw07rOOA2P8NG7kvVX5BxFfc-Xc
+      short-id: db39
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-000a9b586e
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-000a9b586e
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

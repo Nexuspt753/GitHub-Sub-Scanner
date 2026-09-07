@@ -1,16 +1,44 @@
 proxies:
   - type: vless
-    name: 4Kian-ac9daaea98
+    name: DeltaKroneckerGithub
+    server: 141.0.184.240
+    port: 8443
+    uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: dzen.ru
+    reality-opts:
+      public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
+      short-id: f2a3b4c5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: fi.routeliora.ru
     port: 8443
     uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: safari
     servername: dzen.ru
     reality-opts:
       public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
       short-id: f2a3b4c5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 141.0.184.240
+    port: 7443
+    uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fi2.routeliora.ru
+    reality-opts:
+      public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
+      short-id: e1f2a3b4
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-ac9daaea98
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-ac9daaea98
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

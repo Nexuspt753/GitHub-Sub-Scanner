@@ -1,6 +1,6 @@
 proxies:
   - type: ss
-    name: 日本
+    name: EPODONIOS
     server: 121.46.230.137
     port: 65443
     cipher: aes-256-cfb
@@ -14,8 +14,22 @@ proxies:
     password: 7eadc6dbe2ae
     udp: true
   - type: ss
-    name: 🇨🇳CN-121.46.230.232-0149
+    name: 韩国
+    server: 121.46.230.138
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: 美国
     server: 121.46.230.232
+    port: 65443
+    cipher: aes-256-cfb
+    password: 7eadc6dbe2ae
+    udp: true
+  - type: ss
+    name: 🇨🇳CN-121.46.230.138-0179
+    server: 121.46.230.138
     port: 65443
     cipher: aes-256-cfb
     password: 7eadc6dbe2ae
@@ -25,17 +39,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 日本
+      - EPODONIOS
       - Unknown
-      - 🇨🇳CN-121.46.230.232-0149
+      - 韩国
+      - 美国
+      - 🇨🇳CN-121.46.230.138-0179
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 日本
+      - EPODONIOS
       - Unknown
-      - 🇨🇳CN-121.46.230.232-0149
+      - 韩国
+      - 美国
+      - 🇨🇳CN-121.46.230.138-0179
 rules:
   - MATCH,Proxy
