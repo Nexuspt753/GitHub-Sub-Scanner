@@ -1,0 +1,41 @@
+proxies:
+  - type: ss
+    name: کانال
+    server: Ch2.fardad1.ir
+    port: 41782
+    cipher: chacha20-ietf-poly1305
+    password: HXFF97gxFjavgidzcRWw9Q
+    udp: true
+  - type: ss
+    name: 🇨🇿164045
+    server: Ch2.fardad1.ir
+    port: 41782
+    cipher: chacha20-ietf-poly1305
+    password: HXFF97gxFjavgidzcRWw9Q
+    udp: true
+  - type: vless
+    name: کانال-01
+    server: Germany2.fardad1.ir
+    port: 36637
+    uuid: ba66fa82-c342-4482-ae03-d097e6cafd7a
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - کانال
+      - 🇨🇿164045
+      - کانال-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - کانال
+      - 🇨🇿164045
+      - کانال-01
+rules:
+  - MATCH,Proxy
