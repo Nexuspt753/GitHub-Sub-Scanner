@@ -1,32 +1,68 @@
 proxies:
   - type: vless
-    name: 4Mohsen-0743bab79f
-    server: 38.47.96.220
-    port: 11424
-    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    name: EPODONIOS
+    server: 720200.org
+    port: 52226
+    uuid: 46f0c575-37ca-48fc-bde0-2efaa9708d17
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: notls.lukongtou.eu.org
+    servername: 720200.org
     xudp: true
     network: ws
     ws-opts:
-      path: Telegram-WangCai2🇨🇳
+      path: /ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: notls.lukongtou.eu.org
+        Host: 720200.org
+  - type: vless
+    name: Net2ray
+    server: 720200.org
+    port: 52226
+    uuid: 46f0c575-37ca-48fc-bde0-2efaa9708d17
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 720200.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 720200.org
+  - type: vless
+    name: 4Mohsen-8a7ddcfb60
+    server: 720200.org
+    port: 52226
+    uuid: 46f0c575-37ca-48fc-bde0-2efaa9708d17
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 720200.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 720200.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-0743bab79f
+      - EPODONIOS
+      - Net2ray
+      - 4Mohsen-8a7ddcfb60
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-0743bab79f
+      - EPODONIOS
+      - Net2ray
+      - 4Mohsen-8a7ddcfb60
 rules:
   - MATCH,Proxy

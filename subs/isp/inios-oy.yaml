@@ -1,26 +1,30 @@
 proxies:
   - type: vless
-    name: 4Sarina-021ad1dae9
-    server: 141.0.184.113
-    port: 443
-    uuid: 15b154c3-b4f9-435d-9b46-bd096dec4be1
+    name: 4Kian-ac9daaea98
+    server: fi.routeliora.ru
+    port: 8443
+    uuid: 70d482eb-7584-4841-a02a-c668f1ee33e7
     udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: dzen.ru
+    reality-opts:
+      public-key: AxzvGjWPl7k1QMOWsRCgtuizgSS5NVWXwRoYsKP-630
+      short-id: f2a3b4c5
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-021ad1dae9
+      - 4Kian-ac9daaea98
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-021ad1dae9
+      - 4Kian-ac9daaea98
 rules:
   - MATCH,Proxy

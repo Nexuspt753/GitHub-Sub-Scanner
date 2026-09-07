@@ -12,12 +12,42 @@ proxies:
       public-key: 4h74KXbkBMYOhJkZabJNsf85cI91ytap_gkl56mzjTU
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-bac3f5d8c2
+    server: 185.32.6.70
+    port: 443
+    uuid: 953e3703-4ddc-49a7-a087-c96049d22340
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: storage.yandex.net
+    reality-opts:
+      public-key: lCCvbwGOEkx6IuK3eFd4RtmBi6UInWoMyt0QtfsOjwk
+      short-id: 99fe1ec015fde70c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-c795609d22
+    server: 185.32.6.81
+    port: 443
+    uuid: 953e3703-4ddc-49a7-a087-c96049d22340
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: storage.yandex.net
+    reality-opts:
+      public-key: lCCvbwGOEkx6IuK3eFd4RtmBi6UInWoMyt0QtfsOjwk
+      short-id: 99fe1ec015fde70c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-bac3f5d8c2
+      - 4Nika-c795609d22
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-bac3f5d8c2
+      - 4Nika-c795609d22
 rules:
   - MATCH,Proxy

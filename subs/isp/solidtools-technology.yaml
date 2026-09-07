@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: 4Mohsen-2462bff1f6
+    server: 100.42.228.109
+    port: 443
+    password: BxceQaOe
+    udp: true
+    tls: true
+    sni: t.me/ripaojiedian
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-2462bff1f6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-2462bff1f6
+rules:
+  - MATCH,Proxy

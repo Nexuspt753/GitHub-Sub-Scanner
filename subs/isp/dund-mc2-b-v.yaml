@@ -14,10 +14,56 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-16fd0da5f2
+    name: DeltaKroneckerGithub-01
     server: 31.77.111.31
     port: 43435
     uuid: 2feda6f7-8baa-4591-a851-1e2037a58572
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.higames.ru
+    reality-opts:
+      public-key: mc5GFUALNT1V4TgYZ4OWJHB2DQ-G-b4qLYsRlgWB-VQ
+      short-id: 37dc4f92a7470fa0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-ac296cfad4
+    server: 109.121.44.61
+    port: 443
+    uuid: 2feda6f7-8baa-4591-a851-1e2037a58572
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: s3-m.perecmusic.ru
+    reality-opts:
+      public-key: k76Ze8R0E5NyZwvBZT1A4n0zlVXxTeHQDAs0bBqiGQw
+      short-id: 4a1b0c7d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-dbc07e785b
+    server: 31.77.111.31
+    port: 43435
+    uuid: 2feda6f7-8baa-4591-a851-1e2037a58572
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.higames.ru
+    reality-opts:
+      public-key: mc5GFUALNT1V4TgYZ4OWJHB2DQ-G-b4qLYsRlgWB-VQ
+      short-id: 37dc4f92a7470fa0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-48b4bdc8cc
+    server: 31.77.111.11
+    port: 43439
+    uuid: 428e923f-e608-412b-9e51-3b09ffab551f
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -26,13 +72,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-71a28deb24
+    server: 109.121.44.51
+    port: 443
+    uuid: 94a5294d-1125-4139-8934-380c5de5552f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-16fd0da5f2
+      - DeltaKroneckerGithub-01
+      - 4Kian-ac296cfad4
+      - 4FreeIran-dbc07e785b
+      - 4Sarina-48b4bdc8cc
+      - 4Jadi-71a28deb24
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,6 +101,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-16fd0da5f2
+      - DeltaKroneckerGithub-01
+      - 4Kian-ac296cfad4
+      - 4FreeIran-dbc07e785b
+      - 4Sarina-48b4bdc8cc
+      - 4Jadi-71a28deb24
 rules:
   - MATCH,Proxy
