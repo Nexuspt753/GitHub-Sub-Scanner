@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Sarina-3ee3a36c45
+    server: wg.elyaa.shop
+    port: 64809
+    uuid: 13ff8f05-a51b-42cd-b999-5c1ad3396b33
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: Aparat.com
+    reality-opts:
+      public-key: Bj0QN7l3Ma059axASKP2O9gwvlfHqf2_oNztugn13SE
+      short-id: a24e13dc23af6b88
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-3ee3a36c45
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-3ee3a36c45
+rules:
+  - MATCH,Proxy

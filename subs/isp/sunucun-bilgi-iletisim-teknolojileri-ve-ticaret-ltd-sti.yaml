@@ -1,5 +1,20 @@
 proxies:
   - type: vmess
+    name: 4Mohsen-8df24e1bfd
+    server: sacda.tr.snapeurop.com
+    port: 80
+    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4Kian-5f6a4e4ca8
     server: sacda.tr.snapeurop.com
     port: 80
@@ -35,6 +50,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-8df24e1bfd
       - 4Kian-5f6a4e4ca8
       - 4FreeIran-2bd2b4ec66
   - name: Auto
@@ -43,6 +59,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-8df24e1bfd
       - 4Kian-5f6a4e4ca8
       - 4FreeIran-2bd2b4ec66
 rules:

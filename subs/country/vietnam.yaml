@@ -8,20 +8,6 @@ proxies:
     tls: true
     sni: 103.9.77.6
     client-fingerprint: chrome
-  - type: vless
-    name: Phúc Điền · 4Kian-e873377c9e
-    server: 103.173.155.212
-    port: 10829
-    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: u643766u4d99b056s591.csgfw.top
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
     name: Dich Vong · 4Jadi-a0ee88c35b
     server: 103.166.183.226
@@ -53,15 +39,46 @@ proxies:
       path: /tandung288.click
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Dich Vong · 4Jadi-b122d56b50
+    server: 103.75.186.153
+    port: 80
+    uuid: ef919c67-6638-4416-91af-9a13ffe5b9ca
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /tandung288.click
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Hanoi · 4Jadi-70bdc269ec
+    server: 103.82.25.106
+    port: 80
+    uuid: ec7c94b5-6ca6-4289-b44b-c6583f2c5f6c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fuzzyng?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Go Vap · @DeltaKroneckerGithub
-      - Phúc Điền · 4Kian-e873377c9e
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
+      - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -69,8 +86,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Go Vap · @DeltaKroneckerGithub
-      - Phúc Điền · 4Kian-e873377c9e
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
+      - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
 rules:
   - MATCH,Proxy

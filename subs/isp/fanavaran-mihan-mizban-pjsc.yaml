@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: tunel.blueheartz.ir
+    port: 27195
+    uuid: c45460b9-3224-446e-b823-587fe215bf5d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: h2IZ2DHQ-ibHC8NzuO7TVo3wS7G8DBV1hoCCR5cbRko
+      short-id: a9dc264d7346
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: ✅
     server: tunel.blueheartz.ir
     port: 27195
@@ -40,46 +54,24 @@ proxies:
       public-key: noC3OHzjLnDTeAHDZ4T9BJ3t9gkW5RWDPcd7g8DTExo
       short-id: cb3a56273ecf7996
     xudp: true
-  - type: vmess
-    name: 4Sarina-755ae4c8c7
-    server: cdn-api.mrmtn.xyz
-    port: 2020
-    uuid: 29c4a3bd-9d8c-4ac3-b279-8b201560c227
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-7994f117d4
-    server: cdn-api.mrmtn.xyz
-    port: 2020
-    uuid: 29c4a3bd-9d8c-4ac3-b279-8b201560c227
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - ✅
       - 4Jadi-2d5a88f50f
       - 4Sarina-cf615e2449
-      - 4Sarina-755ae4c8c7
-      - 4Mohsen-7994f117d4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - ✅
       - 4Jadi-2d5a88f50f
       - 4Sarina-cf615e2449
-      - 4Sarina-755ae4c8c7
-      - 4Mohsen-7994f117d4
 rules:
   - MATCH,Proxy
