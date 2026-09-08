@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: de-2.srv.dvzh.net
+    port: 443
+    uuid: 2da9c09a-842f-4aed-a099-8a07c0266efc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de-2.srv.dvzh.net
+    reality-opts:
+      public-key: 9GEc6lOjnGQyyE1951OZSBMWt4uCXsOjKyj9fysxHH0
+      short-id: e4e77e76e6e49da7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.91.171.116
     port: 443
     password: 2ee85121-31de-4581-a492-eb00f606e392
@@ -8,12 +22,28 @@ proxies:
     tls: true
     sni: sto.freeguard.org
     client-fingerprint: chrome
+  - type: vless
+    name: 4Jadi-f88c948b28
+    server: de-2.srv.dvzh.net
+    port: 443
+    uuid: 2da9c09a-842f-4aed-a099-8a07c0266efc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de-2.srv.dvzh.net
+    reality-opts:
+      public-key: 9GEc6lOjnGQyyE1951OZSBMWt4uCXsOjKyj9fysxHH0
+      short-id: e4e77e76e6e49da7
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-f88c948b28
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +51,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-f88c948b28
 rules:
   - MATCH,Proxy

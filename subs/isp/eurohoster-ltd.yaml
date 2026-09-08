@@ -1,30 +1,34 @@
 proxies:
-  - type: vless
-    name: 🇳🇱
-    server: 62.171.228.244
+  - type: vmess
+    name: 4Nika-dbe31c43ea
+    server: 62.171.228.179
     port: 443
-    uuid: 05bfcbaa-cba0-4bce-9103-09fe3f5f0667
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.bing.com
-    reality-opts:
-      public-key: 3ei2ET7SLe8rAO3KOlUWyXy0U22zb86VNOqUCshRVl8
-      short-id: f648da8196bdb32e
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇳🇱
+      - 4Nika-dbe31c43ea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇳🇱
+      - 4Nika-dbe31c43ea
 rules:
   - MATCH,Proxy

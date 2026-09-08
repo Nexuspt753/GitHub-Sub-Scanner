@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: Porto · 4Sarina-99396b1e82
-    server: pt-1.stunnel.cc
-    port: 8444
-    cipher: chacha20-ietf-poly1305
-    password: tunnel-astrovpn_pt
+  - type: vless
+    name: Porto · @DeltaKroneckerGithub
+    server: defaultenginedimly.rivetpress.me
+    port: 443
+    uuid: 7a97f64d-5fc7-4011-9028-58d2ba751595
     udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: defaultenginedimly.rivetpress.me
+    reality-opts:
+      public-key: niL0fb-4IaVHr5VCg2yN_5wDTNYEq9W8wi7pDWLPcVg
+      short-id: 7505bfa3b6b933e6
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Porto · 4Sarina-99396b1e82
+      - Porto · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Porto · 4Sarina-99396b1e82
+      - Porto · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

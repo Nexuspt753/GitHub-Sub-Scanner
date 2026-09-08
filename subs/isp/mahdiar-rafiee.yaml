@@ -1,25 +1,42 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 185.218.139.222
-    port: 8080
-    uuid: f07b0239-d5a4-42c4-b5a8-fc64902ebe5c
+  - type: vmess
+    name: EPODONIOS
+    server: 185.211.59.57
+    port: 31234
+    uuid: e111908d-7a72-44d8-a12b-35de867dde72
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 185.211.59.57
+  - type: vmess
+    name: 4Sarina-64f01f4238
+    server: 185.211.59.57
+    port: 31234
+    uuid: e111908d-7a72-44d8-a12b-35de867dde72
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 185.211.59.57
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - EPODONIOS
+      - 4Sarina-64f01f4238
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - EPODONIOS
+      - 4Sarina-64f01f4238
 rules:
   - MATCH,Proxy

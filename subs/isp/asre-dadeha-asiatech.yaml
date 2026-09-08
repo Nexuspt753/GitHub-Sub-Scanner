@@ -1,25 +1,29 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 193.151.134.182
-    port: 443
-    password: diCyRX1d
+  - type: vless
+    name: vless
+    server: neo.cutizeh.ir
+    port: 8443
+    uuid: 0f19432c-f64f-4312-bc70-8e58128cd258
     udp: true
     tls: true
-    sni: iprostable.enterprises
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    servername: neo.cutizeh.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - vless
 rules:
   - MATCH,Proxy

@@ -3,25 +3,40 @@ proxies:
     name: EPODONIOS
     server: 23.137.249.110
     port: 37470
-    uuid: 5c40b8be-c07d-4fd5-a4c4-52df52a2ede9
+    uuid: 04eb0e21-135d-4a0b-a22d-40a4e059d7f9
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - h2
       - http/1.1
+    servername: 23.137.249.110
     xudp: true
   - type: vless
-    name: GozargahAzad|🇳🇱
+    name: vless
     server: 23.137.249.110
     port: 37470
-    uuid: 5c40b8be-c07d-4fd5-a4c4-52df52a2ede9
+    uuid: 04eb0e21-135d-4a0b-a22d-40a4e059d7f9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    servername: 23.137.249.110
+    xudp: true
+  - type: vless
+    name: 4Kian-3cea2692bc
+    server: 23.137.249.110
+    port: 37470
+    uuid: 04eb0e21-135d-4a0b-a22d-40a4e059d7f9
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - h2
       - http/1.1
+    servername: 23.137.249.110
     xudp: true
   - type: vmess
     name: 4Nika-e7651a1b70
@@ -39,7 +54,7 @@ proxies:
       - h2
       - http/1.1
   - type: vmess
-    name: 4Mohsen-ee96e40d2d
+    name: 4Nika-ddc100197b
     server: 23.137.249.110
     port: 30011
     uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
@@ -50,15 +65,19 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: 23.137.249.110
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - GozargahAzad|🇳🇱
+      - vless
+      - 4Kian-3cea2692bc
       - 4Nika-e7651a1b70
-      - 4Mohsen-ee96e40d2d
+      - 4Nika-ddc100197b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,8 +85,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - GozargahAzad|🇳🇱
+      - vless
+      - 4Kian-3cea2692bc
       - 4Nika-e7651a1b70
-      - 4Mohsen-ee96e40d2d
+      - 4Nika-ddc100197b
 rules:
   - MATCH,Proxy

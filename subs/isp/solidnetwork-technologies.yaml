@@ -1,29 +1,48 @@
 proxies:
-  - type: vless
-    name: 4Sarina-5100721a82
-    server: 104.129.167.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  - type: trojan
+    name: EPODONIOS
+    server: 104.129.166.30
+    port: 443
+    password: 50414e45-4c5f-5a45-5553-ef59b0a09a2c
     udp: true
-    xudp: true
+    tls: true
+    sni: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
+    client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /
+      path: /stream/PANEL_ZEUS/ef59b0a09a2c
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime44.workers.dev
+        Host: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
+  - type: trojan
+    name: 4Mohsen-ea6f68994e
+    server: 104.129.166.30
+    port: 443
+    password: 50414e45-4c5f-5a45-5553-ef59b0a09a2c
+    udp: true
+    tls: true
+    sni: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /stream/PANEL_ZEUS/ef59b0a09a2c
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-5100721a82
+      - EPODONIOS
+      - 4Mohsen-ea6f68994e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-5100721a82
+      - EPODONIOS
+      - 4Mohsen-ea6f68994e
 rules:
   - MATCH,Proxy
