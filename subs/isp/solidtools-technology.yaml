@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 100.42.228.109
+    port: 443
+    password: BxceQaOe
+    udp: true
+    tls: true
+    sni: t.me/ripaojiedian
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Mohsen-2462bff1f6
     server: 100.42.228.109
     port: 443
@@ -17,31 +26,22 @@ proxies:
     tls: true
     sni: t.me/ripaojiedian
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 100.42.228.109
-    port: 443
-    password: BxceQaOe
-    udp: true
-    tls: true
-    sni: t.me/ripaojiedian
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-2462bff1f6
       - 4Sarina-74c88dfaa5
-      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-2462bff1f6
       - 4Sarina-74c88dfaa5
-      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

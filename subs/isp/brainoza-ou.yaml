@@ -1,4 +1,32 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.181.201.42
+    port: 443
+    uuid: 02f3a6a2-289e-4026-8e26-616d47e0914f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: estron.nxxzxaw.beer
+    reality-opts:
+      public-key: 98MNvJC4t0ZjK_xHlQjOx2WfLfAPluNDb71MzS9sPT8
+      short-id: 38018dde3e27335e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 185.36.141.81
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: 4FreeIran-9d984df41e
     server: 185.36.141.81
@@ -18,6 +46,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-9d984df41e
   - name: Auto
     type: url-test
@@ -25,6 +55,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-9d984df41e
 rules:
   - MATCH,Proxy

@@ -14,6 +14,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Mohsen-885a352fab
+    server: 185.218.194.73
+    port: 443
+    uuid: b97e287f-a24e-0021-a103-7e7ecef83139
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.amd.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
     name: 4FreeIran-9a4bda5424
     server: 2.26.147.118
     port: 443
@@ -27,13 +38,38 @@ proxies:
       short-id: e1f8a3b6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-935e8959aa
+    server: 2.26.147.119
+    port: 443
+    uuid: b97e287f-a24e-0021-a103-7e7ecef83139
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.amd.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Mohsen-01b289f745
+    server: fl.musicperec.ru
+    port: 443
+    uuid: f5a3bf49-07ca-0021-a96b-9606781e3600
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-50aa66b39c
+      - 4Mohsen-885a352fab
       - 4FreeIran-9a4bda5424
+      - 4Mohsen-935e8959aa
+      - 4Mohsen-01b289f745
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +77,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-50aa66b39c
+      - 4Mohsen-885a352fab
       - 4FreeIran-9a4bda5424
+      - 4Mohsen-935e8959aa
+      - 4Mohsen-01b289f745
 rules:
   - MATCH,Proxy

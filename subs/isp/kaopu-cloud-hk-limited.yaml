@@ -1,16 +1,12 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 38.54.59.209
-    port: 2087
-    uuid: cd842ef8-9577-47f3-83ca-627147ed291b
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.54.13.189
+    port: 443
+    password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /d1000b16fe76
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    tls: true
+    client-fingerprint: chrome
   - type: vless
     name: ⭐️88@oneclickvpnkeys
     server: 38.54.59.209
@@ -59,26 +55,38 @@ proxies:
       path: /d1000b16fe76
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-f79e56c8ea
+    server: 119.46.51.45
+    port: 37515
+    uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - ⭐️88@oneclickvpnkeys
       - 4Mohsen-100c6f2b03
       - 4Kian-0298b6caa8
       - 4Sarina-639b31088a
+      - 4Kian-f79e56c8ea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - ⭐️88@oneclickvpnkeys
       - 4Mohsen-100c6f2b03
       - 4Kian-0298b6caa8
       - 4Sarina-639b31088a
+      - 4Kian-f79e56c8ea
 rules:
   - MATCH,Proxy

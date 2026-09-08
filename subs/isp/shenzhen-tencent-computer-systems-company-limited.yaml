@@ -1,19 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 43.131.247.123
-    port: 8443
-    uuid: 4376bba6-f54c-4e1f-a4c6-6e0be6d49042
+    server: 43.131.225.115
+    port: 443
+    uuid: 4a277d17-e165-4e8d-84f1-56c387ee11da
     udp: true
     tls: true
-    client-fingerprint: android
-    servername: 8.ymx0516.kdns.fr
+    client-fingerprint: random
+    servername: www.zyjdwz.cc.cd
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.zyjdwz.cc.cd
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 43.156.253.94
@@ -22,6 +23,15 @@ proxies:
     udp: true
     tls: true
     sni: ngepx.ambercc.filegear-sg.me
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 43.134.48.62
+    port: 443
+    password: 973c7f53-7411-4173-b805-d65c912e4d55
+    udp: true
+    tls: true
+    sni: 86sg.ljydw.top
     client-fingerprint: chrome
   - type: vmess
     name: 4Kian-697871d49b
@@ -74,38 +84,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cc28.goingside.site
-  - type: vmess
-    name: 4FreeIran-149436844e
-    server: sylva53.ceoiii.com
-    port: 36824
-    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
-  - type: vmess
-    name: 4FreeIran-4ce6751e6f
-    server: sylva53.ceoiii.com
-    port: 36824
-    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -113,11 +91,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-697871d49b
       - 4Sarina-b16c1bc873
       - 4Jadi-e0671995de
-      - 4FreeIran-149436844e
-      - 4FreeIran-4ce6751e6f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -126,10 +103,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-697871d49b
       - 4Sarina-b16c1bc873
       - 4Jadi-e0671995de
-      - 4FreeIran-149436844e
-      - 4FreeIran-4ce6751e6f
 rules:
   - MATCH,Proxy
