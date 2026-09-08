@@ -1,9 +1,22 @@
 proxies:
   - type: vless
-    name: filembad-264
-    server: 8970141323_e90f.t3a.syslogd.ir
+    name: filembad
+    server: 8970141323_d1c2.t3a.syslogd.ir
     port: 9093
-    uuid: 9570e104-9f08-4a4e-94a4-5b8ffb588646
+    uuid: c7245ef3-2616-4ef7-b388-2981b70ea96c
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/com.trezor.io?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
+    name: کانال
+    server: 8970141323_d1c2.t3a.syslogd.ir
+    port: 9093
+    uuid: c7245ef3-2616-4ef7-b388-2981b70ea96c
     udp: true
     xudp: true
     network: ws
@@ -14,22 +27,9 @@ proxies:
         Host: play.google.com
   - type: vless
     name: 🔵@chillguy_vpn
-    server: 8970141323_e90f.t3a.syslogd.ir
+    server: 8970141323_d1c2.t3a.syslogd.ir
     port: 9093
-    uuid: 9570e104-9f08-4a4e-94a4-5b8ffb588646
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/com.trezor.io?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
-  - type: vless
-    name: 4Sarina-597c796ad3
-    server: 8970141323_e90f.t3a.syslogd.ir
-    port: 9093
-    uuid: 9570e104-9f08-4a4e-94a4-5b8ffb588646
+    uuid: c7245ef3-2616-4ef7-b388-2981b70ea96c
     udp: true
     xudp: true
     network: ws
@@ -43,17 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - filembad-264
+      - filembad
+      - کانال
       - 🔵@chillguy_vpn
-      - 4Sarina-597c796ad3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - filembad-264
+      - filembad
+      - کانال
       - 🔵@chillguy_vpn
-      - 4Sarina-597c796ad3
 rules:
   - MATCH,Proxy

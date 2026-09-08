@@ -1,39 +1,37 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: cdn8.qemitra.ir
+    server: site.aparat-speedtest.ir
     port: 443
-    uuid: 5944c048-fea1-4e19-8899-fd3dd5aa81d8
+    uuid: 505ffe1e-98ed-49bc-82dc-01ecd206a15c
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: bb73e9715ff60e1c.aparat-speedtest.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /happy-2026-winter
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: 4Mohsen-a31c4dd9d9
-    server: cdn8.qemitra.ir
+    name: "["
+    server: site.aparat-speedtest.ir
     port: 443
-    uuid: 5944c048-fea1-4e19-8899-fd3dd5aa81d8
+    uuid: 505ffe1e-98ed-49bc-82dc-01ecd206a15c
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: bb73e9715ff60e1c.aparat-speedtest.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /happy-2026-winter
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Mohsen-a31c4dd9d9
+      - "["
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Mohsen-a31c4dd9d9
+      - "["
 rules:
   - MATCH,Proxy

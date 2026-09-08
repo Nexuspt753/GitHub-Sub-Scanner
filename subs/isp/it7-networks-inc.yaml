@@ -8,12 +8,27 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-f688be47eb
+    server: 104.194.74.14
+    port: 443
+    uuid: 2f56719f-d1dd-442d-a13c-ddbea23f1ab1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: GmSrU6Wv8pYT96TE080sn1EzQnZ3j0Ea7usrxET7ol8
+      short-id: 8d008277
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-32e553f3cf
+      - 4Nika-f688be47eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +36,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-32e553f3cf
+      - 4Nika-f688be47eb
 rules:
   - MATCH,Proxy

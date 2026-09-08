@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-a74593e935
+    server: 78.159.246.200
+    port: 8450
+    password: 501d6346-0b0d-44a7-8847-32464045cdf3
+    sni: testing6.nimarko.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-a74593e935
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-a74593e935
+rules:
+  - MATCH,Proxy
