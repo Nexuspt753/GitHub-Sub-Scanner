@@ -1,32 +1,12 @@
 proxies:
   - type: vless
-    name: 4Sarina-afbcdd60bc
+    name: 4Mohsen-36e483ab4d
     server: 31.76.88.10
     port: 443
     uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: cf5.rumedia-cdn.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/v3/live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf5.rumedia-cdn.com
-  - type: vless
-    name: 4Jadi-5bea724176
-    server: 31.76.88.10
-    port: 443
-    uuid: 03c48eca-e0aa-4e18-998c-1f53f1de293c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
     servername: cf5.rumedia-cdn.com
     xudp: true
     network: ws
@@ -49,42 +29,20 @@ proxies:
       short-id: 697a8acea036101f
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Mohsen-fcb4241d8a
-    server: 64.188.97.153
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-afbcdd60bc
-      - 4Jadi-5bea724176
+      - 4Mohsen-36e483ab4d
       - 4Jadi-c7318c6590
-      - 4Mohsen-fcb4241d8a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-afbcdd60bc
-      - 4Jadi-5bea724176
+      - 4Mohsen-36e483ab4d
       - 4Jadi-c7318c6590
-      - 4Mohsen-fcb4241d8a
 rules:
   - MATCH,Proxy

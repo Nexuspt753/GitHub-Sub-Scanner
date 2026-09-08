@@ -31,24 +31,8 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.skylee4.cloudns.ch
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 43.161.254.71
-    port: 443
-    uuid: 7893b302-3882-4c38-9ab6-6313f1575d1a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cf.udpid.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@zyzzzoao
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf.udpid.org
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 43.161.255.183
     port: 443
     password: oIwjHDXpKePvYIg8
@@ -57,13 +41,21 @@ proxies:
     sni: myvps.lol
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 43.174.247.41
     port: 443
     password: 06e4425e-a8cb-4b63-929f-2105604ab0a9
     udp: true
     tls: true
     sni: sk.ylka.dpdns.org
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-ddda68b905
+    server: 43.160.197.160
+    port: 443
+    password: 38f169d6-d202-4b1b-8db8-e6eb1648f5cf
+    udp: true
+    tls: true
     client-fingerprint: chrome
   - type: vless
     name: vless
@@ -78,23 +70,15 @@ proxies:
       - http/1.1
     xudp: true
   - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 43.160.197.160
+    port: 443
+    password: 38f169d6-d202-4b1b-8db8-e6eb1648f5cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
     name: DeltaKroneckerGithub-03
-    server: 43.160.197.160
-    port: 443
-    password: 38f169d6-d202-4b1b-8db8-e6eb1648f5cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-ddda68b905
-    server: 43.160.197.160
-    port: 443
-    password: 38f169d6-d202-4b1b-8db8-e6eb1648f5cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-04
     server: www.ddwhm.com
     port: 443
     password: 06e4425e-a8cb-4b63-929f-2105604ab0a9
@@ -134,55 +118,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: smtp.mmadcoffee.info
-  - type: vmess
-    name: 4Sarina-c938f8e266
-    server: 150.109.240.179
-    port: 8443
-    uuid: f9dcb303-3e73-40eb-9327-1ac88f9a2b72
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: www.bing.com
-    network: ws
-    ws-opts:
-      path: /wsproxy
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Jadi-6010135587
-    server: cindy51.ceoiii.com
-    port: 36802
-    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
-  - type: vmess
-    name: 4Kian-1dc9d87a71
-    server: sylva51.ceoiii.com
-    port: 36822
-    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -192,16 +127,12 @@ proxy-groups:
       - free_conf_iran
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - vless
-      - DeltaKroneckerGithub-03
       - 4Mohsen-ddda68b905
-      - DeltaKroneckerGithub-04
+      - vless
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4FreeIran-238f9d1c41
       - 4Sarina-6f382d7232
-      - 4Sarina-c938f8e266
-      - 4Jadi-6010135587
-      - 4Kian-1dc9d87a71
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -212,15 +143,11 @@ proxy-groups:
       - free_conf_iran
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - vless
-      - DeltaKroneckerGithub-03
       - 4Mohsen-ddda68b905
-      - DeltaKroneckerGithub-04
+      - vless
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4FreeIran-238f9d1c41
       - 4Sarina-6f382d7232
-      - 4Sarina-c938f8e266
-      - 4Jadi-6010135587
-      - 4Kian-1dc9d87a71
 rules:
   - MATCH,Proxy

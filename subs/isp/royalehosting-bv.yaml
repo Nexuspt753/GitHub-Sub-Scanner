@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 203.188.173.2
+    port: 443
+    uuid: 67f6f0f8-65bd-4900-9c82-7b63ca9b2404
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: royalehosting.net
+    reality-opts:
+      public-key: 14mbxpFBwnpp817ZLgT-6dVqsOmNPIaH7ygYcYScjGg
+      short-id: 2b4790ccbac1edb2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: V2ray_confiig
     server: 203.188.173.2
     port: 443
@@ -41,21 +55,6 @@ proxies:
       short-id: 2b4790ccbac1edb2
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: EPODONIOS-01
-    server: 78.17.71.236
-    port: 33736
-    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: EPODONIOS-02
     server: 78.17.71.236
@@ -162,21 +161,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Sarina-c845056ae6
-    server: 185.227.252.204
-    port: 8080
-    uuid: b3c6fb30-1416-47fc-87a1-784aeb75b526
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: 4Mohsen-a1948a3bfa
     server: 185.227.252.204
     port: 8080
@@ -207,7 +191,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Jadi-b0e2813fc9
+    name: 4Jadi-578d0c2d36
     server: 78.17.71.236
     port: 33736
     uuid: b3a11068-1a7e-4643-85de-7c82cce46943
@@ -221,15 +205,31 @@ proxies:
       path: /vmess-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-5c4ba22a52
+    server: 78.17.71.236
+    port: 33736
+    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: Telegram-Leviko_v2ray
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - V2ray_confiig
       - tootffarangi🍓-3
-      - EPODONIOS-01
       - EPODONIOS-02
       - DeltaKroneckerGithub
       - "%F0%9F%87%AB%F0%9F%87%AE%20%40V2RAYNG_IP"
@@ -237,10 +237,10 @@ proxy-groups:
       - 4Jadi-863c2f4100
       - 4FreeIran-f6fbe9a42d
       - 4Nika-c56b670be3
-      - 4Sarina-c845056ae6
       - 4Mohsen-a1948a3bfa
       - 4Mohsen-ff18b62799
-      - 4Jadi-b0e2813fc9
+      - 4Jadi-578d0c2d36
+      - 4Sarina-5c4ba22a52
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -248,9 +248,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - V2ray_confiig
       - tootffarangi🍓-3
-      - EPODONIOS-01
       - EPODONIOS-02
       - DeltaKroneckerGithub
       - "%F0%9F%87%AB%F0%9F%87%AE%20%40V2RAYNG_IP"
@@ -258,9 +258,9 @@ proxy-groups:
       - 4Jadi-863c2f4100
       - 4FreeIran-f6fbe9a42d
       - 4Nika-c56b670be3
-      - 4Sarina-c845056ae6
       - 4Mohsen-a1948a3bfa
       - 4Mohsen-ff18b62799
-      - 4Jadi-b0e2813fc9
+      - 4Jadi-578d0c2d36
+      - 4Sarina-5c4ba22a52
 rules:
   - MATCH,Proxy

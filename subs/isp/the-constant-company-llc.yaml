@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 🇵🇱
+    server: 64.176.73.160
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: VJtsgllDDJfNmaTe
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 65.20.102.54
@@ -18,6 +25,18 @@ proxies:
     sni: ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
     client-fingerprint: chrome
   - type: trojan
+    name: 4Nika-f72d8631a0
+    server: 209.250.236.93
+    port: 443
+    password: Cl150MQWlG
+    udp: true
+    tls: true
+    sni: irancell-ir-4.mmdruby13.store
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
     name: DeltaKroneckerGithub-02
     server: 199.247.27.91
     port: 443
@@ -29,13 +48,13 @@ proxies:
       - http/1.1
     client-fingerprint: chrome
   - type: trojan
-    name: 4Nika-f72d8631a0
-    server: 209.250.236.93
+    name: 4Mohsen-1572c1e513
+    server: 95.179.246.122
     port: 443
-    password: Cl150MQWlG
+    password: mainssh-niwrhf87
     udp: true
     tls: true
-    sni: irancell-ir-4.mmdruby13.store
+    sni: getgrpc.mainssh.xyz
     client-fingerprint: chrome
     network: grpc
     grpc-opts:
@@ -49,54 +68,30 @@ proxies:
     tls: true
     sni: ash.d22e0961-e0a7-49b8-8259-eac71e24d27b.kailib.com
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Nika-41dad45536
-    server: 95.179.254.136
-    port: 443
-    password: mainssh-ddoejfv14
-    udp: true
-    tls: true
-    sni: frtgrpc.mainssh.xyz
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: trojan
-    name: 4Mohsen-1572c1e513
-    server: 95.179.246.122
-    port: 443
-    password: mainssh-niwrhf87
-    udp: true
-    tls: true
-    sni: getgrpc.mainssh.xyz
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇵🇱
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Nika-f72d8631a0
-      - DeltaKroneckerGithub-03
-      - 4Nika-41dad45536
+      - DeltaKroneckerGithub-02
       - 4Mohsen-1572c1e513
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇵🇱
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Nika-f72d8631a0
-      - DeltaKroneckerGithub-03
-      - 4Nika-41dad45536
+      - DeltaKroneckerGithub-02
       - 4Mohsen-1572c1e513
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy
