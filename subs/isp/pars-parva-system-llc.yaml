@@ -1,17 +1,13 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: connect.nyxserver.ir
-    port: 80
-    uuid: cef2e5c6-23d6-415a-ac38-8d96e10b9053
+    name: vless
+    server: fRt.torflay.ir
+    port: 443
+    uuid: b2ca657e-c135-4888-bc7d-a9f986789cc0
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
-    network: ws
-    ws-opts:
-      path: /arvan-tuel
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: connect.nyxserver.ir
   - type: vless
     name: tanhanet
     server: connect.nyxserver.ir
@@ -43,7 +39,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - vless
       - tanhanet
       - 4Mohsen-464b65fb2a
   - name: Auto
@@ -52,7 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - vless
       - tanhanet
       - 4Mohsen-464b65fb2a
 rules:

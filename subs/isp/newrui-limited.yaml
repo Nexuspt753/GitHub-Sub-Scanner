@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Sarina-011754b6a1
+    server: 123.253.227.238
+    port: 10005
+    uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.asus.com
+    reality-opts:
+      public-key: ryX4yUguNp9iQ6j_BPlEMyCK62474if28u_ouXSPciQ
+      short-id: 1974efea3b2148
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-c1be2245c4
     server: 123.253.227.238
     port: 10016
@@ -56,15 +70,18 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-6ea03abfee
+    name: 4Jadi-cc36c9c974
     server: 123.253.227.238
-    port: 10032
+    port: 10033
     uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
     udp: true
     tls: true
     client-fingerprint: firefox
     servername: www.hp.com
-    flow: xtls-rprx-vision-udp443
+    reality-opts:
+      public-key: mQvQHrpr_4068cLt-AOl44mQN6YccQv7yLfCP5Kp9HU
+      short-id: "667925235980"
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Mohsen-113019cb1e
@@ -94,43 +111,32 @@ proxies:
       short-id: 8def87fb30886534
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-5f64d21135
-    server: 123.253.227.238
-    port: 10050
-    uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.hp.com
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-011754b6a1
       - 4Jadi-c1be2245c4
       - 4Mohsen-70d7c9dde7
       - 4Mohsen-39b93e733b
       - 4Kian-4e3772defd
-      - 4Jadi-6ea03abfee
+      - 4Jadi-cc36c9c974
       - 4Mohsen-113019cb1e
       - 4Mohsen-564d49bd87
-      - 4Mohsen-5f64d21135
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-011754b6a1
       - 4Jadi-c1be2245c4
       - 4Mohsen-70d7c9dde7
       - 4Mohsen-39b93e733b
       - 4Kian-4e3772defd
-      - 4Jadi-6ea03abfee
+      - 4Jadi-cc36c9c974
       - 4Mohsen-113019cb1e
       - 4Mohsen-564d49bd87
-      - 4Mohsen-5f64d21135
 rules:
   - MATCH,Proxy

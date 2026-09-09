@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: FarazV2ray
+    server: 131.123.34.42
+    port: 443
+    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sheetpeek.com
+    reality-opts:
+      public-key: pX9uknHGLC9I26TT5kq4bIAljtX2AGWLK23EMgn6xFo
+      short-id: 84be686ea1d16478
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: V2raySaman
+    server: 131.123.34.42
+    port: 443
+    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sheetpeek.com
+    reality-opts:
+      public-key: pX9uknHGLC9I26TT5kq4bIAljtX2AGWLK23EMgn6xFo
+      short-id: 84be686ea1d16478
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Channel
     server: 131.123.34.42
     port: 443
@@ -14,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-966bf13d23
+    name: Free
     server: 131.123.34.42
     port: 443
     uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
@@ -32,15 +60,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - FarazV2ray
+      - V2raySaman
       - Channel
-      - 4Nika-966bf13d23
+      - Free
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - FarazV2ray
+      - V2raySaman
       - Channel
-      - 4Nika-966bf13d23
+      - Free
 rules:
   - MATCH,Proxy

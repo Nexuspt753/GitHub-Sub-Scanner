@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: "[41698]"
+    name: EPODONIOS
     server: 2.144.22.87
     port: 443
     uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
@@ -14,7 +14,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: canfingV2rayNG-193
+    name: "[045261]"
+    server: 2.144.22.87
+    port: 443
+    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: api.bgp6.ir
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-617fee0c0c
     server: 2.144.22.87
     port: 443
     uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - "[41698]"
-      - canfingV2rayNG-193
+      - EPODONIOS
+      - "[045261]"
+      - 4FreeIran-617fee0c0c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "[41698]"
-      - canfingV2rayNG-193
+      - EPODONIOS
+      - "[045261]"
+      - 4FreeIran-617fee0c0c
 rules:
   - MATCH,Proxy

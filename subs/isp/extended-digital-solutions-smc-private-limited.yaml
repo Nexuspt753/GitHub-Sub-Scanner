@@ -1,0 +1,32 @@
+proxies:
+  - type: vmess
+    name: 4Sarina-67ebf0a8f6
+    server: sh-cn-1.dnspro.icu
+    port: 20025
+    uuid: 13ef5f2c-d002-36a2-9e96-a13d5e3ae03b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /iso
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sh-cn-1.dnspro.icu
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-67ebf0a8f6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-67ebf0a8f6
+rules:
+  - MATCH,Proxy
