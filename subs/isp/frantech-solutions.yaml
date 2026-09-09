@@ -7,6 +7,13 @@ proxies:
     password: eDfN7SODQceIOmIAbtJJtK
     udp: true
   - type: ss
+    name: Free
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+  - type: ss
     name: United
     server: 198.98.53.130
     port: 443
@@ -55,12 +62,27 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: eDfN7SODQceIOmIAbtJJtK
     udp: true
+  - type: vless
+    name: 4Jadi-b7bdee1d49
+    server: 104.194.149.76
+    port: 443
+    uuid: 95446021-bb8c-43a3-8280-51f23c5ae198
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.dodostatic.net
+    reality-opts:
+      public-key: lymJAptLKD4NpHVg1r4ybQZuGCxilvHP30DDN9Sz82w
+      short-id: 522545cf95347d03
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - Free
       - United
       - EPODONIOS-01
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
@@ -68,6 +90,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - ">>@freeland8::US"
+      - 4Jadi-b7bdee1d49
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,6 +98,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - Free
       - United
       - EPODONIOS-01
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
@@ -82,5 +106,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - ">>@freeland8::US"
+      - 4Jadi-b7bdee1d49
 rules:
   - MATCH,Proxy

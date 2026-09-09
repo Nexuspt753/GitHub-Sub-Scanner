@@ -1,18 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 130.94.29.111
+    name: EPODONIOS
+    server: 130.94.115.231
     port: 2087
-    uuid: 84da6391-1539-4583-a3d9-d6efd796b4d6
+    uuid: 8a51f3d9-30cc-44e6-8d31-700211a29066
     udp: true
     xudp: true
     network: ws
     ws-opts:
-      path: /e17586a75123
+      path: /721740e567c7
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇨🇦
+    server: 130.94.115.231
+    port: 2087
+    uuid: 8a51f3d9-30cc-44e6-8d31-700211a29066
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /721740e567c7
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 154.90.62.70
     port: 56127
     password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
@@ -33,15 +45,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Kian-7ddfc2c2dc
-    server: 130.94.29.111
+    name: 4Nika-9f44d385df
+    server: 130.94.115.231
     port: 2087
-    uuid: 84da6391-1539-4583-a3d9-d6efd796b4d6
+    uuid: 8a51f3d9-30cc-44e6-8d31-700211a29066
     udp: true
     xudp: true
     network: ws
     ws-opts:
-      path: /e17586a75123
+      path: /721740e567c7
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
@@ -49,19 +61,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇨🇦
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-68823fee63
-      - 4Kian-7ddfc2c2dc
+      - 4Nika-9f44d385df
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇨🇦
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-68823fee63
-      - 4Kian-7ddfc2c2dc
+      - 4Nika-9f44d385df
 rules:
   - MATCH,Proxy

@@ -1,7 +1,37 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: by01.botovod.space
+    name: EPODONIOS
+    server: 178.172.227.178
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    udp: true
+    tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: Free
+    server: 178.172.227.178
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    udp: true
+    tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: 4Nika-cb8dd175c3
+    server: 178.172.227.178
     port: 500
     password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
     udp: true
@@ -19,13 +49,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - Free
+      - 4Nika-cb8dd175c3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - Free
+      - 4Nika-cb8dd175c3
 rules:
   - MATCH,Proxy

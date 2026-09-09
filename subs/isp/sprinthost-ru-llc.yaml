@@ -1,28 +1,59 @@
 proxies:
   - type: vless
-    name: 4Sarina-0236e6b840
-    server: 186.246.48.59
-    port: 2200
-    uuid: 72c8ea26-8b77-4e31-a23f-79c19b3a2ef1
+    name: EPODONIOS
+    server: 186.246.54.124
+    port: 26146
+    uuid: 67f06be5-3ebc-48f4-942b-94b5bdc7349b
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.ru
+    reality-opts:
+      public-key: gX3_zVtbvWNZH7lXyrsBBCcyCVKkkr_LMw9JRqpAmmQ
+      short-id: be
     xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: "[043882]"
+    server: 186.246.54.124
+    port: 26146
+    uuid: 67f06be5-3ebc-48f4-942b-94b5bdc7349b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.ru
+    reality-opts:
+      public-key: gX3_zVtbvWNZH7lXyrsBBCcyCVKkkr_LMw9JRqpAmmQ
+      short-id: be
+    xudp: true
+  - type: vless
+    name: 4Nika-24584fb955
+    server: 186.246.54.124
+    port: 26146
+    uuid: 67f06be5-3ebc-48f4-942b-94b5bdc7349b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.ru
+    reality-opts:
+      public-key: gX3_zVtbvWNZH7lXyrsBBCcyCVKkkr_LMw9JRqpAmmQ
+      short-id: be
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-0236e6b840
+      - EPODONIOS
+      - "[043882]"
+      - 4Nika-24584fb955
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-0236e6b840
+      - EPODONIOS
+      - "[043882]"
+      - 4Nika-24584fb955
 rules:
   - MATCH,Proxy

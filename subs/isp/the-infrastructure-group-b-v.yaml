@@ -13,6 +13,19 @@ proxies:
       short-id: 39feeba3085c
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: ned.waldron.ir
+    port: 46142
+    uuid: 255386a8-aec5-4425-bfe7-ca49b7448deb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.yahoo.com
+    reality-opts:
+      public-key: l-OE7EwER1Z_jAifGE_UZ3FqHDMGzaR0jQHFYj5RNAk
+      short-id: 39feeba3085c
+    xudp: true
+  - type: vless
     name: appsooner
     server: 5.255.126.104
     port: 46142
@@ -51,29 +64,35 @@ proxies:
       public-key: l-OE7EwER1Z_jAifGE_UZ3FqHDMGzaR0jQHFYj5RNAk
       short-id: 39feeba3085c
     xudp: true
-  - type: vless
-    name: 4FreeIran-45e0569ec5
-    server: ned.waldron.ir
-    port: 46142
-    uuid: 255386a8-aec5-4425-bfe7-ca49b7448deb
+  - type: vmess
+    name: 4Sarina-433b9c740d
+    server: 5.255.109.47
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.yahoo.com
-    reality-opts:
-      public-key: l-OE7EwER1Z_jAifGE_UZ3FqHDMGzaR0jQHFYj5RNAk
-      short-id: 39feeba3085c
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - appsooner
       - appsooner-01
       - 4Kian-edab7066b4
-      - 4FreeIran-45e0569ec5
+      - 4Sarina-433b9c740d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -81,9 +100,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - appsooner
       - appsooner-01
       - 4Kian-edab7066b4
-      - 4FreeIran-45e0569ec5
+      - 4Sarina-433b9c740d
 rules:
   - MATCH,Proxy
