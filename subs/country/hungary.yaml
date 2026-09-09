@@ -1,27 +1,18 @@
 proxies:
-  - type: vless
-    name: Nyíregyháza · @DeltaKroneckerGithub
-    server: 45.9.168.17
-    port: 443
-    uuid: 5d4a87fa-16f1-4b65-b217-225a31e36239
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: hu.convert-flow.net
-    reality-opts:
-      public-key: 8ZYjmjb0b2QJKCGMrcdhQNV28jZZPCKgIQbIdqChQ0w
-      short-id: 00a61d55a07de885
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: Budapest · @DeltaKroneckerGithub
-    server: hu2.vpnjantit.com
-    port: 4443
-    password: C0ldyfh-vpnjantit.com
+    server: 185.225.68.232
+    port: 443
+    password: humanity
     udp: true
     tls: true
-    sni: hu2.vpnjantit.com
-    client-fingerprint: android
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: Nyíregyháza · EPODONIOS
     server: 45.9.168.17
@@ -36,20 +27,6 @@ proxies:
       short-id: 00a61d55a07de885
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: Budapest · @DeltaKroneckerGithub-01
-    server: 185.225.68.232
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: Nyíregyháza · @meliproxyy
     server: 45.9.168.17
@@ -66,6 +43,15 @@ proxies:
     xudp: true
   - type: trojan
     name: Budapest · 4Mohsen-48ff4b65db
+    server: hu2.vpnjantit.com
+    port: 4443
+    password: C0ldyfh-vpnjantit.com
+    udp: true
+    tls: true
+    sni: hu2.vpnjantit.com
+    client-fingerprint: android
+  - type: trojan
+    name: Budapest · @DeltaKroneckerGithub-01
     server: hu2.vpnjantit.com
     port: 4443
     password: C0ldyfh-vpnjantit.com
@@ -92,12 +78,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Nyíregyháza · @DeltaKroneckerGithub
       - Budapest · @DeltaKroneckerGithub
       - Nyíregyháza · EPODONIOS
-      - Budapest · @DeltaKroneckerGithub-01
       - Nyíregyháza · @meliproxyy
       - Budapest · 4Mohsen-48ff4b65db
+      - Budapest · @DeltaKroneckerGithub-01
       - Nyíregyháza · 4Nika-559d0a3766
   - name: Auto
     type: url-test
@@ -105,12 +90,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Nyíregyháza · @DeltaKroneckerGithub
       - Budapest · @DeltaKroneckerGithub
       - Nyíregyháza · EPODONIOS
-      - Budapest · @DeltaKroneckerGithub-01
       - Nyíregyháza · @meliproxyy
       - Budapest · 4Mohsen-48ff4b65db
+      - Budapest · @DeltaKroneckerGithub-01
       - Nyíregyháza · 4Nika-559d0a3766
 rules:
   - MATCH,Proxy

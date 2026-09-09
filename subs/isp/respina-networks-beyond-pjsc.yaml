@@ -1,23 +1,26 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: Irj.jobwebs.ir
-    port: 25341
-    cipher: chacha20-ietf-poly1305
-    password: qb0uRN2r8CACi1tqOsZN3n5j_IcyqcEm
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: xgr.goldnshop.com
+    port: 2083
+    uuid: beadd688-6285-4f0e-bb5e-d984570567a4
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

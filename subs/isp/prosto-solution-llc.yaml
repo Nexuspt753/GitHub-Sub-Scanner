@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.87.24.3
+    port: 2085
+    uuid: ffa722c8-da3f-4371-a0e0-6afcc9f3f93b
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.87.24.166
+    port: 2085
+    uuid: e6b2a7e7-522e-4b60-bf29-248b1192eb2e
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 185.87.24.5
+    port: 2085
+    uuid: fe1d6e16-d6ed-4f93-a44c-bea0750b68db
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 185.87.24.7
+    port: 2085
+    uuid: fe1d6e16-d6ed-4f93-a44c-bea0750b68db
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+rules:
+  - MATCH,Proxy

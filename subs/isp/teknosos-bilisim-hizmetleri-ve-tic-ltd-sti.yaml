@@ -1,29 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Sarina-10538c721e
-    server: tr2.seyhellodigi.com
-    port: 2005
-    uuid: 7d468921-7b22-4c0a-aa4c-d2bb21813be4
+  - type: vmess
+    name: filembad
+    server: www.zeneco.ir
+    port: 2495
+    uuid: bed17909-34c1-4e6c-b444-0f5db9cb5ce8
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/add/2qnYtSDZhdin2KYsdiqINmB24zZhNiq2LEg2YbaqdmG
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-10538c721e
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-10538c721e
+      - filembad
 rules:
   - MATCH,Proxy
