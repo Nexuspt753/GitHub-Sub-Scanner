@@ -1,29 +1,46 @@
 proxies:
   - type: vless
-    name: "[030162]"
-    server: 143.14.11.236
-    port: 80
-    uuid: f55ce6cc-3f6b-40fc-9e3b-abe26db17009
+    name: EPODONIOS
+    server: th.cryptoofarm.com
+    port: 8443
+    uuid: 16ab4d4a-fd81-4535-9b7b-346677226ce8
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: th.cryptoofarm.com
+    reality-opts:
+      public-key: DU06BFOa3xeqOPxjAxQMi00LvvJ5i1qnjFBJGFv03Q4
+      short-id: 591076636be970d0
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
+  - type: vless
+    name: "[044483]"
+    server: th.cryptoofarm.com
+    port: 8443
+    uuid: 16ab4d4a-fd81-4535-9b7b-346677226ce8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: th.cryptoofarm.com
+    reality-opts:
+      public-key: DU06BFOa3xeqOPxjAxQMi00LvvJ5i1qnjFBJGFv03Q4
+      short-id: 591076636be970d0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "[030162]"
+      - EPODONIOS
+      - "[044483]"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "[030162]"
+      - EPODONIOS
+      - "[044483]"
 rules:
   - MATCH,Proxy

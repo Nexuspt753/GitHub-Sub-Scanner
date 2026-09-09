@@ -1,29 +1,29 @@
 proxies:
   - type: vless
-    name: 4Nika-24584fb955
-    server: 186.246.54.124
-    port: 26146
-    uuid: 67f06be5-3ebc-48f4-942b-94b5bdc7349b
+    name: DeltaKroneckerGithub
+    server: 185.185.69.251
+    port: 2200
+    uuid: 307998ce-9dc2-473b-81bb-6c359817df5c
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.vk.ru
-    reality-opts:
-      public-key: gX3_zVtbvWNZH7lXyrsBBCcyCVKkkr_LMw9JRqpAmmQ
-      short-id: be
     xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rzd.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-24584fb955
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-24584fb955
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -9,19 +9,6 @@ proxies:
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
   - type: vless
-    name: EPODONIOS
-    server: 144.31.17.66
-    port: 443
-    uuid: d2351240-3ef6-4ec3-a82c-0e71742895dc
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: Kit4AiOzaBN_zhhwe8eU9SHexYW4fwAo20MnDbjPEWc
-      short-id: c7514dbbd2af28b5
-    xudp: true
-  - type: vless
     name: Daily_Configs
     server: 144.31.17.66
     port: 443
@@ -47,15 +34,47 @@ proxies:
       public-key: Kit4AiOzaBN_zhhwe8eU9SHexYW4fwAo20MnDbjPEWc
       short-id: c7514dbbd2af28b5
     xudp: true
+  - type: vless
+    name: 4FreeIran-cb3a5eaad5
+    server: 144.31.17.66
+    port: 443
+    uuid: d2351240-3ef6-4ec3-a82c-0e71742895dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: Kit4AiOzaBN_zhhwe8eU9SHexYW4fwAo20MnDbjPEWc
+      short-id: c7514dbbd2af28b5
+    xudp: true
+  - type: vmess
+    name: 4Sarina-133c730ca5
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
       - Daily_Configs
       - Tel-@ProxyMtAlpha🫕
+      - 4FreeIran-cb3a5eaad5
+      - 4Sarina-133c730ca5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -63,8 +82,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
       - Daily_Configs
       - Tel-@ProxyMtAlpha🫕
+      - 4FreeIran-cb3a5eaad5
+      - 4Sarina-133c730ca5
 rules:
   - MATCH,Proxy

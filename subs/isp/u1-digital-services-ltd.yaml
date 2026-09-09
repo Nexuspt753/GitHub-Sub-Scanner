@@ -15,6 +15,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf5.rumedia-cdn.com
+  - type: vless
+    name: EPODONIOS
+    server: 179.198.50.131
+    port: 8443
+    uuid: a34b5e88-cf0d-4c01-8199-2d1002d3c787
+    udp: true
+    xudp: true
   - type: vmess
     name: DeltaKroneckerGithub-01
     server: 64.188.117.165
@@ -32,6 +39,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vless
+    name: 🇫🇮166041
+    server: 179.198.50.131
+    port: 8443
+    uuid: a34b5e88-cf0d-4c01-8199-2d1002d3c787
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇫🇮FI-🚀@VPNine1
+    server: 179.198.50.131
+    port: 8443
+    uuid: a34b5e88-cf0d-4c01-8199-2d1002d3c787
+    udp: true
+    xudp: true
   - type: vless
     name: 4Mohsen-36e483ab4d
     server: 31.76.88.10
@@ -62,15 +83,56 @@ proxies:
       short-id: 697a8acea036101f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Mohsen-fcb4241d8a
+    server: 64.188.97.153
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-505ded8f76
+    server: 64.188.97.153
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - 🇫🇮166041
+      - 🇫🇮FI-🚀@VPNine1
       - 4Mohsen-36e483ab4d
       - 4Jadi-c7318c6590
+      - 4Mohsen-fcb4241d8a
+      - 4Nika-505ded8f76
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -78,8 +140,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - 🇫🇮166041
+      - 🇫🇮FI-🚀@VPNine1
       - 4Mohsen-36e483ab4d
       - 4Jadi-c7318c6590
+      - 4Mohsen-fcb4241d8a
+      - 4Nika-505ded8f76
 rules:
   - MATCH,Proxy
