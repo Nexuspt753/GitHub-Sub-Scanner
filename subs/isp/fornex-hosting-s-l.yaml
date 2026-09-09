@@ -13,6 +13,24 @@ proxies:
       short-id: b3a1d910e7c2f722
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: 89.127.218.61
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vless
     name: 🇸🇪@FreakConfig
     server: sw.data-media-social.org
@@ -41,32 +59,15 @@ proxies:
       short-id: b3a1d910e7c2f722
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-da06da3386
-    server: 89.127.218.61
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - DeltaKroneckerGithub
       - 🇸🇪@FreakConfig
       - 4Kian-6102022089
-      - 4Nika-da06da3386
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,8 +75,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - DeltaKroneckerGithub
       - 🇸🇪@FreakConfig
       - 4Kian-6102022089
-      - 4Nika-da06da3386
 rules:
   - MATCH,Proxy
