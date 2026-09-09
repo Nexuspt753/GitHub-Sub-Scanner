@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 141.101.122.147
-    port: 443
-    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: a.cwvps.eu.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a.cwvps.eu.org
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 141.101.120.73
     port: 443
     uuid: 5d8eb33a-2166-4daf-88fe-4be5799c493b
@@ -31,29 +15,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: noisy-term-e657.airdrop2014aa5168.workers.dev
-  - type: trojan
-    name: 4Sarina-725e0a4e05
-    server: 141.101.90.101
+  - type: vless
+    name: EPODONIOS
+    server: 141.101.122.147
     port: 443
-    password: humanity
+    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
     udp: true
     tls: true
-    sni: www.ignitelimit.com
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Kian-6ea252fa1b
-    server: 141.101.90.101
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
+    servername: a.cwvps.eu.org
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: a.cwvps.eu.org
+  - type: trojan
+    name: 4Nika-7bd6b7a508
+    server: 141.101.90.101
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-3e0082032a
     server: 141.101.90.101
@@ -102,7 +88,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.111000.dynv6.net
   - type: vless
-    name: 4Jadi-03c07863f1
+    name: 4Mohsen-e78630cfff
     server: platform.wise.com
     port: 2053
     uuid: 1a25f8ad-cad2-4e93-b5bf-34e42bcac02a
@@ -118,21 +104,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.111000.dynv6.net
   - type: vless
-    name: 4Mohsen-8a46097963
-    server: 141.101.122.147
-    port: 443
-    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+    name: 4Jadi-03c07863f1
+    server: platform.wise.com
+    port: 2053
+    uuid: 1a25f8ad-cad2-4e93-b5bf-34e42bcac02a
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: a.cwvps.eu.org
+    servername: sni.111000.dynv6.net
     xudp: true
     network: ws
     ws-opts:
-      path: /ws
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a.cwvps.eu.org
+        Host: sni.111000.dynv6.net
   - type: vless
     name: 4Kian-11699adcd6
     server: 141.101.122.147
@@ -291,36 +277,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: us.dalazhi.eu.org
-  - type: vmess
-    name: 4Sarina-4323028a89
-    server: uicdn.cf
-    port: 80
-    uuid: 6fea1649-425b-4092-bf53-29792152c925
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /sshkit/fdfadsfa/63848bfe228fd/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: us-lb.sshkit.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Sarina-725e0a4e05
-      - 4Kian-6ea252fa1b
+      - EPODONIOS
+      - 4Nika-7bd6b7a508
       - 4Jadi-3e0082032a
       - 4Sarina-9a4ecccaff
       - 4Jadi-f27a918520
+      - 4Mohsen-e78630cfff
       - 4Jadi-03c07863f1
-      - 4Mohsen-8a46097963
       - 4Kian-11699adcd6
       - 4FreeIran-bb99f02c6b
       - 4FreeIran-461f88c06b
@@ -331,7 +300,6 @@ proxy-groups:
       - 4Jadi-4c6148e57b
       - 4Nika-f4389cdf4c
       - 4FreeIran-f75da9dc12
-      - 4Sarina-4323028a89
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -339,14 +307,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Sarina-725e0a4e05
-      - 4Kian-6ea252fa1b
+      - EPODONIOS
+      - 4Nika-7bd6b7a508
       - 4Jadi-3e0082032a
       - 4Sarina-9a4ecccaff
       - 4Jadi-f27a918520
+      - 4Mohsen-e78630cfff
       - 4Jadi-03c07863f1
-      - 4Mohsen-8a46097963
       - 4Kian-11699adcd6
       - 4FreeIran-bb99f02c6b
       - 4FreeIran-461f88c06b
@@ -357,6 +324,5 @@ proxy-groups:
       - 4Jadi-4c6148e57b
       - 4Nika-f4389cdf4c
       - 4FreeIran-f75da9dc12
-      - 4Sarina-4323028a89
 rules:
   - MATCH,Proxy

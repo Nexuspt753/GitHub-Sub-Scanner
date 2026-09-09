@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: hypertrophy.akfitness.ir
+    port: 29205
+    uuid: 8d004d16-0243-4b04-a1b6-37a09c1ff357
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: khamenei.ir
+    reality-opts:
+      public-key: z9krVhkzFKw1y_DvzlGqM8K7AtC7VKIMk2Ukba_-oiA
+      short-id: 440a
+    xudp: true
+  - type: vless
     name: 4Nika-26f30e5723
     server: hypertrophy.akfitness.ir
     port: 29205
@@ -12,42 +25,20 @@ proxies:
       public-key: z9krVhkzFKw1y_DvzlGqM8K7AtC7VKIMk2Ukba_-oiA
       short-id: 440a
     xudp: true
-  - type: vmess
-    name: 4Mohsen-b16d35cbc2
-    server: dashboard.afrapay.top
-    port: 5385
-    uuid: 76cefcd7-6b53-4c65-ad29-1a92734fc968
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Nika-475f92fd25
-    server: dashboard.afrapay.top
-    port: 5385
-    uuid: 76cefcd7-6b53-4c65-ad29-1a92734fc968
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Nika-26f30e5723
-      - 4Mohsen-b16d35cbc2
-      - 4Nika-475f92fd25
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Nika-26f30e5723
-      - 4Mohsen-b16d35cbc2
-      - 4Nika-475f92fd25
 rules:
   - MATCH,Proxy

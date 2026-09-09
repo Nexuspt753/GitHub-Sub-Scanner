@@ -1,27 +1,46 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: switzerhy2.metricpipe.space
-    port: 9443
-    password: 4LR1nTjdxRQs2JGmzJnsRefgqQUYFEfo
+  - type: vless
+    name: Channel
+    server: 131.123.34.42
+    port: 443
+    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
     udp: true
     tls: true
-    sni: switzerhy2.metricpipe.space
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
+    servername: sheetpeek.com
+    reality-opts:
+      public-key: pX9uknHGLC9I26TT5kq4bIAljtX2AGWLK23EMgn6xFo
+      short-id: 84be686ea1d16478
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-966bf13d23
+    server: 131.123.34.42
+    port: 443
+    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sheetpeek.com
+    reality-opts:
+      public-key: pX9uknHGLC9I26TT5kq4bIAljtX2AGWLK23EMgn6xFo
+      short-id: 84be686ea1d16478
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - Channel
+      - 4Nika-966bf13d23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - Channel
+      - 4Nika-966bf13d23
 rules:
   - MATCH,Proxy

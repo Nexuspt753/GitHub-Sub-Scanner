@@ -1,32 +1,59 @@
 proxies:
-  - type: trojan
-    name: trojan
-    server: node8.quaxly.com
-    port: 25040
-    password: Km/pIG4AGCjCOiGWj5FsWA==
+  - type: vless
+    name: EPODONIOS
+    server: fr-node.usel.pro
+    port: 443
+    uuid: 6fb79584-30b8-4888-b358-98f7ef6b8697
     udp: true
     tls: true
-    sni: node8.quaxly.com
-    alpn:
-      - http/1.1
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    client-fingerprint: chrome
+    servername: yunohost.org
+    reality-opts:
+      public-key: fTxan5odgqq8enNPQ-MOOYOaQKIaG01NQ1Yvs0Zd-SE
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-3dd33dfabc
+    server: fr-node.usel.pro
+    port: 443
+    uuid: 6fb79584-30b8-4888-b358-98f7ef6b8697
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yunohost.org
+    reality-opts:
+      public-key: fTxan5odgqq8enNPQ-MOOYOaQKIaG01NQ1Yvs0Zd-SE
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-4ab866276c
+    server: fr-node.usel.pro
+    port: 443
+    uuid: 6fb79584-30b8-4888-b358-98f7ef6b8697
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yunohost.org
+    reality-opts:
+      public-key: fTxan5odgqq8enNPQ-MOOYOaQKIaG01NQ1Yvs0Zd-SE
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - trojan
+      - EPODONIOS
+      - 4Kian-3dd33dfabc
+      - 4Jadi-4ab866276c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - trojan
+      - EPODONIOS
+      - 4Kian-3dd33dfabc
+      - 4Jadi-4ab866276c
 rules:
   - MATCH,Proxy
