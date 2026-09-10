@@ -13,12 +13,27 @@ proxies:
       short-id: dfde4e821472fb98
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-62ef8e7a03
+    server: 103.137.215.32
+    port: 443
+    uuid: 6c8a1ad4-0c04-460d-87e2-507a952ba902
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.apple.com
+    reality-opts:
+      public-key: LP_JNPrfHbQnMK5dYoKr4D6Q8I8yKHK5ygHffJb1hzw
+      short-id: dfde4e821472fb98
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-4bc8a1814b
+      - 4Kian-62ef8e7a03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-4bc8a1814b
+      - 4Kian-62ef8e7a03
 rules:
   - MATCH,Proxy

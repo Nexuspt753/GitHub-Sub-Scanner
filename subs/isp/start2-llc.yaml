@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Nika-9849799370
+    server: 78.24.92.66
+    port: 443
+    uuid: a4fee7ea-cb5b-47bf-8422-41a03fdfcf5e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-9849799370
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-9849799370
+rules:
+  - MATCH,Proxy

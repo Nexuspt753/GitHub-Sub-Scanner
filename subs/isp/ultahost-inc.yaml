@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 202.155.11.249
-    port: 443
-    uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cf2.rumedia-cdn.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/v3/live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf2.rumedia-cdn.com
-  - type: vless
     name: DeltaKroneckerGithub
     server: 202.155.11.249
     port: 443
@@ -31,6 +15,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf2.rumedia-cdn.com
+  - type: vless
+    name: EPODONIOS
+    server: 178.83.226.142
+    port: 56539
+    uuid: 1d2cded7-0930-42da-a9f9-01a7adeb1642
+    udp: true
+    xudp: true
   - type: vless
     name: EPODONIOS-01
     server: 178.83.226.142
@@ -93,21 +84,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-b9b2567ad2
-    server: 202.155.11.249
-    port: 443
-    uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
+    name: 4Nika-dbba961f1d
+    server: 178.83.226.142
+    port: 56539
+    uuid: 1d2cded7-0930-42da-a9f9-01a7adeb1642
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cf2.rumedia-cdn.com
     xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/v3/live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf2.rumedia-cdn.com
+  - type: vless
+    name: 4Mohsen-6f6ec2014a
+    server: 178.83.226.142
+    port: 56539
+    uuid: 1d2cded7-0930-42da-a9f9-01a7adeb1642
+    udp: true
+    xudp: true
   - type: vless
     name: 4FreeIran-fda04ea6ea
     server: 178.83.226.142
@@ -128,6 +117,16 @@ proxies:
       public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-b78e2ea264
+    server: 192.142.53.38
+    port: 37321
+    uuid: 4914cac8-d4f7-4ffe-9c58-1117c9cb1887
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vmess
     name: 4Mohsen-a5cad1cbdc
     server: tr.privatevip.ir
@@ -155,8 +154,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
@@ -164,9 +163,11 @@ proxy-groups:
       - Telegram
       - Telegram-01
       - EVAY_VPN
-      - 4Kian-b9b2567ad2
+      - 4Nika-dbba961f1d
+      - 4Mohsen-6f6ec2014a
       - 4FreeIran-fda04ea6ea
       - 4Nika-589b238f5c
+      - 4Sarina-b78e2ea264
       - 4Mohsen-a5cad1cbdc
   - name: Auto
     type: url-test
@@ -174,8 +175,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
@@ -183,9 +184,11 @@ proxy-groups:
       - Telegram
       - Telegram-01
       - EVAY_VPN
-      - 4Kian-b9b2567ad2
+      - 4Nika-dbba961f1d
+      - 4Mohsen-6f6ec2014a
       - 4FreeIran-fda04ea6ea
       - 4Nika-589b238f5c
+      - 4Sarina-b78e2ea264
       - 4Mohsen-a5cad1cbdc
 rules:
   - MATCH,Proxy

@@ -1,18 +1,19 @@
 proxies:
-  - type: vless
-    name: Minsk · EPODONIOS
-    server: 144.31.129.2
-    port: 443
-    uuid: 91eb52ec-e3f5-4ab9-90da-43104995aef7
+  - type: trojan
+    name: Bol’shoye Stiklevo · Free
+    server: 178.172.227.178
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
     udp: true
     tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: by1.un1.pro
-    reality-opts:
-      public-key: y3EIsxDGDJrBGk3j4YmjI5R_8jiCsEDRDMeL4bv5TTI
-      short-id: 6ba85179e30d4fc2
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: trojan
     name: Bol’shoye Stiklevo · 4Nika-cb8dd175c3
     server: 178.172.227.178
@@ -28,36 +29,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: Minsk · 4Jadi-c7fee5ef3a
-    server: 144.31.129.2
-    port: 443
-    uuid: 91eb52ec-e3f5-4ab9-90da-43104995aef7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: by1.un1.pro
-    reality-opts:
-      public-key: y3EIsxDGDJrBGk3j4YmjI5R_8jiCsEDRDMeL4bv5TTI
-      short-id: 6ba85179e30d4fc2
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Minsk · EPODONIOS
+      - Bol’shoye Stiklevo · Free
       - Bol’shoye Stiklevo · 4Nika-cb8dd175c3
-      - Minsk · 4Jadi-c7fee5ef3a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Minsk · EPODONIOS
+      - Bol’shoye Stiklevo · Free
       - Bol’shoye Stiklevo · 4Nika-cb8dd175c3
-      - Minsk · 4Jadi-c7fee5ef3a
 rules:
   - MATCH,Proxy

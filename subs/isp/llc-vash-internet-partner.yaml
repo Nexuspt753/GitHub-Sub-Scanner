@@ -1,5 +1,20 @@
 proxies:
   - type: trojan
+    name: Free
+    server: 178.172.227.178
+    port: 500
+    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    udp: true
+    tls: true
+    sni: by01.botovod.space
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
     name: 4Nika-cb8dd175c3
     server: 178.172.227.178
     port: 500
@@ -19,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Free
       - 4Nika-cb8dd175c3
   - name: Auto
     type: url-test
@@ -26,6 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Free
       - 4Nika-cb8dd175c3
 rules:
   - MATCH,Proxy
