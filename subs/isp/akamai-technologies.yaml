@@ -1,18 +1,4 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
-  - type: ss
-    name: configprxy
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 172.105.169.70
@@ -31,7 +17,7 @@ proxies:
     password: RexnBgU7EV5ADxG
     udp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: 172.105.18.131
     port: 443
     uuid: e982aa04-033d-4811-a6eb-724ea8e5300d
@@ -45,6 +31,14 @@ proxies:
       path: /VLESS
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Jadi-b85d6c5f32
+    server: trojan1.udpgw.com
+    port: 443
+    password: affae2e0-e84b-11ec-b09f-1239d0255272
+    udp: true
+    tls: true
+    client-fingerprint: chrome
   - type: vless
     name: 4Nika-28f16a7fae
     server: alies.aliesfilimo.ir
@@ -58,21 +52,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: Uptvs.com
-  - type: vless
-    name: Hope_Net-join-us-on-Telegram
-    server: 172.105.18.131
-    port: 443
-    uuid: e982aa04-033d-4811-a6eb-724ea8e5300d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ca2-full.privateip.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /VLESS
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Nika-d5047035a6
     server: 172.105.18.131
@@ -109,13 +88,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - configprxy
       - DeltaKroneckerGithub
       - 4Kian-a20717886c
-      - EPODONIOS-01
+      - EPODONIOS
+      - 4Jadi-b85d6c5f32
       - 4Nika-28f16a7fae
-      - Hope_Net-join-us-on-Telegram
       - 4Nika-d5047035a6
       - 4Sarina-4ab167b05f
   - name: Auto
@@ -124,13 +101,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - configprxy
       - DeltaKroneckerGithub
       - 4Kian-a20717886c
-      - EPODONIOS-01
+      - EPODONIOS
+      - 4Jadi-b85d6c5f32
       - 4Nika-28f16a7fae
-      - Hope_Net-join-us-on-Telegram
       - 4Nika-d5047035a6
       - 4Sarina-4ab167b05f
 rules:

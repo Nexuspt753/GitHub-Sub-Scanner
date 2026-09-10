@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 🇹🇷TR-🚀@VPNine1
+    server: 193.111.125.145
+    port: 443
+    uuid: 506ebf50-ea48-4279-aefd-fedff24e169f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: cTlyduukc4sr4PIi28XuydlyZA1tt-fquJF2eTIzmkM
+      short-id: 04a72ee1672dd21a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇹🇷TR-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇹🇷TR-🚀@VPNine1
+rules:
+  - MATCH,Proxy

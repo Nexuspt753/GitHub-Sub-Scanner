@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 134.122.154.210
+    port: 443
+    uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
+    udp: true
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 134.122.154.210
     port: 443
@@ -48,18 +55,12 @@ proxies:
     uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
     udp: true
     xudp: true
-  - type: vless
-    name: 4Nika-7e664ff33f
-    server: 134.122.154.210
-    port: 443
-    uuid: 7f549a50-4655-46b6-962d-183cfc532fc9
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - Singapore
@@ -67,13 +68,13 @@ proxy-groups:
       - ">>@v2ray1_ng::XX"
       - 4Mohsen-a85407d986
       - 4Kian-c3eda2b2f6
-      - 4Nika-7e664ff33f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - Singapore
@@ -81,6 +82,5 @@ proxy-groups:
       - ">>@v2ray1_ng::XX"
       - 4Mohsen-a85407d986
       - 4Kian-c3eda2b2f6
-      - 4Nika-7e664ff33f
 rules:
   - MATCH,Proxy

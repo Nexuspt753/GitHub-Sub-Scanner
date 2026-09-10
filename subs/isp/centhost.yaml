@@ -1,0 +1,52 @@
+proxies:
+  - type: vless
+    name: 🇨🇭CH-🚀@VPNine1
+    server: 138.124.245.116
+    port: 443
+    uuid: 568addfa-796a-40f8-820d-a071ee2ca50a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: sJTPQLMDCyPAbRcaJM-P8Y3_xRVpEEGrvv-kkIuIuQE
+    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+  - type: vless
+    name: 🇳🇱167614
+    server: 138.124.245.116
+    port: 443
+    uuid: 568addfa-796a-40f8-820d-a071ee2ca50a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: sJTPQLMDCyPAbRcaJM-P8Y3_xRVpEEGrvv-kkIuIuQE
+    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇨🇭CH-🚀@VPNine1
+      - 🇳🇱167614
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇨🇭CH-🚀@VPNine1
+      - 🇳🇱167614
+rules:
+  - MATCH,Proxy

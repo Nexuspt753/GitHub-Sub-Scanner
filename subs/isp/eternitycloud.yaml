@@ -1,18 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 217.60.24.23
     port: 8443
     uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
@@ -51,6 +39,16 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 94.183.170.135
+    port: 8443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: estproxy4.lockdwn.com
+    xudp: true
   - type: vless
     name: EPODONIOS-01
     server: 217.60.24.23
@@ -96,43 +94,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Mohsen-014cf5c716
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: estproxy4.lockdwn.com
-  - type: vless
-    name: 4Kian-feeaf87e27
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-b775242551
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Mohsen-5517135b97
     server: 217.60.24.23
     port: 8443
@@ -148,41 +109,19 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-4e27cf2fb8
-    server: 217.60.24.23
-    port: 8443
-    uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cdn.shopify.com
-    reality-opts:
-      public-key: NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU
-      short-id: f747a7a5793b5714
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
       - Alpha_V2rayip
+      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - 🎡19@oneclickvpnkeys
       - 4Mohsen-4c370c6337
-      - 4Mohsen-014cf5c716
-      - 4Kian-feeaf87e27
-      - 4Nika-b775242551
       - 4Mohsen-5517135b97
-      - 4Mohsen-4e27cf2fb8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -190,16 +129,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
       - Alpha_V2rayip
+      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - 🎡19@oneclickvpnkeys
       - 4Mohsen-4c370c6337
-      - 4Mohsen-014cf5c716
-      - 4Kian-feeaf87e27
-      - 4Nika-b775242551
       - 4Mohsen-5517135b97
-      - 4Mohsen-4e27cf2fb8
 rules:
   - MATCH,Proxy
