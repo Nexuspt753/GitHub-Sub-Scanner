@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: america.shoptwo.xyz
+    port: 443
+    uuid: 8316ca95-b32f-49a5-9de6-7e43aa6b710a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: america.shoptwo.xyz
+    reality-opts:
+      public-key: vOdx2m5CVtfx91_7Svh4lWxqE7FtZfGgHv3c1OkLDVA
+      short-id: 257815dcb67a3ba1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 23.177.185.138
     port: 443
     password: 8r<[9'l6hAO#8ZQi
@@ -9,7 +23,7 @@ proxies:
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
   - type: vmess
-    name: 4Sarina-93665ccc41
+    name: DeltaKroneckerGithub-02
     server: 147.45.125.231
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -49,7 +63,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-93665ccc41
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-23a4b79f1d
   - name: Auto
     type: url-test
@@ -58,7 +73,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-93665ccc41
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-23a4b79f1d
 rules:
   - MATCH,Proxy

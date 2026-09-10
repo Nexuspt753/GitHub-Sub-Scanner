@@ -1,34 +1,30 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-81c5a7233f
-    server: 185.232.204.222
+  - type: vless
+    name: vless
+    server: 103.102.228.113
     port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-62.mirra.now
+    client-fingerprint: chrome
+    xudp: true
     network: ws
     ws-opts:
-      path: /api/v1/gpu-stream/socket
+      path: /TelegramU0001F1E8U0001F1F3
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-81c5a7233f
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-81c5a7233f
+      - vless
 rules:
   - MATCH,Proxy

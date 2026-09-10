@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 76.13.29.145
+    port: 28168
+    uuid: fef024a4-488f-4f24-a714-1584ed6024be
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Sarina-27cb1140dd
     server: 84.32.84.33
     port: 443
@@ -11,6 +18,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-27cb1140dd
   - name: Auto
     type: url-test
@@ -18,6 +26,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-27cb1140dd
 rules:
   - MATCH,Proxy

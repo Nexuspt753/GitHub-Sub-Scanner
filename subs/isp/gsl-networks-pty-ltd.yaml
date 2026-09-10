@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 203.10.96.138
+    port: 443
+    uuid: c5dd61ab-97c5-4180-ab2d-4bb7ca1c444a
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: cdn-dynmedia-1.microsoft.com
+    reality-opts:
+      public-key: VFG2L-3i30fQZg3wd0DF6dEGdaT27S-PKpuYu7Hp8xU
+      short-id: fd26d49a
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: EPODONIOS
     server: 173.244.56.6
@@ -41,19 +55,39 @@ proxies:
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 173.244.56.9
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
+  - type: vless
+    name: EPODONIOS-02
+    server: 203.23.179.147
+    port: 8443
+    uuid: d53f098c-c146-4c16-b8fc-263743fdb6b3
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: palworld.mega-play.app
+    reality-opts:
+      public-key: ADsgS2NlS_Mi16n8h1beCVgWL4KvNj5tnRg9qYzFG14
+      short-id: ae47480fa46b76b0
+    xudp: true
   - type: ss
     name: DeltaKroneckerGithub-01
     server: 173.244.56.6
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 173.244.56.6
+    port: 443
+    cipher: YWVzLTEyOC1nY206c2hhZG93c29ja3M%3D
+    password: ""
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 173.244.56.9
+    port: 443
+    cipher: YWVzLTEyOC1nY206c2hhZG93c29ja3M%3D
+    password: ""
     udp: true
   - type: ss
     name: ss
@@ -63,15 +97,22 @@ proxies:
     password: shadowsocks
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-02
-    server: 173.244.56.6
+    name: DeltaKroneckerGithub-04
+    server: 173.244.56.9
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-05
     server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-06
+    server: 173.244.56.6
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
@@ -90,15 +131,15 @@ proxies:
       short-id: ae47480fa46b76b0
     xudp: true
   - type: ss
-    name: 🇺🇸US-173.244.56.9-0111
-    server: 173.244.56.9
+    name: 🇺🇸US-173.244.56.6-0164
+    server: 173.244.56.6
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
   - type: ss
-    name: 🇺🇸US-173.244.56.6-0109
-    server: 173.244.56.6
+    name: 🇺🇸US-173.244.56.9-0163
+    server: 173.244.56.9
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
@@ -121,20 +162,24 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - 🇺🇸
       - 🇺🇸-01
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
-      - DeltaKroneckerGithub
+      - EPODONIOS-02
       - DeltaKroneckerGithub-01
-      - ss
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - ss
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
       - Shh_Proxy-New⁹
-      - 🇺🇸US-173.244.56.9-0111
-      - 🇺🇸US-173.244.56.6-0109
+      - 🇺🇸US-173.244.56.6-0164
+      - 🇺🇸US-173.244.56.9-0163
       - 4Nika-a7f28439d0
   - name: Auto
     type: url-test
@@ -142,20 +187,24 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - 🇺🇸
       - 🇺🇸-01
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
-      - DeltaKroneckerGithub
+      - EPODONIOS-02
       - DeltaKroneckerGithub-01
-      - ss
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - ss
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
       - Shh_Proxy-New⁹
-      - 🇺🇸US-173.244.56.9-0111
-      - 🇺🇸US-173.244.56.6-0109
+      - 🇺🇸US-173.244.56.6-0164
+      - 🇺🇸US-173.244.56.9-0163
       - 4Nika-a7f28439d0
 rules:
   - MATCH,Proxy

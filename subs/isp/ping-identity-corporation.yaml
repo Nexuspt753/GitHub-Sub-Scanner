@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 130.250.137.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime05.workers.dev
   - type: trojan
     name: EPODONIOS
     server: 130.250.137.171
@@ -16,6 +29,21 @@ proxies:
         Host: www.ignitelimit.com
   - type: trojan
     name: EPODONIOS-01
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.ignitelimit.com
+  - type: trojan
+    name: EPODONIOS-02
     server: 130.250.137.171
     port: 443
     password: humanity
@@ -121,21 +149,6 @@ proxies:
         Host: www.ignitelimit.com
   - type: trojan
     name: bored_vpn
-    server: 130.250.137.171
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.ignitelimit.com
-  - type: trojan
-    name: mehrosaboran
     server: 130.250.137.171
     port: 443
     password: humanity
@@ -315,6 +328,15 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
   - type: trojan
+    name: 4FreeIran-bee3af0290
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Jadi-f97f40d96b
     server: 130.250.137.171
     port: 443
@@ -368,7 +390,64 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
   - type: trojan
-    name: 4Sarina-5e12039450
+    name: 4Sarina-57c53da434
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Sarina-a9ef3e00e2
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.ignitelimit.com
+  - type: trojan
+    name: 4Kian-1f31a69461
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Nika-a80d48ffd5
+    server: 130.250.137.171
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Kian-41e7091a4b
     server: 130.250.137.171
     port: 443
     password: humanity
@@ -387,8 +466,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
       - node
       - B2Hub
       - FarazV2ray
@@ -396,7 +477,6 @@ proxy-groups:
       - V2ray_confiig
       - V2rayng_Fast
       - bored_vpn
-      - mehrosaboran
       - meliproxyy
       - Telegram
       - kurdconfig
@@ -408,19 +488,26 @@ proxy-groups:
       - proxy_kafee
       - V2RAYNG_IP
       - 𝗝𝗼𝗶𝗻➠@V2RAYNG_IP
+      - 4FreeIran-bee3af0290
       - 4Jadi-f97f40d96b
       - 4Jadi-3d35534fc5
       - 4Sarina-6f1b48267d
       - 4Sarina-a71e7c7a1b
-      - 4Sarina-5e12039450
+      - 4Sarina-57c53da434
+      - 4Sarina-a9ef3e00e2
+      - 4Kian-1f31a69461
+      - 4Nika-a80d48ffd5
+      - 4Kian-41e7091a4b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
       - node
       - B2Hub
       - FarazV2ray
@@ -428,7 +515,6 @@ proxy-groups:
       - V2ray_confiig
       - V2rayng_Fast
       - bored_vpn
-      - mehrosaboran
       - meliproxyy
       - Telegram
       - kurdconfig
@@ -440,10 +526,15 @@ proxy-groups:
       - proxy_kafee
       - V2RAYNG_IP
       - 𝗝𝗼𝗶𝗻➠@V2RAYNG_IP
+      - 4FreeIran-bee3af0290
       - 4Jadi-f97f40d96b
       - 4Jadi-3d35534fc5
       - 4Sarina-6f1b48267d
       - 4Sarina-a71e7c7a1b
-      - 4Sarina-5e12039450
+      - 4Sarina-57c53da434
+      - 4Sarina-a9ef3e00e2
+      - 4Kian-1f31a69461
+      - 4Nika-a80d48ffd5
+      - 4Kian-41e7091a4b
 rules:
   - MATCH,Proxy
