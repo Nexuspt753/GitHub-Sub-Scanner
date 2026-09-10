@@ -1,0 +1,110 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 85.120.144.53
+    port: 443
+    uuid: 70e46815-9cae-46e5-8224-d35f6bd7897d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 85.120.144.98
+    port: 8443
+    uuid: 70e46815-9cae-46e5-8224-d35f6bd7897d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Channel
+    server: 85.120.144.53
+    port: 443
+    uuid: 70e46815-9cae-46e5-8224-d35f6bd7897d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Channel-01
+    server: 85.120.144.98
+    port: 8443
+    uuid: 70e46815-9cae-46e5-8224-d35f6bd7897d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-f26d8e4e6d
+    server: 85.120.144.53
+    port: 443
+    uuid: 70e46815-9cae-46e5-8224-d35f6bd7897d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-02d90ac875
+    server: 85.120.144.98
+    port: 8443
+    uuid: 70e46815-9cae-46e5-8224-d35f6bd7897d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sciencedirect.com
+    reality-opts:
+      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
+      short-id: a1b2c4d4a1b2c5d5
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - Channel
+      - Channel-01
+      - 4Kian-f26d8e4e6d
+      - 4FreeIran-02d90ac875
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - Channel
+      - Channel-01
+      - 4Kian-f26d8e4e6d
+      - 4FreeIran-02d90ac875
+rules:
+  - MATCH,Proxy
