@@ -1,6 +1,24 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
+    server: 154.90.62.70
+    port: 56127
+    password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+    udp: true
+    tls: true
+    sni: 154.90.62.70
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-f3ebb32391
+    server: 154.90.62.70
+    port: 56127
+    password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
+    udp: true
+    tls: true
+    sni: 154.90.62.70
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-7ddfc2c2dc
     server: 130.94.29.111
     port: 2087
     uuid: 84da6391-1539-4583-a3d9-d6efd796b4d6
@@ -11,41 +29,8 @@ proxies:
       path: /e17586a75123
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 154.90.62.70
-    port: 56127
-    password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
-    udp: true
-    tls: true
-    sni: 154.90.62.70
-    client-fingerprint: chrome
   - type: vless
     name: 4Nika-753d024f70
-    server: 130.94.115.231
-    port: 2087
-    uuid: 8a51f3d9-30cc-44e6-8d31-700211a29066
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /721740e567c7
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-9eb764889a
-    server: 130.94.115.231
-    port: 2087
-    uuid: 8a51f3d9-30cc-44e6-8d31-700211a29066
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /721740e567c7
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-bd2e0a095f
     server: 130.94.115.231
     port: 2087
     uuid: 8a51f3d9-30cc-44e6-8d31-700211a29066
@@ -62,10 +47,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Mohsen-f3ebb32391
+      - 4Kian-7ddfc2c2dc
       - 4Nika-753d024f70
-      - 4Kian-9eb764889a
-      - 4Mohsen-bd2e0a095f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -73,9 +57,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Mohsen-f3ebb32391
+      - 4Kian-7ddfc2c2dc
       - 4Nika-753d024f70
-      - 4Kian-9eb764889a
-      - 4Mohsen-bd2e0a095f
 rules:
   - MATCH,Proxy

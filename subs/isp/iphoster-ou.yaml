@@ -1,6 +1,6 @@
 proxies:
   - type: vmess
-    name: 4Sarina-f2e2eba06c
+    name: DeltaKroneckerGithub
     server: 111.88.74.167
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -10,6 +10,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
+    servername: renderer-stream-2-62.mirra.now
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -21,13 +22,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-f2e2eba06c
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-f2e2eba06c
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
