@@ -1,4 +1,50 @@
 proxies:
+  - type: vless
+    name: Vinh Tuy · @DeltaKroneckerGithub
+    server: 160.25.74.124
+    port: 443
+    uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mia6.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tv/docs?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mia6.pages.dev
+  - type: vless
+    name: Vinh Tuy · @DeltaKroneckerGithub-01
+    server: 160.25.75.40
+    port: 443
+    uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mia11.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /article/documents/events?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mia11.pages.dev
+  - type: trojan
+    name: Ho Chi Minh City · @DeltaKroneckerGithub
+    server: 36.50.135.142
+    port: 443
+    password: 94d219c9-1afc-4d42-b090-8b3794764380
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: Ho Chi Minh City · @DeltaKroneckerGithub-01
+    server: 36.50.134.29
+    port: 443
+    password: 94d219c9-1afc-4d42-b090-8b3794764380
+    udp: true
+    client-fingerprint: chrome
   - type: trojan
     name: Go Vap · @DeltaKroneckerGithub
     server: 103.9.77.6
@@ -7,13 +53,6 @@ proxies:
     udp: true
     tls: true
     sni: 103.9.77.6
-    client-fingerprint: chrome
-  - type: trojan
-    name: Ho Chi Minh City · @DeltaKroneckerGithub
-    server: 36.50.134.29
-    port: 443
-    password: 94d219c9-1afc-4d42-b090-8b3794764380
-    udp: true
     client-fingerprint: chrome
   - type: vmess
     name: Dich Vong · 4Jadi-a0ee88c35b
@@ -61,26 +100,49 @@ proxies:
       path: /tandung288.click
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Hanoi · 4Jadi-70bdc269ec
+    server: 103.82.25.106
+    port: 80
+    uuid: ec7c94b5-6ca6-4289-b44b-c6583f2c5f6c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fuzzyng?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Go Vap · @DeltaKroneckerGithub
+      - Vinh Tuy · @DeltaKroneckerGithub
+      - Vinh Tuy · @DeltaKroneckerGithub-01
       - Ho Chi Minh City · @DeltaKroneckerGithub
+      - Ho Chi Minh City · @DeltaKroneckerGithub-01
+      - Go Vap · @DeltaKroneckerGithub
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Go Vap · @DeltaKroneckerGithub
+      - Vinh Tuy · @DeltaKroneckerGithub
+      - Vinh Tuy · @DeltaKroneckerGithub-01
       - Ho Chi Minh City · @DeltaKroneckerGithub
+      - Ho Chi Minh City · @DeltaKroneckerGithub-01
+      - Go Vap · @DeltaKroneckerGithub
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
 rules:
   - MATCH,Proxy

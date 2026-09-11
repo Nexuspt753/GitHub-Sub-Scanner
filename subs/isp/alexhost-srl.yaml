@@ -1,6 +1,33 @@
 proxies:
   - type: vless
-    name: Telegram
+    name: DeltaKroneckerGithub
+    server: 143.246.193.215
+    port: 443
+    uuid: 77da6e30-ad4e-11f1-94d5-525400d1d4f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.blocket.se
+    reality-opts:
+      public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 131.123.39.226
+    port: 443
+    uuid: 418a1c58-7f25-421b-a82f-650c04d049a4
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: bgg.milas.click
+    reality-opts:
+      public-key: aM4vZdtYChEHhzfzGIxz2yBCr8wsG-SEAY9c2z7-M28
+      short-id: 4fa44664f6a566d3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
     server: ads-ne.data-media-social.org
     port: 443
     uuid: ef4f4c3d-0b16-48ad-a8d8-2d22512b3b36
@@ -14,7 +41,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: "[047342]"
+    name: Telegram
     server: ads-ne.data-media-social.org
     port: 443
     uuid: ef4f4c3d-0b16-48ad-a8d8-2d22512b3b36
@@ -52,40 +79,28 @@ proxies:
       short-id: f3c9d1b1c7d4f718
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-212fcabd14
-    server: ads-ne.data-media-social.org
-    port: 443
-    uuid: ef4f4c3d-0b16-48ad-a8d8-2d22512b3b36
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ads-ne.data-media-social.org
-    reality-opts:
-      public-key: SkBD-xPB4PsipXdtXiuSMF_6OBgQtKc6YiMxD83v6B4
-      short-id: f3c9d1b1c7d4f718
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - Telegram
-      - "[047342]"
       - 4Sarina-aec790ee97
       - 4Mohsen-873e333332
-      - 4Jadi-212fcabd14
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - Telegram
-      - "[047342]"
       - 4Sarina-aec790ee97
       - 4Mohsen-873e333332
-      - 4Jadi-212fcabd14
 rules:
   - MATCH,Proxy

@@ -14,21 +14,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS
-    server: 194.146.223.231
-    port: 443
-    uuid: bf8c3d34-c16c-423f-8ff0-9341d6621e97
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: blog.api.www.cloudflare.com
-    reality-opts:
-      public-key: CuGfoVwpKbDfXx5Lx657c-RpIyCJgWmd2xXsLgb5AhQ
-      short-id: "273288"
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
+    name: Daily_Configs
     server: 194.146.223.231
     port: 443
     uuid: bf8c3d34-c16c-423f-8ff0-9341d6621e97
@@ -55,45 +41,52 @@ proxies:
       short-id: "273288"
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: کانال
-    server: 194.146.223.231
+  - type: vmess
+    name: 4Jadi-81c5a7233f
+    server: 185.232.204.222
     port: 443
-    uuid: bf8c3d34-c16c-423f-8ff0-9341d6621e97
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: blog.api.www.cloudflare.com
-    reality-opts:
-      public-key: CuGfoVwpKbDfXx5Lx657c-RpIyCJgWmd2xXsLgb5AhQ
-      short-id: "273288"
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-164c968073
-    server: 194.146.223.231
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-e2ae69ac21
+    server: 185.232.204.222
     port: 443
-    uuid: bf8c3d34-c16c-423f-8ff0-9341d6621e97
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: blog.api.www.cloudflare.com
-    reality-opts:
-      public-key: CuGfoVwpKbDfXx5Lx657c-RpIyCJgWmd2xXsLgb5AhQ
-      short-id: "273288"
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - EPODONIOS
-      - EPODONIOS-01
+      - Daily_Configs
       - filembad
-      - کانال
-      - 4Kian-164c968073
+      - 4Jadi-81c5a7233f
+      - 4Sarina-e2ae69ac21
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -101,10 +94,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - EPODONIOS
-      - EPODONIOS-01
+      - Daily_Configs
       - filembad
-      - کانال
-      - 4Kian-164c968073
+      - 4Jadi-81c5a7233f
+      - 4Sarina-e2ae69ac21
 rules:
   - MATCH,Proxy

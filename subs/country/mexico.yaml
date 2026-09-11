@@ -14,23 +14,43 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: Mexico City · 4Kian-2fbb7456d8
-    server: 38.60.224.173
-    port: 32153
-    uuid: 5cf1f470-3f70-4589-a2a4-4657ea3a1edf
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub-01
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ul-mexico1.09vpn.com
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub-02
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Mexico City · @DeltaKroneckerGithub
-      - Mexico City · 4Kian-2fbb7456d8
+      - Mexico City · @DeltaKroneckerGithub-01
+      - Mexico City · @DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +58,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Mexico City · @DeltaKroneckerGithub
-      - Mexico City · 4Kian-2fbb7456d8
+      - Mexico City · @DeltaKroneckerGithub-01
+      - Mexico City · @DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

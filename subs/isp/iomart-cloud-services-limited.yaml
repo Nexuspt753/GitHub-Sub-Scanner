@@ -1,6 +1,34 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 109.169.84.94
+    port: 443
+    uuid: 3bcb31ef-840e-415d-abb3-28628add98d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: strapi.io
+    reality-opts:
+      public-key: vvpu_ljhBuTWmM9w5Hl6jj8ZTiE_JYq29S77zNDeCjQ
+      short-id: ff6975658b6cefce
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇬🇧
+    server: 109.169.84.94
+    port: 443
+    uuid: 3bcb31ef-840e-415d-abb3-28628add98d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: strapi.io
+    reality-opts:
+      public-key: vvpu_ljhBuTWmM9w5Hl6jj8ZTiE_JYq29S77zNDeCjQ
+      short-id: ff6975658b6cefce
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-1404095963
     server: 109.169.84.94
     port: 443
     uuid: 3bcb31ef-840e-415d-abb3-28628add98d0
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇬🇧
+      - 4Mohsen-1404095963
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇬🇧
+      - 4Mohsen-1404095963
 rules:
   - MATCH,Proxy

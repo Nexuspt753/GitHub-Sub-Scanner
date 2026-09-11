@@ -1,6 +1,60 @@
 proxies:
   - type: vless
+    name: Langenzersdorf · @DeltaKroneckerGithub
+    server: 50.7.184.122
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: at3.moritech.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Vienna · @DeltaKroneckerGithub
+    server: 50.7.36.26
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: at2.moritech.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Vienna · @DeltaKroneckerGithub-01
+    server: 212.183.88.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime23.workers.dev
+  - type: trojan
+    name: Vienna · EPODONIOS
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: vless
+    name: Vienna · @DeltaKroneckerGithub-02
     server: 152.53.1.40
     port: 443
     uuid: edde565e-41f5-400e-84ea-7b87a3e84488
@@ -13,8 +67,21 @@ proxies:
       short-id: 43dcff53849b81e6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Vienna · @DeltaKroneckerGithub-03
+    server: 50.7.37.154
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: at1.moritech.net
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
-    name: Vienna · EPODONIOS
+    name: Vienna · @Capoit
     server: 212.183.88.136
     port: 443
     password: humanity
@@ -58,19 +125,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
-  - type: trojan
-    name: Vienna · @DeltaKroneckerGithub-01
-    server: tr-wien.unlimited-access.ru
+  - type: vless
+    name: Vienna · @DeltaKroneckerGithub-04
+    server: 50.7.36.27
     port: 443
-    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
     tls: true
-    sni: tr-wien.unlimited-access.ru
-    alpn:
-      - http/1.1
     client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: at-new-ded2.moritech.net
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
-    name: Vienna · @DeltaKroneckerGithub-02
+    name: Vienna · 4Jadi-0f9c1ec324
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: Vienna · 4Sarina-d3318952ac
     server: 212.183.88.136
     port: 443
     password: humanity
@@ -84,55 +162,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
-  - type: trojan
-    name: Vienna · 4Jadi-0f9c1ec324
-    server: 212.183.88.136
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: Vienna · 4Jadi-6c0269af21
-    server: 212.183.88.136
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Langenzersdorf · @DeltaKroneckerGithub
       - Vienna · @DeltaKroneckerGithub
+      - Vienna · @DeltaKroneckerGithub-01
       - Vienna · EPODONIOS
+      - Vienna · @DeltaKroneckerGithub-02
+      - Vienna · @DeltaKroneckerGithub-03
+      - Vienna · @Capoit
       - Vienna · @i10VPN6️⃣
       - Vienna · [🇦🇹]t.me/ConfigV2RayNG
-      - Vienna · @DeltaKroneckerGithub-01
-      - Vienna · @DeltaKroneckerGithub-02
+      - Vienna · @DeltaKroneckerGithub-04
       - Vienna · 4Jadi-0f9c1ec324
-      - Vienna · 4Jadi-6c0269af21
+      - Vienna · 4Sarina-d3318952ac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Langenzersdorf · @DeltaKroneckerGithub
       - Vienna · @DeltaKroneckerGithub
+      - Vienna · @DeltaKroneckerGithub-01
       - Vienna · EPODONIOS
+      - Vienna · @DeltaKroneckerGithub-02
+      - Vienna · @DeltaKroneckerGithub-03
+      - Vienna · @Capoit
       - Vienna · @i10VPN6️⃣
       - Vienna · [🇦🇹]t.me/ConfigV2RayNG
-      - Vienna · @DeltaKroneckerGithub-01
-      - Vienna · @DeltaKroneckerGithub-02
+      - Vienna · @DeltaKroneckerGithub-04
       - Vienna · 4Jadi-0f9c1ec324
-      - Vienna · 4Jadi-6c0269af21
+      - Vienna · 4Sarina-d3318952ac
 rules:
   - MATCH,Proxy

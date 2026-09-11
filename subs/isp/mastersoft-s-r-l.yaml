@@ -1,13 +1,18 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 46.8.113.142
+    server: ch1.oshost.network
     port: 443
-    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+    uuid: ea34d4d1-8b87-4a2a-b23e-9927d7c83f46
     udp: true
     tls: true
-    sni: ch-2.bexum.fun
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: ch1.oshost.network
+    reality-opts:
+      public-key: b1BnLq44zu_t3K9yEwN9QAIMRdJQxgWINdg6s9Q5v38
+      short-id: f55f421274a36f31
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: ch-2.bexum.fun
@@ -16,8 +21,31 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 46.8.113.142
+    port: 443
+    password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+    udp: true
+    tls: true
+    sni: ch-2.bexum.fun
+    client-fingerprint: chrome
   - type: vless
-    name: 4FreeIran-b11126b621
+    name: EPODONIOS
+    server: 103.112.71.83
+    port: 443
+    uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: test.bridge.anti-zapret.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: leviconfigs🪐-7
     server: 103.112.71.83
     port: 443
     uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
@@ -37,7 +65,9 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4FreeIran-b11126b621
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
+      - leviconfigs🪐-7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,6 +76,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4FreeIran-b11126b621
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
+      - leviconfigs🪐-7
 rules:
   - MATCH,Proxy
