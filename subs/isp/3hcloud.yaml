@@ -1,19 +1,19 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 45.144.50.231
     port: 47005
     uuid: 0764541b-3e57-4b47-954b-51e996fae5fc
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: akamai.com
     reality-opts:
       public-key: "-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo"
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: tun.temas-bor.ir
     port: 443
     uuid: 38df5518-26c5-449b-98d9-a4f456f5f689
@@ -26,17 +26,17 @@ proxies:
       short-id: c6e19c434dc87df7
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: pl1.bexait.ir
-    port: 2434
-    uuid: 999a8e4e-f13a-411e-b0db-e7753d982efd
+    name: v2rayng3
+    server: tun.temas-bor.ir
+    port: 443
+    uuid: 38df5518-26c5-449b-98d9-a4f456f5f689
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: icloud.com
+    servername: login.yahoo.com
     reality-opts:
-      public-key: yzCvRpbQ-cRePaJAuQkw42_xEf-R860gFsQwoPki2E0
-      short-id: 9de041877612a718
+      public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
+      short-id: c6e19c434dc87df7
     xudp: true
   - type: vless
     name: 4Kian-f8dee59a13
@@ -46,6 +46,19 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: firefox
+    servername: akamai.com
+    reality-opts:
+      public-key: "-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-82728cd55e
+    server: 45.144.50.231
+    port: 47005
+    uuid: 0764541b-3e57-4b47-954b-51e996fae5fc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: akamai.com
     reality-opts:
       public-key: "-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo"
@@ -77,43 +90,30 @@ proxies:
       public-key: OncWhxWwzrKOFH21JT9WxcenacQuc7ZmuQy_rZFJ8xg
       short-id: c6e19c434dc87df7
     xudp: true
-  - type: vless
-    name: 4Nika-8862a22b18
-    server: pl1.bexait.ir
-    port: 2434
-    uuid: 999a8e4e-f13a-411e-b0db-e7753d982efd
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: icloud.com
-    reality-opts:
-      public-key: yzCvRpbQ-cRePaJAuQkw42_xEf-R860gFsQwoPki2E0
-      short-id: 9de041877612a718
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - v2rayng3
       - 4Kian-f8dee59a13
+      - 4Jadi-82728cd55e
       - 4Nika-e01bae8381
       - 4Nika-93fab1f931
-      - 4Nika-8862a22b18
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - v2rayng3
       - 4Kian-f8dee59a13
+      - 4Jadi-82728cd55e
       - 4Nika-e01bae8381
       - 4Nika-93fab1f931
-      - 4Nika-8862a22b18
 rules:
   - MATCH,Proxy

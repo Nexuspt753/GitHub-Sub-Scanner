@@ -1,23 +1,40 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-ca31872b5f
-    server: 45.149.147.194
+  - type: vless
+    name: 4FreeIran-3b0ee9dedf
+    server: 195.66.24.169
+    port: 1932
+    uuid: ea8eb632-7d56-4bfb-8195-dc34268b5844
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.vk.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Jadi-83feba0bea
+    server: 195.66.24.171
     port: 443
-    password: becd3b04-62a8-4b74-be67-be746008b4c2
-    sni: hys-mesh.spliceflowtech.com
-    skip-cert-verify: true
+    uuid: ea8eb632-7d56-4bfb-8195-dc34268b5844
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.vk.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-ca31872b5f
+      - 4FreeIran-3b0ee9dedf
+      - 4Jadi-83feba0bea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-ca31872b5f
+      - 4FreeIran-3b0ee9dedf
+      - 4Jadi-83feba0bea
 rules:
   - MATCH,Proxy

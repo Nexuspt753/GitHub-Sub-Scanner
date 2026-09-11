@@ -1,23 +1,26 @@
 proxies:
-  - type: ss
-    name: 4Kian-abe0c848bd
-    server: 161.129.71.148
-    port: 17913
-    cipher: aes-128-gcm
-    password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
+  - type: vmess
+    name: EPODONIOS
+    server: us-nohessss.privnet.store
+    port: 10028
+    uuid: e7d4d923-c8f6-4b94-bf05-c5e07a83e2f6
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-abe0c848bd
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-abe0c848bd
+      - EPODONIOS
 rules:
   - MATCH,Proxy
