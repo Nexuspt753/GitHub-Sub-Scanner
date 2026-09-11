@@ -15,20 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Jadi-2af75f81a6
-    server: 212.192.3.226
-    port: 443
-    uuid: 8a8e5a90-1442-4e6e-9fcd-7200e3b9c7e1
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-2af75f81a6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -36,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-2af75f81a6
 rules:
   - MATCH,Proxy
