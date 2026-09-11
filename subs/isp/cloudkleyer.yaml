@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 45.80.110.50
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime51.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 45.80.110.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -12,36 +25,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime51.workers.dev
-  - type: vless
-    name: EPODONIOS
-    server: 45.80.110.211
-    port: 2053
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: a.ssll.gay
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Hope_Net-join-us-on-Telegram
-    server: 45.80.110.211
-    port: 2053
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: a.ssll.gay
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Nika-81d7bd4d2c
     server: 45.80.110.211
@@ -63,8 +46,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - Hope_Net-join-us-on-Telegram
+      - DeltaKroneckerGithub-01
       - 4Nika-81d7bd4d2c
   - name: Auto
     type: url-test
@@ -73,8 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - Hope_Net-join-us-on-Telegram
+      - DeltaKroneckerGithub-01
       - 4Nika-81d7bd4d2c
 rules:
   - MATCH,Proxy

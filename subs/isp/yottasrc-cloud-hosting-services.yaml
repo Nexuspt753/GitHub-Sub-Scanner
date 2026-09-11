@@ -1,6 +1,90 @@
 proxies:
   - type: vless
-    name: 4Kian-580d4d12a0
+    name: EPODONIOS
+    server: 64.49.13.77
+    port: 2087
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: 64.49.13.77
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 64.49.13.77
+    port: 8443
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
+    name: vless
+    server: 64.49.13.77
+    port: 2053
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 64.49.13.77
+    port: 2083
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    xudp: true
+  - type: vless
+    name: fastkanfig
+    server: 64.49.13.77
+    port: 2087
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: 64.49.13.77
+    xudp: true
+  - type: vless
+    name: fastkanfig-01
+    server: 64.49.13.77
+    port: 8443
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
+    name: 4Mohsen-cefb739fdc
+    server: 64.49.13.77
+    port: 2087
+    uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: 64.49.13.77
+    xudp: true
+  - type: vless
+    name: 4FreeIran-f43f63b6a8
     server: 64.49.13.77
     port: 8443
     uuid: 6f1f7a2f-88ac-4dd4-8f21-131c4d075242
@@ -17,13 +101,27 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-580d4d12a0
+      - EPODONIOS
+      - EPODONIOS-01
+      - vless
+      - vless-01
+      - fastkanfig
+      - fastkanfig-01
+      - 4Mohsen-cefb739fdc
+      - 4FreeIran-f43f63b6a8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-580d4d12a0
+      - EPODONIOS
+      - EPODONIOS-01
+      - vless
+      - vless-01
+      - fastkanfig
+      - fastkanfig-01
+      - 4Mohsen-cefb739fdc
+      - 4FreeIran-f43f63b6a8
 rules:
   - MATCH,Proxy

@@ -11,25 +11,12 @@ proxies:
       path: /fd5ba98a3970
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-3e93325b71
-    server: 82.24.203.20
-    port: 2087
-    uuid: 5fcdc9b7-e70f-4a5c-85c3-e018ad818326
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fd5ba98a3970
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-3e93325b71
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +24,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-3e93325b71
 rules:
   - MATCH,Proxy
