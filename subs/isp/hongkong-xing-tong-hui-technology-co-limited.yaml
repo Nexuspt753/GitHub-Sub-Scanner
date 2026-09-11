@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Sarina-29a8898e11
+    server: 87.83.220.214
+    port: 10210
+    cipher: chacha20-ietf-poly1305
+    password: c032c3833d4b86b9
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-29a8898e11
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-29a8898e11
+rules:
+  - MATCH,Proxy

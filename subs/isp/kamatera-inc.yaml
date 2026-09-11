@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 185.227.108.241
     port: 443
     uuid: 2da9c09a-842f-4aed-a099-8a07c0266efc
@@ -14,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: de-2.srv.dvzh.net
     port: 443
     uuid: 2da9c09a-842f-4aed-a099-8a07c0266efc
@@ -28,7 +28,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 45.91.171.116
     port: 443
     password: 2ee85121-31de-4581-a492-eb00f606e392
@@ -41,17 +41,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

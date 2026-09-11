@@ -1,21 +1,13 @@
 proxies:
+  - type: ss
+    name: Querétaro City · 4Sarina-10b17606f3
+    server: 64.177.90.30
+    port: 8388
+    cipher: aes-256-gcm
+    password: BWyPPTusFKhGgzKh
+    udp: true
   - type: vless
     name: Mexico City · @DeltaKroneckerGithub
-    server: 45.134.9.133
-    port: 8443
-    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ul-mexico1.09vpn.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Mexico City · @DeltaKroneckerGithub-01
     server: ul-mexico1.09vpn.com
     port: 8443
     uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
@@ -29,36 +21,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ul-mexico1.09vpn.com
-  - type: vless
-    name: Mexico City · @DeltaKroneckerGithub-02
-    server: UL-Mexico1.09vpn.com
-    port: 8443
-    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+  - type: ss
+    name: Querétaro City · EPODONIOS
+    server: 64.177.90.30
+    port: 8388
+    cipher: aes-256-gcm
+    password: BWyPPTusFKhGgzKh
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: ss
+    name: Querétaro City · 🇲🇽MX-64.177.90.30-0218
+    server: 64.177.90.30
+    port: 8388
+    cipher: aes-256-gcm
+    password: BWyPPTusFKhGgzKh
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Querétaro City · 4Sarina-10b17606f3
       - Mexico City · @DeltaKroneckerGithub
-      - Mexico City · @DeltaKroneckerGithub-01
-      - Mexico City · @DeltaKroneckerGithub-02
+      - Querétaro City · EPODONIOS
+      - Querétaro City · 🇲🇽MX-64.177.90.30-0218
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Querétaro City · 4Sarina-10b17606f3
       - Mexico City · @DeltaKroneckerGithub
-      - Mexico City · @DeltaKroneckerGithub-01
-      - Mexico City · @DeltaKroneckerGithub-02
+      - Querétaro City · EPODONIOS
+      - Querétaro City · 🇲🇽MX-64.177.90.30-0218
 rules:
   - MATCH,Proxy

@@ -7,25 +7,12 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-ea6cbc6610
-    server: 38.60.168.98
-    port: 2087
-    uuid: 8a346b7c-5b95-4845-affa-0e5d9929e9ae
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /db55c40bbc75
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-ea6cbc6610
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +20,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-ea6cbc6610
 rules:
   - MATCH,Proxy

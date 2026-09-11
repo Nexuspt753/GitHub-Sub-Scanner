@@ -1,26 +1,44 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-79b78cef18
-    server: 185.204.171.3
-    port: 2096
-    uuid: d36f4d3c-07c0-4694-bde6-69643162f082
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: 185.215.235.38
+    port: 8080
+    uuid: 1d2717a5-7e88-40fd-a55d-ba506f44dc96
     udp: true
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl.armanstore22.ir
+  - type: vless
+    name: 4Kian-e0f634f4ee
+    server: 185.215.235.38
+    port: 8080
+    uuid: 1d2717a5-7e88-40fd-a55d-ba506f44dc96
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl.armanstore22.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-79b78cef18
+      - EPODONIOS
+      - 4Kian-e0f634f4ee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-79b78cef18
+      - EPODONIOS
+      - 4Kian-e0f634f4ee
 rules:
   - MATCH,Proxy

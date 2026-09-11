@@ -13,12 +13,27 @@ proxies:
       short-id: 68f899acc3729e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 123.253.227.238
+    port: 10005
+    uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.asus.com
+    reality-opts:
+      public-key: ryX4yUguNp9iQ6j_BPlEMyCK62474if28u_ouXSPciQ
+      short-id: 1974efea3b2148
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
