@@ -13,12 +13,27 @@ proxies:
       short-id: 6c059ecfddf9b179
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Guatemala City · 4Sarina-4bed0d468e
+    server: 185.47.254.251
+    port: 443
+    uuid: 878fb7f7-fc65-465e-a352-17c7216c6f3d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 6-_ZidygR8PRt4gtHlGCAW-PPmjEIm7Wn7MZqJU1z1Q
+      short-id: 6c059ecfddf9b179
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Guatemala City · @DeltaKroneckerGithub
+      - Guatemala City · 4Sarina-4bed0d468e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Guatemala City · @DeltaKroneckerGithub
+      - Guatemala City · 4Sarina-4bed0d468e
 rules:
   - MATCH,Proxy

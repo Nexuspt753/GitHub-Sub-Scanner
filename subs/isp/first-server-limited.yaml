@@ -21,31 +21,43 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
-  - type: ss
+  - type: trojan
+    name: 4Mohsen-17ec079933
+    server: 185.114.72.31
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+  - type: trojan
     name: DeltaKroneckerGithub-02
+    server: 193.239.160.134
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: ss
+    name: DeltaKroneckerGithub-03
     server: 45.43.88.13
     port: 2053
     cipher: none
     password: 3e96ef7d-8637-42c2-ac73-75182196e755
     udp: true
-  - type: vmess
-    name: 4Kian-54c7b6521f
-    server: 132.243.22.80
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: DeltaKroneckerGithub-04
+    server: 45.43.88.13
+    port: 2053
+    cipher: none
+    password: 3e96ef7d-8637-42c2-ac73-75182196e755
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -53,8 +65,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-17ec079933
       - DeltaKroneckerGithub-02
-      - 4Kian-54c7b6521f
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -63,7 +77,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-17ec079933
       - DeltaKroneckerGithub-02
-      - 4Kian-54c7b6521f
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy
