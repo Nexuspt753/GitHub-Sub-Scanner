@@ -1,30 +1,36 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 179.253.237.28
-    port: 443
-    uuid: bbbad538-910a-8972-278a-718093dc9980
+    name: 4Kian-87e118828c
+    server: 179.253.246.156
+    port: 8443
+    uuid: 4ec2c66e-becd-4c51-9d6d-9ef74b27c95a
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: webstatic.hoyoverse.com
-    reality-opts:
-      public-key: oJ-I5oXdR-SXHLWasn4N2vY47Hb21QExptsYa1Ld2To
-      short-id: aedf0add
-    flow: xtls-rprx-vision
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: decf.xzdq.eu.org
     xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/539e86
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: decf.xzdq.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-87e118828c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-87e118828c
 rules:
   - MATCH,Proxy

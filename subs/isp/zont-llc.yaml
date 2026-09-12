@@ -1,0 +1,36 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-31dd81ea9a
+    server: 216.40.86.199
+    port: 443
+    uuid: 4ec2c66e-becd-4c51-9d6d-9ef74b27c95a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: decf.xzdq.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/539e86
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: decf.xzdq.eu.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-31dd81ea9a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-31dd81ea9a
+rules:
+  - MATCH,Proxy

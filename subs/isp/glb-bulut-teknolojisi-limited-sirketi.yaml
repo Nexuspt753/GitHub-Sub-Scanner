@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4Nika-453f7f9f7f
+    name: DeltaKroneckerGithub
     server: 91.245.225.79
     port: 2053
     password: humanity
@@ -8,18 +8,24 @@ proxies:
     tls: true
     sni: www.calmlunch.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-453f7f9f7f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-453f7f9f7f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
