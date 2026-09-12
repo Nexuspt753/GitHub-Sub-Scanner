@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4FreeIran-b700d80073
+    name: vless
     server: 23.137.249.110
     port: 37470
     uuid: 04eb0e21-135d-4a0b-a22d-40a4e059d7f9
@@ -27,34 +27,20 @@ proxies:
     alpn:
       - h2
       - http/1.1
-  - type: vmess
-    name: 4Sarina-d4408b6a52
-    server: 23.137.249.110
-    port: 30011
-    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: 23.137.249.110
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-b700d80073
+      - vless
       - 4Nika-ddc100197b
-      - 4Sarina-d4408b6a52
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-b700d80073
+      - vless
       - 4Nika-ddc100197b
-      - 4Sarina-d4408b6a52
 rules:
   - MATCH,Proxy

@@ -32,6 +32,19 @@ proxies:
       public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
       short-id: 4f3e2491e42b6a
     xudp: true
+  - type: vless
+    name: Net2ray
+    server: 212.227.102.223
+    port: 443
+    uuid: 2042e1e6-7175-4604-9e0a-b13284ffeb54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: npv.tosiko.com
+    reality-opts:
+      public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
+      short-id: 4f3e2491e42b6a
+    xudp: true
   - type: vmess
     name: EPODONIOS-01
     server: 85.215.41.19
@@ -63,6 +76,24 @@ proxies:
       public-key: T7S1Y2CoRdwseMAqiTUhEzZ7LE7LWp6DMGmu7cORvCk
       short-id: 4f3e2491e42b6a
     xudp: true
+  - type: vmess
+    name: hex_proxy ⁶
+    server: 85.215.41.19
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4FreeIran-8d1a32bc8a
     server: 194.164.192.16
@@ -98,24 +129,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apjhdggyx.com
-  - type: vmess
-    name: 4Kian-c7c0790242
-    server: 85.215.41.19
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -124,11 +137,12 @@ proxy-groups:
       - DeltaKroneckerGithub
       - 4FreeIran-6d2b8ae84b
       - EPODONIOS
+      - Net2ray
       - EPODONIOS-01
       - 4Kian-529143f444
+      - hex_proxy ⁶
       - 4FreeIran-8d1a32bc8a
       - 4Nika-ac582a5f49
-      - 4Kian-c7c0790242
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -138,10 +152,11 @@ proxy-groups:
       - DeltaKroneckerGithub
       - 4FreeIran-6d2b8ae84b
       - EPODONIOS
+      - Net2ray
       - EPODONIOS-01
       - 4Kian-529143f444
+      - hex_proxy ⁶
       - 4FreeIran-8d1a32bc8a
       - 4Nika-ac582a5f49
-      - 4Kian-c7c0790242
 rules:
   - MATCH,Proxy

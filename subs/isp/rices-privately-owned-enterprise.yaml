@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: dogh.asan-ps.ir
+    port: 443
+    uuid: f0655294-f137-483c-8a11-01120c3ccc1a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: 9OUSkOh5ZW6DZRtcNHvR7WeoXnZP9AwCrPT-5rW5fhM
+      short-id: caa5c6067742710d
+    xudp: true
+  - type: vless
+    name: filembad
+    server: dogh.asan-ps.ir
+    port: 443
+    uuid: f0655294-f137-483c-8a11-01120c3ccc1a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: 9OUSkOh5ZW6DZRtcNHvR7WeoXnZP9AwCrPT-5rW5fhM
+      short-id: caa5c6067742710d
+    xudp: true
+  - type: vless
+    name: کانال
+    server: dogh.asan-ps.ir
+    port: 443
+    uuid: f0655294-f137-483c-8a11-01120c3ccc1a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: 9OUSkOh5ZW6DZRtcNHvR7WeoXnZP9AwCrPT-5rW5fhM
+      short-id: caa5c6067742710d
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - filembad
+      - کانال
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - filembad
+      - کانال
+rules:
+  - MATCH,Proxy

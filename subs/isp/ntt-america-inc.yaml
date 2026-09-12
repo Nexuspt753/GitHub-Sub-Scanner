@@ -33,6 +33,22 @@ proxies:
         Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
   - type: vless
     name: DeltaKroneckerGithub-02
+    server: 128.241.25.11
+    port: 30021
+    uuid: 19d767db-da16-4263-87ec-fd6cacf69ba7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 128.241.25.3
     port: 30021
     uuid: 4e4e2992-00ae-4663-9355-56c312df863f
@@ -48,7 +64,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
   - type: vless
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-04
     server: 128.241.25.11
     port: 30021
     uuid: 4070dab7-dad3-44c7-b57b-24be1b8ffe50
@@ -63,22 +79,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
-  - type: vless
-    name: DeltaKroneckerGithub-04
-    server: 128.241.25.3
-    port: 30021
-    uuid: 0e8371c0-0287-4805-a882-42a7b482a9de
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 3t1yvbyla-rj740g.28m7r63dttya6gazmhoo.workers.dev
   - type: vless
     name: DeltaKroneckerGithub-05
     server: 128.241.25.215
@@ -272,21 +272,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mw5qisav.wjwqvie0wb1eqhb8e83clqdoq3m5p9a4on.workers.dev
   - type: vless
-    name: DeltaKroneckerGithub-17
-    server: 128.241.25.3
-    port: 30021
-    uuid: afec813e-a5c7-432d-be48-2803c30eea4e
+    name: vless
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
     xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  - type: vless
+    name: vless-01
+    server: 192.220.15.222
+    port: 8443
+    uuid: ad192c6d-c5ee-4a21-a6bf-85218caa4ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -309,7 +311,8 @@ proxy-groups:
       - DeltaKroneckerGithub-14
       - DeltaKroneckerGithub-15
       - DeltaKroneckerGithub-16
-      - DeltaKroneckerGithub-17
+      - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -333,6 +336,7 @@ proxy-groups:
       - DeltaKroneckerGithub-14
       - DeltaKroneckerGithub-15
       - DeltaKroneckerGithub-16
-      - DeltaKroneckerGithub-17
+      - vless
+      - vless-01
 rules:
   - MATCH,Proxy

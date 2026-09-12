@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.185.69.251
+    name: EPODONIOS
+    server: 186.246.48.59
     port: 2200
-    uuid: 307998ce-9dc2-473b-81bb-6c359817df5c
+    uuid: 72c8ea26-8b77-4e31-a23f-79c19b3a2ef1
     udp: true
     xudp: true
     network: ws
@@ -11,19 +11,32 @@ proxies:
       path: /v1
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rzd.ru
+  - type: vless
+    name: 4Kian-3e756cc27c
+    server: 186.246.48.59
+    port: 2200
+    uuid: 72c8ea26-8b77-4e31-a23f-79c19b3a2ef1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-3e756cc27c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-3e756cc27c
 rules:
   - MATCH,Proxy

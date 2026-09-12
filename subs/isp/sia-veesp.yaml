@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: 4Sarina-15bc9726f8
+    server: 169.40.1.62
+    port: 1443
+    uuid: 773251ef-4691-453e-b062-27e3ed3ed784
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus
+    servername: lv.pawnet.ink
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4FreeIran-9ba7614c69
     server: 188.253.25.172
@@ -22,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-15bc9726f8
       - 4FreeIran-9ba7614c69
   - name: Auto
     type: url-test
@@ -29,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-15bc9726f8
       - 4FreeIran-9ba7614c69
 rules:
   - MATCH,Proxy
