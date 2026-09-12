@@ -1,62 +1,30 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-0aeeb1ccdd
-    server: tun-1.veraspeed.ir
-    port: 1001
-    uuid: 8605b8dd-5b4c-4f2f-96c1-a01495cbc37e
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-62e01f466f
+    server: s4.zynetraq.ir
+    port: 2087
+    uuid: 4f3dbafe-98a5-4b32-c0ab-a82c90a5369a
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: s4.zynetraq.ir
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-97e7f1f18b
-    server: tun-1.veraspeed.ir
-    port: 1002
-    uuid: 8605b8dd-5b4c-4f2f-96c1-a01495cbc37e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-1189586d83
-    server: tun-1.veraspeed.ir
-    port: 1003
-    uuid: 8605b8dd-5b4c-4f2f-96c1-a01495cbc37e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Kian-39d2114a11
-    server: tun-1.veraspeed.ir
-    port: 2001
-    uuid: 8605b8dd-5b4c-4f2f-96c1-a01495cbc37e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-0aeeb1ccdd
-      - 4Jadi-97e7f1f18b
-      - 4Jadi-1189586d83
-      - 4Kian-39d2114a11
+      - 4FreeIran-62e01f466f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-0aeeb1ccdd
-      - 4Jadi-97e7f1f18b
-      - 4Jadi-1189586d83
-      - 4Kian-39d2114a11
+      - 4FreeIran-62e01f466f
 rules:
   - MATCH,Proxy
