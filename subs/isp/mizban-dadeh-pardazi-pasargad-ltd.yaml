@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: respina.msphnx.ir
+    port: 2019
+    uuid: 977aef38-3b65-42d5-980a-dcadec9429de
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: RYUCFGttyeR0jJRoAwx5RkkT7gVwtaj06hDf66GhuXU
+      short-id: "26"
+    xudp: true
+  - type: vless
+    name: 4FreeIran-64961df612
+    server: respina.msphnx.ir
+    port: 2019
+    uuid: 977aef38-3b65-42d5-980a-dcadec9429de
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: RYUCFGttyeR0jJRoAwx5RkkT7gVwtaj06hDf66GhuXU
+      short-id: "26"
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4FreeIran-64961df612
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4FreeIran-64961df612
+rules:
+  - MATCH,Proxy

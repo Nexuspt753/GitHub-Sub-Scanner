@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: Querétaro City · @DeltaKroneckerGithub
-    server: 64.177.90.30
-    port: 8388
-    cipher: aes-256-gcm
-    password: BWyPPTusFKhGgzKh
+  - type: vless
+    name: Mexico City · @DeltaKroneckerGithub
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Querétaro City · @DeltaKroneckerGithub
+      - Mexico City · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Querétaro City · @DeltaKroneckerGithub
+      - Mexico City · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
