@@ -1,26 +1,50 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 104.143.223.63
-    port: 2085
-    uuid: 94248dca-e56b-424a-9232-401178a4f8f9
+  - type: vmess
+    name: EPODONIOS
+    server: newrelax.relaxedboy.online
+    port: 110
+    uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-01
+    server: newrelax.relaxedboy.online
+    port: 110
+    uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-c2a4c6b8f2
+    server: newrelax.relaxedboy.online
+    port: 110
+    uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Sarina-c2a4c6b8f2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Sarina-c2a4c6b8f2
 rules:
   - MATCH,Proxy

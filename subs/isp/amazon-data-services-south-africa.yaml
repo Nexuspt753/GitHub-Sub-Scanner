@@ -1,0 +1,108 @@
+proxies:
+  - type: vmess
+    name: EPODONIOS
+    server: za-a-zzy.glnyhlgc.com
+    port: 443
+    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /about/7678
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-635f916d98
+    server: za-a-zzy.glnyhlgc.com
+    port: 443
+    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /about/7678
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-0216669a42
+    server: za-a-zzy.glnyhlgc.com
+    port: 443
+    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: za-a-zzy.glnyhlgc.com
+    network: ws
+    ws-opts:
+      path: /about/7678
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-75981334a1
+    server: za-a-zzy.glnyhlgc.com
+    port: 443
+    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: za-a-zzy.glnyhlgc.com
+    network: ws
+    ws-opts:
+      path: /about/7678
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: za-a-zzy.glnyhlgc.com
+  - type: vmess
+    name: 4Jadi-900265d7aa
+    server: za-a-zzy.glnyhlgc.com
+    port: 443
+    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /about/7678
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: za-a-zzy.glnyhlgc.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4Nika-635f916d98
+      - 4Kian-0216669a42
+      - 4Kian-75981334a1
+      - 4Jadi-900265d7aa
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4Nika-635f916d98
+      - 4Kian-0216669a42
+      - 4Kian-75981334a1
+      - 4Jadi-900265d7aa
+rules:
+  - MATCH,Proxy

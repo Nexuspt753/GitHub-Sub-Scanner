@@ -1,4 +1,22 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: de-game.high-net.ir
+    port: 443
+    uuid: f751c2fe-0772-4613-a5df-12155d170b10
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: play.google.com
+    reality-opts:
+      public-key: HgX0wYVDAQ9-qOYapRF1JRsGTm_-khSea1KBfEVIJkw
+      short-id: f7b051d180dfba01
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4FreeIran-d3f44264c4
     server: 212.95.34.195
@@ -39,6 +57,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4FreeIran-d3f44264c4
       - 4Nika-479b4cd75a
   - name: Auto
@@ -47,6 +66,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4FreeIran-d3f44264c4
       - 4Nika-479b4cd75a
 rules:

@@ -1,0 +1,40 @@
+proxies:
+  - type: vless
+    name: 4Sarina-42db285e7e
+    server: hk4.miyazono-kaori.com
+    port: 443
+    uuid: 0edbdf9a-3cae-4234-889a-1ec5c59c9c2c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hk4e-launcher-static.hoyoverse.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Sarina-b0b6ebcc73
+    server: hk6.miyazono-kaori.com
+    port: 443
+    uuid: 0edbdf9a-3cae-4234-889a-1ec5c59c9c2c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.hsbc.com.hk
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-42db285e7e
+      - 4Sarina-b0b6ebcc73
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-42db285e7e
+      - 4Sarina-b0b6ebcc73
+rules:
+  - MATCH,Proxy
