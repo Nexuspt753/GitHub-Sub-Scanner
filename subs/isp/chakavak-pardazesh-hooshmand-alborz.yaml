@@ -1,0 +1,90 @@
+proxies:
+  - type: vmess
+    name: 4Kian-4c8727ea7d
+    server: image.colorviolet.ir
+    port: 2021
+    uuid: 6b8dbc66-ea40-444a-b93d-cb20c008af10
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: tun.mitdns.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-8053b022f2
+    server: image.colorviolet.ir
+    port: 4932
+    uuid: 6b8dbc66-ea40-444a-b93d-cb20c008af10
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: tun.mitdns.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Jadi-b2dc8815c5
+    server: image.colorviolet.ir
+    port: 6800
+    uuid: 6b8dbc66-ea40-444a-b93d-cb20c008af10
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: tun.mitdns.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-4d7c887b49
+    server: image.colorviolet.ir
+    port: 4932
+    uuid: 6b8dbc66-ea40-444a-b93d-cb20c008af10
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: tun.mitdns.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-4c8727ea7d
+      - 4Kian-8053b022f2
+      - 4Jadi-b2dc8815c5
+      - 4Nika-4d7c887b49
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-4c8727ea7d
+      - 4Kian-8053b022f2
+      - 4Jadi-b2dc8815c5
+      - 4Nika-4d7c887b49
+rules:
+  - MATCH,Proxy

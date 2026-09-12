@@ -1,42 +1,34 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: belzoldzema.pravio.ir
-    port: 7007
-    uuid: 6017b67c-5a4b-4299-84c6-909462508790
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: 45.138.72.141
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: 7wBuF3nDHbcxPy3nr9Rmf6vDLB-gu7XQZqVvkiPlnh0
     xudp: true
-  - type: vless
-    name: 4Mohsen-2d2b62c50d
-    server: belzoldzema.pravio.ir
-    port: 7007
-    uuid: 6017b67c-5a4b-4299-84c6-909462508790
-    udp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: 7wBuF3nDHbcxPy3nr9Rmf6vDLB-gu7XQZqVvkiPlnh0
-    xudp: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Mohsen-2d2b62c50d
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Mohsen-2d2b62c50d
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

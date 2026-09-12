@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: usa-utah-1.gigobingo.ru
+    port: 443
+    uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: usa-utah-1.gigobingo.ru
+    reality-opts:
+      public-key: Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ
+      short-id: ef7c4e4302bd52d7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 104.152.50.66
+    port: 443
+    uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: usa-utah-1.gigobingo.ru
+    reality-opts:
+      public-key: Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ
+      short-id: ef7c4e4302bd52d7
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

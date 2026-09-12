@@ -1,33 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 194.5.248.47
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: abvro2.moritech.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 194.5.248.46
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: abvro1.moritech.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: 194.5.248.252
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -40,7 +13,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-2f6c28c815
+    name: DeltaKroneckerGithub-01
+    server: roma2.moritech.net
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 194.5.248.47
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -53,6 +36,16 @@ proxies:
     servername: abvro2.moritech.net
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: roma3.moritech.net
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -61,7 +54,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Sarina-2f6c28c815
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,6 +64,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Sarina-2f6c28c815
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

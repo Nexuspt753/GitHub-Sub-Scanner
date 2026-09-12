@@ -1,34 +1,29 @@
 proxies:
   - type: vless
-    name: 4Sarina-12faf38834
-    server: 193.124.125.135
-    port: 443
-    uuid: 968469ec-67c9-4fe6-bf72-dd20716add3b
+    name: 4Jadi-1f10f5f59e
+    server: 193.124.125.79
+    port: 161
+    uuid: 3e46babc-192b-4f61-84ad-36aed8714b6d
     udp: true
     tls: true
     client-fingerprint: qq
-    alpn:
-      - http/1.1
-    servername: w2.tunnelgate.org
+    servername: avito.st
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/v1/ru
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: w2.tunnelgate.org
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-12faf38834
+      - 4Jadi-1f10f5f59e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-12faf38834
+      - 4Jadi-1f10f5f59e
 rules:
   - MATCH,Proxy

@@ -15,6 +15,13 @@ proxies:
     tls: true
     sni: origin-a.akamaihd.net
     client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 82.110.60.9
+    port: 19999
+    cipher: aes-256-gcm
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -22,6 +29,7 @@ proxy-groups:
       - Auto
       - 4Kian-4893e710e8
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -30,5 +38,6 @@ proxy-groups:
     proxies:
       - 4Kian-4893e710e8
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

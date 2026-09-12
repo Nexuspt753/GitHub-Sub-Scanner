@@ -34,8 +34,22 @@ proxies:
     cipher: aes-256-gcm
     password: pKEW8JPByTVTLtM
     udp: true
-  - type: vmess
+  - type: vless
     name: EPODONIOS
+    server: 216.152.147.28
+    port: 443
+    uuid: d9e4721d-cdac-44c7-bc91-117367eac194
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: kjiuPmjM4IutdZudHfcPZHEwcrBEFY4qBLlvfC6A_Ss
+      short-id: b9f8d3f8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vmess
+    name: EPODONIOS-01
     server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -46,7 +60,7 @@ proxies:
     skip-cert-verify: false
   - type: vmess
     name: DeltaKroneckerGithub-01
-    server: 23.162.200.198
+    server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
     alterId: 0
@@ -56,6 +70,16 @@ proxies:
     skip-cert-verify: false
   - type: vmess
     name: DeltaKroneckerGithub-02
+    server: 23.162.200.198
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-03
     server: 158.51.121.63
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
@@ -72,33 +96,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: seribus.org
-  - type: vmess
-    name: DeltaKroneckerGithub-03
-    server: 134.195.198.147
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /linkvws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vk.com
-  - type: vmess
-    name: DeltaKroneckerGithub-04
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vless
     name: 🇨🇦
     server: 216.152.147.28
@@ -138,7 +135,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
-    name: 4Jadi-d54932db48
+    name: 4Nika-ee4625f711
     server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -148,7 +145,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Nika-ee4625f711
+    name: 4Kian-0346131419
     server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -176,7 +173,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: seribus.org
   - type: vmess
-    name: 4FreeIran-7ea5536417
+    name: 4Mohsen-8277e0a5d4
     server: 158.51.121.63
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
@@ -187,6 +184,23 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: seribus.org
+    network: ws
+    ws-opts:
+      path: linkvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: seribus.org
+  - type: vmess
+    name: 4Nika-d35650c5c3
+    server: 158.51.121.63
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
       path: linkvws
@@ -210,7 +224,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Jadi-aaed9b9563
+    name: 4Jadi-f9804a7763
     server: 23.162.200.198
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -229,19 +243,20 @@ proxy-groups:
       - 4Nika-215e9129e2
       - 4Kian-b3464f066b
       - EPODONIOS
+      - EPODONIOS-01
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 🇨🇦
       - نتورلد تو تلگرام جستجو کنید
       - 4Mohsen-9eebe27f82
-      - 4Jadi-d54932db48
       - 4Nika-ee4625f711
+      - 4Kian-0346131419
       - 4Mohsen-984571c1f5
-      - 4FreeIran-7ea5536417
+      - 4Mohsen-8277e0a5d4
+      - 4Nika-d35650c5c3
       - 4Sarina-e41fe4168d
-      - 4Jadi-aaed9b9563
+      - 4Jadi-f9804a7763
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -253,18 +268,19 @@ proxy-groups:
       - 4Nika-215e9129e2
       - 4Kian-b3464f066b
       - EPODONIOS
+      - EPODONIOS-01
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 🇨🇦
       - نتورلد تو تلگرام جستجو کنید
       - 4Mohsen-9eebe27f82
-      - 4Jadi-d54932db48
       - 4Nika-ee4625f711
+      - 4Kian-0346131419
       - 4Mohsen-984571c1f5
-      - 4FreeIran-7ea5536417
+      - 4Mohsen-8277e0a5d4
+      - 4Nika-d35650c5c3
       - 4Sarina-e41fe4168d
-      - 4Jadi-aaed9b9563
+      - 4Jadi-f9804a7763
 rules:
   - MATCH,Proxy

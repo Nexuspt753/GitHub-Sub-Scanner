@@ -1,17 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: EPODONIOS
     server: 94.183.170.135
     port: 443
@@ -23,16 +11,6 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 94.183.170.135
-    port: 8443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: estproxy4.lockdwn.com
-    xudp: true
   - type: vless
     name: 🇪🇪
     server: 94.183.170.135
@@ -46,7 +24,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub
+    server: 94.183.170.135
+    port: 443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 217.60.24.23
     port: 8443
     uuid: 758f49d3-5f5f-47e7-bfa4-4ce96faf800d
@@ -61,6 +51,16 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 94.183.170.135
+    port: 8443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: estproxy4.lockdwn.com
+    xudp: true
   - type: vless
     name: EPODONIOS-01
     server: 217.60.24.23
@@ -132,10 +132,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
       - 🇪🇪
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - EPODONIOS-01
       - 🇳🇱
@@ -147,10 +147,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
       - 🇪🇪
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - EPODONIOS-01
       - 🇳🇱

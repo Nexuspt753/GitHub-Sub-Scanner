@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: tr2.gigobingo.ru
+    port: 443
+    uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr2.gigobingo.ru
+    reality-opts:
+      public-key: Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ
+      short-id: ef7c4e4302bd52d7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 45.74.158.180
     port: 443
@@ -65,6 +79,19 @@ proxies:
       short-id: b8
     xudp: true
   - type: vless
+    name: our50q6ci3reality3
+    server: turk.parsclad.ir
+    port: 37447
+    uuid: ab9ac97b-29cd-4267-b70f-09ab98e10048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: stage.partners.nvbugs.nvidia.com
+    reality-opts:
+      public-key: lTpDCNC2RYBlKblFo9h5Dbbz7FSIJMLmbnVOFCbdlBk
+      short-id: f4556a56e9fc86
+    xudp: true
+  - type: vless
     name: 4Kian-fab3768a48
     server: 45.74.158.180
     port: 443
@@ -125,36 +152,54 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: f.mjbot.ir
+  - type: vmess
+    name: 4Kian-73eece06d5
+    server: 91.228.227.175
+    port: 62984
+    uuid: 62d79906-0850-4a95-aa23-6c827211fe6e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: f.mjbot.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - v2raybaaz
       - EPODONIOS-02
       - reality2-promo_1788933336155_8_a381
+      - our50q6ci3reality3
       - 4Kian-fab3768a48
       - 4Nika-2aecae5f58
       - 4Nika-f23bc34507
       - 4Kian-488ec06c0d
       - 4Nika-8f84dae76d
+      - 4Kian-73eece06d5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - v2raybaaz
       - EPODONIOS-02
       - reality2-promo_1788933336155_8_a381
+      - our50q6ci3reality3
       - 4Kian-fab3768a48
       - 4Nika-2aecae5f58
       - 4Nika-f23bc34507
       - 4Kian-488ec06c0d
       - 4Nika-8f84dae76d
+      - 4Kian-73eece06d5
 rules:
   - MATCH,Proxy
