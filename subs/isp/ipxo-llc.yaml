@@ -1,6 +1,18 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 172.111.146.64
+    port: 80
+    uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 104.129.164.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -61,19 +73,7 @@ proxies:
       public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
     xudp: true
   - type: vless
-    name: VConfing
-    server: 130.12.102.62
-    port: 443
-    uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: localhost
-    reality-opts:
-      public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
-    xudp: true
-  - type: vless
-    name: appsooner
+    name: V2ray_confiig
     server: 130.12.102.62
     port: 443
     uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
@@ -108,6 +108,21 @@ proxies:
     reality-opts:
       public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
     xudp: true
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
     server: 172.111.146.64
@@ -231,14 +246,15 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - mehrosaboran
-      - VConfing
-      - appsooner
+      - V2ray_confiig
       - prrofile_purple
       - vasl_bashim
+      - DeltaKroneckerGithub-02
       - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
       - 4Mohsen-83e6b959a0
       - 4Jadi-619f48a12c
@@ -254,14 +270,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - mehrosaboran
-      - VConfing
-      - appsooner
+      - V2ray_confiig
       - prrofile_purple
       - vasl_bashim
+      - DeltaKroneckerGithub-02
       - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
       - 4Mohsen-83e6b959a0
       - 4Jadi-619f48a12c

@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 🇩🇪169501
+    server: cloud1.tsteam7.top
+    port: 50001
+    uuid: ea907346-3c67-4989-9503-689a98070467
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: sLhLPmyi9BIj8FMBdyWc3IjMpdw_6dy5s1TBI4xUKUE
+      short-id: 11bcf6be19cb61a7
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇩🇪169501
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇩🇪169501
+rules:
+  - MATCH,Proxy

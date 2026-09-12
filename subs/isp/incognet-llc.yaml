@@ -1,30 +1,4 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 23.137.249.110
-    port: 37470
-    uuid: 04eb0e21-135d-4a0b-a22d-40a4e059d7f9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - ""
-    servername: 23.137.249.110
-    xudp: true
-  - type: vless
-    name: 4FreeIran-b700d80073
-    server: 23.137.249.110
-    port: 37470
-    uuid: 04eb0e21-135d-4a0b-a22d-40a4e059d7f9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - ""
-    servername: 23.137.249.110
-    xudp: true
   - type: vmess
     name: 4Nika-ddc100197b
     server: 23.137.249.110
@@ -40,36 +14,18 @@ proxies:
     alpn:
       - h2
       - http/1.1
-  - type: vmess
-    name: 4Mohsen-f2337edbc8
-    server: 23.137.249.110
-    port: 30011
-    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: 23.137.249.110
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
-      - 4FreeIran-b700d80073
       - 4Nika-ddc100197b
-      - 4Mohsen-f2337edbc8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
-      - 4FreeIran-b700d80073
       - 4Nika-ddc100197b
-      - 4Mohsen-f2337edbc8
 rules:
   - MATCH,Proxy

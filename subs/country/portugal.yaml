@@ -13,12 +13,42 @@ proxies:
       short-id: beff3ff061a64cfd
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Porto · 4FreeIran-66d2c8fa26
+    server: 171.22.129.56
+    port: 2083
+    uuid: b2744db0-1c64-4218-a93b-9eba0e5f811f
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: swe-one.quiet-rogue.site
+    reality-opts:
+      public-key: 40eDnye2AHCQqgM2_ikKzRayZ4Vlu4rnnkHmLmNalQc
+      short-id: 32a37218722f0081
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Porto · 4Jadi-9e65d30de8
+    server: 171.22.129.56
+    port: 8443
+    uuid: b2744db0-1c64-4218-a93b-9eba0e5f811f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-two.quiet-rogue.site
+    reality-opts:
+      public-key: QMJRGTqZRbpeLpIAdvn6dhftuzrpwbtwmVG2s5IuuU0
+      short-id: 00a02855ba568c29
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Porto · 4FreeIran-b67999a25d
+      - Porto · 4FreeIran-66d2c8fa26
+      - Porto · 4Jadi-9e65d30de8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Porto · 4FreeIran-b67999a25d
+      - Porto · 4FreeIran-66d2c8fa26
+      - Porto · 4Jadi-9e65d30de8
 rules:
   - MATCH,Proxy
