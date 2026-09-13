@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: 4Kian-4b65fed868
-    server: 0cd6e0e6-tlheo0-tphvvu-gacy.hk3.hyhuawei.com
+    name: EPODONIOS
+    server: 456afbf3-tla000-tmj4pk-1kcpe.hk3.hyhuawei.com
     port: 443
-    uuid: 20f87b02-0eaa-11eb-8684-f23c913c8d2b
+    uuid: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -12,10 +12,10 @@ proxies:
       public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
     xudp: true
   - type: vless
-    name: 4Kian-6cef5bbeea
-    server: e94a36e2-tl4g00-trhks8-1c9em.hk3.hyhuawei.com
+    name: Hong
+    server: 456afbf3-tla000-tmj4pk-1kcpe.hk3.hyhuawei.com
     port: 443
-    uuid: 336501b6-51d2-11ee-a993-f23c9164ca5d
+    uuid: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -23,6 +23,15 @@ proxies:
     reality-opts:
       public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 58.152.18.71
+    port: 443
+    password: 76d630f2af6619c4a5de0ef953df3c6a
+    udp: true
+    tls: true
+    sni: www.nintendogames.net
+    client-fingerprint: chrome
   - type: vless
     name: 4FreeIran-59d18dc298
     server: hkt.ddnnss.me
@@ -37,18 +46,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-17860ff4bd
-    server: 456afbf3-tla000-tmj4pk-1kcpe.hk3.hyhuawei.com
-    port: 443
-    uuid: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: updates.cdn-apple.com
-    reality-opts:
-      public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
-    xudp: true
-  - type: vless
     name: 4Kian-a6913e0cef
     server: 456afbf3-tla000-tmj4pk-1kcpe.hk3.hyhuawei.com
     port: 443
@@ -60,68 +57,43 @@ proxies:
     reality-opts:
       public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
     xudp: true
-  - type: vless
-    name: 4Sarina-4329082aff
-    server: 033bc9be-tkyw00-tpda83-1lkbs.hk3.hyhuawei.com
+  - type: vmess
+    name: 4Jadi-be7d15e1fe
+    server: hk01.653ebeeb-5f60-4be5-958d-7bf4839cdccd.ef6616fd-5b06-482f-9d64-183745659cbf.byteprivatelink.com
     port: 443
-    uuid: 5a4c13ae-6673-11ee-a149-f23c9164ca5d
+    uuid: f018361c-3d66-4635-80c9-22be36b70ac4
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: updates.cdn-apple.com
-    reality-opts:
-      public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
     xudp: true
-  - type: vless
-    name: 4Nika-c40961e308
-    server: 9ed08d0c-tlheo0-tvb36r-1qwom.hk3.hyhuawei.com
-    port: 443
-    uuid: 8d0ec7cc-eefa-11ee-9b59-f23c91cfbbc9
-    udp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
-    servername: updates.cdn-apple.com
-    reality-opts:
-      public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
-    xudp: true
-  - type: vless
-    name: 4FreeIran-c645f58233
-    server: ed49f9f4-tl4g00-tl54l3-luwe.hk3.hyhuawei.com
-    port: 443
-    uuid: a2b0fd2b-716f-0df8-d4e2-03a1c00e5f1a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: updates.cdn-apple.com
-    reality-opts:
-      public-key: bE6ws6dFPflj8WVJMGwtso0WOaiSmBOHM2muQO2Uul4
-    xudp: true
+    servername: www.12306.cn
+    network: grpc
+    grpc-opts:
+      grpc-service-name: "12306"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-4b65fed868
-      - 4Kian-6cef5bbeea
+      - EPODONIOS
+      - Hong
+      - DeltaKroneckerGithub
       - 4FreeIran-59d18dc298
-      - 4Sarina-17860ff4bd
       - 4Kian-a6913e0cef
-      - 4Sarina-4329082aff
-      - 4Nika-c40961e308
-      - 4FreeIran-c645f58233
+      - 4Jadi-be7d15e1fe
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-4b65fed868
-      - 4Kian-6cef5bbeea
+      - EPODONIOS
+      - Hong
+      - DeltaKroneckerGithub
       - 4FreeIran-59d18dc298
-      - 4Sarina-17860ff4bd
       - 4Kian-a6913e0cef
-      - 4Sarina-4329082aff
-      - 4Nika-c40961e308
-      - 4FreeIran-c645f58233
+      - 4Jadi-be7d15e1fe
 rules:
   - MATCH,Proxy

@@ -1,16 +1,41 @@
 proxies:
   - type: vmess
-    name: EPODONIOS
-    server: 46.8.100.213
+    name: DeltaKroneckerGithub
+    server: 95.182.94.210
     port: 443
-    uuid: cfd341d9-47d5-4dab-bb60-b588e643c778
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Jadi-b0c66e3539
+    server: 95.182.94.210
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-bca613f37a
     server: 95.182.94.210
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -31,15 +56,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - 4Jadi-b0c66e3539
+      - 4Nika-bca613f37a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - 4Jadi-b0c66e3539
+      - 4Nika-bca613f37a
 rules:
   - MATCH,Proxy
