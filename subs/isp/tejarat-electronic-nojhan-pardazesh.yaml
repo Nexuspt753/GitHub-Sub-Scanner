@@ -1,0 +1,38 @@
+proxies:
+  - type: vmess
+    name: EPODONIOS
+    server: 94.184.17.130
+    port: 44580
+    uuid: 03508b01-f824-43d9-993f-cc491664ab2e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-a2349cfd5b
+    server: 94.184.17.130
+    port: 44580
+    uuid: 03508b01-f824-43d9-993f-cc491664ab2e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 4Mohsen-a2349cfd5b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 4Mohsen-a2349cfd5b
+rules:
+  - MATCH,Proxy

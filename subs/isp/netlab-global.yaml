@@ -22,6 +22,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: m73j8.fssr.jst.hh.vavava.kdns.fr
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 154.9.227.100
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
+  - type: vless
     name: 4Sarina-5e1d63fef3
     server: 154.9.254.141
     port: 443
@@ -37,6 +53,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: m73j8.fssr.jst.hh.vavava.kdns.fr
+  - type: vmess
+    name: 4Sarina-90c82de4a3
+    server: 64.83.12.153
+    port: 443
+    uuid: 9d476209-d8bd-9536-6e8d-61c97ec114db
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -44,7 +70,9 @@ proxy-groups:
       - Auto
       - 4Nika-b75fcdbbe3
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-5e1d63fef3
+      - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,6 +81,8 @@ proxy-groups:
     proxies:
       - 4Nika-b75fcdbbe3
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-5e1d63fef3
+      - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy

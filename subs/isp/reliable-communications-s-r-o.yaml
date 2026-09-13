@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 194.87.59.6
     port: 2085
     uuid: c9373ff0-c263-4949-885f-366671f3c6a1
@@ -10,7 +10,17 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
+    server: 194.87.59.7
+    port: 2085
+    uuid: d6e792d5-ea82-4e6c-b679-89f49ff7996e
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-02
     server: 194.87.59.7
     port: 2085
     uuid: d6e792d5-ea82-4e6c-b679-89f49ff7996e
@@ -30,7 +40,27 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: 4FreeIran-4aff504aea
+    server: 194.87.59.6
+    port: 2085
+    uuid: c9373ff0-c263-4949-885f-366671f3c6a1
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Sarina-6889cc52c5
+    server: 194.87.59.7
+    port: 2085
+    uuid: d6e792d5-ea82-4e6c-b679-89f49ff7996e
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-f1d62a5c46
     server: 194.87.59.7
     port: 2085
     uuid: d6e792d5-ea82-4e6c-b679-89f49ff7996e
@@ -44,19 +74,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - meliproxyy
+      - 4FreeIran-4aff504aea
       - 4Sarina-6889cc52c5
+      - 4Kian-f1d62a5c46
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - meliproxyy
+      - 4FreeIran-4aff504aea
       - 4Sarina-6889cc52c5
+      - 4Kian-f1d62a5c46
 rules:
   - MATCH,Proxy

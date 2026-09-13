@@ -1,9 +1,35 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 144.225.65.178
+    port: 443
+    uuid: 98c7936c-073e-456f-8992-dad9a7074602
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.upwork.com
+    reality-opts:
+      public-key: GFREEsH4rFLnXKDLKXk0iTZNP5_d1zfKTj8DUE0L6RE
+      short-id: d7397feef49deef9
+    xudp: true
+  - type: vless
     name: 4Nika-c07640fb94
     server: 144.225.65.178
     port: 443
     uuid: 78b74194-c6fc-481b-82ef-512ed70329d1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.upwork.com
+    reality-opts:
+      public-key: GFREEsH4rFLnXKDLKXk0iTZNP5_d1zfKTj8DUE0L6RE
+      short-id: d7397feef49deef9
+    xudp: true
+  - type: vless
+    name: 4Sarina-c42e6c96d5
+    server: 144.225.65.178
+    port: 443
+    uuid: 98c7936c-073e-456f-8992-dad9a7074602
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -17,13 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Nika-c07640fb94
+      - 4Sarina-c42e6c96d5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Nika-c07640fb94
+      - 4Sarina-c42e6c96d5
 rules:
   - MATCH,Proxy

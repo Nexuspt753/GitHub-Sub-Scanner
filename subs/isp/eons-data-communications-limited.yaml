@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 191.40.4.181
+    port: 31146
+    uuid: 769d6086-7e04-4f97-aa13-d43d78bfcf0d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play-fe.googleapis.com
+    reality-opts:
+      public-key: QAoJHZT6_DZsBu-jH74uYZUTpGgxmvN2tXpRKj4CygE
+      short-id: cf4e6f8338
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: psg2-ag.t.sgateway.link
@@ -17,20 +31,38 @@ proxies:
     tls: true
     sni: ctldl.windowsupdate.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-03c90ebcfa
+    server: 191.40.4.181
+    port: 31146
+    uuid: 769d6086-7e04-4f97-aa13-d43d78bfcf0d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play-fe.googleapis.com
+    reality-opts:
+      public-key: QAoJHZT6_DZsBu-jH74uYZUTpGgxmvN2tXpRKj4CygE
+      short-id: cf4e6f8338
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Kian-03c90ebcfa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Kian-03c90ebcfa
 rules:
   - MATCH,Proxy
