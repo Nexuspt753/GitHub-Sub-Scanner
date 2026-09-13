@@ -7,19 +7,39 @@ proxies:
     password: 094fbfd7-4b60-4949-af4a-3adef86e7ebb
     udp: true
   - type: ss
+    name: 4Jadi-e4e0c4f918
+    server: m2v7nx.5tencent.asia
+    port: 40025
+    cipher: aes-128-gcm
+    password: 094fbfd7-4b60-4949-af4a-3adef86e7ebb
+    udp: true
+  - type: ss
     name: 4Mohsen-988308cbbc
     server: k6p9tz.5tencent.asia
     port: 22019
     cipher: aes-256-gcm
     password: 6089784c-6fa1-4c5f-b678-f2917a70f179
     udp: true
+  - type: vless
+    name: 4FreeIran-bd847eb4ac
+    server: 172.96.141.210
+    port: 8443
+    uuid: baa7c987-b6ed-487f-8b18-e3e46a2e1498
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: room.rootvana.top
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-2e5fd4399c
+      - 4Jadi-e4e0c4f918
       - 4Mohsen-988308cbbc
+      - 4FreeIran-bd847eb4ac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +47,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-2e5fd4399c
+      - 4Jadi-e4e0c4f918
       - 4Mohsen-988308cbbc
+      - 4FreeIran-bd847eb4ac
 rules:
   - MATCH,Proxy

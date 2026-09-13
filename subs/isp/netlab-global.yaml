@@ -1,4 +1,10 @@
 proxies:
+  - type: hysteria2
+    name: 4Nika-b75fcdbbe3
+    server: 38.207.163.44
+    port: 8443
+    password: 3DMpEHI94Ic7izl0YBXU
+    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 154.9.227.100
@@ -15,20 +21,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bab-6.site
-  - type: vless
-    name: 4FreeIran-d3af657a8d
-    server: 189.24.110.99
-    port: 443
-    uuid: 433c0703-dff5-48b2-8926-2eefcc3a5086
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.telekom.de
-    reality-opts:
-      public-key: 0mABGF57PFBZ8piB3UfUEIzH9vkCe_fnopIMp9yeYls
-      short-id: aa7f41ebbdff8c87
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
     name: 4Sarina-90c82de4a3
     server: 64.83.12.153
@@ -44,8 +36,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-b75fcdbbe3
       - DeltaKroneckerGithub
-      - 4FreeIran-d3af657a8d
       - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
@@ -53,8 +45,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-b75fcdbbe3
       - DeltaKroneckerGithub
-      - 4FreeIran-d3af657a8d
       - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy

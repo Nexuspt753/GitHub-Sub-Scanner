@@ -1,22 +1,48 @@
 proxies:
   - type: hysteria2
-    name: 4Jadi-88b5fe118d
+    name: 4Jadi-06fd23edb0
+    server: 91.240.86.70
+    port: 22443
+    password: 5beff945-adaa-492f-85c6-8aaf5df6cfa5
+    sni: 91.240.86.70
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-d15c926c01
     server: 91.240.86.70
     port: 22443
     password: 5beff945-adaa-492f-85c6-8aaf5df6cfa5
     sni: hy.quattro-tech.ru
+    skip-cert-verify: true
+  - type: vless
+    name: 4Kian-fafb7a5663
+    server: 157.22.193.73
+    port: 443
+    uuid: 1bced29a-3051-42b8-b393-005135b97616
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: larkix.pulsio.cfd
+    reality-opts:
+      public-key: OTuJX9K_E2nHhg0mXT2uFMNIO7746G6c5rlT6OscQGk
+      short-id: 9698d67e63bc8ee0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-88b5fe118d
+      - 4Jadi-06fd23edb0
+      - 4FreeIran-d15c926c01
+      - 4Kian-fafb7a5663
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-88b5fe118d
+      - 4Jadi-06fd23edb0
+      - 4FreeIran-d15c926c01
+      - 4Kian-fafb7a5663
 rules:
   - MATCH,Proxy

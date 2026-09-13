@@ -1,0 +1,50 @@
+proxies:
+  - type: vmess
+    name: 4FreeIran-e3aa3152a7
+    server: st-1.dnspro.icu
+    port: 9111
+    uuid: 13ef5f2c-d002-36a2-9e96-a13d5e3ae03b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /iso
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st-1.dnspro.icu
+  - type: vmess
+    name: 4Kian-a397099832
+    server: st-2.dnspro.icu
+    port: 5100
+    uuid: 13ef5f2c-d002-36a2-9e96-a13d5e3ae03b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /iso
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st-2.dnspro.icu
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-e3aa3152a7
+      - 4Kian-a397099832
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-e3aa3152a7
+      - 4Kian-a397099832
+rules:
+  - MATCH,Proxy

@@ -1,4 +1,24 @@
 proxies:
+  - type: vless
+    name: 4FreeIran-1939c75896
+    server: 213.145.87.54
+    port: 8443
+    uuid: 4ec2c66e-becd-4c51-9d6d-9ef74b27c95a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: decf.xzdq.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/539e86
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: decf.xzdq.eu.org
   - type: vmess
     name: 4Mohsen-85333631a4
     server: 82.139.242.5
@@ -39,6 +59,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-1939c75896
       - 4Mohsen-85333631a4
       - 4Nika-5ee5bb37f0
   - name: Auto
@@ -47,6 +68,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-1939c75896
       - 4Mohsen-85333631a4
       - 4Nika-5ee5bb37f0
 rules:

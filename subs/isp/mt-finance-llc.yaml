@@ -1,29 +1,30 @@
 proxies:
   - type: vless
-    name: 4Jadi-1f10f5f59e
-    server: 193.124.125.79
-    port: 161
-    uuid: 3e46babc-192b-4f61-84ad-36aed8714b6d
+    name: 4Jadi-7dd7b9753b
+    server: 213.226.112.19
+    port: 443
+    uuid: de34642f-21d7-49d2-a8ff-aad30750a929
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: avito.st
+    client-fingerprint: firefox
+    servername: id.pervye.ru
+    reality-opts:
+      public-key: y9hgkaFKFTgKL5PHsksGNKuSrd7jBysJ6rBHktu2k1o
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-1f10f5f59e
+      - 4Jadi-7dd7b9753b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-1f10f5f59e
+      - 4Jadi-7dd7b9753b
 rules:
   - MATCH,Proxy
