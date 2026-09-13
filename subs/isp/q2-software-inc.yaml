@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 192.0.63.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime36.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 192.0.54.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -28,18 +41,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.111000.indevs.in
-  - type: vless
-    name: 4Mohsen-30b02f498e
-    server: 192.0.63.4
-    port: 80
-    uuid: 58c1b245-2ea0-40b9-b512-bd2bbe3cbe3f
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pyip=Telegram🇨🇳
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Jadi-b1de663920
     server: 192.0.54.30
@@ -75,8 +76,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - کانال
-      - 4Mohsen-30b02f498e
       - 4Jadi-b1de663920
       - 4FreeIran-3b084bfe18
   - name: Auto
@@ -86,8 +87,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - کانال
-      - 4Mohsen-30b02f498e
       - 4Jadi-b1de663920
       - 4FreeIran-3b084bfe18
 rules:

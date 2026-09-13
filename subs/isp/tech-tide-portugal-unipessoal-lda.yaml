@@ -1,9 +1,23 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: nl1.miyazono-kaori.com
+    port: 443
+    uuid: 2041f713-5432-47cc-89a4-167e70ead127
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.philips.com
+    reality-opts:
+      public-key: AFQAIB5u9Uu6nf9fkP1BdcSHivSuUv97l4FH-LoFYgw
+      short-id: 92dca6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: nl2.miyazono-kaori.com
     port: 443
-    uuid: 064f4ffe-0c0d-4106-b14d-ffc09c03c7af
+    uuid: 2041f713-5432-47cc-89a4-167e70ead127
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

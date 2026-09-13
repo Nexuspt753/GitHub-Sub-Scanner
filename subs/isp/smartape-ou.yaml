@@ -1,46 +1,59 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 141.133.172.23
-    port: 443
-    uuid: 3c48b5f5-7766-4896-874e-b3ba1860e83a
+    name: EPODONIOS
+    server: news.bryansk-news.site
+    port: 8443
+    uuid: d3be3cda-7289-400c-b5a8-8301386df64b
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: w-mebel.pro
-    reality-opts:
-      public-key: R7NfFaabgh-0a2KR0Bfmn3a-O6mDT550OgXUDygDKBs
-      short-id: c603efb3ddaf633d
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: news.bryansk-news.site
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: 4Mohsen-903eb5b3b0
-    server: 141.133.172.23
-    port: 443
-    uuid: 3c48b5f5-7766-4896-874e-b3ba1860e83a
+    name: کانال
+    server: news.bryansk-news.site
+    port: 8443
+    uuid: d3be3cda-7289-400c-b5a8-8301386df64b
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: w-mebel.pro
-    reality-opts:
-      public-key: R7NfFaabgh-0a2KR0Bfmn3a-O6mDT550OgXUDygDKBs
-      short-id: c603efb3ddaf633d
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: news.bryansk-news.site
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇨🇿170372
+    server: news.bryansk-news.site
+    port: 8443
+    uuid: d3be3cda-7289-400c-b5a8-8301386df64b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: news.bryansk-news.site
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Mohsen-903eb5b3b0
+      - EPODONIOS
+      - کانال
+      - 🇨🇿170372
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Mohsen-903eb5b3b0
+      - EPODONIOS
+      - کانال
+      - 🇨🇿170372
 rules:
   - MATCH,Proxy

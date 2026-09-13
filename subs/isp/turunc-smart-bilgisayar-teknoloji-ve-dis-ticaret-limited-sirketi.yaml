@@ -1,30 +1,38 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.227.139.107
-    port: 8443
-    uuid: ef18d810-719c-4bf1-83c6-615d01f217eb
+  - type: vmess
+    name: کانال ما  @netghjlkj 5
+    server: nll2.qjcm.ir
+    port: 2086
+    uuid: 43c7c028-4309-41c8-99f2-0896766615f1
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.sony.com
-    reality-opts:
-      public-key: Lq1xwc-Qd0Te8sV-NxrJLQO6JbvPkknki6inkKj5_WQ
-      short-id: 22c6f049621c44ec
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: کانال ما  @netghjlkj 9
+    server: nll2.qjcm.ir
+    port: 2086
+    uuid: 43c7c028-4309-41c8-99f2-0896766615f1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - کانال ما  @netghjlkj 5
+      - کانال ما  @netghjlkj 9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - کانال ما  @netghjlkj 5
+      - کانال ما  @netghjlkj 9
 rules:
   - MATCH,Proxy

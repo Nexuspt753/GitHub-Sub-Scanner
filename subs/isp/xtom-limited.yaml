@@ -1,15 +1,30 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 45.80.191.177
+    server: 103.201.130.126
     port: 443
-    password: Fn9TZuYXiFYhsyp65T
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
     udp: true
     tls: true
-    sni: os-2.rise-fuji.com
     client-fingerprint: chrome
+    servername: m73j8.fssr.jst.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: m73j8.fssr.jst.hh.vavava.kdns.fr
   - type: trojan
     name: DeltaKroneckerGithub-01
+    server: os-3.tr202604.com
+    port: 443
+    password: q6UYkw9nUn6MYZz8Sp
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: os-2.rise-fuji.com
     port: 443
     password: Fn9TZuYXiFYhsyp65T
@@ -18,12 +33,13 @@ proxies:
     sni: os-2.rise-fuji.com
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: os-3.tr202604.com
+    name: DeltaKroneckerGithub-03
+    server: 45.80.191.177
     port: 443
-    password: q6UYkw9nUn6MYZz8Sp
+    password: Fn9TZuYXiFYhsyp65T
     udp: true
     tls: true
+    sni: os-2.rise-fuji.com
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -33,6 +49,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,5 +59,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

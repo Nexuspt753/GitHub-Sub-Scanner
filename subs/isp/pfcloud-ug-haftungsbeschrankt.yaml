@@ -1,38 +1,23 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: safdar.uicloud.tr
-    port: 15451
-    uuid: 3ab633de-99ed-4566-9749-c75c7f352106
+    name: vless
+    server: 45.135.194.197
+    port: 443
+    uuid: abf0fae7-6446-4592-9930-85f15eaadae5
     udp: true
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-8be429c527
-    server: safdar.uicloud.tr
-    port: 15451
-    uuid: 3ab633de-99ed-4566-9749-c75c7f352106
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Mohsen-8be429c527
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Mohsen-8be429c527
+      - vless
 rules:
   - MATCH,Proxy

@@ -1,23 +1,25 @@
 proxies:
-  - type: ss
-    name: 🇮🇷IR-🚀@VPNine1
-    server: tr1.zelqira.ir
-    port: 4253
-    cipher: chacha20-ietf-poly1305
-    password: 8LrIPnvVK1fJusNbZvE-rCilYNEiVnHw
+  - type: vless
+    name: vless
+    server: 94.183.210.20
+    port: 2087
+    uuid: ae80f2ed-7ec9-4b44-94e3-68745d6b0b9e
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇮🇷IR-🚀@VPNine1
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇷IR-🚀@VPNine1
+      - vless
 rules:
   - MATCH,Proxy
