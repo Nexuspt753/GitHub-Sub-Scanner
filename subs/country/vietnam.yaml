@@ -9,6 +9,20 @@ proxies:
       - h3
     ports: 30000-32000
   - type: trojan
+    name: Ho Chi Minh City · @DeltaKroneckerGithub
+    server: 36.50.135.142
+    port: 443
+    password: 94d219c9-1afc-4d42-b090-8b3794764380
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: Ho Chi Minh City · @DeltaKroneckerGithub-01
+    server: 36.50.134.29
+    port: 443
+    password: 94d219c9-1afc-4d42-b090-8b3794764380
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
     name: Go Vap · @DeltaKroneckerGithub
     server: 103.9.77.6
     port: 443
@@ -18,8 +32,36 @@ proxies:
     sni: 103.9.77.6
     client-fingerprint: chrome
   - type: vless
+    name: Phúc Điền · 4Kian-e873377c9e
+    server: 103.173.155.212
+    port: 10829
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766u4d99b056s591.csgfw.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Phúc Điền · 4Nika-baa0c783de
     server: s592.wagahaha.xyz
+    port: 10829
+    uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u643766u4d99b056s591.csgfw.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Phúc Điền · 4Sarina-baf24b30f9
+    server: s593.sspcccdn.xyz
     port: 10829
     uuid: 41f4cb15-5a3f-3934-89fe-b4177146adf4
     udp: true
@@ -77,17 +119,37 @@ proxies:
       path: /tandung288.click
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Hanoi · 4Jadi-70bdc269ec
+    server: 103.82.25.106
+    port: 80
+    uuid: ec7c94b5-6ca6-4289-b44b-c6583f2c5f6c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fuzzyng?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Vinh Tuy · 4Jadi-5f0d05a3c1
+      - Ho Chi Minh City · @DeltaKroneckerGithub
+      - Ho Chi Minh City · @DeltaKroneckerGithub-01
       - Go Vap · @DeltaKroneckerGithub
+      - Phúc Điền · 4Kian-e873377c9e
       - Phúc Điền · 4Nika-baa0c783de
+      - Phúc Điền · 4Sarina-baf24b30f9
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -95,10 +157,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Vinh Tuy · 4Jadi-5f0d05a3c1
+      - Ho Chi Minh City · @DeltaKroneckerGithub
+      - Ho Chi Minh City · @DeltaKroneckerGithub-01
       - Go Vap · @DeltaKroneckerGithub
+      - Phúc Điền · 4Kian-e873377c9e
       - Phúc Điền · 4Nika-baa0c783de
+      - Phúc Điền · 4Sarina-baf24b30f9
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
+      - Hanoi · 4Jadi-70bdc269ec
 rules:
   - MATCH,Proxy

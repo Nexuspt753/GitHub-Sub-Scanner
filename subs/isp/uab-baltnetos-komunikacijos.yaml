@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: lith.2clash.ru
+    port: 443
+    uuid: 3b6a9df3-f1d1-4bc1-94a5-0d8f2d5512b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lith.2clash.ru
+    reality-opts:
+      public-key: 66DIn_CbsE4-fWeWpy3vrRLP-XN8D-axun3jbZzuPmk
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇱🇹170040
+    server: lith.2clash.ru
+    port: 443
+    uuid: 3b6a9df3-f1d1-4bc1-94a5-0d8f2d5512b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lith.2clash.ru
+    reality-opts:
+      public-key: 66DIn_CbsE4-fWeWpy3vrRLP-XN8D-axun3jbZzuPmk
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇱🇹170040
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇱🇹170040
+rules:
+  - MATCH,Proxy

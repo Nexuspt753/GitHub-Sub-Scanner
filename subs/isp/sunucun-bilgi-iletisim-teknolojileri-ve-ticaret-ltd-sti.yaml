@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: hex_proxy
+    server: 212.64.193.13
+    port: 443
+    uuid: 2b2ea9d8-501e-4b79-8fd9-19bff6ed5cf5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tr.cloudtechone.org
+    reality-opts:
+      public-key: _IBXb9NfhsnS21XbU9PIl73ExvrjXGXVLO0Za1ui5Fo
+      short-id: f93c9d5127e622e4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-2fd71476f8
     server: 212.64.193.13
     port: 443
@@ -54,64 +68,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ads.mohsen3.ir
-  - type: vmess
-    name: 4Mohsen-5a2d2ab384
-    server: sacda.tr.snapeurop.com
-    port: 80
-    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Mohsen-8df24e1bfd
-    server: sacda.tr.snapeurop.com
-    port: 80
-    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Nika-14368e4f77
-    server: sacda.tr.snapeurop.com
-    port: 80
-    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sacda.tr.snapeurop.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - hex_proxy
       - 4Kian-2fd71476f8
       - 4Jadi-767f10330d
       - 4Jadi-fa176b07f9
-      - 4Mohsen-5a2d2ab384
-      - 4Mohsen-8df24e1bfd
-      - 4Nika-14368e4f77
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -119,11 +85,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - hex_proxy
       - 4Kian-2fd71476f8
       - 4Jadi-767f10330d
       - 4Jadi-fa176b07f9
-      - 4Mohsen-5a2d2ab384
-      - 4Mohsen-8df24e1bfd
-      - 4Nika-14368e4f77
 rules:
   - MATCH,Proxy

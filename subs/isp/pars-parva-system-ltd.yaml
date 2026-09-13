@@ -1,26 +1,56 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-fa9ac78153
-    server: z1.tekno3.ir
-    port: 44
-    uuid: a0400faa-553c-4728-aefa-80c3c5188d96
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: kurdnet.filimosohib.xyz
+    port: 443
+    uuid: 72400797-f632-49b1-b04a-1b7d34af9cfd
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: kurdnet.filimosohib.xyz
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kurdnet.filimosohib.xyz
+  - type: vless
+    name: 🇮🇷170028
+    server: kurdnet.filimosohib.xyz
+    port: 443
+    uuid: 72400797-f632-49b1-b04a-1b7d34af9cfd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: kurdnet.filimosohib.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kurdnet.filimosohib.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-fa9ac78153
+      - EPODONIOS
+      - 🇮🇷170028
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-fa9ac78153
+      - EPODONIOS
+      - 🇮🇷170028
 rules:
   - MATCH,Proxy

@@ -1,6 +1,21 @@
 proxies:
-  - type: vmess
+  - type: trojan
     name: DeltaKroneckerGithub
+    server: 89.150.34.41
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: vmess
+    name: DeltaKroneckerGithub-01
     server: 80.74.25.110
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -108,6 +123,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-46d21ea821
       - 4Jadi-95c21e4794
       - 4FreeIran-41da9fc8de
@@ -120,6 +136,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-46d21ea821
       - 4Jadi-95c21e4794
       - 4FreeIran-41da9fc8de

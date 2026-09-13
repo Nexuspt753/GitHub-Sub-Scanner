@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: 85.198.101.160
+    port: 443
+    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: 46.173.25.146
     port: 443
     uuid: 8d1a1b09-12d6-4b76-82f0-893cc805d9c0
@@ -11,32 +24,6 @@ proxies:
     reality-opts:
       public-key: djTtGqd0XWqtt_WHukU7BTPQSn9o7gIpAosAxMy8tUo
       short-id: ea1058117be12087
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Продлите
-    server: 85.198.101.160
-    port: 443
-    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: ☝️
-    server: 85.198.101.160
-    port: 443
-    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -161,29 +148,13 @@ proxies:
       short-id: ea1058117be12087
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-f4154fad58
-    server: 45.144.179.138
-    port: 443
-    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - Продлите
-      - ☝️
+      - EPODONIOS-01
       - 🇪🇺
       - 👇
       - 🚨
@@ -193,7 +164,6 @@ proxy-groups:
       - 4Sarina-d9297328b6
       - 4Mohsen-ec281c3127
       - 4Sarina-7348577095
-      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -201,8 +171,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - Продлите
-      - ☝️
+      - EPODONIOS-01
       - 🇪🇺
       - 👇
       - 🚨
@@ -212,6 +181,5 @@ proxy-groups:
       - 4Sarina-d9297328b6
       - 4Mohsen-ec281c3127
       - 4Sarina-7348577095
-      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy
