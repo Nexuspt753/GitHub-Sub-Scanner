@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 185.250.21.196
+    port: 5090
+    uuid: a11906b5-27a9-4ce5-a825-3bcd0f4661e9
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

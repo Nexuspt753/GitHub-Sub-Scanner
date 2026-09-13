@@ -1,30 +1,34 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.156.248.21
-    port: 1443
-    uuid: 27dcb3a9-c82d-4628-a8c4-bae39e6cb4f4
+  - type: vmess
+    name: 4FreeIran-fe5ea0cec2
+    server: 185.99.2.175
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: bossnia.netotcluchai.top
-    reality-opts:
-      public-key: aS94augCCytcbHRn37QNUfrBwAM2cp2RIXFL97yr50o
-      short-id: 0441f3e34348cb45
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4FreeIran-fe5ea0cec2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4FreeIran-fe5ea0cec2
 rules:
   - MATCH,Proxy

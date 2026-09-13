@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: port.skyshield.space
+    port: 26131
+    uuid: 0fd9369e-68a8-4f3a-b21d-bae61033ff3e
+    udp: true
+    xudp: true
+  - type: vless
     name: "["
     server: port.skyshield.space
     port: 26131
@@ -14,14 +21,17 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: 4Kian-9a02c2f28c
-    server: Tunnel-de.onrovela.com
-    port: 7000
-    uuid: b624f450-2815-4126-be12-4d89aa8c413b
+    name: 4Sarina-cf615e2449
+    server: sync.dataharbor.ir
+    port: 29199
+    uuid: f0237f07-6578-413a-8c5c-58ce2947333f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: shop2.onrovela.com
+    servername: www.digikala.com
+    reality-opts:
+      public-key: noC3OHzjLnDTeAHDZ4T9BJ3t9gkW5RWDPcd7g8DTExo
+      short-id: cb3a56273ecf7996
     xudp: true
   - type: vmess
     name: 4Sarina-755ae4c8c7
@@ -34,7 +44,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Sarina-295fc2d4b0
+    name: 4Mohsen-4e2e21f7ad
     server: cdn-api.mrmtn.xyz
     port: 2020
     uuid: 29c4a3bd-9d8c-4ac3-b279-8b201560c227
@@ -48,21 +58,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - "["
       - 4Sarina-c58763aeff
-      - 4Kian-9a02c2f28c
+      - 4Sarina-cf615e2449
       - 4Sarina-755ae4c8c7
-      - 4Sarina-295fc2d4b0
+      - 4Mohsen-4e2e21f7ad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - "["
       - 4Sarina-c58763aeff
-      - 4Kian-9a02c2f28c
+      - 4Sarina-cf615e2449
       - 4Sarina-755ae4c8c7
-      - 4Sarina-295fc2d4b0
+      - 4Mohsen-4e2e21f7ad
 rules:
   - MATCH,Proxy

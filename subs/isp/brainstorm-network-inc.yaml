@@ -1,10 +1,24 @@
 proxies:
   - type: ss
     name: EPODONIOS
+    server: 167.150.100.115
+    port: 27755
+    cipher: 2022-blake3-aes-256-gcm
+    password: fnvo82p9y4AKykZXyIFtnodFy6fQmWnVlI2SvGleOB0=
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
     server: 185.213.23.63
     port: 990
     cipher: chacha20-ietf-poly1305
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: ss
+    name: "[051254]"
+    server: 167.150.100.115
+    port: 27755
+    cipher: 2022-blake3-aes-256-gcm
+    password: fnvo82p9y4AKykZXyIFtnodFy6fQmWnVlI2SvGleOB0=
     udp: true
   - type: ss
     name: hex_proxy
@@ -14,28 +28,14 @@ proxies:
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
   - type: ss
-    name: EPODONIOS-01
-    server: 94.156.250.148
-    port: 7001
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
-  - type: ss
     name: EPODONIOS-02
-    server: 185.226.172.8
-    port: 8008
-    cipher: aes-256-gcm
-    password: XKFKl2rULjIp74
-    udp: true
-  - type: ss
-    name: 🇬🇧
     server: 94.156.250.148
     port: 7001
     cipher: aes-256-gcm
     password: RexnBgU7EV5ADxG
     udp: true
   - type: ss
-    name: کانال
+    name: EPODONIOS-03
     server: 185.226.172.8
     port: 8008
     cipher: aes-256-gcm
@@ -49,25 +49,11 @@ proxies:
     password: XKFKl2rULjIp74
     udp: true
   - type: ss
-    name: 🇩🇪170327
-    server: 185.226.172.8
-    port: 8008
-    cipher: aes-256-gcm
-    password: XKFKl2rULjIp74
-    udp: true
-  - type: ss
     name: 4Nika-b3ca1ff37b
     server: 167.150.100.115
     port: 27755
     cipher: 2022-blake3-aes-256-gcm
     password: fnvo82p9y4AKykZXyIFtnodFy6fQmWnVlI2SvGleOB0=
-    udp: true
-  - type: ss
-    name: 4Mohsen-423c87dd24
-    server: 185.213.23.63
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
   - type: trojan
     name: DeltaKroneckerGithub
@@ -78,13 +64,6 @@ proxies:
     tls: true
     sni: poetic-coral.dolphin109.quest
     client-fingerprint: chrome
-  - type: ss
-    name: 4Mohsen-2100a5f531
-    server: 94.156.250.148
-    port: 7001
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: ss
     name: 4Mohsen-2ab3c4e3e5
     server: 185.226.172.8
@@ -162,30 +141,32 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
-  - type: ss
-    name: 🇬🇧GB-94.156.250.148-0136
-    server: 94.156.250.148
-    port: 7001
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
+  - type: vless
+    name: 4Nika-fc018c55fa
+    server: 103.75.119.126
+    port: 2087
+    uuid: 731f177e-00aa-480c-b935-661456139a32
     udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /7586c69d3dc9
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - hex_proxy
       - EPODONIOS-01
+      - "[051254]"
+      - hex_proxy
       - EPODONIOS-02
-      - 🇬🇧
-      - کانال
+      - EPODONIOS-03
       - 🇩🇪
-      - 🇩🇪170327
       - 4Nika-b3ca1ff37b
-      - 4Mohsen-423c87dd24
       - DeltaKroneckerGithub
-      - 4Mohsen-2100a5f531
       - 4Mohsen-2ab3c4e3e5
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -197,7 +178,7 @@ proxy-groups:
       - DeltaKroneckerGithub-08
       - ">>@shadowproxy66::XX"
       - 🇳🇴NO-185.213.23.63-0137
-      - 🇬🇧GB-94.156.250.148-0136
+      - 4Nika-fc018c55fa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -205,17 +186,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - hex_proxy
       - EPODONIOS-01
+      - "[051254]"
+      - hex_proxy
       - EPODONIOS-02
-      - 🇬🇧
-      - کانال
+      - EPODONIOS-03
       - 🇩🇪
-      - 🇩🇪170327
       - 4Nika-b3ca1ff37b
-      - 4Mohsen-423c87dd24
       - DeltaKroneckerGithub
-      - 4Mohsen-2100a5f531
       - 4Mohsen-2ab3c4e3e5
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -227,6 +205,6 @@ proxy-groups:
       - DeltaKroneckerGithub-08
       - ">>@shadowproxy66::XX"
       - 🇳🇴NO-185.213.23.63-0137
-      - 🇬🇧GB-94.156.250.148-0136
+      - 4Nika-fc018c55fa
 rules:
   - MATCH,Proxy

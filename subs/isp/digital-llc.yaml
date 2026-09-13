@@ -14,12 +14,28 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Sarina-61a8925c3d
+    server: atiins.com.tr
+    port: 443
+    uuid: 97775936-05ea-4fea-8562-e9eb98559790
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: atiins.com.tr
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-614d5a556e
+      - 4Sarina-61a8925c3d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-614d5a556e
+      - 4Sarina-61a8925c3d
 rules:
   - MATCH,Proxy
