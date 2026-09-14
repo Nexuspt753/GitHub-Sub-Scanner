@@ -24,31 +24,17 @@ proxies:
     udp: true
   - type: ss
     name: EPODONIOS-01
+    server: 176.97.64.144
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: TFElG2FVqyqG
+    udp: true
+  - type: ss
+    name: EPODONIOS-02
     server: 38.180.135.156
     port: 8388
     cipher: chacha20-ietf-poly1305
     password: YHtesZ0qvgtg
-    udp: true
-  - type: ss
-    name: EPODONIOS-02
-    server: 83.172.138.137
-    port: 8443
-    cipher: chacha20-ietf-poly1305
-    password: nQSAROThObMW1nK22thj6J
-    udp: true
-  - type: ss
-    name: EPODONIOS-03
-    server: 141.98.101.181
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
-  - type: ss
-    name: EPODONIOS-04
-    server: 141.98.101.181
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
     udp: true
   - type: ss
     name: Singapore
@@ -65,7 +51,21 @@ proxies:
     password: YHtesZ0qvgtg
     udp: true
   - type: ss
-    name: EPODONIOS-05
+    name: EPODONIOS-03
+    server: 38.180.214.110
+    port: 5600
+    cipher: aes-256-gcm
+    password: Y6R9pAtvxxzmGC
+    udp: true
+  - type: ss
+    name: hex_proxy
+    server: 141.98.101.181
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: 🇩🇰
     server: 38.180.214.110
     port: 5600
     cipher: aes-256-gcm
@@ -141,11 +141,11 @@ proxies:
     sni: fr.freeguard.org
     client-fingerprint: chrome
   - type: ss
-    name: EPODONIOS-06
-    server: 146.70.61.37
-    port: 8080
-    cipher: rc4-md5
-    password: 14fFPrbezE3HDZzsMOr6
+    name: EPODONIOS-04
+    server: 141.98.101.181
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-04
@@ -204,6 +204,13 @@ proxies:
     password: Y6R9pAtvxxzmGC
     udp: true
   - type: ss
+    name: DeltaKroneckerGithub-12
+    server: 84.247.49.211
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
+  - type: ss
     name: ">>@v2nodes::XX"
     server: 176.97.64.144
     port: 8388
@@ -259,6 +266,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.42088326.xyz
+  - type: vmess
+    name: 4Mohsen-b3008313c8
+    server: 37.120.236.251
+    port: 443
+    uuid: ed162daa-ee20-44ed-830f-b522c501387a
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/143013092425
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.42088326.xyz
 proxy-groups:
   - name: Proxy
     type: select
@@ -268,11 +292,11 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
-      - EPODONIOS-04
       - Singapore
       - 🇺🇸
-      - EPODONIOS-05
+      - EPODONIOS-03
+      - hex_proxy
+      - 🇩🇰
       - DeltaKroneckerGithub-01
       - 4Sarina-78819a3af2
       - 4Sarina-b922938c93
@@ -280,7 +304,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - 4Sarina-57344d0863
       - DeltaKroneckerGithub-03
-      - EPODONIOS-06
+      - EPODONIOS-04
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
@@ -289,11 +313,13 @@ proxy-groups:
       - DeltaKroneckerGithub-09
       - DeltaKroneckerGithub-10
       - DeltaKroneckerGithub-11
+      - DeltaKroneckerGithub-12
       - ">>@v2nodes::XX"
       - 🇬🇧GB-146.70.61.37-0220
       - 🇬🇧GB-141.98.101.181-0177
       - 4Nika-bbb9f3e54f
       - 4Nika-6f07bd09da
+      - 4Mohsen-b3008313c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -304,11 +330,11 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
-      - EPODONIOS-04
       - Singapore
       - 🇺🇸
-      - EPODONIOS-05
+      - EPODONIOS-03
+      - hex_proxy
+      - 🇩🇰
       - DeltaKroneckerGithub-01
       - 4Sarina-78819a3af2
       - 4Sarina-b922938c93
@@ -316,7 +342,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - 4Sarina-57344d0863
       - DeltaKroneckerGithub-03
-      - EPODONIOS-06
+      - EPODONIOS-04
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
@@ -325,10 +351,12 @@ proxy-groups:
       - DeltaKroneckerGithub-09
       - DeltaKroneckerGithub-10
       - DeltaKroneckerGithub-11
+      - DeltaKroneckerGithub-12
       - ">>@v2nodes::XX"
       - 🇬🇧GB-146.70.61.37-0220
       - 🇬🇧GB-141.98.101.181-0177
       - 4Nika-bbb9f3e54f
       - 4Nika-6f07bd09da
+      - 4Mohsen-b3008313c8
 rules:
   - MATCH,Proxy

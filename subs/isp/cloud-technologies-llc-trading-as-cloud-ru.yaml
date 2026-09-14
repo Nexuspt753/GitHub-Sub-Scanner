@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 91.224.87.22
+    port: 9873
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 91.224.87.22
     port: 9873
@@ -304,10 +320,10 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Nika-c8524f0353
+    name: 4FreeIran-f07f19bedf
     server: 87.242.94.175
     port: 1443
-    uuid: bcda0cc3-ca23-4cee-8b6b-daf8bc055018
+    uuid: fba6c791-4cb1-464c-a9b0-136c19b48328
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -324,6 +340,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
@@ -343,13 +360,14 @@ proxy-groups:
       - 4Kian-d6b0c6d02c
       - 4Mohsen-f7ee495ffc
       - 4Sarina-656684a8f2
-      - 4Nika-c8524f0353
+      - 4FreeIran-f07f19bedf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
@@ -369,6 +387,6 @@ proxy-groups:
       - 4Kian-d6b0c6d02c
       - 4Mohsen-f7ee495ffc
       - 4Sarina-656684a8f2
-      - 4Nika-c8524f0353
+      - 4FreeIran-f07f19bedf
 rules:
   - MATCH,Proxy

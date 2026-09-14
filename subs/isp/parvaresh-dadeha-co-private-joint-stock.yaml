@@ -1,46 +1,27 @@
 proxies:
-  - type: vless
-    name: 4Nika-d5085c09e9
-    server: par2yvhjx.ramcalshoping.ir
-    port: 2800
-    uuid: a6cb0499-97ee-425a-bc99-609f15cfefa5
+  - type: vmess
+    name: 4Nika-27eb55412e
+    server: s1.connect.bloroxy.net
+    port: 1178
+    uuid: ccae75e4-a1e2-4d30-9e49-2f331c1f0e24
+    alterId: 1
+    cipher: aes-128-gcm
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: nI2SD3RGelTPY-dJUn_g803Yrgsdmtl7H85kiIx6xm8
-      short-id: 6b504ce3e3fd9579
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-2a268770d5
-    server: par2yvhjx.ramcalshoping.ir
-    port: 2900
-    uuid: a6cb0499-97ee-425a-bc99-609f15cfefa5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: UDrTjN91efTMHT9PrwAMSCEHbsdakQ1N587EPv0snBU
-      short-id: 6b504ce3e3fd9579
-    flow: xtls-rprx-vision
-    xudp: true
+    skip-cert-verify: false
+    servername: none
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-d5085c09e9
-      - 4FreeIran-2a268770d5
+      - 4Nika-27eb55412e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-d5085c09e9
-      - 4FreeIran-2a268770d5
+      - 4Nika-27eb55412e
 rules:
   - MATCH,Proxy
