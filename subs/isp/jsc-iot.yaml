@@ -5,12 +5,43 @@ proxies:
     port: 22443
     password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
     sni: hy.quattro-tech.ru
+  - type: vless
+    name: 4Kian-fafb7a5663
+    server: 157.22.193.73
+    port: 443
+    uuid: 1bced29a-3051-42b8-b393-005135b97616
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: larkix.pulsio.cfd
+    reality-opts:
+      public-key: OTuJX9K_E2nHhg0mXT2uFMNIO7746G6c5rlT6OscQGk
+      short-id: 9698d67e63bc8ee0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-a7bbdc706d
+    server: ns.o11111o.club
+    port: 443
+    uuid: b1b3e430-ff52-44b8-b95d-27fa580fbc4f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-d3aefe3ed2
+      - 4Kian-fafb7a5663
+      - 4Sarina-a7bbdc706d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +49,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-d3aefe3ed2
+      - 4Kian-fafb7a5663
+      - 4Sarina-a7bbdc706d
 rules:
   - MATCH,Proxy

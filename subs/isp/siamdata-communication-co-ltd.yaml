@@ -1,44 +1,59 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 157.85.105.179
-    port: 80
-    uuid: 89c3b66f-c849-4602-a5a8-84b6f06af478
+    name: DeltaKroneckerGithub
+    server: 45.150.128.159
+    port: 443
+    uuid: d6ff02be-7772-4a4e-b0a5-40ef180e58c4
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /t.me/daily_free_vpn
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2pwbkmfr5lxa4.cloudfront.net
+        Host: thus-k.netnode.cc.cd
   - type: vless
-    name: "[044481]"
-    server: 157.85.105.179
-    port: 80
-    uuid: 89c3b66f-c849-4602-a5a8-84b6f06af478
+    name: EPODONIOS
+    server: 157.85.102.28
+    port: 1083
+    uuid: b93efa30-e2c5-401c-9ec7-22e30266cc60
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: d2pwbkmfr5lxa4.cloudfront.net
+  - type: vless
+    name: "[053216]"
+    server: 157.85.102.28
+    port: 1083
+    uuid: b93efa30-e2c5-401c-9ec7-22e30266cc60
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-ad92c664a9
+    server: 157.85.102.28
+    port: 1083
+    uuid: b93efa30-e2c5-401c-9ec7-22e30266cc60
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - "[044481]"
+      - "[053216]"
+      - 4Sarina-ad92c664a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - "[044481]"
+      - "[053216]"
+      - 4Sarina-ad92c664a9
 rules:
   - MATCH,Proxy
