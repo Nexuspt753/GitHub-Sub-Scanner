@@ -1,46 +1,48 @@
 proxies:
   - type: vless
-    name: 4Nika-4bc8a1814b
-    server: 103.137.215.32
+    name: DeltaKroneckerGithub
+    server: 103.137.215.189
     port: 443
-    uuid: 6c8a1ad4-0c04-460d-87e2-507a952ba902
+    uuid: d17a1e53-09c7-4174-aed8-033c01d39038
     udp: true
     tls: true
     client-fingerprint: safari
     servername: www.apple.com
     reality-opts:
-      public-key: LP_JNPrfHbQnMK5dYoKr4D6Q8I8yKHK5ygHffJb1hzw
-      short-id: dfde4e821472fb98
+      public-key: zPB0R1XcjjUCEWWXVrt4UAKXPFtFDVsrEQueuBRmKwA
+      short-id: aa76df495eafba20
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-62ef8e7a03
-    server: 103.137.215.32
+    name: DeltaKroneckerGithub-01
+    server: 103.76.85.210
     port: 443
-    uuid: 6c8a1ad4-0c04-460d-87e2-507a952ba902
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
     udp: true
     tls: true
-    client-fingerprint: safari
-    servername: www.apple.com
-    reality-opts:
-      public-key: LP_JNPrfHbQnMK5dYoKr4D6Q8I8yKHK5ygHffJb1hzw
-      short-id: dfde4e821472fb98
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: 8gjxe.9zuh.7v9.hh.vavava.kdns.fr
     xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 8gjxe.9zuh.7v9.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-4bc8a1814b
-      - 4Kian-62ef8e7a03
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-4bc8a1814b
-      - 4Kian-62ef8e7a03
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

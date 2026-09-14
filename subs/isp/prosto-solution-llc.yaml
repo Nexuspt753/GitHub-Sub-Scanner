@@ -1,9 +1,39 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 185.87.24.167
+    server: 185.87.24.4
     port: 2085
-    uuid: c9373ff0-c263-4949-885f-366671f3c6a1
+    uuid: 128314f6-f09a-426f-b758-b8e559c38ddb
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 185.87.24.4
+    port: 2085
+    uuid: 128314f6-f09a-426f-b758-b8e559c38ddb
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-547c0ce66a
+    server: 185.87.24.4
+    port: 2085
+    uuid: 128314f6-f09a-426f-b758-b8e559c38ddb
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-4283a52ade
+    server: 185.87.24.4
+    port: 2085
+    uuid: 128314f6-f09a-426f-b758-b8e559c38ddb
     udp: true
     xudp: true
     network: grpc
@@ -15,6 +45,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4FreeIran-547c0ce66a
+      - 4Sarina-4283a52ade
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -22,5 +55,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4FreeIran-547c0ce66a
+      - 4Sarina-4283a52ade
 rules:
   - MATCH,Proxy

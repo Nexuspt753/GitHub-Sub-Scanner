@@ -2,6 +2,22 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 91.224.87.22
+    port: 9882
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aa
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 91.224.87.22
     port: 9873
     uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
     udp: true
@@ -52,22 +68,6 @@ proxies:
     server: 91.224.87.22
     port: 9882
     uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    reality-opts:
-      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-      short-id: aabb
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇺🇸
-    server: 91.224.87.22
-    port: 9873
-    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -145,22 +145,6 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: EPODONIOS-04
-    server: 91.224.86.107
-    port: 9830
-    uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    reality-opts:
-      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-      short-id: aabbccdd
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: EPODONIOS-05
     server: 91.224.87.22
     port: 9882
     uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
@@ -319,38 +303,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-f07f19bedf
-    server: 87.242.94.175
-    port: 1443
-    uuid: fba6c791-4cb1-464c-a9b0-136c19b48328
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 360.yandex.ru
-    reality-opts:
-      public-key: mK6jUHK0Iv4jpVqpvs4oadjh2Pifkz4QwrOdhWHJ9U0
-      short-id: 66371c8d7a
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - 🇺🇸
       - v2ray313
       - 🇭🇺🇺🇸@AZARBAYJAB1
       - Free
       - EPODONIOS-03
       - EPODONIOS-04
-      - EPODONIOS-05
       - 4Sarina-e67937465e
       - ">>@freeland8::US"
       - ">>@configV2rayNG::DE"
@@ -360,7 +327,6 @@ proxy-groups:
       - 4Kian-d6b0c6d02c
       - 4Mohsen-f7ee495ffc
       - 4Sarina-656684a8f2
-      - 4FreeIran-f07f19bedf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -368,16 +334,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - 🇺🇸
       - v2ray313
       - 🇭🇺🇺🇸@AZARBAYJAB1
       - Free
       - EPODONIOS-03
       - EPODONIOS-04
-      - EPODONIOS-05
       - 4Sarina-e67937465e
       - ">>@freeland8::US"
       - ">>@configV2rayNG::DE"
@@ -387,6 +352,5 @@ proxy-groups:
       - 4Kian-d6b0c6d02c
       - 4Mohsen-f7ee495ffc
       - 4Sarina-656684a8f2
-      - 4FreeIran-f07f19bedf
 rules:
   - MATCH,Proxy
