@@ -13,12 +13,34 @@ proxies:
       short-id: f9275dbb5a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Kian-734eafaacc
+    server: 1096.rabbitpro-in-5.com
+    port: 27119
+    uuid: b9027e08-cb6f-3391-8bd0-0a4f31e6c140
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-ac2c5fb9f9
+    server: 1096.rabbitpro-in-5.com
+    port: 27120
+    uuid: b9027e08-cb6f-3391-8bd0-0a4f31e6c140
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-734eafaacc
+      - 4Nika-ac2c5fb9f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +48,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-734eafaacc
+      - 4Nika-ac2c5fb9f9
 rules:
   - MATCH,Proxy

@@ -1,29 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-6b7f598b43
-    server: ph-1.kihsuyhf8jkiugsxb.cfd
-    port: 443
-    uuid: 0dc1fc26-b8e9-4296-9870-0996de3c2333
+    name: EPODONIOS
+    server: 61.245.11.28
+    port: 9090
+    uuid: Channel:telegram:TurboConfigs
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ph-1.kihsuyhf8jkiugsxb.cfd
-    reality-opts:
-      public-key: 19h48_R3YFHGEKiWsZi0kHgum4AJgyPsuJuui7K8q3A
-    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-613a346720
+    server: 61.245.11.28
+    port: 9090
+    uuid: Channel:telegram:TurboConfigs
+    udp: true
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6b7f598b43
+      - EPODONIOS
+      - 4Nika-613a346720
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6b7f598b43
+      - EPODONIOS
+      - 4Nika-613a346720
 rules:
   - MATCH,Proxy

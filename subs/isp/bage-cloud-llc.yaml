@@ -1,32 +1,23 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 103.219.194.43
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  - type: ss
+    name: 4Mohsen-e4edc24531
+    server: 85.149.211.166
+    port: 8443
+    cipher: 2022-blake3-aes-128-gcm
+    password: YWJhNmUwZDI5NGE4YTZkOA==:MmIyMTVjMjYtYjIzMy00Zg==
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Mohsen-e4edc24531
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Mohsen-e4edc24531
 rules:
   - MATCH,Proxy

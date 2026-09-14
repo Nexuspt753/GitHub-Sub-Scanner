@@ -1,23 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Mohsen-426c4a0332
-    server: 185.204.168.28
-    port: 1819
-    password: kiu30181q5ftupbz
+  - type: vmess
+    name: 4Mohsen-33d81f0739
+    server: 130.185.122.177
+    port: 443
+    uuid: f232d454-b014-4e00-a7ae-430341909db4
+    alterId: 0
+    cipher: auto
     udp: true
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 130.185.122.177
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-426c4a0332
+      - 4Mohsen-33d81f0739
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-426c4a0332
+      - 4Mohsen-33d81f0739
 rules:
   - MATCH,Proxy

@@ -1,47 +1,6 @@
 proxies:
-  - type: trojan
-    name: EPODONIOS
-    server: 159.200.230.201
-    port: 443
-    password: islo3wjjdisvftt7
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: meliproxyy
-    server: 159.200.230.201
-    port: 443
-    password: islo3wjjdisvftt7
-    udp: true
-    client-fingerprint: chrome
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 2.59.134.226
-    port: 443
-    uuid: 2a12bb81-f3a3-41bb-99ab-36febf676b4a
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: rich-nebula.cdn.cachefleet.com
-    reality-opts:
-      public-key: 1sSmdw90uTiGuitDvp_q8zcXTcHXKQS3IVjA7T1UNiY
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 159.200.230.201
-    port: 443
-    password: islo3wjjdisvftt7
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-8bbbb05fc4
-    server: 159.200.230.201
-    port: 443
-    password: islo3wjjdisvftt7
-    udp: true
-    client-fingerprint: chrome
   - type: vmess
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub
     server: 84.75.76.16
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -72,19 +31,24 @@ proxies:
       short-id: 4c02bbbfa833b3b6
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-bb943fdb12
-    server: 2.59.134.226
+  - type: vmess
+    name: 4Nika-fd4745c7cb
+    server: 84.75.76.16
     port: 443
-    uuid: 88281d02-b387-4fe3-918e-26ed331e6d08
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: rich-falcon.cdn.cachefleet.com
-    reality-opts:
-      public-key: 1sSmdw90uTiGuitDvp_q8zcXTcHXKQS3IVjA7T1UNiY
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Sarina-def616346d
     server: 84.75.76.16
@@ -107,14 +71,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - meliproxyy
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Jadi-8bbbb05fc4
-      - DeltaKroneckerGithub-02
       - 4Kian-7d2777eadb
-      - 4Mohsen-bb943fdb12
+      - 4Nika-fd4745c7cb
       - 4Sarina-def616346d
   - name: Auto
     type: url-test
@@ -122,14 +81,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - meliproxyy
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Jadi-8bbbb05fc4
-      - DeltaKroneckerGithub-02
       - 4Kian-7d2777eadb
-      - 4Mohsen-bb943fdb12
+      - 4Nika-fd4745c7cb
       - 4Sarina-def616346d
 rules:
   - MATCH,Proxy

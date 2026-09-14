@@ -68,6 +68,19 @@ proxies:
       short-id: f6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-d5d7ca22b4
+    server: 188.72.103.4
+    port: 443
+    uuid: e43829fe-a157-46ff-a416-00cc97f91c64
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    alpn:
+      - h2
+      - http/1.1
+    servername: shop.tgcenterapp.ru
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -79,6 +92,7 @@ proxy-groups:
       - vless-03
       - vless-04
       - 4Kian-8406711aff
+      - 4Kian-d5d7ca22b4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,5 +105,6 @@ proxy-groups:
       - vless-03
       - vless-04
       - 4Kian-8406711aff
+      - 4Kian-d5d7ca22b4
 rules:
   - MATCH,Proxy
