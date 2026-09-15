@@ -6,12 +6,23 @@ proxies:
     cipher: aes-128-gcm
     password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
     udp: true
+  - type: vmess
+    name: 4FreeIran-9ee1fb02dc
+    server: us-nohessss.privnet.store
+    port: 10028
+    uuid: e7d4d923-c8f6-4b94-bf05-c5e07a83e2f6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-abe0c848bd
+      - 4FreeIran-9ee1fb02dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +30,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-abe0c848bd
+      - 4FreeIran-9ee1fb02dc
 rules:
   - MATCH,Proxy

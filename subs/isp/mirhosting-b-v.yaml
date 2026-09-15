@@ -1,5 +1,23 @@
 proxies:
   - type: vmess
+    name: DeltaKroneckerGithub
+    server: 31.15.19.180
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4FreeIran-e7fcace636
     server: 31.15.19.180
     port: 443
@@ -18,7 +36,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
-    name: 4Sarina-85db179e8b
+    name: 4FreeIran-bbd9dc84a0
     server: 31.15.19.180
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -28,7 +46,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-62.mirra.now
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -40,15 +57,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-e7fcace636
-      - 4Sarina-85db179e8b
+      - 4FreeIran-bbd9dc84a0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-e7fcace636
-      - 4Sarina-85db179e8b
+      - 4FreeIran-bbd9dc84a0
 rules:
   - MATCH,Proxy

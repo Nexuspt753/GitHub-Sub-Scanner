@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: filembad
+    server: cloud4.tsteam7.top
+    port: 50004
+    uuid: c50aea18-1d18-4563-a3c0-787341f7c705
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: nENRfILRkcv8bDhyIFNIsWU4VzDWj-GuQPkrJRWRSHE
+      short-id: 5b77e85e6cdd0812
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: "[46258]"
+    server: cloud4.tsteam7.top
+    port: 50004
+    uuid: c50aea18-1d18-4563-a3c0-787341f7c705
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: nENRfILRkcv8bDhyIFNIsWU4VzDWj-GuQPkrJRWRSHE
+      short-id: 5b77e85e6cdd0812
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-c1e536c21d
+    server: cloud4.tsteam7.top
+    port: 50004
+    uuid: c50aea18-1d18-4563-a3c0-787341f7c705
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: nENRfILRkcv8bDhyIFNIsWU4VzDWj-GuQPkrJRWRSHE
+      short-id: 5b77e85e6cdd0812
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - filembad
+      - "[46258]"
+      - 4Kian-c1e536c21d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - filembad
+      - "[46258]"
+      - 4Kian-c1e536c21d
+rules:
+  - MATCH,Proxy

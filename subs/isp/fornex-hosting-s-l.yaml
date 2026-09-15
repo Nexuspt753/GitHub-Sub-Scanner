@@ -1,5 +1,39 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 91.228.154.112
+    port: 2053
+    uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: singapore.36109178.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /static/media/video-chunk.f4v
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: singapore.36109178.xyz
+  - type: vmess
+    name: DeltaKroneckerGithub-01
+    server: 89.127.218.61
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vless
     name: 4Sarina-1695f1a037
     server: 217.177.74.229
     port: 443
@@ -21,6 +55,22 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: singapore.36109178.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /static/media/video-chunk.f4v
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: singapore.36109178.xyz
+  - type: vless
+    name: 4Kian-942d95ac10
+    server: 91.228.154.112
+    port: 2053
+    uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
+    udp: true
+    tls: true
+    client-fingerprint: android
     servername: singapore.36109178.xyz
     xudp: true
     network: ws
@@ -83,8 +133,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-1695f1a037
       - 4Sarina-ed7d5f34ef
+      - 4Kian-942d95ac10
       - 4Nika-44b705a570
       - 4Jadi-9d26ee478f
       - 4Nika-da06da3386
@@ -94,8 +147,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-1695f1a037
       - 4Sarina-ed7d5f34ef
+      - 4Kian-942d95ac10
       - 4Nika-44b705a570
       - 4Jadi-9d26ee478f
       - 4Nika-da06da3386
