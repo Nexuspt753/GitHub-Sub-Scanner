@@ -1,5 +1,47 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.77.61.62
+    port: 50051
+    uuid: 4141d4ab-dba8-4da5-a4e6-dc89c34ded3e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: jobinvest.ru
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+      short-id: cd1dd1e4a801f54b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 212.16.92.112
+    port: 443
+    uuid: 32721515-985b-4773-9e70-5d2e1b88a060
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: jobinvest.ru
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 212.16.92.111
+    port: 443
+    uuid: 32721515-985b-4773-9e70-5d2e1b88a060
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: jobinvest.ru
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 31.77.61.213
     port: 443
@@ -104,19 +146,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-2f3eee28aa
-    server: 31.77.61.213
-    port: 443
-    uuid: ef5f6054-61c7-4ce8-a35b-dbcec449f242
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: jobinvest.ru
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-902258a22f
     server: 31.77.61.89
     port: 443
@@ -147,6 +176,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
@@ -155,7 +187,6 @@ proxy-groups:
       - ICV2RAY
       - fastkanfig
       - Free
-      - 4FreeIran-2f3eee28aa
       - 4Sarina-902258a22f
       - 4Nika-a827e3e90a
   - name: Auto
@@ -164,6 +195,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
@@ -172,7 +206,6 @@ proxy-groups:
       - ICV2RAY
       - fastkanfig
       - Free
-      - 4FreeIran-2f3eee28aa
       - 4Sarina-902258a22f
       - 4Nika-a827e3e90a
 rules:

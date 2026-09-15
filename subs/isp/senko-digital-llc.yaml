@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 144.31.135.38
+    port: 9444
+    uuid: 01c96414-9fcd-4f79-9274-2c8d8045e48d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev
+  - type: vless
     name: EPODONIOS
     server: 144.31.17.66
     port: 443
@@ -25,6 +41,15 @@ proxies:
       public-key: Kit4AiOzaBN_zhhwe8eU9SHexYW4fwAo20MnDbjPEWc
       short-id: c7514dbbd2af28b5
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 144.31.138.127
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: kfm-bn0.pages.dev
+    client-fingerprint: chrome
   - type: vless
     name: 4Nika-5b98bf77d4
     server: 144.31.135.38
@@ -55,6 +80,41 @@ proxies:
       short-id: c7514dbbd2af28b5
     xudp: true
   - type: vmess
+    name: 4Kian-fd217af4e8
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-133c730ca5
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4Jadi-fbd085f590
     server: 64.188.106.254
     port: 443
@@ -71,26 +131,54 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-2e872e5faf
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - Telegram
+      - DeltaKroneckerGithub-01
       - 4Nika-5b98bf77d4
       - 4FreeIran-de14d97e94
+      - 4Kian-fd217af4e8
+      - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
+      - 4Nika-2e872e5faf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - Telegram
+      - DeltaKroneckerGithub-01
       - 4Nika-5b98bf77d4
       - 4FreeIran-de14d97e94
+      - 4Kian-fd217af4e8
+      - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
+      - 4Nika-2e872e5faf
 rules:
   - MATCH,Proxy

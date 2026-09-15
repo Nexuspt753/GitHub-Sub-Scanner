@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 119.28.162.39
+    port: 8443
+    uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mia11.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /TG:@MiaChatChannel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mia11.pages.dev
+  - type: vless
     name: 4Jadi-7ff7da590f
     server: 119.28.161.143
     port: 443
@@ -17,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Jadi-7ff7da590f
   - name: Auto
     type: url-test
@@ -24,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Jadi-7ff7da590f
 rules:
   - MATCH,Proxy

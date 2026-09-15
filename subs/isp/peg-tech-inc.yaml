@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 198.200.42.129
     port: 52977
     uuid: 2f6f1856-5466-4078-b1f0-d3f977211ada
@@ -41,22 +41,41 @@ proxies:
       short-id: 0fb9c965
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-5d2eb33142
+    server: cu2.ainivp.com
+    port: 33203
+    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cu2.ainivp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 1🏀@oneclickvpnkeys
       - 4Nika-ad65fb3774
+      - 4Nika-5d2eb33142
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 1🏀@oneclickvpnkeys
       - 4Nika-ad65fb3774
+      - 4Nika-5d2eb33142
 rules:
   - MATCH,Proxy

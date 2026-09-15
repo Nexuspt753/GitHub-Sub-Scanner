@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.78.79.132
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8gjxe.9zuh.7v9.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 8gjxe.9zuh.7v9.hh.vavava.kdns.fr
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -24,20 +8,36 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Sarina-415b2e3440
+    server: 104.194.84.188
+    port: 8443
+    uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kkkk-8oc.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kkkk-8oc.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Mohsen-32e553f3cf
+      - 4Sarina-415b2e3440
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Mohsen-32e553f3cf
+      - 4Sarina-415b2e3440
 rules:
   - MATCH,Proxy

@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 194.61.121.93
-    port: 7538
-    cipher: chacha20-ietf-poly1305
-    password: U9YAoqBgg5VyGBc6vQv1sN
-    udp: true
-  - type: ss
     name: ghand_sheken
     server: 194.61.121.93
     port: 7538
@@ -45,6 +38,16 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: vmess
+    name: EPODONIOS
+    server: dashboard.aframall.top
+    port: 5386
+    uuid: b2bc2ff5-e36e-453b-84e9-d93a33203ac3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: ss
     name: DeltaKroneckerGithub-01
     server: 194.61.121.93
@@ -52,6 +55,16 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: U9YAoqBgg5VyGBc6vQv1sN
     udp: true
+  - type: vmess
+    name: AuroNet Gigi 1500
+    server: dashboard.aframall.top
+    port: 5386
+    uuid: b2bc2ff5-e36e-453b-84e9-d93a33203ac3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: ss
     name: ">>@ShadowsocksM::XX"
     server: 194.61.121.93
@@ -64,13 +77,14 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - ghand_sheken
       - hex_proxy
       - T.me/Vpn_Mafia
       - 4Nika-d32c3cc750
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - AuroNet Gigi 1500
       - ">>@ShadowsocksM::XX"
   - name: Auto
     type: url-test
@@ -78,13 +92,14 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - ghand_sheken
       - hex_proxy
       - T.me/Vpn_Mafia
       - 4Nika-d32c3cc750
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - AuroNet Gigi 1500
       - ">>@ShadowsocksM::XX"
 rules:
   - MATCH,Proxy

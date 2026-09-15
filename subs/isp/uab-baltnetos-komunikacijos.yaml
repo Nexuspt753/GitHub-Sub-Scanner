@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 181.214.147.216
+    port: 443
+    uuid: 8e403675-d020-4801-9520-9cba4bbfda0e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lith.2clash.ru
+    reality-opts:
+      public-key: 66DIn_CbsE4-fWeWpy3vrRLP-XN8D-axun3jbZzuPmk
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-f1c60e0eba
     server: lith.2clash.ru
     port: 443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-f1c60e0eba
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-f1c60e0eba
 rules:
   - MATCH,Proxy

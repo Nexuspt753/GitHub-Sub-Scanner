@@ -1,7 +1,7 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 152.175.1.247
+    server: cranberry.timing.singer.aliyunglsb.com
     port: 443
     password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
     udp: true
@@ -10,6 +10,15 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
+    server: 152.175.1.247
+    port: 443
+    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    udp: true
+    tls: true
+    sni: steampipe.akamaized.net
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 152.175.65.24
     port: 443
     password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
@@ -24,6 +33,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,5 +42,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

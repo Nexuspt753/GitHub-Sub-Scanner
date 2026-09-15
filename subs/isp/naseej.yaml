@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: sa1.zuoai.cf
+    port: 443
+    uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nb.lovecf.ggff.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=us.xiabibi.cf
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nb.lovecf.ggff.net
+  - type: vless
+    name: 4Jadi-fa5f6e8580
+    server: sa1.zuoai.cf
+    port: 443
+    uuid: b09dfed1-90fa-4353-8bdf-de1edb2e2d79
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nb.lovecf.ggff.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=us.xiabibi.cf
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nb.lovecf.ggff.net
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Jadi-fa5f6e8580
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Jadi-fa5f6e8580
+rules:
+  - MATCH,Proxy

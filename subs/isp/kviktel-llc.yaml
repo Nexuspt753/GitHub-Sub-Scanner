@@ -1,26 +1,33 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: ru.wan-love.rutube.info
+    server: 185.147.27.164
     port: 8443
-    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    uuid: 3a90bf69-1ffe-4ebb-b9a7-ad9ba8e9f66f
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: ru.wan-love.rutube.info
-    reality-opts:
-      public-key: 3L6i47JLGFIdDTryKbLM8K9jTFj7puhHplmzF8GX6GM
-      short-id: "08"
+    client-fingerprint: chrome
+    servername: user-6a8d949a.noooo.win
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 185.147.27.183
+    port: 8443
+    uuid: 379998c5-2a71-4202-9c74-522e0c3c5404
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: user-6a917f32.noooo.win
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy
