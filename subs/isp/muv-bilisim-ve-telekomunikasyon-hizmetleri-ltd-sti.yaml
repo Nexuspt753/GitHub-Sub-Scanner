@@ -13,12 +13,27 @@ proxies:
       short-id: "08"
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: tr.curry-load.rutube.info
+    port: 443
+    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dw.b-cdn.net
+    reality-opts:
+      public-key: bjqOUjqNQMF6NZ2kRis0NTNTcpdLBrr7CvZjFATrhg8
+      short-id: "08"
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

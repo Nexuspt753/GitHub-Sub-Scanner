@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: ICV2RAY
-    server: 188.137.234.211
-    port: 443
-    uuid: 6072ca43-2715-49a4-a9a2-a56be73ecfb0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: google.com
-    reality-opts:
-      public-key: 998RpVD5c_cwZC3GOK_JCQqICnDfI-5d9anOlT7Wf0w
-      short-id: 033a8331
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vmess
     name: DeltaKroneckerGithub
     server: 212.43.156.143
@@ -32,42 +16,8 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vless
-    name: 4Mohsen-a5062ed35a
-    server: 188.137.234.211
-    port: 443
-    uuid: 6072ca43-2715-49a4-a9a2-a56be73ecfb0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: google.com
-    reality-opts:
-      public-key: 998RpVD5c_cwZC3GOK_JCQqICnDfI-5d9anOlT7Wf0w
-      short-id: 033a8331
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vmess
     name: 4Nika-0ee3d22df7
-    server: 145.63.134.175
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Sarina-686d117854
     server: 145.63.134.175
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -102,7 +52,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
-    name: 4Jadi-e31ab25b3c
+    name: 4Kian-cdfc73dad8
     server: 212.43.156.143
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -112,6 +62,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
+    servername: renderer-stream-2-62.mirra.now
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -123,25 +74,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - ICV2RAY
       - DeltaKroneckerGithub
-      - 4Mohsen-a5062ed35a
       - 4Nika-0ee3d22df7
-      - 4Sarina-686d117854
       - 4Kian-c561bdbeae
-      - 4Jadi-e31ab25b3c
+      - 4Kian-cdfc73dad8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ICV2RAY
       - DeltaKroneckerGithub
-      - 4Mohsen-a5062ed35a
       - 4Nika-0ee3d22df7
-      - 4Sarina-686d117854
       - 4Kian-c561bdbeae
-      - 4Jadi-e31ab25b3c
+      - 4Kian-cdfc73dad8
 rules:
   - MATCH,Proxy

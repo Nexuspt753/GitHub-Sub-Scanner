@@ -29,19 +29,6 @@ proxies:
     skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: 212.193.18.183
-    port: 8443
-    uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: maps.apple.com
-    reality-opts:
-      public-key: XnPQT554eJohCPNsM8gw9oCS-3NTZmqxNoU36Td-tlM
-      short-id: a1b2c3d4e5f6
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 89.125.147.199
     port: 443
     uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
@@ -54,7 +41,7 @@ proxies:
       short-id: a1b2c3d4
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 89.125.147.199
     port: 443
     uuid: cabd9303-ae32-4d25-86b9-26b312d0f044
@@ -67,7 +54,7 @@ proxies:
       short-id: f6c7c139b9c938db
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 212.193.18.183
     port: 8446
     uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
@@ -82,33 +69,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-7d107980af
-    server: 89.125.147.214
-    port: 443
-    uuid: 9f2d111d-408e-44e5-bf97-b8323d050443
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl3.freekeysh110.online
-    reality-opts:
-      public-key: zVEDSKwQEIM6xRD7YEhJakteNI2xPK3xhhKulDo_vWg
-      short-id: b664d93e9d7a04f1
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-06196a1a0e
-    server: 89.125.147.199
-    port: 443
-    uuid: cabd9303-ae32-4d25-86b9-26b312d0f044
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: maps.apple.com
-    reality-opts:
-      public-key: iQJ8UdFw-lUWa9mXugescYHkmwNH96nuj_z-LAZvfxg
-      short-id: f6c7c139b9c938db
-    xudp: true
   - type: vmess
     name: 4Nika-8387fee72b
     server: cg1c07.waimaojd.com
@@ -127,6 +87,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cg1c07.waimaojd.com
+  - type: vmess
+    name: 4Mohsen-cd06b713f3
+    server: cg1c14.waimaojd.com
+    port: 443
+    uuid: be8e3136-b874-4085-bd23-ec3699300490
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: cg1c14.waimaojd.com
+    network: ws
+    ws-opts:
+      path: /api/v1/graphql
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cg1c14.waimaojd.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -139,10 +117,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4FreeIran-7d107980af
-      - 4Kian-06196a1a0e
       - 4Nika-8387fee72b
+      - 4Mohsen-cd06b713f3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -156,9 +132,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - 4FreeIran-7d107980af
-      - 4Kian-06196a1a0e
       - 4Nika-8387fee72b
+      - 4Mohsen-cd06b713f3
 rules:
   - MATCH,Proxy

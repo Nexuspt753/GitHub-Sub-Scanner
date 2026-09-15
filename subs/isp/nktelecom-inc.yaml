@@ -1,6 +1,13 @@
 proxies:
-  - type: trojan
+  - type: ss
     name: EPODONIOS
+    server: node-nl-1.v2sv.top
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: nodes-2bffad06
+    udp: true
+  - type: trojan
+    name: EPODONIOS-01
     server: node-nl-1.v2sv.top
     port: 8443
     password: nodes-2bffad06
@@ -27,7 +34,7 @@ proxies:
     sni: node-nl-1.v2sv.top
     client-fingerprint: chrome
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-02
     server: node-nl-1.v2sv.top
     port: 2053
     uuid: c539face-28f9-4cdb-aa6d-78f61038942b
@@ -40,8 +47,17 @@ proxies:
       short-id: b85e293fa1
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: 4Jadi-f2955309fb
+    server: node-nl-1.v2sv.top
+    port: 8443
+    password: nodes-2bffad06
+    udp: true
+    tls: true
+    sni: node-nl-1.v2sv.top
+    client-fingerprint: chrome
   - type: vless
-    name: 🇳🇱172313
+    name: "[054635]"
     server: node-nl-1.v2sv.top
     port: 2053
     uuid: c539face-28f9-4cdb-aa6d-78f61038942b
@@ -68,17 +84,34 @@ proxies:
       short-id: b85e293fa1
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-3196ab792b
+    server: node-nl-1.v2sv.top
+    port: 2053
+    uuid: c539face-28f9-4cdb-aa6d-78f61038942b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: deliveroo.com
+    reality-opts:
+      public-key: pFRfJJDY6TYJq-OVgAqFXhdaeur7gJWJM-RZT8g8yAA
+      short-id: b85e293fa1
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - 🇳🇱172311
       - 🇳🇱NL-🚀@VPNine1
-      - EPODONIOS-01
-      - 🇳🇱172313
+      - EPODONIOS-02
+      - 4Jadi-f2955309fb
+      - "[054635]"
       - 🇳🇱NL-🚀@VPNine1-01
+      - 4Mohsen-3196ab792b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,10 +119,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - 🇳🇱172311
       - 🇳🇱NL-🚀@VPNine1
-      - EPODONIOS-01
-      - 🇳🇱172313
+      - EPODONIOS-02
+      - 4Jadi-f2955309fb
+      - "[054635]"
       - 🇳🇱NL-🚀@VPNine1-01
+      - 4Mohsen-3196ab792b
 rules:
   - MATCH,Proxy

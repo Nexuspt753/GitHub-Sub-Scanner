@@ -9,34 +9,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Jadi-d638a77fc2
-    server: 194.87.59.14
-    port: 2085
-    uuid: a7e36d37-94e6-41b3-92f8-05e88ae0c9da
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-6889cc52c5
-    server: 194.87.59.7
-    port: 2085
-    uuid: d6e792d5-ea82-4e6c-b679-89f49ff7996e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-d638a77fc2
-      - 4Sarina-6889cc52c5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,7 +22,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-d638a77fc2
-      - 4Sarina-6889cc52c5
 rules:
   - MATCH,Proxy

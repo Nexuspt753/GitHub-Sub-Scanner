@@ -1,27 +1,6 @@
 proxies:
-  - type: ss
-    name: 4Jadi-55c03f77cb
-    server: 217.30.10.44
-    port: 9076
-    cipher: aes-256-cfb
-    password: S2zDyyPcmZN2h8EC
-    udp: true
   - type: vless
     name: EPODONIOS
-    server: 91.192.81.214
-    port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: bMcyxNueltQhz5Kuxcf8odDStWHowYfLhKNdCbUweDc
-      short-id: d1742269
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
     server: 91.192.81.214
     port: 443
     uuid: 607801ac-dbdd-4938-a167-129015d9978e
@@ -51,20 +30,6 @@ proxies:
     tls: true
     sni: sg4.6n6.net
     client-fingerprint: chrome
-  - type: vless
-    name: 🇸🇬
-    server: 91.192.81.214
-    port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: bMcyxNueltQhz5Kuxcf8odDStWHowYfLhKNdCbUweDc
-      short-id: d1742269
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: 🇸🇬SG_1712_@Surfboardv2ray
     server: 91.192.81.214
@@ -149,82 +114,31 @@ proxies:
       short-id: d1742269
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-353e979de9
-    server: 91.192.81.214
+  - type: vmess
+    name: 4Nika-36af0e31e5
+    server: 185.246.152.159
     port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: bMcyxNueltQhz5Kuxcf8odDStWHowYfLhKNdCbUweDc
-      short-id: d1742269
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-6a46f989cb
-    server: 91.192.81.214
-    port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
-    udp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: bMcyxNueltQhz5Kuxcf8odDStWHowYfLhKNdCbUweDc
-      short-id: d1742269
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-02d00eb2b7
-    server: 91.192.81.214
-    port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: bMcyxNueltQhz5Kuxcf8odDStWHowYfLhKNdCbUweDc
-      short-id: d1742269
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-d116f54bf0
-    server: 91.192.81.214
-    port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: 4Mohsen-10862225a7
-    server: 91.192.81.214
-    port: 443
-    uuid: 607801ac-dbdd-4938-a167-129015d9978e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: bMcyxNueltQhz5Kuxcf8odDStWHowYfLhKNdCbUweDc
-      short-id: d1742269
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /5f72f180-b21b-4b7a-8484-240759096785
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-55c03f77cb
       - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 🇸🇬
       - 🇸🇬SG_1712_@Surfboardv2ray
       - v2ray313
       - DeltaKroneckerGithub-02
@@ -233,23 +147,16 @@ proxy-groups:
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
       - 4Nika-db0de5a1ed
-      - 4Jadi-353e979de9
-      - 4Nika-6a46f989cb
-      - 4FreeIran-02d00eb2b7
-      - 4Mohsen-d116f54bf0
-      - 4Mohsen-10862225a7
+      - 4Nika-36af0e31e5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-55c03f77cb
       - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 🇸🇬
       - 🇸🇬SG_1712_@Surfboardv2ray
       - v2ray313
       - DeltaKroneckerGithub-02
@@ -258,10 +165,6 @@ proxy-groups:
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
       - 4Nika-db0de5a1ed
-      - 4Jadi-353e979de9
-      - 4Nika-6a46f989cb
-      - 4FreeIran-02d00eb2b7
-      - 4Mohsen-d116f54bf0
-      - 4Mohsen-10862225a7
+      - 4Nika-36af0e31e5
 rules:
   - MATCH,Proxy
