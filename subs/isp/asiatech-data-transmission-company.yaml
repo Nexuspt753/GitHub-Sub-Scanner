@@ -1,35 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Kian-fa6a8e9464
-    server: allsms.rozfa.com
-    port: 443
-    uuid: 6a89dc04-7781-46fe-b35c-e14a6b6e60b8
+  - type: vmess
+    name: 4Nika-0595140de6
+    server: vip1.showtimeless.site
+    port: 8880
+    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: randomized
-    alpn:
-      - h2
-      - http/1.1
-    servername: TeST-TESt-tEst-tESt.PagES.DEV
     xudp: true
-    network: ws
-    ws-opts:
-      path: /DXapKozkFI9aiqC7?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tEST-tesT-Test-tesT.pAgeS.DEV
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-fa6a8e9464
+      - 4Nika-0595140de6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-fa6a8e9464
+      - 4Nika-0595140de6
 rules:
   - MATCH,Proxy

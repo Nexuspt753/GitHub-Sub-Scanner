@@ -1,5 +1,20 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 91.245.225.79
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: 4Mohsen-92f82875ea
     server: 91.245.225.79
     port: 2053
@@ -13,34 +28,20 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4FreeIran-9a7cee18a7
-    server: 91.245.226.179
-    port: 8443
-    uuid: 4b12552d-8d3a-4c10-b985-2963fa53a0a1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pay.zanet.baby
-    reality-opts:
-      public-key: HM4lmaGrw2ARxZ_8ZLwvET7RzBAtFrtYlcap4QK-QFE
-      short-id: 7ed51bf6
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-92f82875ea
-      - 4FreeIran-9a7cee18a7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-92f82875ea
-      - 4FreeIran-9a7cee18a7
 rules:
   - MATCH,Proxy
