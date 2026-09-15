@@ -1,10 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-d3aefe3ed2
-    server: 91.240.86.70
-    port: 22443
-    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-    sni: hy.quattro-tech.ru
   - type: vless
     name: 4Kian-fafb7a5663
     server: 157.22.193.73
@@ -20,7 +14,37 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Nika-26bf19fb7a
+    server: ns.o11111o.club
+    port: 443
+    uuid: b1b3e430-ff52-44b8-b95d-27fa580fbc4f
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Sarina-a7bbdc706d
+    server: ns.o11111o.club
+    port: 443
+    uuid: b1b3e430-ff52-44b8-b95d-27fa580fbc4f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-cd3f9e6353
     server: ns.o11111o.club
     port: 443
     uuid: b1b3e430-ff52-44b8-b95d-27fa580fbc4f
@@ -39,17 +63,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-d3aefe3ed2
       - 4Kian-fafb7a5663
+      - 4Nika-26bf19fb7a
       - 4Sarina-a7bbdc706d
+      - 4Jadi-cd3f9e6353
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d3aefe3ed2
       - 4Kian-fafb7a5663
+      - 4Nika-26bf19fb7a
       - 4Sarina-a7bbdc706d
+      - 4Jadi-cd3f9e6353
 rules:
   - MATCH,Proxy
