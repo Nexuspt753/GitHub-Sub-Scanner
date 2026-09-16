@@ -1,29 +1,24 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-d4929679cc
-    server: ir2-3.artativa.ir
-    port: 1320
-    uuid: e14793fe-0ee2-4e7c-8972-68943a123051
+  - type: trojan
+    name: trojan
+    server: mmd.asan9720.ir
+    port: 8880
+    password: gAFsFYKWb6
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: soft98.ir
-    reality-opts:
-      public-key: KZLp_cZajilUYAQ8guKDfeG_gJWKhqBV3d3ZL23PwDk
-      short-id: 9995846367252a27
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d4929679cc
+      - trojan
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d4929679cc
+      - trojan
 rules:
   - MATCH,Proxy

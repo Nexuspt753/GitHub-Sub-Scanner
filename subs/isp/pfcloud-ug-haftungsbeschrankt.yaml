@@ -1,38 +1,23 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 176.65.151.67
-    port: 57370
-    uuid: 4aa4c358-5776-4a70-b472-50439acbe6af
+  - type: ss
+    name: FarazV2ray
+    server: 176.65.151.237
+    port: 49332
+    cipher: chacha20-ietf-poly1305
+    password: LjP_8zU2aTjvJtkCx94AafcGQW6OsmbO
     udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Nika-09a16c9535
-    server: 176.65.151.67
-    port: 57370
-    uuid: 4aa4c358-5776-4a70-b472-50439acbe6af
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Nika-09a16c9535
+      - FarazV2ray
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Nika-09a16c9535
+      - FarazV2ray
 rules:
   - MATCH,Proxy
