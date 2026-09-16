@@ -1,4 +1,11 @@
 proxies:
+  - type: vless
+    name: vless
+    server: irmedia12.pmme6.top
+    port: 33443
+    uuid: e128a087-bf3e-47de-af6f-fc01a2a977dc
+    udp: true
+    xudp: true
   - type: vmess
     name: 4FreeIran-de063cbaea
     server: dashboard.afrasim.top
@@ -14,6 +21,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
       - 4FreeIran-de063cbaea
   - name: Auto
     type: url-test
@@ -21,6 +29,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - 4FreeIran-de063cbaea
 rules:
   - MATCH,Proxy

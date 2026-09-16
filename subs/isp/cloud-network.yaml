@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4Kian-13e88bfaf0
+    name: 4Nika-0ff6056baa
     server: 176.97.66.175
     port: 443
     password: humanity
@@ -8,18 +8,23 @@ proxies:
     tls: true
     sni: www.ignitelimit.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-13e88bfaf0
+      - 4Nika-0ff6056baa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-13e88bfaf0
+      - 4Nika-0ff6056baa
 rules:
   - MATCH,Proxy

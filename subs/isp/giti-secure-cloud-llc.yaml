@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: t1fh.blazenetwork.ir
+    port: 443
+    uuid: 1b5a7a00-2bcf-463e-9f1f-c47756588fb5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: t1fh.blazenetwork.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t/assets
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: t1fh.blazenetwork.ir
+  - type: vless
     name: NETMelliAnti
     server: t1fh.blazenetwork.ir
     port: 443
@@ -53,22 +71,39 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: t1fh.blazenetwork.ir
+  - type: vless
+    name: 4Kian-e2d90d4c42
+    server: log.appbarekat1.abrdns.com
+    port: 39446
+    uuid: ddb105e6-765f-47c1-972b-e57d05d31081
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: vjnKxDfKfcMkdsWL0ElCytEZ5u3PePsnma6D_i7TckM
+      short-id: c6728a9b4c53d4
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - NETMelliAnti
       - 4Kian-e7e55dc6ae
       - 4Mohsen-5f20b72b15
+      - 4Kian-e2d90d4c42
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - NETMelliAnti
       - 4Kian-e7e55dc6ae
       - 4Mohsen-5f20b72b15
+      - 4Kian-e2d90d4c42
 rules:
   - MATCH,Proxy
