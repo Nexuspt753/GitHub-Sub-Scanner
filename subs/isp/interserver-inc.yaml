@@ -13,25 +13,12 @@ proxies:
       short-id: 84be686ea1d16478
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 162.35.96.15
-    port: 8081
-    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-test
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

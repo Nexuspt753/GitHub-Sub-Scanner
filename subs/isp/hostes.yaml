@@ -1,29 +1,50 @@
 proxies:
   - type: vless
-    name: 4Sarina-cfc7e65c7e
-    server: 151.242.160.90
-    port: 443
-    uuid: 069ba4cf-e8af-4561-b11e-18bd07b0dbd3
+    name: DeltaKroneckerGithub
+    server: 151.242.160.148
+    port: 8090
+    uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ollama.blackbigdog.com
-    reality-opts:
-      public-key: N8tPKh6gTyc6L5GOmBn_3wIy707a-5QYB0FrF2HigUc
-    flow: xtls-rprx-vision
+    servername: askuhgfdsg.space.coupons
     xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: askuhgfdsg.space.coupons
+  - type: vless
+    name: 4Jadi-b4680b89e6
+    server: 151.242.160.148
+    port: 8090
+    uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: askuhgfdsg.space.coupons
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /wsfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: askuhgfdsg.space.coupons
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-cfc7e65c7e
+      - DeltaKroneckerGithub
+      - 4Jadi-b4680b89e6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-cfc7e65c7e
+      - DeltaKroneckerGithub
+      - 4Jadi-b4680b89e6
 rules:
   - MATCH,Proxy

@@ -1,30 +1,16 @@
 proxies:
   - type: vless
-    name: vless
-    server: 45.9.24.125
-    port: 8443
-    uuid: a15f7618-66a8-4938-97a6-c341a2fcea5d
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 94.139.255.254
-    port: 5443
-    uuid: a15f7618-66a8-4938-97a6-c341a2fcea5d
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-b8bcb6c245
-    server: 87.242.94.69
-    port: 1443
-    uuid: b6a28eb6-8803-4236-bd51-09bdce6f36d9
+    name: DeltaKroneckerGithub
+    server: 176.123.162.100
+    port: 9880
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: 360.yandex.ru
+    servername: dl.google.com
     reality-opts:
-      public-key: mK6jUHK0Iv4jpVqpvs4oadjh2Pifkz4QwrOdhWHJ9U0
-      short-id: 66371c8d7a
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabb
     xudp: true
     network: grpc
     grpc-opts:
@@ -34,17 +20,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
-      - vless-01
-      - 4Kian-b8bcb6c245
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
-      - vless-01
-      - 4Kian-b8bcb6c245
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

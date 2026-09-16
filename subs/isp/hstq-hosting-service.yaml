@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 104.143.223.81
+    port: 2085
+    uuid: 79b3dab9-3e6b-415f-9d1c-1b1c6855e354
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 104.143.223.74
+    port: 2085
+    uuid: 79b3dab9-3e6b-415f-9d1c-1b1c6855e354
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 104.143.223.229
+    port: 2085
+    uuid: 79b3dab9-3e6b-415f-9d1c-1b1c6855e354
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 104.143.223.217
     port: 2085
@@ -34,6 +64,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
       - ✅
       - 4Kian-23db498e21
@@ -43,6 +76,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
       - ✅
       - 4Kian-23db498e21

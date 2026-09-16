@@ -1,11 +1,11 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-80264a68f2
-    server: 45.88.14.120
-    port: 443
-    password: 252bb78f404ff43efa42808e98cc4ae9
-    sni: cloud.mail.ru
-    skip-cert-verify: true
+  - type: ss
+    name: EPODONIOS
+    server: 188.116.23.244
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: eVC634QvVk5l
+    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 38.180.242.205
@@ -30,39 +30,99 @@ proxies:
     sni: 38.180.173.150
     client-fingerprint: chrome
   - type: ss
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 188.116.23.244
     port: 8388
     cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplVkM2MzRRdlZrNWw%3D
     password: ""
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-02
-    server: 188.116.23.244
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: eVC634QvVk5l
+  - type: vmess
+    name: EPODONIOS-02
+    server: 195.54.174.18
+    port: 80
+    uuid: 6d6f413f-3dc2-4d02-8d35-8b45e39feb72
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 🇳🇱NL-195.54.174.18-0165
+    server: 195.54.174.18
+    port: 80
+    uuid: 6d6f413f-3dc2-4d02-8d35-8b45e39feb72
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-f3e7824555
+    server: 195.54.174.18
+    port: 80
+    uuid: 6d6f413f-3dc2-4d02-8d35-8b45e39feb72
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-9a31052a91
+    server: 195.54.174.18
+    port: 80
+    uuid: 6d6f413f-3dc2-4d02-8d35-8b45e39feb72
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 195.54.174.18
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-80264a68f2
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - DeltaKroneckerGithub-02
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 🇳🇱NL-195.54.174.18-0165
+      - 4Nika-f3e7824555
+      - 4Kian-9a31052a91
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-80264a68f2
+      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - DeltaKroneckerGithub-02
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 🇳🇱NL-195.54.174.18-0165
+      - 4Nika-f3e7824555
+      - 4Kian-9a31052a91
 rules:
   - MATCH,Proxy
