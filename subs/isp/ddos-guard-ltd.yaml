@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: NOFiLTERING2🇩🇪
     server: 95.129.236.252
     port: 443
@@ -30,6 +45,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: 4Kian-54c0f8ec74
+    server: 95.129.236.239
+    port: 443
+    uuid: 7f90a2db-beb4-4c43-8791-0f79851011f1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: login.ansable.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: login.ansable.cc
+  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -49,8 +82,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - NOFiLTERING2🇩🇪
       - 🇷🇺139881
+      - 4Kian-54c0f8ec74
       - 4Mohsen-b66a7367f9
   - name: Auto
     type: url-test
@@ -58,8 +93,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - NOFiLTERING2🇩🇪
       - 🇷🇺139881
+      - 4Kian-54c0f8ec74
       - 4Mohsen-b66a7367f9
 rules:
   - MATCH,Proxy

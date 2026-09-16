@@ -1,29 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Sarina-f3f1e49a82
-    server: tlp.freezen.shop
-    port: 36724
-    uuid: 320dfd63-0541-4cb5-b8fa-cfe0caff8271
+  - type: vmess
+    name: 4Kian-7da44d8ec0
+    server: nlp1.hupcloud.com
+    port: 1070
+    uuid: da410df7-cde1-415c-a46e-87637e9748f9
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: tlp.freezen.shop
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-f3f1e49a82
+      - 4Kian-7da44d8ec0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-f3f1e49a82
+      - 4Kian-7da44d8ec0
 rules:
   - MATCH,Proxy

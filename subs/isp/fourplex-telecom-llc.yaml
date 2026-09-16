@@ -1,32 +1,5 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
-    server: node-us-1.v2sv.top
-    port: 8443
-    password: nodes-2bffad06
-    udp: true
-    tls: true
-    sni: node-us-1.v2sv.top
-    client-fingerprint: chrome
-  - type: trojan
-    name: 🇺🇸172303
-    server: node-us-1.v2sv.top
-    port: 8443
-    password: nodes-2bffad06
-    udp: true
-    tls: true
-    sni: node-us-1.v2sv.top
-    client-fingerprint: chrome
-  - type: trojan
-    name: 🇺🇸US-🚀@VPNine1
-    server: node-us-1.v2sv.top
-    port: 8443
-    password: nodes-2bffad06
-    udp: true
-    tls: true
-    sni: node-us-1.v2sv.top
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Kian-d8d6dd82bc
     server: node-us-1.v2sv.top
     port: 8443
@@ -35,24 +8,34 @@ proxies:
     tls: true
     sni: node-us-1.v2sv.top
     client-fingerprint: chrome
+  - type: vless
+    name: 4Sarina-5f420c7237
+    server: node-us-1.v2sv.top
+    port: 2053
+    uuid: c539face-28f9-4cdb-aa6d-78f61038942b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: example.com
+    reality-opts:
+      public-key: pFRfJJDY6TYJq-OVgAqFXhdaeur7gJWJM-RZT8g8yAA
+      short-id: b85e293fa1
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇺🇸172303
-      - 🇺🇸US-🚀@VPNine1
       - 4Kian-d8d6dd82bc
+      - 4Sarina-5f420c7237
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇺🇸172303
-      - 🇺🇸US-🚀@VPNine1
       - 4Kian-d8d6dd82bc
+      - 4Sarina-5f420c7237
 rules:
   - MATCH,Proxy
