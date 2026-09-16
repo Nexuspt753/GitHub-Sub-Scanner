@@ -1,12 +1,5 @@
 proxies:
   - type: hysteria2
-    name: 4Nika-2a9fc76979
-    server: 45.88.14.120
-    port: 443
-    password: 252bb78f404ff43efa42808e98cc4ae9
-    sni: cloud.mail.ru
-    skip-cert-verify: true
-  - type: hysteria2
     name: 4Sarina-80264a68f2
     server: 45.88.14.120
     port: 443
@@ -43,26 +36,33 @@ proxies:
     cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplVkM2MzRRdlZrNWw%3D
     password: ""
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 188.116.23.244
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: eVC634QvVk5l
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-2a9fc76979
       - 4Sarina-80264a68f2
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2a9fc76979
       - 4Sarina-80264a68f2
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

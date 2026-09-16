@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: e1f65.selvarieno.cc
+    port: 443
+    uuid: aea9e420-de22-4dcb-93b8-af1f71a3c264
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: e1f65.selvarieno.cc
+    reality-opts:
+      public-key: cKIxCbR_DzhH0EqWPzLAsIe8JuoSokPUU_vf9GPHQRk
+      short-id: adeef0d3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 217.60.100.65
     port: 443
     uuid: aea9e420-de22-4dcb-93b8-af1f71a3c264
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
