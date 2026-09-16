@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 563cbd4d796d.welzora.ir
+    port: 443
+    uuid: a9e2a8a2-0210-4e8b-b7c7-490fa16b74c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: region1.app-analytics-services-att.com
+    reality-opts:
+      public-key: hcXjPiiu7Hu-iJ9QmfIac9B9HT_fMzxjm1lyHVw82nc
+      short-id: 70c5a8baf5e37017
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 563cbd4d796d.welzora.ir
+    port: 443
+    uuid: a9e2a8a2-0210-4e8b-b7c7-490fa16b74c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: region1.app-analytics-services-att.com
+    reality-opts:
+      public-key: hcXjPiiu7Hu-iJ9QmfIac9B9HT_fMzxjm1lyHVw82nc
+      short-id: 70c5a8baf5e37017
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪173534
+    server: 563cbd4d796d.welzora.ir
+    port: 443
+    uuid: a9e2a8a2-0210-4e8b-b7c7-490fa16b74c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: region1.app-analytics-services-att.com
+    reality-opts:
+      public-key: hcXjPiiu7Hu-iJ9QmfIac9B9HT_fMzxjm1lyHVw82nc
+      short-id: 70c5a8baf5e37017
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪DE-🚀@VPNine1
+    server: 563cbd4d796d.welzora.ir
+    port: 443
+    uuid: a9e2a8a2-0210-4e8b-b7c7-490fa16b74c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: region1.app-analytics-services-att.com
+    reality-opts:
+      public-key: hcXjPiiu7Hu-iJ9QmfIac9B9HT_fMzxjm1lyHVw82nc
+      short-id: 70c5a8baf5e37017
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇩🇪173534
+      - 🇩🇪DE-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇩🇪173534
+      - 🇩🇪DE-🚀@VPNine1
+rules:
+  - MATCH,Proxy

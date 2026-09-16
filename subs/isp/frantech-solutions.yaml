@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 198.98.53.130
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: eDfN7SODQceIOmIAbtJJtK
+    udp: true
+  - type: ss
     name: United
     server: 198.98.53.130
     port: 443
@@ -76,25 +83,12 @@ proxies:
     servername: u643766u8fad5a44s552.gogocs.xyz
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-94a8c21912
-    server: node-us-2.v2sv.top
-    port: 2053
-    uuid: c539face-28f9-4cdb-aa6d-78f61038942b
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: jhol.in
-    reality-opts:
-      public-key: pFRfJJDY6TYJq-OVgAqFXhdaeur7gJWJM-RZT8g8yAA
-      short-id: b85e293fa1
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - United
       - 4Sarina-fbe44cf27e
       - DeltaKroneckerGithub
@@ -103,13 +97,13 @@ proxy-groups:
       - 4Kian-2456139a51
       - 4Jadi-d36aaf4b2c
       - 4Nika-bfdcc6f1fd
-      - 4Nika-94a8c21912
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - United
       - 4Sarina-fbe44cf27e
       - DeltaKroneckerGithub
@@ -118,6 +112,5 @@ proxy-groups:
       - 4Kian-2456139a51
       - 4Jadi-d36aaf4b2c
       - 4Nika-bfdcc6f1fd
-      - 4Nika-94a8c21912
 rules:
   - MATCH,Proxy

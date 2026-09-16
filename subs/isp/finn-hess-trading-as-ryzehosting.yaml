@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: v2raybaaz
+    server: 5.83.134.28
+    port: 443
+    uuid: 41c29215-a816-40d2-83c2-9d742effaa1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: Miro.com
+    reality-opts:
+      public-key: MQwKv7mfS-Rd1h3cDtteSq5r8buY-EskhxLb2OA-LCE
+      short-id: 3149ce78f70b78fe
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - v2raybaaz
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - v2raybaaz
+rules:
+  - MATCH,Proxy
