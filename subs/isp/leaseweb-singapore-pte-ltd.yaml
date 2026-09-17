@@ -1,6 +1,15 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: cloud.lakshan.us
+    port: 119
+    password: skynet
+    udp: true
+    tls: true
+    sni: cloud.lakshan.us
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 64.120.94.225
     port: 443
     password: eeb6823c-b926-4ea2-866a-5542edd26e59
@@ -14,6 +23,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

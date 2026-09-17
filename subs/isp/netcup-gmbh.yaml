@@ -12,36 +12,8 @@ proxies:
       public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 159.195.192.169
-    port: 2054
-    uuid: 75079a7f-75b5-418b-8a65-f7b2f438cd4a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.ibm.com
-    reality-opts:
-      public-key: mlJSEX5zJodpeofSicXnd0tlrgonVCGJ3M-qqWF4FSU
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: Nexus_Panell
-    server: 159.195.137.29
-    port: 8443
-    uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sellflow.org
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 159.195.5.181
     port: 443
     password: "1234567890"
@@ -50,7 +22,7 @@ proxies:
     sni: kfm-bn0.pages.dev
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 152.53.228.86
     port: 443
     password: "1234567890"
@@ -85,18 +57,18 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-698685234b
-    server: 159.195.137.29
-    port: 8443
-    uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
+    name: 4Jadi-3bebab0340
+    server: 37.120.184.180
+    port: 80
+    uuid: 53fff6cc-b4ec-43e8-ade5-e0c42972fc33
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: sellflow.org
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
     xudp: true
+    network: ws
+    ws-opts:
+      path: /news
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.ir
   - type: vless
     name: ">>@configV2rayNG::DE"
     server: 159.195.137.29
@@ -110,19 +82,6 @@ proxies:
       public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-3bebab0340
-    server: 37.120.184.180
-    port: 80
-    uuid: 53fff6cc-b4ec-43e8-ade5-e0c42972fc33
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /news
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn.ir
 proxy-groups:
   - name: Proxy
     type: select
@@ -130,14 +89,11 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - DeltaKroneckerGithub
-      - Nexus_Panell
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS-01
       - 4Sarina-017768964f
-      - 4Mohsen-698685234b
-      - ">>@configV2rayNG::DE"
       - 4Jadi-3bebab0340
+      - ">>@configV2rayNG::DE"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -146,13 +102,10 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - DeltaKroneckerGithub
-      - Nexus_Panell
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - EPODONIOS-01
       - 4Sarina-017768964f
-      - 4Mohsen-698685234b
-      - ">>@configV2rayNG::DE"
       - 4Jadi-3bebab0340
+      - ">>@configV2rayNG::DE"
 rules:
   - MATCH,Proxy

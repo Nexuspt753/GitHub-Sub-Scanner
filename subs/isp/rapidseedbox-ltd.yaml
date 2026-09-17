@@ -10,12 +10,28 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: firefox
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: hl-freedom-0.undef.network
+    port: 443
+    password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
+    udp: true
+    tls: true
+    sni: hl-freedom-0.undef.network
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-0.undef.network
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
