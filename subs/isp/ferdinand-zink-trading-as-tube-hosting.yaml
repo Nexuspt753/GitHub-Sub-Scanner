@@ -1,6 +1,21 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: EPODONIOS
+    server: nl3.182.axolab.org
+    port: 9433
+    password: xMg1JMgkXAL_20TueWjz_6KJAAs7NnK0
+    udp: true
+    tls: true
+    sni: nl3.182.axolab.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /chatbot
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl3.182.axolab.org
+  - type: vless
+    name: EPODONIOS-01
     server: nl3.182.axolab.org
     port: 443
     uuid: 13c245fd-ac78-4dcc-9378-97968a70dac4
@@ -74,16 +89,38 @@ proxies:
     servername: nl3.182.axolab.org
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless
+    server: nl4-1.axolab.org
+    port: 443
+    uuid: cd9955c2-4524-4f63-8b99-dd125ca7db14
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: 4Jadi-5d95a13558
+    server: nl4-1.axolab.org
+    port: 443
+    uuid: 2518e1f3-729d-475f-905d-35dae56dfc0b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: strm-rad-23.strm.yandex.net
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - 🇳🇱
       - 🇳🇱-01
       - 4Jadi-88f3dcd3e2
       - 4Mohsen-7d12ef2bf2
+      - vless
+      - 4Jadi-5d95a13558
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,9 +128,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - 🇳🇱
       - 🇳🇱-01
       - 4Jadi-88f3dcd3e2
       - 4Mohsen-7d12ef2bf2
+      - vless
+      - 4Jadi-5d95a13558
 rules:
   - MATCH,Proxy

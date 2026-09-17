@@ -1,29 +1,41 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: sa-18cf795a50985ad9.sr-fa525e02d0951c2f.r.vpvpn.club
-    port: 443
-    uuid: 0c597b0d-99d7-4c27-befe-6c5d339d7dbe
+  - type: ss
+    name: EPODONIOS
+    server: ae-1.stunnel.cc
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official_ae
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: baeb.edge-static.space
-    reality-opts:
-      public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: ss
+    name: "[057097]"
+    server: ae-1.stunnel.cc
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official_ae
+    udp: true
+  - type: ss
+    name: 4Kian-35bc622249
+    server: 188.208.110.58
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: tunnel-astrovpn_official
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - "[057097]"
+      - 4Kian-35bc622249
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - "[057097]"
+      - 4Kian-35bc622249
 rules:
   - MATCH,Proxy

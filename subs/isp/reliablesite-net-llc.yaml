@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.58.126.92
+    port: 8444
+    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nbcnews.com
+    reality-opts:
+      public-key: OyUyHy3-04xKvFMvAzUbiVf7tkWX2a_gC2E_sEHGVw8
+      short-id: "08"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 45.58.126.115
     port: 8444
@@ -27,20 +41,38 @@ proxies:
       short-id: "08"
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-38fe86fccf
+    server: 45.58.126.115
+    port: 8444
+    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nbcnews.com
+    reality-opts:
+      public-key: OyUyHy3-04xKvFMvAzUbiVf7tkWX2a_gC2E_sEHGVw8
+      short-id: "08"
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - "23"
+      - 4FreeIran-38fe86fccf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - "23"
+      - 4FreeIran-38fe86fccf
 rules:
   - MATCH,Proxy
