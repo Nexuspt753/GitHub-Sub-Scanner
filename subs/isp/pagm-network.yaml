@@ -1,5 +1,23 @@
 proxies:
   - type: vmess
+    name: DeltaKroneckerGithub
+    server: 5.101.122.59
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4Mohsen-84455f5120
     server: 185.4.73.45
     port: 443
@@ -28,6 +46,23 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Mohsen-876c5dddd1
+    server: 185.4.73.45
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -109,8 +144,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-84455f5120
       - 4Kian-c5a1388e86
+      - 4Mohsen-876c5dddd1
       - 4Nika-89f9c08f31
       - 4Kian-4c0f075c81
       - 4Jadi-174c515134
@@ -121,8 +158,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-84455f5120
       - 4Kian-c5a1388e86
+      - 4Mohsen-876c5dddd1
       - 4Nika-89f9c08f31
       - 4Kian-4c0f075c81
       - 4Jadi-174c515134

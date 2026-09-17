@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: filembad
+    server: france-sgood.wopd.butnorwa.butter.melon.shoes.bye.whooisthebest.ir
+    port: 8000
+    uuid: b742d8e7-ed7d-4f7d-bb16-bf49bdb4cb44
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play-apps-features.googleusercontent.com
+    reality-opts:
+      public-key: Du5pk4KuMNA1sRcSpmuoLuC0HmxDBmFljFNfUzqxKiM
+      short-id: cd0a1986719e44c8
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - filembad
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - filembad
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: chelyabinsk.gosgenarchive.com
+    port: 448
+    password: r7sfH0LhLtubR_bdakGtDmAAqRKTQcV2
+    udp: true
+    tls: true
+    sni: chelyabinsk.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
     name: 🇩🇪174142
     server: chelyabinsk.gosgenarchive.com
     port: 448
@@ -27,20 +41,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: trojan
+    name: 4Sarina-1ae354d01d
+    server: chelyabinsk.gosgenarchive.com
+    port: 448
+    password: r7sfH0LhLtubR_bdakGtDmAAqRKTQcV2
+    udp: true
+    tls: true
+    sni: chelyabinsk.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇩🇪174142
       - 🇺🇸US-🚀@VPNine1
+      - 4Sarina-1ae354d01d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇩🇪174142
       - 🇺🇸US-🚀@VPNine1
+      - 4Sarina-1ae354d01d
 rules:
   - MATCH,Proxy

@@ -24,15 +24,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 83.229.121.78
-    port: 8443
-    password: 8r<[9'l6hAO#8ZQi
-    udp: true
-    tls: true
-    sni: Koma-YT.PAGeS.Dev
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Mohsen-165452696e
     server: 83.229.121.78
     port: 8443
@@ -40,6 +31,24 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: 68.64.182.121
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Mohsen-89fd204bd7
     server: 68.64.182.121
@@ -65,8 +74,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Mohsen-165452696e
+      - DeltaKroneckerGithub-02
       - 4Mohsen-89fd204bd7
   - name: Auto
     type: url-test
@@ -76,8 +85,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Mohsen-165452696e
+      - DeltaKroneckerGithub-02
       - 4Mohsen-89fd204bd7
 rules:
   - MATCH,Proxy
