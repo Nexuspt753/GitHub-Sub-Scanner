@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: "[058121]"
+    server: respina.msphnx.ir
+    port: 2019
+    uuid: 5fd00a13-6400-46c0-b2d0-2e6371de988c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: RYUCFGttyeR0jJRoAwx5RkkT7gVwtaj06hDf66GhuXU
+      short-id: 35951be3
+    xudp: true
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: respina.msphnx.ir
+    port: 2019
+    uuid: 5fd00a13-6400-46c0-b2d0-2e6371de988c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: RYUCFGttyeR0jJRoAwx5RkkT7gVwtaj06hDf66GhuXU
+      short-id: 35951be3
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - "[058121]"
+      - 🇮🇷IR-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - "[058121]"
+      - 🇮🇷IR-🚀@VPNine1
+rules:
+  - MATCH,Proxy

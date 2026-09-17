@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: tr.curry-load.rutube.info
-    port: 443
-    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    name: EPODONIOS
+    server: vpsT.high-net.ir
+    port: 8443
+    uuid: d85c6e36-6dc6-4ff1-88f5-4ce1cf76f13c
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: dw.b-cdn.net
+    client-fingerprint: chrome
+    servername: v0.dev
     reality-opts:
-      public-key: bjqOUjqNQMF6NZ2kRis0NTNTcpdLBrr7CvZjFATrhg8
-      short-id: "08"
+      public-key: l0TFCoCvCPhGSuakodLRJEQhxHRunusLI88TmEsCumw
+      short-id: 12824fc96d4c2061
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-2a0370a9de
+    server: vpsT.high-net.ir
+    port: 8443
+    uuid: d85c6e36-6dc6-4ff1-88f5-4ce1cf76f13c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v0.dev
+    reality-opts:
+      public-key: l0TFCoCvCPhGSuakodLRJEQhxHRunusLI88TmEsCumw
+      short-id: 12824fc96d4c2061
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Mohsen-2a0370a9de
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Mohsen-2a0370a9de
 rules:
   - MATCH,Proxy

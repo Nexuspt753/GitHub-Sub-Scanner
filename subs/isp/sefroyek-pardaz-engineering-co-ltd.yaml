@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: phone-tiklite.redonlinephone.ir
+    port: 8443
+    cipher: aes-256-gcm
+    password: ly7ucs3r3eltbits
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

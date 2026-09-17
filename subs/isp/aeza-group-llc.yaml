@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 77.110.104.238
-    port: 2053
-    uuid: 937fbdad-d97b-4540-9136-de1886df866f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.tagesschau.de
-    reality-opts:
-      public-key: sHEHsya9ZbC34uBUOzAfAO8u2b3Ik71hp4AKMGLvZxw
-      short-id: facfeeb537603598
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: EPODONIOS
     server: mashinbazi.athforce.ir
     port: 2376
@@ -29,22 +13,29 @@ proxies:
     uuid: be3a80da-9bda-44b7-97ea-8794b88633d8
     udp: true
     xudp: true
+  - type: vless
+    name: 4Sarina-6c58d59a64
+    server: mashinbazi.athforce.ir
+    port: 2376
+    uuid: be3a80da-9bda-44b7-97ea-8794b88633d8
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺
+      - 4Sarina-6c58d59a64
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺
+      - 4Sarina-6c58d59a64
 rules:
   - MATCH,Proxy

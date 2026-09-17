@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: "179"
+    server: 82.47.186.18
+    port: 19290
+    cipher: aes-128-gcm
+    password: o2rw2hICwu1blrr_gZAl2Q
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - "179"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - "179"
+rules:
+  - MATCH,Proxy

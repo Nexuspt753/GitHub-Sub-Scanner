@@ -16,6 +16,20 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 123.253.227.238
+    port: 10005
+    uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.asus.com
+    reality-opts:
+      public-key: ryX4yUguNp9iQ6j_BPlEMyCK62474if28u_ouXSPciQ
+      short-id: 1974efea3b2148
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 123.253.227.238
     port: 10016
     uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
     udp: true
@@ -25,6 +39,20 @@ proxies:
     reality-opts:
       public-key: RFG8d5sxG4ysTNqNnjeSVk7gftcPMpUBSbPu0HKZrAQ
       short-id: ca2593defe
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 123.253.227.238
+    port: 10032
+    uuid: fad78708-a2a3-37a9-8ce7-6bc83526af0d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.hp.com
+    reality-opts:
+      public-key: yXxDl06l9pXXT4_1kqpdgOyfAhORcsfPgLTxHu50zQM
+      short-id: f9275dbb5a
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -43,6 +71,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
+  - type: vmess
+    name: 4Kian-734eafaacc
+    server: 1096.rabbitpro-in-5.com
+    port: 27119
+    uuid: b9027e08-cb6f-3391-8bd0-0a4f31e6c140
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-ac2c5fb9f9
+    server: 1096.rabbitpro-in-5.com
+    port: 27120
+    uuid: b9027e08-cb6f-3391-8bd0-0a4f31e6c140
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -50,7 +98,11 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Kian-1d700be6a8
+      - 4Kian-734eafaacc
+      - 4Nika-ac2c5fb9f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -59,6 +111,10 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Kian-1d700be6a8
+      - 4Kian-734eafaacc
+      - 4Nika-ac2c5fb9f9
 rules:
   - MATCH,Proxy
