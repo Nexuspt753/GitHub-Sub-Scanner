@@ -1,30 +1,28 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 185.229.9.135
+    name: vless
+    server: 185.229.9.231
     port: 443
-    uuid: 47dcc1e6-9223-4633-9f38-2766171be938
+    uuid: 235c7b9f-bb89-4a7d-b550-7f7a2ed7a3c4
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: cdn.dodostatic.net
-    reality-opts:
-      public-key: tKeNSn-vGnt7dCdQLyvk_PhQpMpaW7l4zgB5M5rt6HE
-      short-id: 20346ea6cce4f16a
-    flow: xtls-rprx-vision
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - vless
 rules:
   - MATCH,Proxy

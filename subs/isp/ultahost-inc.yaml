@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: EVAY_VPN
     server: 178.83.226.55
     port: 443
     uuid: 2a77a470-315c-493d-b690-59b814a804cb
@@ -13,7 +13,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EVAY_VPN
+    name: 4Nika-589b238f5c
     server: 178.83.226.55
     port: 443
     uuid: 2a77a470-315c-493d-b690-59b814a804cb
@@ -36,6 +36,23 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vmess
+    name: 4Sarina-0cddd62c12
+    server: 193.23.118.195
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4FreeIran-bf0f8422b0
     server: 193.23.118.195
     port: 443
@@ -57,9 +74,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - EVAY_VPN
+      - 4Nika-589b238f5c
       - 4Sarina-b78e2ea264
+      - 4Sarina-0cddd62c12
       - 4FreeIran-bf0f8422b0
   - name: Auto
     type: url-test
@@ -67,9 +85,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - EVAY_VPN
+      - 4Nika-589b238f5c
       - 4Sarina-b78e2ea264
+      - 4Sarina-0cddd62c12
       - 4FreeIran-bf0f8422b0
 rules:
   - MATCH,Proxy

@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: Budapest · 🇫🇷
+    name: Budapest · EPODONIOS
     server: 185.225.68.232
     port: 443
     password: humanity
@@ -14,6 +14,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
+  - type: trojan
+    name: Budapest · EPODONIOS-01
+    server: 185.225.68.232
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: Budapest · @hex_proxy
+    server: 185.225.68.232
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: Budapest · @DeltaKroneckerGithub
     server: 185.225.68.232
@@ -43,22 +71,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
+  - type: trojan
+    name: Budapest · 4Kian-c958fa86c9
+    server: 185.225.68.232
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Budapest · 🇫🇷
+      - Budapest · EPODONIOS
+      - Budapest · EPODONIOS-01
+      - Budapest · @hex_proxy
       - Budapest · @DeltaKroneckerGithub
       - Budapest · 4Mohsen-7fb9058110
+      - Budapest · 4Kian-c958fa86c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Budapest · 🇫🇷
+      - Budapest · EPODONIOS
+      - Budapest · EPODONIOS-01
+      - Budapest · @hex_proxy
       - Budapest · @DeltaKroneckerGithub
       - Budapest · 4Mohsen-7fb9058110
+      - Budapest · 4Kian-c958fa86c9
 rules:
   - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4FreeIran-b62dc9b8f7
+    server: srv-f0.matinnetworkz.com
+    port: 52124
+    cipher: chacha20-ietf-poly1305
+    password: 66f1e7e943324d27
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-b62dc9b8f7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-b62dc9b8f7
+rules:
+  - MATCH,Proxy
