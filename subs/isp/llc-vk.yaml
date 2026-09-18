@@ -1,6 +1,39 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: 4Kian-0eac56e6c8
+    server: 185.241.195.121
+    port: 443
+    uuid: 7d3c3184-2741-4d08-a66c-de91f6d9b968
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: edge.edgeprobe.dev
+    reality-opts:
+      public-key: xuCfFoK0x0ZEOvd7HQ9dF2HlZMkKvVV9rQmkiYcBuik
+      short-id: 327088cd7331
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-4ab79e801f
+    server: 37.139.42.138
+    port: 443
+    uuid: 99143c90-6fb6-4eb8-8f61-837ae1274f80
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - http/1.1
+    servername: dostavitos.stroymatdv.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /e7ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-46ffea079b
     server: 217.16.31.218
     port: 443
     uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
@@ -18,13 +51,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 4Kian-0eac56e6c8
+      - 4FreeIran-4ab79e801f
+      - 4Mohsen-46ffea079b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 4Kian-0eac56e6c8
+      - 4FreeIran-4ab79e801f
+      - 4Mohsen-46ffea079b
 rules:
   - MATCH,Proxy

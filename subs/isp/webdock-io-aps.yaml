@@ -1,38 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 77.37.96.186
-    port: 443
-    uuid: 1864223a-8797-4244-8e72-4d2801d040e1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: thus-k.netnode.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /t.me/daily_free_vpn
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: thus-k.netnode.cc.cd
-  - type: vmess
-    name: 4Kian-802005eed0
-    server: 193.180.208.234
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Sarina-f9fefaf25a
     server: 193.180.208.234
@@ -121,49 +87,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Kian-d015feaca3
-    server: 193.181.212.81
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Kian-802005eed0
       - 4Sarina-f9fefaf25a
       - 4Kian-0de4dd2eb0
       - 4Sarina-d46c33665c
       - 4Nika-6f238e972e
       - 4Kian-f3108ca699
-      - 4Kian-d015feaca3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Kian-802005eed0
       - 4Sarina-f9fefaf25a
       - 4Kian-0de4dd2eb0
       - 4Sarina-d46c33665c
       - 4Nika-6f238e972e
       - 4Kian-f3108ca699
-      - 4Kian-d015feaca3
 rules:
   - MATCH,Proxy

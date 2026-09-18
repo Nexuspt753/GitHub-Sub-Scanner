@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: irdusti🇷🇺²
+    name: EPODONIOS
     server: 46.8.208.17
     port: 8443
     uuid: 1157d32c-a56f-4070-a1a8-74c63b875d98
@@ -14,7 +14,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-1cb44a1a2b
+    name: V2raySamanbot
+    server: 46.8.208.17
+    port: 8443
+    uuid: 1157d32c-a56f-4070-a1a8-74c63b875d98
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: xEprpxcbj30lJZMfNWftPtiAmgrXTzRnnN3HFRtFfB4
+      short-id: f3c0f343a191
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: irdusti🇷🇺²
     server: 46.8.208.17
     port: 8443
     uuid: 1157d32c-a56f-4070-a1a8-74c63b875d98
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - V2raySamanbot
       - irdusti🇷🇺²
-      - 4Sarina-1cb44a1a2b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - V2raySamanbot
       - irdusti🇷🇺²
-      - 4Sarina-1cb44a1a2b
 rules:
   - MATCH,Proxy

@@ -12,24 +12,6 @@ proxies:
       public-key: 1sSmdw90uTiGuitDvp_q8zcXTcHXKQS3IVjA7T1UNiY
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: DeltaKroneckerGithub-01
-    server: 84.75.76.16
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
   - type: vless
     name: 4Kian-7d2777eadb
     server: autos.jykvpn.com
@@ -110,37 +92,17 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Nika-8dc03f55e4
-    server: 84.75.76.16
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-7d2777eadb
       - 4Mohsen-bb943fdb12
       - 4Nika-fd4745c7cb
       - 4Sarina-def616346d
       - 4FreeIran-2ebcbc76cc
-      - 4Nika-8dc03f55e4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -148,12 +110,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-7d2777eadb
       - 4Mohsen-bb943fdb12
       - 4Nika-fd4745c7cb
       - 4Sarina-def616346d
       - 4FreeIran-2ebcbc76cc
-      - 4Nika-8dc03f55e4
 rules:
   - MATCH,Proxy

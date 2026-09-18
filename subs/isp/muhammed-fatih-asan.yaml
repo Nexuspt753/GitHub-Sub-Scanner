@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Jadi-2aef6cc180
+    server: abcp.fars-remen.ir
+    port: 16213
+    uuid: 74979268-53c9-49ec-5d9de73803af
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-2aef6cc180
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-2aef6cc180
+rules:
+  - MATCH,Proxy

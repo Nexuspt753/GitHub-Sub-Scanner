@@ -1,5 +1,15 @@
 proxies:
   - type: vmess
+    name: EPODONIOS
+    server: 31.77.8.97
+    port: 110
+    uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Mohsen-87e4040796
     server: 31.77.8.97
     port: 110
@@ -14,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Mohsen-87e4040796
   - name: Auto
     type: url-test
@@ -21,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Mohsen-87e4040796
 rules:
   - MATCH,Proxy
