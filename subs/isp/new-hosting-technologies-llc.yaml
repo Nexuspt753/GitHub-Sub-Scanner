@@ -1,33 +1,36 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 194.55.239.20
+  - type: trojan
+    name: 4Kian-8b1eb4c0a5
+    server: 194.55.239.108
     port: 443
-    uuid: 303035c0-dd28-4568-87bb-9a11637c5407
+    password: eZwp12tXna8-s_ysszXnXq25rv1c8w
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: harknmav.fun
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /live.stream.v1.Broadcast/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    sni: api-v2.captaingold.app
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-ebcfa30b2b
+    server: 194.55.239.108
+    port: 443
+    password: eZwp12tXna8-s_ysszXnXq25rv1c8w
+    udp: true
+    tls: true
+    sni: api-v2.captaingold.app
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-8b1eb4c0a5
+      - 4Nika-ebcfa30b2b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-8b1eb4c0a5
+      - 4Nika-ebcfa30b2b
 rules:
   - MATCH,Proxy

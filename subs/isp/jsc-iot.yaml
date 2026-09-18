@@ -5,12 +5,19 @@ proxies:
     port: 22443
     password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-d3aefe3ed2
+    server: 91.240.86.70
+    port: 22443
+    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
+    sni: hy.quattro-tech.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-2d141c042b
+      - 4Sarina-d3aefe3ed2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +25,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-2d141c042b
+      - 4Sarina-d3aefe3ed2
 rules:
   - MATCH,Proxy

@@ -1,26 +1,25 @@
 proxies:
   - type: vless
-    name: 4Jadi-5d95a13558
+    name: vless
     server: nl4-1.axolab.org
     port: 443
-    uuid: 2518e1f3-729d-475f-905d-35dae56dfc0b
+    uuid: cd9955c2-4524-4f63-8b99-dd125ca7db14
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: strm-rad-23.strm.yandex.net
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-5d95a13558
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-5d95a13558
+      - vless
 rules:
   - MATCH,Proxy

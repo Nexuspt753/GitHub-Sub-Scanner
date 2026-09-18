@@ -1,50 +1,53 @@
 proxies:
   - type: vless
-    name: 4Kian-0d2f3874d4
-    server: sa-ee0441551507e46c.sr-cbeea22261c8564d.r.vpvpn.club
-    port: 8443
-    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
+    name: DeltaKroneckerGithub
+    server: 150.251.141.28
+    port: 443
+    uuid: 129799e0-a9b1-4ae8-80bd-fa92db813f85
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: nl4.pad-service.com
+    servername: nolan.shhflow.xyz
+    reality-opts:
+      public-key: iKiBA7VUMrGy7J3puIr6rbsEj7FMtRazqQywedgGeCA
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /NL4W
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl4.pad-service.com
   - type: vless
-    name: 4Kian-1612dba815
-    server: sa-f606a5f231034c1a.sr-707a137c909a984d.r.vpvpn.club
-    port: 8443
-    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
+    name: DeltaKroneckerGithub-01
+    server: 150.251.143.8
+    port: 443
+    uuid: 129799e0-a9b1-4ae8-80bd-fa92db813f85
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: nl3.pad-service.com
+    client-fingerprint: chrome
+    servername: nobnob.shhflow.xyz
+    reality-opts:
+      public-key: MxrzWQPAwfj7jC0b4_6jlpUlXowcJFh7lOhZSIe0ezE
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /NL3W
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl3.pad-service.com
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 212.87.190.124
+    port: 99
+    cipher: chacha20-ietf-poly1305
+    password: 6nQnSKAxCLJSZbg7KA94QA
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-0d2f3874d4
-      - 4Kian-1612dba815
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-0d2f3874d4
-      - 4Kian-1612dba815
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

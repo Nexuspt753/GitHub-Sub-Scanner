@@ -1,18 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-416d26bebd
-    server: us2.xiaoliyu.cyou
-    port: 4433
-    password: 19f72087-4591-4d72-930b-2697078ec2be
-    sni: us2.xiaoliyu.cyou
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Sarina-cbaf03e0e4
-    server: fl2.xiaoliyu.us
-    port: 2052
-    password: b8949dae-cb53-4b5a-ad9c-50f58c4656fb
-    sni: fl2.xiaoliyu.us
-    skip-cert-verify: true
   - type: trojan
     name: EPODONIOS
     server: 193.124.46.65
@@ -66,24 +52,20 @@ proxies:
     tls: true
     sni: 193.124.46.65
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Nika-8387fee72b
-    server: cg1c07.waimaojd.com
-    port: 443
-    uuid: be8e3136-b874-4085-bd23-ec3699300490
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 103.136.150.119
+    port: 30222
+    cipher: aes-256-gcm
+    password: 72553320ae6bcc8f
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: cg1c07.waimaojd.com
-    network: ws
-    ws-opts:
-      path: /api/v1/graphql
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cg1c07.waimaojd.com
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 103.136.150.119
+    port: 30222
+    cipher: aes-256-gcm
+    password: 72553320ae6bcc8f
+    udp: true
   - type: vmess
     name: 4Mohsen-cd06b713f3
     server: cg1c14.waimaojd.com
@@ -107,14 +89,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-416d26bebd
-      - 4Sarina-cbaf03e0e4
       - EPODONIOS
       - leviconfigs🪐-13
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-cb80581f91
-      - 4Nika-8387fee72b
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-cd06b713f3
   - name: Auto
     type: url-test
@@ -122,14 +103,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-416d26bebd
-      - 4Sarina-cbaf03e0e4
       - EPODONIOS
       - leviconfigs🪐-13
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-cb80581f91
-      - 4Nika-8387fee72b
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-cd06b713f3
 rules:
   - MATCH,Proxy

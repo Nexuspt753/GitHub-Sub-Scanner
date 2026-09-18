@@ -1,20 +1,13 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 45.142.166.211
+    server: 185.184.223.47
     port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    password: Aimer
     udp: true
     tls: true
+    sni: epme.ambercc.filegear-sg.me
     client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /knowledge?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: ty-3.tr202605.com
@@ -23,22 +16,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-409b574a6c
-    server: 45.142.166.211
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /knowledge?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
@@ -46,7 +23,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-409b574a6c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,6 +31,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-409b574a6c
 rules:
   - MATCH,Proxy

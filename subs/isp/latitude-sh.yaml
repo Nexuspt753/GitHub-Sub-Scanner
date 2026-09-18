@@ -1,23 +1,79 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-29ec482600
-    server: jp1.xiaoliyu.us
-    port: 27102
-    password: b8949dae-cb53-4b5a-ad9c-50f58c4656fb
-    sni: jp1.xiaoliyu.us
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.134.9.133
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ul-mexico1.09vpn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: "[058661]"
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-ea4be5f899
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-29ec482600
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - "[058661]"
+      - 4FreeIran-ea4be5f899
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-29ec482600
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - "[058661]"
+      - 4FreeIran-ea4be5f899
 rules:
   - MATCH,Proxy

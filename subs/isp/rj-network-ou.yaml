@@ -1,22 +1,8 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 89.106.88.22
-    port: 20443
-    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: dest1.cdn-update.rutube.info
-    reality-opts:
-      public-key: "-AdhgMZeNHR2zAmGWa5peg7Ni0-e4IVMoSzydC9n7C4"
-      short-id: "08"
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 89.106.88.6
-    port: 20443
+    port: 8443
     uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
     udp: true
     tls: true
@@ -25,8 +11,10 @@ proxies:
     reality-opts:
       public-key: "-AdhgMZeNHR2zAmGWa5peg7Ni0-e4IVMoSzydC9n7C4"
       short-id: "08"
-    flow: xtls-rprx-vision
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: V2ray_confiig
     server: 185.155.55.10
@@ -56,6 +44,38 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vpnsal
+    server: 185.155.55.10
+    port: 8443
+    uuid: 42d932cb-8768-41de-b57b-299252a493d2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ee-nf.reddotcorp.org
+    reality-opts:
+      public-key: ApMfbcEyBOve6DxXoBNVu3bCCzQ7XCEYB4ummsDtTBE
+      short-id: 661766b2bcef440a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: 4Jadi-5b2aa3079e
+    server: ee.cheapgo.cc
+    port: 8443
+    password: eZwp12tXna8-s_ysszXnXq25rv1c8w
+    udp: true
+    tls: true
+    sni: ee.cheapgo.cc
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-dd9140ad78
+    server: ee.cheapgo.cc
+    port: 8443
+    password: eZwp12tXna8-s_ysszXnXq25rv1c8w
+    udp: true
+    tls: true
+    sni: ee.cheapgo.cc
+    client-fingerprint: chrome
+  - type: vless
     name: 4Jadi-e9a11b8fc3
     server: 185.155.55.10
     port: 8443
@@ -69,16 +89,30 @@ proxies:
       short-id: 661766b2bcef440a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-02a0a0e1e6
+    server: 89.106.88.6
+    port: 20443
+    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dest1.cdn-update.rutube.info
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - V2ray_confiig
       - vasl_bashim
+      - vpnsal
+      - 4Jadi-5b2aa3079e
+      - 4Jadi-dd9140ad78
       - 4Jadi-e9a11b8fc3
+      - 4Nika-02a0a0e1e6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,9 +120,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - V2ray_confiig
       - vasl_bashim
+      - vpnsal
+      - 4Jadi-5b2aa3079e
+      - 4Jadi-dd9140ad78
       - 4Jadi-e9a11b8fc3
+      - 4Nika-02a0a0e1e6
 rules:
   - MATCH,Proxy
