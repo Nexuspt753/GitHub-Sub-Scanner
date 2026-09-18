@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: Phnom Penh · EPODONIOS
+    server: 38.54.4.209
+    port: 443
+    uuid: 225d638b-8ad9-47db-b4d2-77d7705fa72e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
+  - type: vless
+    name: Phnom Penh · THUS-K@QiangLieTuiJian
+    server: 38.54.4.209
+    port: 443
+    uuid: 225d638b-8ad9-47db-b4d2-77d7705fa72e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Phnom Penh · EPODONIOS
+      - Phnom Penh · THUS-K@QiangLieTuiJian
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Phnom Penh · EPODONIOS
+      - Phnom Penh · THUS-K@QiangLieTuiJian
+rules:
+  - MATCH,Proxy

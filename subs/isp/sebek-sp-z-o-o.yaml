@@ -12,12 +12,54 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: queuev4.vk.com
+  - type: vless
+    name: 4Kian-1b5cf06835
+    server: atomic-prase23893.my-vm.work
+    port: 8088
+    uuid: tmp_user
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: queuev4.vk.com
+  - type: vless
+    name: 4FreeIran-05d354de94
+    server: atomic-prase23893.my-vm.work
+    port: 8088
+    uuid: tmp_user
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: queuev4.vk.com
+  - type: vless
+    name: 4Mohsen-d7d21cc5a3
+    server: flax-spinel23895.my-vm.work
+    port: 8088
+    uuid: tmp_user
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: queuev4.vk.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-1b5cf06835
+      - 4FreeIran-05d354de94
+      - 4Mohsen-d7d21cc5a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +67,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-1b5cf06835
+      - 4FreeIran-05d354de94
+      - 4Mohsen-d7d21cc5a3
 rules:
   - MATCH,Proxy

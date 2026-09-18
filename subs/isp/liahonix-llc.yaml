@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-84284036eb
+    server: 108.59.244.158
+    port: 443
+    password: 9452bb1ca5043e7f7b70430911afb034
+    sni: 5post-gate.x5.ru
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-84284036eb
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-84284036eb
+rules:
+  - MATCH,Proxy

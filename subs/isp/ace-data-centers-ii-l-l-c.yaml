@@ -9,12 +9,34 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-87e4040796
+    server: 31.77.8.97
+    port: 110
+    uuid: e8758bf0-c234-4809-89f7-25fd868316d0
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-5fadebf7c4
+    server: 31.77.8.97
+    port: 110
+    uuid: e8758bf0-c234-4809-89f7-25fd868316d0
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-87e4040796
+      - 4Jadi-5fadebf7c4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -22,5 +44,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-87e4040796
+      - 4Jadi-5fadebf7c4
 rules:
   - MATCH,Proxy

@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 104.238.148.149
+    port: 443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /about?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.32.57.242
     port: 27242
     password: i99Cef
@@ -8,6 +24,16 @@ proxies:
     tls: true
     sni: download.windowsupdate.com
     client-fingerprint: chrome
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: 45.32.57.118
+    port: 4433
+    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: trojan
     name: 4Nika-ab4e651797
     server: 108.61.171.167
@@ -20,16 +46,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vmess
-    name: DeltaKroneckerGithub-01
-    server: 45.32.57.118
-    port: 4433
-    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Nika-b1969ff785
+    server: 107.191.53.84
+    port: 443
+    uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mia10.pages.dev
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /TG:@MiaChatChannel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mia10.pages.dev
+  - type: vless
+    name: 4Kian-72a8e8368c
+    server: 45.32.248.233
+    port: 443
+    uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mia12.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /TG:@MiaChatChannel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mia12.pages.dev
   - type: vmess
     name: 4Jadi-773a7ac104
     server: 45.32.57.118
@@ -56,8 +104,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-ab4e651797
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Nika-ab4e651797
+      - 4Nika-b1969ff785
+      - 4Kian-72a8e8368c
       - 4Jadi-773a7ac104
       - 4Sarina-06670394c2
   - name: Auto
@@ -67,8 +118,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-ab4e651797
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Nika-ab4e651797
+      - 4Nika-b1969ff785
+      - 4Kian-72a8e8368c
       - 4Jadi-773a7ac104
       - 4Sarina-06670394c2
 rules:

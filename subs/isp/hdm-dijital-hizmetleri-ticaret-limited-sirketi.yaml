@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Nika-926c8cf3cb
+    server: 45.95.65.142
+    port: 49136
+    uuid: 06acbb08-8f9e-4544-b75f-660e640d751a
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-926c8cf3cb
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-926c8cf3cb
+rules:
+  - MATCH,Proxy

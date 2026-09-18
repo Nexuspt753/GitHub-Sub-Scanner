@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: THUS-K@QiangLieTuiJian
+    server: 176.97.68.17
+    port: 443
+    uuid: aa559aef-0db6-4d68-850f-206b6cd2079f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
   - type: trojan
     name: 4Nika-0ff6056baa
     server: 176.97.66.175
@@ -13,18 +29,38 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-18a26f9db4
+    server: 176.97.68.17
+    port: 443
+    uuid: aa559aef-0db6-4d68-850f-206b6cd2079f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - THUS-K@QiangLieTuiJian
       - 4Nika-0ff6056baa
+      - 4Nika-18a26f9db4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - THUS-K@QiangLieTuiJian
       - 4Nika-0ff6056baa
+      - 4Nika-18a26f9db4
 rules:
   - MATCH,Proxy
