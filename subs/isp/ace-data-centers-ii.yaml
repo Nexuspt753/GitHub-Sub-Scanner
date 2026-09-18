@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 136.0.116.171
+    port: 8443
+    uuid: 1ec9239a-4174-4496-800b-5756bdf21041
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: epF9hW_Z8LxlpJzDRXTJrLOFxelXWbAIWlOGPE-MNys
+      short-id: a1b2c3d4e5f67890
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: •
     server: 136.0.116.171
     port: 8443
@@ -36,6 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - •
       - 4Mohsen-8eb38ec196
   - name: Auto
@@ -44,6 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - •
       - 4Mohsen-8eb38ec196
 rules:

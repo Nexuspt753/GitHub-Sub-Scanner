@@ -1,26 +1,5 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 176.32.35.44
-    port: 50111
-    cipher: aes-256-gcm
-    password: 6b39ae3234dfd68b
-    udp: true
-  - type: ss
-    name: 🇷🇺174235
-    server: 176.32.35.44
-    port: 50111
-    cipher: aes-256-gcm
-    password: 6b39ae3234dfd68b
-    udp: true
-  - type: ss
-    name: 4FreeIran-df5ed8829a
-    server: 176.32.35.44
-    port: 50111
-    cipher: aes-256-gcm
-    password: 6b39ae3234dfd68b
-    udp: true
-  - type: ss
     name: DeltaKroneckerGithub
     server: 176.32.35.44
     port: 50111
@@ -34,26 +13,29 @@ proxies:
     cipher: aes-256-gcm
     password: 6b39ae3234dfd68b
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 46.17.40.234
+    port: 10301
+    cipher: aes-256-gcm
+    password: bdb313adf74c2ede
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇷🇺174235
-      - 4FreeIran-df5ed8829a
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇷🇺174235
-      - 4FreeIran-df5ed8829a
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

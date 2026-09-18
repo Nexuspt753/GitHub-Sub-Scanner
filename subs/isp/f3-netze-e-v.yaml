@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 185.220.100.168
     port: 443
     password: humanity
@@ -15,7 +15,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
   - type: trojan
-    name: 4Nika-9e2d7529e3
+    name: ICV2RAY
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: DeltaKroneckerGithub
     server: 185.220.100.168
     port: 443
     password: humanity
@@ -34,15 +49,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - ICV2RAY
       - DeltaKroneckerGithub
-      - 4Nika-9e2d7529e3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - ICV2RAY
       - DeltaKroneckerGithub
-      - 4Nika-9e2d7529e3
 rules:
   - MATCH,Proxy

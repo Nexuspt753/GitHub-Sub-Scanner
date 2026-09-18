@@ -1,23 +1,32 @@
 proxies:
   - type: vless
-    name: 4Sarina-ad92c664a9
-    server: 157.85.102.28
-    port: 1083
-    uuid: b93efa30-e2c5-401c-9ec7-22e30266cc60
+    name: EPODONIOS
+    server: 45.150.128.159
+    port: 443
+    uuid: aa559aef-0db6-4d68-850f-206b6cd2079f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
     xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-ad92c664a9
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-ad92c664a9
+      - EPODONIOS
 rules:
   - MATCH,Proxy

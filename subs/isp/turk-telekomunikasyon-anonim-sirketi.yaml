@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 85.111.89.245
+    port: 48786
+    uuid: 7b52cfb5-d142-4973-ada0-6007b841d97e
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 85.111.89.245
+    port: 48786
+    uuid: 7b52cfb5-d142-4973-ada0-6007b841d97e
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: 85.111.89.245
+    port: 48786
+    uuid: 87527d19-d300-47e2-b029-1f337c9514ef
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-cc363105b0
+    server: 85.111.89.245
+    port: 48786
+    uuid: 7b52cfb5-d142-4973-ada0-6007b841d97e
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4FreeIran-f3a14ed09f
+    server: 85.111.89.245
+    port: 48786
+    uuid: 7b52cfb5-d142-4973-ada0-6007b841d97e
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-aae7b17709
+    server: 85.111.89.245
+    port: 48786
+    uuid: 87527d19-d300-47e2-b029-1f337c9514ef
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Jadi-cc363105b0
+      - 4FreeIran-f3a14ed09f
+      - 4Nika-aae7b17709
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Jadi-cc363105b0
+      - 4FreeIran-f3a14ed09f
+      - 4Nika-aae7b17709
+rules:
+  - MATCH,Proxy

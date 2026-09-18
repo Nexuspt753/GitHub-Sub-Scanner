@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 91.213.186.189
+    port: 443
+    uuid: aa559aef-0db6-4d68-850f-206b6cd2079f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
   - type: trojan
     name: DeltaKroneckerGithub
     server: 38.207.172.42
@@ -13,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

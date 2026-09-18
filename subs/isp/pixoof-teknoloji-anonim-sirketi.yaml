@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Nika-328feabd5e
+    name: DeltaKroneckerGithub
     server: 78.135.73.47
     port: 443
     uuid: 25e16692-d097-4e69-9e2d-8415609c1968
@@ -8,20 +8,23 @@ proxies:
     tls: true
     client-fingerprint: firefox
     servername: www.datadoghq.com
-    flow: xtls-rprx-vision-udp443
+    reality-opts:
+      public-key: sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8
+      short-id: f46cd3ea3d1eb72d
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-328feabd5e
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-328feabd5e
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
