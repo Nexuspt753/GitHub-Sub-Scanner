@@ -1,11 +1,25 @@
 proxies:
+  - type: ss
+    name: 4Jadi-39d8a2ffee
+    server: 185.117.119.8
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Vr06rU_v1vFPYeXq9zbsAA
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 185.174.138.239
+    server: 193.239.160.134
     port: 443
-    password: NISHIKUITAN111
+    password: humanity
     udp: true
+    tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 185.114.72.31
@@ -73,6 +87,23 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-5dab8a138b
+    server: 132.243.22.80
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -154,12 +185,14 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-39d8a2ffee
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - 4Kian-54c7b6521f
+      - 4Nika-5dab8a138b
       - 4FreeIran-756033c66c
       - 4Kian-75082a1add
       - 4FreeIran-ce6e3f0e30
@@ -170,12 +203,14 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-39d8a2ffee
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - 4Kian-54c7b6521f
+      - 4Nika-5dab8a138b
       - 4FreeIran-756033c66c
       - 4Kian-75082a1add
       - 4FreeIran-ce6e3f0e30

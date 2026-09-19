@@ -1,0 +1,26 @@
+proxies:
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: 45.127.5.132
+    port: 2083
+    uuid: f3a7aea1-0f5a-4ed0-8a50-f6e7a78bed3c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

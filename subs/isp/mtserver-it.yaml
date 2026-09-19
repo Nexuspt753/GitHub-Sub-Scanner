@@ -1,0 +1,70 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: dnld.chaqalli.com
+    port: 8080
+    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
+    server: dnld.chaqalli.com
+    port: 8180
+    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-88335f7d6f
+    server: dnld.chaqalli.com
+    port: 8080
+    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-1381c95fb8
+    server: dnld.chaqalli.com
+    port: 8180
+    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Mohsen-88335f7d6f
+      - 4Jadi-1381c95fb8
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Mohsen-88335f7d6f
+      - 4Jadi-1381c95fb8
+rules:
+  - MATCH,Proxy

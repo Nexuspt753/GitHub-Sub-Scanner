@@ -29,6 +29,24 @@ proxies:
       path: /vl/BBj8crirrHMxntD7H3o3z
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: 155.212.240.147
+    port: 2087
+    uuid: probabblynot-ch
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: probabblynot.fazelextremeisreal.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@probabblynot
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: probabblynot.fazelextremeisreal.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -36,6 +54,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,5 +63,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
 rules:
   - MATCH,Proxy

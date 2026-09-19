@@ -1,25 +1,46 @@
 proxies:
-  - type: trojan
-    name: 4Nika-ebcfa30b2b
-    server: 194.55.239.108
+  - type: vless
+    name: 4FreeIran-3c7d465ad8
+    server: 91.193.43.49
     port: 443
-    password: eZwp12tXna8-s_ysszXnXq25rv1c8w
+    uuid: 0dbe4d34-30c9-4f8a-b229-e5950087232d
     udp: true
     tls: true
-    sni: api-v2.captaingold.app
     client-fingerprint: chrome
+    servername: cdn.callibri.ru
+    reality-opts:
+      public-key: yCKV2xr725jI0sFhm4KbttKl8b9UZrnQTXxZLN2S4BM
+      short-id: 925a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-92e81be363
+    server: 91.193.43.49
+    port: 443
+    uuid: 0dbe4d34-30c9-4f8a-b229-e5950087232d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.callibri.ru
+    reality-opts:
+      public-key: yCKV2xr725jI0sFhm4KbttKl8b9UZrnQTXxZLN2S4BM
+      short-id: 925a
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-ebcfa30b2b
+      - 4FreeIran-3c7d465ad8
+      - 4Mohsen-92e81be363
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-ebcfa30b2b
+      - 4FreeIran-3c7d465ad8
+      - 4Mohsen-92e81be363
 rules:
   - MATCH,Proxy

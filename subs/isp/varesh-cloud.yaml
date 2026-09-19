@@ -1,9 +1,19 @@
 proxies:
   - type: vmess
-    name: 4Jadi-daff5acd13
+    name: uonvpn
     server: irc.jahancloud.cfd
     port: 443
     uuid: 79e37b18-c19d-4441-89b2-dbbd02983bb3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-f19badfbd8
+    server: irc.jahannetwork.sbs
+    port: 443
+    uuid: ddf301b1-c1ee-4297-898e-ee3cb4bb281d
     alterId: 0
     cipher: auto
     udp: true
@@ -24,7 +34,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-daff5acd13
+      - uonvpn
+      - 4Nika-f19badfbd8
       - 4Sarina-835d8a9662
   - name: Auto
     type: url-test
@@ -32,7 +43,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-daff5acd13
+      - uonvpn
+      - 4Nika-f19badfbd8
       - 4Sarina-835d8a9662
 rules:
   - MATCH,Proxy
