@@ -1,16 +1,30 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: jp.wxgqlfx.top
-    port: 26518
-    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    server: hk3n.wxgqlfx.vip
+    port: 35193
+    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: github.com
+    servername: www.apple.com
     reality-opts:
-      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
-      short-id: 6caead99
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 156.226.168.221
+    port: 35193
+    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -46,22 +60,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: thus-k.netnode.cc.cd
   - type: vless
-    name: 4FreeIran-16861ab21e
-    server: 45.202.255.198
-    port: 443
-    uuid: 3c941f63-8dfd-413e-a09f-7eed77da73f1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: thus-k.netnode.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /t.me/daily_free_vpn
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: thus-k.netnode.cc.cd
-  - type: vless
     name: 4Mohsen-fc2070bf87
     server: 83.147.12.20
     port: 443
@@ -77,34 +75,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: thus-k.netnode.cc.cd
-  - type: vmess
-    name: 4FreeIran-d4025024da
-    server: 156.231.116.156
-    port: 8080
-    uuid: 9ebecf5e-b160-43bd-806e-54cd994fc4c3
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    servername: images-na.ssl-images-amazon.com
-    network: ws
-    ws-opts:
-      path: /image
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: images-na.ssl-images-amazon.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - THUS-K@QiangLieTuiJian
-      - 4FreeIran-16861ab21e
       - 4Mohsen-fc2070bf87
-      - 4FreeIran-d4025024da
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -112,10 +92,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - THUS-K@QiangLieTuiJian
-      - 4FreeIran-16861ab21e
       - 4Mohsen-fc2070bf87
-      - 4FreeIran-d4025024da
 rules:
   - MATCH,Proxy

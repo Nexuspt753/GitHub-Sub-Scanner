@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: ee-tll-2.blook.network
+    port: 443
+    uuid: 2ae07678-1ba2-4656-8000-464fc8977fe5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ee-tll-2.blook.network
+    reality-opts:
+      public-key: zz5an-cyTeNncGZS0TPNcHuZDpq5sbTDHgVi7xYCc2U
+      short-id: 75e648ad855c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: "183"
+    server: ee-tll-2.blook.network
+    port: 443
+    uuid: 2ae07678-1ba2-4656-8000-464fc8977fe5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ee-tll-2.blook.network
+    reality-opts:
+      public-key: zz5an-cyTeNncGZS0TPNcHuZDpq5sbTDHgVi7xYCc2U
+      short-id: 75e648ad855c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-0a86d0d946
     server: ee-tll-2.blook.network
     port: 443
@@ -18,6 +46,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - "183"
       - 4Mohsen-0a86d0d946
   - name: Auto
     type: url-test
@@ -25,6 +55,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - "183"
       - 4Mohsen-0a86d0d946
 rules:
   - MATCH,Proxy

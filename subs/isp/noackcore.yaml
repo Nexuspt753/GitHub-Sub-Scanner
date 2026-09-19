@@ -1,0 +1,65 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: se.organic-cdn.net
+    port: 443
+    uuid: c6597692-e811-4e2d-81d3-21a52960050e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: gr.convexia.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇸🇪176246
+    server: se.organic-cdn.net
+    port: 443
+    uuid: c6597692-e811-4e2d-81d3-21a52960050e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: gr.convexia.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇸🇪SE-🚀@VPNine1
+    server: se.organic-cdn.net
+    port: 443
+    uuid: c6597692-e811-4e2d-81d3-21a52960050e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: gr.convexia.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇸🇪176246
+      - 🇸🇪SE-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇸🇪176246
+      - 🇸🇪SE-🚀@VPNine1
+rules:
+  - MATCH,Proxy

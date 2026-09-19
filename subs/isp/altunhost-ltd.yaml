@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: cardpayment.cleanfoodshop.org
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cardpayment.cleanfoodshop.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 🇪🇺
     server: cardpayment.cleanfoodshop.org
     port: 443
@@ -15,7 +30,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 🔵@chillguy_vpn
+    name: 4Sarina-4be40506e8
+    server: cardpayment.cleanfoodshop.org
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cardpayment.cleanfoodshop.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-af6e5b02c0
     server: cardpayment.cleanfoodshop.org
     port: 443
     uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
@@ -34,15 +64,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇪🇺
-      - 🔵@chillguy_vpn
+      - 4Sarina-4be40506e8
+      - 4FreeIran-af6e5b02c0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇪🇺
-      - 🔵@chillguy_vpn
+      - 4Sarina-4be40506e8
+      - 4FreeIran-af6e5b02c0
 rules:
   - MATCH,Proxy
