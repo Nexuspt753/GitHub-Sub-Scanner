@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 206.251.54.34
-    port: 55596
-    uuid: 9fc6444b-987a-41d5-9bf5-195d147e0a05
+    name: 4FreeIran-350dc42c83
+    server: 206.251.53.91
+    port: 8443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.amd.com
-    reality-opts:
-      public-key: QQUHUyF5Wb3XeRRrky-WOaRTxBtHokNaMec02HURWSI
-      short-id: 6ac09686189038
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
     xudp: true
+    network: ws
+    ws-opts:
+      path: /settings?ed=2560fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4FreeIran-350dc42c83
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4FreeIran-350dc42c83
 rules:
   - MATCH,Proxy

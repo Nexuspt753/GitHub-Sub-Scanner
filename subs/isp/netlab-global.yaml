@@ -15,23 +15,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bab-6.site
-  - type: vmess
-    name: 4Sarina-90c82de4a3
-    server: 64.83.12.153
-    port: 443
-    uuid: 9d476209-d8bd-9536-6e8d-61c97ec114db
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy
