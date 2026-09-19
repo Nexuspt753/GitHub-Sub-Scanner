@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 104.143.223.69
+    port: 2085
+    uuid: f68a9fd4-16c7-46d1-b17c-0a4b224cc00d
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 104.143.223.56
     port: 2085
@@ -10,10 +20,30 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Nexus_Panell
+    name: DeltaKroneckerGithub-01
+    server: 104.143.223.82
+    port: 2085
+    uuid: 15295b3e-e233-4f3b-95d1-8860d40c75fe
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 104.143.223.56
     port: 2085
-    uuid: 67671bce-990e-47fe-96c3-55a869800b00
+    uuid: b41bac9b-17f7-469f-9df0-05b09140081b
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 104.143.223.217
+    port: 2085
+    uuid: c9373ff0-c263-4949-885f-366671f3c6a1
     udp: true
     xudp: true
     network: grpc
@@ -84,8 +114,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - Nexus_Panell
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS-01
       - V2ray_Alpha🥶
       - meliproxyy
       - vpnsal
@@ -98,8 +131,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - Nexus_Panell
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS-01
       - V2ray_Alpha🥶
       - meliproxyy
       - vpnsal

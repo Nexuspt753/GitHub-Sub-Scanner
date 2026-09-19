@@ -1,6 +1,6 @@
 proxies:
   - type: vmess
-    name: DeltaKroneckerGithub
+    name: 4FreeIran-d3f44264c4
     server: 212.95.34.195
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -18,7 +18,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
-    name: ProxyMtpVPN-424
+    name: 4Mohsen-867052c7ef
     server: 212.95.34.195
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -28,7 +28,23 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Kian-832b600430
+    server: 212.95.34.195
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -57,8 +73,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - ProxyMtpVPN-424
+      - 4FreeIran-d3f44264c4
+      - 4Mohsen-867052c7ef
+      - 4Kian-832b600430
       - 4Kian-167039fefd
   - name: Auto
     type: url-test
@@ -66,8 +83,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - ProxyMtpVPN-424
+      - 4FreeIran-d3f44264c4
+      - 4Mohsen-867052c7ef
+      - 4Kian-832b600430
       - 4Kian-167039fefd
 rules:
   - MATCH,Proxy

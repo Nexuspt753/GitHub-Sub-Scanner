@@ -13,6 +13,18 @@ proxies:
       short-id: 3ac25eef1431b799
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: nl2.pleiades.codes
+    port: 2053
+    password: d5bee0afdbc500b8cda02d80
+    udp: true
+    tls: true
+    sni: nl2.pleiades.codes
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: random
   - type: vless
     name: 4Jadi-64f0588bae
     server: 130.78.191.25
@@ -33,6 +45,7 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
+      - DeltaKroneckerGithub
       - 4Jadi-64f0588bae
   - name: Auto
     type: url-test
@@ -41,6 +54,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - DeltaKroneckerGithub
       - 4Jadi-64f0588bae
 rules:
   - MATCH,Proxy

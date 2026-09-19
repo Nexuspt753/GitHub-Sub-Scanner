@@ -1,51 +1,37 @@
 proxies:
-  - type: ss
-    name: 4Nika-95a3526329
-    server: 43.173.90.202
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: sg-proxy-2026
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: 43.164.134.99
+    server: 43.160.220.86
     port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: gl3sr.q4ds.ksm.hh.vavava.kdns.fr
+    servername: cdn8848.776676.xyz
     xudp: true
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /buy/uploads?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: gl3sr.q4ds.ksm.hh.vavava.kdns.fr
-  - type: vless
+        Host: cdn8848.776676.xyz
+  - type: trojan
     name: DeltaKroneckerGithub-01
-    server: 43.165.183.74
-    port: 2443
-    uuid: 5c53add3-e092-4b29-b0c0-fb4f784115d1
+    server: 43.173.90.202
+    port: 443
+    password: sg-trojan-2026
     udp: true
     tls: true
+    sni: sg-proxy.local
     client-fingerprint: chrome
-    servername: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev
   - type: trojan
     name: DeltaKroneckerGithub-02
-    server: 43.134.48.62
+    server: 43.156.253.94
     port: 443
-    password: 973c7f53-7411-4173-b805-d65c912e4d55
+    password: Aimer
     udp: true
     tls: true
-    sni: 86sg.ljydw.top
+    sni: ngepx.ambercc.filegear-sg.me
     client-fingerprint: chrome
   - type: trojan
     name: 4Nika-71eb10c966
@@ -65,28 +51,105 @@ proxies:
     tls: true
     sni: sg-proxy.local
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-56ef5585f1
+    server: 43.173.90.202
+    port: 443
+    password: sg-trojan-2026
+    udp: true
+    tls: true
+    sni: sg-proxy.local
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 43.134.48.62
+    port: 443
+    password: 973c7f53-7411-4173-b805-d65c912e4d55
+    udp: true
+    tls: true
+    sni: 86sg.ljydw.top
+    client-fingerprint: chrome
+  - type: vmess
+    name: 4Kian-697871d49b
+    server: 3kCf86Ufi0U5xBDA.v.3dns.vip
+    port: 443
+    uuid: 1abe49dedb6e4f65a0f0a5ea79ddefad
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3kCf86Ufi0U5xBDA.v.3dns.vip
+  - type: vmess
+    name: 4Sarina-b16c1bc873
+    server: 3kCf86Ufi0U5xBDA.v.3dns.vip
+    port: 443
+    uuid: 1abe49dedb6e4f65a0f0a5ea79ddefad
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 3kCf86Ufi0U5xBDA.v.3dns.vip
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3kCf86Ufi0U5xBDA.v.3dns.vip
+  - type: vmess
+    name: 4Jadi-e0671995de
+    server: cc28.goingside.site
+    port: 8998
+    uuid: 4b019faa-38b0-473d-bc49-60bb68151c34
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cc28.goingside.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Nika-71eb10c966
       - 4Nika-55ce20cbd9
+      - 4Jadi-56ef5585f1
+      - DeltaKroneckerGithub-03
+      - 4Kian-697871d49b
+      - 4Sarina-b16c1bc873
+      - 4Jadi-e0671995de
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Nika-71eb10c966
       - 4Nika-55ce20cbd9
+      - 4Jadi-56ef5585f1
+      - DeltaKroneckerGithub-03
+      - 4Kian-697871d49b
+      - 4Sarina-b16c1bc873
+      - 4Jadi-e0671995de
 rules:
   - MATCH,Proxy

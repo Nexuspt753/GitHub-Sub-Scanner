@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: ICV2RAY
+    name: EPODONIOS
     server: app-ss-57.shopping-spb.com
     port: 443
     uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
@@ -14,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇩🇪All¹³
+    name: EPODONIOS-01
     server: app-ss-97.deep-aispb-analytics.com
     port: 443
     uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
@@ -28,21 +28,56 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇩🇪All⁸
-    server: app-ss-97.deep-aispb-analytics.com
+    name: ICV2RAY
+    server: app-ss-57.shopping-spb.com
     port: 443
     uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: assets-ss-97.deep-aispb-analytics.com
+    servername: assets-ss-57.shopping-spb.com
     reality-opts:
-      public-key: ie82DDS-JoUrtvRfEWWOdcp2cEqs6v0-t2QFw3v7qiE
-      short-id: e3f7fec3cfb3a806
+      public-key: dDsLb439UEeGxb-z0NjPGbUR9LvyLZs_SQZNAWKCoHY
+      short-id: a7ecea927dfcdb35
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
     name: DeltaKroneckerGithub
+    server: 109.172.93.20
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Jadi-7f41ddfd4e
+    server: 109.172.93.20
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4FreeIran-b2c2e45ac4
     server: 212.80.218.89
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -59,24 +94,47 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-6a0034e392
+    server: 212.80.218.89
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - ICV2RAY
-      - 🇩🇪All¹³
-      - 🇩🇪All⁸
       - DeltaKroneckerGithub
+      - 4Jadi-7f41ddfd4e
+      - 4FreeIran-b2c2e45ac4
+      - 4Nika-6a0034e392
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - ICV2RAY
-      - 🇩🇪All¹³
-      - 🇩🇪All⁸
       - DeltaKroneckerGithub
+      - 4Jadi-7f41ddfd4e
+      - 4FreeIran-b2c2e45ac4
+      - 4Nika-6a0034e392
 rules:
   - MATCH,Proxy

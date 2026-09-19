@@ -1,6 +1,29 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: s19.cdn-vk.org
+    port: 443
+    uuid: d2c04c25-081f-4136-9ca6-9ae664006d2c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s19.cdn-vk.org
+    reality-opts:
+      public-key: HnCUL-ymslW7iUE-j_jRV9gTRcs-rV106KtMBVvhmBE
+      short-id: fecb64e523ccfd6f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 64.120.95.203
+    port: 119
+    password: skynet
+    udp: true
+    tls: true
+    sni: cloud.lakshan.us
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: cloud.lakshan.us
     port: 119
     password: skynet
@@ -8,12 +31,24 @@ proxies:
     tls: true
     sni: cloud.lakshan.us
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 64.120.94.225
+    port: 443
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
+    udp: true
+    tls: true
+    sni: tjsp.hhxaf.cc.cd
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +56,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

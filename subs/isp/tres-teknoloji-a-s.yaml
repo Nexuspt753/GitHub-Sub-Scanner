@@ -1,50 +1,29 @@
 proxies:
-  - type: vmess
-    name: EPODONIOS
-    server: 91.228.227.211
-    port: 23957
-    uuid: 92987ab8-0a53-4a16-8d6c-295d5df86404
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 91.228.227.211
-    port: 23957
-    uuid: 92987ab8-0a53-4a16-8d6c-295d5df86404
-    alterId: 0
-    cipher: auto
+    server: subtu.charsoulink3.ir
+    port: 2087
+    password: v2whz6ahmyy2f84j
     udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-ef130687bd
-    server: 91.228.227.211
-    port: 23957
-    uuid: 92987ab8-0a53-4a16-8d6c-295d5df86404
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    tls: true
+    sni: pus.mmdaqaorg2.ir
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    client-fingerprint: android
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Jadi-ef130687bd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Jadi-ef130687bd
 rules:
   - MATCH,Proxy

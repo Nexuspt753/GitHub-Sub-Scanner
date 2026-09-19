@@ -15,12 +15,62 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bab-6.site
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 64.83.39.176
+    port: 443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /seller?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
+  - type: vmess
+    name: 4FreeIran-a0f7ad4ab4
+    server: 154.37.223.56
+    port: 52080
+    uuid: f1ac5c82-00a4-400b-bb20-530c91b7c5bb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-e2f083e5fc
+    server: 154.37.223.56
+    port: 52080
+    uuid: f1ac5c82-00a4-400b-bb20-530c91b7c5bb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-90c82de4a3
+    server: 64.83.12.153
+    port: 443
+    uuid: 9d476209-d8bd-9536-6e8d-61c97ec114db
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-a0f7ad4ab4
+      - 4Nika-e2f083e5fc
+      - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +78,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-a0f7ad4ab4
+      - 4Nika-e2f083e5fc
+      - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy

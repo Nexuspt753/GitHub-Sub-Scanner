@@ -1,20 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: NOFiLTERING2🇩🇪
     server: 95.129.236.252
     port: 443
@@ -45,24 +30,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-83a647e37e
-    server: 95.129.236.239
-    port: 443
-    uuid: 1b1480f7-2ddd-4f55-bffe-fa1233624cf3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: wiki.solarinfra.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /stream/615428/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: wiki.solarinfra.net
-  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -77,26 +44,42 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-91959bc96f
+    server: 95.129.236.216
+    port: 443
+    uuid: f06b2f8a-ce20-4fc0-ab2d-12dad275dfd4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: crm.hourtley.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /origin/190546791/fetch
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: crm.hourtley.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - NOFiLTERING2🇩🇪
       - 🇷🇺139881
-      - 4Nika-83a647e37e
       - 4Mohsen-b66a7367f9
+      - 4Mohsen-91959bc96f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - NOFiLTERING2🇩🇪
       - 🇷🇺139881
-      - 4Nika-83a647e37e
       - 4Mohsen-b66a7367f9
+      - 4Mohsen-91959bc96f
 rules:
   - MATCH,Proxy

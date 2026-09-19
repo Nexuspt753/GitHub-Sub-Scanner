@@ -1,50 +1,20 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 185.155.55.10
-    port: 8443
-    uuid: 42d932cb-8768-41de-b57b-299252a493d2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ee-nf.reddotcorp.org
-    reality-opts:
-      public-key: ApMfbcEyBOve6DxXoBNVu3bCCzQ7XCEYB4ummsDtTBE
-      short-id: 661766b2bcef440a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: DeltaKroneckerGithub
-    server: 89.106.88.6
-    port: 8443
+    server: ee.cdn-update.rutube.info
+    port: 20443
     uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: dest1.cdn-update.rutube.info
     reality-opts:
       public-key: "-AdhgMZeNHR2zAmGWa5peg7Ni0-e4IVMoSzydC9n7C4"
       short-id: "08"
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: V2ray_confiig
-    server: 185.155.55.10
-    port: 8443
-    uuid: 42d932cb-8768-41de-b57b-299252a493d2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ee-nf.reddotcorp.org
-    reality-opts:
-      public-key: ApMfbcEyBOve6DxXoBNVu3bCCzQ7XCEYB4ummsDtTBE
-      short-id: 661766b2bcef440a
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vasl_bashim
+    name: EPODONIOS
     server: 185.155.55.10
     port: 8443
     uuid: 42d932cb-8768-41de-b57b-299252a493d2
@@ -71,53 +41,22 @@ proxies:
       short-id: 661766b2bcef440a
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: 4Jadi-dd9140ad78
-    server: ee.cheapgo.cc
-    port: 8443
-    password: eZwp12tXna8-s_ysszXnXq25rv1c8w
-    udp: true
-    tls: true
-    sni: ee.cheapgo.cc
-    client-fingerprint: chrome
-  - type: vless
-    name: 4Jadi-e9a11b8fc3
-    server: 185.155.55.10
-    port: 8443
-    uuid: 42d932cb-8768-41de-b57b-299252a493d2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ee-nf.reddotcorp.org
-    reality-opts:
-      public-key: ApMfbcEyBOve6DxXoBNVu3bCCzQ7XCEYB4ummsDtTBE
-      short-id: 661766b2bcef440a
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - V2ray_confiig
-      - vasl_bashim
+      - EPODONIOS
       - vpnsal
-      - 4Jadi-dd9140ad78
-      - 4Jadi-e9a11b8fc3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - V2ray_confiig
-      - vasl_bashim
+      - EPODONIOS
       - vpnsal
-      - 4Jadi-dd9140ad78
-      - 4Jadi-e9a11b8fc3
 rules:
   - MATCH,Proxy

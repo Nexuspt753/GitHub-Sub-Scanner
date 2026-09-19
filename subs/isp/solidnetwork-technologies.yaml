@@ -1,48 +1,29 @@
 proxies:
-  - type: trojan
-    name: EPODONIOS
-    server: 104.129.166.30
-    port: 443
-    password: 50414e45-4c5f-5a45-5553-ef59b0a09a2c
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 104.129.167.4
+    port: 80
+    uuid: 424fa201-3f94-479e-b533-d5257cf9a207
     udp: true
-    tls: true
-    sni: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
-    client-fingerprint: chrome
+    xudp: true
     network: ws
     ws-opts:
-      path: /stream/PANEL_ZEUS/ef59b0a09a2c
+      path: /pyip=telegram @azadweb
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
-  - type: trojan
-    name: 4Mohsen-ea6f68994e
-    server: 104.129.166.30
-    port: 443
-    password: 50414e45-4c5f-5a45-5553-ef59b0a09a2c
-    udp: true
-    tls: true
-    sni: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /stream/PANEL_ZEUS/ef59b0a09a2c
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 29zxp9e1ujvs.rozahn122i-b134.workers.dev
+        Host: floral-thunder-10d3.82-67d.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Mohsen-ea6f68994e
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Mohsen-ea6f68994e
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

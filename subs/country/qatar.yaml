@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: Doha · @DeltaKroneckerGithub
+    server: 34.18.31.5
+    port: 443
+    uuid: bd82d5e7-4395-40e1-b34e-2974eb0c8555
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: ZRWl48Ahw4vlnPSTMkNs6xcCEDd9Qq4AsChUp-mg7A4
+      short-id: 9c8748aa3f7d4219
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Doha · @DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Doha · @DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

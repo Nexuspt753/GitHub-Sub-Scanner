@@ -1,5 +1,15 @@
 proxies:
   - type: vmess
+    name: 4Jadi-81b09a75cf
+    server: vip3.coinchain.site
+    port: 8080
+    uuid: 992b7390-b7e7-4adf-82aa-a8953a997380
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Jadi-0f25908f6e
     server: vip3.coinchain.site
     port: 8080
@@ -14,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-81b09a75cf
       - 4Jadi-0f25908f6e
   - name: Auto
     type: url-test
@@ -21,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-81b09a75cf
       - 4Jadi-0f25908f6e
 rules:
   - MATCH,Proxy
