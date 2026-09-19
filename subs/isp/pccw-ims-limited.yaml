@@ -1,14 +1,5 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
-    server: 219.76.13.181
-    port: 443
-    password: SyOxpKxC8u5jgNa3DCZ34y3D9CRenFcaABpYATEeqI2RSaXD76zS8YF0Owl3lZ
-    udp: true
-    tls: true
-    sni: arbettp.freetrade.link
-    client-fingerprint: chrome
-  - type: trojan
     name: DeltaKroneckerGithub
     server: 58.152.110.111
     port: 443
@@ -35,43 +26,22 @@ proxies:
     tls: true
     sni: arbettp.freetrade.link
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Sarina-12fdb05684
-    server: 219.76.13.167
-    port: 443
-    uuid: 7fcb4a27-f818-3377-af56-cc08bcb42b5d
-    alterId: 1
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /db
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: e.cn-db.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-06c8f125f0
-      - 4Sarina-12fdb05684
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-06c8f125f0
-      - 4Sarina-12fdb05684
 rules:
   - MATCH,Proxy

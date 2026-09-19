@@ -1,0 +1,99 @@
+proxies:
+  - type: vless
+    name: 🇩🇪176012
+    server: cedarsection.zioio.net
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cedarsection.zioio.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇩🇪176013
+    server: cedarsection.zioio.net
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cedarsection.zioio.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇪🇺
+    server: cedarsection.zioio.net
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cedarsection.zioio.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🔵@chillguy_vpn
+    server: cedarsection.zioio.net
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cedarsection.zioio.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇪🇺-01
+    server: tierrollup.obsch-self.co.uk
+    port: 443
+    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tierrollup.obsch-self.co.uk
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇩🇪176012
+      - 🇩🇪176013
+      - 🇪🇺
+      - 🔵@chillguy_vpn
+      - 🇪🇺-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇩🇪176012
+      - 🇩🇪176013
+      - 🇪🇺
+      - 🔵@chillguy_vpn
+      - 🇪🇺-01
+rules:
+  - MATCH,Proxy

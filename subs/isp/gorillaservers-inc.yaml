@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 🇺🇸US-🚀@VPNine1
+    server: dzen-us-2.com
+    port: 443
+    uuid: bcb5a897-8cc4-4e21-ad96-c82fb3a9d72a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dzen-us-2.com
+    reality-opts:
+      public-key: 9F7JxyyP-TNLt0dY2xOB0_34I8W0xXIpFY7rZ7-L0Gg
+      short-id: 0a6ba2716a409da6
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇺🇸US-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇺🇸US-🚀@VPNine1
+rules:
+  - MATCH,Proxy

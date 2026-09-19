@@ -1,4 +1,25 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: free-de.noode.work
+    port: 443
+    uuid: e0d66042-eeb3-45e1-9106-045c4c4b24fa
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: johnydeep.net
+    reality-opts:
+      public-key: 6vDdlh4aAipoRQ-IXDjzTUtKpZS09xtNXIisCa__2CM
+      short-id: f74c6a18133e2e72
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: ss
+    name: 4Nika-e052075dfd
+    server: 94.249.187.46
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: IXa3ylzS_jBOAsQy071tIQ
+    udp: true
   - type: ss
     name: 4Kian-9b56fcaec3
     server: 94.249.187.46
@@ -6,39 +27,22 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: rSeYcig_XBy8q3k33NpK3A
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 94.249.187.46
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: rSeYcig_XBy8q3k33NpK3A
-    udp: true
-  - type: vmess
-    name: DeltaKroneckerGithub-01
-    server: 94.249.187.46
-    port: 2086
-    uuid: f6361af8-bb8f-4609-bf5d-3fc0f688f47b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-9b56fcaec3
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-e052075dfd
+      - 4Kian-9b56fcaec3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9b56fcaec3
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-e052075dfd
+      - 4Kian-9b56fcaec3
 rules:
   - MATCH,Proxy

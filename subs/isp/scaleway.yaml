@@ -1,6 +1,22 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: sc-thenetherlands1.09vpn.com
+    port: 8443
+    uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sc-thenetherlands1.09vpn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sc-thenetherlands1.09vpn.com
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: sc-thenetherlands2.09vpn.com
     port: 8443
     uuid: e73df646-1f62-41bf-8c50-653497d603d0
@@ -14,33 +30,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sc-thenetherlands2.09vpn.com
-  - type: ss
-    name: 4FreeIran-23df23169a
-    server: 51.159.19.174
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: Vr06rU_v1vFPYeXq9zbsAA
-    udp: true
   - type: vless
-    name: 🇳🇱175887
-    server: sc-thenetherlands1.09vpn.com
-    port: 80
-    uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+    name: EPODONIOS
+    server: sca21.exodnsdir.xyz
+    port: 8880
+    uuid: 8dc7722c-2767-4eea-a28b-2f8daacc07e3
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: SC-TheNetherlands1.09vpn.com
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: nl-trojan.bonds.id
-    port: 443
-    password: 96884680-77e6-11eb-8d67-1239d0255272
-    udp: true
-    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: 163.172.211.74
@@ -60,7 +59,17 @@ proxies:
     sni: yahoo.com
     client-fingerprint: chrome
   - type: vless
-    name: EPODONIOS
+    name: EVAY_VPN
+    server: sca21.exodnsdir.xyz
+    port: 8880
+    uuid: 8dc7722c-2767-4eea-a28b-2f8daacc07e3
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
     server: 163.172.213.174
     port: 80
     uuid: e73df646-1f62-41bf-8c50-653497d603d0
@@ -81,8 +90,17 @@ proxies:
     tls: true
     sni: zula.ir
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-04
+    server: 163.172.211.74
+    port: 443
+    password: 34dea460-bad1-11ed-94f5-1239d0255272
+    udp: true
+    tls: true
+    sni: tci.ir
+    client-fingerprint: chrome
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-02
     server: sc-thenetherlands1.09vpn.com
     port: 80
     uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
@@ -94,15 +112,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: SC-TheNetherlands1.09vpn.com
-  - type: trojan
-    name: DeltaKroneckerGithub-04
-    server: 163.172.211.74
-    port: 443
-    password: 34dea460-bad1-11ed-94f5-1239d0255272
-    udp: true
-    tls: true
-    sni: tci.ir
-    client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-db7ab1b54f
     server: 51.159.59.186
@@ -163,6 +172,19 @@ proxies:
         Host: SC-TheNetherlands1.09vpn.com
   - type: vless
     name: 4FreeIran-d2864054a1
+    server: sc-thenetherlands1.09vpn.com
+    port: 80
+    uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: SC-TheNetherlands1.09vpn.com
+  - type: vless
+    name: 4FreeIran-297dc8c0b4
     server: sc-thenetherlands1.09vpn.com
     port: 80
     uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
@@ -271,15 +293,15 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-23df23169a
-      - 🇳🇱175887
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - EPODONIOS
-      - 4Mohsen-296a967d79
+      - EVAY_VPN
       - EPODONIOS-01
+      - 4Mohsen-296a967d79
       - DeltaKroneckerGithub-04
+      - EPODONIOS-02
       - 4Jadi-db7ab1b54f
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
@@ -287,6 +309,7 @@ proxy-groups:
       - 🇳🇱
       - ">>@oneclickvpnkeys::NL"
       - 4FreeIran-d2864054a1
+      - 4FreeIran-297dc8c0b4
       - 4Nika-dacab1c731
       - 4Kian-8ae8b568f2
       - 4Mohsen-a4de13a1ba
@@ -300,15 +323,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-23df23169a
-      - 🇳🇱175887
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - EPODONIOS
-      - 4Mohsen-296a967d79
+      - EVAY_VPN
       - EPODONIOS-01
+      - 4Mohsen-296a967d79
       - DeltaKroneckerGithub-04
+      - EPODONIOS-02
       - 4Jadi-db7ab1b54f
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
@@ -316,6 +339,7 @@ proxy-groups:
       - 🇳🇱
       - ">>@oneclickvpnkeys::NL"
       - 4FreeIran-d2864054a1
+      - 4FreeIran-297dc8c0b4
       - 4Nika-dacab1c731
       - 4Kian-8ae8b568f2
       - 4Mohsen-a4de13a1ba

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: s17.cdn-vk.org
+    port: 443
+    uuid: d2c04c25-081f-4136-9ca6-9ae664006d2c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s17.cdn-vk.org
+    reality-opts:
+      public-key: OtMHlrw-QbaJP3dRpFGZEF0GTTsFNy2E7mWPuzRarjg
+      short-id: 8b9c3f0a86fd220b
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy
