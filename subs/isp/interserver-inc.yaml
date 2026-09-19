@@ -1,11 +1,16 @@
 proxies:
-  - type: ss
-    name: 4Kian-abe0c848bd
-    server: 161.129.71.148
-    port: 17913
-    cipher: aes-128-gcm
-    password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
+  - type: vless
+    name: EPODONIOS
+    server: 162.35.96.15
+    port: 8081
+    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
     udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-test
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: DeltaKroneckerGithub
     server: 162.35.96.20
@@ -21,7 +26,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇺🇸US-🚀@VPNine1
+    name: 4Mohsen-1a4d89b9dd
     server: 162.35.96.15
     port: 8081
     uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
@@ -32,52 +37,34 @@ proxies:
       path: /vless-test
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🐊96@oneclickvpnkeys
-    server: 162.35.96.15
-    port: 8081
-    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  - type: vmess
+    name: 4FreeIran-9ee1fb02dc
+    server: us-nohessss.privnet.store
+    port: 10028
+    uuid: e7d4d923-c8f6-4b94-bf05-c5e07a83e2f6
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-test
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-347acc22c7
-    server: 162.35.96.20
-    port: 443
-    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sheetpeek.com
-    reality-opts:
-      public-key: pX9uknHGLC9I26TT5kq4bIAljtX2AGWLK23EMgn6xFo
-      short-id: 84be686ea1d16478
-    flow: xtls-rprx-vision
-    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-abe0c848bd
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - 🇺🇸US-🚀@VPNine1
-      - 🐊96@oneclickvpnkeys
-      - 4Kian-347acc22c7
+      - 4Mohsen-1a4d89b9dd
+      - 4FreeIran-9ee1fb02dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-abe0c848bd
+      - EPODONIOS
       - DeltaKroneckerGithub
-      - 🇺🇸US-🚀@VPNine1
-      - 🐊96@oneclickvpnkeys
-      - 4Kian-347acc22c7
+      - 4Mohsen-1a4d89b9dd
+      - 4FreeIran-9ee1fb02dc
 rules:
   - MATCH,Proxy
