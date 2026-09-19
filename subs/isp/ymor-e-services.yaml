@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: Bv2.pconnectq.ir
+    port: 1151
+    uuid: c4b13d22-205f-4ed2-a331-bdd912ffb692
+    udp: true
+    xudp: true
+  - type: vless
+    name: "[50623]"
+    server: Bv2.pconnectq.ir
+    port: 1151
+    uuid: c4b13d22-205f-4ed2-a331-bdd912ffb692
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - "[50623]"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - "[50623]"
+rules:
+  - MATCH,Proxy

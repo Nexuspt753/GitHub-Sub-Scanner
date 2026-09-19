@@ -30,6 +30,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 193.233.91.200
+    port: 443
+    uuid: 0dbe4d34-30c9-4f8a-b229-e5950087232d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.callibri.ru
+    reality-opts:
+      public-key: yCKV2xr725jI0sFhm4KbttKl8b9UZrnQTXxZLN2S4BM
+      short-id: 6d47
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: DeltaKroneckerGithub-01
     server: 77.110.104.238
     port: 443
@@ -46,14 +60,21 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS-01
-    server: mashinbazi.athforce.ir
-    port: 2376
-    uuid: be3a80da-9bda-44b7-97ea-8794b88633d8
+    name: EPODONIOS-02
+    server: 193.233.91.200
+    port: 443
+    uuid: f211f0aa-db73-49f2-b2cd-5be20c034f36
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.callibri.ru
+    reality-opts:
+      public-key: yCKV2xr725jI0sFhm4KbttKl8b9UZrnQTXxZLN2S4BM
+      short-id: a284
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: 193.233.91.200
     port: 443
     uuid: f211f0aa-db73-49f2-b2cd-5be20c034f36
@@ -74,7 +95,7 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: 4Kian-4cbc1d145f
+    name: V2rayng_Fast
     server: 193.233.91.200
     port: 443
     uuid: f211f0aa-db73-49f2-b2cd-5be20c034f36
@@ -87,6 +108,13 @@ proxies:
       short-id: a284
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-6c58d59a64
+    server: mashinbazi.athforce.ir
+    port: 2376
+    uuid: be3a80da-9bda-44b7-97ea-8794b88633d8
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -94,11 +122,13 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
       - EPODONIOS-01
+      - DeltaKroneckerGithub-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇷🇺
-      - 4Kian-4cbc1d145f
+      - V2rayng_Fast
+      - 4Sarina-6c58d59a64
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -107,10 +137,12 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
       - EPODONIOS-01
+      - DeltaKroneckerGithub-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇷🇺
-      - 4Kian-4cbc1d145f
+      - V2rayng_Fast
+      - 4Sarina-6c58d59a64
 rules:
   - MATCH,Proxy

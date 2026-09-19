@@ -1,7 +1,7 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 188.220.205.16
+    server: flax-spinel23895.my-vm.work
     port: 8088
     uuid: f7c74a35-1da0-5097-9fa7-a20735610ac1
     udp: true
@@ -14,6 +14,19 @@ proxies:
         Host: queuev4.vk.com
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: 188.220.205.16
+    port: 8088
+    uuid: f7c74a35-1da0-5097-9fa7-a20735610ac1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: queuev4.vk.com
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 104.234.24.13
     port: 8088
     uuid: f7c74a35-1da0-5097-9fa7-a20735610ac1
@@ -58,6 +71,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-1b5cf06835
       - 4Mohsen-d7d21cc5a3
   - name: Auto
@@ -68,6 +82,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-1b5cf06835
       - 4Mohsen-d7d21cc5a3
 rules:

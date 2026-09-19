@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Jadi-cc4908dba8
+    server: 190.2.147.119
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: XF0klw7870vXn3uQIxe19Q
+    udp: true
   - type: vless
     name: EPODONIOS
     server: arianet.on1a.com
@@ -38,22 +45,42 @@ proxies:
       - http/1.1
     servername: arianet.on1a.com
     xudp: true
+  - type: vmess
+    name: 4Sarina-bec6a50abb
+    server: free-russian01-cdn.xiaohouzi.club
+    port: 80
+    uuid: 3d31728e-064d-42b8-b945-f79c008f73fc
+    alterId: 233
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free-russian01-cdn.xiaohouzi.club
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-cc4908dba8
       - EPODONIOS
       - vmess_ir
       - 4Kian-8572f57036
+      - 4Sarina-bec6a50abb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-cc4908dba8
       - EPODONIOS
       - vmess_ir
       - 4Kian-8572f57036
+      - 4Sarina-bec6a50abb
 rules:
   - MATCH,Proxy

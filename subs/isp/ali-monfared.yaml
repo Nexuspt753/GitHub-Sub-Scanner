@@ -1,9 +1,22 @@
 proxies:
   - type: vless
-    name: 4Mohsen-ac1b7705db
+    name: EPODONIOS
     server: jsv-ir2.jmovies.ir
     port: 443
     uuid: c26fe2f0-5c69-000B-8a1a-bf116ceb9215
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aparat.com
+    reality-opts:
+      public-key: fwS6bEyF28VsSapBZZ2vz6LJmVismH0NYupk6STFRWc
+      short-id: f373df45a687eaff
+    xudp: true
+  - type: vless
+    name: vmessorg
+    server: jsv-ir2.jmovies.ir
+    port: 443
+    uuid: c26fe2f0-5c69-001F-8a1a-bf116ceb9215
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-ac1b7705db
+      - EPODONIOS
+      - vmessorg
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-ac1b7705db
+      - EPODONIOS
+      - vmessorg
 rules:
   - MATCH,Proxy
