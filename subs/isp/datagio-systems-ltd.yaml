@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: greger.purpl.su
+    port: 443
+    uuid: 988be430-813f-4174-b5ed-86fcebd7cda0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: greger.purpl.su
+    reality-opts:
+      public-key: q7E00O1zh2xSYK64FUVYWUHxZ5J8E10-gfojtkWqK2Q
+      short-id: 3617ef3dcacef9d2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: pl.extra-solutions.ru
     port: 443
     uuid: c71d5391-cbf2-40e7-9255-a80259a1a58b
@@ -55,15 +69,31 @@ proxies:
       short-id: 3617ef3dcacef9d2
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-c03822199c
+    server: pl.extra-solutions.ru
+    port: 443
+    uuid: c71d5391-cbf2-40e7-9255-a80259a1a58b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl.extra-solutions.ru
+    reality-opts:
+      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
+      short-id: a1b2c3d4b5
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - irdusti(9)🇩🇪¹
       - "["
       - 4Kian-a020e3387c
+      - 4Nika-c03822199c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,8 +101,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - irdusti(9)🇩🇪¹
       - "["
       - 4Kian-a020e3387c
+      - 4Nika-c03822199c
 rules:
   - MATCH,Proxy

@@ -9,6 +9,21 @@ proxies:
     sni: 38.180.173.150
     client-fingerprint: chrome
   - type: vmess
+    name: 4Nika-f3e7824555
+    server: 195.54.174.18
+    port: 80
+    uuid: 6d6f413f-3dc2-4d02-8d35-8b45e39feb72
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4Kian-9a31052a91
     server: 195.54.174.18
     port: 80
@@ -30,6 +45,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-f3e7824555
       - 4Kian-9a31052a91
   - name: Auto
     type: url-test
@@ -38,6 +54,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-f3e7824555
       - 4Kian-9a31052a91
 rules:
   - MATCH,Proxy

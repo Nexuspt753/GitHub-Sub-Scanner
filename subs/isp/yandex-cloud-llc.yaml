@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: bp4-29f1baf990.shamanapp.online
+    port: 8444
+    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 158.160.144.108
     port: 7443
@@ -14,7 +29,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 188.72.103.4
     port: 443
     uuid: 1f959100-a98b-47fb-84fa-359246dc458a
@@ -79,7 +94,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 89.169.171.202
     port: 8444
     uuid: b3a11068-1a7e-4643-85de-7c82cce46943
@@ -94,7 +109,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: apicdn.4subnodes.com
     port: 443
     uuid: 1f959100-a98b-47fb-84fa-359246dc458a
@@ -144,31 +159,6 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 93.77.188.102
-    port: 443
-    uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: wde5.whitedeu.org
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-965e2a5cb5
-    server: 158.160.144.108
-    port: 7443
-    uuid: 0c9f19ac-d2fb-4ddb-81e4-c96501ac964c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 5post-gate.x5.ru
-    reality-opts:
-      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
-      short-id: 7755e972daf8eec8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-5b0f9a2cee
     server: 158.160.144.108
     port: 7443
@@ -183,21 +173,16 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-9767f280da
-    server: 188.72.103.4
+    name: ">>@configV2rayNG::DE"
+    server: 93.77.188.102
     port: 443
-    uuid: 1f959100-a98b-47fb-84fa-359246dc458a
+    uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: apicdn.4subnodes.com
+    client-fingerprint: firefox
+    servername: wde5.whitedeu.org
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /apiv1/esa1-asda2jcvnbpseflkn-kjweksad
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: apicdn.4subnodes.com
   - type: vless
     name: 4Kian-8406711aff
     server: 51.250.95.143
@@ -212,68 +197,46 @@ proxies:
       short-id: f6
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-5b71663b45
-    server: 89.169.186.14
-    port: 443
-    uuid: c8912ceb-599c-49c9-9976-a1c26a462366
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: cdn.vtb-cdn2.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /pleasework
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn.vtb-cdn2.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - vless
       - FarazV2ray
       - V2raySaman
       - ✅
-      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - vless-01
       - vless-02
       - vless-03
-      - EPODONIOS-01
-      - 4FreeIran-965e2a5cb5
       - 4Kian-5b0f9a2cee
-      - 4FreeIran-9767f280da
+      - ">>@configV2rayNG::DE"
       - 4Kian-8406711aff
-      - 4Mohsen-5b71663b45
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - vless
       - FarazV2ray
       - V2raySaman
       - ✅
-      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - vless-01
       - vless-02
       - vless-03
-      - EPODONIOS-01
-      - 4FreeIran-965e2a5cb5
       - 4Kian-5b0f9a2cee
-      - 4FreeIran-9767f280da
+      - ">>@configV2rayNG::DE"
       - 4Kian-8406711aff
-      - 4Mohsen-5b71663b45
 rules:
   - MATCH,Proxy
