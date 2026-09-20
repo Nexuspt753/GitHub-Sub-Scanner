@@ -1,33 +1,44 @@
 proxies:
   - type: vless
-    name: 4Jadi-365c144126
-    server: ir.dl.stormrp.ir
-    port: 443
-    uuid: 2592b640-5060-4cc8-9ad7-bd2834a2d45b
+    name: EPODONIOS
+    server: ir.tempfast.ir
+    port: 4231
+    uuid: af238591-056b-4eaa-be7c-159cd85ac6d6
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: ir.dl.stormrp.ir
+    servername: www.technolife.com
+    reality-opts:
+      public-key: YfpMcHPP5SGnjyLhIKtapygk6Zs7W3-Cva3e0wJSWGY
+      short-id: cd7b1b05b73db004
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api-mp4
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: filembad
+    server: ir.tempfast.ir
+    port: 4231
+    uuid: af238591-056b-4eaa-be7c-159cd85ac6d6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.technolife.com
+    reality-opts:
+      public-key: YfpMcHPP5SGnjyLhIKtapygk6Zs7W3-Cva3e0wJSWGY
+      short-id: cd7b1b05b73db004
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-365c144126
+      - EPODONIOS
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-365c144126
+      - EPODONIOS
+      - filembad
 rules:
   - MATCH,Proxy
