@@ -1,26 +1,23 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-83adf88633
-    server: 193.24.120.6
-    port: 1070
-    uuid: a8899899-106f-47f2-b247-5795ba37a58d
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: irmedia12.pmme6.top
+    port: 33443
+    uuid: e128a087-bf3e-47de-af6f-fc01a2a977dc
     udp: true
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-83adf88633
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-83adf88633
+      - vless
 rules:
   - MATCH,Proxy
