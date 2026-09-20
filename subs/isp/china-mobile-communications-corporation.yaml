@@ -1,26 +1,43 @@
 proxies:
+  - type: trojan
+    name: 4Mohsen-9543ed3578
+    server: fj3x.waimaosass.icu
+    port: 58113
+    password: 81691dd5-32b9-41ba-b0a9-f32b522d3548
+    udp: true
+    tls: true
+    sni: iosapps.itunes.apple.com
+    client-fingerprint: chrome
   - type: vmess
-    name: 4Mohsen-3bd0abb961
-    server: 36.133.78.37
-    port: 50016
-    uuid: 1235431b-b6b8-4add-bff4-a6d71bcc4d71
+    name: 4Kian-af1e86a671
+    server: visa.cn
+    port: 80
+    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /sba-vm?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deee.horryan4.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-3bd0abb961
+      - 4Mohsen-9543ed3578
+      - 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-3bd0abb961
+      - 4Mohsen-9543ed3578
+      - 4Kian-af1e86a671
 rules:
   - MATCH,Proxy

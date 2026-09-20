@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Kian-e8538c568a
+    server: germany24kvlcvkzcxvlqwe312adscrfsdcrc234cef.soft421.ir
+    port: 1152
+    uuid: d384974a-87c2-430b-a10c-ae367bc7ced8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: 24qgQiNdIzdKYtFOQDFtB6kN9WKx0gviKirv8Bb4hhI
+      short-id: 86a68a48b7d45f43
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-e8538c568a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-e8538c568a
+rules:
+  - MATCH,Proxy

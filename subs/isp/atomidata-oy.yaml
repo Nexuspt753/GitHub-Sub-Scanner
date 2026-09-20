@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: fi.extra-solutions.ru
+    port: 443
+    uuid: cebeb9be-aef0-4b8e-8ce2-6dd3d17c54e6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fi.extra-solutions.ru
+    reality-opts:
+      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
+      short-id: a1b2c3d4b5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇫🇮176501
+    server: fi.extra-solutions.ru
+    port: 443
+    uuid: cebeb9be-aef0-4b8e-8ce2-6dd3d17c54e6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fi.extra-solutions.ru
+    reality-opts:
+      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
+      short-id: a1b2c3d4b5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇫🇮FI-🚀@VPNine1
+    server: fi.extra-solutions.ru
+    port: 443
+    uuid: cebeb9be-aef0-4b8e-8ce2-6dd3d17c54e6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fi.extra-solutions.ru
+    reality-opts:
+      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
+      short-id: a1b2c3d4b5
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇫🇮176501
+      - 🇫🇮FI-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇫🇮176501
+      - 🇫🇮FI-🚀@VPNine1
+rules:
+  - MATCH,Proxy
