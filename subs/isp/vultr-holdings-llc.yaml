@@ -1,4 +1,45 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 65.20.82.177
+    port: 443
+    password: Tg3RnK7Xp8B1
+    udp: true
+    tls: true
+    sni: ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-26a26da966
+    server: 65.20.71.82
+    port: 443
+    uuid: 3b3d3966-59db-4145-8d61-08d2ad559ced
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
+  - type: vless
+    name: 4Sarina-42d0e97adc
+    server: 65.20.85.14
+    port: 443
+    uuid: 3b3d3966-59db-4145-8d61-08d2ad559ced
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
   - type: vmess
     name: 4Mohsen-e2e05ae3fc
     server: cc35.goingside.site
@@ -20,6 +61,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - 4Nika-26a26da966
+      - 4Sarina-42d0e97adc
       - 4Mohsen-e2e05ae3fc
   - name: Auto
     type: url-test
@@ -27,6 +71,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - 4Nika-26a26da966
+      - 4Sarina-42d0e97adc
       - 4Mohsen-e2e05ae3fc
 rules:
   - MATCH,Proxy

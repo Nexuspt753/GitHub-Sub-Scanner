@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 162.211.231.120
+    port: 443
+    uuid: 00ea1041-e003-4913-8ae6-2178e1566b7b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
+  - type: vless
     name: THUS-K@QiangLieTuiJian
     server: 162.211.231.120
     port: 443
@@ -29,6 +45,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - THUS-K@QiangLieTuiJian
       - 4Mohsen-32e553f3cf
   - name: Auto
@@ -37,6 +54,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - THUS-K@QiangLieTuiJian
       - 4Mohsen-32e553f3cf
 rules:

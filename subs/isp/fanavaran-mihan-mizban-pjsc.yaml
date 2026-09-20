@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: sr5.kivra.fun
+    port: 443
+    uuid: 4f2bc7ac-458b-49cf-b861-6340bd316adb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: g5.kivra.fun
+    reality-opts:
+      public-key: AKTROUZ03ghRLr5wYqigzZEccftHgx6PpTmwclD3DhY
+      short-id: 57d598708fb7e8b0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: "["
     server: sr5.kivra.fun
     port: 443
@@ -14,7 +28,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: sr4.furnex.fun
     port: 443
     uuid: c1c5210d-4ecf-49b2-9a1a-5f613c4ad8ac
@@ -27,16 +41,6 @@ proxies:
       short-id: 833b825b75344057
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: EPODONIOS-01
-    server: test-tun.armtech.ir
-    port: 443
-    uuid: c4e24fd0-2194-44f5-a058-69df3dc035a0
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vmess
     name: EPODONIOS-02
     server: test-tun.armtech.ir
@@ -102,32 +106,56 @@ proxies:
       public-key: noC3OHzjLnDTeAHDZ4T9BJ3t9gkW5RWDPcd7g8DTExo
       short-id: cb3a56273ecf7996
     xudp: true
+  - type: vmess
+    name: 4FreeIran-c997a0d63e
+    server: test-tun.armtech.ir
+    port: 443
+    uuid: c4e24fd0-2194-44f5-a058-69df3dc035a0
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-eb988c5c35
+    server: test-tun.armtech.ir
+    port: 443
+    uuid: c4e24fd0-2194-44f5-a058-69df3dc035a0
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "["
       - EPODONIOS
+      - "["
       - EPODONIOS-01
       - EPODONIOS-02
       - "[-01"
       - 4Mohsen-ce441e551d
       - 4Kian-458054da8f
       - 4Sarina-cf615e2449
+      - 4FreeIran-c997a0d63e
+      - 4Kian-eb988c5c35
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "["
       - EPODONIOS
+      - "["
       - EPODONIOS-01
       - EPODONIOS-02
       - "[-01"
       - 4Mohsen-ce441e551d
       - 4Kian-458054da8f
       - 4Sarina-cf615e2449
+      - 4FreeIran-c997a0d63e
+      - 4Kian-eb988c5c35
 rules:
   - MATCH,Proxy

@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: 🇭🇰177348
+    server: 45.64.74.100
+    port: 15570
+    uuid: 931220c8-15ac-41f4-ba7b-8736a82a3ba2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 59-0Y1oblZGcZajVn0IAMba0RNh8yNv-jhvKni1eZDY
+      short-id: 945974883e
+    xudp: true
+  - type: vless
+    name: 4Nika-f579d59714
+    server: 45.64.74.100
+    port: 15570
+    uuid: 931220c8-15ac-41f4-ba7b-8736a82a3ba2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 59-0Y1oblZGcZajVn0IAMba0RNh8yNv-jhvKni1eZDY
+      short-id: 945974883e
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇭🇰177348
+      - 4Nika-f579d59714
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇭🇰177348
+      - 4Nika-f579d59714
+rules:
+  - MATCH,Proxy
