@@ -1,23 +1,32 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 211.178.105.134
-    port: 6123
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 123.111.169.70
+    port: 443
+    uuid: 8102891d-7b37-4dc5-8261-9474b59b5c63
     udp: true
+    tls: true
+    client-fingerprint: random
+    servername: vip.868068.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=us.xiabibi.cf
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vip.868068.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,6 +1,38 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 82.139.234.155
+    port: 42892
+    uuid: 53627d61-30b2-4333-9901-94cd457cbeaa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amd.com
+    reality-opts:
+      public-key: GLKvvfUmBk3Y4fxmRCgvSaR73H2lE1eBGm2EwWPxtDY
+      short-id: a51c
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Mohsen-85333631a4
+    server: 82.139.242.5
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Jadi-4bbf2f7dff
     server: 82.139.242.5
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -39,7 +71,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-85333631a4
+      - 4Jadi-4bbf2f7dff
       - 4Nika-5ee5bb37f0
   - name: Auto
     type: url-test
@@ -47,7 +81,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-85333631a4
+      - 4Jadi-4bbf2f7dff
       - 4Nika-5ee5bb37f0
 rules:
   - MATCH,Proxy

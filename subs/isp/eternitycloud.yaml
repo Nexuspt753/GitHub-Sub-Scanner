@@ -25,7 +25,7 @@ proxies:
     name: DeltaKroneckerGithub-02
     server: 94.183.170.147
     port: 8443
-    uuid: 5edbcb44-8d04-4fa7-a587-bc5d60c24ca1
+    uuid: 66ac188b-bd8d-4218-b9ba-0bad0e152cd0
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -37,18 +37,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-b775242551
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -57,7 +45,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Nika-b775242551
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,6 +54,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Nika-b775242551
 rules:
   - MATCH,Proxy

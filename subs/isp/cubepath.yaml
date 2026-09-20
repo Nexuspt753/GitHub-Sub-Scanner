@@ -1,0 +1,100 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 194.26.100.73
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: es.cache-4d8a.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 194.26.100.18
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: es.cache-4d8a.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: us.cache-4d8a.com
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: us.cache-4d8a.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: es.cache-4d8a.com
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: /
+    servername: es.cache-4d8a.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 157.254.174.14
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: us.cache-4d8a.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+rules:
+  - MATCH,Proxy

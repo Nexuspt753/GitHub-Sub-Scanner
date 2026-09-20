@@ -13,12 +13,27 @@ proxies:
       short-id: e114ca996877ce3a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 85.155.228.24
+    port: 443
+    uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: alda1.thewalkingded.life
+    reality-opts:
+      public-key: 2IBUcPHOhFulmJaICe_xuRBJVgjDqVXB8fjHVdbdOQA
+      short-id: e114ca996877ce3a
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

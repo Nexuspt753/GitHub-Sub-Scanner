@@ -1,50 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 94.183.224.53
-    port: 8443
-    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
+    name: 4FreeIran-9564c93021
+    server: 94.183.224.45
+    port: 443
+    uuid: d72f05b0-b182-4783-a6f2-21cecc7d841a
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: nl1.pad-service.com
+    client-fingerprint: chrome
+    servername: dzen.ru
+    reality-opts:
+      public-key: SibLV5WBGdljTiUCmKx77KhHQfErCwjDMD_ZLoha3js
+      short-id: a1b2c3d4e5f67890
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /nl1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl1.pad-service.com
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: sa-aef7eaca981d2a80.sr-d8a007cac7ec657d.r.vpvpn.club
-    port: 8443
-    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl1.pad-service.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /nl1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl1.pad-service.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-9564c93021
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-9564c93021
 rules:
   - MATCH,Proxy

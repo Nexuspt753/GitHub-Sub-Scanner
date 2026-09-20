@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: nl.node-edge09.com
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: nl.node-edge09.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.141.33.2
+    port: 443
+    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl.node-edge09.com
+    reality-opts:
+      public-key: S6t9-gOX2mxWKNGvGSJ8NxDdlJy78d4gN2-wv2d0hFw
+      short-id: 8319913f2e5f5711
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

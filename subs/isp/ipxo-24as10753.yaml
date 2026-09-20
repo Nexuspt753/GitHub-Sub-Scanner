@@ -1,27 +1,68 @@
 proxies:
   - type: vless
-    name: 4Jadi-56efd5ad7f
-    server: hk02.ccdn3.work
-    port: 791
-    uuid: d5e77b10-7374-11eb-b739-9160314e12e6
+    name: DeltaKroneckerGithub
+    server: 175.29.23.114
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.bilibili.com
-    flow: xtls-rprx-vision-udp443
+    servername: hszme.xax0.x8p.hh.vavava.kdns.fr
     xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hszme.xax0.x8p.hh.vavava.kdns.fr
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 175.29.23.179
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hszme.xax0.x8p.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hszme.xax0.x8p.hh.vavava.kdns.fr
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 175.29.23.138
+    port: 443
+    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hszme.xax0.x8p.hh.vavava.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hszme.xax0.x8p.hh.vavava.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-56efd5ad7f
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-56efd5ad7f
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

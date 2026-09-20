@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 134.195.101.122
+    port: 443
+    uuid: d444b9a0-06b8-44ca-9a06-e0ad5fec2c5c
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.mi.com
+    reality-opts:
+      public-key: ptYLYuVba16lu-OtadiE8Wd-cGHHVZh0XkxVUqrhmDE
+      short-id: 2546d239
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 134.195.101.122
     port: 443
@@ -27,20 +41,38 @@ proxies:
       short-id: 2546d239
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-28330c580e
+    server: 134.195.101.122
+    port: 443
+    uuid: 45c14af6-7f0e-46aa-abbb-0ccd96d61f55
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.mi.com
+    reality-opts:
+      public-key: ptYLYuVba16lu-OtadiE8Wd-cGHHVZh0XkxVUqrhmDE
+      short-id: 2546d239
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - NETMelliAnti
+      - 4Sarina-28330c580e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - NETMelliAnti
+      - 4Sarina-28330c580e
 rules:
   - MATCH,Proxy
