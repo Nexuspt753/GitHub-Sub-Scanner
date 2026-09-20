@@ -13,6 +13,15 @@ proxies:
       short-id: 0fb9c965
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 38.28.197.130
+    port: 443
+    password: Aimer
+    udp: true
+    tls: true
+    sni: ageph.ambercc.filegear-sg.me
+    client-fingerprint: chrome
   - type: vmess
     name: 4Nika-5d2eb33142
     server: cu2.ainivp.com
@@ -30,13 +39,32 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cu2.ainivp.com
+  - type: vmess
+    name: 4Jadi-bb0b9a5f59
+    server: yd4.ainivp.com
+    port: 33204
+    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: yd4.ainivp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-5d2eb33142
+      - 4Jadi-bb0b9a5f59
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,6 +72,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-5d2eb33142
+      - 4Jadi-bb0b9a5f59
 rules:
   - MATCH,Proxy

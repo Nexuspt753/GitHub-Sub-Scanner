@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: EPODONIOS
+    server: coco5.mosyx.net
+    port: 1014
+    cipher: chacha20-ietf-poly1305
+    password: fB95883lTj5iIJGu0qB9iRq2ulza8IhX
+    udp: true
+  - type: ss
+    name: "["
+    server: coco5.mosyx.net
+    port: 1014
+    cipher: chacha20-ietf-poly1305
+    password: fB95883lTj5iIJGu0qB9iRq2ulza8IhX
+    udp: true
   - type: vmess
     name: 4Nika-7dfd406339
     server: xgr.goldnshop.com
@@ -14,6 +28,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - "["
       - 4Nika-7dfd406339
   - name: Auto
     type: url-test
@@ -21,6 +37,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - "["
       - 4Nika-7dfd406339
 rules:
   - MATCH,Proxy

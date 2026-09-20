@@ -11,12 +11,29 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-ea4ba64997
+    server: 161.104.44.138
+    port: 443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /my/m/note?ed=2560fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-ea4ba64997
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -24,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-ea4ba64997
 rules:
   - MATCH,Proxy
