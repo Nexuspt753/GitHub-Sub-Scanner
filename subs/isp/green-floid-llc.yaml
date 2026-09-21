@@ -1,6 +1,34 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
+    server: 46.28.71.247
+    port: 443
+    uuid: 12c53e32-e589-47d6-b857-e4132294f767
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: v4MuZIvFrTPT5GHMSaPryUAbIZlLstmsUTzmC1E-JTE
+      short-id: 0dfc23fe80778c00
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 85.90.197.220
+    port: 443
+    uuid: 8f704ed6-9a1a-4d04-94dd-1bff501716de
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: biNcdU5mywtNw-KyPpLHindBxdEyAolT1WJ26N0b7y4
+      short-id: 94acb54627612d43
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: V2ray_confiig
     server: 85.90.197.120
     port: 443
     uuid: d6b59299-2f48-4e9b-9130-b9e9cb5d0a51
@@ -14,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: V2ray_confiig
+    name: 4Sarina-1eb961f835
     server: 85.90.197.120
     port: 443
     uuid: d6b59299-2f48-4e9b-9130-b9e9cb5d0a51
@@ -32,15 +60,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - V2ray_confiig
+      - 4Sarina-1eb961f835
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - V2ray_confiig
+      - 4Sarina-1eb961f835
 rules:
   - MATCH,Proxy

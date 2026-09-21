@@ -1,22 +1,50 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-6079ebeeed
-    server: 46.8.210.152
-    port: 23443
-    password: 2a3b101d-d8f9-40e7-9373-b0ef487c0035
-    sni: disk.api-yandex.net
+  - type: vless
+    name: EPODONIOS
+    server: 185.186.143.237
+    port: 443
+    uuid: 20ea2fdb-568c-4646-a15d-2ab8fcca860e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-kitchen.ru
+    reality-opts:
+      public-key: 6vDdlh4aAipoRQ-IXDjzTUtKpZS09xtNXIisCa__2CM
+      short-id: f74c6a18133e2e72
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇳🇴
+    server: 185.186.143.237
+    port: 443
+    uuid: 20ea2fdb-568c-4646-a15d-2ab8fcca860e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-kitchen.ru
+    reality-opts:
+      public-key: 6vDdlh4aAipoRQ-IXDjzTUtKpZS09xtNXIisCa__2CM
+      short-id: f74c6a18133e2e72
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-6079ebeeed
+      - EPODONIOS
+      - 🇳🇴
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-6079ebeeed
+      - EPODONIOS
+      - 🇳🇴
 rules:
   - MATCH,Proxy

@@ -1,0 +1,36 @@
+proxies:
+  - type: trojan
+    name: Lagos · EPODONIOS
+    server: 103.97.91.17
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: la.freeguard.org
+    client-fingerprint: chrome
+  - type: trojan
+    name: Lagos · 🇳🇬NG-🚀@VPNine1
+    server: 103.97.91.17
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: la.freeguard.org
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Lagos · EPODONIOS
+      - Lagos · 🇳🇬NG-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Lagos · EPODONIOS
+      - Lagos · 🇳🇬NG-🚀@VPNine1
+rules:
+  - MATCH,Proxy

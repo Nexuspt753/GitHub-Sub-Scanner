@@ -1,0 +1,86 @@
+proxies:
+  - type: vless
+    name: Channel
+    server: 202.166.187.132
+    port: 443
+    uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: f.yoptybla.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: f.yoptybla.ru
+  - type: vless
+    name: 🇦🇺178115
+    server: 202.166.187.132
+    port: 443
+    uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: f.yoptybla.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: f.yoptybla.ru
+  - type: vless
+    name: 🇦🇺AU-🚀@VPNine1
+    server: 202.166.187.132
+    port: 443
+    uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: f.yoptybla.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: f.yoptybla.ru
+  - type: vless
+    name: 4FreeIran-46a9ec92ed
+    server: 202.166.187.132
+    port: 443
+    uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: f.yoptybla.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: f.yoptybla.ru
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Channel
+      - 🇦🇺178115
+      - 🇦🇺AU-🚀@VPNine1
+      - 4FreeIran-46a9ec92ed
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Channel
+      - 🇦🇺178115
+      - 🇦🇺AU-🚀@VPNine1
+      - 4FreeIran-46a9ec92ed
+rules:
+  - MATCH,Proxy

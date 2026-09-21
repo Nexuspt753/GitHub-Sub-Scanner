@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 🇩🇪@FreakConfig
+    server: ticket.jorzel.ir
+    port: 1007
+    uuid: b7861fc7-1d21-4779-858a-c6a7df74d685
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4FreeIran-9560595007
     server: ticket.jorzel.ir
     port: 1007
@@ -16,6 +28,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇩🇪@FreakConfig
       - 4FreeIran-9560595007
   - name: Auto
     type: url-test
@@ -23,6 +36,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 🇩🇪@FreakConfig
       - 4FreeIran-9560595007
 rules:
   - MATCH,Proxy

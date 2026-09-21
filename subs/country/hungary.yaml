@@ -1,8 +1,8 @@
 proxies:
   - type: vless
     name: Budapest · @DeltaKroneckerGithub
-    server: 38.180.109.174
-    port: 443
+    server: 180.149.37.38
+    port: 8443
     uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
     tls: true
@@ -15,12 +15,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: trojan
+    name: Budapest · @DeltaKroneckerGithub-01
+    server: 185.225.68.232
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Budapest · @DeltaKroneckerGithub
+      - Budapest · @DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +44,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Budapest · @DeltaKroneckerGithub
+      - Budapest · @DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

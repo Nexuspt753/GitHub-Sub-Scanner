@@ -13,12 +13,22 @@ proxies:
       short-id: dc927a04e8572c61
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless
+    server: 193.17.57.97
+    port: 443
+    uuid: 1e078c17-3a93-462d-9fce-9276609e29e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +36,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - vless
 rules:
   - MATCH,Proxy

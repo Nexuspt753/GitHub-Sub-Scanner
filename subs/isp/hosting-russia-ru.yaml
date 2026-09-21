@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 62.76.142.70
+    port: 443
+    uuid: 0fc4b69c-398c-489b-a5a6-05487cfd5ca2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru2.nodes.vpnox.pro
+    reality-opts:
+      public-key: Nez2BwVoXyQ5ok5jJA_xdGn_oWRHiD2DipmUhSPCbSU
+      short-id: 50f02c2ae7fe34fa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: "[52300]"
+    server: 62.76.142.70
+    port: 443
+    uuid: 0fc4b69c-398c-489b-a5a6-05487cfd5ca2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru2.nodes.vpnox.pro
+    reality-opts:
+      public-key: Nez2BwVoXyQ5ok5jJA_xdGn_oWRHiD2DipmUhSPCbSU
+      short-id: 50f02c2ae7fe34fa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇷🇺178126
+    server: 62.76.142.70
+    port: 443
+    uuid: 0fc4b69c-398c-489b-a5a6-05487cfd5ca2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru2.nodes.vpnox.pro
+    reality-opts:
+      public-key: Nez2BwVoXyQ5ok5jJA_xdGn_oWRHiD2DipmUhSPCbSU
+      short-id: 50f02c2ae7fe34fa
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - "[52300]"
+      - 🇷🇺178126
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - "[52300]"
+      - 🇷🇺178126
+rules:
+  - MATCH,Proxy

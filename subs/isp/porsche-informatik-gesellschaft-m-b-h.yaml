@@ -1,19 +1,66 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 212.183.88.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  - type: trojan
+    name: EPODONIOS
+    server: 212.183.88.136
+    port: 443
+    password: humanity
     udp: true
-    xudp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime23.workers.dev
+        Host: www.calmlunch.com
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: V2ray_Alpha🥒
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: i10VPN⁸
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: vasl_bashim
+    server: 212.183.88.136
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: DeltaKroneckerGithub
     server: 212.183.88.136
     port: 443
     password: humanity
@@ -32,15 +79,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - V2ray_Alpha🥒
+      - i10VPN⁸
+      - vasl_bashim
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - V2ray_Alpha🥒
+      - i10VPN⁸
+      - vasl_bashim
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

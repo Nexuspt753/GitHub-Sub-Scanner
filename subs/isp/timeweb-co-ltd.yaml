@@ -14,20 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 188.225.44.89
-    port: 443
-    uuid: 026f58a9-b36e-4204-8f8d-54c5374163da
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: app12.betust.net
-    reality-opts:
-      public-key: Fgd7fSq-ZXnAZd3GUYGEfTyiz9wno4IWVIcs7-Narwg
-      short-id: f73ac93d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: v2raybaaz
     server: 188.225.24.201
     port: 443
@@ -69,32 +55,15 @@ proxies:
       short-id: 8681edc9
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-d61492b0ba
-    server: 188.225.25.191
-    port: 5001
-    uuid: ae8e2b94-5d44-437b-9002-80c2015f0e23
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: rus.centermass.net
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - v2raybaaz
       - 4FreeIran-195bdb4032
       - 4Mohsen-60c8c7a70b
-      - 4Kian-d61492b0ba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -102,10 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - v2raybaaz
       - 4FreeIran-195bdb4032
       - 4Mohsen-60c8c7a70b
-      - 4Kian-d61492b0ba
 rules:
   - MATCH,Proxy

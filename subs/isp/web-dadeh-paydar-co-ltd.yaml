@@ -1,23 +1,38 @@
 proxies:
-  - type: vless
-    name: vless
-    server: irmedia12.pmme6.top
-    port: 33443
-    uuid: e128a087-bf3e-47de-af6f-fc01a2a977dc
+  - type: vmess
+    name: 4Kian-7da44d8ec0
+    server: nlp1.hupcloud.com
+    port: 1070
+    uuid: da410df7-cde1-415c-a46e-87637e9748f9
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-a86963ff92
+    server: nlp1.hupcloud.com
+    port: 1070
+    uuid: da410df7-cde1-415c-a46e-87637e9748f9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Kian-7da44d8ec0
+      - 4Jadi-a86963ff92
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Kian-7da44d8ec0
+      - 4Jadi-a86963ff92
 rules:
   - MATCH,Proxy
