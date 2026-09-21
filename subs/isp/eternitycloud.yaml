@@ -27,6 +27,18 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-02
+    server: 94.183.170.135
+    port: 443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 94.183.170.147
     port: 8443
     uuid: 5edbcb44-8d04-4fa7-a587-bc5d60c24ca1
@@ -49,6 +61,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,5 +71,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

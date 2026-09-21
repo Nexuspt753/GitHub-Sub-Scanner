@@ -1,32 +1,52 @@
 proxies:
   - type: vmess
-    name: 4FreeIran-f8133366a5
-    server: us1.grpc.stream
-    port: 80
-    uuid: 6031b5c3-d8ba-5756-b708-f61084a2b678
-    alterId: 0
+    name: 4Mohsen-5b213f3781
+    server: 148.135.33.140
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
-      path: /
+      path: /path/1704188270531
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: us1.grpc.stream
+        Host: www.31270022.xyz
+  - type: vmess
+    name: 4Nika-6f29d57d49
+    server: 148.135.33.140
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/1704188270531
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.31270022.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-f8133366a5
+      - 4Mohsen-5b213f3781
+      - 4Nika-6f29d57d49
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-f8133366a5
+      - 4Mohsen-5b213f3781
+      - 4Nika-6f29d57d49
 rules:
   - MATCH,Proxy

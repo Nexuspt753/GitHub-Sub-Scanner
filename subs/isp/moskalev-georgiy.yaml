@@ -1,0 +1,34 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hl-freedom-2.undef.network
+    port: 443
+    password: Tn2Bf0iRwJkJQgDk6gX6x81RB
+    udp: true
+    tls: true
+    sni: hl-freedom-2.undef.network
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: hl-freedom-1.undef.network
+    port: 443
+    password: JaFKnqNcvnBT63t3rquidGsln
+    udp: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

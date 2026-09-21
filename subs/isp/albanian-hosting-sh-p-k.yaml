@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.167.234.26
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
   - type: ss
     name: 4Sarina-bc33b18467
     server: 87.121.162.249
@@ -33,19 +49,6 @@ proxies:
       short-id: ff099a8b449fbead
     xudp: true
   - type: vless
-    name: 4Nika-9889dcc59a
-    server: alnb.chainmark.ir
-    port: 44811
-    uuid: 0de1047d-fadd-4075-a08e-2223c5dadd0a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: app.stiga.com
-    reality-opts:
-      public-key: 5V9UBM3WxVbCvEwW-FOxiBKlQTdMR9aScIfy53zefzM
-      short-id: b53a4597ec327aec
-    xudp: true
-  - type: vless
     name: 4Nika-ba198c9769
     server: bnv.childofarya.ir
     port: 18334
@@ -76,10 +79,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-bc33b18467
       - EPODONIOS
       - "["
-      - 4Nika-9889dcc59a
       - 4Nika-ba198c9769
       - 4Nika-6f7701bba1
   - name: Auto
@@ -88,10 +91,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-bc33b18467
       - EPODONIOS
       - "["
-      - 4Nika-9889dcc59a
       - 4Nika-ba198c9769
       - 4Nika-6f7701bba1
 rules:

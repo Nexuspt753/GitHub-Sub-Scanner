@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: ICV2RAY
+    server: 31.184.219.147
+    port: 9894
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
+      short-id: aabb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 82.202.247.181
     port: 443
@@ -26,6 +42,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vless
+    server: 37.9.4.128
+    port: 443
+    uuid: 47f2ec19-b084-4926-9996-60d2789a7d65
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Jadi-8de642376c
     server: 82.202.247.181
     port: 443
@@ -43,8 +66,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - ICV2RAY
       - EPODONIOS
       - ✨
+      - vless
       - 4Jadi-8de642376c
   - name: Auto
     type: url-test
@@ -52,8 +77,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - ICV2RAY
       - EPODONIOS
       - ✨
+      - vless
       - 4Jadi-8de642376c
 rules:
   - MATCH,Proxy

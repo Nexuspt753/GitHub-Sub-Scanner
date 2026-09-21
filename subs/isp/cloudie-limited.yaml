@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Nika-853d6eb185
-    server: 185.227.154.226
+    name: DeltaKroneckerGithub
+    server: 103.118.254.37
     port: 443
-    uuid: b0e3d7fe-0ff5-470d-9c69-4f624a35d683
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: qxcpzDbypXaxsvsvzvebnyHxc0BTQdz7LvIkBXZ0TUc
-      short-id: 3246e72c
-    flow: xtls-rprx-vision
+    servername: shuma.ccwu.cc
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-853d6eb185
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-853d6eb185
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

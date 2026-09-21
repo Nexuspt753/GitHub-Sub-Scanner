@@ -13,21 +13,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 159.195.192.169
-    port: 2054
-    uuid: 75079a7f-75b5-418b-8a65-f7b2f438cd4a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.ibm.com
-    reality-opts:
-      public-key: mlJSEX5zJodpeofSicXnd0tlrgonVCGJ3M-qqWF4FSU
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: prrofile_purple
     server: 159.195.137.29
     port: 8443
@@ -41,7 +26,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 152.53.228.86
     port: 443
     password: "1234567890"
@@ -63,7 +48,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 159.195.5.181
     port: 443
     password: "1234567890"
@@ -110,36 +95,19 @@ proxies:
       public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-c2ea750d4c
-    server: 159.195.192.169
-    port: 2054
-    uuid: 75079a7f-75b5-418b-8a65-f7b2f438cd4a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.ibm.com
-    reality-opts:
-      public-key: mlJSEX5zJodpeofSicXnd0tlrgonVCGJ3M-qqWF4FSU
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - DeltaKroneckerGithub
       - prrofile_purple
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
       - EPODONIOS-01
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-01
       - 4Sarina-017768964f
       - 4Mohsen-698685234b
       - ">>@configV2rayNG::DE"
-      - 4Jadi-c2ea750d4c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -147,14 +115,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - DeltaKroneckerGithub
       - prrofile_purple
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
       - EPODONIOS-01
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-01
       - 4Sarina-017768964f
       - 4Mohsen-698685234b
       - ">>@configV2rayNG::DE"
-      - 4Jadi-c2ea750d4c
 rules:
   - MATCH,Proxy

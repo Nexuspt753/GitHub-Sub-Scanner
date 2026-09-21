@@ -24,18 +24,16 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Nika-ab4e651797
-    server: 108.61.171.167
-    port: 443
-    password: mainssh-niwrhf87
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: 45.32.57.118
+    port: 4433
+    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    sni: getgrpc.mainssh.xyz
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: 4Jadi-952fd59b0d
     server: 45.76.206.46
@@ -52,6 +50,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
+  - type: vmess
+    name: 4Sarina-06670394c2
+    server: 45.32.57.118
+    port: 4433
+    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -59,8 +67,9 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Nika-ab4e651797
+      - DeltaKroneckerGithub-02
       - 4Jadi-952fd59b0d
+      - 4Sarina-06670394c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -69,7 +78,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Nika-ab4e651797
+      - DeltaKroneckerGithub-02
       - 4Jadi-952fd59b0d
+      - 4Sarina-06670394c2
 rules:
   - MATCH,Proxy

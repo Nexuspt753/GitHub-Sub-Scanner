@@ -1,23 +1,26 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
+  - type: vmess
+    name: 4Kian-2f8f6fe4a6
     server: 85.111.89.245
-    port: 48786
+    port: 39385
     uuid: 87527d19-d300-47e2-b029-1f337c9514ef
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 4Kian-2f8f6fe4a6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 4Kian-2f8f6fe4a6
 rules:
   - MATCH,Proxy
