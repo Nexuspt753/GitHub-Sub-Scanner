@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: Santiago · EPODONIOS
-    server: 64.176.2.21
-    port: 8388
-    cipher: aes-256-gcm
-    password: xBStBEVqvGwHPocc
-    udp: true
-  - type: ss
     name: Santiago · 🇨🇱
     server: 64.176.2.21
     port: 8388
@@ -15,51 +8,31 @@ proxies:
     udp: true
   - type: vless
     name: Santiago · @DeltaKroneckerGithub
-    server: platform109.golnamakcert.top
-    port: 80
-    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    server: 34.176.98.128
+    port: 443
+    uuid: 4fe7ceb2-160c-4564-89e6-8f5fd0b05cd5
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 3ekBKAuIIAOjtkKJ0T-qpC7uJsqsY2fVLRB6C70A5hw
+      short-id: d7676b6a468a03b3
     xudp: true
-    network: ws
-    ws-opts:
-      path: /platform109
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: platform109.halalkhor.info
-  - type: ss
-    name: Santiago · 4Nika-8e88fbb7b2
-    server: 64.176.2.21
-    port: 8388
-    cipher: aes-256-gcm
-    password: xBStBEVqvGwHPocc
-    udp: true
-  - type: ss
-    name: Santiago · @DeltaKroneckerGithub-01
-    server: 64.176.2.21
-    port: 8388
-    cipher: aes-256-gcm
-    password: xBStBEVqvGwHPocc
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Santiago · EPODONIOS
       - Santiago · 🇨🇱
       - Santiago · @DeltaKroneckerGithub
-      - Santiago · 4Nika-8e88fbb7b2
-      - Santiago · @DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Santiago · EPODONIOS
       - Santiago · 🇨🇱
       - Santiago · @DeltaKroneckerGithub
-      - Santiago · 4Nika-8e88fbb7b2
-      - Santiago · @DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
