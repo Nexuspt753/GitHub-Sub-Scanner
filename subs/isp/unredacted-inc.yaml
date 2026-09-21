@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 23.191.200.206
+    port: 443
+    uuid: d32b9753-8910-4bd6-8761-5bbd1bc1bb3e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dl.google.com
+    reality-opts:
+      public-key: 7j3hmlHrEDk3Kjx-dFG3E3jf0c6PZF45trIPFsuKWmI
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: xray2-direct-mci1-fs-ce.freesocks.work
     port: 443
@@ -26,6 +39,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: xray1-direct-mci1-fs-ce.freesocks.work
+    port: 443
+    uuid: d32b9753-8910-4bd6-8761-5bbd1bc1bb3e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: 7j3hmlHrEDk3Kjx-dFG3E3jf0c6PZF45trIPFsuKWmI
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-928097c599
     server: xray2-direct-mci1-fs-ce.freesocks.work
     port: 443
@@ -43,8 +69,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - v2mystery
+      - DeltaKroneckerGithub-01
       - 4Nika-928097c599
   - name: Auto
     type: url-test
@@ -52,8 +80,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - v2mystery
+      - DeltaKroneckerGithub-01
       - 4Nika-928097c599
 rules:
   - MATCH,Proxy

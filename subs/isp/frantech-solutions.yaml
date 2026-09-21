@@ -1,4 +1,10 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-386deca8bf
+    server: mglswjs.jiedddym.com
+    port: 49490
+    password: 17ab31f7-c021-4aec-83b2-ab48de8886bd
+    skip-cert-verify: true
   - type: ss
     name: EPODONIOS
     server: 198.98.53.130
@@ -20,15 +26,47 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: eDfN7SODQceIOmIAbtJJtK
     udp: true
-  - type: ss
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 107.189.2.206
+    port: 8443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 104.194.140.26
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: ss
+    name: DeltaKroneckerGithub-02
     server: 198.98.53.130
     port: 443
     cipher: chacha20-ietf-poly1305
     password: eDfN7SODQceIOmIAbtJJtK
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-03
     server: 198.98.53.130
     port: 443
     cipher: chacha20-ietf-poly1305
@@ -46,11 +84,14 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-386deca8bf
       - EPODONIOS
       - United
       - 4Sarina-fbe44cf27e
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - ">>@freeland8::US"
   - name: Auto
     type: url-test
@@ -58,11 +99,14 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-386deca8bf
       - EPODONIOS
       - United
       - 4Sarina-fbe44cf27e
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - ">>@freeland8::US"
 rules:
   - MATCH,Proxy

@@ -1,13 +1,5 @@
 proxies:
   - type: trojan
-    name: 4Sarina-04b8b3e290
-    server: us2.trojanvh.xyz
-    port: 80
-    password: 255c924c-1314-4084-9a9e-1d1a82a5cf49
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
     name: 4FreeIran-324e8bfc84
     server: cnamemk.ciscocdn1.live
     port: 443
@@ -77,39 +69,64 @@ proxies:
       path: /ywQ9KSLI4ZBm9wOAXUaN
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: scarily.golfland.club
+  - type: vmess
+    name: 4FreeIran-220e179ab0
+    server: rlhrwtqusd.site
     port: 443
-    password: F9D3CpxDl8a3ezeZNSBSAa2RcZNSBSAa2RcY8IyagD67Yn3S30ZTElRj4wFX5On3S30ZT
+    uuid: 4fa35ea4-668e-4d7b-9bbc-b83681060617
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
     tls: true
-    sni: scarily.golfland.club
-    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /kwhmvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rlhrwtqusd.site
+  - type: vmess
+    name: 4Sarina-546878aee8
+    server: rlhrwtqusd.site
+    port: 443
+    uuid: 4fa35ea4-668e-4d7b-9bbc-b83681060617
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /kwhmvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rlhrwtqusd.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
       - 4Mohsen-c44b8b697f
       - 4Mohsen-bdcde58727
       - 4Sarina-2f1aa2c477
       - 4FreeIran-48ec263279
-      - DeltaKroneckerGithub
+      - 4FreeIran-220e179ab0
+      - 4Sarina-546878aee8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
       - 4Mohsen-c44b8b697f
       - 4Mohsen-bdcde58727
       - 4Sarina-2f1aa2c477
       - 4FreeIran-48ec263279
-      - DeltaKroneckerGithub
+      - 4FreeIran-220e179ab0
+      - 4Sarina-546878aee8
 rules:
   - MATCH,Proxy

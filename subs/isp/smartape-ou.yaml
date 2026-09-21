@@ -1,59 +1,32 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: news.bryansk-news.site
-    port: 8443
-    uuid: d3be3cda-7289-400c-b5a8-8301386df64b
+    name: DeltaKroneckerGithub
+    server: 109.172.8.37
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: news.bryansk-news.site
+    servername: shuma.ccwu.cc
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: کانال
-    server: news.bryansk-news.site
-    port: 8443
-    uuid: d3be3cda-7289-400c-b5a8-8301386df64b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: news.bryansk-news.site
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇨🇿170372
-    server: news.bryansk-news.site
-    port: 8443
-    uuid: d3be3cda-7289-400c-b5a8-8301386df64b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: news.bryansk-news.site
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - کانال
-      - 🇨🇿170372
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - کانال
-      - 🇨🇿170372
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

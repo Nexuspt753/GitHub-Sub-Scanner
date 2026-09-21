@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.113.223.183
-    port: 8443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /channels/act
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
-  - type: vless
     name: EPODONIOS
     server: 185.113.223.183
     port: 8443
@@ -32,7 +16,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
   - type: vless
-    name: 4Nika-f49c09690e
+    name: 🏳️
     server: 185.113.223.183
     port: 8443
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -62,24 +46,57 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4FreeIran-f3c2236e58
+    server: sacda.tr.snapeurop.com
+    port: 80
+    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4FreeIran-2bd2b4ec66
+    server: sacda.tr.snapeurop.com
+    port: 80
+    uuid: a17be1ef-d5bc-41a1-aeac-b02345823f07
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sacda.tr.snapeurop.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4Nika-f49c09690e
+      - 🏳️
       - 4Mohsen-8df24e1bfd
+      - 4FreeIran-f3c2236e58
+      - 4FreeIran-2bd2b4ec66
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4Nika-f49c09690e
+      - 🏳️
       - 4Mohsen-8df24e1bfd
+      - 4FreeIran-f3c2236e58
+      - 4FreeIran-2bd2b4ec66
 rules:
   - MATCH,Proxy

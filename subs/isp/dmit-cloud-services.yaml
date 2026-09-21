@@ -1,26 +1,14 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 154.31.114.248
-    port: 50159
-    uuid: d56624b2-35bb-468c-9b2a-e0b0df7230c1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: j4QXngGuJkUGwRj4XIrfHRohYYuEfnJlX4cvCE-WklA
-      short-id: 091e1c5db8451757
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 136.175.177.136
-    port: 8443
-    password: "740628"
+    name: DeltaKroneckerGithub
+    server: 154.31.115.31
+    port: 443
+    password: TOZA9E6pyq4z3pFYeIeOC3ApaSDjR2wFueaO8uNDx0czDF3YCSwa3xjZ3qZAyB4YCKCZS
     udp: true
     tls: true
-    sni: sj.cestbon.work
+    sni: swiftly.meijireform.com
+    alpn:
+      - http/1.1
     client-fingerprint: chrome
   - type: trojan
     name: 4Mohsen-3da5d9f3e7
@@ -32,15 +20,13 @@ proxies:
     sni: bookmark.missionsec.io
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 154.31.115.31
-    port: 443
-    password: TOZA9E6pyq4z3pFYeIeOC3ApaSDjR2wFueaO8uNDx0czDF3YCSwa3xjZ3qZAyB4YCKCZS
+    name: DeltaKroneckerGithub-01
+    server: 136.175.177.136
+    port: 8443
+    password: "740628"
     udp: true
     tls: true
-    sni: swiftly.meijireform.com
-    alpn:
-      - http/1.1
+    sni: sj.cestbon.work
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -48,9 +34,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-3da5d9f3e7
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,8 +43,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-3da5d9f3e7
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,10 +1,12 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: SC-TheNetherlands1.09vpn.com
-    port: 80
-    uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+    server: SC-TheNetherlands2.09vpn.com
+    port: 8443
+    uuid: e73df646-1f62-41bf-8c50-653497d603d0
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
     network: ws
     ws-opts:
@@ -13,9 +15,24 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 163.172.214.188
+    server: sc-thenetherlands2.09vpn.com
+    port: 8443
+    uuid: e73df646-1f62-41bf-8c50-653497d603d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sc-thenetherlands2.09vpn.com
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: SC-TheNetherlands2.09vpn.com
     port: 80
-    uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+    uuid: e73df646-1f62-41bf-8c50-653497d603d0
     udp: true
     xudp: true
     network: ws
@@ -23,23 +40,20 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: SC-TheNetherlands1.09vpn.com
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: nl-trojan.bonds.id
-    port: 443
-    password: 96884680-77e6-11eb-8d67-1239d0255272
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
+        Host: SC-TheNetherlands2.09vpn.com
+  - type: vless
     name: DeltaKroneckerGithub-03
-    server: 163.172.211.74
-    port: 443
-    password: 76e860b0-bad0-11ed-8f13-1239d0255272
+    server: 163.172.213.174
+    port: 80
+    uuid: e73df646-1f62-41bf-8c50-653497d603d0
     udp: true
-    tls: true
-    sni: tci.ir
-    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: SC-TheNetherlands2.09vpn.com
   - type: trojan
     name: DeltaKroneckerGithub-04
     server: 163.172.211.74
@@ -53,8 +67,17 @@ proxies:
     name: DeltaKroneckerGithub-05
     server: nl-trojan.bonds.id
     port: 443
-    password: 7e6256a0-b4ab-11eb-bc8f-1239d0255272
+    password: 94af0550-902b-11eb-b135-1239d0255272
     udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-06
+    server: 163.172.211.74
+    port: 443
+    password: 76e860b0-bad0-11ed-8f13-1239d0255272
+    udp: true
+    tls: true
+    sni: tci.ir
     client-fingerprint: chrome
   - type: trojan
     name: 4Mohsen-296a967d79
@@ -66,13 +89,13 @@ proxies:
     sni: zula.ir
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-06
+    name: DeltaKroneckerGithub-07
     server: 163.172.211.74
     port: 443
-    password: a8674160-c4c8-11ed-bf0c-1239d0255272
+    password: 34dea460-bad1-11ed-94f5-1239d0255272
     udp: true
     tls: true
-    sni: yahoo.com
+    sni: tci.ir
     client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-db7ab1b54f
@@ -82,6 +105,22 @@ proxies:
     udp: true
     tls: true
     sni: fr.test3.net
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-08
+    server: 163.172.211.74
+    port: 443
+    password: a8674160-c4c8-11ed-bf0c-1239d0255272
+    udp: true
+    tls: true
+    sni: yahoo.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-09
+    server: nl-trojan.bonds.id
+    port: 443
+    password: 7e6256a0-b4ab-11eb-bc8f-1239d0255272
+    udp: true
     client-fingerprint: chrome
   - type: vless
     name: EPODONIOS
@@ -96,15 +135,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: SC-TheNetherlands1.09vpn.com
-  - type: trojan
-    name: DeltaKroneckerGithub-07
-    server: 163.172.211.74
-    port: 443
-    password: 34dea460-bad1-11ed-94f5-1239d0255272
-    udp: true
-    tls: true
-    sni: tci.ir
-    client-fingerprint: chrome
   - type: vless
     name: 4FreeIran-d2864054a1
     server: sc-thenetherlands1.09vpn.com
@@ -233,11 +263,13 @@ proxy-groups:
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
-      - 4Mohsen-296a967d79
       - DeltaKroneckerGithub-06
-      - 4Jadi-db7ab1b54f
-      - EPODONIOS
+      - 4Mohsen-296a967d79
       - DeltaKroneckerGithub-07
+      - 4Jadi-db7ab1b54f
+      - DeltaKroneckerGithub-08
+      - DeltaKroneckerGithub-09
+      - EPODONIOS
       - 4FreeIran-d2864054a1
       - ">>@oneclickvpnkeys::NL"
       - 4Sarina-0174beacec
@@ -258,11 +290,13 @@ proxy-groups:
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
-      - 4Mohsen-296a967d79
       - DeltaKroneckerGithub-06
-      - 4Jadi-db7ab1b54f
-      - EPODONIOS
+      - 4Mohsen-296a967d79
       - DeltaKroneckerGithub-07
+      - 4Jadi-db7ab1b54f
+      - DeltaKroneckerGithub-08
+      - DeltaKroneckerGithub-09
+      - EPODONIOS
       - 4FreeIran-d2864054a1
       - ">>@oneclickvpnkeys::NL"
       - 4Sarina-0174beacec

@@ -1,43 +1,79 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 207.57.131.117
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    server: 207.57.133.53
+    port: 51135
+    uuid: 87f0cd64-02c8-49e7-b07a-349afed26693
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: hszme.xax0.x8p.hh.vavava.kdns.fr
+    servername: www.ebay.com
+    reality-opts:
+      public-key: k41ba-Wiolay7UfP9gId9WXfOKcFkwS2Vwh5je7NWko
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hszme.xax0.x8p.hh.vavava.kdns.fr
   - type: vless
-    name: 4Mohsen-ff2c6399ec
-    server: 207.57.131.117
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    name: DeltaKroneckerGithub-01
+    server: 207.57.129.114
+    port: 14934
+    uuid: 630b700b-3c91-463a-9ef5-ee01f5848b45
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: hszme.xax0.x8p.hh.vavava.kdns.fr
+    servername: dash.cloudflare.com
+    reality-opts:
+      public-key: C9qIqeSCAkCLIqki3n21hyeILLltWcZJ6M0HgRTGmk4
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hszme.xax0.x8p.hh.vavava.kdns.fr
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 207.57.134.242
+    port: 59672
+    uuid: d1ac7eb4-a6fd-481b-8c91-5c40680af484
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: MyT8CmpFM5SbEol-rsH-Gm-I8GJLAfRLQnGnyNCXrho
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 207.57.131.82
+    port: 42038
+    uuid: 451ae20e-adca-4d00-bf12-9572f58f181b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: uK4Syxig1VpR42JEkbld2ZIaymNkt5MW4UMt21LsaRA
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 207.57.135.124
+    port: 2128
+    uuid: 630630d0-35eb-41b1-a7e9-90ca7e5c897f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0zFniJLY80LQ5zKKB-X6r-tpHgAI6yqUVxJFQGG9SUM
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-ff2c6399ec
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +81,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-ff2c6399ec
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy

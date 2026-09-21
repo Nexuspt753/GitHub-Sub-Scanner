@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.141.235.191
+    port: 443
+    uuid: 6db6b948-655f-4f68-a9e7-865050e05b31
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cats-n-dogs.rumainco.cl
+    reality-opts:
+      public-key: mGPCrFElfsioK3y3nOyW66ahpIocDnnyzfUnoN7ULFc
+      short-id: c2cdd5
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

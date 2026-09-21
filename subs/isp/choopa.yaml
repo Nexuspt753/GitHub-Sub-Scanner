@@ -1,20 +1,29 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 45.76.206.46
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    server: 108.61.164.217
+    port: 4443
+    uuid: 20dd9433-389e-4573-ba7b-689619cf13da
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
+    servername: www.samsung.com
+    reality-opts:
+      public-key: k9srkQedwHsZGJP-R-GGwDOGok05gk23s8d4mtidMC4
+      short-id: 835391010667297d
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /tags/go/groups?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 45.76.60.234
+    port: 443
+    password: Bw5Mz7QkVp
+    udp: true
+    tls: true
+    sni: z-v2-074418.kailib.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
   - type: trojan
     name: 4Nika-ab4e651797
     server: 108.61.171.167
@@ -27,47 +36,31 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 45.76.60.234
+  - type: vless
+    name: 4Jadi-952fd59b0d
+    server: 45.76.206.46
     port: 443
-    password: Bw5Mz7QkVp
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
     udp: true
     tls: true
-    sni: z-v2-074418.kailib.com
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
-  - type: vmess
-    name: DeltaKroneckerGithub-02
-    server: 45.32.57.118
-    port: 4433
-    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
-    alterId: 0
-    cipher: auto
-    udp: true
+    servername: cdn8848.776676.xyz
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-06670394c2
-    server: 45.32.57.118
-    port: 4433
-    uuid: 35b89832-0a7c-48dd-8d1c-a2891b522195
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /tags/go/groups?ed=2560fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-ab4e651797
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Sarina-06670394c2
+      - 4Nika-ab4e651797
+      - 4Jadi-952fd59b0d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,9 +68,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-ab4e651797
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Sarina-06670394c2
+      - 4Nika-ab4e651797
+      - 4Jadi-952fd59b0d
 rules:
   - MATCH,Proxy

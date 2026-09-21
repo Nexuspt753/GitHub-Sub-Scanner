@@ -1,44 +1,32 @@
 proxies:
   - type: vless
-    name: Luxembourg · EPODONIOS
-    server: 193.239.179.15
-    port: 443
-    uuid: 1d38d2b2-342f-4a01-93df-f24fb0277c70
+    name: Roost · @DeltaKroneckerGithub
+    server: 107.189.2.206
+    port: 8443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: worldoftanks.asia
-    reality-opts:
-      public-key: 6dc3iKXilOQpA_JFrKlk5-CsFjSmOm_5p0kSQcO9qi4
-    flow: xtls-rprx-vision
+    servername: shuma.ccwu.cc
     xudp: true
-  - type: vless
-    name: Luxembourg · @bored_vpn
-    server: 193.239.179.15
-    port: 443
-    uuid: 1d38d2b2-342f-4a01-93df-f24fb0277c70
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: worldoftanks.asia
-    reality-opts:
-      public-key: 6dc3iKXilOQpA_JFrKlk5-CsFjSmOm_5p0kSQcO9qi4
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Luxembourg · EPODONIOS
-      - Luxembourg · @bored_vpn
+      - Roost · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Luxembourg · EPODONIOS
-      - Luxembourg · @bored_vpn
+      - Roost · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
