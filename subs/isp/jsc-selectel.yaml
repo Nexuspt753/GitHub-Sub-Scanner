@@ -1,14 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 135.106.183.65
-    port: 9443
-    uuid: 5c13c306-a55f-49db-918c-42842c5e6dcd
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 82.202.247.181
     port: 443
@@ -35,22 +26,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-3668e2ffab
-    server: 31.184.219.147
-    port: 9894
-    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    reality-opts:
-      public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
-      short-id: aabb
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Jadi-8de642376c
     server: 82.202.247.181
     port: 443
@@ -68,10 +43,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
       - EPODONIOS
       - ✨
-      - 4Jadi-3668e2ffab
       - 4Jadi-8de642376c
   - name: Auto
     type: url-test
@@ -79,10 +52,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - EPODONIOS
       - ✨
-      - 4Jadi-3668e2ffab
       - 4Jadi-8de642376c
 rules:
   - MATCH,Proxy

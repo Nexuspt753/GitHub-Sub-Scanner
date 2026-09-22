@@ -1,9 +1,16 @@
 proxies:
   - type: vless
-    name: 4Nika-bcb8dbc11f
-    server: turkish.v2zoro.ir
-    port: 59755
-    uuid: 26cb110e-bb1e-4c87-971b-dc485b89b879
+    name: EPODONIOS
+    server: 144.225.65.177
+    port: 443
+    uuid: 443b2e33-8e9c-4f7b-a48a-383a93895d1e
+    udp: true
+    xudp: true
+  - type: vless
+    name: vmess_ir
+    server: 144.225.65.177
+    port: 443
+    uuid: 443b2e33-8e9c-4f7b-a48a-383a93895d1e
     udp: true
     xudp: true
 proxy-groups:
@@ -11,13 +18,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-bcb8dbc11f
+      - EPODONIOS
+      - vmess_ir
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-bcb8dbc11f
+      - EPODONIOS
+      - vmess_ir
 rules:
   - MATCH,Proxy

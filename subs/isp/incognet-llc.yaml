@@ -7,47 +7,34 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: 4Jadi-50f78bb998
     server: 23.137.249.110
     port: 20365
     uuid: 1a524663-4a74-4aad-b530-8618a540d857
     udp: true
     xudp: true
   - type: vless
-    name: MyVless
+    name: 4Jadi-fecee7d73d
     server: 23.137.249.110
     port: 20365
     uuid: 1a524663-4a74-4aad-b530-8618a540d857
     udp: true
     xudp: true
-  - type: vless
-    name: IRAN_V2RAY1
+  - type: vmess
+    name: 4Nika-e7651a1b70
     server: 23.137.249.110
-    port: 20365
-    uuid: 1a524663-4a74-4aad-b530-8618a540d857
+    port: 30011
+    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-  - type: vless
-    name: Napsternetvirani
-    server: 23.137.249.110
-    port: 20365
-    uuid: 1a524663-4a74-4aad-b530-8618a540d857
-    udp: true
-    xudp: true
-  - type: vless
-    name: filembad
-    server: 23.137.249.110
-    port: 20365
-    uuid: 1a524663-4a74-4aad-b530-8618a540d857
-    udp: true
-    xudp: true
-  - type: vless
-    name: 🇳🇱NL-🚀@VPNine1
-    server: 23.137.249.110
-    port: 20365
-    uuid: 1a524663-4a74-4aad-b530-8618a540d857
-    udp: true
-    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
+    alpn:
+      - h2
+      - http/1.1
   - type: vmess
     name: 4Nika-ddc100197b
     server: 23.137.249.110
@@ -63,19 +50,29 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Jadi-3a6ae57b5e
+    server: 23.137.249.110
+    port: 30011
+    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
-      - MyVless
-      - IRAN_V2RAY1
-      - Napsternetvirani
-      - filembad
-      - 🇳🇱NL-🚀@VPNine1
+      - 4Jadi-50f78bb998
+      - 4Jadi-fecee7d73d
+      - 4Nika-e7651a1b70
       - 4Nika-ddc100197b
+      - 4Jadi-3a6ae57b5e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -83,12 +80,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
-      - MyVless
-      - IRAN_V2RAY1
-      - Napsternetvirani
-      - filembad
-      - 🇳🇱NL-🚀@VPNine1
+      - 4Jadi-50f78bb998
+      - 4Jadi-fecee7d73d
+      - 4Nika-e7651a1b70
       - 4Nika-ddc100197b
+      - 4Jadi-3a6ae57b5e
 rules:
   - MATCH,Proxy

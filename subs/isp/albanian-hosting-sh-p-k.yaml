@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.167.234.26
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
   - type: ss
     name: 4Sarina-bc33b18467
     server: 87.121.162.249
@@ -6,19 +22,6 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: JGv616hMWdjfuZ00jYfq7XkBHJZrOBrg
     udp: true
-  - type: vless
-    name: 4Nika-ba198c9769
-    server: bnv.childofarya.ir
-    port: 18334
-    uuid: 0de1047d-fadd-4075-a08e-2223c5dadd0a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: primevideo.com
-    reality-opts:
-      public-key: qiWNRSFSb1Jx9i7XavA6sQD_coyuYjMod8iDGYeVrxc
-      short-id: ff099a8b449fbead
-    xudp: true
   - type: vless
     name: 4Sarina-a2333c02eb
     server: 103.167.234.26
@@ -53,8 +56,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-bc33b18467
-      - 4Nika-ba198c9769
       - 4Sarina-a2333c02eb
       - 4Nika-6f7701bba1
   - name: Auto
@@ -63,8 +66,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-bc33b18467
-      - 4Nika-ba198c9769
       - 4Sarina-a2333c02eb
       - 4Nika-6f7701bba1
 rules:

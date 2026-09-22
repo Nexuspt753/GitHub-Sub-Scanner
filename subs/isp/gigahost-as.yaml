@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 151.242.168.180
+    port: 443
+    uuid: 05020afd-d476-406b-8950-ee7dd63a6e64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kibi-institut.de
+    reality-opts:
+      public-key: urD2miGxEfHylELSqqggBKCYIMSNXNTbdPijru7-eAQ
+      short-id: 46babe29a750b634
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Free
+    server: 151.242.168.180
+    port: 443
+    uuid: 05020afd-d476-406b-8950-ee7dd63a6e64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kibi-institut.de
+    reality-opts:
+      public-key: urD2miGxEfHylELSqqggBKCYIMSNXNTbdPijru7-eAQ
+      short-id: 46babe29a750b634
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-d71243b6cd
     server: 151.242.168.180
     port: 443
@@ -18,6 +46,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - Free
       - 4Sarina-d71243b6cd
   - name: Auto
     type: url-test
@@ -25,6 +55,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - Free
       - 4Sarina-d71243b6cd
 rules:
   - MATCH,Proxy

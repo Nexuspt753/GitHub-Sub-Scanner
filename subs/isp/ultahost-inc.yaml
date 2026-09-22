@@ -1,4 +1,10 @@
 proxies:
+  - type: hysteria2
+    name: 4Nika-e2a11ab910
+    server: se-node.rumedia-cdn.com
+    port: 25443
+    password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
+    sni: cf2.rumedia-cdn.com
   - type: vless
     name: EPODONIOS
     server: 178.83.226.55
@@ -13,20 +19,31 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-5287ac865c
-    server: checkoutevent.ktuda-skp.net
+    name: EVAY_VPN
+    server: 178.83.226.55
     port: 443
-    uuid: 2a7d20bf-e65f-49a8-9e60-889776701a7c
+    uuid: 2a77a470-315c-493d-b690-59b814a804cb
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: checkoutevent.ktuda-skp.net
+    servername: sellflow.org
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /media/ws/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-589b238f5c
+    server: 178.83.226.55
+    port: 443
+    uuid: 2a77a470-315c-493d-b690-59b814a804cb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sellflow.org
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Sarina-b78e2ea264
     server: 192.142.53.38
@@ -73,7 +90,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
-    name: 4Kian-7981cba066
+    name: 4Jadi-14bfb645f0
     server: 193.23.118.195
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -94,23 +111,27 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-e2a11ab910
       - EPODONIOS
-      - 4Kian-5287ac865c
+      - EVAY_VPN
+      - 4Nika-589b238f5c
       - 4Sarina-b78e2ea264
       - 4Sarina-0cddd62c12
       - 4Jadi-5d106263ae
-      - 4Kian-7981cba066
+      - 4Jadi-14bfb645f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-e2a11ab910
       - EPODONIOS
-      - 4Kian-5287ac865c
+      - EVAY_VPN
+      - 4Nika-589b238f5c
       - 4Sarina-b78e2ea264
       - 4Sarina-0cddd62c12
       - 4Jadi-5d106263ae
-      - 4Kian-7981cba066
+      - 4Jadi-14bfb645f0
 rules:
   - MATCH,Proxy

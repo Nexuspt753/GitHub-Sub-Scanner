@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 104.143.223.217
+    port: 2085
+    uuid: c9373ff0-c263-4949-885f-366671f3c6a1
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: ✅
     server: 104.143.223.217
     port: 2085
@@ -24,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - ✅
       - 4Kian-23db498e21
   - name: Auto
@@ -32,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - ✅
       - 4Kian-23db498e21
 rules:
