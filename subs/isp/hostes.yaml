@@ -1,33 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 151.242.161.139
-    port: 443
-    uuid: 24e3a924-fc4b-4e3f-98a8-85d506d530f9
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: gr2.serverslocal.ru
-    reality-opts:
-      public-key: 8H-YQe-nSd_aL2FwWIFNV2-anUb4v3cY_n5QcEEjGEs
-      short-id: eeed325908a87d9f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 31.59.125.106
-    port: 443
-    uuid: 129799e0-a9b1-4ae8-80bd-fa92db813f85
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: poll2.shhflow.xyz
-    reality-opts:
-      public-key: g2sbZDGTg4l1Dcg_Y4UKpbncPKEh7iFtTlWYbfi2sCk
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: gr2.serverslocal.ru
     port: 443
     uuid: bc74bd1a-ec97-41cb-9de6-7cccf65dc042
@@ -40,26 +13,12 @@ proxies:
       short-id: eeed325908a87d9f
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-c914a5c84f
-    server: 31.59.125.106
-    port: 443
-    uuid: 129799e0-a9b1-4ae8-80bd-fa92db813f85
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: poll2.shhflow.xyz
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Kian-c914a5c84f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,8 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Kian-c914a5c84f
 rules:
   - MATCH,Proxy

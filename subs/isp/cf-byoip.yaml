@@ -1,8 +1,8 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 188.164.248.81
-    port: 2087
+    server: 188.164.248.96
+    port: 8443
     uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
     udp: true
     tls: true
@@ -15,29 +15,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: whitecreeper.pages.dev
-  - type: vless
-    name: 4Nika-78ffbddfcc
-    server: 188.164.248.134
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /mobile/jump/txt?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-78ffbddfcc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-78ffbddfcc
 rules:
   - MATCH,Proxy

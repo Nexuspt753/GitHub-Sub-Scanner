@@ -1,32 +1,25 @@
 proxies:
-  - type: vless
-    name: 4Jadi-1a81334346
-    server: 2.27.109.12
-    port: 443
-    uuid: 3b3d3966-59db-4145-8d61-08d2ad559ced
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 2.27.109.179
+    port: 45464
+    password: XuMweB2PWs
     udp: true
     tls: true
+    sni: 2.27.109.179.sslip.io
     client-fingerprint: chrome
-    servername: thus-k.netnode.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /t.me/daily_free_vpn
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: thus-k.netnode.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-1a81334346
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-1a81334346
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
