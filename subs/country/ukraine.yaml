@@ -1,34 +1,6 @@
 proxies:
   - type: vless
-    name: Zaporizhzhya · @DeltaKroneckerGithub
-    server: 45.135.235.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime07.workers.dev
-  - type: vless
     name: Kyiv · EPODONIOS
-    server: 104.245.242.8
-    port: 8443
-    uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: Kyiv · @Nexus_Panell
     server: 104.245.242.8
     port: 8443
     uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
@@ -59,6 +31,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
   - type: vless
+    name: Kyiv · @Nexus_Panell
+    server: 104.245.242.8
+    port: 8443
+    uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: Kyiv · EPODONIOS-01
     server: 104.143.223.217
     port: 2085
@@ -87,47 +74,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: Kyiv · 4Nika-9ea8655d6a
-    server: 104.245.242.8
-    port: 8443
-    uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Zaporizhzhya · @DeltaKroneckerGithub
       - Kyiv · EPODONIOS
-      - Kyiv · @Nexus_Panell
       - Kyiv · @DeltaKroneckerGithub
+      - Kyiv · @Nexus_Panell
       - Kyiv · EPODONIOS-01
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · ✅
-      - Kyiv · 4Nika-9ea8655d6a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Zaporizhzhya · @DeltaKroneckerGithub
       - Kyiv · EPODONIOS
-      - Kyiv · @Nexus_Panell
       - Kyiv · @DeltaKroneckerGithub
+      - Kyiv · @Nexus_Panell
       - Kyiv · EPODONIOS-01
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · ✅
-      - Kyiv · 4Nika-9ea8655d6a
 rules:
   - MATCH,Proxy

@@ -1,22 +1,6 @@
 proxies:
   - type: vless
-    name: 4Mohsen-5c7858e3f4
-    server: 46.8.200.91
-    port: 443
-    uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cf3.rumedia-cdn.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /casc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf3.rumedia-cdn.com
-  - type: vless
-    name: 4Sarina-51859622b8
+    name: DeltaKroneckerGithub
     server: 46.8.200.91
     port: 443
     uuid: b8201bab-fa6c-4f6e-b289-b5da660c6f69
@@ -31,20 +15,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf3.rumedia-cdn.com
+  - type: vless
+    name: 4FreeIran-38d2bb6c23
+    server: 46.8.200.91
+    port: 443
+    uuid: 0a2dde28-70da-4863-a06f-35d007d94d35
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cf3.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /casc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf3.rumedia-cdn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-5c7858e3f4
-      - 4Sarina-51859622b8
+      - DeltaKroneckerGithub
+      - 4FreeIran-38d2bb6c23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-5c7858e3f4
-      - 4Sarina-51859622b8
+      - DeltaKroneckerGithub
+      - 4FreeIran-38d2bb6c23
 rules:
   - MATCH,Proxy

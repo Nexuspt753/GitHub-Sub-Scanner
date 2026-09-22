@@ -1,4 +1,11 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: trdc2.divaredge.com
+    port: 80
+    uuid: 94160960-30cb-541f-624f-09037be32249
+    udp: true
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: subtu.charsoulink3.ir
@@ -17,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -24,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

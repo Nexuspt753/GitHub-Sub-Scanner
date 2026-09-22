@@ -1,30 +1,46 @@
 proxies:
   - type: vless
-    name: 4Jadi-40df3dbd21
-    server: 151.244.30.176
+    name: DeltaKroneckerGithub
+    server: assets-frnl.pleiades.codes
     port: 443
-    uuid: c928859b-424d-429c-b1fe-c99137af7c4b
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: assets-frnl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: assets-fra.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: smartcaptcha.yandexcloud.net
-    reality-opts:
-      public-key: V4MbF_aWSZ8bw6WbRL_wApaf4uagzBnu0c62g3dyNQY
-      short-id: c16225938b61882e
-    flow: xtls-rprx-vision
+    servername: assets-fra.pleiades.codes
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-40df3dbd21
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-40df3dbd21
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,19 +1,18 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 91.245.225.79
-    port: 2053
-    password: humanity
+  - type: vless
+    name: EPODONIOS
+    server: 91.245.226.31
+    port: 443
+    uuid: cb4259d5-9c7e-4b7d-b766-5deae8044b45
     udp: true
     tls: true
-    sni: www.calmlunch.com
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
+    servername: london.responsiblecare.uk
+    reality-opts:
+      public-key: nilJ07r1KZ0-KhmRNYeICXGhM9HeG9uxnRaqjYz3fWg
+      short-id: bbe7cea59ba5fc76
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: 4Mohsen-92f82875ea
     server: 91.245.225.79
@@ -33,7 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Mohsen-92f82875ea
   - name: Auto
     type: url-test
@@ -41,7 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Mohsen-92f82875ea
 rules:
   - MATCH,Proxy

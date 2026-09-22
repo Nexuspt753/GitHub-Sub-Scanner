@@ -1,49 +1,39 @@
 proxies:
-  - type: ss
+  - type: vless
     name: EPODONIOS
-    server: 201.34.151.230
-    port: 23254
-    cipher: aes-256-gcm
-    password: d3N1ZE5GQUtJS0Rpdmh5RFhTS0ZOSVNkSlJ0dENqQjl4eVFLMVJoczZ6U2NuenVNaENDT29qeGp4M2xRenZQVQ==
+    server: 201.51.17.24
+    port: 1443
+    uuid: b0c51c20-1557-4f1f-9eaa-6e4c844a04ca
     udp: true
-  - type: ss
-    name: کانال
-    server: 201.34.151.230
-    port: 23254
-    cipher: aes-256-gcm
-    password: d3N1ZE5GQUtJS0Rpdmh5RFhTS0ZOSVNkSlJ0dENqQjl4eVFLMVJoczZ6U2NuenVNaENDT29qeGp4M2xRenZQVQ==
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: ODyAfL7Ie0jmStqz0l2pTq9acdVcmK650m4r1b-R_lM
+      short-id: c7199351636c8880
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 201.51.17.24
+    port: 1443
+    uuid: b0c51c20-1557-4f1f-9eaa-6e4c844a04ca
     udp: true
-  - type: ss
-    name: 🇳🇱171756
-    server: 201.34.151.230
-    port: 23254
-    cipher: aes-256-gcm
-    password: d3N1ZE5GQUtJS0Rpdmh5RFhTS0ZOSVNkSlJ0dENqQjl4eVFLMVJoczZ6U2NuenVNaENDT29qeGp4M2xRenZQVQ==
-    udp: true
-  - type: ss
-    name: 🇺🇸US-🚀@VPNine1
-    server: 201.34.151.230
-    port: 23254
-    cipher: aes-256-gcm
-    password: d3N1ZE5GQUtJS0Rpdmh5RFhTS0ZOSVNkSlJ0dENqQjl4eVFLMVJoczZ6U2NuenVNaENDT29qeGp4M2xRenZQVQ==
-    udp: true
-  - type: ss
-    name: 4FreeIran-f3e304a2ec
-    server: 201.34.151.230
-    port: 23254
-    cipher: aes-256-gcm
-    password: d3N1ZE5GQUtJS0Rpdmh5RFhTS0ZOSVNkSlJ0dENqQjl4eVFLMVJoczZ6U2NuenVNaENDT29qeGp4M2xRenZQVQ==
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: ODyAfL7Ie0jmStqz0l2pTq9acdVcmK650m4r1b-R_lM
+      short-id: c7199351636c8880
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - کانال
-      - 🇳🇱171756
-      - 🇺🇸US-🚀@VPNine1
-      - 4FreeIran-f3e304a2ec
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -51,9 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - کانال
-      - 🇳🇱171756
-      - 🇺🇸US-🚀@VPNine1
-      - 4FreeIran-f3e304a2ec
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

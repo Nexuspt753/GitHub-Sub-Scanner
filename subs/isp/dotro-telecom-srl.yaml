@@ -1,23 +1,14 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 154.46.31.118
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
   - type: ss
-    name: "[52438]"
+    name: EPODONIOS
     server: 154.46.31.106
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: QFWzCw2uX9B9i6qAYeFBIE
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: bogging-eyeteeth-fly.freesocks.work
     port: 443
     cipher: chacha20-ietf-poly1305
     password: QFWzCw2uX9B9i6qAYeFBIE
@@ -37,33 +28,44 @@ proxies:
     password: QFWzCw2uX9B9i6qAYeFBIE
     udp: true
   - type: ss
-    name: 🇷🇴178448
-    server: 154.46.31.106
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: QFWzCw2uX9B9i6qAYeFBIE
-    udp: true
-  - type: ss
     name: v2mystery
     server: bogging-eyeteeth-fly.freesocks.work
     port: 443
     cipher: chacha20-ietf-poly1305
     password: QFWzCw2uX9B9i6qAYeFBIE
     udp: true
-  - type: ss
-    name: 4Kian-d5e2c15042
-    server: 154.46.31.106
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 154.46.31.118
     port: 443
-    cipher: chacha20-ietf-poly1305
-    password: QFWzCw2uX9B9i6qAYeFBIE
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
-  - type: ss
-    name: 4Mohsen-faa3bb7743
-    server: bogging-eyeteeth-fly.freesocks.work
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
+    name: EPODONIOS-02
+    server: 154.46.31.118
     port: 443
-    cipher: chacha20-ietf-poly1305
-    password: QFWzCw2uX9B9i6qAYeFBIE
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
   - type: ss
     name: DeltaKroneckerGithub-01
     server: bogging-eyeteeth-fly.freesocks.work
@@ -73,6 +75,13 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-02
+    server: bogging-eyeteeth-fly.freesocks.work
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: QFWzCw2uX9B9i6qAYeFBIE
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
     server: 154.46.31.106
     port: 443
     cipher: chacha20-ietf-poly1305
@@ -83,31 +92,31 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - "[52438]"
+      - EPODONIOS
+      - EPODONIOS-01
       - 🇷🇴
       - 🇷🇴139787
-      - 🇷🇴178448
       - v2mystery
-      - 4Kian-d5e2c15042
-      - 4Mohsen-faa3bb7743
+      - DeltaKroneckerGithub
+      - EPODONIOS-02
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - "[52438]"
+      - EPODONIOS
+      - EPODONIOS-01
       - 🇷🇴
       - 🇷🇴139787
-      - 🇷🇴178448
       - v2mystery
-      - 4Kian-d5e2c15042
-      - 4Mohsen-faa3bb7743
+      - DeltaKroneckerGithub
+      - EPODONIOS-02
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

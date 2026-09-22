@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 92.118.127.16
+    port: 443
+    uuid: 72f8e59f-7a0d-44f2-a8db-b4c3e1e36716
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: sp1.extremumnews.com
+    reality-opts:
+      public-key: Rz8XjYinCcpE7NLktJzNFL7eVSUxaFGuV2Zz82p7IRg
+      short-id: 908563a721d9bdcd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: nl-1.bnc-gt.co.uk
     port: 443
@@ -14,7 +28,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 91.227.77.87
     port: 443
     password: bpb-trojan
@@ -38,22 +52,40 @@ proxies:
       short-id: 7be1e9c243451b14
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-202fc12149
+    server: nl-1.bnc-gt.co.uk
+    port: 443
+    uuid: f6b58665-c524-4c60-a939-d8f27123e079
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: a.nl-1.bnc-gt.co.uk
+    reality-opts:
+      public-key: CegqLjzOImUmYD9ZdpOOG65UgNTGeQfRmpIni8iraB0
+      short-id: 7be1e9c243451b14
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - Daily_Confis
+      - 4Mohsen-202fc12149
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - Daily_Confis
+      - 4Mohsen-202fc12149
 rules:
   - MATCH,Proxy

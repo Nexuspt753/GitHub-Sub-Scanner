@@ -1,26 +1,30 @@
 proxies:
   - type: vless
-    name: 4FreeIran-4ec22ce6df
-    server: cdg.quicksavesafe.com
-    port: 443
-    uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
+    name: DeltaKroneckerGithub
+    server: 31.185.105.197
+    port: 8443
+    uuid: 8df7343e-2427-41fb-aad1-6c563296faf6
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: cdg.quicksavesafe.com
+    client-fingerprint: chrome
+    servername: github.com
+    reality-opts:
+      public-key: 1KY_jqa2yPLBEBa-3TG77zs4ak2zQLGul4eexxCueyI
+      short-id: f087eb07da743e94
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-4ec22ce6df
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-4ec22ce6df
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

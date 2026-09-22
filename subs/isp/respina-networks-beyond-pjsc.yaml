@@ -1,23 +1,32 @@
 proxies:
   - type: ss
-    name: 4Nika-7c478d2bd3
-    server: coco3.mosyx.net
-    port: 1013
-    cipher: chacha20-ietf-poly1305
-    password: fB95883lTj5iIJGu0qB9iRq2ulza8IhX
+    name: EPODONIOS
+    server: nao2.iorqino.ir
+    port: 2087
+    cipher: 2022-blake3-aes-256-gcm
+    password: Z7Gl1BnNG+sz5zNkLDAfMa/2JtpvW/clflC0Wbzc2ig=:2FoegMrN7AQf6gqr2a0m7Hj6FQ6Sm7jf4r3g3IB+THA=
+    udp: true
+  - type: ss
+    name: Nexus_Panell
+    server: nao2.iorqino.ir
+    port: 2087
+    cipher: 2022-blake3-aes-256-gcm
+    password: Z7Gl1BnNG+sz5zNkLDAfMa/2JtpvW/clflC0Wbzc2ig=:2FoegMrN7AQf6gqr2a0m7Hj6FQ6Sm7jf4r3g3IB+THA=
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-7c478d2bd3
+      - EPODONIOS
+      - Nexus_Panell
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-7c478d2bd3
+      - EPODONIOS
+      - Nexus_Panell
 rules:
   - MATCH,Proxy

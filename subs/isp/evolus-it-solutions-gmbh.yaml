@@ -1,37 +1,26 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: nl5fg21.rushconfig1.com
-    port: 11873
-    uuid: cd7a6128-f1ed-4b2e-927d-665b9b47d6ab
+    server: 157.173.29.254
+    port: 443
+    uuid: 72e69627-2463-4607-88d9-0b2fa9539f32
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: faeee.trumpvpn.online
+    reality-opts:
+      public-key: ccsdmgrlxaiLko9ajGFEP8VOVq7Q6MP6I0M5d4M03Xc
+      short-id: ddafa4
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl5fg21.rushconfig1.com
-  - type: vless
-    name: 4Mohsen-5d748625da
-    server: nl5fg21.rushconfig1.com
-    port: 11873
-    uuid: cd7a6128-f1ed-4b2e-927d-665b9b47d6ab
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl5fg21.rushconfig1.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Mohsen-5d748625da
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Mohsen-5d748625da
 rules:
   - MATCH,Proxy

@@ -1,9 +1,9 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: 176.222.53.236
+    server: 176.222.53.176
     port: 8445
-    uuid: e5d73666-1ac5-49fc-8e4d-5c8cad769588
+    uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -15,12 +15,22 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: vless
+    server: 176.222.53.176
+    port: 8446
+    uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - vless
 rules:
   - MATCH,Proxy

@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.76.111.69
+    port: 443
+    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de.dexlen.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: ne5.rexten.cc
+    port: 10443
+    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ne5.rexten.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 31.77.100.49
     port: 2087
@@ -16,6 +44,19 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: DeltaKroneckerGithub-02
+    server: de.dexlen.cc
+    port: 443
+    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de.dexlen.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: prrofile_purple
     server: 31.77.100.49
     port: 2087
@@ -31,6 +72,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: ne5.rexten.cc
+    port: 443
+    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ne5.rexten.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 31.76.111.67
+    port: 443
+    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de.dexlen.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Nika-a99b147d46
     server: 31.77.100.49
@@ -52,8 +119,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
+      - DeltaKroneckerGithub-02
       - prrofile_purple
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-a99b147d46
   - name: Auto
     type: url-test
@@ -61,8 +133,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
+      - DeltaKroneckerGithub-02
       - prrofile_purple
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Nika-a99b147d46
 rules:
   - MATCH,Proxy

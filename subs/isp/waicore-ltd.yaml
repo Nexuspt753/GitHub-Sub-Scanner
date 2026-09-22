@@ -1,6 +1,45 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 213.165.56.169
+    port: 443
+    uuid: 974f2c7e-a292-4207-8315-ef4151bdca41
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fl-api.bachidze.com
+    reality-opts:
+      public-key: LMcNHcOzPISa2fmZWt2JraL6_a_IObpS2znQW70gyDo
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
+    server: 138.124.32.110
+    port: 443
+    uuid: 974f2c7e-a292-4207-8315-ef4151bdca41
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fl-api.bachidze.com
+    reality-opts:
+      public-key: LMcNHcOzPISa2fmZWt2JraL6_a_IObpS2znQW70gyDo
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 138.124.9.108
+    port: 443
+    uuid: c795bdd5-0460-42bd-927b-fbff154d2ab5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gag.fl2.iki-servers.com
+    reality-opts:
+      public-key: ssz8kvl1tH0TUaFREVSV_X-ED0AR-eeaWpKg2jQM8D8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: 138.124.28.194
     port: 443
     uuid: ca19c24a-e5ec-45f8-8cd1-c97d84da5e35
@@ -13,7 +52,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-03
     server: 213.176.77.138
     port: 443
     uuid: ca19c24a-e5ec-45f8-8cd1-c97d84da5e35
@@ -26,7 +65,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 138.124.32.78
     port: 443
     password: "1234567890"
@@ -61,30 +100,16 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-726bece9cf
-    server: de.intfreed.ru
-    port: 443
-    uuid: bf92bdef-ab8d-4481-8798-2d39023357b2
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: video.intfreed.ru
-    reality-opts:
-      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
-      short-id: 7755e972daf8eec8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-7a47943358
-    server: 213.176.77.138
+    name: 4Kian-aaf330629c
+    server: 138.124.28.194
     port: 443
     uuid: ca19c24a-e5ec-45f8-8cd1-c97d84da5e35
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: de1.boutique-hotel1108.ru
+    servername: de2.boutique-hotel1108.ru
     reality-opts:
-      public-key: 5yLzbmk8NAd12p-0Uu5WI7PjSLFbNScOZ5SmMWQ6txQ
+      public-key: xiG95sumnFULVio2llay7FuafnwdlXnKsvjEpToO7gQ
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
@@ -174,59 +199,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Mohsen-c56952e3f2
-    server: 95.85.233.138
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - DeltaKroneckerGithub
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - DeltaKroneckerGithub-01
       - Shh_Proxy-New⁵
       - Tel-@ProxyMtAlpha🍫
-      - 4Jadi-726bece9cf
-      - 4Mohsen-7a47943358
+      - 4Kian-aaf330629c
       - 4Jadi-a7e099b980
       - 4FreeIran-925b7adc12
       - 4Sarina-a8d87d78e8
       - 4Jadi-f99d8f21af
       - 4Jadi-4196e6ddb2
-      - 4Mohsen-c56952e3f2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - DeltaKroneckerGithub
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - DeltaKroneckerGithub-01
       - Shh_Proxy-New⁵
       - Tel-@ProxyMtAlpha🍫
-      - 4Jadi-726bece9cf
-      - 4Mohsen-7a47943358
+      - 4Kian-aaf330629c
       - 4Jadi-a7e099b980
       - 4FreeIran-925b7adc12
       - 4Sarina-a8d87d78e8
       - 4Jadi-f99d8f21af
       - 4Jadi-4196e6ddb2
-      - 4Mohsen-c56952e3f2
 rules:
   - MATCH,Proxy

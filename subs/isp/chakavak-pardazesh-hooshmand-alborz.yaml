@@ -1,33 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Kian-4c8727ea7d
-    server: image.colorviolet.ir
-    port: 2021
-    uuid: 6b8dbc66-ea40-444a-b93d-cb20c008af10
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: 185.155.8.133
+    port: 8443
+    uuid: 2867d4cb-baad-4d04-b3ad-d580e4d5cecb
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: tun.mitdns.ir
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    client-fingerprint: chrome
+    servername: aparat.com
+    reality-opts:
+      public-key: AobSPrJpHPIqf9f2neJ_ZUdD8rH77CjJRt93rkjekiA
+      short-id: 439036d1638e1f73
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-4c8727ea7d
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-4c8727ea7d
+      - EPODONIOS
 rules:
   - MATCH,Proxy
