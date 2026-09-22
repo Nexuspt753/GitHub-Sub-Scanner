@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Kian-a706818c2a
+    server: nld26.luckernld.org
+    port: 443
+    uuid: 40d7798a-6c76-4298-a9d4-9e6181cd2dd7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cybo.com
+    reality-opts:
+      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-ebafbb11ad
     server: nld26.luckernld.org
     port: 443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
 rules:
   - MATCH,Proxy

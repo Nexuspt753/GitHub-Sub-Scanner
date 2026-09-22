@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 123.111.169.70
+    port: 2083
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
+    name: EPODONIOS
+    server: 123.111.169.70
+    port: 443
+    uuid: 8102891d-7b37-4dc5-8261-9474b59b5c63
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vip.868068.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=us.xiabibi.cf
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vip.868068.xyz
+  - type: vless
     name: 🇰🇷
     server: 123.111.169.70
     port: 443
@@ -15,6 +47,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vip.868068.xyz
+  - type: ss
+    name: 🇰🇷KR-211.178.105.134-0177
+    server: 211.178.105.134
+    port: 6123
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+    udp: true
   - type: vless
     name: 4Nika-8d8f50b1b1
     server: 123.111.169.70
@@ -36,7 +75,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - 🇰🇷
+      - 🇰🇷KR-211.178.105.134-0177
       - 4Nika-8d8f50b1b1
   - name: Auto
     type: url-test
@@ -44,7 +86,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - 🇰🇷
+      - 🇰🇷KR-211.178.105.134-0177
       - 4Nika-8d8f50b1b1
 rules:
   - MATCH,Proxy

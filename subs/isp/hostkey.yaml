@@ -6,12 +6,50 @@ proxies:
     password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
     sni: hopp-us.yyuyy.com
     skip-cert-verify: true
+  - type: vless
+    name: EPODONIOS
+    server: 82.26.93.57
+    port: 8445
+    uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hetzner.com
+    reality-opts:
+      public-key: _UazRMiBq9RqMaVrHeLsvUuoBkGFo9Gm-A4ivuZ6ZS8
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: vless
+    server: 82.26.93.57
+    port: 8446
+    uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 205.172.56.151
+    port: 5432
+    uuid: cc01f435-d561-4525-bf1f-7a9876d33207
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-3fdeeaae48
+      - EPODONIOS
+      - vless
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +57,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-3fdeeaae48
+      - EPODONIOS
+      - vless
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

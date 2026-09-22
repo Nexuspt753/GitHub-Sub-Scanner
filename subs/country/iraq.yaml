@@ -13,12 +13,27 @@ proxies:
       short-id: 123abcde
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Erbil · EPODONIOS
+    server: 193.56.135.233
+    port: 9543
+    uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandexcloud.net
+    reality-opts:
+      public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+      short-id: 123abcde
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Erbil · @DeltaKroneckerGithub
+      - Erbil · EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Erbil · @DeltaKroneckerGithub
+      - Erbil · EPODONIOS
 rules:
   - MATCH,Proxy

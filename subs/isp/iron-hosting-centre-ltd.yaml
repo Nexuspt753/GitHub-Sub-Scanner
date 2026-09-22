@@ -1,28 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-6e24c2230d
-    server: 178.208.64.57
+    name: EPODONIOS
+    server: 194.87.0.196
     port: 443
-    uuid: 0c6d8604-b7af-46b4-8382-5c90bf232471
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h3
-    servername: nl2.lebedvpn.cc
+    servername: shuma.ccwu.cc
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6e24c2230d
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6e24c2230d
+      - EPODONIOS
 rules:
   - MATCH,Proxy

@@ -1,7 +1,16 @@
 proxies:
   - type: vless
+    name: vless
+    server: 2.26.124.51
+    port: 443
+    uuid: 0fc4b69c-398c-489b-a5a6-05487cfd5ca2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: EPODONIOS
-    server: 2.26.124.61
+    server: 194.238.57.23
     port: 443
     uuid: 303c2140-19ff-4eea-b1b1-865d4160d261
     udp: true
@@ -17,6 +26,38 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: EPODONIOS-01
+    server: 2.26.124.61
+    port: 443
+    uuid: 303c2140-19ff-4eea-b1b1-865d4160d261
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ai.android
+    reality-opts:
+      public-key: uE1WBdW9se1rQnx8Vh-a1jjaehzK-iUmCVrPui5KU3g
+      short-id: 53499a662395
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇸🇪SE-🚀@VPNine1
+    server: 2.26.124.61
+    port: 443
+    uuid: 303c2140-19ff-4eea-b1b1-865d4160d261
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ai.android
+    reality-opts:
+      public-key: uE1WBdW9se1rQnx8Vh-a1jjaehzK-iUmCVrPui5KU3g
+      short-id: 53499a662395
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-02
     server: 144.31.28.106
     port: 8443
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -32,7 +73,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: 144.31.28.106
     port: 8443
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -79,26 +120,68 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
+  - type: vless
+    name: 4FreeIran-cf2e6dc471
+    server: 2.26.124.61
+    port: 443
+    uuid: 303c2140-19ff-4eea-b1b1-865d4160d261
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ai.android
+    reality-opts:
+      public-key: uE1WBdW9se1rQnx8Vh-a1jjaehzK-iUmCVrPui5KU3g
+      short-id: 53499a662395
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-2b2532cfb6
+    server: 144.31.28.106
+    port: 8443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /trade
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - vless
       - EPODONIOS
       - EPODONIOS-01
+      - 🇸🇪SE-🚀@VPNine1
       - EPODONIOS-02
+      - EPODONIOS-03
       - Free
       - hex_proxy
+      - 4FreeIran-cf2e6dc471
+      - 4Nika-2b2532cfb6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - EPODONIOS
       - EPODONIOS-01
+      - 🇸🇪SE-🚀@VPNine1
       - EPODONIOS-02
+      - EPODONIOS-03
       - Free
       - hex_proxy
+      - 4FreeIran-cf2e6dc471
+      - 4Nika-2b2532cfb6
 rules:
   - MATCH,Proxy
