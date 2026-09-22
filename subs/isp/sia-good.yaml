@@ -12,12 +12,26 @@ proxies:
       public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-e9bdcdb0ed
+    server: lv.dexlen.cc
+    port: 443
+    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lv.dexlen.cc
+    reality-opts:
+      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4Sarina-e9bdcdb0ed
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4Sarina-e9bdcdb0ed
 rules:
   - MATCH,Proxy

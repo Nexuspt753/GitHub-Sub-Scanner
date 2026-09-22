@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: Zaporizhzhya · @DeltaKroneckerGithub
+    server: 45.135.235.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime07.workers.dev
+  - type: vless
     name: Kyiv · EPODONIOS
     server: 104.245.242.8
     port: 8443
@@ -75,35 +88,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Kyiv · 4Kian-ece8e440e4
-    server: 194.113.35.94
-    port: 443
-    uuid: 0dbe4d34-30c9-4f8a-b229-e5950087232d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fitauto.ru
-    reality-opts:
-      public-key: yCKV2xr725jI0sFhm4KbttKl8b9UZrnQTXxZLN2S4BM
-      short-id: a09b940d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Kyiv · 4Mohsen-9fef306950
-    server: 104.245.242.8
-    port: 8443
-    uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: Kyiv · 4Nika-9ea8655d6a
     server: 104.245.242.8
     port: 8443
@@ -118,64 +102,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: Kyiv · 4Mohsen-1213bd3185
-    server: 213.111.148.137
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
-  - type: vless
-    name: Kyiv · 4Kian-23db498e21
-    server: 104.143.223.217
-    port: 2085
-    uuid: c9373ff0-c263-4949-885f-366671f3c6a1
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Zaporizhzhya · @DeltaKroneckerGithub
       - Kyiv · EPODONIOS
       - Kyiv · @Nexus_Panell
       - Kyiv · @DeltaKroneckerGithub
       - Kyiv · EPODONIOS-01
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · ✅
-      - Kyiv · 4Kian-ece8e440e4
-      - Kyiv · 4Mohsen-9fef306950
       - Kyiv · 4Nika-9ea8655d6a
-      - Kyiv · 4Mohsen-1213bd3185
-      - Kyiv · 4Kian-23db498e21
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Zaporizhzhya · @DeltaKroneckerGithub
       - Kyiv · EPODONIOS
       - Kyiv · @Nexus_Panell
       - Kyiv · @DeltaKroneckerGithub
       - Kyiv · EPODONIOS-01
       - Kyiv · @DeltaKroneckerGithub-01
       - Kyiv · ✅
-      - Kyiv · 4Kian-ece8e440e4
-      - Kyiv · 4Mohsen-9fef306950
       - Kyiv · 4Nika-9ea8655d6a
-      - Kyiv · 4Mohsen-1213bd3185
-      - Kyiv · 4Kian-23db498e21
 rules:
   - MATCH,Proxy

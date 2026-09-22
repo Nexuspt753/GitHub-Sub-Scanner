@@ -14,20 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vmesskhodam
-    server: 13.143.232.103
-    port: 443
-    uuid: e48e4377-1f29-485b-80d4-85fd4fa27bfa
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.dell.com
-    reality-opts:
-      public-key: xnL5NgZ6mHbm_ZthGvfxIPa5IbL3KDqCjzqNyGtpQwU
-      short-id: 3165175e736cf373
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-0d2f3874d4
     server: sa-ee0441551507e46c.sr-cbeea22261c8564d.r.vpvpn.club
     port: 8443
@@ -44,36 +30,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nl4.pad-service.com
   - type: vless
-    name: 4Kian-1612dba815
-    server: sa-f606a5f231034c1a.sr-707a137c909a984d.r.vpvpn.club
-    port: 8443
-    uuid: 23578a2c-2493-41f0-89ef-d7d3a7b85252
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl3.pad-service.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /NL3W
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl3.pad-service.com
-  - type: vless
-    name: 4Sarina-1bd311d4e5
-    server: 13.143.232.103
-    port: 443
-    uuid: e48e4377-1f29-485b-80d4-85fd4fa27bfa
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.dell.com
-    reality-opts:
-      public-key: xnL5NgZ6mHbm_ZthGvfxIPa5IbL3KDqCjzqNyGtpQwU
-      short-id: 3165175e736cf373
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-e8007b2864
     server: 13.143.232.103
     port: 443
@@ -87,17 +43,29 @@ proxies:
       short-id: 3165175e736cf373
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-4d95725eca
+    server: 13.143.232.103
+    port: 443
+    uuid: e48e4377-1f29-485b-80d4-85fd4fa27bfa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.dell.com
+    reality-opts:
+      public-key: xnL5NgZ6mHbm_ZthGvfxIPa5IbL3KDqCjzqNyGtpQwU
+      short-id: 3165175e736cf373
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - vmesskhodam
       - 4Kian-0d2f3874d4
-      - 4Kian-1612dba815
-      - 4Sarina-1bd311d4e5
       - 4Sarina-e8007b2864
+      - 4Sarina-4d95725eca
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -105,10 +73,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - vmesskhodam
       - 4Kian-0d2f3874d4
-      - 4Kian-1612dba815
-      - 4Sarina-1bd311d4e5
       - 4Sarina-e8007b2864
+      - 4Sarina-4d95725eca
 rules:
   - MATCH,Proxy

@@ -12,12 +12,24 @@ proxies:
       public-key: g2sbZDGTg4l1Dcg_Y4UKpbncPKEh7iFtTlWYbfi2sCk
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-c914a5c84f
+    server: 31.59.125.106
+    port: 443
+    uuid: 129799e0-a9b1-4ae8-80bd-fa92db813f85
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: poll2.shhflow.xyz
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-c914a5c84f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-c914a5c84f
 rules:
   - MATCH,Proxy
