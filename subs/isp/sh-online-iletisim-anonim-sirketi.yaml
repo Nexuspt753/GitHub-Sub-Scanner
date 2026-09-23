@@ -10,27 +10,12 @@ proxies:
     alpn:
       - h2
     xudp: true
-  - type: vless
-    name: 4FreeIran-91d889d873
-    server: 31.210.52.149
-    port: 443
-    uuid: 206a4c50-2eb6-4b7f-b7a5-15c6ab7b3f4c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tr-ist-5.blook.network
-    reality-opts:
-      public-key: HabIMykoF6jIw0rAgi_t3xm_hdWTLFKIpODwNJFjznE
-      short-id: 625a948aab4f
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - 4FreeIran-91d889d873
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4FreeIran-91d889d873
 rules:
   - MATCH,Proxy

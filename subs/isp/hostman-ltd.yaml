@@ -1,32 +1,62 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 195.216.168.158
-    port: 443
-    uuid: 6072ca43-2715-49a4-a9a2-a56be73ecfb0
+    name: EPODONIOS
+    server: 132.243.242.97
+    port: 9543
+    uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: google.com
+    client-fingerprint: chrome
+    servername: storage.yandexcloud.net
     reality-opts:
-      public-key: JgAozyY8uYe10LDFxsY5KL6C54nPrFezT6lK5Rfvrjk
-      short-id: 3faf2070
+      public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+      short-id: 123abcdf
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: filembad
+    server: 132.243.242.97
+    port: 9543
+    uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandexcloud.net
+    reality-opts:
+      public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+      short-id: 123abcdf
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪
+    server: 132.243.242.97
+    port: 9543
+    uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandexcloud.net
+    reality-opts:
+      public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+      short-id: 123abcdf
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - filembad
+      - 🇩🇪
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - filembad
+      - 🇩🇪
 rules:
   - MATCH,Proxy

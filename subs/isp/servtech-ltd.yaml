@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 194.93.0.28
-    port: 443
-    uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
+    name: EPODONIOS
+    server: 176.118.166.100
+    port: 58888
+    uuid: de71c0cd-8f0d-462d-80a7-d567b642cdb2
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: media2.tcpdoor.net
+    servername: max.ru
     reality-opts:
-      public-key: vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8
-      short-id: 3303c7a5
+      public-key: 5rarCwWIE6vDLCyip5C66PYDsm7ETZ9V4LQR34dfuGA
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 176.118.166.100
+    port: 58888
+    uuid: de71c0cd-8f0d-462d-80a7-d567b642cdb2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: 5rarCwWIE6vDLCyip5C66PYDsm7ETZ9V4LQR34dfuGA
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

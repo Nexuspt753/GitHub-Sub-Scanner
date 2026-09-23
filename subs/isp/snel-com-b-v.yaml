@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-f95d366579
+    server: 185.62.58.150
+    port: 443
+    uuid: 4db3db61-3a03-4c24-a336-e36a9f384f57
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: static.gcore.pro
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-f95d366579
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-f95d366579
+rules:
+  - MATCH,Proxy

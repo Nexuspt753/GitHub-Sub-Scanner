@@ -1,28 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 168.222.203.14
-    port: 4100
-    uuid: 2e79f3ca-b8db-4d4d-a96e-8f7313480696
+    name: EPODONIOS
+    server: 31.177.82.251
+    port: 443
+    uuid: 8f67e374-53d9-43bb-85c9-a459a959cd1b
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.yandex.ru
+    reality-opts:
+      public-key: ndpkgMVOlA_e_rPptkBFa3KCJ2mRDu0n2BqlBSdYbm0
+      short-id: f0ecbb94984d7fe4
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /v1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy

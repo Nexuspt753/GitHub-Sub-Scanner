@@ -1,6 +1,18 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 172.111.146.64
+    port: 80
+    uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 104.129.164.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -12,18 +24,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime40.workers.dev
-  - type: vless
-    name: EPODONIOS
-    server: 172.111.146.64
-    port: 80
-    uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 157.254.38.210
+    port: 20129
+    password: 41c406e2-12b5-41f2-a329-d0621052d675
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    tls: true
+    sni: hk.catxstar.com
+    client-fingerprint: android
   - type: vless
     name: v2ray313
     server: 172.111.146.64
@@ -36,64 +45,53 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 157.254.38.210
-    port: 20129
-    password: 41c406e2-12b5-41f2-a329-d0621052d675
+  - type: vmess
+    name: EPODONIOS
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: 172.111.146.64
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 172.111.146.64
+  - type: vmess
+    name: DeltaKroneckerGithub-03
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-1e1c431400
+    server: 104.129.164.253
+    port: 2096
+    uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
     udp: true
     tls: true
-    sni: hk.catxstar.com
-    client-fingerprint: android
-  - type: vmess
-    name: EPODONIOS-01
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
+    client-fingerprint: chrome
+    servername: vless.muzheng.top
     xudp: true
-    skip-cert-verify: false
-    servername: 172.111.146.64
     network: ws
     ws-opts:
-      path: /vmess/
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 172.111.146.64
-  - type: vmess
-    name: DeltaKroneckerGithub-02
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    servername: 172.111.146.64
-    network: ws
-    ws-opts:
-      path: /vmess/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 172.111.146.64
   - type: vless
     name: 4Mohsen-cec9d21b4e
     server: 172.111.146.64
@@ -161,12 +159,12 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - v2ray313
       - DeltaKroneckerGithub-01
-      - EPODONIOS-01
       - DeltaKroneckerGithub-02
-      - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
+      - v2ray313
+      - EPODONIOS
+      - DeltaKroneckerGithub-03
+      - 4Kian-1e1c431400
       - 4Mohsen-cec9d21b4e
       - 4Sarina-e2adffa4b8
       - 4Nika-121cb499fb
@@ -178,12 +176,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - v2ray313
       - DeltaKroneckerGithub-01
-      - EPODONIOS-01
       - DeltaKroneckerGithub-02
-      - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
+      - v2ray313
+      - EPODONIOS
+      - DeltaKroneckerGithub-03
+      - 4Kian-1e1c431400
       - 4Mohsen-cec9d21b4e
       - 4Sarina-e2adffa4b8
       - 4Nika-121cb499fb
