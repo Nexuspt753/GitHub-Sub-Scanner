@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Jadi-b898abc313
+    server: 143.246.56.172
+    port: 8443
+    password: Xmfo9FkLBCNprxd2Dohi
+    sni: bing.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-b898abc313
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-b898abc313
+rules:
+  - MATCH,Proxy

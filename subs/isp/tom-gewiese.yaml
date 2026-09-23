@@ -1,47 +1,41 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 94.249.187.46
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: IXa3ylzS_jBOAsQy071tIQ
+    udp: true
+  - type: ss
     name: hex_proxy
     server: 94.249.187.46
     port: 1080
     cipher: chacha20-ietf-poly1305
     password: IXa3ylzS_jBOAsQy071tIQ
     udp: true
-  - type: vmess
-    name: EPODONIOS
+  - type: ss
+    name: 4Nika-e052075dfd
     server: 94.249.187.46
-    port: 2086
-    uuid: f6361af8-bb8f-4609-bf5d-3fc0f688f47b
-    alterId: 0
-    cipher: auto
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: IXa3ylzS_jBOAsQy071tIQ
     udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 🇩🇪 Join+Telegram:@Farah_VPN 🇩🇪
-    server: 94.249.187.46
-    port: 2086
-    uuid: f6361af8-bb8f-4609-bf5d-3fc0f688f47b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - hex_proxy
       - EPODONIOS
-      - 🇩🇪 Join+Telegram:@Farah_VPN 🇩🇪
+      - hex_proxy
+      - 4Nika-e052075dfd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - hex_proxy
       - EPODONIOS
-      - 🇩🇪 Join+Telegram:@Farah_VPN 🇩🇪
+      - hex_proxy
+      - 4Nika-e052075dfd
 rules:
   - MATCH,Proxy

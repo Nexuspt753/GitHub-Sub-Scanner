@@ -1,31 +1,50 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: 176.65.151.61
+    port: 443
+    uuid: 79770569-abde-4fdb-90eb-10b99d4adf8f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.upwork.com
+    reality-opts:
+      public-key: f09CLVED0WnerTVrfS_nZ7UUuTHtT_TIiDeJ0z9WCHY
+      short-id: a96e5dd96c4b902d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ⚡️
     server: 176.65.151.205
-    port: 59052
-    uuid: 73d23177-ac12-4d04-b362-6004eff1c26a
+    port: 28605
+    uuid: e0d5e960-1841-4134-91ff-2262535e23a2
     udp: true
     xudp: true
     network: grpc
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Nika-61c6194daf
-    server: 176.65.151.205
-    port: 59052
-    uuid: 73d23177-ac12-4d04-b362-6004eff1c26a
+    name: 4Mohsen-c0e5021d30
+    server: 176.65.151.61
+    port: 443
+    uuid: 79770569-abde-4fdb-90eb-10b99d4adf8f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.upwork.com
+    reality-opts:
+      public-key: f09CLVED0WnerTVrfS_nZ7UUuTHtT_TIiDeJ0z9WCHY
+      short-id: a96e5dd96c4b902d
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Nika-61c6194daf
+      - ⚡️
+      - 4Mohsen-c0e5021d30
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +52,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Nika-61c6194daf
+      - ⚡️
+      - 4Mohsen-c0e5021d30
 rules:
   - MATCH,Proxy
