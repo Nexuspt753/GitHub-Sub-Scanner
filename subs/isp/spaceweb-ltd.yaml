@@ -13,12 +13,27 @@ proxies:
       short-id: f0ecbb94984d7fe4
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: irdusti(15)🇷🇺
+    server: 31.177.82.251
+    port: 443
+    uuid: 8f67e374-53d9-43bb-85c9-a459a959cd1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.yandex.ru
+    reality-opts:
+      public-key: ndpkgMVOlA_e_rPptkBFa3KCJ2mRDu0n2BqlBSdYbm0
+      short-id: f0ecbb94984d7fe4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - irdusti(15)🇷🇺
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - irdusti(15)🇷🇺
 rules:
   - MATCH,Proxy

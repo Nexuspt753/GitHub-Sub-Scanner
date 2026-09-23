@@ -1,33 +1,36 @@
 proxies:
-  - type: vmess
-    name: 4FreeIran-0cdc8cf6cb
-    server: 152.32.229.149
-    port: 443
-    uuid: ffffffff-ffff-ffff-ffff-ffffffffffff
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: diamonds-july-egg-sporting.trycloudflare.com
+  - type: hysteria2
+    name: 4Nika-2237f64770
+    server: nas.aizhzo.com
+    port: 5010
+    password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+    sni: 127.0.0.1
+    skip-cert-verify: true
+    obfs: salamander
+    obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
+  - type: hysteria2
+    name: 4Kian-b0dc2ea2cc
+    server: nas.aizhzo.com
+    port: 5010
+    password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+    sni: nas.aizhzo.com
+    skip-cert-verify: true
+    obfs: salamander
+    obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-0cdc8cf6cb
+      - 4Nika-2237f64770
+      - 4Kian-b0dc2ea2cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-0cdc8cf6cb
+      - 4Nika-2237f64770
+      - 4Kian-b0dc2ea2cc
 rules:
   - MATCH,Proxy
