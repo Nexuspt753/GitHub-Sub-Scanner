@@ -13,6 +13,22 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: PWpjPo3tqhPN4yRZ
     udp: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 8.209.105.99
+    port: 443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edg-2oo.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /online?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edg-2oo.pages.dev
   - type: ss
     name: 4FreeIran-68907d0833
     server: 8.209.74.72
@@ -21,14 +37,14 @@ proxies:
     password: PWpjPo3tqhPN4yRZ
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 8.209.74.72
     port: 20001
     cipher: chacha20-ietf-poly1305
     password: PWpjPo3tqhPN4yRZ
     udp: true
   - type: ss
-    name: 🇩🇪DE-8.209.74.72-0115
+    name: 🇩🇪DE-8.209.74.72-0132
     server: 8.209.74.72
     port: 20001
     cipher: chacha20-ietf-poly1305
@@ -69,6 +85,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: J3Nz0zA0r13AoVhH.v.3dns.vip
+  - type: vmess
+    name: 4Mohsen-1b8bd003d0
+    server: UcKniXjfd2JOKBmx.v.3dns.vip
+    port: 443
+    uuid: 1abe49dedb6e4f65a0f0a5ea79ddefad
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: UcKniXjfd2JOKBmx.v.3dns.vip
+  - type: vmess
+    name: 4Kian-42f8c3ec76
+    server: UcKniXjfd2JOKBmx.v.3dns.vip
+    port: 443
+    uuid: 1abe49dedb6e4f65a0f0a5ea79ddefad
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: UcKniXjfd2JOKBmx.v.3dns.vip
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: UcKniXjfd2JOKBmx.v.3dns.vip
 proxy-groups:
   - name: Proxy
     type: select
@@ -76,11 +127,14 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - 🇩🇪
-      - 4FreeIran-68907d0833
       - DeltaKroneckerGithub
-      - 🇩🇪DE-8.209.74.72-0115
+      - 4FreeIran-68907d0833
+      - DeltaKroneckerGithub-01
+      - 🇩🇪DE-8.209.74.72-0132
       - 4FreeIran-8d901d28dd
       - 4Jadi-01e0dc8972
+      - 4Mohsen-1b8bd003d0
+      - 4Kian-42f8c3ec76
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -89,10 +143,13 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - 🇩🇪
-      - 4FreeIran-68907d0833
       - DeltaKroneckerGithub
-      - 🇩🇪DE-8.209.74.72-0115
+      - 4FreeIran-68907d0833
+      - DeltaKroneckerGithub-01
+      - 🇩🇪DE-8.209.74.72-0132
       - 4FreeIran-8d901d28dd
       - 4Jadi-01e0dc8972
+      - 4Mohsen-1b8bd003d0
+      - 4Kian-42f8c3ec76
 rules:
   - MATCH,Proxy

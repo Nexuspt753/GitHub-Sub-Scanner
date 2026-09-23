@@ -1,32 +1,38 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 124.156.208.160
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  - type: vmess
+    name: Net2ray SG🇸🇬
+    server: 129.226.157.220
+    port: 59121
+    uuid: d9865d63-d95c-454b-ba07-8e88b838a801
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: hszme.xax0.x8p.hh.vavava.kdns.fr
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hszme.xax0.x8p.hh.vavava.kdns.fr
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-99ce91d3b5
+    server: 129.226.157.220
+    port: 59121
+    uuid: d9865d63-d95c-454b-ba07-8e88b838a801
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - Net2ray SG🇸🇬
+      - 4Nika-99ce91d3b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - Net2ray SG🇸🇬
+      - 4Nika-99ce91d3b5
 rules:
   - MATCH,Proxy

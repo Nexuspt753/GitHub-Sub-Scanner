@@ -1,30 +1,25 @@
 proxies:
   - type: vless
-    name: 4FreeIran-617fee0c0c
-    server: 2.144.22.87
-    port: 443
-    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
+    name: vless
+    server: 2.144.26.192
+    port: 6017
+    uuid: a5055b0f-209b-4a49-8f1c-656b294bd463
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: api.bgp6.ir
-    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-617fee0c0c
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-617fee0c0c
+      - vless
 rules:
   - MATCH,Proxy

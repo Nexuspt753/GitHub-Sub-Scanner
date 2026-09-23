@@ -3,23 +3,27 @@ proxies:
     name: DeltaKroneckerGithub
     server: hl-freedom-1.undef.network
     port: 443
-    password: 7LBbob9IutFObLxLf9Svc1HaV
-    udp: true
-    tls: true
-    sni: hl-freedom-1.undef.network
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /f2fc2a1f
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hl-freedom-1.undef.network
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: hl-freedom-1.undef.network
-    port: 443
     password: JaFKnqNcvnBT63t3rquidGsln
     udp: true
+    client-fingerprint: chrome
+  - type: vless
+    name: vless
+    server: 201.10.90.24
+    port: 2027
+    uuid: a6b29052-e9ba-4714-a43c-4a660f452c44
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2gis.ru
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: hl-freedom-2.undef.network
+    port: 443
+    password: Tn2Bf0iRwJkJQgDk6gX6x81RB
+    udp: true
+    tls: true
+    sni: hl-freedom-2.undef.network
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -27,6 +31,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - vless
       - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
@@ -35,6 +40,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - vless
       - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

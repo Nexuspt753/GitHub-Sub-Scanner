@@ -1,20 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 185.218.17.127
-    port: 443
-    uuid: bc8446e7-ba8e-4dfd-92df-8681793fe31e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: corporate.amazon.com
-    reality-opts:
-      public-key: QKaBb_u0KoNkMYbh9ljrxC9BDtnHyFoaMd4-s4xfKxQ
-      short-id: 33c0b6e213
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 45.159.79.71
     port: 4443
     uuid: 20dd9433-389e-4573-ba7b-689619cf13da
@@ -56,6 +42,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.218.17.127
+    port: 443
+    uuid: bc8446e7-ba8e-4dfd-92df-8681793fe31e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: corporate.amazon.com
+    reality-opts:
+      public-key: QKaBb_u0KoNkMYbh9ljrxC9BDtnHyFoaMd4-s4xfKxQ
+      short-id: 33c0b6e213
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS-01
     server: 185.218.17.127
     port: 443
@@ -83,17 +83,8 @@ proxies:
       short-id: 33c0b6e213
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 23.177.185.138
-    port: 443
-    password: 8r<[9'l6hAO#8ZQi
-    udp: true
-    tls: true
-    sni: Koma-YT.PAGeS.Dev
-    client-fingerprint: chrome
   - type: vless
-    name: "["
+    name: v2mystery
     server: 185.218.17.127
     port: 443
     uuid: bc8446e7-ba8e-4dfd-92df-8681793fe31e
@@ -108,20 +99,6 @@ proxies:
     xudp: true
   - type: vless
     name: "9094"
-    server: 185.218.17.127
-    port: 443
-    uuid: bc8446e7-ba8e-4dfd-92df-8681793fe31e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: corporate.amazon.com
-    reality-opts:
-      public-key: QKaBb_u0KoNkMYbh9ljrxC9BDtnHyFoaMd4-s4xfKxQ
-      short-id: 33c0b6e213
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: "[53334]"
     server: 185.218.17.127
     port: 443
     uuid: bc8446e7-ba8e-4dfd-92df-8681793fe31e
@@ -211,45 +188,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Nika-78acb2a785
-    server: 147.45.125.231
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
       - irdusti(12)🇺🇸¹
+      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - EPODONIOS-02
-      - DeltaKroneckerGithub-02
-      - "["
+      - v2mystery
       - "9094"
-      - "[53334]"
       - 4Mohsen-96084e81d0
       - 4Mohsen-c75f17638f
       - 4Jadi-b75731299c
       - 4Sarina-93665ccc41
       - 4Nika-23a4b79f1d
-      - 4Nika-78acb2a785
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -257,20 +213,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
       - irdusti(12)🇺🇸¹
+      - DeltaKroneckerGithub-01
       - EPODONIOS-01
       - EPODONIOS-02
-      - DeltaKroneckerGithub-02
-      - "["
+      - v2mystery
       - "9094"
-      - "[53334]"
       - 4Mohsen-96084e81d0
       - 4Mohsen-c75f17638f
       - 4Jadi-b75731299c
       - 4Sarina-93665ccc41
       - 4Nika-23a4b79f1d
-      - 4Nika-78acb2a785
 rules:
   - MATCH,Proxy
