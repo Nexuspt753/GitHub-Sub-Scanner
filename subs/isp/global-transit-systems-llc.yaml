@@ -1,6 +1,21 @@
 proxies:
   - type: vless
-    name: 4Nika-9ea8655d6a
+    name: EPODONIOS
+    server: 104.245.242.8
+    port: 8443
+    uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Nexus_Panell
     server: 104.245.242.8
     port: 8443
     uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
@@ -19,13 +34,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-9ea8655d6a
+      - EPODONIOS
+      - Nexus_Panell
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9ea8655d6a
+      - EPODONIOS
+      - Nexus_Panell
 rules:
   - MATCH,Proxy

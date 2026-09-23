@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 80.211.24.214
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
     name: EPODONIOS
     server: itl.mobileemdad.top
     port: 443
@@ -26,14 +42,27 @@ proxies:
       short-id: 070a23aed243
     xudp: true
   - type: vless
-    name: 4FreeIran-fe2758f679
+    name: 4Kian-ab4a15c2bb
     server: itl.mobileemdad.top
     port: 443
-    uuid: 20f8330f-9885-4ec0-b630-899fd441ebcc
+    uuid: a8332d03-40a3-4891-8e8e-50830248515c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.goo.gl
+    reality-opts:
+      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
+      short-id: 070a23aed243
+    xudp: true
+  - type: vless
+    name: 4FreeIran-73533a56fd
+    server: itl.mobileemdad.top
+    port: 443
+    uuid: a8332d03-40a3-4891-8e8e-50830248515c
     udp: true
     tls: true
     client-fingerprint: edge
-    servername: rpc.ankr.com
+    servername: www.goo.gl
     reality-opts:
       public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
       short-id: 070a23aed243
@@ -43,17 +72,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇮🇹179550
-      - 4FreeIran-fe2758f679
+      - 4Kian-ab4a15c2bb
+      - 4FreeIran-73533a56fd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇮🇹179550
-      - 4FreeIran-fe2758f679
+      - 4Kian-ab4a15c2bb
+      - 4FreeIran-73533a56fd
 rules:
   - MATCH,Proxy

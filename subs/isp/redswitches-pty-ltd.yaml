@@ -1,6 +1,23 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: 4Jadi-56518cc5ff
+    server: fraa.spacev67.com
+    port: 443
+    uuid: 31f71b0a-7572-4be1-89c7-e4180b56bfb9
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: fraa.spacev67.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-c77af27d14
     server: fraa.spacev67.com
     port: 443
     uuid: 31f71b0a-7572-4be1-89c7-e4180b56bfb9
@@ -21,13 +38,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 4Jadi-56518cc5ff
+      - 4Nika-c77af27d14
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 4Jadi-56518cc5ff
+      - 4Nika-c77af27d14
 rules:
   - MATCH,Proxy

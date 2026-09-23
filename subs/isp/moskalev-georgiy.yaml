@@ -15,24 +15,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vless
-    name: vless-01
-    server: 201.10.90.24
-    port: 2027
-    uuid: a6b29052-e9ba-4714-a43c-4a660f452c44
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: hl-freedom-2.undef.network
-    port: 443
-    password: Tn2Bf0iRwJkJQgDk6gX6x81RB
-    udp: true
-    tls: true
-    sni: hl-freedom-2.undef.network
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -40,8 +22,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - vless
-      - vless-01
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -50,7 +30,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - vless
-      - vless-01
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,23 +1,38 @@
 proxies:
-  - type: vless
-    name: vless
-    server: irmedia12.pmme6.top
-    port: 33443
-    uuid: e128a087-bf3e-47de-af6f-fc01a2a977dc
+  - type: vmess
+    name: 4Sarina-2cab6318b5
+    server: dashboard.afrapayment.top
+    port: 5382
+    uuid: b2bc2ff5-e36e-453b-84e9-d93a33203ac3
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-c4b326444c
+    server: dashboard.afrasim.top
+    port: 5388
+    uuid: b2bc2ff5-e36e-453b-84e9-d93a33203ac3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Sarina-2cab6318b5
+      - 4Kian-c4b326444c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Sarina-2cab6318b5
+      - 4Kian-c4b326444c
 rules:
   - MATCH,Proxy

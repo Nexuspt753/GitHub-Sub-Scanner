@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.27.175.71
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-fi.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 144.31.62.224
     port: 443
@@ -14,7 +27,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: assets-fi.pleiades.codes
     port: 443
     uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
@@ -27,7 +40,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 31.77.161.15
     port: 443
     uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
@@ -40,22 +53,8 @@ proxies:
       short-id: db04ce8bdb8900f1
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 🇩🇪
-    server: 144.31.62.224
-    port: 443
-    uuid: 58783e94-cff6-4b74-a80c-2d8828d44cc5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: deepl.com
-    reality-opts:
-      public-key: 3J5mYA5NziIVJi77fRsx9dZPYWzLkvaIz-cCdZQvhn8
-      short-id: 1a2b1a2b1a2b
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 144.31.138.127
     port: 443
     password: "1234567890"
@@ -150,6 +149,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Mohsen-ce5de679a8
+    server: 144.31.62.224
+    port: 443
+    uuid: 58783e94-cff6-4b74-a80c-2d8828d44cc5
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: deepl.com
+    reality-opts:
+      public-key: 3J5mYA5NziIVJi77fRsx9dZPYWzLkvaIz-cCdZQvhn8
+      short-id: 1a2b1a2b1a2b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-654d3e2e03
     server: 31.77.161.15
     port: 443
@@ -157,6 +170,20 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: nvidia.com
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-f66aabac88
+    server: 31.77.161.15
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    udp: true
+    tls: true
+    client-fingerprint: safari
     servername: nvidia.com
     reality-opts:
       public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
@@ -176,6 +203,41 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Kian-fd217af4e8
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-133c730ca5
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Jadi-fbd085f590
     server: 64.188.106.254
@@ -198,19 +260,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - 🇩🇪
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS-01
       - B2Hub
       - VConfing
       - ✅
       - 4Nika-5b98bf77d4
       - 4Jadi-342752bb66
+      - 4Mohsen-ce5de679a8
       - 4Kian-654d3e2e03
+      - 4Sarina-f66aabac88
       - 4Mohsen-0150ec4531
+      - 4Kian-fd217af4e8
+      - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
   - name: Auto
     type: url-test
@@ -218,19 +284,23 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - 🇩🇪
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS-01
       - B2Hub
       - VConfing
       - ✅
       - 4Nika-5b98bf77d4
       - 4Jadi-342752bb66
+      - 4Mohsen-ce5de679a8
       - 4Kian-654d3e2e03
+      - 4Sarina-f66aabac88
       - 4Mohsen-0150ec4531
+      - 4Kian-fd217af4e8
+      - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
 rules:
   - MATCH,Proxy

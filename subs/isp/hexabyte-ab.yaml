@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 194.104.94.211
+    port: 12443
+    uuid: 55061827-d64c-415f-9055-c01a66218a3e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: MvWD7Eg5w1wxwd14Kgurm7Ty9hiDk0mj-_yj8a_0iX8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇸🇪179731
     server: 194.104.94.211
     port: 12443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇸🇪179731
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇸🇪179731
 rules:
   - MATCH,Proxy
