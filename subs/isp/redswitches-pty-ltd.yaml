@@ -1,0 +1,33 @@
+proxies:
+  - type: vless
+    name: 🇫🇷179483
+    server: fraa.spacev67.com
+    port: 443
+    uuid: 31f71b0a-7572-4be1-89c7-e4180b56bfb9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fraa.spacev67.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇫🇷179483
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇫🇷179483
+rules:
+  - MATCH,Proxy

@@ -15,22 +15,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 104.194.84.188
-    port: 8443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -40,31 +24,49 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-bfd6e2164a
-    server: 104.194.84.188
-    port: 8443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+  - type: vmess
+    name: 4Nika-2f67175f1c
+    server: kr-arm2.018999.xyz
+    port: 443
+    uuid: e98fc1a0-9c52-4091-91a5-c159b0aa274e
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
     xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
-      path: /
+      path: /e98fc1a0-9c52-4091-91a5-c159b0aa274e
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
+        Host: kr-arm2.018999.xyz
+  - type: vmess
+    name: 4Kian-32a4fe5ef9
+    server: jp-amd1.018999.xyz
+    port: 443
+    uuid: 65e619e7-0bf1-4f5b-a390-5735b01a3713
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /65e619e7-0bf1-4f5b-a390-5735b01a3713
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp-amd1.018999.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-32e553f3cf
-      - 4Sarina-bfd6e2164a
+      - 4Nika-2f67175f1c
+      - 4Kian-32a4fe5ef9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -72,8 +74,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-32e553f3cf
-      - 4Sarina-bfd6e2164a
+      - 4Nika-2f67175f1c
+      - 4Kian-32a4fe5ef9
 rules:
   - MATCH,Proxy

@@ -15,12 +15,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: vless
+    name: vless
+    server: 66.154.102.234
+    port: 443
+    uuid: 8db91fcf-cdc5-4b12-bbd3-746e389f8d11
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +36,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - vless
 rules:
   - MATCH,Proxy

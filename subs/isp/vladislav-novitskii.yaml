@@ -1,44 +1,24 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: EPODONIOS
-    server: nl2.pleiades.codes
-    port: 2053
-    password: d5bee0afdbc500b8cda02d80
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 🥎75@oneclickvpnkeys
-    server: nl2.pleiades.codes
-    port: 2053
-    password: d5bee0afdbc500b8cda02d80
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: nl2.pleiades.codes
-    port: 2053
-    password: d5bee0afdbc500b8cda02d80
-    udp: true
-    tls: true
-    sni: nl2.pleiades.codes
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 130.78.191.108
-    port: 2053
-    password: d5bee0afdbc500b8cda02d80
+    server: 130.78.191.25
+    port: 443
+    uuid: 11f21602-47aa-42e2-9149-69120f2e6df6
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: nl07.shifor01.life
+    reality-opts:
+      public-key: 0FwNJ9HYJgVj5566tb0zwjGTPLb-42i-mlXnceB9-Tc
+      short-id: 3ac25eef1431b799
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 🥎75@oneclickvpnkeys
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,8 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 🥎75@oneclickvpnkeys
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

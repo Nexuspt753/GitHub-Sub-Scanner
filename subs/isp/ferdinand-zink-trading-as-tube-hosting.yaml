@@ -1,25 +1,30 @@
 proxies:
   - type: vless
-    name: vless
-    server: nl4-1.axolab.org
-    port: 443
-    uuid: cd9955c2-4524-4f63-8b99-dd125ca7db14
+    name: 4Mohsen-08ac5ec7f5
+    server: dedicated.pivo.lol
+    port: 7443
+    uuid: 44e1105d-b46e-402f-933b-eaa136fcbb24
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: dedicated.pivo.lol
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Mohsen-08ac5ec7f5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Mohsen-08ac5ec7f5
 rules:
   - MATCH,Proxy
