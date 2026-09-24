@@ -1,46 +1,32 @@
 proxies:
   - type: vless
-    name: v2raybaaz
-    server: 178.214.104.5
-    port: 443
-    uuid: cffbf589-0271-4d96-a3b2-a90591e6f2b3
+    name: DeltaKroneckerGithub
+    server: 205.237.105.80
+    port: 11443
+    uuid: b4d782e0-d405-4aea-8853-ea3afb64afff
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: google.com
-    reality-opts:
-      public-key: hSTMOs_fdcVMho9rpzqiFdKIrKYJwJaBX-zMPO_6TQo
-      short-id: e9c1b6d78a25f403
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: fr4.sodahub.online
     xudp: true
-  - type: vless
-    name: 4Mohsen-1aeda27bcc
-    server: 178.214.104.5
-    port: 443
-    uuid: cffbf589-0271-4d96-a3b2-a90591e6f2b3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: google.com
-    reality-opts:
-      public-key: hSTMOs_fdcVMho9rpzqiFdKIrKYJwJaBX-zMPO_6TQo
-      short-id: e9c1b6d78a25f403
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/stream/ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fr4.sodahub.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - v2raybaaz
-      - 4Mohsen-1aeda27bcc
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - v2raybaaz
-      - 4Mohsen-1aeda27bcc
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

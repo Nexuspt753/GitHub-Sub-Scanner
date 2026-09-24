@@ -1,6 +1,15 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: hkjs.lydurlclub.top
+    port: 443
+    password: 507ca9a0-2d8e-4b65-8763-82dfbdbd599f
+    udp: true
+    tls: true
+    sni: hkjs.lydurlclub.top
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 103.224.182.214
     port: 443
     password: 7b561e94-42f3-4f92-979c-4cf97c328025
@@ -35,14 +44,51 @@ proxies:
       path: /422Kdfwzf49IxeZJa
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Mohsen-013f081169
+    server: afrhms16v.bestxray.buzz
+    port: 443
+    uuid: f584de15-2034-4170-a723-f48c2bae5e0f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /linkws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: afrhms16v.bestxray.buzz
+  - type: vmess
+    name: 4Mohsen-c5ffb667dd
+    server: afrhms16v.bestxray.buzz
+    port: 443
+    uuid: f584de15-2034-4170-a723-f48c2bae5e0f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /linkws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: afrhms16v.bestxray.buzz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-490523c3c8
       - 4FreeIran-1ea2eefe37
+      - 4Mohsen-013f081169
+      - 4Mohsen-c5ffb667dd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -50,7 +96,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-490523c3c8
       - 4FreeIran-1ea2eefe37
+      - 4Mohsen-013f081169
+      - 4Mohsen-c5ffb667dd
 rules:
   - MATCH,Proxy

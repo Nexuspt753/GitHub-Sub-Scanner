@@ -1,30 +1,29 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 130.78.191.25
+    name: 4Mohsen-0fd598455d
+    server: assets-nl.pleiades.codes
     port: 443
-    uuid: 11f21602-47aa-42e2-9149-69120f2e6df6
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: nl07.shifor01.life
-    reality-opts:
-      public-key: 0FwNJ9HYJgVj5566tb0zwjGTPLb-42i-mlXnceB9-Tc
-      short-id: 3ac25eef1431b799
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: assets-nl.pleiades.codes
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 4Mohsen-0fd598455d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 4Mohsen-0fd598455d
 rules:
   - MATCH,Proxy

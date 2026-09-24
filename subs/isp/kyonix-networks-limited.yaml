@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.26.252.61
+    port: 443
+    uuid: 61da8f4b-6ab1-4ca7-bae0-1cec4f9be2f8
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: cdn.jsdelivr.net
+    reality-opts:
+      public-key: gMkxxxFo7F0gLBe93tRyfDKFSH0YlfTFPd7X-fHfJ1s
+      short-id: abcded1950c35dcc
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Nika-ff03827b03
     server: 144.31.221.57
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-ff03827b03
       - 4Kian-019ee5d8eb
   - name: Auto
@@ -26,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-ff03827b03
       - 4Kian-019ee5d8eb
 rules:
