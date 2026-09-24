@@ -1,5 +1,22 @@
 proxies:
   - type: vmess
+    name: 4Mohsen-5b213f3781
+    server: 148.135.33.140
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/1704188270531
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.31270022.xyz
+  - type: vmess
     name: 4Nika-6f29d57d49
     server: 148.135.33.140
     port: 443
@@ -21,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-5b213f3781
       - 4Nika-6f29d57d49
   - name: Auto
     type: url-test
@@ -28,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-5b213f3781
       - 4Nika-6f29d57d49
 rules:
   - MATCH,Proxy

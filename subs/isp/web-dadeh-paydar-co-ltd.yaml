@@ -1,6 +1,20 @@
 proxies:
+  - type: vless
+    name: vless
+    server: tgseenrobo.ir
+    port: 2053
+    uuid: 73d2e0ea-8494-49c7-bcb6-2ae5ba0a0aac
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4FreeIran-bdaf2378e6
+    server: tgseenrobo.ir
+    port: 2053
+    uuid: 73d2e0ea-8494-49c7-bcb6-2ae5ba0a0aac
+    udp: true
+    xudp: true
   - type: vmess
-    name: 4Kian-7da44d8ec0
+    name: 4Mohsen-8f44278527
     server: nlp1.hupcloud.com
     port: 1070
     uuid: da410df7-cde1-415c-a46e-87637e9748f9
@@ -14,13 +28,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-7da44d8ec0
+      - vless
+      - 4FreeIran-bdaf2378e6
+      - 4Mohsen-8f44278527
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-7da44d8ec0
+      - vless
+      - 4FreeIran-bdaf2378e6
+      - 4Mohsen-8f44278527
 rules:
   - MATCH,Proxy

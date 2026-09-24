@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
     server: greger.purpl.su
     port: 443
     uuid: 988be430-813f-4174-b5ed-86fcebd7cda0
@@ -28,6 +41,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Nika-9c273595e9
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Kian-a020e3387c
     server: greger.purpl.su
     port: 443
@@ -47,7 +73,9 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - irdusti(9)🇩🇪¹
+      - 4Nika-9c273595e9
       - 4Kian-a020e3387c
   - name: Auto
     type: url-test
@@ -56,7 +84,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - irdusti(9)🇩🇪¹
+      - 4Nika-9c273595e9
       - 4Kian-a020e3387c
 rules:
   - MATCH,Proxy
