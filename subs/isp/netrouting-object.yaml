@@ -19,6 +19,15 @@ proxies:
     port: 443
     password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
     sni: 127.0.0.1
+  - type: vless
+    name: vless
+    server: nl-xh02.tcp-reset-club.net
+    port: 8443
+    uuid: 721bacfe-ff09-4e63-a735-686015bc1351
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -27,6 +36,7 @@ proxy-groups:
       - 4Nika-c8aa00f3e1
       - 4Sarina-1d5664f044
       - 4FreeIran-99584c0491
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -36,5 +46,6 @@ proxy-groups:
       - 4Nika-c8aa00f3e1
       - 4Sarina-1d5664f044
       - 4FreeIran-99584c0491
+      - vless
 rules:
   - MATCH,Proxy
