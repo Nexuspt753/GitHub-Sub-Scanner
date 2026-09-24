@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: EPODONIOS
+    server: nao2.iorqino.ir
+    port: 2087
+    cipher: 2022-blake3-aes-256-gcm
+    password: Z7Gl1BnNG+sz5zNkLDAfMa/2JtpvW/clflC0Wbzc2ig=:2FoegMrN7AQf6gqr2a0m7Hj6FQ6Sm7jf4r3g3IB+THA=
+    udp: true
   - type: vless
     name: vless
     server: s2.zynetraq.ir
@@ -6,18 +13,29 @@ proxies:
     uuid: 22c6684b-cd4f-4c8e-62e3-a17fc698471f
     udp: true
     xudp: true
+  - type: vless
+    name: vless-01
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - vless
+      - vless-01
 rules:
   - MATCH,Proxy
