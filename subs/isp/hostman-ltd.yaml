@@ -1,23 +1,30 @@
 proxies:
   - type: vless
-    name: 4FreeIran-27045f301e
-    server: 212.192.3.226
-    port: 443
-    uuid: ffff2157-756a-4658-9716-610395150607
+    name: 4Mohsen-dd43cd436e
+    server: 132.243.242.97
+    port: 9543
+    uuid: ff6d2dda-7b90-404e-9951-34b3124bfdfa
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandexcloud.net
+    reality-opts:
+      public-key: M6Ck7wUfOLhQl4582CBnaXwscPEP6SCpdEkUDzoj4Fc
+      short-id: 123abcdf
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-27045f301e
+      - 4Mohsen-dd43cd436e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-27045f301e
+      - 4Mohsen-dd43cd436e
 rules:
   - MATCH,Proxy

@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: Vaduz · 4Kian-d2389512fa
+    server: 31.76.249.44
+    port: 443
+    uuid: ac0c2945-b758-11f1-8181-54db13ea7d40
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.akamai.com
+    reality-opts:
+      public-key: gydLdekl4sNcE2j7vueKJJhpYWTBxlGs_VQ6-ZH55iQ
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Vaduz · 4Kian-d2389512fa
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Vaduz · 4Kian-d2389512fa
+rules:
+  - MATCH,Proxy
