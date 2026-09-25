@@ -1,37 +1,34 @@
 proxies:
+  - type: ss
+    name: FarazV2ray
+    server: p1tun4.greewebservices.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: cVvgP0Bz69hsErPBvqKbwQ
+    udp: true
   - type: vless
     name: vless
-    server: de2.zephyrx.ir
+    server: de2.sharecafe.ir
     port: 2433
-    uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
+    uuid: 6c2d8a61-9da3-432c-b673-137565dac8e6
     udp: true
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vmess
-    name: 4Nika-0595140de6
-    server: vip1.showtimeless.site
-    port: 8880
-    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - FarazV2ray
       - vless
-      - 4Nika-0595140de6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - FarazV2ray
       - vless
-      - 4Nika-0595140de6
 rules:
   - MATCH,Proxy

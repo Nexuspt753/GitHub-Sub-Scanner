@@ -1,25 +1,6 @@
 proxies:
   - type: vless
-    name: 4FreeIran-758169c02c
-    server: vn74kujn.selqora.ir
-    port: 51595
-    uuid: 94459532-f38d-40a2-9bbe-74deb93b3a22
-    udp: true
-    xudp: true
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
-  - type: vless
-    name: 4Nika-2e049689c5
-    server: vn74kujn.selqora.ir
-    port: 51595
-    uuid: 94459532-f38d-40a2-9bbe-74deb93b3a22
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Jadi-64c7ed2582
+    name: DeltaKroneckerGithub
     server: 23.81.34.204
     port: 443
     uuid: 99955907-9070-46f0-a200-9c7a0b9d74fe
@@ -32,22 +13,27 @@ proxies:
       short-id: b19b017d6f453873
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-2e049689c5
+    server: vn74kujn.selqora.ir
+    port: 51595
+    uuid: 94459532-f38d-40a2-9bbe-74deb93b3a22
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-758169c02c
+      - DeltaKroneckerGithub
       - 4Nika-2e049689c5
-      - 4Jadi-64c7ed2582
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-758169c02c
+      - DeltaKroneckerGithub
       - 4Nika-2e049689c5
-      - 4Jadi-64c7ed2582
 rules:
   - MATCH,Proxy

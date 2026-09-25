@@ -1,11 +1,36 @@
 proxies:
-  - type: ss
+  - type: vless
     name: EPODONIOS
-    server: 81.12.33.223
-    port: 8080
-    cipher: 2022-blake3-aes-128-gcm
-    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
+    server: dl3.gooniforoshi.fun
+    port: 443
+    uuid: 73e08fcb-a0c7-45d0-b55d-f78c903c64a6
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl3.gooniforoshi.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /download.php
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl3.gooniforoshi.fun
+  - type: vless
+    name: canfingV2rayNG-229
+    server: dl3.gooniforoshi.fun
+    port: 443
+    uuid: 73e08fcb-a0c7-45d0-b55d-f78c903c64a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl3.gooniforoshi.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /download.php
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl3.gooniforoshi.fun
   - type: vmess
     name: 4Sarina-b659cc76f1
     server: ar1.gsmvptun.com
@@ -32,14 +57,26 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-f7394ca288
+    server: vip9.ez0535.com
+    port: 443
+    uuid: "2016"
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - canfingV2rayNG-229
       - 4Sarina-b659cc76f1
       - 4FreeIran-24d8cde028
+      - 4Sarina-f7394ca288
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -47,7 +84,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - canfingV2rayNG-229
       - 4Sarina-b659cc76f1
       - 4FreeIran-24d8cde028
+      - 4Sarina-f7394ca288
 rules:
   - MATCH,Proxy

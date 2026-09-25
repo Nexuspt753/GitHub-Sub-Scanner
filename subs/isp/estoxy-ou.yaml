@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 205.237.105.80
-    port: 11443
-    uuid: b4d782e0-d405-4aea-8853-ea3afb64afff
+    name: EPODONIOS
+    server: 185.209.15.100
+    port: 443
+    uuid: 17150d3e-c287-46ae-bee0-fd58f9f72d71
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: fr4.sodahub.online
+    client-fingerprint: chrome
+    servername: n1.vimeostream.online
+    reality-opts:
+      public-key: kK2a0QSYg0XQIMQOvDI7lJJvJcMH0-52RB90FivhVmM
+      short-id: c334408a1056aaf8
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/stream/ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fr4.sodahub.online
+  - type: vless
+    name: 🇪🇪EE-🚀@VPNine1
+    server: 185.209.15.100
+    port: 443
+    uuid: 17150d3e-c287-46ae-bee0-fd58f9f72d71
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: n1.vimeostream.online
+    reality-opts:
+      public-key: kK2a0QSYg0XQIMQOvDI7lJJvJcMH0-52RB90FivhVmM
+      short-id: c334408a1056aaf8
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇪🇪EE-🚀@VPNine1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇪🇪EE-🚀@VPNine1
 rules:
   - MATCH,Proxy
