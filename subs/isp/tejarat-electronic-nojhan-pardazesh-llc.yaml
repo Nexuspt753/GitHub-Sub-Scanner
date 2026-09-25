@@ -1,23 +1,25 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 94.184.18.241
-    port: 2086
-    cipher: 2022-blake3-aes-128-gcm
-    password: lwjkyE2q/OMF2zKnU6lP9g==
+  - type: vless
+    name: vless
+    server: nim.marlifo.ir
+    port: 443
+    uuid: 3e6a0acc-0a63-43c9-88fe-0418a425f0bb
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - vless
 rules:
   - MATCH,Proxy

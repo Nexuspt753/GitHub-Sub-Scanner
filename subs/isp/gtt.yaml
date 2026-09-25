@@ -1,41 +1,50 @@
 proxies:
   - type: ss
-    name: 4Kian-4893e710e8
-    server: 82.110.60.9
-    port: 19999
-    cipher: aes-256-gcm
-    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    name: EPODONIOS
+    server: 83.245.78.172
+    port: 32
+    cipher: chacha20-ietf-poly1305
+    password: FY4nyRHImNo812NzSFcHMkzj7ZsyEcSS
+    udp: true
+  - type: ss
+    name: ICV2RAY
+    server: 83.245.78.172
+    port: 32
+    cipher: chacha20-ietf-poly1305
+    password: FY4nyRHImNo812NzSFcHMkzj7ZsyEcSS
+    udp: true
+  - type: ss
+    name: 4Sarina-4b1c2092e0
+    server: 83.245.78.172
+    port: 32
+    cipher: chacha20-ietf-poly1305
+    password: FY4nyRHImNo812NzSFcHMkzj7ZsyEcSS
     udp: true
   - type: ss
     name: DeltaKroneckerGithub
-    server: 82.110.60.9
-    port: 19999
-    cipher: aes-256-gcm
-    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 82.110.60.9
-    port: 19999
-    cipher: aes-256-gcm
-    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    server: 83.245.78.172
+    port: 32
+    cipher: chacha20-ietf-poly1305
+    password: FY4nyRHImNo812NzSFcHMkzj7ZsyEcSS
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-4893e710e8
+      - EPODONIOS
+      - ICV2RAY
+      - 4Sarina-4b1c2092e0
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-4893e710e8
+      - EPODONIOS
+      - ICV2RAY
+      - 4Sarina-4b1c2092e0
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
