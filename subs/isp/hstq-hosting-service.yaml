@@ -1,14 +1,40 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 104.143.223.217
-    port: 2085
-    uuid: c9373ff0-c263-4949-885f-366671f3c6a1
+    name: DeltaKroneckerGithub
+    server: maple-press.justext.space
+    port: 2096
+    uuid: 04e22546-96b6-4d43-8301-c098d822789b
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: maple-press.justext.space
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 13.143.170.24
+    port: 8443
+    uuid: 4558ed07-e2ea-4780-bbb9-a157e949934b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: maple-press.justext.space
+    reality-opts:
+      public-key: c6sXoN-Iq37ftYdhPGHT5TX3bvteDr29XvMH3Te0JWM
+      short-id: a3426d50514b9af8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 13.143.170.24
+    port: 2096
+    uuid: 04e22546-96b6-4d43-8301-c098d822789b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: maple-press.justext.space
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: ✅
     server: 104.143.223.217
@@ -34,7 +60,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - ✅
       - 4Kian-23db498e21
   - name: Auto
@@ -43,7 +71,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - ✅
       - 4Kian-23db498e21
 rules:

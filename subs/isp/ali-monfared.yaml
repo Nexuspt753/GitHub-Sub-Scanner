@@ -3,7 +3,7 @@ proxies:
     name: EPODONIOS
     server: jsv-ir2.jmovies.ir
     port: 443
-    uuid: c26fe2f0-5c69-001F-8a1a-bf116ceb9215
+    uuid: c26fe2f0-5c69-000B-8a1a-bf116ceb9215
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -12,12 +12,34 @@ proxies:
       public-key: fwS6bEyF28VsSapBZZ2vz6LJmVismH0NYupk6STFRWc
       short-id: f373df45a687eaff
     xudp: true
+  - type: vmess
+    name: 4Jadi-fa9ac78153
+    server: z1.tekno3.ir
+    port: 44
+    uuid: a0400faa-553c-4728-aefa-80c3c5188d96
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-942fe0371b
+    server: z1.tekno3.ir
+    port: 44
+    uuid: a0400faa-553c-4728-aefa-80c3c5188d96
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4Jadi-fa9ac78153
+      - 4Jadi-942fe0371b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +47,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4Jadi-fa9ac78153
+      - 4Jadi-942fe0371b
 rules:
   - MATCH,Proxy

@@ -1,26 +1,39 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 89.116.88.158
+    server: 103.137.215.122
     port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    uuid: ea1c1e20-7263-4b08-a01b-690b29af66b3
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
+    client-fingerprint: safari
+    servername: www.apple.com
+    reality-opts:
+      public-key: T587xqua0Nrs0YreQRWJAP9Wto94NcbbhKPK4DkSi0c
+      short-id: 2223411c2ad9c55f
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /drama/zh?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
+  - type: vless
+    name: 4Mohsen-7388069f61
+    server: 103.137.215.122
+    port: 443
+    uuid: ea1c1e20-7263-4b08-a01b-690b29af66b3
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.apple.com
+    reality-opts:
+      public-key: T587xqua0Nrs0YreQRWJAP9Wto94NcbbhKPK4DkSi0c
+      short-id: 2223411c2ad9c55f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-7388069f61
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-7388069f61
 rules:
   - MATCH,Proxy

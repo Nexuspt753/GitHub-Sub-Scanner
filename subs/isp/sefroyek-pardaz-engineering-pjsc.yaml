@@ -1,42 +1,26 @@
 proxies:
   - type: vless
-    name: 🇩🇪@FreakConfig
-    server: ticket.jorzel.ir
-    port: 1007
-    uuid: b7861fc7-1d21-4779-858a-c6a7df74d685
+    name: DeltaKroneckerGithub
+    server: 185.233.131.236
+    port: 443
+    uuid: b9f5a731-ad7c-4185-9d86-89a4a043961d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v3p.sabermusic.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4FreeIran-9560595007
-    server: ticket.jorzel.ir
-    port: 1007
-    uuid: b7861fc7-1d21-4779-858a-c6a7df74d685
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇩🇪@FreakConfig
-      - 4FreeIran-9560595007
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇩🇪@FreakConfig
-      - 4FreeIran-9560595007
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

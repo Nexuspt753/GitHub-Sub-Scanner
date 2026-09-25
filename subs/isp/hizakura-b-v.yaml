@@ -1,6 +1,32 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 45.142.164.65
+    port: 443
+    uuid: a818556b-72b7-46dc-8fa0-384a015eb608
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: videohost.quadoff.top
+    reality-opts:
+      public-key: qzH-nJKnFPsVHsUXN1xDxZyvvkIAmQR9ZWNfGWT_9X8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: filembad-312
+    server: 45.142.164.65
+    port: 443
+    uuid: a818556b-72b7-46dc-8fa0-384a015eb608
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: videohost.quadoff.top
+    reality-opts:
+      public-key: qzH-nJKnFPsVHsUXN1xDxZyvvkIAmQR9ZWNfGWT_9X8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-f644fe86d6
     server: 45.142.164.65
     port: 443
     uuid: a818556b-72b7-46dc-8fa0-384a015eb608
@@ -17,13 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - filembad-312
+      - 4FreeIran-f644fe86d6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - filembad-312
+      - 4FreeIran-f644fe86d6
 rules:
   - MATCH,Proxy
