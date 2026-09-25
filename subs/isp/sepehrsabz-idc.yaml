@@ -1,25 +1,23 @@
 proxies:
-  - type: vless
-    name: vless
-    server: bg.serviceili.ir
-    port: 2433
-    uuid: 4c3b90b6-0e76-4fda-8c13-abf95ae23b2b
+  - type: ss
+    name: EPODONIOS
+    server: p1tun2.greewebservices.ir
+    port: 2060
+    cipher: chacha20-ietf-poly1305
+    password: pq5tDNa9qEEjN9EM4ArxQw
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - EPODONIOS
 rules:
   - MATCH,Proxy

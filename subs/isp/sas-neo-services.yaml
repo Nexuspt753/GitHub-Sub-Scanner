@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 176.222.53.176
-    port: 8445
-    uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: hetzner.com
-    reality-opts:
-      public-key: _UazRMiBq9RqMaVrHeLsvUuoBkGFo9Gm-A4ivuZ6ZS8
-      short-id: 6ba85179e30d4fc2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: "13"
     server: 176.222.53.176
     port: 8445
@@ -31,15 +15,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: vless
-    server: 176.222.53.176
-    port: 8446
-    uuid: c6f6ecc2-26af-4e2f-95a7-e7018819a716
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
   - type: vless
     name: 4Nika-d25e09694e
     server: 176.222.53.176
@@ -61,9 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - "13"
-      - vless
       - 4Nika-d25e09694e
   - name: Auto
     type: url-test
@@ -71,9 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - "13"
-      - vless
       - 4Nika-d25e09694e
 rules:
   - MATCH,Proxy

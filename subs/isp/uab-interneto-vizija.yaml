@@ -13,42 +13,12 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS
-    server: 94.176.234.161
-    port: 443
-    uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.intel.com
-    reality-opts:
-      public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
-      short-id: dbb2ef1c7c
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: trojan
-    name: 4Nika-1d68e3a398
-    server: 195.181.244.216
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Nika-1d68e3a398
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Nika-1d68e3a398
 rules:
   - MATCH,Proxy

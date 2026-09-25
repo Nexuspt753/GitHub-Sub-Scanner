@@ -47,6 +47,24 @@ proxies:
       - h2
       - http/1.1
     xudp: true
+  - type: vless
+    name: vless-04
+    server: 188.72.103.4
+    port: 443
+    uuid: 4cf9c712-11c4-47d8-aa31-a1693a1aa4e5
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-5979d5a5c7
+    server: 93.77.188.102
+    port: 443
+    uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: wde5.whitedeu.org
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,6 +74,8 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
+      - vless-04
+      - 4Jadi-5979d5a5c7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,5 +86,7 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
+      - vless-04
+      - 4Jadi-5979d5a5c7
 rules:
   - MATCH,Proxy

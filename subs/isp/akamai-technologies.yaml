@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
-  - type: ss
     name: configprxy
     server: 172.105.39.124
     port: 7002
@@ -24,7 +17,7 @@ proxies:
     servername: 172.105.169.70
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: 172.105.252.35
     port: 443
     uuid: 99de7aac-d2a5-48fd-92cb-d1e6c3c719a4
@@ -34,13 +27,6 @@ proxies:
     servername: in-full.privateip.net
     flow: xtls-rprx-vision
     xudp: true
-  - type: ss
-    name: 4Kian-a20717886c
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: vless
     name: Hope_Net-join-us-on-Telegram
     server: 172.105.252.35
@@ -59,14 +45,6 @@ proxies:
     cipher: aes-256-gcm
     password: RexnBgU7EV5ADxG
     udp: true
-  - type: trojan
-    name: 4Jadi-b85d6c5f32
-    server: trojan1.udpgw.com
-    port: 443
-    password: affae2e0-e84b-11ec-b09f-1239d0255272
-    udp: true
-    tls: true
-    client-fingerprint: chrome
   - type: vless
     name: 4Sarina-7c67466e19
     server: 172.105.252.35
@@ -94,36 +72,84 @@ proxies:
       path: /chat
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Mohsen-89049b7b35
+    server: cindy52.ceoiii.com
+    port: 36803
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Nika-e9c7b1976b
+    server: cindy52.ceoiii.com
+    port: 36803
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4Jadi-e048f74581
+    server: cindy52.ceoiii.com
+    port: 36803
+    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - configprxy
       - DeltaKroneckerGithub
-      - EPODONIOS-01
-      - 4Kian-a20717886c
+      - EPODONIOS
       - Hope_Net-join-us-on-Telegram
       - DeltaKroneckerGithub-01
-      - 4Jadi-b85d6c5f32
       - 4Sarina-7c67466e19
       - 4Sarina-4ab167b05f
+      - 4Mohsen-89049b7b35
+      - 4Nika-e9c7b1976b
+      - 4Jadi-e048f74581
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - configprxy
       - DeltaKroneckerGithub
-      - EPODONIOS-01
-      - 4Kian-a20717886c
+      - EPODONIOS
       - Hope_Net-join-us-on-Telegram
       - DeltaKroneckerGithub-01
-      - 4Jadi-b85d6c5f32
       - 4Sarina-7c67466e19
       - 4Sarina-4ab167b05f
+      - 4Mohsen-89049b7b35
+      - 4Nika-e9c7b1976b
+      - 4Jadi-e048f74581
 rules:
   - MATCH,Proxy

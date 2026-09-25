@@ -10,12 +10,42 @@ proxies:
     servername: 5post-gate.x5.ru
     flow: xtls-rprx-vision-udp443
     xudp: true
+  - type: vless
+    name: 4Mohsen-2b08e56d69
+    server: 213.226.112.19
+    port: 443
+    uuid: de34642f-21d7-49d2-a8ff-aad30750a929
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: id.pervye.ru
+    reality-opts:
+      public-key: y9hgkaFKFTgKL5PHsksGNKuSrd7jBysJ6rBHktu2k1o
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-7dd7b9753b
+    server: 213.226.112.19
+    port: 443
+    uuid: de34642f-21d7-49d2-a8ff-aad30750a929
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: id.pervye.ru
+    reality-opts:
+      public-key: y9hgkaFKFTgKL5PHsksGNKuSrd7jBysJ6rBHktu2k1o
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-b7bb677544
+      - 4Mohsen-2b08e56d69
+      - 4Jadi-7dd7b9753b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-b7bb677544
+      - 4Mohsen-2b08e56d69
+      - 4Jadi-7dd7b9753b
 rules:
   - MATCH,Proxy
