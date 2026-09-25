@@ -13,12 +13,42 @@ proxies:
       short-id: e3a4bdfe3d6fd8ec
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-3ca641e827
+    server: 163.128.99.57
+    port: 443
+    uuid: 1a049739-b873-4242-9a2b-239951eb2dd3
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.apple.com
+    reality-opts:
+      public-key: 4S52pKhsJA4gK-_MLW8_R8TTeZsS4pH7ef6St-aKVBQ
+      short-id: ab1df8505f6e0072
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-2d403a17bc
+    server: 163.128.99.14
+    port: 443
+    uuid: bda35755-c838-49c3-a19e-3712f2d54275
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.apple.com
+    reality-opts:
+      public-key: "-LuhwN_cSgNr7nYIfCcu_XAjviKVSGwVGHxmB-s1AD0"
+      short-id: e3a4bdfe3d6fd8ec
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-3ca641e827
+      - 4Nika-2d403a17bc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-3ca641e827
+      - 4Nika-2d403a17bc
 rules:
   - MATCH,Proxy

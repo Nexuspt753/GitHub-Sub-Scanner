@@ -17,6 +17,15 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: vless-02
+    server: gbtnfl.fluxora.ir
+    port: 2432
+    uuid: b647f8ca-d052-4716-ac97-5ce3bea9876f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -24,6 +33,7 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,5 +42,6 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
+      - vless-02
 rules:
   - MATCH,Proxy

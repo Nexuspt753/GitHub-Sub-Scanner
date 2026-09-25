@@ -1,23 +1,26 @@
 proxies:
-  - type: vless
-    name: vless
-    server: cloud5.tsnet3.top
-    port: 1005
-    uuid: c930c363-1dc2-4c0f-8fa7-b540cf7089a3
+  - type: vmess
+    name: 4Kian-eef9d55a15
+    server: asia.servocean.ir
+    port: 1020
+    uuid: ca9640a3-b21a-4073-964b-83188048dd22
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Kian-eef9d55a15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Kian-eef9d55a15
 rules:
   - MATCH,Proxy

@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -14,7 +14,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: 4FreeIran-9d984df41e
+    name: 🇪🇪180995
+    server: 185.36.141.81
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.181.201.43
+    port: 443
+    uuid: f495298f-2bdb-4fd8-9ac9-5dd33d1b482a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: est1.loozerp.wiki
+    reality-opts:
+      public-key: 98MNvJC4t0ZjK_xHlQjOx2WfLfAPluNDb71MzS9sPT8
+      short-id: 38018dde3e27335e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -106,30 +134,53 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Mohsen-cf1e87adae
+    server: 185.36.143.71
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇪🇪180995
       - DeltaKroneckerGithub
-      - 4FreeIran-9d984df41e
+      - DeltaKroneckerGithub-01
       - 4Nika-4c29fd456d
       - 4Mohsen-da4782f92b
       - 4Nika-445cfcf974
       - 4Sarina-41da2db273
       - 4Mohsen-c2593cd9c0
+      - 4Mohsen-cf1e87adae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇪🇪180995
       - DeltaKroneckerGithub
-      - 4FreeIran-9d984df41e
+      - DeltaKroneckerGithub-01
       - 4Nika-4c29fd456d
       - 4Mohsen-da4782f92b
       - 4Nika-445cfcf974
       - 4Sarina-41da2db273
       - 4Mohsen-c2593cd9c0
+      - 4Mohsen-cf1e87adae
 rules:
   - MATCH,Proxy

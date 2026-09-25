@@ -1,38 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: dissolvedvpn.eu.cc
-    port: 443
-    uuid: 92c863cb-7b96-405c-bc04-ff4d73465f1a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dissolvedvpn.eu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /dissolved-ws/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: dissolvedvpn.eu.cc
-  - type: vless
     name: EPODONIOS
-    server: 144.31.28.106
-    port: 8443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /trade
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
-  - type: vless
-    name: 4Nika-2b2532cfb6
     server: 144.31.28.106
     port: 8443
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -52,17 +20,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4Nika-2b2532cfb6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4Nika-2b2532cfb6
 rules:
   - MATCH,Proxy

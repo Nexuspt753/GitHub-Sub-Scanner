@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 185.249.153.108
+    port: 443
+    uuid: 4cf9c712-11c4-47d8-aa31-a1693a1aa4e5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nordivablog.ru
+    reality-opts:
+      public-key: xOJ3INBNzRKOKYGQZmSYczgTjTKwdYQ4BFfc75wVazw
+      short-id: 73c9e31ccafda20e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🕊️10@oneclickvpnkeys
+    server: 185.249.153.108
+    port: 443
+    uuid: 4cf9c712-11c4-47d8-aa31-a1693a1aa4e5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nordivablog.ru
+    reality-opts:
+      public-key: xOJ3INBNzRKOKYGQZmSYczgTjTKwdYQ4BFfc75wVazw
+      short-id: 73c9e31ccafda20e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🕊️10@oneclickvpnkeys
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🕊️10@oneclickvpnkeys
+rules:
+  - MATCH,Proxy

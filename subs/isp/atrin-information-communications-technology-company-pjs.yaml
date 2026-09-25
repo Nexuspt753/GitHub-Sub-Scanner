@@ -1,63 +1,37 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: p1tun4.greewebservices.ir
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: LMnotcv4RdaEOBXT-LdtfA
-    udp: true
   - type: vless
     name: vless
-    server: netherlands.tn.synthara.ir
+    server: de2.zephyrx.ir
     port: 2433
     uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
     udp: true
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vless
-    name: 4Nika-8a97f0abc7
-    server: iran.obzp.ir
-    port: 1911
-    uuid: 268ad601-c7bd-4f47-9293-56041ecc43fc
+  - type: vmess
+    name: 4Nika-0595140de6
+    server: vip1.showtimeless.site
+    port: 8880
+    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: iran.obzp.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: iran.obzp.ir
-  - type: vless
-    name: vless-01
-    server: de2.zephyrx.ir
-    port: 2433
-    uuid: 4c3b90b6-0e76-4fda-8c13-abf95ae23b2b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - vless
-      - 4Nika-8a97f0abc7
-      - vless-01
+      - 4Nika-0595140de6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - vless
-      - 4Nika-8a97f0abc7
-      - vless-01
+      - 4Nika-0595140de6
 rules:
   - MATCH,Proxy

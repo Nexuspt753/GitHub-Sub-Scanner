@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Jadi-2964aa9dae
+    server: pq.us2.globals-download.com
+    port: 35000
+    password: b07db61f-a207-4508-97f5-68182991c2d6
+    sni: www.apple.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-2964aa9dae
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-2964aa9dae
+rules:
+  - MATCH,Proxy
