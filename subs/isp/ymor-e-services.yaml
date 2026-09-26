@@ -1,41 +1,32 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: Bv2.pconnectq.ir
-    port: 1151
-    uuid: c4b13d22-205f-4ed2-a331-bdd912ffb692
+    name: DeltaKroneckerGithub
+    server: 185.4.113.161
+    port: 443
+    uuid: c40ec629-cd50-4569-8ea7-ea7c498423fd
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: x5.ru
+    reality-opts:
+      public-key: rWCtIIMsnh-bXbgPsxJrM5xAvH6PgywDeVZXhycEJk0
+      short-id: 4fe211a1
     xudp: true
-  - type: vless
-    name: 🇳🇱NL-🚀@VPNine1
-    server: Bv2.pconnectq.ir
-    port: 1151
-    uuid: c4b13d22-205f-4ed2-a331-bdd912ffb692
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-4f4ad7f8c0
-    server: Bv2.pconnectq.ir
-    port: 1151
-    uuid: c4b13d22-205f-4ed2-a331-bdd912ffb692
-    udp: true
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇳🇱NL-🚀@VPNine1
-      - 4Kian-4f4ad7f8c0
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇳🇱NL-🚀@VPNine1
-      - 4Kian-4f4ad7f8c0
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

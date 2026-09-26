@@ -1,30 +1,4 @@
 proxies:
-  - type: vless
-    name: 4Kian-4840decc20
-    server: 124.156.230.31
-    port: 48795
-    uuid: 44557727-e197-45c5-9637-d8455491fa9a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: aws.amazon.com
-    reality-opts:
-      public-key: CXaG2QJnsoxAplVbaof9bDKbsFqLJ3W2zfZ8LzNBdgg
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-767a127881
-    server: 124.156.230.31
-    port: 48795
-    uuid: 44557727-e197-45c5-9637-d8455491fa9a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: aws.amazon.com
-    reality-opts:
-      public-key: CXaG2QJnsoxAplVbaof9bDKbsFqLJ3W2zfZ8LzNBdgg
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
     name: 4Nika-99ce91d3b5
     server: 129.226.157.220
@@ -35,6 +9,21 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-afe2faaa58
+    server: 129.226.157.220
+    port: 59121
+    uuid: d9865d63-d95c-454b-ba07-8e88b838a801
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
   - type: vmess
     name: 4Kian-64148a9401
     server: 129.226.157.220
@@ -55,9 +44,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-4840decc20
-      - 4FreeIran-767a127881
       - 4Nika-99ce91d3b5
+      - 4Sarina-afe2faaa58
       - 4Kian-64148a9401
   - name: Auto
     type: url-test
@@ -65,9 +53,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-4840decc20
-      - 4FreeIran-767a127881
       - 4Nika-99ce91d3b5
+      - 4Sarina-afe2faaa58
       - 4Kian-64148a9401
 rules:
   - MATCH,Proxy

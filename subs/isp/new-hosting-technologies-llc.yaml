@@ -1,30 +1,48 @@
 proxies:
   - type: vless
-    name: 4Mohsen-92e81be363
-    server: 91.193.43.49
-    port: 443
-    uuid: 0dbe4d34-30c9-4f8a-b229-e5950087232d
+    name: 4Jadi-abc0e9b5af
+    server: 194.55.239.135
+    port: 8447
+    uuid: cfbc1104-925f-4349-917e-70ea4238b666
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: cdn.callibri.ru
+    client-fingerprint: firefox
+    servername: an9b3d-08.p.portshaper.com
     reality-opts:
-      public-key: yCKV2xr725jI0sFhm4KbttKl8b9UZrnQTXxZLN2S4BM
-      short-id: 925a
-    flow: xtls-rprx-vision
+      public-key: E60vw24Kf87MVXrsIjt1xON8LstSH9yunWUVFZX_xTM
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-94292f076a
+    server: 194.55.239.135
+    port: 8448
+    uuid: cfbc1104-925f-4349-917e-70ea4238b666
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: an9b3d-08.p.portshaper.com
+    reality-opts:
+      public-key: E60vw24Kf87MVXrsIjt1xON8LstSH9yunWUVFZX_xTM
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-92e81be363
+      - 4Jadi-abc0e9b5af
+      - 4Jadi-94292f076a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-92e81be363
+      - 4Jadi-abc0e9b5af
+      - 4Jadi-94292f076a
 rules:
   - MATCH,Proxy
