@@ -13,12 +13,42 @@ proxies:
       short-id: f00f58383241c807
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: hex_proxy
+    server: finporkzov.com
+    port: 443
+    uuid: 7b93e3f1-c5bf-43cd-8fcd-e0e745c92d10
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: finporkzov.com
+    reality-opts:
+      public-key: _0N3gACBkKvGKTh0q5-dmt-XqSHB3xfEHSANRXu-U0I
+      short-id: f00f58383241c807
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-f31af734d5
+    server: finporkzov.com
+    port: 443
+    uuid: 7b93e3f1-c5bf-43cd-8fcd-e0e745c92d10
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: finporkzov.com
+    reality-opts:
+      public-key: _0N3gACBkKvGKTh0q5-dmt-XqSHB3xfEHSANRXu-U0I
+      short-id: f00f58383241c807
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - hex_proxy
+      - 4Kian-f31af734d5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - hex_proxy
+      - 4Kian-f31af734d5
 rules:
   - MATCH,Proxy

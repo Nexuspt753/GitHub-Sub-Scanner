@@ -13,7 +13,7 @@ proxies:
     xudp: true
   - type: vless
     name: vless-01
-    server: s55xd3o.videoruru.shop
+    server: qyk5x30.videoruru.shop
     port: 443
     uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
     udp: true
@@ -25,7 +25,7 @@ proxies:
     xudp: true
   - type: vless
     name: vless-02
-    server: zd2ma0s.videoruru.shop
+    server: s55xd3o.videoruru.shop
     port: 443
     uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
     udp: true
@@ -37,10 +37,15 @@ proxies:
     xudp: true
   - type: vless
     name: vless-03
-    server: 188.72.103.4
+    server: zd2ma0s.videoruru.shop
     port: 443
-    uuid: 4cf9c712-11c4-47d8-aa31-a1693a1aa4e5
+    uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
     name: vless-04
@@ -51,10 +56,41 @@ proxies:
     xudp: true
   - type: vless
     name: vless-05
-    server: amus.konus.buzz
+    server: 188.72.103.3
     port: 443
-    uuid: 9e4d44c2-f237-4d6b-bb09-77b839fe7ea4
+    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-06
+    server: 188.72.103.3
+    port: 443
+    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: 4Nika-4aadd209d8
+    server: 51.250.25.32
+    port: 443
+    uuid: 3be2a136-6d29-44b5-a609-30cbab4606e5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: Y7b0W1h25Uw3ciuVSedT4OoGoiR1IGz9C46CECkKuyw
+      short-id: b7ef89dff65b02
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -67,6 +103,8 @@ proxy-groups:
       - vless-03
       - vless-04
       - vless-05
+      - vless-06
+      - 4Nika-4aadd209d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -79,5 +117,7 @@ proxy-groups:
       - vless-03
       - vless-04
       - vless-05
+      - vless-06
+      - 4Nika-4aadd209d8
 rules:
   - MATCH,Proxy

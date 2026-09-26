@@ -1,26 +1,28 @@
 proxies:
   - type: vless
-    name: 4Mohsen-f3f00c177a
+    name: DeltaKroneckerGithub
     server: 195.58.144.56
     port: 11907
     uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 195.58.144.56
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f3f00c177a
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f3f00c177a
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
