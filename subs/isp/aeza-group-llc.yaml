@@ -11,6 +11,28 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 77.110.105.102
+    port: 443
+    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-1.brodvpn.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: 77.110.105.102
+    port: 443
+    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-1.brodvpn.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: "Telegram:"
     server: 77.110.105.102
     port: 443
@@ -23,6 +45,17 @@ proxies:
     xudp: true
   - type: vless
     name: V2raySaman
+    server: 77.110.105.102
+    port: 443
+    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-1.brodvpn.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Free
     server: 77.110.105.102
     port: 443
     uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
@@ -54,40 +87,19 @@ proxies:
     servername: ru-1.brodvpn.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-fa94ca4022
-    server: 77.110.105.102
-    port: 443
-    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ru-1.brodvpn.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Jadi-cb84740573
-    server: 77.110.105.102
-    port: 443
-    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ru-1.brodvpn.com
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - "Telegram:"
       - V2raySaman
+      - Free
       - MARAMBASHI
       - 4Kian-fd3574f2f3
-      - 4Kian-fa94ca4022
-      - 4Jadi-cb84740573
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -95,11 +107,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - "Telegram:"
       - V2raySaman
+      - Free
       - MARAMBASHI
       - 4Kian-fd3574f2f3
-      - 4Kian-fa94ca4022
-      - 4Jadi-cb84740573
 rules:
   - MATCH,Proxy

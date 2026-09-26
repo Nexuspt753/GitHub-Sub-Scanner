@@ -13,6 +13,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 2.59.134.226
+    port: 443
+    uuid: 88281d02-b387-4fe3-918e-26ed331e6d08
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rich-falcon.cdn.cachefleet.com
+    reality-opts:
+      public-key: 1sSmdw90uTiGuitDvp_q8zcXTcHXKQS3IVjA7T1UNiY
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: ICV2RAY
     server: 2.59.134.226
     port: 443
@@ -37,6 +50,18 @@ proxies:
     reality-opts:
       public-key: 1sSmdw90uTiGuitDvp_q8zcXTcHXKQS3IVjA7T1UNiY
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: gedt.banibus.ir
+    port: 8118
+    uuid: eea1c59d-70fd-4829-8ed7-21ddfe55a0da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.googleapis.com
+    reality-opts:
+      public-key: LjAkLizwkZf35ObrUMFZ22UHXTEJzpgcTvHk9AuzcUM
     xudp: true
   - type: vless
     name: 🇩🇪DE-🚀@VPNine1
@@ -164,32 +189,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Mohsen-8003f2e5f0
-    server: 84.75.76.16
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - ICV2RAY
       - MARAMBASHI
+      - EPODONIOS-02
       - 🇩🇪DE-🚀@VPNine1
       - 4Mohsen-22a996b741
       - 4Mohsen-93963665d9
@@ -199,7 +208,6 @@ proxy-groups:
       - 4Jadi-bbd93d0f29
       - 4Nika-fd4745c7cb
       - 4Sarina-def616346d
-      - 4Mohsen-8003f2e5f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -207,8 +215,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - ICV2RAY
       - MARAMBASHI
+      - EPODONIOS-02
       - 🇩🇪DE-🚀@VPNine1
       - 4Mohsen-22a996b741
       - 4Mohsen-93963665d9
@@ -218,6 +228,5 @@ proxy-groups:
       - 4Jadi-bbd93d0f29
       - 4Nika-fd4745c7cb
       - 4Sarina-def616346d
-      - 4Mohsen-8003f2e5f0
 rules:
   - MATCH,Proxy
