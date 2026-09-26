@@ -1,5 +1,25 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 153.76.185.104
+    port: 3090
+    uuid: 6bd9b04b-17de-4f05-b8b8-e5f2a0a649c1
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 153.76.185.91
+    port: 3090
+    uuid: 2311c094-1143-47ec-9469-c9761d0bb718
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: filembad
     server: 153.76.185.91
     port: 3090
@@ -30,16 +50,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 🇨🇿CZ-🚀@VPNine1
-    server: 153.76.185.91
-    port: 3090
-    uuid: 2311c094-1143-47ec-9469-c9761d0bb718
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 🔵@chillguy_vpn
     server: 153.76.185.91
     port: 3090
@@ -50,10 +60,10 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS
-    server: 153.76.185.84
+    name: EPODONIOS-01
+    server: 153.76.185.102
     port: 3090
-    uuid: 995b4d19-8c0d-4f81-a199-35a4f1d7744e
+    uuid: 89e7af8e-3d93-4307-be22-3aa8d4a3fcfa
     udp: true
     xudp: true
     network: grpc
@@ -64,16 +74,6 @@ proxies:
     server: 153.76.185.102
     port: 3090
     uuid: 89e7af8e-3d93-4307-be22-3aa8d4a3fcfa
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇩🇪All³
-    server: 153.76.185.84
-    port: 3090
-    uuid: 995b4d19-8c0d-4f81-a199-35a4f1d7744e
     udp: true
     xudp: true
     network: grpc
@@ -99,48 +99,36 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-83608a94fb
-    server: 153.76.185.84
-    port: 3090
-    uuid: 995b4d19-8c0d-4f81-a199-35a4f1d7744e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - filembad
       - irdusti(19)🇨🇿
       - 🇨🇿181373
-      - 🇨🇿CZ-🚀@VPNine1
       - 🔵@chillguy_vpn
-      - EPODONIOS
+      - EPODONIOS-01
       - irdusti(18)🇨🇿
-      - 🇩🇪All³
       - 4Mohsen-a701340d87
       - 4Jadi-7f04d7d134
-      - 4FreeIran-83608a94fb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - filembad
       - irdusti(19)🇨🇿
       - 🇨🇿181373
-      - 🇨🇿CZ-🚀@VPNine1
       - 🔵@chillguy_vpn
-      - EPODONIOS
+      - EPODONIOS-01
       - irdusti(18)🇨🇿
-      - 🇩🇪All³
       - 4Mohsen-a701340d87
       - 4Jadi-7f04d7d134
-      - 4FreeIran-83608a94fb
 rules:
   - MATCH,Proxy

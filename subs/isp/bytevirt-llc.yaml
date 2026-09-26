@@ -1,30 +1,48 @@
 proxies:
   - type: vless
-    name: 4Jadi-58052dff26
-    server: 208.68.180.126
+    name: DeltaKroneckerGithub
+    server: 141.11.138.132
     port: 443
-    uuid: 596be9d9-0bb9-41bc-bff5-1adb483cbc32
+    uuid: b47cc98c-54f4-4ab2-acb9-b493a04ccc6b
     udp: true
     tls: true
-    client-fingerprint: edge
-    servername: qualitypac.com
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
     reality-opts:
-      public-key: 9TWlSPzYZqDnie1T0TcEQ2WE8AseTD5zsyyPNeiLOE8
-      short-id: 18be91b703
+      public-key: Kb511WMVMJe1nImN8kCi9PdPQSGu3aZCrffMOvzv43A
+      short-id: f9ca9286d0ff8920
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.115.207.141
+    port: 443
+    uuid: d18c6897-2849-456a-8c46-d7ecece47c20
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: wzs.echo.net.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /video/HxNMGkZdGw0PRk1GVw8YF14OXkwNVVtIRg1HV1ZNVwcHTQsJSgAJVBQUG0dCQEwWAx4AAg4c
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wzs.echo.net.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-58052dff26
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-58052dff26
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

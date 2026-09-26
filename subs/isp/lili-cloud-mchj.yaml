@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Kian-833659d82f
+    name: DeltaKroneckerGithub
     server: 13.143.141.78
     port: 443
     uuid: cfed68c4-fc10-4638-b3ca-140e1e873797
@@ -13,18 +13,34 @@ proxies:
       short-id: a9883bcbf4ccc58f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 13.143.141.95
+    port: 443
+    uuid: cfed68c4-fc10-4638-b3ca-140e1e873797
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: github.com
+    reality-opts:
+      public-key: fWKVLMn3AOrK8v8Agx_1qq1IOjGIddUrlvRQU9bv6Wk
+      short-id: cb022b170a7903af
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-833659d82f
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-833659d82f
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

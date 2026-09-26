@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 45.128.12.20
+    port: 14249
+    cipher: chacha20-ietf-poly1305
+    password: 9epp3o9ng8ej59uv
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

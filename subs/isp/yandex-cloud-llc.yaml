@@ -49,9 +49,9 @@ proxies:
     xudp: true
   - type: vless
     name: vless-04
-    server: 188.72.103.3
+    server: 188.72.103.4
     port: 443
-    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
+    uuid: 4cf9c712-11c4-47d8-aa31-a1693a1aa4e5
     udp: true
     xudp: true
   - type: vless
@@ -60,11 +60,6 @@ proxies:
     port: 443
     uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
     xudp: true
   - type: vless
     name: vless-06
@@ -79,18 +74,23 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: 4Nika-4aadd209d8
-    server: 51.250.25.32
+    name: vless-07
+    server: 188.72.103.3
     port: 443
-    uuid: 3be2a136-6d29-44b5-a609-30cbab4606e5
+    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.google.com
-    reality-opts:
-      public-key: Y7b0W1h25Uw3ciuVSedT4OoGoiR1IGz9C46CECkKuyw
-      short-id: b7ef89dff65b02
-    flow: xtls-rprx-vision
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-08
+    server: amus.konus.buzz
+    port: 443
+    uuid: 9e4d44c2-f237-4d6b-bb09-77b839fe7ea4
+    udp: true
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -104,7 +104,8 @@ proxy-groups:
       - vless-04
       - vless-05
       - vless-06
-      - 4Nika-4aadd209d8
+      - vless-07
+      - vless-08
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -118,6 +119,7 @@ proxy-groups:
       - vless-04
       - vless-05
       - vless-06
-      - 4Nika-4aadd209d8
+      - vless-07
+      - vless-08
 rules:
   - MATCH,Proxy

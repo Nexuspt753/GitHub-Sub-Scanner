@@ -1,6 +1,19 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 79.108.164.200
+    port: 8443
+    uuid: 8df7343e-2427-41fb-aad1-6c563296faf6
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: github.com
+    reality-opts:
+      public-key: 1KY_jqa2yPLBEBa-3TG77zs4ak2zQLGul4eexxCueyI
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.91.171.116
     port: 443
     password: 2ee85121-31de-4581-a492-eb00f606e392
@@ -14,6 +27,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

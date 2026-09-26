@@ -1,7 +1,14 @@
 proxies:
+  - type: ss
+    name: Shh_Proxy-New⁷
+    server: p1tun4.greewebservices.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: LMnotcv4RdaEOBXT-LdtfA
+    udp: true
   - type: vless
     name: vless
-    server: netherlands.tn.synthara.ir
+    server: de2.zephyrx.ir
     port: 2433
     uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
     udp: true
@@ -10,51 +17,40 @@ proxies:
     xudp: true
   - type: vless
     name: vless-01
-    server: de2.sharecafe.ir
+    server: netherlands.tn.synthara.ir
+    port: 2433
+    uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: netherlandsx.simplan.ir
     port: 2433
     uuid: 6c2d8a61-9da3-432c-b673-137565dac8e6
     udp: true
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vmess
-    name: 4Sarina-ddd9560c28
-    server: vip2.showtimeless.site
-    port: 8055
-    uuid: b641b4ab-13e6-4dd8-803f-1b891419c3d5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-69592a361c
-    server: vip3.coinchain.site
-    port: 8080
-    uuid: 992b7390-b7e7-4adf-82aa-a8953a997380
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Shh_Proxy-New⁷
       - vless
       - vless-01
-      - 4Sarina-ddd9560c28
-      - 4Sarina-69592a361c
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Shh_Proxy-New⁷
       - vless
       - vless-01
-      - 4Sarina-ddd9560c28
-      - 4Sarina-69592a361c
+      - vless-02
 rules:
   - MATCH,Proxy

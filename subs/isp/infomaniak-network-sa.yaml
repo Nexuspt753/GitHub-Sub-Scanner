@@ -38,6 +38,13 @@ proxies:
       public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 83.228.224.161
+    port: 443
+    password: SoftNetConnect
+    udp: true
+    client-fingerprint: chrome
   - type: vless
     name: EPODONIOS-02
     server: 83.228.217.38
@@ -67,13 +74,22 @@ proxies:
       public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 83.228.224.161
-    port: 443
-    password: SoftNetConnect
+  - type: vless
+    name: v2raybaaz
+    server: 83.228.217.38
+    port: 8443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
+    tls: true
     client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
   - type: vless
     name: 4FreeIran-93a08bd691
     server: 179.237.85.86
@@ -113,6 +129,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: pro.turbooserver.com
+  - type: vless
+    name: 4Mohsen-e4678fad49
+    server: 83.228.217.38
+    port: 8443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
@@ -121,12 +153,14 @@ proxy-groups:
       - EPODONIOS
       - vless
       - EPODONIOS-01
+      - DeltaKroneckerGithub
       - EPODONIOS-02
       - Telegram
-      - DeltaKroneckerGithub
+      - v2raybaaz
       - 4FreeIran-93a08bd691
       - 4Jadi-25bdc6d180
       - 4Sarina-ebde548217
+      - 4Mohsen-e4678fad49
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -136,11 +170,13 @@ proxy-groups:
       - EPODONIOS
       - vless
       - EPODONIOS-01
+      - DeltaKroneckerGithub
       - EPODONIOS-02
       - Telegram
-      - DeltaKroneckerGithub
+      - v2raybaaz
       - 4FreeIran-93a08bd691
       - 4Jadi-25bdc6d180
       - 4Sarina-ebde548217
+      - 4Mohsen-e4678fad49
 rules:
   - MATCH,Proxy
