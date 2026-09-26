@@ -1,29 +1,19 @@
 proxies:
   - type: vmess
+    name: 4FreeIran-8d5e63a4a6
+    server: irc.jahancloud.cfd
+    port: 443
+    uuid: 79e37b18-c19d-4441-89b2-dbbd02983bb3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Sarina-2b1e20fece
     server: irc.jahannetwork.sbs
     port: 443
     uuid: f3fc06ca-8c99-4e4c-a7c4-c7fb32048432
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-db3a555ab4
-    server: irc.jahannetwork.sbs
-    port: 443
-    uuid: 0069c10a-a224-49c5-8613-4cec5bb9e33d
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Nika-b348498bfa
-    server: irc.jahannetwork.sbs
-    port: 443
-    uuid: 6d625492-210e-4e3e-a1b2-7280f8126a84
     alterId: 0
     cipher: auto
     udp: true
@@ -34,17 +24,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-8d5e63a4a6
       - 4Sarina-2b1e20fece
-      - 4Sarina-db3a555ab4
-      - 4Nika-b348498bfa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-8d5e63a4a6
       - 4Sarina-2b1e20fece
-      - 4Sarina-db3a555ab4
-      - 4Nika-b348498bfa
 rules:
   - MATCH,Proxy

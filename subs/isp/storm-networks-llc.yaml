@@ -1,0 +1,33 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-0a0c67e119
+    server: mybasis.cloud
+    port: 443
+    uuid: 270f4cdd-3586-42d3-9c59-0e9bfe2bfb9e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: mybasis.cloud
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/sync/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-0a0c67e119
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-0a0c67e119
+rules:
+  - MATCH,Proxy

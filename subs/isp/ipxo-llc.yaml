@@ -1,4 +1,16 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 172.111.146.64
+    port: 80
+    uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: EPODONIOS
     server: 172.111.146.64
@@ -26,11 +38,26 @@ proxies:
     skip-cert-verify: false
     network: ws
     ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 🇯🇵JP-172.111.146.64-5225
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
       path: /vmess/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: EPODONIOS-02
+    name: 🇯🇵JP-172.111.146.64-0138
     server: 172.111.146.64
     port: 80
     uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
@@ -42,21 +69,6 @@ proxies:
     network: ws
     ws-opts:
       path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
@@ -72,38 +84,8 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime40.workers.dev
-  - type: vless
-    name: 4Kian-1e1c431400
-    server: 104.129.164.253
-    port: 2096
-    uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vless.muzheng.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Sarina-e2adffa4b8
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Nika-17d4cbd92f
     server: 172.111.146.64
     port: 80
     uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
@@ -169,14 +151,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
-      - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
+      - 🇯🇵JP-172.111.146.64-5225
+      - 🇯🇵JP-172.111.146.64-0138
       - 4Mohsen-eac6d067f0
-      - 4Kian-1e1c431400
       - 4Sarina-e2adffa4b8
-      - 4Nika-17d4cbd92f
       - 4Nika-ee8fb5f300
       - 4Sarina-dda805b2cd
       - 4Sarina-5500ec4ae5
@@ -186,14 +167,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
-      - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
+      - 🇯🇵JP-172.111.146.64-5225
+      - 🇯🇵JP-172.111.146.64-0138
       - 4Mohsen-eac6d067f0
-      - 4Kian-1e1c431400
       - 4Sarina-e2adffa4b8
-      - 4Nika-17d4cbd92f
       - 4Nika-ee8fb5f300
       - 4Sarina-dda805b2cd
       - 4Sarina-5500ec4ae5
