@@ -1,19 +1,13 @@
 proxies:
+  - type: hysteria2
+    name: 4Jadi-b02b2c0736
+    server: hk1.shiyuandian.shop
+    port: 24591
+    password: ae845cbd-08fb-4346-929a-e28a6f3960a8
+    sni: hk1.shiyuandian.shop
+    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
-    server: 92.53.188.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime18.workers.dev
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 92.53.189.40
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -25,19 +19,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime19.workers.dev
-  - type: vless
-    name: 4Kian-8fa59d40d1
-    server: 92.53.188.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime18.workers.dev
   - type: vless
     name: 4Nika-f62eefe5ce
     server: 92.53.189.40
@@ -56,9 +37,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-b02b2c0736
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Kian-8fa59d40d1
       - 4Nika-f62eefe5ce
   - name: Auto
     type: url-test
@@ -66,9 +46,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-b02b2c0736
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Kian-8fa59d40d1
       - 4Nika-f62eefe5ce
 rules:
   - MATCH,Proxy

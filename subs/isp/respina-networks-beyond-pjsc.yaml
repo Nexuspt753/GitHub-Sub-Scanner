@@ -1,26 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-561427b21a
-    server: xgr.goldnshop.com
-    port: 2083
-    uuid: beadd688-6285-4f0e-bb5e-d984570567a4
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: tun.iran.roshdrrr.ir
+    port: 5433
+    uuid: 3111d36f-cbf9-427c-92e7-d9d140e84c45
     udp: true
     xudp: true
-    skip-cert-verify: false
+  - type: vless
+    name: filembad
+    server: tun.iran.roshdrrr.ir
+    port: 5433
+    uuid: 3111d36f-cbf9-427c-92e7-d9d140e84c45
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-561427b21a
+      - EPODONIOS
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-561427b21a
+      - EPODONIOS
+      - filembad
 rules:
   - MATCH,Proxy

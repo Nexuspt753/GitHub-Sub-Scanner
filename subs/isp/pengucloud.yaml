@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: tarane.2drive.sbs
+    port: 80
+    uuid: 02572fe7-a220-4554-a4f8-6854a4287e83
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /arvancloud.ir
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tarane.2drive.sbs
+  - type: vless
+    name: ✅
+    server: tarane.2drive.sbs
+    port: 80
+    uuid: 02572fe7-a220-4554-a4f8-6854a4287e83
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /arvancloud.ir
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tarane.2drive.sbs
+  - type: vless
+    name: 4Jadi-d154bc89ff
+    server: tarane.2drive.sbs
+    port: 80
+    uuid: 02572fe7-a220-4554-a4f8-6854a4287e83
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /arvancloud.ir
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tarane.2drive.sbs
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - ✅
+      - 4Jadi-d154bc89ff
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - ✅
+      - 4Jadi-d154bc89ff
+rules:
+  - MATCH,Proxy

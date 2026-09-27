@@ -1,0 +1,27 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: tr-netherlands.unlimited-access.ru
+    port: 443
+    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
+    udp: true
+    tls: true
+    sni: tr-netherlands.unlimited-access.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

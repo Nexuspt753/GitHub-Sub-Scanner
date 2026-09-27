@@ -1,9 +1,23 @@
 proxies:
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 94.159.102.107
+    port: 8443
+    cipher: none
+    password: 3e96ef7d-8637-42c2-ac73-75182196e755
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 94.159.102.107
+    port: 8443
+    cipher: none
+    password: 3e96ef7d-8637-42c2-ac73-75182196e755
+    udp: true
   - type: vless
-    name: 4Mohsen-d08c817d2a
+    name: 4Mohsen-4201383ba2
     server: 194.55.239.135
     port: 8447
-    uuid: ae51bbbc-fa67-4458-84fe-c909e023c5ad
+    uuid: 446b1853-76e0-4234-9e35-01e6c5d62c55
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -15,10 +29,10 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Mohsen-f939aeb371
+    name: 4Mohsen-f791bb7d02
     server: 194.55.239.135
     port: 8448
-    uuid: ae51bbbc-fa67-4458-84fe-c909e023c5ad
+    uuid: 446b1853-76e0-4234-9e35-01e6c5d62c55
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -29,20 +43,117 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-13be07cbec
+    server: 94.159.97.247
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /Telegram🇨🇳
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Mohsen-9f5fdcf5e1
+    server: 94.159.105.148
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-ac41cca32f
+    server: 94.159.110.41
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Mohsen-7a2f42796a
+    server: 94.159.110.41
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Jadi-daae1357f9
+    server: 94.159.110.41
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d08c817d2a
-      - 4Mohsen-f939aeb371
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-4201383ba2
+      - 4Mohsen-f791bb7d02
+      - 4Mohsen-13be07cbec
+      - 4Mohsen-9f5fdcf5e1
+      - 4Nika-ac41cca32f
+      - 4Mohsen-7a2f42796a
+      - 4Jadi-daae1357f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d08c817d2a
-      - 4Mohsen-f939aeb371
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-4201383ba2
+      - 4Mohsen-f791bb7d02
+      - 4Mohsen-13be07cbec
+      - 4Mohsen-9f5fdcf5e1
+      - 4Nika-ac41cca32f
+      - 4Mohsen-7a2f42796a
+      - 4Jadi-daae1357f9
 rules:
   - MATCH,Proxy

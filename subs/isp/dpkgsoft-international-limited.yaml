@@ -14,6 +14,34 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS
+    server: lk-1.yes-on.ru
+    port: 443
+    uuid: ddae04fe-48ce-0002-b562-7a65c70ecbdf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lk-1.yes-on.ru
+    reality-opts:
+      public-key: EroArXWVxIMXclqgp4WNolB5vtfWSZEF1wjb_t1QrBE
+      short-id: a150dcf9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇷🇺182575
+    server: lk-1.yes-on.ru
+    port: 443
+    uuid: ddae04fe-48ce-0002-b562-7a65c70ecbdf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lk-1.yes-on.ru
+    reality-opts:
+      public-key: EroArXWVxIMXclqgp4WNolB5vtfWSZEF1wjb_t1QrBE
+      short-id: a150dcf9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-d1ab24a8a9
     server: 31.77.199.147
     port: 4443
@@ -45,32 +73,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Mohsen-5b8ff1f1eb
-    server: 2.27.54.132
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇷🇺182575
       - 4Sarina-d1ab24a8a9
       - 4Mohsen-61d98dc3ee
-      - 4Mohsen-5b8ff1f1eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -78,8 +90,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇷🇺182575
       - 4Sarina-d1ab24a8a9
       - 4Mohsen-61d98dc3ee
-      - 4Mohsen-5b8ff1f1eb
 rules:
   - MATCH,Proxy

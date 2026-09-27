@@ -1,7 +1,7 @@
 proxies:
   - type: vless
     name: vless
-    server: qyk5x30.videoruru.shop
+    server: igyeqfz.videoruru.shop
     port: 443
     uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
     udp: true
@@ -13,7 +13,7 @@ proxies:
     xudp: true
   - type: vless
     name: vless-01
-    server: s55xd3o.videoruru.shop
+    server: qyk5x30.videoruru.shop
     port: 443
     uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
     udp: true
@@ -25,7 +25,7 @@ proxies:
     xudp: true
   - type: vless
     name: vless-02
-    server: zd2ma0s.videoruru.shop
+    server: s55xd3o.videoruru.shop
     port: 443
     uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
     udp: true
@@ -37,6 +37,18 @@ proxies:
     xudp: true
   - type: vless
     name: vless-03
+    server: zd2ma0s.videoruru.shop
+    port: 443
+    uuid: 26d493a6-e1fc-4813-8f6d-49010ae97d7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-04
     server: 188.72.103.3
     port: 443
     uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
@@ -47,6 +59,17 @@ proxies:
       - h2
       - http/1.1
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 93.77.188.102
+    port: 443
+    uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: wde5.whitedeu.org
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,6 +79,8 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
+      - vless-04
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,5 +91,7 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
+      - vless-04
+      - EPODONIOS
 rules:
   - MATCH,Proxy
