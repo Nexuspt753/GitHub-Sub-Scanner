@@ -1,68 +1,29 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: proxyip.hk.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
     name: DeltaKroneckerGithub
-    server: proxyip.hk.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    server: 154.83.186.140
+    port: 8443
+    uuid: 25d9297d-bdab-58df-8095-fe354277fa68
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
+    client-fingerprint: firefox
+    servername: www.sony.com
+    reality-opts:
+      public-key: 3o3MQYmdSi6phvNOn8GxOy09ZAuGeV1hAZ16D6mTyBs
+      short-id: 831afb
     xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: 4Jadi-8544eebf16
-    server: proxyip.hk.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Jadi-8544eebf16
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Jadi-8544eebf16
 rules:
   - MATCH,Proxy

@@ -1,31 +1,25 @@
 proxies:
-  - type: vmess
+  - type: ss
     name: DeltaKroneckerGithub
-    server: 124.151.45.60
-    port: 38320
-    uuid: d643d6ea-2e48-4ad5-b96e-d11b889cc6a6
-    alterId: 0
-    cipher: auto
+    server: 124.151.25.50
+    port: 8020
+    cipher: aes-128-gcm
+    password: 2wsxcde3
     udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-8817852faa
-    server: 124.151.45.60
-    port: 38320
-    uuid: d643d6ea-2e48-4ad5-b96e-d11b889cc6a6
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 124.151.25.50
+    port: 8024
+    cipher: aes-128-gcm
+    password: 2wsxcde4
     udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-8817852faa
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-8817852faa
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

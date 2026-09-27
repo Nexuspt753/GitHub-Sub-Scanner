@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 81.12.33.223
+    port: 8080
+    cipher: 2022-blake3-aes-128-gcm
+    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: 81.12.33.223
+    port: 8080
+    cipher: 2022-blake3-aes-128-gcm
+    password: gXqk6/19VX5/wJYYbnV20Q==:YHnW19PocXQDJwgP7/77nQ==
+    udp: true
   - type: vmess
     name: 4FreeIran-24d8cde028
     server: speed.jahancompany.sbs
@@ -14,6 +28,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - 4FreeIran-24d8cde028
   - name: Auto
     type: url-test
@@ -21,6 +37,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - 4FreeIran-24d8cde028
 rules:
   - MATCH,Proxy

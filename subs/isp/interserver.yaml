@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Mohsen-98c67b9fc7
+    server: 68.168.222.210
+    port: 1234
+    cipher: chacha20-ietf-poly1305
+    password: zz0dHjDfoaSaZuRFLGH-hNfBALSEJUYD
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-98c67b9fc7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-98c67b9fc7
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: Andorra la Vella · @DeltaKroneckerGithub
+    server: 31.76.249.174
+    port: 443
+    uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: conge.ggisopi.su
+    reality-opts:
+      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Andorra la Vella · 4Kian-9373891c45
+    server: conge.ggisopi.su
+    port: 443
+    uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: conge.ggisopi.su
+    reality-opts:
+      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Andorra la Vella · @DeltaKroneckerGithub
+      - Andorra la Vella · 4Kian-9373891c45
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Andorra la Vella · @DeltaKroneckerGithub
+      - Andorra la Vella · 4Kian-9373891c45
+rules:
+  - MATCH,Proxy

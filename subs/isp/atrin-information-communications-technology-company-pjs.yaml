@@ -1,6 +1,13 @@
 proxies:
   - type: ss
-    name: ICV2RAY
+    name: EPODONIOS
+    server: p1tun4.greewebservices.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: LMnotcv4RdaEOBXT-LdtfA
+    udp: true
+  - type: ss
+    name: Shh_Proxy-New³
     server: p1tun4.greewebservices.ir
     port: 1080
     cipher: chacha20-ietf-poly1305
@@ -8,15 +15,6 @@ proxies:
     udp: true
   - type: vless
     name: vless
-    server: de2.zephyrx.ir
-    port: 2433
-    uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: vless-01
     server: netherlands.tn.synthara.ir
     port: 2433
     uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
@@ -24,49 +22,22 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vless
-    name: "[56648]"
-    server: fl-2.wwwiranstar.fun
-    port: 5000
-    uuid: 8cbb5a88-74d6-43d3-953b-01e0eeb0c9cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: FhMWFvLreYsLAVipnrvcbHBoYpNC0E9-Jt-ThM6f0Hk
-      short-id: ee559b4a6b899670
-    xudp: true
-  - type: vmess
-    name: 4Mohsen-5a32786f85
-    server: vip2.showtimeless.site
-    port: 8055
-    uuid: b641b4ab-13e6-4dd8-803f-1b891419c3d5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ICV2RAY
+      - EPODONIOS
+      - Shh_Proxy-New³
       - vless
-      - vless-01
-      - "[56648]"
-      - 4Mohsen-5a32786f85
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ICV2RAY
+      - EPODONIOS
+      - Shh_Proxy-New³
       - vless
-      - vless-01
-      - "[56648]"
-      - 4Mohsen-5a32786f85
 rules:
   - MATCH,Proxy

@@ -1,30 +1,89 @@
 proxies:
   - type: vless
-    name: 4FreeIran-50ce08deba
-    server: pl.viralforge.ru
+    name: DeltaKroneckerGithub
+    server: 130.78.191.159
     port: 443
-    uuid: 9031fb65-f53c-42d5-abb3-c7b95fd34df6
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: pl.viralforge.ru
-    reality-opts:
-      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
-      short-id: a1b2c3d4b5
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: assets-nl.pleiades.codes
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇳🇱
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-96f785461c
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-50ce08deba
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - 🇳🇱
+      - 4FreeIran-96f785461c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-50ce08deba
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - 🇳🇱
+      - 4FreeIran-96f785461c
 rules:
   - MATCH,Proxy

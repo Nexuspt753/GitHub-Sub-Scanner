@@ -1,19 +1,5 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
-    udp: true
-  - type: ss
-    name: 🇺🇸
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
-    udp: true
-  - type: ss
     name: 4Mohsen-6afa29ebda
     server: 216.105.168.18
     port: 443
@@ -21,7 +7,35 @@ proxies:
     password: hCCWOcIsK5wrFz4OX70rWf
     udp: true
   - type: ss
-    name: 🇺🇸US-216.105.168.18-0169
+    name: DeltaKroneckerGithub
+    server: 64.42.181.101
+    port: 12995
+    cipher: aes-128-gcm
+    password: a7be96a98392ef40dab7693317a81cc0
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 14.1.31.220
+    port: 17288
+    cipher: aes-128-gcm
+    password: 0c4c324a7c147484243e3c3f3bcbc35b
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 66.23.202.54
+    port: 13627
+    cipher: aes-128-gcm
+    password: 50ce2ac177d8d8cdad6b4a68739e2ea0
+    udp: true
+  - type: ss
+    name: EPODONIOS
+    server: 216.105.168.18
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: hCCWOcIsK5wrFz4OX70rWf
+    udp: true
+  - type: ss
+    name: 🇺🇸US-216.105.168.18-0136
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
@@ -32,19 +46,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇺🇸
       - 4Mohsen-6afa29ebda
-      - 🇺🇸US-216.105.168.18-0169
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
+      - 🇺🇸US-216.105.168.18-0136
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇺🇸
       - 4Mohsen-6afa29ebda
-      - 🇺🇸US-216.105.168.18-0169
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - EPODONIOS
+      - 🇺🇸US-216.105.168.18-0136
 rules:
   - MATCH,Proxy
