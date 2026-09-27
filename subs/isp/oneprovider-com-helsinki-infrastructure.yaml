@@ -1,0 +1,94 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 37.143.129.244
+    port: 443
+    uuid: 0e6de971-69e8-4536-b06d-8b6eae57021b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 5HArul2NDXfFUxijHj1xiPCfH-77zuuRxylT1vWIvUY
+      short-id: 48fd192dc4e46bc0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 37.143.129.244
+    port: 443
+    uuid: 0e6de971-69e8-4536-b06d-8b6eae57021b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 5HArul2NDXfFUxijHj1xiPCfH-77zuuRxylT1vWIvUY
+      short-id: 48fd192dc4e46bc0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇫🇮
+    server: 37.143.129.244
+    port: 443
+    uuid: 0e6de971-69e8-4536-b06d-8b6eae57021b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 5HArul2NDXfFUxijHj1xiPCfH-77zuuRxylT1vWIvUY
+      short-id: 48fd192dc4e46bc0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-ba61abf89a
+    server: 37.143.129.244
+    port: 443
+    uuid: 0e6de971-69e8-4536-b06d-8b6eae57021b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 5HArul2NDXfFUxijHj1xiPCfH-77zuuRxylT1vWIvUY
+      short-id: 48fd192dc4e46bc0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-b7987dc78f
+    server: 37.143.129.244
+    port: 443
+    uuid: 0e6de971-69e8-4536-b06d-8b6eae57021b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: 5HArul2NDXfFUxijHj1xiPCfH-77zuuRxylT1vWIvUY
+      short-id: 48fd192dc4e46bc0
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇫🇮
+      - 4FreeIran-ba61abf89a
+      - 4Mohsen-b7987dc78f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇫🇮
+      - 4FreeIran-ba61abf89a
+      - 4Mohsen-b7987dc78f
+rules:
+  - MATCH,Proxy
