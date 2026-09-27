@@ -1,20 +1,6 @@
 proxies:
-  - type: trojan
-    name: Ho Chi Minh City · @DeltaKroneckerGithub
-    server: 36.50.134.29
-    port: 443
-    password: 94d219c9-1afc-4d42-b090-8b3794764380
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: Ho Chi Minh City · @DeltaKroneckerGithub-01
-    server: 36.50.135.142
-    port: 443
-    password: 94d219c9-1afc-4d42-b090-8b3794764380
-    udp: true
-    client-fingerprint: chrome
   - type: vless
-    name: Hanoi · 9299
+    name: Hanoi · EPODONIOS
     server: 2.27.26.96
     port: 443
     uuid: 63d025be-5e23-437b-961d-84dbe25cd587
@@ -28,6 +14,13 @@ proxies:
       path: /media/ws/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: Ho Chi Minh City · @DeltaKroneckerGithub
+    server: 36.50.134.29
+    port: 443
+    password: 94d219c9-1afc-4d42-b090-8b3794764380
+    udp: true
+    client-fingerprint: chrome
   - type: vless
     name: Hanoi · 4Jadi-ceec1b352f
     server: 2.27.26.96
@@ -121,51 +114,32 @@ proxies:
       path: /tandung288.click
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: Hanoi · 4Jadi-70bdc269ec
-    server: 103.82.25.106
-    port: 80
-    uuid: ec7c94b5-6ca6-4289-b44b-c6583f2c5f6c
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /fuzzyng?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Hanoi · EPODONIOS
       - Ho Chi Minh City · @DeltaKroneckerGithub
-      - Ho Chi Minh City · @DeltaKroneckerGithub-01
-      - Hanoi · 9299
       - Hanoi · 4Jadi-ceec1b352f
       - Tây Hồ · 4Kian-36ac6c9069
       - Vinh Tuy · 4Jadi-d406e99506
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
-      - Hanoi · 4Jadi-70bdc269ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Hanoi · EPODONIOS
       - Ho Chi Minh City · @DeltaKroneckerGithub
-      - Ho Chi Minh City · @DeltaKroneckerGithub-01
-      - Hanoi · 9299
       - Hanoi · 4Jadi-ceec1b352f
       - Tây Hồ · 4Kian-36ac6c9069
       - Vinh Tuy · 4Jadi-d406e99506
       - Dich Vong · 4Jadi-a0ee88c35b
       - Ho Chi Minh City · 4Jadi-ddd901c5bd
       - Dich Vong · 4Jadi-b122d56b50
-      - Hanoi · 4Jadi-70bdc269ec
 rules:
   - MATCH,Proxy

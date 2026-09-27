@@ -1,6 +1,15 @@
 proxies:
   - type: vless
     name: vless
+    server: gb.tn.fl.fluxora.ir
+    port: 2432
+    uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
     server: trtnfl.zephyrx.ir
     port: 2433
     uuid: 44f880ed-9357-44f0-9f45-041fb99dfdf1
@@ -8,12 +17,52 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: s2.tehranionliine.ir
+    port: 80
+    uuid: b1ac23fb-b336-4d37-a3c0-64b29c4ef3a4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: canfingV2rayNG-324
+    server: s2.tehranionliine.ir
+    port: 80
+    uuid: b1ac23fb-b336-4d37-a3c0-64b29c4ef3a4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇮🇷181944
+    server: s2.tehranionliine.ir
+    port: 80
+    uuid: b1ac23fb-b336-4d37-a3c0-64b29c4ef3a4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - vless-01
+      - EPODONIOS
+      - canfingV2rayNG-324
+      - 🇮🇷181944
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +70,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
+      - EPODONIOS
+      - canfingV2rayNG-324
+      - 🇮🇷181944
 rules:
   - MATCH,Proxy

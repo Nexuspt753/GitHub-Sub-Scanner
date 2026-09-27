@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: pol2.serverslocal.ru
+    port: 443
+    uuid: 80f72027-2201-4541-9abb-7070c9b0869e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pol2.serverslocal.ru
+    reality-opts:
+      public-key: FdnIXseNFtVqgGO7-GyAFgQ4GUqzuWz5jywOmuZM6To
+      short-id: dd6a0fb60cd7b2fc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇦🇪AE-🚀@VPNine1
+    server: pol2.serverslocal.ru
+    port: 443
+    uuid: 80f72027-2201-4541-9abb-7070c9b0869e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pol2.serverslocal.ru
+    reality-opts:
+      public-key: FdnIXseNFtVqgGO7-GyAFgQ4GUqzuWz5jywOmuZM6To
+      short-id: dd6a0fb60cd7b2fc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇮🇳181908
+    server: pol2.serverslocal.ru
+    port: 443
+    uuid: 80f72027-2201-4541-9abb-7070c9b0869e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pol2.serverslocal.ru
+    reality-opts:
+      public-key: FdnIXseNFtVqgGO7-GyAFgQ4GUqzuWz5jywOmuZM6To
+      short-id: dd6a0fb60cd7b2fc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇦🇪AE-🚀@VPNine1
+      - 🇮🇳181908
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇦🇪AE-🚀@VPNine1
+      - 🇮🇳181908
+rules:
+  - MATCH,Proxy

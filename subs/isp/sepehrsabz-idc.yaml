@@ -1,17 +1,102 @@
 proxies:
-  - type: ss
+  - type: vless
     name: EPODONIOS
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
-    password: pq5tDNa9qEEjN9EM4ArxQw
+    server: prime.vorchi.eu
+    port: 14987
+    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: NOdtotQXwRzLJOBJzg19fJS4eHBlIlEab9wS8PmZaDE
+      short-id: 023db830cf2b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: prime.vorchi.eu
+    port: 25354
+    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: t1.vorchi.eu
+    xudp: true
+  - type: vless
+    name: 🇮🇷181989
+    server: prime.vorchi.eu
+    port: 14987
+    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: NOdtotQXwRzLJOBJzg19fJS4eHBlIlEab9wS8PmZaDE
+      short-id: 023db830cf2b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: prime.vorchi.eu
+    port: 14987
+    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: NOdtotQXwRzLJOBJzg19fJS4eHBlIlEab9wS8PmZaDE
+      short-id: 023db830cf2b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇮🇷181990
+    server: prime.vorchi.eu
+    port: 25354
+    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: t1.vorchi.eu
+    xudp: true
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1-01
+    server: prime.vorchi.eu
+    port: 25354
+    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: t1.vorchi.eu
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇷181989
+      - 🇮🇷IR-🚀@VPNine1
+      - 🇮🇷181990
+      - 🇮🇷IR-🚀@VPNine1-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +104,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇷181989
+      - 🇮🇷IR-🚀@VPNine1
+      - 🇮🇷181990
+      - 🇮🇷IR-🚀@VPNine1-01
 rules:
   - MATCH,Proxy

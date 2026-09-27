@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Nika-c55bb9e314
+    server: 38.34.190.212
+    port: 443
+    uuid: c05ce6f2-7e9d-4b20-82fc-597bad3af79a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-c55bb9e314
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-c55bb9e314
+rules:
+  - MATCH,Proxy

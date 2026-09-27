@@ -1,5 +1,25 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: service.erisrtg.ir
+    port: 9098
+    uuid: 9730ec36-a1d8-4cae-a246-fde2678be5df
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: kurdconfig
+    server: service.erisrtg.ir
+    port: 9098
+    uuid: 9730ec36-a1d8-4cae-a246-fde2678be5df
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Nika-a8474cc1e5
     server: service.erisrtg.ir
     port: 9098
@@ -14,6 +34,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - kurdconfig
       - 4Nika-a8474cc1e5
   - name: Auto
     type: url-test
@@ -21,6 +43,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - kurdconfig
       - 4Nika-a8474cc1e5
 rules:
   - MATCH,Proxy
