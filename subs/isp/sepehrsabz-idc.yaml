@@ -11,13 +11,6 @@ proxies:
     server: p1tun2.greewebservices.ir
     port: 2060
     cipher: chacha20-ietf-poly1305
-    password: ao5znrhEwVqoJy-l7AVvgw
-    udp: true
-  - type: ss
-    name: EPODONIOS-02
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
     password: pq5tDNa9qEEjN9EM4ArxQw
     udp: true
   - type: ss
@@ -48,98 +41,21 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: 4LMam2o8Ah_OZkqDdRg-ew
     udp: true
-  - type: vless
-    name: EPODONIOS-03
-    server: prime.vorchi.eu
-    port: 25354
-    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
+  - type: vmess
+    name: 4Mohsen-e2a24c9f6a
+    server: Irr.seervexo.ir
+    port: 4056
+    uuid: f2cedb5b-f863-44fc-9f21-f106077b65af
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: t1.vorchi.eu
     xudp: true
-  - type: ss
-    name: 4Mohsen-fdae559f21
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
-    password: LMnotcv4RdaEOBXT-LdtfA
-    udp: true
-  - type: ss
-    name: 4Kian-a4f3dea485
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
-    password: ao5znrhEwVqoJy-l7AVvgw
-    udp: true
-  - type: ss
-    name: 4Sarina-b21de08409
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
-    password: pq5tDNa9qEEjN9EM4ArxQw
-    udp: true
-  - type: vless
-    name: 🇮🇷181989
-    server: prime.vorchi.eu
-    port: 14987
-    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: NOdtotQXwRzLJOBJzg19fJS4eHBlIlEab9wS8PmZaDE
-      short-id: 023db830cf2b
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇮🇷181990
-    server: prime.vorchi.eu
-    port: 25354
-    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: t1.vorchi.eu
-    xudp: true
-  - type: vless
-    name: 4Kian-8bf64d8e52
-    server: prime.vorchi.eu
-    port: 14987
-    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: NOdtotQXwRzLJOBJzg19fJS4eHBlIlEab9wS8PmZaDE
-      short-id: 023db830cf2b
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-bbbbcfd659
-    server: prime.vorchi.eu
-    port: 25354
-    uuid: 2dca2997-94f1-476c-bff8-f5a81f0ba2cf
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: t1.vorchi.eu
-    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -147,19 +63,11 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - ICV2RAY
       - V2raySaman
       - 🇩🇪⇝
       - 4Mohsen-b08fd4dd27
-      - EPODONIOS-03
-      - 4Mohsen-fdae559f21
-      - 4Kian-a4f3dea485
-      - 4Sarina-b21de08409
-      - 🇮🇷181989
-      - 🇮🇷181990
-      - 4Kian-8bf64d8e52
-      - 4FreeIran-bbbbcfd659
+      - 4Mohsen-e2a24c9f6a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -168,18 +76,10 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - ICV2RAY
       - V2raySaman
       - 🇩🇪⇝
       - 4Mohsen-b08fd4dd27
-      - EPODONIOS-03
-      - 4Mohsen-fdae559f21
-      - 4Kian-a4f3dea485
-      - 4Sarina-b21de08409
-      - 🇮🇷181989
-      - 🇮🇷181990
-      - 4Kian-8bf64d8e52
-      - 4FreeIran-bbbbcfd659
+      - 4Mohsen-e2a24c9f6a
 rules:
   - MATCH,Proxy

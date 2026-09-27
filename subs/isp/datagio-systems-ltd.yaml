@@ -13,19 +13,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS
-    server: assets-nl.pleiades.codes
-    port: 443
-    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: assets-nl.pleiades.codes
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: DeltaKroneckerGithub-01
     server: assets-nl.pleiades.codes
     port: 443
@@ -33,6 +20,19 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: firefox
+    servername: assets-nl.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: assets-nl.pleiades.codes
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: assets-nl.pleiades.codes
     xudp: true
     network: grpc
@@ -51,29 +51,15 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-96f785461c
-    server: assets-nl.pleiades.codes
-    port: 443
-    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: assets-nl.pleiades.codes
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 🇳🇱
-      - 4FreeIran-96f785461c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -81,9 +67,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - 🇳🇱
-      - 4FreeIran-96f785461c
 rules:
   - MATCH,Proxy

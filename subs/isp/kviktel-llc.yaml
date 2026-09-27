@@ -1,27 +1,32 @@
 proxies:
   - type: vless
-    name: 4Nika-df06dd0d56
-    server: 185.147.27.164
-    port: 8443
-    uuid: 3a90bf69-1ffe-4ebb-b9a7-ad9ba8e9f66f
+    name: 4FreeIran-4246d8809a
+    server: 194.55.244.182
+    port: 28447
+    uuid: 68d89911-b92d-46fe-9007-3645c3b285f0
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: speedtest.net
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: pl.sparxiecn.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /lovelive
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: pl.sparxiecn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-df06dd0d56
+      - 4FreeIran-4246d8809a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-df06dd0d56
+      - 4FreeIran-4246d8809a
 rules:
   - MATCH,Proxy

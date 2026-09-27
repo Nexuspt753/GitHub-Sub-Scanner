@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ul-mexico1.09vpn.com
+  - type: vless
     name: EPODONIOS
     server: ul-mexico1.09vpn.com
     port: 8443
@@ -32,6 +47,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 4FreeIran-ea4be5f899
   - name: Auto
@@ -40,6 +56,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 4FreeIran-ea4be5f899
 rules:

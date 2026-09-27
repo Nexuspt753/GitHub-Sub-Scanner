@@ -13,12 +13,27 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-25571071cf
+    server: 94.176.234.161
+    port: 443
+    uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
+      short-id: dbb2ef1c7c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-1d68e3a398
+      - 4Nika-25571071cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-1d68e3a398
+      - 4Nika-25571071cf
 rules:
   - MATCH,Proxy

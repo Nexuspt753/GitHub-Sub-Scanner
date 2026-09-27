@@ -11,12 +11,23 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: 4Sarina-b5570ae4d6
+    server: 161.104.38.98
+    port: 443
+    uuid: 553d8193-d897-0032-bb46-f075b670f22a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: donatov.net
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-b5570ae4d6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -24,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-b5570ae4d6
 rules:
   - MATCH,Proxy
