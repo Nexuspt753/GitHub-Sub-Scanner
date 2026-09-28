@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: turkeygame.authortycenter.com
+    port: 2035
+    uuid: 8bc4d8c1-a923-4fc0-a3f1-bee9eed7af36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.googleapis.com
+    reality-opts:
+      public-key: hCiOvsBKJ6T4XAwYwAiA58J89IIO2bFrLdWi5vWLKWo
+      short-id: b9565b60e226c64d
+    xudp: true
+  - type: vless
+    name: 🇬🇧GB-🚀@VPNine1
+    server: turkeygame.authortycenter.com
+    port: 2035
+    uuid: 8bc4d8c1-a923-4fc0-a3f1-bee9eed7af36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.googleapis.com
+    reality-opts:
+      public-key: hCiOvsBKJ6T4XAwYwAiA58J89IIO2bFrLdWi5vWLKWo
+      short-id: b9565b60e226c64d
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇬🇧GB-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇬🇧GB-🚀@VPNine1
+rules:
+  - MATCH,Proxy

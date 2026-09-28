@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 195.209.219.176
+    port: 443
+    uuid: Fluffy_VPN-8d7GxL0p
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: absolute-disaster.org
+    reality-opts:
+      public-key: AzPJmJdRCwGXucsY1R-YPZk5xdxRo5IZPAWsA3JWOUI
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

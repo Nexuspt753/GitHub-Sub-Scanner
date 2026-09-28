@@ -1,5 +1,48 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 77.110.104.238
+    port: 443
+    uuid: 937fbdad-d97b-4540-9136-de1886df866f
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.wikipedia.org
+    reality-opts:
+      public-key: lvBVTmcLFcPyhVE2MGeTd0ls2FNOvBD7UhJNEmvprUQ
+      short-id: f182f2fcf956838e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 77.110.105.102
+    port: 443
+    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-1.brodvpn.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 77.110.104.238
+    port: 443
+    uuid: 937fbdad-d97b-4540-9136-de1886df866f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.wikipedia.org
+    reality-opts:
+      public-key: lvBVTmcLFcPyhVE2MGeTd0ls2FNOvBD7UhJNEmvprUQ
+      short-id: f182f2fcf956838e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: Free
     server: 77.110.105.102
     port: 443
@@ -10,18 +53,42 @@ proxies:
     servername: ru-1.brodvpn.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 🇩🇪
+    server: 77.110.104.238
+    port: 443
+    uuid: 937fbdad-d97b-4540-9136-de1886df866f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.wikipedia.org
+    reality-opts:
+      public-key: lvBVTmcLFcPyhVE2MGeTd0ls2FNOvBD7UhJNEmvprUQ
+      short-id: f182f2fcf956838e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
       - Free
+      - 🇩🇪
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
       - Free
+      - 🇩🇪
 rules:
   - MATCH,Proxy

@@ -1,17 +1,25 @@
 proxies:
-  - type: ss
+  - type: vless
     name: Bogotá · @DeltaKroneckerGithub
-    server: 149.104.107.41
-    port: 8090
-    cipher: aes-256-gcm
-    password: PCnnH6SQSnfoS27
+    server: 157.137.224.224
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
     udp: true
+    xudp: true
+  - type: vless
+    name: Bogotá · 4Nika-95e77f978f
+    server: 157.137.224.224
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Bogotá · @DeltaKroneckerGithub
+      - Bogotá · 4Nika-95e77f978f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Bogotá · @DeltaKroneckerGithub
+      - Bogotá · 4Nika-95e77f978f
 rules:
   - MATCH,Proxy

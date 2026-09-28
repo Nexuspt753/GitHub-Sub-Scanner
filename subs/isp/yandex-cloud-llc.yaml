@@ -48,7 +48,45 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: 4Jadi-5979d5a5c7
+    name: vless-04
+    server: 188.72.103.3
+    port: 443
+    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-05
+    server: 188.72.103.3
+    port: 443
+    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: 158.160.211.200
+    port: 11556
+    uuid: e2733dbc-1bc6-4835-b90a-447806f9efcd
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    alpn:
+      - h2
+      - http/1.1
+  - type: vless
+    name: ">>@configV2rayNG::DE"
     server: 93.77.188.102
     port: 443
     uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
@@ -67,7 +105,10 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
-      - 4Jadi-5979d5a5c7
+      - vless-04
+      - vless-05
+      - DeltaKroneckerGithub
+      - ">>@configV2rayNG::DE"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -78,6 +119,9 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
-      - 4Jadi-5979d5a5c7
+      - vless-04
+      - vless-05
+      - DeltaKroneckerGithub
+      - ">>@configV2rayNG::DE"
 rules:
   - MATCH,Proxy

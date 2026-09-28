@@ -1,31 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-e2a24c9f6a
-    server: Irr.seervexo.ir
-    port: 4056
-    uuid: f2cedb5b-f863-44fc-9f21-f106077b65af
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: EPODONIOS
+    server: p1tun2.greewebservices.ir
+    port: 2060
+    cipher: chacha20-ietf-poly1305
+    password: LMnotcv4RdaEOBXT-LdtfA
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: ss
+    name: Shh_Proxy-New⁴
+    server: p1tun2.greewebservices.ir
+    port: 2060
+    cipher: chacha20-ietf-poly1305
+    password: 3Q1UUZhdMJ1Xi4V_348v2g
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e2a24c9f6a
+      - EPODONIOS
+      - Shh_Proxy-New⁴
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e2a24c9f6a
+      - EPODONIOS
+      - Shh_Proxy-New⁴
 rules:
   - MATCH,Proxy
