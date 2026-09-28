@@ -1,38 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 179.255.125.93
-    port: 8443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    server: us.netease.uz
+    port: 8444
+    uuid: fd3b5215-287b-4f16-84d9-6b5854dea110
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 1voec.g7vm.fdc.hh.vavava.kdns.fr
+    alpn:
+      - h2
+      - http/1.1
+    servername: us.netease.uz
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 1voec.g7vm.fdc.hh.vavava.kdns.fr
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 179.255.121.254
-    port: 8443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 1voec.g7vm.fdc.hh.vavava.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 1voec.g7vm.fdc.hh.vavava.kdns.fr
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: 179.253.250.189
     port: 8443
     uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
@@ -48,7 +29,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 1voec.g7vm.fdc.hh.vavava.kdns.fr
   - type: vless
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 179.253.254.66
     port: 8443
     uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
@@ -71,7 +52,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -81,6 +61,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

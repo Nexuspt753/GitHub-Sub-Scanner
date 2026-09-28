@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 31.177.111.4
+    port: 443
+    uuid: 4f29ea6e-8b9d-4eb4-a0fc-aa8a1ed25d3e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: community-bd.paruscamp.com
+    reality-opts:
+      public-key: NjbnmsosFJHk-7LJei0QOWDI4f7Db2lO6rsdJ0wfHlE
+      short-id: 9654e54cf3aaa5bb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇷🇺182703
     server: 31.177.111.4
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇷🇺182703
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇷🇺182703
 rules:
   - MATCH,Proxy

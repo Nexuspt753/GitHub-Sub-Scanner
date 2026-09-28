@@ -1,20 +1,11 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-b659cc76f1
-    server: ar1.gsmvptun.com
-    port: 2052
-    uuid: 880d4739-7fca-c3b1-b679-1a8ac4d1d127
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: V2ray_confiig
+    server: 81.12.33.223
+    port: 8080
+    cipher: 2022-blake3-aes-128-gcm
+    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: mrzold1.dadehpardazeshiran.ir
   - type: vmess
     name: 4FreeIran-24d8cde028
     server: speed.jahancompany.sbs
@@ -25,20 +16,32 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-16af8111d4
+    server: vip9.ez0535.com
+    port: 443
+    uuid: "2016"
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b659cc76f1
+      - V2ray_confiig
       - 4FreeIran-24d8cde028
+      - 4Nika-16af8111d4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b659cc76f1
+      - V2ray_confiig
       - 4FreeIran-24d8cde028
+      - 4Nika-16af8111d4
 rules:
   - MATCH,Proxy

@@ -6,13 +6,6 @@ proxies:
     cipher: aes-256-gcm
     password: RexnBgU7EV5ADxG
     udp: true
-  - type: ss
-    name: configprxy
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 172.105.169.70
@@ -22,6 +15,17 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: 172.105.169.70
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 172.105.252.35
+    port: 443
+    uuid: 99de7aac-d2a5-48fd-92cb-d1e6c3c719a4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: in-full.privateip.net
+    flow: xtls-rprx-vision
     xudp: true
   - type: ss
     name: 4Kian-a20717886c
@@ -56,22 +60,67 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Sarina-4ab167b05f
-    server: 172.104.78.98
-    port: 443
-    uuid: 927094d3-d678-4763-8591-e240d0bcae87
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Nika-832007e379
+    server: 172.105.17.84
+    port: 50181
+    uuid: 24f17960-8b89-48fa-828f-edd2c048ed26
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /chat
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: JVeVJbl4s1xB7afO1BpIvCsgULTmY3b__2wMxQQmW0s
+      short-id: ae5e3d8a99373629
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-b07afd71ac
+    server: 172.105.17.84
+    port: 50181
+    uuid: 24f17960-8b89-48fa-828f-edd2c048ed26
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Nika-f6eb6f5719
+    server: 172.105.20.134
+    port: 27204
+    uuid: 24f17960-8b89-48fa-828f-edd2c048ed26
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: tDCQIafB0NQjbKoef_8CU4rr_afYJUOKjY8KX4cIJj8
+      short-id: 4c1d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-96598fc073
+    server: 172.105.20.134
+    port: 27204
+    uuid: 24f17960-8b89-48fa-828f-edd2c048ed26
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Sarina-7c67466e19
+    server: 172.105.252.35
+    port: 443
+    uuid: 99de7aac-d2a5-48fd-92cb-d1e6c3c719a4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: in-full.privateip.net
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Mohsen-89049b7b35
     server: cindy52.ceoiii.com
@@ -104,38 +153,25 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ajax.microsoft.com
-  - type: vmess
-    name: 4Nika-e9c7b1976b
-    server: cindy52.ceoiii.com
-    port: 36803
-    uuid: a6ab6513-6ec3-327f-a068-b89fe72954b8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - configprxy
       - DeltaKroneckerGithub
+      - EPODONIOS-01
       - 4Kian-a20717886c
       - Hope_Net-join-us-on-Telegram
       - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
-      - 4Sarina-4ab167b05f
+      - 4Nika-832007e379
+      - 4Nika-b07afd71ac
+      - 4Nika-f6eb6f5719
+      - 4Kian-96598fc073
+      - 4Sarina-7c67466e19
       - 4Mohsen-89049b7b35
       - 4Nika-c9c9322381
-      - 4Nika-e9c7b1976b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -143,15 +179,18 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - configprxy
       - DeltaKroneckerGithub
+      - EPODONIOS-01
       - 4Kian-a20717886c
       - Hope_Net-join-us-on-Telegram
       - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
-      - 4Sarina-4ab167b05f
+      - 4Nika-832007e379
+      - 4Nika-b07afd71ac
+      - 4Nika-f6eb6f5719
+      - 4Kian-96598fc073
+      - 4Sarina-7c67466e19
       - 4Mohsen-89049b7b35
       - 4Nika-c9c9322381
-      - 4Nika-e9c7b1976b
 rules:
   - MATCH,Proxy

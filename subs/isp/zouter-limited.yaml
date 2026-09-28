@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.23.123.211
+    port: 30718
+    uuid: 88ee0e1e-a2a2-477e-88ce-4875c058aeba
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: 123.714542.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /Desi-vl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 123.714542.xyz
+  - type: vless
     name: EPODONIOS
     server: 216.23.122.125
     port: 443
@@ -16,21 +32,21 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: edgetunnel-4uw.pages.dev
   - type: vless
-    name: 4Nika-e270154d39
-    server: 216.23.123.211
-    port: 30718
-    uuid: 88ee0e1e-a2a2-477e-88ce-4875c058aeba
+    name: 🇺🇸
+    server: 216.23.122.125
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 123.714542.xyz
+    servername: edgetunnel-4uw.pages.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /Desi-vlfp=random
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 123.714542.xyz
+        Host: edgetunnel-4uw.pages.dev
   - type: vless
     name: 4Nika-93b56c45d0
     server: 216.23.122.125
@@ -52,8 +68,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4Nika-e270154d39
+      - 🇺🇸
       - 4Nika-93b56c45d0
   - name: Auto
     type: url-test
@@ -61,8 +78,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - 4Nika-e270154d39
+      - 🇺🇸
       - 4Nika-93b56c45d0
 rules:
   - MATCH,Proxy

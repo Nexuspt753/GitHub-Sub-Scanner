@@ -1,33 +1,5 @@
 proxies:
   - type: vless
-    name: 4FreeIran-ab79f30276
-    server: 31.76.111.79
-    port: 443
-    uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: hh.ru
-    reality-opts:
-      public-key: 8w1MyEJV4l9QeNWbYMXny5tTLNTw_9nsQ7jOuiQhix4
-      short-id: 0123456789abcdef
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-b06fe8ee4a
-    server: 31.76.111.79
-    port: 443
-    uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: hh.ru
-    reality-opts:
-      public-key: 8w1MyEJV4l9QeNWbYMXny5tTLNTw_9nsQ7jOuiQhix4
-      short-id: 0123456789abcdef
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-a449629fc7
     server: 31.76.111.79
     port: 443
@@ -41,22 +13,46 @@ proxies:
       short-id: 0123456789abcdef
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-2a1e4ebcf2
+    server: 31.76.111.79
+    port: 443
+    uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hh.ru
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Jadi-6a8592ef43
+    server: secret-test-de1.minetis.net
+    port: 2087
+    uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hh.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-ab79f30276
-      - 4Kian-b06fe8ee4a
       - 4Mohsen-a449629fc7
+      - 4Sarina-2a1e4ebcf2
+      - 4Jadi-6a8592ef43
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-ab79f30276
-      - 4Kian-b06fe8ee4a
       - 4Mohsen-a449629fc7
+      - 4Sarina-2a1e4ebcf2
+      - 4Jadi-6a8592ef43
 rules:
   - MATCH,Proxy
