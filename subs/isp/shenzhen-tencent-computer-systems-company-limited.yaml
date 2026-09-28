@@ -1,15 +1,20 @@
 proxies:
+  - type: hysteria2
+    name: 4Jadi-d18e8fa912
+    server: 43.167.208.94
+    port: 443
+    password: RQBXe4kpsRant_2u1PzdneBOPuCSwUSI
+    sni: 43.167.208.94
+    skip-cert-verify: true
+  - type: ss
+    name: 4Nika-95a3526329
+    server: 43.173.90.202
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: sg-proxy-2026
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 43.173.90.202
-    port: 443
-    password: sg-trojan-2026
-    udp: true
-    tls: true
-    sni: sg-proxy.local
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: 43.156.253.94
     port: 443
     password: Aimer
@@ -18,22 +23,13 @@ proxies:
     sni: ngepx.ambercc.filegear-sg.me
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 43.134.48.62
     port: 443
     password: 973c7f53-7411-4173-b805-d65c912e4d55
     udp: true
     tls: true
     sni: 86sg.ljydw.top
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-56ef5585f1
-    server: 43.173.90.202
-    port: 443
-    password: sg-trojan-2026
-    udp: true
-    tls: true
-    sni: sg-proxy.local
     client-fingerprint: chrome
   - type: vless
     name: 4Jadi-380e11b726
@@ -68,23 +64,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mia11.pages.dev
   - type: vmess
-    name: 4Kian-697871d49b
-    server: 3kCf86Ufi0U5xBDA.v.3dns.vip
-    port: 443
-    uuid: 1abe49dedb6e4f65a0f0a5ea79ddefad
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /ws-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 3kCf86Ufi0U5xBDA.v.3dns.vip
-  - type: vmess
     name: 4Sarina-b16c1bc873
     server: 3kCf86Ufi0U5xBDA.v.3dns.vip
     port: 443
@@ -118,54 +97,32 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cc28.goingside.site
-  - type: vmess
-    name: 4Kian-8686e94cfb
-    server: kneNaKHeSXnZH259.v.3dns.vip
-    port: 443
-    uuid: f0b7bbd66aad458aaec0e9acaab768b6
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: kneNaKHeSXnZH259.v.3dns.vip
-    network: ws
-    ws-opts:
-      path: /ws-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kneNaKHeSXnZH259.v.3dns.vip
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-d18e8fa912
+      - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Jadi-56ef5585f1
       - 4Jadi-380e11b726
       - 4Sarina-045719c687
-      - 4Kian-697871d49b
       - 4Sarina-b16c1bc873
       - 4Jadi-e0671995de
-      - 4Kian-8686e94cfb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-d18e8fa912
+      - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Jadi-56ef5585f1
       - 4Jadi-380e11b726
       - 4Sarina-045719c687
-      - 4Kian-697871d49b
       - 4Sarina-b16c1bc873
       - 4Jadi-e0671995de
-      - 4Kian-8686e94cfb
 rules:
   - MATCH,Proxy

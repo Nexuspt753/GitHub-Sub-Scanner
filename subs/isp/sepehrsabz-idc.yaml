@@ -1,32 +1,49 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
-    password: LMnotcv4RdaEOBXT-LdtfA
-    udp: true
-  - type: ss
     name: Shh_Proxy-New⁴
     server: p1tun2.greewebservices.ir
     port: 2060
     cipher: chacha20-ietf-poly1305
     password: 3Q1UUZhdMJ1Xi4V_348v2g
     udp: true
+  - type: ss
+    name: 🇩🇪⇝
+    server: p1tun2.greewebservices.ir
+    port: 2060
+    cipher: chacha20-ietf-poly1305
+    password: pq5tDNa9qEEjN9EM4ArxQw
+    udp: true
+  - type: vmess
+    name: 4Mohsen-e2a24c9f6a
+    server: Irr.seervexo.ir
+    port: 4056
+    uuid: f2cedb5b-f863-44fc-9f21-f106077b65af
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - Shh_Proxy-New⁴
+      - 🇩🇪⇝
+      - 4Mohsen-e2a24c9f6a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - Shh_Proxy-New⁴
+      - 🇩🇪⇝
+      - 4Mohsen-e2a24c9f6a
 rules:
   - MATCH,Proxy

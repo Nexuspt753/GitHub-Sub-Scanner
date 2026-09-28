@@ -1,0 +1,63 @@
+proxies:
+  - type: vless
+    name: 🇮🇷183180
+    server: ouv.wingerdt.org
+    port: 11661
+    uuid: 9b1a8875-4916-4320-99bf-260423a827cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ouv.wingerdt.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: "["
+    server: ws.varqino.ir
+    port: 3265
+    uuid: 9b1a8875-4916-4320-99bf-260423a827cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇮🇷183185
+    server: ws.varqino.ir
+    port: 3265
+    uuid: 9b1a8875-4916-4320-99bf-260423a827cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷183180
+      - "["
+      - 🇮🇷183185
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷183180
+      - "["
+      - 🇮🇷183185
+rules:
+  - MATCH,Proxy

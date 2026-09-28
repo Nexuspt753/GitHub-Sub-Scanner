@@ -1,23 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-46d7a76d4f
-    server: 185.114.49.104
-    port: 54494
-    uuid: 26cb110e-bb1e-4c87-971b-dc485b89b879
+    name: EPODONIOS
+    server: 45.146.4.172
+    port: 443
+    uuid: 6a9c2e3a-fe08-434b-b7c8-ff35ff040c9f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: uk.fast-cdns.top
+    reality-opts:
+      public-key: f0hVdwTqDsfB75RTAqLR2ob4mGlJqoJyJqf7Y_Th9lE
+      short-id: c39ad5bf
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-46d7a76d4f
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-46d7a76d4f
+      - EPODONIOS
 rules:
   - MATCH,Proxy

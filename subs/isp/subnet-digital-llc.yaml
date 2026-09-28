@@ -1,31 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Nika-614d5a556e
-    server: atiins.com.tr
-    port: 443
-    uuid: 97775936-05ea-4fea-8562-e9eb98559790
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-d632c0eaa6
+    server: 104.252.111.38
+    port: 8443
+    uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: atiins.com.tr
-    alpn:
-      - h2
-      - http/1.1
+    client-fingerprint: chrome
+    servername: free.cndyw.ggff.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: pyip=bpb.yousef.isegaro.com
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free.cndyw.ggff.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-614d5a556e
+      - 4FreeIran-d632c0eaa6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-614d5a556e
+      - 4FreeIran-d632c0eaa6
 rules:
   - MATCH,Proxy

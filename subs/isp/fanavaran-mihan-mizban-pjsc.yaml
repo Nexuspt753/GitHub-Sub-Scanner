@@ -1,38 +1,26 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-30e240a98a
-    server: api.neexbyte.ir
-    port: 2495
-    uuid: d7e53872-e357-42f0-8d84-0a67fb3414bc
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: s1-g1.utah-net-0052.ir
+    port: 2052
+    uuid: 2aadace8-940e-4096-8665-345052264a60
     udp: true
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Nika-48d3c7fb50
-    server: www.zeneco.ir
-    port: 2495
-    uuid: bed17909-34c1-4e6c-b444-0f5db9cb5ce8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-30e240a98a
-      - 4Nika-48d3c7fb50
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-30e240a98a
-      - 4Nika-48d3c7fb50
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

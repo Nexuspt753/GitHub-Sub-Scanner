@@ -1,24 +1,50 @@
 proxies:
-  - type: trojan
-    name: trojan
-    server: mmd.asan9720.ir
-    port: 8880
-    password: gAFsFYKWb6
+  - type: vless
+    name: meliproxyy
+    server: england-d1.parsi.sbs
+    port: 2087
+    uuid: c201cbdc-21c1-4c6c-ac1e-40370d3800f2
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: Ag7HW0TPUpPiYwiLLtaXB6NWJeZx7J9Q9dSUG94uGm8
+      short-id: 081f4c712fac5130
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🔵@chillguy_vpn
+    server: england-d1.parsi.sbs
+    port: 2087
+    uuid: c201cbdc-21c1-4c6c-ac1e-40370d3800f2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: Ag7HW0TPUpPiYwiLLtaXB6NWJeZx7J9Q9dSUG94uGm8
+      short-id: 081f4c712fac5130
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - trojan
+      - meliproxyy
+      - 🔵@chillguy_vpn
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - trojan
+      - meliproxyy
+      - 🔵@chillguy_vpn
 rules:
   - MATCH,Proxy

@@ -1,11 +1,16 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 161.104.38.98
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ru-1.krugvpn.com
     port: 443
-    uuid: 553d8193-d897-0032-bb46-f075b670f22a
+    password: jj59d0f73f5d6
     udp: true
-    xudp: true
+    tls: true
+    sni: ru-1.krugvpn.com
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-bc24f2f524
     server: 161.104.38.98
@@ -15,6 +20,13 @@ proxies:
     tls: true
     client-fingerprint: ios
     servername: donatov.net
+    xudp: true
+  - type: vless
+    name: vless
+    server: 161.104.38.98
+    port: 443
+    uuid: 553d8193-d897-0032-bb46-f075b670f22a
+    udp: true
     xudp: true
   - type: vless
     name: 4Sarina-b5570ae4d6
@@ -31,8 +43,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
       - 4Jadi-bc24f2f524
+      - vless
       - 4Sarina-b5570ae4d6
   - name: Auto
     type: url-test
@@ -40,8 +53,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
       - 4Jadi-bc24f2f524
+      - vless
       - 4Sarina-b5570ae4d6
 rules:
   - MATCH,Proxy

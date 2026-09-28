@@ -1,38 +1,57 @@
 proxies:
-  - type: vmess
-    name: 4Kian-c4a3536cc0
-    server: 94.156.179.138
-    port: 110
-    uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: 31.77.144.232
+    port: 443
+    uuid: 1b7ee703-fa08-4305-8469-ae3e30e61e44
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swself.yandex-api.com
+    reality-opts:
+      public-key: HXFe_cPryw01zqXchAFjZciDAS4UJg1-xScx6vjgjjY
+      short-id: 7f2e9c4b1a8d6e25
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-2525bdc9d4
-    server: 94.156.179.138
-    port: 110
-    uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: 31.77.145.230
+    port: 443
+    uuid: 16d65374-b0ed-4344-b73e-f3f1c9fe27b1
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
-    skip-cert-verify: false
+  - type: vless
+    name: 4Jadi-0ba759db0b
+    server: 31.77.144.232
+    port: 443
+    uuid: 1b7ee703-fa08-4305-8469-ae3e30e61e44
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swself.yandex-api.com
+    reality-opts:
+      public-key: HXFe_cPryw01zqXchAFjZciDAS4UJg1-xScx6vjgjjY
+      short-id: 7f2e9c4b1a8d6e25
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-c4a3536cc0
-      - 4Mohsen-2525bdc9d4
+      - EPODONIOS
+      - vless
+      - 4Jadi-0ba759db0b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-c4a3536cc0
-      - 4Mohsen-2525bdc9d4
+      - EPODONIOS
+      - vless
+      - 4Jadi-0ba759db0b
 rules:
   - MATCH,Proxy

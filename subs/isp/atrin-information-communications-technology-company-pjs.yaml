@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: Shh_Proxy-New³
-    server: p1tun4.greewebservices.ir
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: cVvgP0Bz69hsErPBvqKbwQ
-    udp: true
   - type: vless
     name: vless
     server: de2.zephyrx.ir
@@ -24,22 +17,66 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: vless-02
+    server: de22.sharecafe.ir
+    port: 2433
+    uuid: e9560616-9899-4836-abdd-6caa52613768
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-03
+    server: de22.sharecafe.ir
+    port: 2433
+    uuid: 92c0fba2-32ba-4f27-b8ed-0ad583fb57cb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vmess
+    name: 4Sarina-ddd9560c28
+    server: vip2.showtimeless.site
+    port: 8055
+    uuid: b641b4ab-13e6-4dd8-803f-1b891419c3d5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-e0c1ea04ad
+    server: vip2.showtimeless.site
+    port: 8055
+    uuid: b641b4ab-13e6-4dd8-803f-1b891419c3d5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Shh_Proxy-New³
       - vless
       - vless-01
+      - vless-02
+      - vless-03
+      - 4Sarina-ddd9560c28
+      - 4Kian-e0c1ea04ad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Shh_Proxy-New³
       - vless
       - vless-01
+      - vless-02
+      - vless-03
+      - 4Sarina-ddd9560c28
+      - 4Kian-e0c1ea04ad
 rules:
   - MATCH,Proxy

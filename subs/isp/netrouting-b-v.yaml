@@ -9,6 +9,15 @@ proxies:
     alpn:
       - h3
   - type: vless
+    name: EPODONIOS
+    server: ro-xh02.tcp-reset-club.net
+    port: 8443
+    uuid: 721bacfe-ff09-4e63-a735-686015bc1351
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: vless
     server: ro-xh02.tcp-reset-club.net
     port: 8443
@@ -18,10 +27,10 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: 4Sarina-6b44ae1c98
+    name: vless-01
     server: ro-xh02.tcp-reset-club.net
     port: 8443
-    uuid: 4fb82973-a7f1-4fc2-9958-cb21f5162f06
+    uuid: 721bacfe-ff09-4e63-a735-686015bc1351
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -32,8 +41,9 @@ proxy-groups:
     proxies:
       - Auto
       - 4FreeIran-58373d8422
+      - EPODONIOS
       - vless
-      - 4Sarina-6b44ae1c98
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,7 +51,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-58373d8422
+      - EPODONIOS
       - vless
-      - 4Sarina-6b44ae1c98
+      - vless-01
 rules:
   - MATCH,Proxy
