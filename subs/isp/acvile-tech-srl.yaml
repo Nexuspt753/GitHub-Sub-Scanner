@@ -1,0 +1,41 @@
+proxies:
+  - type: ss
+    name: EPODONIOS
+    server: 80.97.27.106
+    port: 116
+    cipher: chacha20-ietf-poly1305
+    password: 9binmVT58Wnr6vNzxu_JmpzEW6i-FgAj
+    udp: true
+  - type: ss
+    name: 🇷🇴RO-🚀@VPNine1
+    server: 80.97.27.106
+    port: 116
+    cipher: chacha20-ietf-poly1305
+    password: 9binmVT58Wnr6vNzxu_JmpzEW6i-FgAj
+    udp: true
+  - type: ss
+    name: 4Jadi-707a5a099d
+    server: 80.97.27.106
+    port: 116
+    cipher: chacha20-ietf-poly1305
+    password: 9binmVT58Wnr6vNzxu_JmpzEW6i-FgAj
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇷🇴RO-🚀@VPNine1
+      - 4Jadi-707a5a099d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇷🇴RO-🚀@VPNine1
+      - 4Jadi-707a5a099d
+rules:
+  - MATCH,Proxy
