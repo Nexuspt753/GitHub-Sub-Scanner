@@ -12,8 +12,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: 37.46.18.49
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-de2.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 37.46.18.19
     port: 443
     password: 8r<[9'l6hAO#8ZQi
@@ -21,19 +34,6 @@ proxies:
     tls: true
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-cfa142ccfc
-    server: assets-de2.pleiades.codes
-    port: 443
-    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: assets-de2.pleiades.codes
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -41,7 +41,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-cfa142ccfc
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -50,6 +50,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-cfa142ccfc
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

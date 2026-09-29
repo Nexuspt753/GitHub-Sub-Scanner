@@ -1,22 +1,20 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: england-d1.parsi.sbs
-    port: 2087
-    uuid: c201cbdc-21c1-4c6c-ac1e-40370d3800f2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cloudflare.com
-    reality-opts:
-      public-key: Ag7HW0TPUpPiYwiLLtaXB6NWJeZx7J9Q9dSUG94uGm8
-      short-id: 081f4c712fac5130
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
+  - type: ss
     name: meliproxyy
+    server: england1.parsiweb.sbs
+    port: 15002
+    cipher: chacha20-ietf-poly1305
+    password: qBFCg5INNXSIjvFzx5Gt8g
+    udp: true
+  - type: ss
+    name: 4Nika-df4fb381a3
+    server: england1.parsiweb.sbs
+    port: 15002
+    cipher: chacha20-ietf-poly1305
+    password: qBFCg5INNXSIjvFzx5Gt8g
+    udp: true
+  - type: vless
+    name: meliproxyy-01
     server: england-d1.parsi.sbs
     port: 2087
     uuid: c201cbdc-21c1-4c6c-ac1e-40370d3800f2
@@ -52,8 +50,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - meliproxyy
+      - 4Nika-df4fb381a3
+      - meliproxyy-01
       - 4Kian-3e5a47488c
   - name: Auto
     type: url-test
@@ -61,8 +60,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - meliproxyy
+      - 4Nika-df4fb381a3
+      - meliproxyy-01
       - 4Kian-3e5a47488c
 rules:
   - MATCH,Proxy

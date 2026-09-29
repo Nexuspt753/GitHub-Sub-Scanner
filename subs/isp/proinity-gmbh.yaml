@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Kian-ce8431584d
+    server: 185.172.149.105
+    port: 443
+    uuid: be329b52-ee86-49bd-c766-1d34cf3ee5e1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: naghi-22ee7.kxcdn.com
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-ce8431584d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-ce8431584d
+rules:
+  - MATCH,Proxy

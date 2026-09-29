@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 94.237.40.197
+    port: 443
+    uuid: e96896d8-72d1-496f-8d28-b3fa0de4a562
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bazitory.com
+    reality-opts:
+      public-key: RYfzci_ctBzEbBah0jwygnWrGer9_LQfjOgmh9VizQE
+      short-id: f9
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 94.237.40.197
     port: 443
@@ -40,19 +53,6 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-03
-    server: 94.237.40.197
-    port: 443
-    uuid: e96896d8-72d1-496f-8d28-b3fa0de4a562
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: bazitory.com
-    reality-opts:
-      public-key: RYfzci_ctBzEbBah0jwygnWrGer9_LQfjOgmh9VizQE
-      short-id: f9
-    xudp: true
-  - type: vless
-    name: EPODONIOS-04
     server: 94.237.40.197
     port: 443
     uuid: e96896d8-72d1-496f-8d28-b3fa0de4a562
@@ -208,6 +208,33 @@ proxies:
       short-id: f9
     xudp: true
   - type: vmess
+    name: 4Mohsen-5ed1b6b170
+    server: de-nin.neninet.ir
+    port: 31074
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: de-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4Kian-6af9d314e5
+    server: de-nin.neninet.ir
+    port: 31074
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: de-nin.neninet.ir
+  - type: vmess
     name: 4FreeIran-07d77a5e12
     server: fr-nin.neninet.ir
     port: 18875
@@ -222,16 +249,28 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Mohsen-374bcd9916
+    server: riga-nin.neninet.ir
+    port: 54978
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: riga-nin.neninet.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
-      - EPODONIOS-04
       - MTMVPN
       - MARAMBASHI
       - tootffarangi🍓-121🇳🇱
@@ -243,18 +282,21 @@ proxy-groups:
       - 4Nika-fbeb13bdce
       - 4Kian-014ea64487
       - 4Sarina-65cbeb36de
+      - 4Mohsen-5ed1b6b170
+      - 4Kian-6af9d314e5
       - 4FreeIran-07d77a5e12
+      - 4Mohsen-374bcd9916
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
-      - EPODONIOS-04
       - MTMVPN
       - MARAMBASHI
       - tootffarangi🍓-121🇳🇱
@@ -266,6 +308,9 @@ proxy-groups:
       - 4Nika-fbeb13bdce
       - 4Kian-014ea64487
       - 4Sarina-65cbeb36de
+      - 4Mohsen-5ed1b6b170
+      - 4Kian-6af9d314e5
       - 4FreeIran-07d77a5e12
+      - 4Mohsen-374bcd9916
 rules:
   - MATCH,Proxy

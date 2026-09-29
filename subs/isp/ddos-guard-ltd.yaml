@@ -1,6 +1,21 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
     server: sport.sowt2.app
     port: 443
     uuid: 8d2341a3-13b8-4e5e-84e1-da1c4923149a
@@ -30,7 +45,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-02
     server: 91.215.40.6
     port: 443
     uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
@@ -62,6 +77,21 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: 4Mohsen-b66a7367f9
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Kian-29b02c4c12
     server: sport.sowt2.app
     port: 443
@@ -74,23 +104,6 @@ proxies:
     network: ws
     ws-opts:
       path: /gateway/v1/ws/fd6b5f8ebef9d896772121a7712743ce
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-d9823ce63a
-    server: my.console.pc-club.app
-    port: 443
-    uuid: a7d07a78-93db-4662-9f0f-8bbca9d1a33a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: my.console.pc-club.app
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /v1/data/sync/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
@@ -115,11 +128,12 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
-      - LTE/5G
       - EPODONIOS-01
+      - LTE/5G
+      - EPODONIOS-02
       - kurdconfig
+      - 4Mohsen-b66a7367f9
       - 4Kian-29b02c4c12
-      - 4Kian-d9823ce63a
       - 4Nika-0d6426519a
   - name: Auto
     type: url-test
@@ -128,11 +142,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - LTE/5G
       - EPODONIOS-01
+      - LTE/5G
+      - EPODONIOS-02
       - kurdconfig
+      - 4Mohsen-b66a7367f9
       - 4Kian-29b02c4c12
-      - 4Kian-d9823ce63a
       - 4Nika-0d6426519a
 rules:
   - MATCH,Proxy
