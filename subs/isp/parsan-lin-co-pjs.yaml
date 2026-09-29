@@ -1,6 +1,27 @@
 proxies:
   - type: vmess
-    name: 4Mohsen-8a0ed2337e
+    name: 4Nika-09a9cb139b
+    server: time.ir
+    port: 443
+    uuid: last-update-time
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: time.ir
+    alpn:
+      - h2
+      - http/1.1
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: time.ir
+  - type: vmess
+    name: 4Mohsen-243d6e0bf1
     server: time.ir
     port: 443
     uuid: last-update-time
@@ -22,13 +43,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-8a0ed2337e
+      - 4Nika-09a9cb139b
+      - 4Mohsen-243d6e0bf1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-8a0ed2337e
+      - 4Nika-09a9cb139b
+      - 4Mohsen-243d6e0bf1
 rules:
   - MATCH,Proxy

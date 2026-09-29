@@ -40,18 +40,6 @@ proxies:
       short-id: 35cd899f8de04801
     flow: xtls-rprx-vision
     xudp: true
-  - type: hysteria2
-    name: 4Mohsen-1d78aeed73
-    server: ss.marmount.space
-    port: 8443
-    password: cloud:Wz8cE3yFhL9dXoSp
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4FreeIran-37a6c2e04b
-    server: ss.marmount.space
-    port: 8443
-    password: cloud:Wz8cE3yFhL9dXoSp
-    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub-02
     server: 192.3.247.109
@@ -163,15 +151,24 @@ proxies:
     tls: true
     sni: epccr.ambercc.filegear-sg.me
     client-fingerprint: chrome
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub-11
+    server: 23.94.92.19
+    port: 443
+    password: Aimer
+    udp: true
+    tls: true
+    sni: epccc.ambercc.filegear-sg.me
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-12
     server: 192.3.247.109
     port: 43579
     cipher: aes-256-gcm
     password: 8c009bb6-08b3-4526-a86b-5af7ddfc567a-4c757b72-6eec-4faf-8c2e-09fd1c7fa936
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-12
+    name: DeltaKroneckerGithub-13
     server: 192.3.247.109
     port: 43579
     cipher: aes-256-gcm
@@ -282,6 +279,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: vmess
+    name: 4Nika-f36c3b2f7f
+    server: a.v2ray.world
+    port: 443
+    uuid: 05b6b25b-bb5d-4dcd-9710-31e374ffa584
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: h2
+    h2-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
@@ -291,8 +304,6 @@ proxy-groups:
       - 4FreeIran-5ae307722e
       - 4Kian-ee9c327060
       - DeltaKroneckerGithub-01
-      - 4Mohsen-1d78aeed73
-      - 4FreeIran-37a6c2e04b
       - DeltaKroneckerGithub-02
       - 4Kian-513def76c2
       - DeltaKroneckerGithub-03
@@ -306,6 +317,7 @@ proxy-groups:
       - DeltaKroneckerGithub-10
       - DeltaKroneckerGithub-11
       - DeltaKroneckerGithub-12
+      - DeltaKroneckerGithub-13
       - 4Jadi-5034370b9e
       - 4Jadi-c4523bcbe0
       - 4Sarina-e9abf9aedf
@@ -313,6 +325,7 @@ proxy-groups:
       - 4Kian-9b9d553055
       - 4Jadi-ad5e36c9c1
       - 4FreeIran-61a36b5654
+      - 4Nika-f36c3b2f7f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -323,8 +336,6 @@ proxy-groups:
       - 4FreeIran-5ae307722e
       - 4Kian-ee9c327060
       - DeltaKroneckerGithub-01
-      - 4Mohsen-1d78aeed73
-      - 4FreeIran-37a6c2e04b
       - DeltaKroneckerGithub-02
       - 4Kian-513def76c2
       - DeltaKroneckerGithub-03
@@ -338,6 +349,7 @@ proxy-groups:
       - DeltaKroneckerGithub-10
       - DeltaKroneckerGithub-11
       - DeltaKroneckerGithub-12
+      - DeltaKroneckerGithub-13
       - 4Jadi-5034370b9e
       - 4Jadi-c4523bcbe0
       - 4Sarina-e9abf9aedf
@@ -345,5 +357,6 @@ proxy-groups:
       - 4Kian-9b9d553055
       - 4Jadi-ad5e36c9c1
       - 4FreeIran-61a36b5654
+      - 4Nika-f36c3b2f7f
 rules:
   - MATCH,Proxy

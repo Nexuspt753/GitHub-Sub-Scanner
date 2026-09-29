@@ -1,26 +1,32 @@
 proxies:
   - type: vless
-    name: 4Mohsen-1590e3dbba
-    server: jpba.osaip.net
-    port: 443
-    uuid: eb8c4087-734c-4251-920c-01c9b3a257d2
+    name: 4FreeIran-648f6f3c4f
+    server: 85.149.211.28
+    port: 8443
+    uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: cdn-dynmedia-1.microsoft.com
+    client-fingerprint: edge
+    servername: hk.152568.xyz
     xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/packages/runtime-core.tar.gz
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hk.152568.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1590e3dbba
+      - 4FreeIran-648f6f3c4f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1590e3dbba
+      - 4FreeIran-648f6f3c4f
 rules:
   - MATCH,Proxy

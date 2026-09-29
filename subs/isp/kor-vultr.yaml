@@ -1,4 +1,27 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 141.164.49.98
+    port: 443
+    uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shephe.dpdns.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shephe.dpdns.org
+  - type: ss
+    name: 4Jadi-37d31f03f7
+    server: 141.164.45.187
+    port: 7001
+    cipher: aes-256-gcm
+    password: RexnBgU7EV5ADxG
+    udp: true
   - type: ss
     name: 4Nika-99d1b93922
     server: 141.164.45.187
@@ -51,25 +74,18 @@ proxies:
     password: XKFKl2rULjIp74
     udp: true
   - type: ss
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 141.164.45.187
     port: 6679
     cipher: aes-256-gcm
     password: TEzjfAYq2IjtuoS
     udp: true
   - type: ss
-    name: EPODONIOS-01
+    name: EPODONIOS-02
     server: 141.164.45.187
     port: 9090
     cipher: aes-256-gcm
     password: Y6R9pAtvxxzmGC
-    udp: true
-  - type: ss
-    name: EPODONIOS-02
-    server: 141.164.45.187
-    port: 5498
-    cipher: aes-256-gcm
-    password: lGqs95QkFHo2NV
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-02
@@ -114,6 +130,13 @@ proxies:
     password: TEzjfAYq2IjtuoS
     udp: true
   - type: ss
+    name: ">>@shadowproxy66::KR"
+    server: 141.164.45.187
+    port: 9090
+    cipher: aes-256-gcm
+    password: Y6R9pAtvxxzmGC
+    udp: true
+  - type: ss
     name: ">>@shadowproxy66::XX-01"
     server: 141.164.45.187
     port: 5498
@@ -134,18 +157,35 @@ proxies:
     cipher: aes-256-gcm
     password: RexnBgU7EV5ADxG
     udp: true
+  - type: vless
+    name: 4Mohsen-1e7efb754c
+    server: 141.164.49.98
+    port: 443
+    uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shephe.dpdns.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shephe.dpdns.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 4Jadi-37d31f03f7
       - 4Nika-99d1b93922
       - 4Sarina-e3decdb620
       - 4FreeIran-fc83ee96e3
       - 🇰🇷
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - DeltaKroneckerGithub-02
@@ -154,22 +194,25 @@ proxy-groups:
       - DeltaKroneckerGithub-05
       - EPODONIOS-03
       - ">>@shadowproxy66::XX"
+      - ">>@shadowproxy66::KR"
       - ">>@shadowproxy66::XX-01"
       - 🇰🇷KR-141.164.45.187-0204
       - 🇰🇷KR-141.164.45.187-0214
+      - 4Mohsen-1e7efb754c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 4Jadi-37d31f03f7
       - 4Nika-99d1b93922
       - 4Sarina-e3decdb620
       - 4FreeIran-fc83ee96e3
       - 🇰🇷
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - DeltaKroneckerGithub-02
@@ -178,8 +221,10 @@ proxy-groups:
       - DeltaKroneckerGithub-05
       - EPODONIOS-03
       - ">>@shadowproxy66::XX"
+      - ">>@shadowproxy66::KR"
       - ">>@shadowproxy66::XX-01"
       - 🇰🇷KR-141.164.45.187-0204
       - 🇰🇷KR-141.164.45.187-0214
+      - 4Mohsen-1e7efb754c
 rules:
   - MATCH,Proxy

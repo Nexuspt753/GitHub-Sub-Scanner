@@ -1,53 +1,46 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-b02b2c0736
-    server: hk1.shiyuandian.shop
-    port: 24591
-    password: ae845cbd-08fb-4346-929a-e28a6f3960a8
-    sni: hk1.shiyuandian.shop
-    skip-cert-verify: true
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 92.53.189.40
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    name: 4Jadi-d1ffdae91c
+    server: 151.242.164.131
+    port: 443
+    uuid: 82C94E17-B27E-4356-82C1-2F9C79B0CF6D
     udp: true
+    tls: true
+    client-fingerprint: random
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: noKW5AewoT8xlv0kdC5zc7EU9xQyBejvkTLCyYeUBjw
+      short-id: 2144fd4211f37e7d
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime19.workers.dev
   - type: vless
-    name: 4Nika-f62eefe5ce
-    server: 92.53.189.40
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    name: 4Sarina-bcf4593c18
+    server: 151.242.165.73
+    port: 443
+    uuid: 82C94E17-B27E-4356-82C1-2F9C79B0CF6D
     udp: true
+    tls: true
+    client-fingerprint: random
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: lhU083XnTDtSk8ANeM-PfA-AXh0tMQ6beZRVyxtAJSk
+      short-id: 2256006a005c9468
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime19.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-b02b2c0736
-      - DeltaKroneckerGithub
-      - 4Nika-f62eefe5ce
+      - 4Jadi-d1ffdae91c
+      - 4Sarina-bcf4593c18
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b02b2c0736
-      - DeltaKroneckerGithub
-      - 4Nika-f62eefe5ce
+      - 4Jadi-d1ffdae91c
+      - 4Sarina-bcf4593c18
 rules:
   - MATCH,Proxy

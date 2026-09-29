@@ -1,32 +1,30 @@
 proxies:
   - type: vless
-    name: 4Nika-619f0a05a7
-    server: 103.118.254.37
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    name: DeltaKroneckerGithub
+    server: 23.172.217.163
+    port: 8443
+    uuid: 85261643-2fd5-4889-8da9-43abc3c08405
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: shuma.ccwu.cc
+    servername: yahoo.com
+    reality-opts:
+      public-key: FyAWd4dM784QYPKWfB0Y3AMrmoUcq7kjLNRVcrhs9lY
+      short-id: 0c
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-619f0a05a7
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-619f0a05a7
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

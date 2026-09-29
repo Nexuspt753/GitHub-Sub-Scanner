@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Sarina-601a391809
+    server: gd2.bjnet2.com
+    port: 36608
+    cipher: aes-128-gcm
+    password: 17b70f72-fc4f-41a7-a32f-e0bbad7d1400
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-601a391809
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-601a391809
+rules:
+  - MATCH,Proxy
