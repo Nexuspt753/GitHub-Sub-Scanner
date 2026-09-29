@@ -1,22 +1,109 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-a74593e935
-    server: 78.159.246.200
-    port: 8450
-    password: 501d6346-0b0d-44a7-8847-32464045cdf3
-    sni: testing6.nimarko.org
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: fbsv6.guardora.pro
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: fbsv6.guardora.pro
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fbsv6.guardora.pro
+  - type: vless
+    name: Shh_Proxy-New⁴
+    server: fbsv6.guardora.pro
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fbsv6.guardora.pro
+  - type: vless
+    name: 4Sarina-cfbe8e4869
+    server: fbsv6.guardora.pro
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fbsv6.guardora.pro
+  - type: vless
+    name: 4FreeIran-ea7416fc32
+    server: fbsv6.guardora.pro
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fbsv6.guardora.pro
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-a74593e935
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - Shh_Proxy-New⁴
+      - 4Sarina-cfbe8e4869
+      - 4FreeIran-ea7416fc32
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-a74593e935
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - Shh_Proxy-New⁴
+      - 4Sarina-cfbe8e4869
+      - 4FreeIran-ea7416fc32
 rules:
   - MATCH,Proxy

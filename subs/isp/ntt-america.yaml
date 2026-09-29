@@ -1,29 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 207.57.133.53
-    port: 51135
-    uuid: 87f0cd64-02c8-49e7-b07a-349afed26693
+    name: 4Jadi-225fa9adbe
+    server: 207.57.135.199
+    port: 8443
+    uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.ebay.com
-    reality-opts:
-      public-key: k41ba-Wiolay7UfP9gId9WXfOKcFkwS2Vwh5je7NWko
-    flow: xtls-rprx-vision
+    client-fingerprint: edge
+    servername: hk.152568.xyz
     xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/packages/runtime-core.tar.gz
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hk.152568.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-225fa9adbe
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-225fa9adbe
 rules:
   - MATCH,Proxy

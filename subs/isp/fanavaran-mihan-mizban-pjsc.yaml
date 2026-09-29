@@ -1,26 +1,26 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: s1-g1.utah-net-0052.ir
-    port: 2052
-    uuid: 2aadace8-940e-4096-8665-345052264a60
+  - type: vmess
+    name: 4Nika-48d3c7fb50
+    server: www.zeneco.ir
+    port: 2495
+    uuid: bed17909-34c1-4e6c-b444-0f5db9cb5ce8
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-48d3c7fb50
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-48d3c7fb50
 rules:
   - MATCH,Proxy

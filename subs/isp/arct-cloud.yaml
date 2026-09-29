@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-f1084c2be9
+    server: 201.78.143.14
+    port: 443
+    uuid: 17c0e022-e193-4e51-9650-1b8124004fb2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 201.78.143.14
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-f1084c2be9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-f1084c2be9
+rules:
+  - MATCH,Proxy

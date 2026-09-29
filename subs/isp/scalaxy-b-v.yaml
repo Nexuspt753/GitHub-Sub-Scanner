@@ -27,6 +27,22 @@ proxies:
       short-id: eb26ce282d7ba399
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: nl.astrafic.ru
+    port: 443
+    uuid: 3d9daa27-6283-406d-a2d4-c6f22c635a14
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: nl.astrafic.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: 38.180.173.150
@@ -36,6 +52,38 @@ proxies:
     tls: true
     sni: 38.180.173.150
     client-fingerprint: chrome
+  - type: vless
+    name: tootffarangi🍓-1
+    server: nl.astrafic.ru
+    port: 443
+    uuid: 3d9daa27-6283-406d-a2d4-c6f22c635a14
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: nl.astrafic.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-84ce101541
+    server: nl.astrafic.ru
+    port: 443
+    uuid: 3d9daa27-6283-406d-a2d4-c6f22c635a14
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: nl.astrafic.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -43,7 +91,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
+      - tootffarangi🍓-1
+      - 4Jadi-84ce101541
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -52,6 +103,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
+      - tootffarangi🍓-1
+      - 4Jadi-84ce101541
 rules:
   - MATCH,Proxy

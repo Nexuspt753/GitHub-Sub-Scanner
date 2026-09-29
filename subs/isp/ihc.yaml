@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 185.22.235.47
+    port: 443
+    uuid: ebd6f9cc-441d-41bc-b4fe-2ace69a5d0e8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: no1.moremmra.zip
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/events
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4FreeIran-07180320a9
     server: 95.183.13.203
     port: 443
@@ -18,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4FreeIran-07180320a9
   - name: Auto
     type: url-test
@@ -25,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4FreeIran-07180320a9
 rules:
   - MATCH,Proxy
