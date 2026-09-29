@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 85.155.228.185
+    port: 443
+    uuid: ca5ffe64-81e0-42f0-a136-03cc4f662a4f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: avsal.krusofiya.fun
+    reality-opts:
+      public-key: 9M294WArTUZ9m1fMmvlHauSb5wZo68SkCW_lEgBVAF8
+      short-id: 4d5faa03b738bd3b
+    xudp: true
+  - type: vless
     name: 4Kian-bac3626293
     server: 85.155.228.24
     port: 443
@@ -18,6 +31,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-bac3626293
   - name: Auto
     type: url-test
@@ -25,6 +39,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-bac3626293
 rules:
   - MATCH,Proxy

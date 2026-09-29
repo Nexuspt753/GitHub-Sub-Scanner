@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 37.148.204.142
+    port: 443
+    uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shephe.dpdns.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shephe.dpdns.org
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: tr1.euroline.cloud
     port: 443
     password: AnadoluSpeed
@@ -14,6 +30,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

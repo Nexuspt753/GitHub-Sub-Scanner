@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.125.65.110
+    port: 443
+    uuid: 228ecfd3-9bf0-42fd-a50e-581f84022513
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ozone.nl
+    reality-opts:
+      public-key: 94vM83D04n5QHxwxT-DSY8Q5YqGjMFEHnDVS_M-L2wc
+      short-id: 5d8ec7b1dbc0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: nl-3.omuvpn.tech
+    port: 443
+    uuid: 228ecfd3-9bf0-42fd-a50e-581f84022513
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: ozone.nl
+    reality-opts:
+      public-key: 94vM83D04n5QHxwxT-DSY8Q5YqGjMFEHnDVS_M-L2wc
+      short-id: 5d8ec7b1dbc0
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

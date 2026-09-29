@@ -1,19 +1,32 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 144.31.194.106
+    server: assets-de2.pleiades.codes
     port: 443
-    uuid: 7013d889-14f4-4475-a5ff-a5ecd992b522
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
     udp: true
     tls: true
-    client-fingerprint: safari
-    servername: www.google.com
-    reality-opts:
-      public-key: 9H_heZMEI3tShkb5pXRrlAzwGWIzGFCRX_HgyPdktnU
-    flow: xtls-rprx-vision
+    client-fingerprint: qq
+    servername: assets-de2.pleiades.codes
     xudp: true
-  - type: trojan
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: 37.46.18.49
+    port: 443
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-de2.pleiades.codes
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 37.46.18.19
     port: 443
     password: 8r<[9'l6hAO#8ZQi
@@ -41,6 +54,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Sarina-cfa142ccfc
   - name: Auto
     type: url-test
@@ -50,6 +64,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Sarina-cfa142ccfc
 rules:
   - MATCH,Proxy
