@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 85.149.211.28
-    port: 8443
-    uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: hk.152568.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/packages/runtime-core.tar.gz
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hk.152568.xyz
-  - type: vless
     name: 4FreeIran-648f6f3c4f
     server: 85.149.211.28
     port: 8443
@@ -36,7 +20,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4FreeIran-648f6f3c4f
   - name: Auto
     type: url-test
@@ -44,7 +27,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4FreeIran-648f6f3c4f
 rules:
   - MATCH,Proxy

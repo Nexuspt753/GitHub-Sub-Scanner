@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: sr13.fixdata.shop
+    port: 443
+    uuid: daec49f8-7249-4482-842f-6b1bd6b566c7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: g13.fixdata.shop
+    reality-opts:
+      public-key: B6VyAZjMvG_oA9SosuYymVqYlhrWqDR2WrEcEUXdyTA
+      short-id: dd281f7022d023c5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: filembad-401
+    server: sr13.fixdata.shop
+    port: 443
+    uuid: daec49f8-7249-4482-842f-6b1bd6b566c7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: g13.fixdata.shop
+    reality-opts:
+      public-key: B6VyAZjMvG_oA9SosuYymVqYlhrWqDR2WrEcEUXdyTA
+      short-id: dd281f7022d023c5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-a46f77245c
     server: sr4.furnex.fun
     port: 443
@@ -13,34 +41,22 @@ proxies:
       short-id: 833b825b75344057
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-0f51ef54a5
-    server: sr13.fixdata.shop
-    port: 443
-    uuid: daec49f8-7249-4482-842f-6b1bd6b566c7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: g13.fixdata.shop
-    reality-opts:
-      public-key: B6VyAZjMvG_oA9SosuYymVqYlhrWqDR2WrEcEUXdyTA
-      short-id: dd281f7022d023c5
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - filembad-401
       - 4Kian-a46f77245c
-      - 4Sarina-0f51ef54a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - filembad-401
       - 4Kian-a46f77245c
-      - 4Sarina-0f51ef54a5
 rules:
   - MATCH,Proxy

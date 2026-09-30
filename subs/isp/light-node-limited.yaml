@@ -32,13 +32,22 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-03
-    server: 130.94.81.180
-    port: 18415
-    cipher: aes-128-gcm
-    password: b667234b8d2e7eb34444857ea3a9b18a
+  - type: vless
+    name: EPODONIOS
+    server: 130.94.0.228
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
   - type: trojan
     name: 4Mohsen-f3ebb32391
     server: 154.90.62.70
@@ -48,6 +57,22 @@ proxies:
     tls: true
     sni: 154.90.62.70
     client-fingerprint: chrome
+  - type: vless
+    name: 🏳️
+    server: 130.94.0.228
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
   - type: vless
     name: 4Mohsen-867b00cfb1
     server: 38.54.29.210
@@ -80,6 +105,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: vless
+    name: 4Mohsen-e814fe698a
+    server: 130.94.0.228
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -88,10 +129,12 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
+      - EPODONIOS
       - 4Mohsen-f3ebb32391
+      - 🏳️
       - 4Mohsen-867b00cfb1
       - 4Mohsen-f4914ad310
+      - 4Mohsen-e814fe698a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -101,9 +144,11 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
+      - EPODONIOS
       - 4Mohsen-f3ebb32391
+      - 🏳️
       - 4Mohsen-867b00cfb1
       - 4Mohsen-f4914ad310
+      - 4Mohsen-e814fe698a
 rules:
   - MATCH,Proxy

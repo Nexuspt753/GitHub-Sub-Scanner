@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 178.79.149.80
-    port: 22117
-    uuid: d00d9d18-20cf-4191-be76-6f73d43a27ec
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: Vqwhml0SG253PsBtx9xi3GJY-hhyA6sgGUJ_wVI7Q1g
-      short-id: c7994be0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 178.79.149.80
     port: 22117
@@ -41,22 +27,36 @@ proxies:
       short-id: c7994be0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-790f4833da
+    server: 178.79.149.80
+    port: 22117
+    uuid: d00d9d18-20cf-4191-be76-6f73d43a27ec
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: Vqwhml0SG253PsBtx9xi3GJY-hhyA6sgGUJ_wVI7Q1g
+      short-id: c7994be0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - v2raybaaz
+      - 4Nika-790f4833da
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - v2raybaaz
+      - 4Nika-790f4833da
 rules:
   - MATCH,Proxy

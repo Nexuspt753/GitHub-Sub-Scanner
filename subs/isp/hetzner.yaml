@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: sde.paydayloansmesquitetx.com
+    port: 2565
+    uuid: 5463f486-3cbf-4d68-9054-b8d12b89d8fd
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
+    name: ICV2RAY
+    server: sde.paydayloansmesquitetx.com
+    port: 2565
+    uuid: 5463f486-3cbf-4d68-9054-b8d12b89d8fd
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - ICV2RAY
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - ICV2RAY
+rules:
+  - MATCH,Proxy

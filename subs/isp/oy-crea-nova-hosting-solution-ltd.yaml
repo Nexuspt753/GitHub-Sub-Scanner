@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 77.83.247.207
+    port: 18285
+    cipher: aes-128-gcm
+    password: f9300a9bf39ae0347c3a3bfbc4dd7754
+    udp: true
+  - type: ss
     name: meliproxyy
     server: 77.83.247.207
     port: 18285
@@ -20,40 +27,24 @@ proxies:
     cipher: aes-128-gcm
     password: f9300a9bf39ae0347c3a3bfbc4dd7754
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 77.83.247.207
-    port: 18285
-    cipher: aes-128-gcm
-    password: f9300a9bf39ae0347c3a3bfbc4dd7754
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 77.83.247.207
-    port: 18285
-    cipher: YWVzLTEyOC1nY206ZjkzMDBhOWJmMzlhZTAzNDdjM2EzYmZiYzRkZDc3NTQ%3D
-    password: ""
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - meliproxyy
       - MTMVPN
       - 4Kian-d6e09760d6
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - meliproxyy
       - MTMVPN
       - 4Kian-d6e09760d6
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

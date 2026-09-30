@@ -1,15 +1,24 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 50.7.36.29
-    port: 443
+    name: EPODONIOS
+    server: 66.90.104.43
+    port: 2083
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: at-dedic-2.failspace.top
-    flow: xtls-rprx-vision
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 66.90.104.43
+    port: 2083
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: hi_proxy_iran
     server: 66.90.104.43
@@ -21,25 +30,30 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS
-    server: 66.90.104.43
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 50.7.226.172
+    name: DeltaKroneckerGithub
+    server: 50.7.36.27
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: viper-21.moriarty-web.com
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: at-new-ded2.moritech.net
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 50.7.226.174
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: en-new.moriarty-web.com
+    flow: xtls-rprx-vision-udp443
     xudp: true
   - type: hysteria2
     name: 4Jadi-3f6c7371c4
@@ -50,7 +64,7 @@ proxies:
     skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub-02
-    server: pl-new-ded2.moritech.net
+    server: 50.7.36.26
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
@@ -58,7 +72,7 @@ proxies:
     client-fingerprint: firefox
     alpn:
       - h2
-    servername: pl-new-ded2.moritech.net
+    servername: at2.moritech.net
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -73,78 +87,6 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-04
-    server: 50.7.5.166
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ir-new.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-05
-    server: 50.7.5.164
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: ir.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-06
-    server: ir-new.failspace.top
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: ir-new.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-07
-    server: 50.7.120.203
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl-dedic-mori-4.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-08
-    server: 50.7.249.66
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: pl-new-ded2.moritech.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-09
-    server: ad-dedic-3.failspace.top
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ad-dedic-3.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-10
     server: 50.7.120.202
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -155,31 +97,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-11
-    server: 50.7.36.26
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: at2.moritech.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-12
-    server: 50.7.36.30
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ad-dedic-3.failspace.top
-    flow: xtls-rprx-vision-udp443
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-13
+    name: DeltaKroneckerGithub-05
     server: 50.7.37.154
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -192,61 +110,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-14
-    server: 50.7.184.122
+    name: DeltaKroneckerGithub-06
+    server: lxyus3.777078.xyz
     port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    uuid: 2b15f356-ea25-4871-8001-48e602b85ea6
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: at3.moritech.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-15
-    server: 50.7.248.234
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: viper-22.moriarty-web.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 67.159.17.62
-    port: 443
-    uuid: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: filesconvert.org
+    client-fingerprint: safari
+    servername: iosapps.itunes.apple.com
     reality-opts:
-      public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
-      short-id: 10debbdf94767541
+      public-key: paFz5M87V_EcKgUk7C9MlHYCTkOMLTNVe-h-6mSHOAk
+      short-id: cffc91ca
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-16
-    server: 50.7.226.174
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    alpn:
-      - h2
-    servername: en-new.moriarty-web.com
-    flow: xtls-rprx-vision-udp443
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-17
-    server: uk-dedic-new-1.failspace.top
+    name: DeltaKroneckerGithub-07
+    server: 50.7.249.66
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
@@ -254,93 +133,35 @@ proxies:
     client-fingerprint: firefox
     alpn:
       - h2
-    servername: uk-dedic-new-1.failspace.top
+    servername: pl-new-ded2.moritech.net
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-18
-    server: 50.7.226.173
+    name: DeltaKroneckerGithub-08
+    server: ir-new.failspace.top
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: viper-21.moriarty-web.com
+    alpn:
+      - h2
+    servername: ir-new.failspace.top
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-19
-    server: 50.7.5.165
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ir-new1.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-20
-    server: 50.7.227.251
+    name: DeltaKroneckerGithub-09
+    server: 50.7.120.162
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: uk-dedic-new-1.failspace.top
+    servername: nl-dedic-mori.failspace.top
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: i10VPN⁷
-    server: 67.159.17.62
-    port: 443
-    uuid: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: filesconvert.org
-    reality-opts:
-      public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
-      short-id: 10debbdf94767541
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: v2ray313
-    server: 67.159.17.62
-    port: 443
-    uuid: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: filesconvert.org
-    reality-opts:
-      public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
-      short-id: 10debbdf94767541
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-21
-    server: 66.90.104.43
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-22
-    server: 50.7.120.164
-    port: 443
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: dedic-nl-new.failspace.top
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-23
+    name: DeltaKroneckerGithub-10
     server: 50.7.226.171
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -353,8 +174,8 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-24
-    server: 50.7.36.27
+    name: DeltaKroneckerGithub-11
+    server: 50.7.248.234
     port: 443
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
@@ -362,11 +183,145 @@ proxies:
     client-fingerprint: firefox
     alpn:
       - h2
-    servername: at-new-ded2.moritech.net
+    servername: viper-22.moriarty-web.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-12
+    server: 50.7.120.164
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dedic-nl-new.failspace.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-13
+    server: 50.7.36.29
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: at-dedic-2.failspace.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-14
+    server: 50.7.5.166
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ir-new.failspace.top
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: EPODONIOS-02
+    server: 67.159.17.62
+    port: 443
+    uuid: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: filesconvert.org
+    reality-opts:
+      public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
+      short-id: 10debbdf94767541
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-15
+    server: 50.7.5.165
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ir-new1.failspace.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-16
+    server: 50.7.36.30
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ad-dedic-3.failspace.top
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-17
+    server: lxyus1.777078.xyz
+    port: 443
+    uuid: 2b15f356-ea25-4871-8001-48e602b85ea6
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: iosapps.itunes.apple.com
+    reality-opts:
+      public-key: ulU6wfyain_FQnYt23NGunTAfBQNLhIBY49mvekiQB0
+      short-id: ca032f81
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-18
+    server: 216.227.161.95
+    port: 7443
+    uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: media3.abvphelp.cc
+    reality-opts:
+      public-key: uNqGvaJEIFTFQvAxsTDhetPxkIWzJuBtxXsK0yFMYzM
+      short-id: 48d5cf47
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-19
+    server: dedic-nl-new.failspace.top
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dedic-nl-new.failspace.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-20
+    server: ad-dedic-3.failspace.top
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ad-dedic-3.failspace.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-21
+    server: 50.7.5.164
+    port: 443
+    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: ir.failspace.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
     server: 23.237.193.202
     port: 8443
     uuid: 55bfbfcd-26e5-45bc-b39b-cfc830d7ff2f
@@ -394,7 +349,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-04
     server: 67.159.43.203
     port: 443
     uuid: 9d8a55de-70df-44a9-973e-4ffa02d05f32
@@ -410,16 +365,6 @@ proxies:
       path: /api/connect
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS-04
-    server: 66.90.104.42
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: EPODONIOS-05
     server: 66.90.104.42
@@ -471,34 +416,27 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: prrofile_purple
-    server: 67.159.43.203
+    name: EPODONIOS-10
+    server: nl-ded3.gamma-kvn.com
     port: 443
-    uuid: 9d8a55de-70df-44a9-973e-4ffa02d05f32
+    uuid: e37b223d-c602-4be9-8ce0-eca27841ec8b
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: cli-q.bosx.net
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/connect
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-11
+    server: nl-ded3.gamma-kvn.com
+    port: 443
+    uuid: e37b223d-c602-4be9-8ce0-eca27841ec8b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 🇬🇧S2
-    server: 66.90.104.42
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇬🇧
     server: 66.90.104.42
     port: 2083
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -518,7 +456,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: v2ray313-01
+    name: v2ray313
     server: 66.90.104.43
     port: 2083
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -528,7 +466,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 🇬🇧-01
+    name: tootffarangi🍓-42
     server: 66.90.105.211
     port: 2083
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
@@ -567,6 +505,16 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: GozargahAzad|🇬🇧
+    server: nl-ded3.gamma-kvn.com
+    port: 443
+    uuid: e37b223d-c602-4be9-8ce0-eca27841ec8b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Kian-8d2f1f3485
     server: 67.159.17.62
@@ -650,36 +598,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Kian-7a1bfc4437
-    server: 66.90.104.42
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Jadi-8593cba5c4
-    server: 66.90.104.42
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-6a72de7ce3
-    server: 66.90.104.43
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Jadi-bf12fa81e0
     server: 66.90.104.43
     port: 2083
@@ -692,16 +610,6 @@ proxies:
   - type: vless
     name: 4Nika-8b8ff7b7ca
     server: 66.90.104.43
-    port: 2083
-    uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Jadi-132768c3b9
-    server: 66.90.105.211
     port: 2083
     uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
     udp: true
@@ -739,14 +647,25 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-006844711c
+    server: nl-ded3.gamma-kvn.com
+    port: 443
+    uuid: e37b223d-c602-4be9-8ce0-eca27841ec8b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - hi_proxy_iran
       - EPODONIOS
+      - EPODONIOS-01
+      - hi_proxy_iran
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-3f6c7371c4
       - DeltaKroneckerGithub-02
@@ -762,61 +681,54 @@ proxy-groups:
       - DeltaKroneckerGithub-12
       - DeltaKroneckerGithub-13
       - DeltaKroneckerGithub-14
+      - EPODONIOS-02
       - DeltaKroneckerGithub-15
-      - EPODONIOS-01
       - DeltaKroneckerGithub-16
       - DeltaKroneckerGithub-17
       - DeltaKroneckerGithub-18
       - DeltaKroneckerGithub-19
       - DeltaKroneckerGithub-20
-      - i10VPN⁷
-      - v2ray313
       - DeltaKroneckerGithub-21
-      - DeltaKroneckerGithub-22
-      - DeltaKroneckerGithub-23
-      - DeltaKroneckerGithub-24
-      - EPODONIOS-02
-      - tootffarangi🍓-75
       - EPODONIOS-03
+      - tootffarangi🍓-75
       - EPODONIOS-04
       - EPODONIOS-05
       - EPODONIOS-06
       - EPODONIOS-07
       - EPODONIOS-08
       - EPODONIOS-09
-      - prrofile_purple
+      - EPODONIOS-10
+      - EPODONIOS-11
       - 🇬🇧S2
-      - 🇬🇧
       - 🇩🇪All⁴
-      - v2ray313-01
-      - 🇬🇧-01
+      - v2ray313
+      - tootffarangi🍓-42
       - ✅
       - "["
       - "[-01"
+      - GozargahAzad|🇬🇧
       - 4Kian-8d2f1f3485
       - 4Kian-9ee736aafc
       - 4Nika-1752de5bb2
       - 4Sarina-4e2f16fe55
       - 4Jadi-abf0161117
       - 4Kian-cec3d84ab7
-      - 4Kian-7a1bfc4437
-      - 4Jadi-8593cba5c4
-      - 4Sarina-6a72de7ce3
       - 4Jadi-bf12fa81e0
       - 4Nika-8b8ff7b7ca
-      - 4Jadi-132768c3b9
       - 4Jadi-5c9cc301ab
       - 4Jadi-dd84ce47dd
       - 4FreeIran-0b6641d488
+      - 4Jadi-006844711c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - hi_proxy_iran
       - EPODONIOS
+      - EPODONIOS-01
+      - hi_proxy_iran
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Jadi-3f6c7371c4
       - DeltaKroneckerGithub-02
@@ -832,51 +744,43 @@ proxy-groups:
       - DeltaKroneckerGithub-12
       - DeltaKroneckerGithub-13
       - DeltaKroneckerGithub-14
+      - EPODONIOS-02
       - DeltaKroneckerGithub-15
-      - EPODONIOS-01
       - DeltaKroneckerGithub-16
       - DeltaKroneckerGithub-17
       - DeltaKroneckerGithub-18
       - DeltaKroneckerGithub-19
       - DeltaKroneckerGithub-20
-      - i10VPN⁷
-      - v2ray313
       - DeltaKroneckerGithub-21
-      - DeltaKroneckerGithub-22
-      - DeltaKroneckerGithub-23
-      - DeltaKroneckerGithub-24
-      - EPODONIOS-02
-      - tootffarangi🍓-75
       - EPODONIOS-03
+      - tootffarangi🍓-75
       - EPODONIOS-04
       - EPODONIOS-05
       - EPODONIOS-06
       - EPODONIOS-07
       - EPODONIOS-08
       - EPODONIOS-09
-      - prrofile_purple
+      - EPODONIOS-10
+      - EPODONIOS-11
       - 🇬🇧S2
-      - 🇬🇧
       - 🇩🇪All⁴
-      - v2ray313-01
-      - 🇬🇧-01
+      - v2ray313
+      - tootffarangi🍓-42
       - ✅
       - "["
       - "[-01"
+      - GozargahAzad|🇬🇧
       - 4Kian-8d2f1f3485
       - 4Kian-9ee736aafc
       - 4Nika-1752de5bb2
       - 4Sarina-4e2f16fe55
       - 4Jadi-abf0161117
       - 4Kian-cec3d84ab7
-      - 4Kian-7a1bfc4437
-      - 4Jadi-8593cba5c4
-      - 4Sarina-6a72de7ce3
       - 4Jadi-bf12fa81e0
       - 4Nika-8b8ff7b7ca
-      - 4Jadi-132768c3b9
       - 4Jadi-5c9cc301ab
       - 4Jadi-dd84ce47dd
       - 4FreeIran-0b6641d488
+      - 4Jadi-006844711c
 rules:
   - MATCH,Proxy

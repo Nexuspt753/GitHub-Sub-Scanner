@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: meliproxyy
-    server: vip.yakhbandan4.ir
-    port: 9768
-    cipher: chacha20-ietf-poly1305
-    password: f_LkFsnn394DXz9CQz6mGejAcVQajwnY
-    udp: true
   - type: vless
     name: EPODONIOS
     server: psde.ramcalshoping.ir
@@ -45,24 +38,34 @@ proxies:
       public-key: gW8kYcclDhARUyny0Blxk2DB9Ygi3iNcKQtxkxjrcmU
       short-id: "78"
     xudp: true
+  - type: vmess
+    name: 4Nika-11f3cb8dc6
+    server: nlp1.hupcloud.com
+    port: 1070
+    uuid: da410df7-cde1-415c-a46e-87637e9748f9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - meliproxyy
       - EPODONIOS
       - Channel
       - 4Mohsen-1c6b61cdb5
+      - 4Nika-11f3cb8dc6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - meliproxyy
       - EPODONIOS
       - Channel
       - 4Mohsen-1c6b61cdb5
+      - 4Nika-11f3cb8dc6
 rules:
   - MATCH,Proxy

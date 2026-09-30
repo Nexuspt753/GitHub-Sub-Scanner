@@ -1,33 +1,17 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: 4Sarina-90f517dc07
     server: 45.82.244.40
     port: 443
     uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
     udp: true
     tls: true
-    client-fingerprint: edge
+    client-fingerprint: chrome
     servername: hk.152568.xyz
     xudp: true
     network: ws
     ws-opts:
-      path: /cdn/packages/runtime-core.tar.gz
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hk.152568.xyz
-  - type: vless
-    name: 4Mohsen-5df6b8a92a
-    server: 45.82.244.40
-    port: 443
-    uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: hk.152568.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/packages/runtime-core.tar.gz
+      path: /cdn/packages/runtime-core.tar.gzfp=edge
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hk.152568.xyz
@@ -36,15 +20,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Mohsen-5df6b8a92a
+      - 4Sarina-90f517dc07
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Mohsen-5df6b8a92a
+      - 4Sarina-90f517dc07
 rules:
   - MATCH,Proxy
