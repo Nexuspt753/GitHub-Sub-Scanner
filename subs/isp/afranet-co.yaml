@@ -1,23 +1,37 @@
 proxies:
   - type: ss
-    name: meliproxyy
+    name: Shh_Proxy-New⁹
     server: p1tun1.greewebservices.ir
     port: 2050
     cipher: chacha20-ietf-poly1305
-    password: 3Q1UUZhdMJ1Xi4V_348v2g
+    password: 1XBgrwdW4F2sqnM52aAR1Q
     udp: true
+  - type: vless
+    name: 4Kian-1dea107c60
+    server: dls2.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dls2.abrokoh.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - meliproxyy
+      - Shh_Proxy-New⁹
+      - 4Kian-1dea107c60
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - meliproxyy
+      - Shh_Proxy-New⁹
+      - 4Kian-1dea107c60
 rules:
   - MATCH,Proxy

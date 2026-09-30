@@ -1,0 +1,170 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-de.avara.fit
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msk-de.avara.fit
+  - type: vless
+    name: GozargahAzad|🇷🇺
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: tootffarangi🍓-14
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-de.avara.fit
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msk-de.avara.fit
+  - type: vless
+    name: "[59288]"
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-de.avara.fit
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msk-de.avara.fit
+  - type: vless
+    name: 🇷🇺184498
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-de.avara.fit
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msk-de.avara.fit
+  - type: vless
+    name: 🇷🇺RU-🚀@VPNine1
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-de.avara.fit
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msk-de.avara.fit
+  - type: vless
+    name: 4Nika-3849c445ee
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-7ae5a3c803
+    server: msk-de.avara.fit
+    port: 443
+    uuid: ba9b6cf7-ddcf-41bd-aca6-b76004f1dcc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-de.avara.fit
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/stream/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msk-de.avara.fit
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - GozargahAzad|🇷🇺
+      - tootffarangi🍓-14
+      - "[59288]"
+      - 🇷🇺184498
+      - 🇷🇺RU-🚀@VPNine1
+      - 4Nika-3849c445ee
+      - 4FreeIran-7ae5a3c803
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - GozargahAzad|🇷🇺
+      - tootffarangi🍓-14
+      - "[59288]"
+      - 🇷🇺184498
+      - 🇷🇺RU-🚀@VPNine1
+      - 4Nika-3849c445ee
+      - 4FreeIran-7ae5a3c803
+rules:
+  - MATCH,Proxy

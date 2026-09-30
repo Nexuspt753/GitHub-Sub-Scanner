@@ -1,19 +1,11 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 185.22.235.47
+  - type: hysteria2
+    name: 4Kian-08ae9884fe
+    server: 46.254.18.107
     port: 443
-    uuid: ebd6f9cc-441d-41bc-b4fe-2ace69a5d0e8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: no1.moremmra.zip
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/events
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    password: 0dd50f72-bf39-4b59-b183-61b3fa52df57
+    sni: newlte.kihsuyhf8jkiugsxb.cfd
+    skip-cert-verify: false
   - type: vless
     name: 4FreeIran-07180320a9
     server: 95.183.13.203
@@ -28,20 +20,37 @@ proxies:
       short-id: c93743d8
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-fc7b01587f
+    server: 185.22.235.47
+    port: 443
+    uuid: ebd6f9cc-441d-41bc-b4fe-2ace69a5d0e8
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: no1.moremmra.zip
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/events
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 4Kian-08ae9884fe
       - 4FreeIran-07180320a9
+      - 4Sarina-fc7b01587f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 4Kian-08ae9884fe
       - 4FreeIran-07180320a9
+      - 4Sarina-fc7b01587f
 rules:
   - MATCH,Proxy
