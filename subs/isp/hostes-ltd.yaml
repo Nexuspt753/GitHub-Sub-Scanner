@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: srv-waw.kintecolas.com
+    port: 443
+    uuid: 4f8a1d19-4d21-47f5-816e-a8f475fbd3f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: srv-waw.kintecolas.com
+    reality-opts:
+      public-key: qPgl3LmKAKs5K-KzGNRJyr5KTO0KoRNN5m2PTCMscXU
+      short-id: 22f534c530d37170
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: v2ray313
+    server: 31.57.18.56
+    port: 443
+    uuid: 4f8a1d19-4d21-47f5-816e-a8f475fbd3f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: srv-waw.kintecolas.com
+    reality-opts:
+      public-key: qPgl3LmKAKs5K-KzGNRJyr5KTO0KoRNN5m2PTCMscXU
+      short-id: 22f534c530d37170
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vpnsal
     server: srv-waw.kintecolas.com
     port: 443
@@ -67,26 +95,46 @@ proxies:
       short-id: 266337e69bb1f189
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-b9cbf2bfc8
+    server: srv-waw.kintecolas.com
+    port: 443
+    uuid: 4f8a1d19-4d21-47f5-816e-a8f475fbd3f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: srv-waw.kintecolas.com
+    reality-opts:
+      public-key: qPgl3LmKAKs5K-KzGNRJyr5KTO0KoRNN5m2PTCMscXU
+      short-id: 22f534c530d37170
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - v2ray313
       - vpnsal
       - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
       - 4Kian-86af55c027
       - 4Kian-f0d44bce16
+      - 4Mohsen-b9cbf2bfc8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - v2ray313
       - vpnsal
       - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
       - 4Kian-86af55c027
       - 4Kian-f0d44bce16
+      - 4Mohsen-b9cbf2bfc8
 rules:
   - MATCH,Proxy

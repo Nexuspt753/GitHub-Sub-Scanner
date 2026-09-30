@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: meliproxyy
-    server: england1.parsiweb.sbs
-    port: 15002
-    cipher: chacha20-ietf-poly1305
-    password: qBFCg5INNXSIjvFzx5Gt8g
-    udp: true
-  - type: ss
     name: 4Nika-df4fb381a3
     server: england1.parsiweb.sbs
     port: 15002
@@ -14,7 +7,7 @@ proxies:
     password: qBFCg5INNXSIjvFzx5Gt8g
     udp: true
   - type: vless
-    name: meliproxyy-01
+    name: EPODONIOS
     server: england-d1.parsi.sbs
     port: 2087
     uuid: c201cbdc-21c1-4c6c-ac1e-40370d3800f2
@@ -29,6 +22,42 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: swde2.darreyeasrar.ir
+    port: 2053
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sdtwo.darreyeasrar.ir
+    xudp: true
+  - type: vless
+    name: meliproxyy
+    server: england-d1.parsi.sbs
+    port: 2087
+    uuid: c201cbdc-21c1-4c6c-ac1e-40370d3800f2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: Ag7HW0TPUpPiYwiLLtaXB6NWJeZx7J9Q9dSUG94uGm8
+      short-id: 081f4c712fac5130
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: "9621"
+    server: swde2.darreyeasrar.ir
+    port: 2053
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sdtwo.darreyeasrar.ir
+    xudp: true
   - type: vless
     name: 4Kian-3e5a47488c
     server: england-d1.parsi.sbs
@@ -50,9 +79,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - meliproxyy
       - 4Nika-df4fb381a3
-      - meliproxyy-01
+      - EPODONIOS
+      - EPODONIOS-01
+      - meliproxyy
+      - "9621"
       - 4Kian-3e5a47488c
   - name: Auto
     type: url-test
@@ -60,9 +91,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - meliproxyy
       - 4Nika-df4fb381a3
-      - meliproxyy-01
+      - EPODONIOS
+      - EPODONIOS-01
+      - meliproxyy
+      - "9621"
       - 4Kian-3e5a47488c
 rules:
   - MATCH,Proxy

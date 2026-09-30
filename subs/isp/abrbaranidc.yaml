@@ -1,32 +1,23 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-3e52590932
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: filembad
+    server: p2tun2.greewebservices.ir
+    port: 1020
+    cipher: chacha20-ietf-poly1305
+    password: 2MRyo1ekfJ0exGnAVcKe6g
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-3e52590932
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-3e52590932
+      - filembad
 rules:
   - MATCH,Proxy

@@ -1,0 +1,98 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: api.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: api.abrokoh.ir
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: cdn.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cdn.abrokoh.ir
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: img.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: img.abrokoh.ir
+    xudp: true
+  - type: vless
+    name: "9615"
+    server: api.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: api.abrokoh.ir
+    xudp: true
+  - type: vless
+    name: "9616"
+    server: cdn.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cdn.abrokoh.ir
+    xudp: true
+  - type: vless
+    name: "9617"
+    server: img.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: img.abrokoh.ir
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - "9615"
+      - "9616"
+      - "9617"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - "9615"
+      - "9616"
+      - "9617"
+rules:
+  - MATCH,Proxy

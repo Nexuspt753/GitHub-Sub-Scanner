@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 95.215.108.36
+    port: 443
+    uuid: 84a3061b-3573-4a3c-a631-f26c31209268
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-02.vacvps.com
+    reality-opts:
+      public-key: bDAry75taTMaPJII9vRrJuXAjQglTJxCOVWraQ5BozY
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: "9604"
+    server: 95.215.108.36
+    port: 443
+    uuid: 84a3061b-3573-4a3c-a631-f26c31209268
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-02.vacvps.com
+    reality-opts:
+      public-key: bDAry75taTMaPJII9vRrJuXAjQglTJxCOVWraQ5BozY
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-afa0d691bb
     server: 95.215.108.36
     port: 443
@@ -17,6 +43,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - "9604"
       - 4Nika-afa0d691bb
   - name: Auto
     type: url-test
@@ -24,6 +52,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - "9604"
       - 4Nika-afa0d691bb
 rules:
   - MATCH,Proxy

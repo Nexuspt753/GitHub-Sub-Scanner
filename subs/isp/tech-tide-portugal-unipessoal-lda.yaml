@@ -7,6 +7,13 @@ proxies:
     password: IXa3ylzS_jBOAsQy071tIQ
     udp: true
   - type: ss
+    name: ghand_sheken
+    server: 94.249.187.46
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: IXa3ylzS_jBOAsQy071tIQ
+    udp: true
+  - type: ss
     name: hex_proxy
     server: 94.249.187.46
     port: 1080
@@ -34,16 +41,28 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: IXa3ylzS_jBOAsQy071tIQ
     udp: true
+  - type: vmess
+    name: 4FreeIran-732b9460bd
+    server: 94.249.187.46
+    port: 2086
+    uuid: f6361af8-bb8f-4609-bf5d-3fc0f688f47b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - ghand_sheken
       - hex_proxy
       - v2ray_phoenix
       - 4Nika-e052075dfd
       - DeltaKroneckerGithub
+      - 4FreeIran-732b9460bd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -51,9 +70,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - ghand_sheken
       - hex_proxy
       - v2ray_phoenix
       - 4Nika-e052075dfd
       - DeltaKroneckerGithub
+      - 4FreeIran-732b9460bd
 rules:
   - MATCH,Proxy
