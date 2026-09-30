@@ -1,7 +1,7 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: files.abrokoh.ir
+    name: "9620"
+    server: dls2.abrokoh.ir
     port: 443
     uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
     udp: true
@@ -9,34 +9,20 @@ proxies:
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: files.abrokoh.ir
-    xudp: true
-  - type: vless
-    name: 4Kian-f507b93855
-    server: files.abrokoh.ir
-    port: 443
-    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: files.abrokoh.ir
+    servername: dls2.abrokoh.ir
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Kian-f507b93855
+      - "9620"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Kian-f507b93855
+      - "9620"
 rules:
   - MATCH,Proxy

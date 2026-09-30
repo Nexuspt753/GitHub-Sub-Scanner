@@ -43,6 +43,20 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-03
+    server: 156.246.88.125
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.com
+    reality-opts:
+      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
+      short-id: 6caead99
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
     server: jumpernode.online
     port: 443
     uuid: ce7beb9a-5dc1-47b3-b3ff-94521430c446
@@ -53,20 +67,6 @@ proxies:
     reality-opts:
       public-key: sDKrtAJk2VP_w1w7cFi2O86RdlvQ2E2An5xsRdJlgGE
       short-id: 5ea30fc4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-04
-    server: 156.226.168.221
-    port: 35193
-    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
-      short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -238,6 +238,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf2us.3rr0r.online
+  - type: vless
+    name: 4FreeIran-4acc2800cc
+    server: 141.11.87.48
+    port: 8443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
+  - type: vless
+    name: 4Nika-c7b469f9ef
+    server: 141.11.87.48
+    port: 8443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -259,6 +291,8 @@ proxy-groups:
       - 4Mohsen-f696b91ba2
       - 4Nika-58b235bd69
       - 4Kian-c782b6eaab
+      - 4FreeIran-4acc2800cc
+      - 4Nika-c7b469f9ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -281,5 +315,7 @@ proxy-groups:
       - 4Mohsen-f696b91ba2
       - 4Nika-58b235bd69
       - 4Kian-c782b6eaab
+      - 4FreeIran-4acc2800cc
+      - 4Nika-c7b469f9ef
 rules:
   - MATCH,Proxy

@@ -7,6 +7,13 @@ proxies:
     password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
     udp: true
   - type: ss
+    name: vpnsal
+    server: 132.243.175.144
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+    udp: true
+  - type: ss
     name: برای
     server: 132.243.175.144
     port: 8388
@@ -115,26 +122,13 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-f1a9a38f24
-    server: 132.243.166.132
-    port: 10002
-    uuid: 988cb652-96c0-421d-9760-b319bebf9994
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amd.com
-    reality-opts:
-      public-key: CmNtHqgkdXgMotHHhqfQk7bZ8LqE2-4pnACrMuJ2A1A
-      short-id: cf
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - vpnsal
       - برای
       - EPODONIOS-01
       - tootffarangi🍓-72
@@ -145,7 +139,6 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Sarina-a387ab9a6d
-      - 4Mohsen-f1a9a38f24
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -153,6 +146,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - vpnsal
       - برای
       - EPODONIOS-01
       - tootffarangi🍓-72
@@ -163,6 +157,5 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Sarina-a387ab9a6d
-      - 4Mohsen-f1a9a38f24
 rules:
   - MATCH,Proxy

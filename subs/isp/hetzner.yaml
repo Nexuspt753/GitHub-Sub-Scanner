@@ -25,6 +25,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
+  - type: vless
+    name: 4Mohsen-64ffd21f6e
+    server: sde.paydayloansmesquitetx.com
+    port: 2565
+    uuid: 5463f486-3cbf-4d68-9054-b8d12b89d8fd
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -32,6 +45,7 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - ICV2RAY
+      - 4Mohsen-64ffd21f6e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,5 +54,6 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - ICV2RAY
+      - 4Mohsen-64ffd21f6e
 rules:
   - MATCH,Proxy
