@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-21d49d6b8c
+    server: admin.jugoslavija.uk
+    port: 443
+    uuid: dbe7df9a-c846-4305-9bbf-771c1b2f0520
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: admin.jugoslavija.uk
+    reality-opts:
+      public-key: kyjCyJlDyqcpc0UgyPaW-4tjGKbeQKz45zHRmHvxw2Q
+      short-id: 665aa727f6bc1f5e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-21d49d6b8c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-21d49d6b8c
+rules:
+  - MATCH,Proxy

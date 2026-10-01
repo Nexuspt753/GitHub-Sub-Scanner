@@ -8,6 +8,21 @@ proxies:
     tls: true
     sni: agepj.ambercc.filegear-sg.me
     client-fingerprint: chrome
+  - type: vmess
+    name: EPODONIOS
+    server: 23.236.69.39
+    port: 24187
+    uuid: 12a8ee36-5936-4449-90bd-b5eac6db4c1d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Mohsen-0743bab79f
     server: 38.47.96.220
@@ -40,30 +55,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: thus-k.netnode.cc.cd
-  - type: vmess
-    name: 4Sarina-f5081a8065
-    server: 23.236.69.39
-    port: 24187
-    uuid: 12a8ee36-5936-4449-90bd-b5eac6db4c1d
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Mohsen-0743bab79f
       - 4Jadi-b85f7dd369
-      - 4Sarina-f5081a8065
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,8 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Mohsen-0743bab79f
       - 4Jadi-b85f7dd369
-      - 4Sarina-f5081a8065
 rules:
   - MATCH,Proxy

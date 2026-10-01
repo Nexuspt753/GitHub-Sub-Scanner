@@ -1,48 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-2f122c76a5
-    server: 103.179.142.158
-    port: 50269
-    uuid: 84f238f6-28eb-48df-a7bc-a9bd9cf4abba
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Mohsen-f80c8e412f
+    server: platform101.golnamakcert.top
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
     udp: true
     xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
-  - type: vmess
-    name: 4Mohsen-ebd819cfe4
-    server: 103.179.142.158
-    port: 50269
-    uuid: 84f238f6-28eb-48df-a7bc-a9bd9cf4abba
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
+    network: ws
+    ws-opts:
+      path: /platform101
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform101.halalkhor.info
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-2f122c76a5
-      - 4Mohsen-ebd819cfe4
+      - 4Mohsen-f80c8e412f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-2f122c76a5
-      - 4Mohsen-ebd819cfe4
+      - 4Mohsen-f80c8e412f
 rules:
   - MATCH,Proxy

@@ -1,4 +1,11 @@
 proxies:
+  - type: vless
+    name: filembad
+    server: plnt.denzelo.ir
+    port: 2082
+    uuid: 958c1d50-8949-49cb-82ed-d0184de75069
+    udp: true
+    xudp: true
   - type: trojan
     name: 4Mohsen-56931bb137
     server: 212.33.206.111
@@ -6,18 +13,35 @@ proxies:
     password: yu7AvNL9rW
     udp: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-cbf1bd3707
+    server: neth.bashgahtennisshargh.shop
+    port: 8443
+    uuid: d0f3a321-0b20-4e98-bbe1-b99d10cc378b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.aparat.com
+    reality-opts:
+      public-key: U7hXRnnn3X1jkCJ8a_Ql84nfGJ4SOVnzHf1X1NZajEc
+      short-id: bfcfec81723b5963
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - filembad
       - 4Mohsen-56931bb137
+      - 4Nika-cbf1bd3707
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - filembad
       - 4Mohsen-56931bb137
+      - 4Nika-cbf1bd3707
 rules:
   - MATCH,Proxy

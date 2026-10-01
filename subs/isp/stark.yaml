@@ -1,23 +1,29 @@
 proxies:
   - type: vless
-    name: 4Nika-cd2cbb0985
-    server: b9be62544aa460d5.rEvFUnA.iR
-    port: 1310
-    uuid: 9acec722-150a-4e47-924e-581af675d668
+    name: 4Nika-550fa97d7b
+    server: ee4b5ee22c975792.rEvFUnA.iR
+    port: 443
+    uuid: 1c26f714-dfe5-462d-9ae9-88a247ea0e84
     udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: play.google.com
+    reality-opts:
+      public-key: pLbqDSeEe7biTe6b-w6SOLl2SiRxIBjHMfqUzuRR3Ew
+      short-id: 37d86205006fe1fb
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-cd2cbb0985
+      - 4Nika-550fa97d7b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-cd2cbb0985
+      - 4Nika-550fa97d7b
 rules:
   - MATCH,Proxy

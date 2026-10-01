@@ -1,14 +1,66 @@
 proxies:
-  - type: vmess
-    name: 4Kian-bc63c464d9
-    server: fast.jahancloud.space
+  - type: ss
+    name: EPODONIOS
+    server: 81.12.33.223
+    port: 8080
+    cipher: 2022-blake3-aes-128-gcm
+    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
+    udp: true
+  - type: ss
+    name: V2ray_confiig
+    server: 81.12.33.223
+    port: 8080
+    cipher: 2022-blake3-aes-128-gcm
+    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
+    udp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: dl3.gooniforoshi.fun
     port: 443
-    uuid: 1c2fd464-98e2-4f01-a635-d39f97170e69
+    uuid: 73e08fcb-a0c7-45d0-b55d-f78c903c64a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl3.gooniforoshi.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /download.php
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl3.gooniforoshi.fun
+  - type: vless
+    name: 4Mohsen-4c9f57bb3c
+    server: dl3.gooniforoshi.fun
+    port: 443
+    uuid: 73e08fcb-a0c7-45d0-b55d-f78c903c64a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl3.gooniforoshi.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /download.php
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl3.gooniforoshi.fun
+  - type: vmess
+    name: 4Sarina-b659cc76f1
+    server: ar1.gsmvptun.com
+    port: 2052
+    uuid: 880d4739-7fca-c3b1-b679-1a8ac4d1d127
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mrzold1.dadehpardazeshiran.ir
   - type: vmess
     name: 4FreeIran-24d8cde028
     server: speed.jahancompany.sbs
@@ -19,32 +71,28 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-ba221fe788
-    server: vip9.ez0535.com
-    port: 443
-    uuid: "2016"
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-bc63c464d9
+      - EPODONIOS
+      - V2ray_confiig
+      - EPODONIOS-01
+      - 4Mohsen-4c9f57bb3c
+      - 4Sarina-b659cc76f1
       - 4FreeIran-24d8cde028
-      - 4Mohsen-ba221fe788
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-bc63c464d9
+      - EPODONIOS
+      - V2ray_confiig
+      - EPODONIOS-01
+      - 4Mohsen-4c9f57bb3c
+      - 4Sarina-b659cc76f1
       - 4FreeIran-24d8cde028
-      - 4Mohsen-ba221fe788
 rules:
   - MATCH,Proxy
