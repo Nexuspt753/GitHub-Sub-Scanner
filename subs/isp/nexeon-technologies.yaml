@@ -1,26 +1,43 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 96.9.228.241
+    server: 172.93.167.45
     port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    uuid: 8344360f-0349-4784-a19f-33fd92e89389
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 571x2.r4bn.bim.hh.vavava.kdns.fr
+    servername: api.w2m.ink
     xudp: true
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /v2
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 571x2.r4bn.bim.hh.vavava.kdns.fr
+        Host: api.w2m.ink
+  - type: vless
+    name: "8"
+    server: 172.93.167.45
+    port: 443
+    uuid: 8344360f-0349-4784-a19f-33fd92e89389
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.w2m.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: api.w2m.ink
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - "8"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - "8"
 rules:
   - MATCH,Proxy

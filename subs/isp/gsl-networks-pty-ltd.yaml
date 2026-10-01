@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: 🇺🇸
+    server: 173.244.56.6
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: 🇺🇸-01
+    server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 203.10.96.138
@@ -70,20 +84,6 @@ proxies:
     password: ""
     udp: true
   - type: ss
-    name: EPODONIOS
-    server: 173.244.56.6
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: 173.244.56.9
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
-  - type: ss
     name: DeltaKroneckerGithub-06
     server: 173.244.56.9
     port: 443
@@ -104,11 +104,20 @@ proxies:
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
+  - type: ss
+    name: 🇺🇸US-173.244.56.9-0115
+    server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇺🇸
+      - 🇺🇸-01
       - DeltaKroneckerGithub
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
@@ -118,17 +127,18 @@ proxy-groups:
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
-      - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub-06
       - DeltaKroneckerGithub-07
       - 🇺🇸US-173.244.56.6-0116
+      - 🇺🇸US-173.244.56.9-0115
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇺🇸
+      - 🇺🇸-01
       - DeltaKroneckerGithub
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
@@ -138,10 +148,9 @@ proxy-groups:
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
-      - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub-06
       - DeltaKroneckerGithub-07
       - 🇺🇸US-173.244.56.6-0116
+      - 🇺🇸US-173.244.56.9-0115
 rules:
   - MATCH,Proxy

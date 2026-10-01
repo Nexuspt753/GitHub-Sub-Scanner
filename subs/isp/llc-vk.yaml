@@ -1,36 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 37.139.42.187
-    port: 8088
-    uuid: 64017d58-1297-4cd0-9a9b-4ec325f411f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pic.rutubelist.ru
-    reality-opts:
-      public-key: PAP10NLpy_4J_vf1CEtDuLJtce3pLSNhHLbuuAUXqBU
-      short-id: a1b2c3d4
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: tootffarangi🍓-5
-    server: 37.139.42.187
-    port: 8088
-    uuid: 64017d58-1297-4cd0-9a9b-4ec325f411f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pic.rutubelist.ru
-    reality-opts:
-      public-key: PAP10NLpy_4J_vf1CEtDuLJtce3pLSNhHLbuuAUXqBU
-      short-id: a1b2c3d4
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: trojan
     name: DeltaKroneckerGithub
     server: 217.16.17.127
@@ -58,6 +26,18 @@ proxies:
       - http/1.1
     client-fingerprint: firefox
   - type: vless
+    name: vless
+    server: birthdaysale.net
+    port: 8443
+    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
     name: 4FreeIran-1793c1ba94
     server: 37.139.42.187
     port: 8088
@@ -78,10 +58,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - tootffarangi🍓-5
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - vless
       - 4FreeIran-1793c1ba94
   - name: Auto
     type: url-test
@@ -89,10 +68,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - tootffarangi🍓-5
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - vless
       - 4FreeIran-1793c1ba94
 rules:
   - MATCH,Proxy

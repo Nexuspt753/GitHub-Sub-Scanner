@@ -1,11 +1,21 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-434cbc3eeb
-    server: els.mangshe.xyz
-    port: 2060
-    password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
-    sni: els.mangshe.xyz
-    skip-cert-verify: true
+  - type: vmess
+    name: 4Jadi-0c73396b14
+    server: 194.87.71.141
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Nika-afd2264f93
     server: 194.87.71.141
@@ -24,20 +34,39 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-ed1af51691
+    server: 194.87.71.141
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-434cbc3eeb
+      - 4Jadi-0c73396b14
       - 4Nika-afd2264f93
+      - 4Sarina-ed1af51691
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-434cbc3eeb
+      - 4Jadi-0c73396b14
       - 4Nika-afd2264f93
+      - 4Sarina-ed1af51691
 rules:
   - MATCH,Proxy

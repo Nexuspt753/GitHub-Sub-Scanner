@@ -3,7 +3,27 @@ proxies:
     name: DeltaKroneckerGithub
     server: 36.139.117.41
     port: 50011
+    uuid: 9195e0f1-f466-4e69-838f-a95519b5d45e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-01
+    server: 36.139.117.41
+    port: 50011
     uuid: 1235431b-b6b8-4add-bff4-a6d71bcc4d71
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-7be894e319
+    server: 36.139.117.41
+    port: 50011
+    uuid: 1b30f413-2865-4d40-9146-4207778718cd
     alterId: 0
     cipher: auto
     udp: true
@@ -19,13 +39,26 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-ddc6541f2b
+    server: 36.139.117.41
+    port: 50011
+    uuid: 9195e0f1-f466-4e69-838f-a95519b5d45e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Nika-7be894e319
       - 4Kian-f092539ce8
+      - 4Jadi-ddc6541f2b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +66,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Nika-7be894e319
       - 4Kian-f092539ce8
+      - 4Jadi-ddc6541f2b
 rules:
   - MATCH,Proxy

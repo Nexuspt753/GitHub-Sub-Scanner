@@ -13,12 +13,27 @@ proxies:
       short-id: c1e0fca9b587c5c0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-fb3757428d
+    server: 13.143.141.136
+    port: 443
+    uuid: 8878cbc9-0e35-408f-be5f-2f8e382042f1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hrl.booklibrary.sbs
+    reality-opts:
+      public-key: 7C6dU9Qow8H-G65M-6bG5-_TQKlYK6IpPOV_f1-fz1M
+      short-id: c1e0fca9b587c5c0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - 4FreeIran-fb3757428d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - 4FreeIran-fb3757428d
 rules:
   - MATCH,Proxy

@@ -1,26 +1,25 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-f014ba968d
-    server: evan.jahanvenus.top
-    port: 80
-    uuid: 6be55579-ce2d-4ea1-a4be-396e07ba36d5
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: frs.netbazshop.ir
+    port: 1001
+    uuid: aa30eabd-6b06-4d32-bf86-d250f71aa1d1
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-f014ba968d
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-f014ba968d
+      - vless
 rules:
   - MATCH,Proxy

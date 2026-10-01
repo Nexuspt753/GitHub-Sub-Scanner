@@ -27,6 +27,24 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
+    name: "9658"
+    server: 78.159.246.110
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fbsv6.guardora.pro
+  - type: vless
     name: 4FreeIran-2a94c17663
     server: 78.159.246.110
     port: 443
@@ -51,6 +69,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - vless
+      - "9658"
       - 4FreeIran-2a94c17663
   - name: Auto
     type: url-test
@@ -60,6 +79,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - vless
+      - "9658"
       - 4FreeIran-2a94c17663
 rules:
   - MATCH,Proxy

@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 95.215.108.36
+    port: 443
+    uuid: 84a3061b-3573-4a3c-a631-f26c31209268
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-02.vacvps.com
+    reality-opts:
+      public-key: bDAry75taTMaPJII9vRrJuXAjQglTJxCOVWraQ5BozY
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 95.215.108.36
     port: 443
@@ -25,35 +38,22 @@ proxies:
       public-key: bDAry75taTMaPJII9vRrJuXAjQglTJxCOVWraQ5BozY
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-4759254c27
-    server: 95.215.108.36
-    port: 443
-    uuid: 84a3061b-3573-4a3c-a631-f26c31209268
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ru-02.vacvps.com
-    reality-opts:
-      public-key: bDAry75taTMaPJII9vRrJuXAjQglTJxCOVWraQ5BozY
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - "9604"
-      - 4FreeIran-4759254c27
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - "9604"
-      - 4FreeIran-4759254c27
 rules:
   - MATCH,Proxy
