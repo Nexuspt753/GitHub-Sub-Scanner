@@ -1,25 +1,22 @@
 proxies:
-  - type: ss
+  - type: vless
     name: EPODONIOS
-    server: p1tun1.greewebservices.ir
-    port: 2050
-    cipher: chacha20-ietf-poly1305
-    password: 1XBgrwdW4F2sqnM52aAR1Q
+    server: dls2.abrokoh.ir
+    port: 443
+    uuid: c6e2dba6-5a81-42f8-ad13-001ac5d834a5
     udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: p2tun1.greewebservices.ir
-    port: 1010
-    cipher: chacha20-ietf-poly1305
-    password: gT36tsiPfnd0np5khJqjyQ
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dls2.abrokoh.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +24,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
 rules:
   - MATCH,Proxy

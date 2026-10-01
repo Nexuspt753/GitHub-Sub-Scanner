@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: 4Mohsen-3f51abef08
+    server: x-hg.xueshan168.cc
+    port: 20601
+    password: cf20ac54-9c77-4fec-b2b6-bcf8223aa4d5
+    sni: x-hg.xueshan168.cc
+    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 123.111.169.70
@@ -15,20 +22,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shephe.dpdns.org
-  - type: ss
-    name: EPODONIOS
-    server: 211.178.105.134
-    port: 6123
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
-  - type: ss
-    name: 🇰🇷KR-211.178.105.134-0149
-    server: 211.178.105.134
-    port: 6123
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
   - type: vless
     name: 4Kian-a1ea9b7818
     server: 123.111.169.70
@@ -50,9 +43,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-3f51abef08
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇰🇷KR-211.178.105.134-0149
       - 4Kian-a1ea9b7818
   - name: Auto
     type: url-test
@@ -60,9 +52,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-3f51abef08
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🇰🇷KR-211.178.105.134-0149
       - 4Kian-a1ea9b7818
 rules:
   - MATCH,Proxy

@@ -1,18 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 172.111.146.64
-    port: 80
-    uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: usa-2.letsconnectpoint.com
     port: 443
     uuid: a368752a-32fc-42f3-980a-6b049218b23f
@@ -26,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 104.129.164.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -38,6 +26,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime40.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: usa-3.letsconnectpoint.com
+    port: 443
+    uuid: a368752a-32fc-42f3-980a-6b049218b23f
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: usa-3.letsconnectpoint.com
+    reality-opts:
+      public-key: Fd6VTTHCVNkP_H9EZBlSXEsHp_J3aRKeBpoYZ5gRiQc
+      short-id: a2b95f1d
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: EPODONIOS
     server: 107.148.158.102
@@ -54,6 +56,20 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-01
+    server: 50.114.179.2
+    port: 443
+    uuid: a368752a-32fc-42f3-980a-6b049218b23f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: usa-3.letsconnectpoint.com
+    reality-opts:
+      public-key: Fd6VTTHCVNkP_H9EZBlSXEsHp_J3aRKeBpoYZ5gRiQc
+      short-id: a2b95f1d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: usa-2.letsconnectpoint.com
     port: 443
     uuid: a368752a-32fc-42f3-980a-6b049218b23f
@@ -67,7 +83,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: usa-3.letsconnectpoint.com
     port: 443
     uuid: a368752a-32fc-42f3-980a-6b049218b23f
@@ -136,34 +152,6 @@ proxies:
       short-id: b1c1b5e2
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: tootffarangi🍓-60
-    server: usa-3.letsconnectpoint.com
-    port: 443
-    uuid: a368752a-32fc-42f3-980a-6b049218b23f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: usa-3.letsconnectpoint.com
-    reality-opts:
-      public-key: Fd6VTTHCVNkP_H9EZBlSXEsHp_J3aRKeBpoYZ5gRiQc
-      short-id: a2b95f1d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: tootffarangi🍓-81
-    server: usa-3.letsconnectpoint.com
-    port: 443
-    uuid: a368752a-32fc-42f3-980a-6b049218b23f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: usa-3.letsconnectpoint.com
-    reality-opts:
-      public-key: Fd6VTTHCVNkP_H9EZBlSXEsHp_J3aRKeBpoYZ5gRiQc
-      short-id: a2b95f1d
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
     name: DeltaKroneckerGithub-03
     server: 172.111.146.64
@@ -180,7 +168,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: EPODONIOS-03
+    name: EPODONIOS-04
     server: 172.111.146.64
     port: 80
     uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
@@ -192,21 +180,6 @@ proxies:
     network: ws
     ws-opts:
       path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
@@ -352,15 +325,13 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - "75"
       - filembad
       - 🔵@chillguy_vpn
       - "22"
-      - tootffarangi🍓-60
-      - tootffarangi🍓-81
       - DeltaKroneckerGithub-03
-      - EPODONIOS-03
-      - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
+      - EPODONIOS-04
       - 🇯🇵JP-172.111.146.64-0142
       - 4Mohsen-eac6d067f0
       - 4Kian-1e1c431400
@@ -382,15 +353,13 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - "75"
       - filembad
       - 🔵@chillguy_vpn
       - "22"
-      - tootffarangi🍓-60
-      - tootffarangi🍓-81
       - DeltaKroneckerGithub-03
-      - EPODONIOS-03
-      - 🇯🇵 Join+Telegram:@Farah_VPN 🇯🇵
+      - EPODONIOS-04
       - 🇯🇵JP-172.111.146.64-0142
       - 4Mohsen-eac6d067f0
       - 4Kian-1e1c431400

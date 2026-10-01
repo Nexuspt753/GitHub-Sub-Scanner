@@ -1,32 +1,38 @@
 proxies:
   - type: vmess
-    name: 4Kian-af1e86a671
-    server: visa.cn
-    port: 80
-    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
+    name: 4Nika-7be894e319
+    server: 36.139.117.41
+    port: 50011
+    uuid: 1b30f413-2865-4d40-9146-4207778718cd
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /sba-vm?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: deee.horryan4.eu.org
+  - type: vmess
+    name: 4Kian-f092539ce8
+    server: 36.139.117.41
+    port: 50011
+    uuid: e1be6941-0667-469c-9224-6f34adb549ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-af1e86a671
+      - 4Nika-7be894e319
+      - 4Kian-f092539ce8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-af1e86a671
+      - 4Nika-7be894e319
+      - 4Kian-f092539ce8
 rules:
   - MATCH,Proxy
