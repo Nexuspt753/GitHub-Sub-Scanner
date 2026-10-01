@@ -1,23 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-003b56a368
-    server: 35-209-199-239.liao.kdns.fr
-    port: 50160
-    password: b41ad7f941ffce755cb8601bfd0f02ca
-    sni: 35-209-199-239.liao.kdns.fr
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 34.3.101.206
+    port: 443
+    uuid: c64a5cfa-0fd6-4978-b062-6e89da013260
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: C4ky4RduL1cfjZ3okHXDkpD2Ns4DViMkB-mDlisBrzc
+      short-id: 8a17287288cf25e5
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-003b56a368
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-003b56a368
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

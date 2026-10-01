@@ -13,18 +13,6 @@ proxies:
       short-id: 84be686ea1d16478
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 162.35.96.18
-    port: 8081
-    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-test
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: ss
     name: 4Kian-caf0a08c4a
     server: 67.217.57.157
@@ -38,6 +26,13 @@ proxies:
     port: 17913
     cipher: aes-128-gcm
     password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 161.129.71.149
+    port: 17915
+    cipher: aes-128-gcm
+    password: f8e5c6741fbbc00504f41af1ab878402
     udp: true
   - type: vless
     name: 4Nika-6270a2852e
@@ -104,32 +99,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4FreeIran-513f5b4abe
-    server: 162.35.96.21
-    port: 8081
-    uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+    name: 4Sarina-37a346aab0
+    server: oil.nikotine.us
+    port: 443
+    uuid: dbe7df9a-c846-4305-9bbf-771c1b2f0520
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: oil.nikotine.us
+    reality-opts:
+      public-key: aHMslQzeWSCspD7XL2TP6wLIyzbVm67q-cc7A2NWbXU
+      short-id: f56e9ef4d4b9dadd
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-test
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-caf0a08c4a
       - 4Kian-abe0c848bd
+      - DeltaKroneckerGithub-01
       - 4Nika-6270a2852e
       - 4Kian-774c34f019
       - 4Nika-a1dfdb6104
       - 4Jadi-9b24324769
       - 4Nika-bbb3d3cfea
-      - 4FreeIran-513f5b4abe
+      - 4Sarina-37a346aab0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -137,14 +134,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-caf0a08c4a
       - 4Kian-abe0c848bd
+      - DeltaKroneckerGithub-01
       - 4Nika-6270a2852e
       - 4Kian-774c34f019
       - 4Nika-a1dfdb6104
       - 4Jadi-9b24324769
       - 4Nika-bbb3d3cfea
-      - 4FreeIran-513f5b4abe
+      - 4Sarina-37a346aab0
 rules:
   - MATCH,Proxy

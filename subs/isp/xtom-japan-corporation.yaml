@@ -9,21 +9,44 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: 185.184.223.47
-    port: 443
-    password: Aimer
-    udp: true
-    tls: true
-    sni: epme.ambercc.filegear-sg.me
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
     server: ty-3.tr202604.com
     port: 443
     password: q6UYkw9nUn6MYZz8Sp
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-3942074b3d
+    server: qp.lichao0223.cn
+    port: 49152
+    uuid: 71b460a1-8f78-45c5-fb3c-ab26a2a1f7b9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: qp.lichao0223.cn
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: qp.lichao0223.cn
+  - type: vless
+    name: 4Kian-40e606ace8
+    server: qp.lichao0223.cn
+    port: 49152
+    uuid: 71b460a1-8f78-45c5-fb3c-ab26a2a1f7b9
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: qp.lichao0223.cn
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: qp.lichao0223.cn
 proxy-groups:
   - name: Proxy
     type: select
@@ -31,7 +54,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Nika-3942074b3d
+      - 4Kian-40e606ace8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,6 +64,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Nika-3942074b3d
+      - 4Kian-40e606ace8
 rules:
   - MATCH,Proxy

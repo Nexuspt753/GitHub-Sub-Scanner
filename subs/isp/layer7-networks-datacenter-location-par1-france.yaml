@@ -1,59 +1,31 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: fr-node.usel.pro
+    name: DeltaKroneckerGithub
+    server: 194.24.161.179
     port: 443
-    uuid: 6fb79584-30b8-4888-b358-98f7ef6b8697
+    uuid: c40ec629-cd50-4569-8ea7-ea7c498423fd
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: yunohost.org
-    reality-opts:
-      public-key: fTxan5odgqq8enNPQ-MOOYOaQKIaG01NQ1Yvs0Zd-SE
-    flow: xtls-rprx-vision
+    client-fingerprint: qq
+    servername: borsch.spravedlivost.fun
     xudp: true
-  - type: vless
-    name: tootffarangi🍓-5
-    server: fr-node.usel.pro
-    port: 443
-    uuid: 6fb79584-30b8-4888-b358-98f7ef6b8697
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yunohost.org
-    reality-opts:
-      public-key: fTxan5odgqq8enNPQ-MOOYOaQKIaG01NQ1Yvs0Zd-SE
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-3dd33dfabc
-    server: fr-node.usel.pro
-    port: 443
-    uuid: 6fb79584-30b8-4888-b358-98f7ef6b8697
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yunohost.org
-    reality-opts:
-      public-key: fTxan5odgqq8enNPQ-MOOYOaQKIaG01NQ1Yvs0Zd-SE
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/metric/ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - tootffarangi🍓-5
-      - 4Kian-3dd33dfabc
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - tootffarangi🍓-5
-      - 4Kian-3dd33dfabc
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

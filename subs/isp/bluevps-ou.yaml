@@ -1,34 +1,40 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 92.118.127.16
-    port: 443
-    uuid: 2412bd96-925b-43f2-81d1-0ed4f0793699
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sp1.extremumnews.com
-    reality-opts:
-      public-key: Rz8XjYinCcpE7NLktJzNFL7eVSUxaFGuV2Zz82p7IRg
-      short-id: 908563a721d9bdcd
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: kurdconfig
-    server: 92.118.127.16
-    port: 443
-    uuid: 2412bd96-925b-43f2-81d1-0ed4f0793699
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sp1.extremumnews.com
-    reality-opts:
-      public-key: Rz8XjYinCcpE7NLktJzNFL7eVSUxaFGuV2Zz82p7IRg
-      short-id: 908563a721d9bdcd
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: trojan
     name: DeltaKroneckerGithub
+    server: ee10.zazazuza.ru
+    port: 8443
+    uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: fdghyt.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vpn-wss/fluxor/59011/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fdghyt.com
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 194.26.141.148
+    port: 8443
+    uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+    udp: true
+    tls: true
+    client-fingerprint: android
+    servername: fdghyt.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vpn-wss/fluxor/59011/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fdghyt.com
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 91.227.77.87
     port: 443
     password: bpb-trojan
@@ -36,38 +42,22 @@ proxies:
     tls: true
     sni: skwygx.top
     client-fingerprint: chrome
-  - type: vless
-    name: 4Nika-f8e1536949
-    server: 92.118.127.16
-    port: 443
-    uuid: 2412bd96-925b-43f2-81d1-0ed4f0793699
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sp1.extremumnews.com
-    reality-opts:
-      public-key: Rz8XjYinCcpE7NLktJzNFL7eVSUxaFGuV2Zz82p7IRg
-      short-id: 908563a721d9bdcd
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - kurdconfig
       - DeltaKroneckerGithub
-      - 4Nika-f8e1536949
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - kurdconfig
       - DeltaKroneckerGithub
-      - 4Nika-f8e1536949
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

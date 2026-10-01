@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 91.215.43.80
+    port: 443
+    uuid: 3ebf23f9-e64a-4cad-a970-0562bc0fd8c0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: sand.api.downloader-pet.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gateway/v1/ws/74c4d5e82a8e50ccf09fc628c17dc9be
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sand.api.downloader-pet.xyz
+  - type: vless
     name: EPODONIOS
     server: 95.129.236.252
     port: 443
@@ -30,41 +48,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Sarina-941532261e
-    server: 95.129.236.216
+    name: 4Sarina-b0f6871eff
+    server: 95.129.236.117
     port: 443
-    uuid: 16e21090-a5fd-4028-a528-96e975b068a2
+    uuid: 82b1182b-dd98-4964-bb35-13b015739f32
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: data-hz32.crm.hourtley.com
+    client-fingerprint: chrome
+    servername: dash.gearmonster.org
     xudp: true
     network: ws
     ws-opts:
-      path: /origin/190546791/fetch
+      path: /edge/node8/push
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: data-hz32.crm.hourtley.com
-  - type: vless
-    name: 4Mohsen-ff044a2f2a
-    server: 185.178.208.140
-    port: 443
-    uuid: 3a82f122-a67a-47eb-8b25-f8a822c94aa4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: fitnesshall.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v3/cart/events
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fitnesshall.org
   - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
@@ -80,26 +77,46 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-bafc3e95b9
+    server: 95.129.236.239
+    port: 443
+    uuid: f950d515-1fd3-48f8-8749-56e1d1509070
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: 3ds.login.opendns.stream
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3ds.login.opendns.stream
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - 4Sarina-941532261e
-      - 4Mohsen-ff044a2f2a
+      - 4Sarina-b0f6871eff
       - 4Mohsen-b66a7367f9
+      - 4Nika-bafc3e95b9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - 4Sarina-941532261e
-      - 4Mohsen-ff044a2f2a
+      - 4Sarina-b0f6871eff
       - 4Mohsen-b66a7367f9
+      - 4Nika-bafc3e95b9
 rules:
   - MATCH,Proxy

@@ -1,32 +1,59 @@
 proxies:
   - type: vless
-    name: Bogotá · @DeltaKroneckerGithub
-    server: 157.137.224.224
+    name: Bogotá · EPODONIOS
+    server: 158.247.125.162
     port: 62145
     uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
     udp: true
     xudp: true
   - type: vless
-    name: Bogotá · 4Nika-95e77f978f
-    server: 157.137.224.224
+    name: Bogotá · EPODONIOS-01
+    server: 158.247.125.162
     port: 62145
     uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
     udp: true
     xudp: true
+  - type: vless
+    name: Bogotá · 9693
+    server: 158.247.125.162
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+  - type: vless
+    name: Bogotá · @filembad
+    server: 158.247.125.162
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    udp: true
+    xudp: true
+  - type: ss
+    name: Bogotá · @DeltaKroneckerGithub
+    server: 149.104.107.41
+    port: 8090
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Bogotá · EPODONIOS
+      - Bogotá · EPODONIOS-01
+      - Bogotá · 9693
+      - Bogotá · @filembad
       - Bogotá · @DeltaKroneckerGithub
-      - Bogotá · 4Nika-95e77f978f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Bogotá · EPODONIOS
+      - Bogotá · EPODONIOS-01
+      - Bogotá · 9693
+      - Bogotá · @filembad
       - Bogotá · @DeltaKroneckerGithub
-      - Bogotá · 4Nika-95e77f978f
 rules:
   - MATCH,Proxy

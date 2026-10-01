@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: platform113.golnamakcert.top
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /platform113
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform113.halalkhor.info
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: platform101.golnamakcert.top
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /platform101
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform101.halalkhor.info
+  - type: vless
     name: 4Mohsen-f80c8e412f
     server: platform101.golnamakcert.top
     port: 80
@@ -12,18 +38,37 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: platform101.halalkhor.info
+  - type: vless
+    name: 4Kian-22c2dba682
+    server: platform113.golnamakcert.top
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /platform113flow=
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform113.halalkhor.info
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-f80c8e412f
+      - 4Kian-22c2dba682
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-f80c8e412f
+      - 4Kian-22c2dba682
 rules:
   - MATCH,Proxy
