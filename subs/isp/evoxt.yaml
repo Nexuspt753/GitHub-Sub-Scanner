@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 155.254.60.222
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /platform106
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform106.halalkhor.info
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: platform106.golnamakcert.top
     port: 80
     uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
@@ -31,6 +44,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-a094f8de3e
   - name: Auto
     type: url-test
@@ -39,6 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-a094f8de3e
 rules:
   - MATCH,Proxy

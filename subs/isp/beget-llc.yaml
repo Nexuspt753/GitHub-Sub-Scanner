@@ -1,20 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: pli.g4m1.biz
-    port: 443
-    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: pli.g4m1.biz
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: vless
     server: 159.194.243.175
     port: 443
@@ -27,6 +12,28 @@ proxies:
     port: 8443
     uuid: 237f3738-b70a-4146-89a8-10e914387c1d
     udp: true
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 159.194.243.175
+    port: 8443
+    uuid: 237f3738-b70a-4146-89a8-10e914387c1d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 85.198.101.160
+    port: 443
+    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: Продлите
@@ -94,6 +101,29 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 85.117.235.50
+    port: 443
+    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cz1.animeteka.info
+    reality-opts:
+      public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
+      short-id: 232b1b09e45325a4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless-03
+    server: 159.194.244.132
+    port: 47160
+    uuid: bfa9f30d-357a-480d-9ff9-ef4dbc891343
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: 4Jadi-3904d5835b
     server: 159.194.215.186
     port: 443
@@ -116,6 +146,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: "33"
+    server: 85.117.235.50
+    port: 443
+    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cz1.animeteka.info
+    reality-opts:
+      public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
+      short-id: 232b1b09e45325a4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-ec281c3127
     server: 85.198.101.160
     port: 443
@@ -129,52 +173,78 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-bffffd50a5
-    server: 45.12.75.242
-    port: 26424
-    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+    name: 4Sarina-f6fd5ac4ec
+    server: 85.117.235.50
+    port: 443
+    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ya.ru
+    servername: cz1.animeteka.info
     reality-opts:
-      public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
-      short-id: 23103e1e
+      public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
+      short-id: 232b1b09e45325a4
+    flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-f4154fad58
+    server: 45.144.179.138
+    port: 443
+    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - vless
       - vless-01
+      - vless-02
+      - EPODONIOS
       - Продлите
       - ☝️
       - 🇪🇺
       - 👇
       - 🚨
+      - EPODONIOS-01
+      - vless-03
       - 4Jadi-3904d5835b
       - 4Jadi-8fc4992122
+      - "33"
       - 4Mohsen-ec281c3127
-      - 4Sarina-bffffd50a5
+      - 4Sarina-f6fd5ac4ec
+      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - vless
       - vless-01
+      - vless-02
+      - EPODONIOS
       - Продлите
       - ☝️
       - 🇪🇺
       - 👇
       - 🚨
+      - EPODONIOS-01
+      - vless-03
       - 4Jadi-3904d5835b
       - 4Jadi-8fc4992122
+      - "33"
       - 4Mohsen-ec281c3127
-      - 4Sarina-bffffd50a5
+      - 4Sarina-f6fd5ac4ec
+      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

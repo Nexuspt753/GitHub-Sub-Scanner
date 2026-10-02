@@ -1,12 +1,5 @@
 proxies:
   - type: hysteria2
-    name: 4FreeIran-a1ed1bee90
-    server: 104.165.205.42
-    port: 8443
-    password: 52e3dd44-ed23-4030-b0cc-5b5a953f2d4d
-    sni: speedtestmark.com
-    skip-cert-verify: true
-  - type: hysteria2
     name: 4Kian-9ce14f96b1
     server: 104.165.205.142
     port: 9443
@@ -27,6 +20,40 @@ proxies:
     sni: onecloudstream.com
     skip-cert-verify: true
   - type: vless
+    name: EPODONIOS
+    server: 45.88.12.110
+    port: 2083
+    uuid: 7e5b1e82-73db-429a-93b2-7839a0bf4dc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: mol.ultimagamest.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-d5f16954eb
+    server: 45.88.12.110
+    port: 2083
+    uuid: 7e5b1e82-73db-429a-93b2-7839a0bf4dc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: mol.ultimagamest.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Nika-49e223d539
     server: 45.88.12.110
     port: 2083
@@ -43,45 +70,28 @@ proxies:
       path: /vless-wsfp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4FreeIran-d558a1a802
-    server: 45.88.12.119
-    port: 2083
-    uuid: 8dd437e1-5f3f-446e-98fe-aa29b80057fb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: crt.dodopanel.biz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-a1ed1bee90
       - 4Kian-9ce14f96b1
       - 4Nika-8ff71dbf7d
       - 4Nika-3e41441f9b
+      - EPODONIOS
+      - 4Kian-d5f16954eb
       - 4Nika-49e223d539
-      - 4FreeIran-d558a1a802
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-a1ed1bee90
       - 4Kian-9ce14f96b1
       - 4Nika-8ff71dbf7d
       - 4Nika-3e41441f9b
+      - EPODONIOS
+      - 4Kian-d5f16954eb
       - 4Nika-49e223d539
-      - 4FreeIran-d558a1a802
 rules:
   - MATCH,Proxy
