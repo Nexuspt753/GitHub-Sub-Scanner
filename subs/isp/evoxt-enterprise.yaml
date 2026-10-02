@@ -12,40 +12,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: platform101.halalkhor.info
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.194.27.159
-    port: 80
-    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /platform113
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: platform113.halalkhor.info
-  - type: vless
-    name: 4FreeIran-d3e3fdda3f
-    server: platform113.golnamakcert.top
-    port: 80
-    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /platform113
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: platform113.halalkhor.info
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-d3e3fdda3f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,7 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-d3e3fdda3f
 rules:
   - MATCH,Proxy

@@ -1,28 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 90.156.218.126
-    port: 2223
-    password: DQMH0rnu-nQ2FL7fddCA306ApdzGuvFA
+  - type: vless
+    name: 4Sarina-72fe12deb9
+    server: 90.156.218.163
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
     udp: true
     tls: true
-    sni: vkc7.secured-by-tenzo.sbs
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: firefox
+    client-fingerprint: chrome
+    servername: eh.vk.ru
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-72fe12deb9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-72fe12deb9
 rules:
   - MATCH,Proxy

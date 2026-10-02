@@ -1,46 +1,37 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 85.133.250.17
-    port: 8080
-    cipher: 2022-blake3-aes-128-gcm
-    password: IsDcGLee0Vlvf3gbDpO+Fw==:/c6ZuxdY9Xp1+0sgNkvt7w==
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: 81.12.33.223
-    port: 8080
-    cipher: 2022-blake3-aes-128-gcm
-    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
-    udp: true
-  - type: ss
     name: تلگرام
     server: 85.133.250.17
     port: 8080
     cipher: 2022-blake3-aes-128-gcm
     password: IsDcGLee0Vlvf3gbDpO+Fw==:/c6ZuxdY9Xp1+0sgNkvt7w==
     udp: true
-  - type: ss
-    name: V2ray_confiig
-    server: 81.12.33.223
-    port: 8080
-    cipher: 2022-blake3-aes-128-gcm
-    password: gXqk6/19VX5/wJYYbnV20Q==:42yHZbGJO87vJoyiQvzDpw==
+  - type: vmess
+    name: 4Sarina-417a92ecce
+    server: cloud.jahanserver.sbs
+    port: 443
+    uuid: 36b1b604-4181-41a1-83f9-198c7ec003e0
+    alterId: 0
+    cipher: auto
     udp: true
-  - type: ss
-    name: meliproxyy
-    server: p2tun3.greewebservices.ir
-    port: 1030
-    cipher: chacha20-ietf-poly1305
-    password: M1mlibL1LnBsn6Wr8s4rVg
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-b659cc76f1
+    server: ar1.gsmvptun.com
+    port: 2052
+    uuid: 880d4739-7fca-c3b1-b679-1a8ac4d1d127
+    alterId: 0
+    cipher: auto
     udp: true
-  - type: ss
-    name: ConfigV2RayNG
-    server: p2tun3.greewebservices.ir
-    port: 1030
-    cipher: chacha20-ietf-poly1305
-    password: f4Z-ikyuWC0D926rZwbThg
-    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mrzold1.dadehpardazeshiran.ir
   - type: vmess
     name: 4FreeIran-24d8cde028
     server: speed.jahancompany.sbs
@@ -52,10 +43,30 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Jadi-126d318582
+    name: 4Kian-7a1349e4a8
     server: speed.jahancompany.sbs
     port: 443
     uuid: e35a77bc-5a88-4f00-bc4e-1f9edd1d212c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-f7394ca288
+    server: vip9.ez0535.com
+    port: 443
+    uuid: "2016"
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-6043563358
+    server: vip9.ez0535.com
+    port: 443
+    uuid: "2016"
     alterId: 0
     cipher: auto
     udp: true
@@ -66,27 +77,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
       - تلگرام
-      - V2ray_confiig
-      - meliproxyy
-      - ConfigV2RayNG
+      - 4Sarina-417a92ecce
+      - 4Sarina-b659cc76f1
       - 4FreeIran-24d8cde028
-      - 4Jadi-126d318582
+      - 4Kian-7a1349e4a8
+      - 4Sarina-f7394ca288
+      - 4Jadi-6043563358
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
       - تلگرام
-      - V2ray_confiig
-      - meliproxyy
-      - ConfigV2RayNG
+      - 4Sarina-417a92ecce
+      - 4Sarina-b659cc76f1
       - 4FreeIran-24d8cde028
-      - 4Jadi-126d318582
+      - 4Kian-7a1349e4a8
+      - 4Sarina-f7394ca288
+      - 4Jadi-6043563358
 rules:
   - MATCH,Proxy

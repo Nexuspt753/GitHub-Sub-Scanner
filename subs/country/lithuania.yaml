@@ -27,7 +27,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Vilnius · 🇱🇹185626
+    name: Vilnius · 🇱🇹
     server: 62.77.158.1
     port: 443
     uuid: 2eceaf2b-a775-5a9c-9990-dad2b3660fb6
@@ -96,6 +96,36 @@ proxies:
       short-id: a1b2c3d4e5f60718
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Šiauliai · @filembad
+    server: 84.32.209.77
+    port: 8081
+    uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Šiauliai · @meliproxyy
+    server: 84.32.209.77
+    port: 8081
+    uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Šiauliai · 🇱🇹186086
+    server: 84.32.209.77
+    port: 8081
+    uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: trojan
     name: Vilnius · 4Nika-1d68e3a398
     server: 195.181.244.216
@@ -111,20 +141,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: Vilnius · 4Mohsen-60327941fb
-    server: 62.77.158.1
-    port: 443
-    uuid: 2eceaf2b-a775-5a9c-9990-dad2b3660fb6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: online.1c.ru
-    reality-opts:
-      public-key: sVhkyiMXvpofflCdSszxQmsqOXV1kg1Ldxq1a9mOPjs
-      short-id: 6a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Vilnius · 4Mohsen-059eb04de2
     server: 62.77.158.1
     port: 443
@@ -132,6 +148,17 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: online.1c.ru
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Vilnius · 4Sarina-53ffbd1ebd
+    server: 62.77.158.1
+    port: 443
+    uuid: 2eceaf2b-a775-5a9c-9990-dad2b3660fb6
+    udp: true
+    tls: true
+    client-fingerprint: safari
     servername: online.1c.ru
     flow: xtls-rprx-vision
     xudp: true
@@ -202,17 +229,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Vilnius · 4Jadi-1fbdc88d27
-    server: 94.176.234.161
-    port: 443
-    uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.intel.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Vilnius · 4Nika-9df7ea7745
     server: 144.31.243.120
     port: 8443
@@ -257,6 +273,22 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Šiauliai · 4Sarina-dfb9ac94e3
+    server: 85.206.165.36
+    port: 443
+    uuid: ba49ab05-78f8-4b0b-9400-1826cc2d3f75
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/051111230910
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -264,23 +296,26 @@ proxy-groups:
       - Auto
       - Šiauliai · @DeltaKroneckerGithub
       - Vilnius · @DeltaKroneckerGithub
-      - Vilnius · 🇱🇹185626
+      - Vilnius · 🇱🇹
       - Šiauliai · EPODONIOS
       - Šiauliai · EPODONIOS-01
       - Šiauliai · @ICV2RAY
       - Šiauliai · kurdconfig
+      - Šiauliai · @filembad
+      - Šiauliai · @meliproxyy
+      - Šiauliai · 🇱🇹186086
       - Vilnius · 4Nika-1d68e3a398
-      - Vilnius · 4Mohsen-60327941fb
       - Vilnius · 4Mohsen-059eb04de2
+      - Vilnius · 4Sarina-53ffbd1ebd
       - Šiauliai · 4Sarina-beacc58e2a
       - Šiauliai · 4Kian-8305bd3631
       - Šiauliai · 4Kian-01de25087a
       - Šiauliai · 4Kian-7567356a79
       - Šiauliai · 4Kian-a55f03fe59
-      - Vilnius · 4Jadi-1fbdc88d27
       - Vilnius · 4Nika-9df7ea7745
       - Vilnius · 4Sarina-3997b09ed5
       - Šiauliai · 4Jadi-81551f4385
+      - Šiauliai · 4Sarina-dfb9ac94e3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -289,22 +324,25 @@ proxy-groups:
     proxies:
       - Šiauliai · @DeltaKroneckerGithub
       - Vilnius · @DeltaKroneckerGithub
-      - Vilnius · 🇱🇹185626
+      - Vilnius · 🇱🇹
       - Šiauliai · EPODONIOS
       - Šiauliai · EPODONIOS-01
       - Šiauliai · @ICV2RAY
       - Šiauliai · kurdconfig
+      - Šiauliai · @filembad
+      - Šiauliai · @meliproxyy
+      - Šiauliai · 🇱🇹186086
       - Vilnius · 4Nika-1d68e3a398
-      - Vilnius · 4Mohsen-60327941fb
       - Vilnius · 4Mohsen-059eb04de2
+      - Vilnius · 4Sarina-53ffbd1ebd
       - Šiauliai · 4Sarina-beacc58e2a
       - Šiauliai · 4Kian-8305bd3631
       - Šiauliai · 4Kian-01de25087a
       - Šiauliai · 4Kian-7567356a79
       - Šiauliai · 4Kian-a55f03fe59
-      - Vilnius · 4Jadi-1fbdc88d27
       - Vilnius · 4Nika-9df7ea7745
       - Vilnius · 4Sarina-3997b09ed5
       - Šiauliai · 4Jadi-81551f4385
+      - Šiauliai · 4Sarina-dfb9ac94e3
 rules:
   - MATCH,Proxy

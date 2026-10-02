@@ -1,5 +1,12 @@
 proxies:
   - type: hysteria2
+    name: 4Sarina-2bed760c5a
+    server: 91.240.86.70
+    port: 22443
+    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
+    sni: 91.240.86.70
+    skip-cert-verify: true
+  - type: hysteria2
     name: 4Jadi-b3609dbdee
     server: 91.240.86.70
     port: 22443
@@ -32,18 +39,13 @@ proxies:
     password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
     sni: hy.quattro-tech.ru
   - type: vless
-    name: tootffarangi🍓-9
-    server: 62.109.19.28
+    name: vless
+    server: poland4.hutsharing.com
     port: 443
-    uuid: e6261601-0ba9-465d-9c70-6c8b4e47c7e4
+    uuid: a7ec0f75-880b-41c3-ba83-7d85b4861b3b
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: duckduckgo.com
-    reality-opts:
-      public-key: IxFbqmfuwejYSKYu69qBnzG9yWSuf7UjHujXWOO_w34
-      short-id: 9137d914cd770b54
-    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Kian-fafb7a5663
@@ -59,30 +61,45 @@ proxies:
       short-id: 9698d67e63bc8ee0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-1eefc37e56
+    server: poland4.hutsharing.com
+    port: 443
+    uuid: a7ec0f75-880b-41c3-ba83-7d85b4861b3b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: poland4.hutsharing.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-2bed760c5a
       - 4Jadi-b3609dbdee
       - 4Sarina-d3aefe3ed2
       - 4Mohsen-6ab0fda937
       - 4Sarina-85523d4a67
       - 4Jadi-97e84ebb8f
-      - tootffarangi🍓-9
+      - vless
       - 4Kian-fafb7a5663
+      - 4Sarina-1eefc37e56
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-2bed760c5a
       - 4Jadi-b3609dbdee
       - 4Sarina-d3aefe3ed2
       - 4Mohsen-6ab0fda937
       - 4Sarina-85523d4a67
       - 4Jadi-97e84ebb8f
-      - tootffarangi🍓-9
+      - vless
       - 4Kian-fafb7a5663
+      - 4Sarina-1eefc37e56
 rules:
   - MATCH,Proxy

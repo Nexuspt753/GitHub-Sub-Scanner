@@ -1,32 +1,23 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-bec6a50abb
-    server: free-russian01-cdn.xiaohouzi.club
-    port: 80
-    uuid: 3d31728e-064d-42b8-b945-f79c008f73fc
-    alterId: 233
-    cipher: auto
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 45.82.67.39
+    port: 16486
+    cipher: aes-128-gcm
+    password: 7ef14360a25ffe504e38fb9a0a82f224
     udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: free-russian01-cdn.xiaohouzi.club
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-bec6a50abb
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-bec6a50abb
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

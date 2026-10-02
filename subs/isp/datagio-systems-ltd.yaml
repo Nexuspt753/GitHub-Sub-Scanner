@@ -1,29 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Jadi-57c6d9e945
-    server: 222.167.248.156
-    port: 443
-    uuid: 7013d889-14f4-4475-a5ff-a5ecd992b522
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.google.com
-    reality-opts:
-      public-key: 9H_heZMEI3tShkb5pXRrlAzwGWIzGFCRX_HgyPdktnU
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: 4Jadi-0133b1ad18
+    server: 222.167.245.240
+    port: 28015
+    password: e19b5aa3-16c9-435a-8bc9-76f2f6ddff43
+    sni: api-test-udp-traffic.kaneki.cfd
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-57c6d9e945
+      - 4Jadi-0133b1ad18
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-57c6d9e945
+      - 4Jadi-0133b1ad18
 rules:
   - MATCH,Proxy

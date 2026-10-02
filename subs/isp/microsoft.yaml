@@ -1,30 +1,107 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: my2.miyazono-kaori.com
-    port: 443
-    uuid: f1d601f2-cc29-4fc2-bafc-7ac833af466a
+  - type: vmess
+    name: 4Nika-761b1a6d96
+    server: az-1.linkaa.xyz
+    port: 53437
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.setel.com
-    reality-opts:
-      public-key: R6q8qhMxgq3ynJPUgudaRkcDXj0qgoc_UU1N0SWGLwM
-      short-id: ed77ac35a310
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-2fb618c639
+    server: az-1.linkaa.xyz
+    port: 53437
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
+  - type: vmess
+    name: 4Jadi-0f69d63565
+    server: az-1.linkaa.xyz
+    port: 53617
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
+  - type: vmess
+    name: 4Mohsen-4a114219ae
+    server: az-1.linkaa.xyz
+    port: 53110
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
+  - type: vmess
+    name: 4FreeIran-0d86b1c674
+    server: az-1.linkaa.xyz
+    port: 55386
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-761b1a6d96
+      - 4Kian-2fb618c639
+      - 4Jadi-0f69d63565
+      - 4Mohsen-4a114219ae
+      - 4FreeIran-0d86b1c674
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-761b1a6d96
+      - 4Kian-2fb618c639
+      - 4Jadi-0f69d63565
+      - 4Mohsen-4a114219ae
+      - 4FreeIran-0d86b1c674
 rules:
   - MATCH,Proxy

@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: filembad
+    server: 94.183.160.144
+    port: 2082
+    uuid: 19906e9a-1121-403f-a0c8-889bcba87cee
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: 5t058MD4dZPpM05n2fPBvUvCdpDhgg89psrAbiq92zg
+      short-id: ed1c
+    xudp: true
+  - type: vless
+    name: filembad-01
+    server: 94.183.160.144
+    port: 2082
+    uuid: 8e7614a9-5648-424c-9e1b-7776fed9ebb3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: 5t058MD4dZPpM05n2fPBvUvCdpDhgg89psrAbiq92zg
+      short-id: 811a0b074e871f
+    xudp: true
+  - type: vless
+    name: 🔵@chillguy_vpn
+    server: 94.183.160.144
+    port: 2082
+    uuid: 8e7614a9-5648-424c-9e1b-7776fed9ebb3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: 5t058MD4dZPpM05n2fPBvUvCdpDhgg89psrAbiq92zg
+      short-id: 811a0b074e871f
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - filembad
+      - filembad-01
+      - 🔵@chillguy_vpn
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - filembad
+      - filembad-01
+      - 🔵@chillguy_vpn
+rules:
+  - MATCH,Proxy
