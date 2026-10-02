@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Mohsen-80c2e45b3d
+    server: 85.137.165.97
+    port: 443
+    uuid: 0575005f-0ba9-4d6d-85e0-4a6a8cbafc1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kclx.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /154.16.10.34-8080
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kclx.eu.org
+  - type: vless
     name: 4Nika-4142f3e312
     server: 193.169.229.145
     port: 443
@@ -10,18 +26,38 @@ proxies:
     servername: isr.vpnskyline.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-616baf4f6d
+    server: 109.172.8.73
+    port: 443
+    uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nihaoyun.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.nihaoyun.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-80c2e45b3d
       - 4Nika-4142f3e312
+      - 4Mohsen-616baf4f6d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-80c2e45b3d
       - 4Nika-4142f3e312
+      - 4Mohsen-616baf4f6d
 rules:
   - MATCH,Proxy

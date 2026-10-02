@@ -1,13 +1,26 @@
 proxies:
   - type: vless
-    name: 4Kian-e75966d4cc
+    name: DeltaKroneckerGithub
     server: 151.241.138.44
     port: 443
-    uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+    uuid: 5786d86f-7731-4174-b1a3-84297e54b015
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: condropolo.ggisopi.su
+    client-fingerprint: firefox
+    servername: condropolo1.ggisopi.su
+    reality-opts:
+      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: condropolo1.ggisopi.su
+    port: 443
+    uuid: 5786d86f-7731-4174-b1a3-84297e54b015
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: condropolo1.ggisopi.su
     reality-opts:
       public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
     flow: xtls-rprx-vision
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-e75966d4cc
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-e75966d4cc
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

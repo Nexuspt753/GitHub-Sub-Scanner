@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 141.11.90.160
-    port: 443
-    uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shephe.dpdns.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shephe.dpdns.org
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 38.207.130.15
     port: 443
     uuid: ce7beb9a-5dc1-47b3-b3ff-94521430c446
@@ -27,6 +11,20 @@ proxies:
     reality-opts:
       public-key: sDKrtAJk2VP_w1w7cFi2O86RdlvQ2E2An5xsRdJlgGE
       short-id: 5ea30fc4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: jumpernode.online
+    port: 443
+    uuid: e4cd263b-c5c7-4410-bf61-8893179ec429
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amazon.com
+    reality-opts:
+      public-key: sDKrtAJk2VP_w1w7cFi2O86RdlvQ2E2An5xsRdJlgGE
+      short-id: 6d962e8d8a0dce
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -45,34 +43,20 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-03
-    server: jumpernode.online
-    port: 443
-    uuid: e4cd263b-c5c7-4410-bf61-8893179ec429
+    server: 156.226.168.221
+    port: 35193
+    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: amazon.com
+    client-fingerprint: firefox
+    servername: www.apple.com
     reality-opts:
-      public-key: sDKrtAJk2VP_w1w7cFi2O86RdlvQ2E2An5xsRdJlgGE
-      short-id: 6d962e8d8a0dce
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-04
-    server: 156.246.88.125
-    port: 26518
-    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: github.com
-    reality-opts:
-      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
-      short-id: 6caead99
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-05
     server: jumpernode.online
     port: 443
     uuid: ce7beb9a-5dc1-47b3-b3ff-94521430c446
@@ -85,22 +69,6 @@ proxies:
       short-id: 5ea30fc4
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-58b235bd69
-    server: 156.224.76.205
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -111,8 +79,6 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
-      - 4Nika-58b235bd69
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -124,7 +90,5 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
-      - 4Nika-58b235bd69
 rules:
   - MATCH,Proxy

@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Jadi-f49748d3fc
+    server: 188.132.192.145
+    port: 2087
+    uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nihaoyun.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.nihaoyun.top
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-f49748d3fc
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-f49748d3fc
+rules:
+  - MATCH,Proxy

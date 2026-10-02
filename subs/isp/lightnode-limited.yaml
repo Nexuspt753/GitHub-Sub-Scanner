@@ -6,12 +6,22 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: f8f7aCzcPKbsF8p3
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 154.205.152.109
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 154.205.152.109
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-b003d71fe8
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +29,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-b003d71fe8
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

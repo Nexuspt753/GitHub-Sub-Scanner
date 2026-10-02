@@ -1,0 +1,24 @@
+proxies:
+  - type: trojan
+    name: 4Nika-4a4e0a73bd
+    server: 103.226.139.201
+    port: 443
+    password: idc117okt
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-4a4e0a73bd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-4a4e0a73bd
+rules:
+  - MATCH,Proxy
