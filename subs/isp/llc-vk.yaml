@@ -26,33 +26,19 @@ proxies:
       - http/1.1
     client-fingerprint: firefox
   - type: vless
-    name: vless
-    server: birthdaysale.net
-    port: 8443
-    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    name: prrofile_purple
+    server: 217.16.31.218
+    port: 443
+    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
-    name: 4FreeIran-1793c1ba94
-    server: 37.139.42.187
-    port: 8088
-    uuid: 64017d58-1297-4cd0-9a9b-4ec325f411f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pic.rutubelist.ru
+    servername: max.ru
     reality-opts:
-      public-key: PAP10NLpy_4J_vf1CEtDuLJtce3pLSNhHLbuuAUXqBU
-      short-id: a1b2c3d4
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -60,8 +46,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - vless
-      - 4FreeIran-1793c1ba94
+      - prrofile_purple
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -70,7 +55,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - vless
-      - 4FreeIran-1793c1ba94
+      - prrofile_purple
 rules:
   - MATCH,Proxy

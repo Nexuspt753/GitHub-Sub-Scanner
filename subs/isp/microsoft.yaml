@@ -1,42 +1,39 @@
 proxies:
-  - type: vmess
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 51.103.28.247
-    port: 54555
-    uuid: e57e9bb4-a442-44dd-a4bb-2aac72cfd1f2
-    alterId: 0
-    cipher: auto
+    server: my1.miyazono-kaori.com
+    port: 443
+    uuid: f1d601f2-cc29-4fc2-bafc-7ac833af466a
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.setel.com
+    reality-opts:
+      public-key: t3HU7p5iYjE9Lcq2-QHTXZFhpAvoXljTNDgmFkFN-Tc
+      short-id: 99f8972e3dd5ed
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-ad1bfb2fa1
-    server: 51.103.28.247
-    port: 54555
-    uuid: e57e9bb4-a442-44dd-a4bb-2aac72cfd1f2
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: my2.miyazono-kaori.com
+    port: 443
+    uuid: f1d601f2-cc29-4fc2-bafc-7ac833af466a
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.setel.com
+    reality-opts:
+      public-key: R6q8qhMxgq3ynJPUgudaRkcDXj0qgoc_UU1N0SWGLwM
+      short-id: ed77ac35a310
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-7e30a2e08a
-    server: 51.103.28.247
-    port: 54555
-    uuid: e57e9bb4-a442-44dd-a4bb-2aac72cfd1f2
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-ad1bfb2fa1
-      - 4Sarina-7e30a2e08a
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,7 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-ad1bfb2fa1
-      - 4Sarina-7e30a2e08a
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

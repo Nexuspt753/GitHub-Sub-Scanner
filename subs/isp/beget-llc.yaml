@@ -1,16 +1,32 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 85.198.101.160
+    name: DeltaKroneckerGithub
+    server: pli.g4m1.biz
     port: 443
-    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
+    uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: pli.g4m1.biz
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: vless
+    server: 159.194.243.175
+    port: 443
+    uuid: 237f3738-b70a-4146-89a8-10e914387c1d
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 159.194.243.175
+    port: 8443
+    uuid: 237f3738-b70a-4146-89a8-10e914387c1d
+    udp: true
     xudp: true
   - type: vless
     name: Продлите
@@ -78,20 +94,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 85.117.235.50
-    port: 443
-    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cz1.animeteka.info
-    reality-opts:
-      public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
-      short-id: 232b1b09e45325a4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Jadi-3904d5835b
     server: 159.194.215.186
     port: 443
@@ -111,20 +113,6 @@ proxies:
     tls: true
     client-fingerprint: random
     servername: proxy-1.kotnetwork.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: "33"
-    server: 85.117.235.50
-    port: 443
-    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cz1.animeteka.info
-    reality-opts:
-      public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
-      short-id: 232b1b09e45325a4
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -153,69 +141,40 @@ proxies:
       public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
       short-id: 23103e1e
     xudp: true
-  - type: vless
-    name: 4FreeIran-653fc1bab2
-    server: 85.117.235.50
-    port: 443
-    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cz1.animeteka.info
-    reality-opts:
-      public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
-      short-id: 232b1b09e45325a4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-94282810eb
-    server: 85.117.235.50
-    port: 443
-    uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cz1.animeteka.info
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - vless
+      - vless-01
       - Продлите
       - ☝️
       - 🇪🇺
       - 👇
       - 🚨
-      - EPODONIOS-01
       - 4Jadi-3904d5835b
       - 4Jadi-8fc4992122
-      - "33"
       - 4Mohsen-ec281c3127
       - 4Sarina-bffffd50a5
-      - 4FreeIran-653fc1bab2
-      - 4Kian-94282810eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - vless
+      - vless-01
       - Продлите
       - ☝️
       - 🇪🇺
       - 👇
       - 🚨
-      - EPODONIOS-01
       - 4Jadi-3904d5835b
       - 4Jadi-8fc4992122
-      - "33"
       - 4Mohsen-ec281c3127
       - 4Sarina-bffffd50a5
-      - 4FreeIran-653fc1bab2
-      - 4Kian-94282810eb
 rules:
   - MATCH,Proxy

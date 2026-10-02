@@ -12,12 +12,26 @@ proxies:
       public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 103.172.197.2
+    port: 29172
+    uuid: 3977434d-6a9b-4858-8ced-80326ba5e367
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: pff94OJwuKXnF7_3SJ8KKJuAN4GJtInBlR-kg-4mwzQ
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
