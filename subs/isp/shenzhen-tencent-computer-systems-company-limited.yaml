@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: 43.173.90.202
+    port: 443
+    password: sg-trojan-2026
+    udp: true
+    tls: true
+    sni: sg-proxy.local
+    client-fingerprint: chrome
+  - type: trojan
     name: 🇺🇸
     server: 43.173.90.202
     port: 443
@@ -49,6 +58,15 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: sg-proxy-2026
     udp: true
+  - type: trojan
+    name: 4Jadi-56ef5585f1
+    server: 43.173.90.202
+    port: 443
+    password: sg-trojan-2026
+    udp: true
+    tls: true
+    sni: sg-proxy.local
+    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-380e11b726
     server: 43.160.220.86
@@ -189,37 +207,19 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-6446d4a69b
-    server: silversbgfgov.vip44.wogbcnmnagfwgov.com
-    port: 11244
-    uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-bac1a3f76e
-    server: silversbgfgov.vip31.wogbcnmnagfwgov.com
-    port: 11231
-    uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇺🇸
       - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Jadi-56ef5585f1
       - 4Jadi-380e11b726
       - 4Sarina-045719c687
       - 4Kian-697871d49b
@@ -229,20 +229,20 @@ proxy-groups:
       - 4Nika-2181775f14
       - 4Nika-77c6c2454a
       - 4Mohsen-0181829f0c
-      - 4Sarina-6446d4a69b
-      - 4Jadi-bac1a3f76e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇺🇸
       - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - 4Jadi-56ef5585f1
       - 4Jadi-380e11b726
       - 4Sarina-045719c687
       - 4Kian-697871d49b
@@ -252,7 +252,5 @@ proxy-groups:
       - 4Nika-2181775f14
       - 4Nika-77c6c2454a
       - 4Mohsen-0181829f0c
-      - 4Sarina-6446d4a69b
-      - 4Jadi-bac1a3f76e
 rules:
   - MATCH,Proxy
