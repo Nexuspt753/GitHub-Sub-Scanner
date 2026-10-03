@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Kian-3ede58a60e
+    server: 27.44.143.169
+    port: 14343
+    uuid: 1b60cff4-49ce-4bf3-9027-e4f9c47d6158
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thuk.huaweiyouxuan.com
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-3ede58a60e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-3ede58a60e
+rules:
+  - MATCH,Proxy

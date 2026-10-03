@@ -1,50 +1,30 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 46.254.17.46
-    port: 8080
-    uuid: 57f03653-3af9-4f11-895b-23672338b0ac
+    name: 4FreeIran-07180320a9
+    server: 95.183.13.203
+    port: 443
+    uuid: a698f2b0-130b-4625-8b57-ff888f7cc063
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ftp.debian.org
+    reality-opts:
+      public-key: thzNE1MsvEBRenhjsQaob_M6G7vhmpQDfS1sLe8AflQ
+      short-id: c93743d8
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: EPODONIOS-01
-    server: 46.254.17.46
-    port: 8081
-    uuid: 57f03653-3af9-4f11-895b-23672338b0ac
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: filembad
-    server: 46.254.17.46
-    port: 8081
-    uuid: 57f03653-3af9-4f11-895b-23672338b0ac
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - filembad
+      - 4FreeIran-07180320a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - filembad
+      - 4FreeIran-07180320a9
 rules:
   - MATCH,Proxy

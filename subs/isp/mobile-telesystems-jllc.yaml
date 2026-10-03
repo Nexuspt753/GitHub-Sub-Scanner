@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: 4Mohsen-8003b6372b
     server: 95.130.84.36
     port: 8443
     uuid: 8d42d29a-ed53-4684-a9ff-6b33826149de
@@ -15,18 +15,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: aio.eth0.dpdns.org
+  - type: vless
+    name: 4Kian-ffdcbd60d0
+    server: 95.130.84.36
+    port: 8443
+    uuid: 8d42d29a-ed53-4684-a9ff-6b33826149de
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aio.eth0.dpdns.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /aioproxybot/94.23.144.99-2053fp=unsafe
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: aio.eth0.dpdns.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Mohsen-8003b6372b
+      - 4Kian-ffdcbd60d0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Mohsen-8003b6372b
+      - 4Kian-ffdcbd60d0
 rules:
   - MATCH,Proxy

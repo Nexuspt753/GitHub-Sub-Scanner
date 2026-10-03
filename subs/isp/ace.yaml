@@ -1,86 +1,50 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 43.175.131.30
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  - type: vmess
+    name: 🇸🇬SG-43.159.109.162-0027
+    server: www.gov.hk
+    port: 80
+    uuid: f9247df4-02d5-4b31-acc5-4022652c5953
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
     xudp: true
+    skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /article?ed=2560
+      path: /aries
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
-  - type: vless
-    name: 🇨🇦
-    server: 43.175.131.30
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+        Host: ee.cloudflare.quest
+  - type: vmess
+    name: 4FreeIran-639ac092d3
+    server: www.gov.hk
+    port: 80
+    uuid: f9247df4-02d5-4b31-acc5-4022652c5953
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
     xudp: true
+    skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /article?ed=2560
+      path: /aries
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
-  - type: vless
-    name: 🇭🇰
-    server: 43.175.131.30
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /article?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
-  - type: vless
-    name: 4Nika-e513716f28
-    server: 43.175.131.30
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /article?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
+        Host: ee.cloudflare.quest
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇨🇦
-      - 🇭🇰
-      - 4Nika-e513716f28
+      - 🇸🇬SG-43.159.109.162-0027
+      - 4FreeIran-639ac092d3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇨🇦
-      - 🇭🇰
-      - 4Nika-e513716f28
+      - 🇸🇬SG-43.159.109.162-0027
+      - 4FreeIran-639ac092d3
 rules:
   - MATCH,Proxy

@@ -15,6 +15,20 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-01
+    server: fistulinainonotus1.mycel.su
+    port: 1443
+    uuid: 612ace20-eddd-4756-a99f-fe4d96c22d06
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: ya.ru
+    reality-opts:
+      public-key: zlz_WrAKjBp8fkpigYpMKvTilhuiMrxn19EJ5gAIiRw
+      short-id: 7895f62a040af988
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 31.76.46.140
     port: 1443
     uuid: 612ace20-eddd-4756-a99f-fe4d96c22d06
@@ -62,6 +76,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-33356e5ecd
+    server: 2.27.16.177
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -69,8 +101,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
+      - 4Sarina-33356e5ecd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -79,7 +113,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
+      - 4Sarina-33356e5ecd
 rules:
   - MATCH,Proxy

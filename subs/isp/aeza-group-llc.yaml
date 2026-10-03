@@ -1,28 +1,6 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: 77.110.105.58
-    port: 443
-    uuid: 1f7ffcae-2f87-4088-9cca-d472a04fb41b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fast_s24.slopllex.app
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: fast_s24.slopllex.app
-    port: 443
-    uuid: 1f7ffcae-2f87-4088-9cca-d472a04fb41b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fast_s24.slopllex.app
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Capoit
     server: 193.233.245.205
     port: 443
     uuid: 1b37dae1-f2f1-4787-9f39-28ffa6556922
@@ -33,6 +11,28 @@ proxies:
     reality-opts:
       public-key: YXNmCyyyvFqCWjgUzDexg0CHjk8QYRgWNfqvpFdIk3k
       short-id: d30cb21db3289c97
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 77.110.105.58
+    port: 443
+    uuid: 1f7ffcae-2f87-4088-9cca-d472a04fb41b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fast_s24.slopllex.app
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: fast_s24.slopllex.app
+    port: 443
+    uuid: 1f7ffcae-2f87-4088-9cca-d472a04fb41b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fast_s24.slopllex.app
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -72,6 +72,28 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-03
+    server: 77.110.105.102
+    port: 443
+    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-1.brodvpn.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: tr-wien.unlimited-access.ru
+    port: 443
+    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
+    udp: true
+    tls: true
+    sni: tr-wien.unlimited-access.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+  - type: vless
     name: Free
     server: 77.110.105.102
     port: 443
@@ -90,20 +112,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: 4Jadi-525d04374e
-    server: 193.233.245.205
-    port: 443
-    uuid: 1b37dae1-f2f1-4787-9f39-28ffa6556922
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: podcasts.radiopult.net
-    reality-opts:
-      public-key: YXNmCyyyvFqCWjgUzDexg0CHjk8QYRgWNfqvpFdIk3k
-      short-id: d30cb21db3289c97
-    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Nika-0497f4679b
@@ -152,17 +160,6 @@ proxies:
     servername: ru-1.brodvpn.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-f75f26ffb1
-    server: 193.233.231.30
-    port: 443
-    uuid: a7ec0f75-880b-41c3-ba83-7d85b4861b3b
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: rus40.roscomsosal.de
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -170,18 +167,18 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - EPODONIOS-01
-      - Capoit
+      - EPODONIOS-02
       - vmesskhodam
       - tootffarangi🍓-7
       - tootffarangi🍓-4
+      - EPODONIOS-03
+      - DeltaKroneckerGithub
       - Free
       - vless
-      - 4Jadi-525d04374e
       - 4Nika-0497f4679b
       - 4Sarina-eda8245c50
       - 4Jadi-4d53dd332a
       - 4Kian-fa94ca4022
-      - 4Mohsen-f75f26ffb1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -190,17 +187,17 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - EPODONIOS-01
-      - Capoit
+      - EPODONIOS-02
       - vmesskhodam
       - tootffarangi🍓-7
       - tootffarangi🍓-4
+      - EPODONIOS-03
+      - DeltaKroneckerGithub
       - Free
       - vless
-      - 4Jadi-525d04374e
       - 4Nika-0497f4679b
       - 4Sarina-eda8245c50
       - 4Jadi-4d53dd332a
       - 4Kian-fa94ca4022
-      - 4Mohsen-f75f26ffb1
 rules:
   - MATCH,Proxy

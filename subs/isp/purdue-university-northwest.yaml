@@ -13,12 +13,24 @@ proxies:
       short-id: ad6e08b22389abd2
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-3e23e193e2
+    server: 163.245.52.91
+    port: 443
+    uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: d3-ee1.cloud-cdn.xyz
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-3e23e193e2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-3e23e193e2
 rules:
   - MATCH,Proxy

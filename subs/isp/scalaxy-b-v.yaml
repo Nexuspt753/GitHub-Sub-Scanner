@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 91.233.121.32
-    port: 443
-    uuid: 5469c1d9-e949-4553-a146-ac3ad363a705
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: Ez3w5uLzFlysA6Owr7SguTK5kzlIFZ09TgalzUHGAR4
-      short-id: 9f51e98fb874846b
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 38.180.173.150
@@ -22,20 +8,6 @@ proxies:
     tls: true
     sni: 38.180.173.150
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-585656e6d1
-    server: 38.180.254.125
-    port: 9443
-    uuid: 3969ccbc-7bb3-4def-a9b4-26e2c84b66f8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: 0hIFPaEn4RdFib8_eP8HYxMywR5izEwM3JA2W1Zo8U4
-      short-id: b390142456517acc
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: 4Sarina-0dce3512c0
     server: 38.180.254.125
@@ -47,40 +19,20 @@ proxies:
     servername: www.amazon.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-b95711f2ea
-    server: 91.233.121.32
-    port: 443
-    uuid: 5469c1d9-e949-4553-a146-ac3ad363a705
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: Ez3w5uLzFlysA6Owr7SguTK5kzlIFZ09TgalzUHGAR4
-      short-id: 9f51e98fb874846b
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Kian-585656e6d1
       - 4Sarina-0dce3512c0
-      - 4FreeIran-b95711f2ea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Kian-585656e6d1
       - 4Sarina-0dce3512c0
-      - 4FreeIran-b95711f2ea
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: trojan
+    name: 🇺🇸
+    server: 43.173.90.202
+    port: 443
+    password: sg-trojan-2026
+    udp: true
+    tls: true
+    sni: sg-proxy.local
+    client-fingerprint: chrome
+  - type: ss
+    name: 4Nika-95a3526329
+    server: 43.173.90.202
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: sg-proxy-2026
+    udp: true
+  - type: trojan
     name: DeltaKroneckerGithub
     server: 43.173.90.202
     port: 443
@@ -164,9 +180,29 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: kneNaKHeSXnZH259.v.3dns.vip
   - type: vmess
+    name: 4Mohsen-0181829f0c
+    server: sbgfgov.vip6.wogacnmnagfwgov.com
+    port: 11206
+    uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Sarina-6446d4a69b
     server: silversbgfgov.vip44.wogbcnmnagfwgov.com
     port: 11244
+    uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-bac1a3f76e
+    server: silversbgfgov.vip31.wogbcnmnagfwgov.com
+    port: 11231
     uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
     alterId: 2
     cipher: auto
@@ -178,6 +214,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇺🇸
+      - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -190,13 +228,17 @@ proxy-groups:
       - 4Jadi-e0671995de
       - 4Nika-2181775f14
       - 4Nika-77c6c2454a
+      - 4Mohsen-0181829f0c
       - 4Sarina-6446d4a69b
+      - 4Jadi-bac1a3f76e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇺🇸
+      - 4Nika-95a3526329
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -209,6 +251,8 @@ proxy-groups:
       - 4Jadi-e0671995de
       - 4Nika-2181775f14
       - 4Nika-77c6c2454a
+      - 4Mohsen-0181829f0c
       - 4Sarina-6446d4a69b
+      - 4Jadi-bac1a3f76e
 rules:
   - MATCH,Proxy
