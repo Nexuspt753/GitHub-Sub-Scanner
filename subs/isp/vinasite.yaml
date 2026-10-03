@@ -2,15 +2,43 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: node1.csnety.com
-    port: 16934
+    port: 16932
     uuid: 80772a5c-88f3-4877-8e50-4a92b5ef443e
     udp: true
     tls: true
     client-fingerprint: chrome
     servername: v1-dy.ixigua.com
     reality-opts:
-      public-key: qnpbUyX8SEBJ-ztUYjVrdkNrb_FeKVC1mbFhga8kewk
-      short-id: ca026ad8d3
+      public-key: VEU0MYsq_M-7zGhdZblxy6F4-S5MJC5CjVBsPyODln8
+      short-id: 33b3cf8cfc2bc55d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: node1.csnety.com
+    port: 17009
+    uuid: 80772a5c-88f3-4877-8e50-4a92b5ef443e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v1-dy.ixigua.com
+    reality-opts:
+      public-key: VQzP1a61WGBDjvaocSLNcKRX6A6TOvYN0euwg48owT4
+      short-id: c832c0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: node1.csnety.com
+    port: 16933
+    uuid: 80772a5c-88f3-4877-8e50-4a92b5ef443e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v1-dy.ixigua.com
+    reality-opts:
+      public-key: ugdJ8G53iQM3omst-L-nWAA6ji4HyV71h9vQz-k_MSY
+      short-id: 30899e403b
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -19,6 +47,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

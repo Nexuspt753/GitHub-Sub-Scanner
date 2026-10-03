@@ -1,30 +1,72 @@
 proxies:
   - type: vless
-    name: 4Mohsen-70d588edaa
-    server: b16973a3e8cc.welzora.ir
-    port: 30009
-    uuid: b7a9d994-a3cf-4d83-a2d2-f4083c678d6d
+    name: EPODONIOS
+    server: r9b98f8977dfbeb5.valzema.ir
+    port: 2086
+    uuid: 0af6e48f-18c6-4ad9-8486-a46336cf5f84
+    udp: true
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: r9b98f8977dfbeb5.valzema.ir
+    port: 2096
+    uuid: 0af6e48f-18c6-4ad9-8486-a46336cf5f84
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: play.google.com
-    reality-opts:
-      public-key: hcXjPiiu7Hu-iJ9QmfIac9B9HT_fMzxjm1lyHVw82nc
-      short-id: 70c5a8baf5e37017
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: r9b98f8977dfbeb5.valzema.ir
+    xudp: true
+  - type: vless
+    name: 🇩🇪186220
+    server: r9b98f8977dfbeb5.valzema.ir
+    port: 2086
+    uuid: 0af6e48f-18c6-4ad9-8486-a46336cf5f84
+    udp: true
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪DE-🚀@VPNine1
+    server: r9b98f8977dfbeb5.valzema.ir
+    port: 2086
+    uuid: 0af6e48f-18c6-4ad9-8486-a46336cf5f84
+    udp: true
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪186217
+    server: r9b98f8977dfbeb5.valzema.ir
+    port: 2096
+    uuid: 0af6e48f-18c6-4ad9-8486-a46336cf5f84
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: r9b98f8977dfbeb5.valzema.ir
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-70d588edaa
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇩🇪186220
+      - 🇩🇪DE-🚀@VPNine1
+      - 🇩🇪186217
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-70d588edaa
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇩🇪186220
+      - 🇩🇪DE-🚀@VPNine1
+      - 🇩🇪186217
 rules:
   - MATCH,Proxy

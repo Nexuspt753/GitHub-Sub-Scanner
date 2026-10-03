@@ -1,12 +1,5 @@
 proxies:
   - type: hysteria2
-    name: 4Sarina-2bed760c5a
-    server: 91.240.86.70
-    port: 22443
-    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-    sni: 91.240.86.70
-    skip-cert-verify: true
-  - type: hysteria2
     name: 4Jadi-b3609dbdee
     server: 91.240.86.70
     port: 22443
@@ -48,6 +41,15 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
+    name: vless-01
+    server: poland9.hutsharing.com
+    port: 443
+    uuid: a7ec0f75-880b-41c3-ba83-7d85b4861b3b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: 4Kian-fafb7a5663
     server: 157.22.193.73
     port: 443
@@ -72,34 +74,47 @@ proxies:
     servername: poland4.hutsharing.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-df5ccb4c43
+    server: poland9.hutsharing.com
+    port: 443
+    uuid: a7ec0f75-880b-41c3-ba83-7d85b4861b3b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: poland9.hutsharing.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-2bed760c5a
       - 4Jadi-b3609dbdee
       - 4Sarina-d3aefe3ed2
       - 4Mohsen-6ab0fda937
       - 4Sarina-85523d4a67
       - 4Jadi-97e84ebb8f
       - vless
+      - vless-01
       - 4Kian-fafb7a5663
       - 4Sarina-1eefc37e56
+      - 4FreeIran-df5ccb4c43
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-2bed760c5a
       - 4Jadi-b3609dbdee
       - 4Sarina-d3aefe3ed2
       - 4Mohsen-6ab0fda937
       - 4Sarina-85523d4a67
       - 4Jadi-97e84ebb8f
       - vless
+      - vless-01
       - 4Kian-fafb7a5663
       - 4Sarina-1eefc37e56
+      - 4FreeIran-df5ccb4c43
 rules:
   - MATCH,Proxy
