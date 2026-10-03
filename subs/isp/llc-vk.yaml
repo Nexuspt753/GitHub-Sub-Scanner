@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 95.163.215.8
+    port: 6002
+    uuid: 8e8ea5d2-6941-40fb-9efe-f9062b11b2b9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fin1.centermass.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: media.playback.v1.SessionGateway
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: msk1.animereze.site
     port: 443
@@ -33,22 +48,6 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: Telegram
-    server: msk1.animereze.site
-    port: 443
-    uuid: 2463908b-9922-43d1-8186-a9d245790073
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.dell.com
-    reality-opts:
-      public-key: oL0LzTElvD_F8qhoabfvTh6ON_fZv_bM52I9Xqb8CSg
-      short-id: 848af9514e811495
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: Telegram-01
     server: uk1.animereze.site
     port: 443
     uuid: 2463908b-9922-43d1-8186-a9d245790073
@@ -63,20 +62,8 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: vless
-    server: birthdaysale.net
-    port: 8443
-    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -90,6 +77,29 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 185.241.195.185
+    port: 2224
+    password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
+    udp: true
+    tls: true
+    sni: vkc9.secured-by-tenzo.sbs
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+  - type: vless
+    name: vless
+    server: birthdaysale.net
+    port: 8443
+    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
   - type: vless
     name: prrofile_purple
     server: 217.16.31.218
@@ -169,12 +179,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - Telegram
-      - Telegram-01
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - vless
-      - DeltaKroneckerGithub
       - prrofile_purple
       - 4Jadi-72c74e47dc
       - 4Mohsen-8ebf246b45
@@ -186,12 +197,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - Telegram
-      - Telegram-01
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - vless
-      - DeltaKroneckerGithub
       - prrofile_purple
       - 4Jadi-72c74e47dc
       - 4Mohsen-8ebf246b45

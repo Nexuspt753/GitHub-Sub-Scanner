@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 🇫🇷⇝
-    server: 109.248.148.139
-    port: 11469
-    cipher: aes-128-gcm
-    password: ce45b16adec66e4a199d92b9689eae9f
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: latinki.pumpkinpie.study
+    port: 443
+    uuid: 8f6e49e6-7f03-4f10-9da9-1716158d80ed
     udp: true
+    tls: true
+    client-fingerprint: random
+    servername: latinki.pumpkinpie.study
+    reality-opts:
+      public-key: wHTq_owme8N6237B37GhneBcNJQtzRdIFouRkSscgnQ
+      short-id: 40fac5d64bc6a540
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇫🇷⇝
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇫🇷⇝
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

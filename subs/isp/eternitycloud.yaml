@@ -2,13 +2,15 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 94.183.170.135
-    port: 8443
+    port: 443
     uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: estproxy4.lockdwn.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: hysteria2
     name: 4Sarina-b7ac0aaefd
     server: ee1.sferavpn.pro
@@ -20,28 +22,13 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 94.183.170.135
-    port: 443
+    port: 8443
     uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: estproxy4.lockdwn.com
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-014cf5c716
-    server: 94.183.170.135
-    port: 443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: estproxy4.lockdwn.com
   - type: vless
     name: 4Kian-feeaf87e27
     server: 94.183.170.135
@@ -67,16 +54,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Kian-c7233a2afc
-    server: 94.183.170.135
-    port: 8443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: estproxy4.lockdwn.com
-    xudp: true
-  - type: vless
     name: 4Sarina-25fec21297
     server: 94.183.170.135
     port: 8443
@@ -84,6 +61,16 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: firefox
+    servername: estproxy4.lockdwn.com
+    xudp: true
+  - type: vless
+    name: 4Jadi-911c7087fc
+    server: 94.183.170.135
+    port: 8443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: estproxy4.lockdwn.com
     xudp: true
 proxy-groups:
@@ -94,11 +81,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - 4Sarina-b7ac0aaefd
       - DeltaKroneckerGithub-01
-      - 4Mohsen-014cf5c716
       - 4Kian-feeaf87e27
       - 4Nika-b775242551
-      - 4Kian-c7233a2afc
       - 4Sarina-25fec21297
+      - 4Jadi-911c7087fc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -108,10 +94,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - 4Sarina-b7ac0aaefd
       - DeltaKroneckerGithub-01
-      - 4Mohsen-014cf5c716
       - 4Kian-feeaf87e27
       - 4Nika-b775242551
-      - 4Kian-c7233a2afc
       - 4Sarina-25fec21297
+      - 4Jadi-911c7087fc
 rules:
   - MATCH,Proxy

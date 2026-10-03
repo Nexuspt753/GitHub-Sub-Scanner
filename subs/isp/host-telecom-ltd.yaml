@@ -12,12 +12,24 @@ proxies:
       public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-e9a4f77c4f
+    server: finl11.ali-bard.online
+    port: 443
+    uuid: 4643976f-85fa-40cf-9e58-ea28b50f253b
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: finl11.ali-bard.online
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-084f84605e
+      - 4FreeIran-e9a4f77c4f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-084f84605e
+      - 4FreeIran-e9a4f77c4f
 rules:
   - MATCH,Proxy

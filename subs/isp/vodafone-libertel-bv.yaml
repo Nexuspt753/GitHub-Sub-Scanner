@@ -1,12 +1,12 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 179.254.163.11
     port: 443
     uuid: aef06aad-8e97-4452-9257-6142b5b1ceb7
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: decemberfest.elfhost.ru
     reality-opts:
       public-key: FvxhTol6CtmTv7BQZANpoRGBRMUIrNSsLbTUe4x8JG8
@@ -14,7 +14,62 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-cfac127fd3
+    name: DeltaKroneckerGithub-01
+    server: germanydvatri.online
+    port: 443
+    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: germanydvatri.online
+    reality-opts:
+      public-key: aHxzHc7w0r_8X8mdx1XCyg2ooRLjcOQMOuscdAQPrEo
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 23sept.live
+    port: 443
+    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: 23sept.live
+    reality-opts:
+      public-key: y0wgEdmPNIKlAMJHeC0teOW_fBnX8tmRE8n1CwOZSwU
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: germanybeforelanz.site
+    port: 443
+    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: germanybeforelanz.site
+    reality-opts:
+      public-key: qxeqNkLoTs6t9YIbarwpV53bfBei0dBBiaC52fQ_NlY
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 179.254.163.11
+    port: 6443
+    uuid: aef06aad-8e97-4452-9257-6142b5b1ceb7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: decemberfest.elfhost.ru
+    reality-opts:
+      public-key: uBO1mns4uGeh76lQ5uDYIOSf3kU2mCxxpIWcZ0Z7uG8
+      short-id: c94d1df67d60bd29
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
     server: 179.254.163.11
     port: 443
     uuid: aef06aad-8e97-4452-9257-6142b5b1ceb7
@@ -38,40 +93,30 @@ proxies:
     servername: decemberfest.elfhost.ru
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-fd96268828
-    server: 179.254.163.11
-    port: 6443
-    uuid: aef06aad-8e97-4452-9257-6142b5b1ceb7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: decemberfest.elfhost.ru
-    reality-opts:
-      public-key: uBO1mns4uGeh76lQ5uDYIOSf3kU2mCxxpIWcZ0Z7uG8
-      short-id: c94d1df67d60bd29
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
-      - 4Mohsen-cfac127fd3
       - 4Jadi-75dbfb73a7
-      - 4Kian-fd96268828
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - EPODONIOS
-      - 4Mohsen-cfac127fd3
       - 4Jadi-75dbfb73a7
-      - 4Kian-fd96268828
 rules:
   - MATCH,Proxy

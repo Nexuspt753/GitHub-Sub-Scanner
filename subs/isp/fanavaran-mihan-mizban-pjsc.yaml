@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: sr4.furnex.fun
+    port: 443
+    uuid: 556ed5a0-a04c-41a4-81f9-18252dc7e695
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: g4.furnex.fun
+    reality-opts:
+      public-key: t5dTj3Sk5wZkAJGqzdG2xZID-LqOxzHhdck2oqGd5mw
+      short-id: 833b825b75344057
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇩🇪⇝
     server: sr4.furnex.fun
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇩🇪⇝
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇩🇪⇝
 rules:
   - MATCH,Proxy

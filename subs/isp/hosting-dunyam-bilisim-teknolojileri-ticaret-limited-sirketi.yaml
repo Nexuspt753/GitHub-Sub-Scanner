@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 176.96.131.251
+    port: 1280
+    uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: 176.96.131.251
     port: 1280
@@ -37,6 +49,13 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: EPODONIOS-01
+    server: IL3.kontabox.ir
+    port: 2087
+    uuid: af14315f-ffa4-4b4c-bcdf-bd155e3f6b64
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: 176.96.131.251
     port: 1280
     uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
@@ -48,10 +67,10 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: 176.96.131.251
     port: 1280
-    uuid: dc2fa672-c063-4c0d-b995-483d45db7349
+    uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
     udp: true
     xudp: true
     network: ws
@@ -61,18 +80,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: "9724"
-    server: 176.96.131.251
-    port: 1280
-    uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: Alpha_V2rayip
     server: 176.96.131.251
     port: 1280
     uuid: c0e8fb58-a60f-4c15-9444-4e7c109797a8
@@ -167,30 +174,19 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-eed9f7f830
-    server: 176.96.131.251
-    port: 1280
-    uuid: dc2fa672-c063-4c0d-b995-483d45db7349
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - V2ray_Alpha🏀
       - meliproxyy
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - "9724"
-      - Alpha_V2rayip
       - meliproxyy-01
       - IRAN_V2RAY1
       - V2ray_Alpha🪵
@@ -198,20 +194,20 @@ proxy-groups:
       - 4Kian-326329fccd
       - 4Nika-43080c2b94
       - 4FreeIran-5facb4a8f1
-      - 4Sarina-eed9f7f830
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - V2ray_Alpha🏀
       - meliproxyy
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - "9724"
-      - Alpha_V2rayip
       - meliproxyy-01
       - IRAN_V2RAY1
       - V2ray_Alpha🪵
@@ -219,6 +215,5 @@ proxy-groups:
       - 4Kian-326329fccd
       - 4Nika-43080c2b94
       - 4FreeIran-5facb4a8f1
-      - 4Sarina-eed9f7f830
 rules:
   - MATCH,Proxy

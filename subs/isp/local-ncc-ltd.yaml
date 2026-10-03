@@ -1,43 +1,56 @@
 proxies:
   - type: vless
-    name: 4Kian-d99e4a029a
-    server: cdn.bulkavpn.top
+    name: DeltaKroneckerGithub
+    server: 185.166.154.111
     port: 443
     uuid: 91d734be-a3d0-4d50-83ab-74cf7b6966fa
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: cdn.bulkavpn.top
     reality-opts:
       public-key: bQZcMViJWXus9rMSTOa-ZAaUJC0mIlPx7XmzrLp8GQU
       short-id: 94f32cfc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-f360244567
-    server: cdn.bulkavpn.top
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 77.91.123.74
     port: 443
-    uuid: 91d734be-a3d0-4d50-83ab-74cf7b6966fa
+    password: 36deef05-a231-44fc-977a-83637df8a7dc
     udp: true
     tls: true
+    sni: 77.91.123.74
+    alpn:
+      - http/1.1
     client-fingerprint: chrome
-    servername: cdn.bulkavpn.top
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 77.91.123.74
+    port: 443
+    password: 1c91b075-4365-44a2-a7a6-014e63cec3d3
+    udp: true
+    tls: true
+    sni: plan9sim.online
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-d99e4a029a
-      - 4Jadi-f360244567
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-d99e4a029a
-      - 4Jadi-f360244567
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

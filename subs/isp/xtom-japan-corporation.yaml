@@ -1,46 +1,6 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: qp.lichao0223.cn
-    port: 49152
-    uuid: 71b460a1-8f78-45c5-fb3c-ab26a2a1f7b9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: qp.lichao0223.cn
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: qp.lichao0223.cn
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.159.50.233
-    port: 49152
-    uuid: 71b460a1-8f78-45c5-fb3c-ab26a2a1f7b9
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: qp.lichao0223.cn
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: qp.lichao0223.cn
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: ty-3.tr202604.com
-    port: 443
-    password: q6UYkw9nUn6MYZz8Sp
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-03
     server: ty-3.tr202605.com
     port: 443
     password: owreRY1bmquS1WcYN2
@@ -48,20 +8,20 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-04
-    server: ty-4.rise-fuji.com
-    port: 443
-    password: PTTQuc24JKqW2hKVBf
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-05
+    name: DeltaKroneckerGithub-01
     server: 185.184.223.47
     port: 443
     password: Aimer
     udp: true
     tls: true
     sni: epme.ambercc.filegear-sg.me
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: ty-4.rise-fuji.com
+    port: 443
+    password: PTTQuc24JKqW2hKVBf
+    udp: true
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -71,9 +31,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -83,8 +40,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
 rules:
   - MATCH,Proxy

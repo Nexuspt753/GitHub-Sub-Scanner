@@ -1,46 +1,32 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 134.17.17.113
-    port: 443
-    uuid: a4f0558a-3601-42b5-be28-1341cb6877dc
+    name: DeltaKroneckerGithub
+    server: 95.130.84.36
+    port: 8443
+    uuid: 8d42d29a-ed53-4684-a9ff-6b33826149de
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: admin.wisptinker.app
-    reality-opts:
-      public-key: pgG2grngQEtOFJImLfz0AEm-O2IodM2jCY4aMCYQI1U
-      short-id: b2a6e3d42f05c3d1
-    flow: xtls-rprx-vision
+    client-fingerprint: unsafe
+    servername: aio.eth0.dpdns.org
     xudp: true
-  - type: vless
-    name: 4Kian-674b36849f
-    server: 134.17.17.113
-    port: 443
-    uuid: a4f0558a-3601-42b5-be28-1341cb6877dc
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: admin.wisptinker.app
-    reality-opts:
-      public-key: pgG2grngQEtOFJImLfz0AEm-O2IodM2jCY4aMCYQI1U
-      short-id: b2a6e3d42f05c3d1
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /aioproxybot/94.23.144.99-2053
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: aio.eth0.dpdns.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Kian-674b36849f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Kian-674b36849f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

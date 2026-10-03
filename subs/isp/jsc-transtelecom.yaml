@@ -1,29 +1,38 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 194.58.42.214
-    port: 443
-    uuid: 2ce0960b-fed2-4c17-b2ed-a4a5d18e8bd3
+    name: EPODONIOS
+    server: 194.58.42.166
+    port: 8081
+    uuid: 57f03653-3af9-4f11-895b-23672338b0ac
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: brd-398.convix-kino.com
-    reality-opts:
-      public-key: Prr6JvDC5zYwU0lKszA8VpWU9mglYdRAW2VlnCL83TE
-    flow: xtls-rprx-vision
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: filembad
+    server: 194.58.42.166
+    port: 8081
+    uuid: 57f03653-3af9-4f11-895b-23672338b0ac
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - filembad
 rules:
   - MATCH,Proxy

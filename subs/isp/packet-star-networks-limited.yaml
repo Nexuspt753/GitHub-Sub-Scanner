@@ -5,12 +5,20 @@ proxies:
     port: 30443
     password: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
     sni: filesconvert.org
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 164.37.111.117
+    port: 2020
+    uuid: 0dbacd35-9159-4648-89ac-c38b741567a8
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-e85e436996
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +26,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-e85e436996
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

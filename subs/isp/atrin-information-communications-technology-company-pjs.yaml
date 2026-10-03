@@ -1,11 +1,13 @@
 proxies:
-  - type: ss
-    name: Shh_Proxy-New³
-    server: p1tun4.greewebservices.ir
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: cVvgP0Bz69hsErPBvqKbwQ
+  - type: vless
+    name: vless
+    server: de22.sharecafe.ir
+    port: 2433
+    uuid: e9560616-9899-4836-abdd-6caa52613768
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
   - type: vmess
     name: 4Nika-0595140de6
     server: vip1.showtimeless.site
@@ -16,20 +18,32 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-ddd9560c28
+    server: vip2.showtimeless.site
+    port: 8055
+    uuid: b641b4ab-13e6-4dd8-803f-1b891419c3d5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Shh_Proxy-New³
+      - vless
       - 4Nika-0595140de6
+      - 4Sarina-ddd9560c28
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Shh_Proxy-New³
+      - vless
       - 4Nika-0595140de6
+      - 4Sarina-ddd9560c28
 rules:
   - MATCH,Proxy

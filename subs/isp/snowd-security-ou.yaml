@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 103.245.229.32
+    port: 443
+    uuid: 8bbe5178-a991-4a56-871c-553e2f8e9e70
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: adminvps.ru
+    reality-opts:
+      public-key: sUDdxp5g9lRHlVEH6meJWXah84yhLDyVI7KuZhW-MTQ
+      short-id: b4e44a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: "62"
     server: 103.245.229.32
     port: 443
@@ -28,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 78.17.116.201
     port: 443
     uuid: 8535e46f-4c0b-4b02-9369-d4d553c9a892
@@ -85,9 +99,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - "62"
       - "68"
-      - EPODONIOS
+      - EPODONIOS-01
       - ">>@configV2rayNG::FI"
       - 4Mohsen-9a86d53b8e
       - 4Jadi-db61c2dbb8
@@ -97,9 +112,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - "62"
       - "68"
-      - EPODONIOS
+      - EPODONIOS-01
       - ">>@configV2rayNG::FI"
       - 4Mohsen-9a86d53b8e
       - 4Jadi-db61c2dbb8

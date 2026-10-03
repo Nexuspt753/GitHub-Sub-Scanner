@@ -1,0 +1,86 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 31.6.1.67
+    port: 443
+    uuid: 7078e8e7-94d0-4736-97cd-b981419a41ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: t-rom1.fpradius.com
+    reality-opts:
+      public-key: HJ1xGv4tHeCG9WwbarahLZj_dvRDPwVQYcnxMgIWqBs
+      short-id: 9c24902143cfd2bf
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: t-rom1.fpradius.com
+    port: 443
+    uuid: 7078e8e7-94d0-4736-97cd-b981419a41ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: t-rom1.fpradius.com
+    reality-opts:
+      public-key: HJ1xGv4tHeCG9WwbarahLZj_dvRDPwVQYcnxMgIWqBs
+      short-id: 9c24902143cfd2bf
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: filembad
+    server: 31.6.1.67
+    port: 443
+    uuid: 7078e8e7-94d0-4736-97cd-b981419a41ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: t-rom1.fpradius.com
+    reality-opts:
+      public-key: HJ1xGv4tHeCG9WwbarahLZj_dvRDPwVQYcnxMgIWqBs
+      short-id: 9c24902143cfd2bf
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: filembad-01
+    server: t-rom1.fpradius.com
+    port: 443
+    uuid: 7078e8e7-94d0-4736-97cd-b981419a41ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: t-rom1.fpradius.com
+    reality-opts:
+      public-key: HJ1xGv4tHeCG9WwbarahLZj_dvRDPwVQYcnxMgIWqBs
+      short-id: 9c24902143cfd2bf
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - filembad
+      - filembad-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - filembad
+      - filembad-01
+rules:
+  - MATCH,Proxy

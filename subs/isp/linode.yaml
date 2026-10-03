@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: free-server.techsonic.dev
+    port: 2096
+    uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: free-server.techsonic.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /free-server.techsonic.dev
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free-server.techsonic.dev
+  - type: vless
     name: 4FreeIran-e04d5480f7
     server: free-server.techsonic.dev
     port: 2096
@@ -15,36 +31,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: free-server.techsonic.dev
-  - type: vless
-    name: 4Kian-d4099f2ccf
-    server: free-server.techsonic.dev
-    port: 2096
-    uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: free-server.techsonic.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /free-server.techsonic.dev
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: free-server.techsonic.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-e04d5480f7
-      - 4Kian-d4099f2ccf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-e04d5480f7
-      - 4Kian-d4099f2ccf
 rules:
   - MATCH,Proxy
