@@ -30,23 +30,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Sarina-6c8d5c1285
+    name: EPODONIOS-01
     server: 95.129.236.239
     port: 443
-    uuid: 2ae98877-9d9c-44ab-9e41-11e2280e5ed7
+    uuid: cc2b6933-0a5f-4688-8260-608b53ea1843
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: content-iv1k.login.opendns.stream
+    servername: 3ds.login.opendns.stream
     xudp: true
     network: ws
     ws-opts:
       path: /stream/615428/socket
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: content-iv1k.login.opendns.stream
+        Host: 3ds.login.opendns.stream
+  - type: vless
+    name: "145"
+    server: 95.129.236.239
+    port: 443
+    uuid: cc2b6933-0a5f-4688-8260-608b53ea1843
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 3ds.login.opendns.stream
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3ds.login.opendns.stream
   - type: vless
     name: 4Mohsen-a5a841cf7a
     server: 95.129.236.117
@@ -92,6 +110,24 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-8f83e17bed
+    server: 95.129.236.239
+    port: 443
+    uuid: cc2b6933-0a5f-4688-8260-608b53ea1843
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 3ds.login.opendns.stream
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/615428/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3ds.login.opendns.stream
 proxy-groups:
   - name: Proxy
     type: select
@@ -99,10 +135,12 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - 🇷🇺139881
-      - 4Sarina-6c8d5c1285
+      - EPODONIOS-01
+      - "145"
       - 4Mohsen-a5a841cf7a
       - 4Sarina-b0f6871eff
       - 4Mohsen-b66a7367f9
+      - 4Nika-8f83e17bed
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -111,9 +149,11 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - 🇷🇺139881
-      - 4Sarina-6c8d5c1285
+      - EPODONIOS-01
+      - "145"
       - 4Mohsen-a5a841cf7a
       - 4Sarina-b0f6871eff
       - 4Mohsen-b66a7367f9
+      - 4Nika-8f83e17bed
 rules:
   - MATCH,Proxy

@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 23.172.40.108
+    port: 443
+    uuid: b488a893-d63f-46b5-94ce-b0f99b2ab02d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: RU8nrGj6a65ZG4S5LYDS7pmAon5TobdFEczBUCOFOTc
+      short-id: b89123f0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: MARAMBASHI
+    server: 23.172.40.108
+    port: 443
+    uuid: b488a893-d63f-46b5-94ce-b0f99b2ab02d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: RU8nrGj6a65ZG4S5LYDS7pmAon5TobdFEczBUCOFOTc
+      short-id: b89123f0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-d63c193a44
     server: 85.149.211.28
     port: 8443
@@ -15,34 +43,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hk.152568.xyz
-  - type: vless
-    name: 4Jadi-6f6d15c5fc
-    server: 23.172.40.108
-    port: 443
-    uuid: b488a893-d63f-46b5-94ce-b0f99b2ab02d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: RU8nrGj6a65ZG4S5LYDS7pmAon5TobdFEczBUCOFOTc
-      short-id: b89123f0
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - MARAMBASHI
       - 4FreeIran-d63c193a44
-      - 4Jadi-6f6d15c5fc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - MARAMBASHI
       - 4FreeIran-d63c193a44
-      - 4Jadi-6f6d15c5fc
 rules:
   - MATCH,Proxy
