@@ -1,35 +1,31 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-2dba6a0154
-    server: finland.sepahanatlas.ir
-    port: 8238
-    uuid: 06c28afa-8b66-4326-b9b0-6b81414297f4
+  - type: vmess
+    name: 4FreeIran-07d77a5e12
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
+    servername: fr-nin.neninet.ir
     alpn:
       - h2
       - http/1.1
-      - h3
-    servername: finland.sepahanatlas.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-2dba6a0154
+      - 4FreeIran-07d77a5e12
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-2dba6a0154
+      - 4FreeIran-07d77a5e12
 rules:
   - MATCH,Proxy
