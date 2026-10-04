@@ -16,12 +16,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sazgar22.zapto.org
+  - type: vmess
+    name: Bishkek · 4Mohsen-906fa6016c
+    server: 185.48.136.150
+    port: 443
+    uuid: 14bb927f-a4ec-4de7-90fb-388c1f69dbc1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sazgar22.zapto.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Bishkek · 4FreeIran-9ee98f962f
+      - Bishkek · 4Mohsen-906fa6016c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +47,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Bishkek · 4FreeIran-9ee98f962f
+      - Bishkek · 4Mohsen-906fa6016c
 rules:
   - MATCH,Proxy

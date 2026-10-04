@@ -1,28 +1,28 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-374bcd9916
-    server: riga-nin.neninet.ir
-    port: 54978
-    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: 94.237.43.11
+    port: 443
+    uuid: 10a46e2e-c05e-46c8-c0a6-f55b716d1f1d
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: riga-nin.neninet.ir
+    client-fingerprint: chrome
+    servername: ajax.googleapis.com
+    reality-opts:
+      public-key: y4EAK3C7BjrAhd2eneXeoBHxA2iATHQ7BmkwWFF6v0E
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-374bcd9916
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-374bcd9916
+      - EPODONIOS
 rules:
   - MATCH,Proxy

@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.180.141.48
+    port: 443
+    password: d30ab83dbde4480082048fb315bedebd
+    udp: true
+    tls: true
+    sni: 38.180.141.48
+    client-fingerprint: chrome
   - type: vless
     name: 4FreeIran-8f5c812035
     server: 140.150.227.51
@@ -15,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-8f5c812035
   - name: Auto
     type: url-test
@@ -22,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-8f5c812035
 rules:
   - MATCH,Proxy

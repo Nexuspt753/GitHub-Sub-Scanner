@@ -1,23 +1,30 @@
 proxies:
   - type: vless
-    name: vless
-    server: 104.234.135.88
+    name: DeltaKroneckerGithub
+    server: jpga01.jumpernode.site
     port: 443
-    uuid: 0aec6598-7fb5-44e6-bff7-a4d550117830
+    uuid: 05453546-201f-4e8d-97ae-fd70da0e951f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amzn.com
+    reality-opts:
+      public-key: AgTktefiMM58y7f-KFgEtmVti_YJbd0GPSkxNeJ0RH4
+      short-id: c8e49965
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

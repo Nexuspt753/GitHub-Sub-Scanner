@@ -1,5 +1,32 @@
 proxies:
   - type: vmess
+    name: EPODONIOS
+    server: 8.217.230.196
+    port: 9999
+    uuid: 02dc4f5b-b87d-410d-b9d5-0c6f921d92f8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-a8683b772a
+    server: 2b9hwy8ocx7q74nm.v.3dns.vip
+    port: 443
+    uuid: f23bb427c1f94373876c2f43e9f790f3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 2b9hwY8oCx7Q74NM.v.3dns.vip
+  - type: vmess
     name: 4Jadi-213123db30
     server: 2b9hwy8ocx7q74nm.v.3dns.vip
     port: 443
@@ -20,6 +47,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 4Jadi-a8683b772a
       - 4Jadi-213123db30
   - name: Auto
     type: url-test
@@ -27,6 +56,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 4Jadi-a8683b772a
       - 4Jadi-213123db30
 rules:
   - MATCH,Proxy

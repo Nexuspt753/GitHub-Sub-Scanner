@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: 89.125.227.20
+    port: 443
+    uuid: 32311b6d-f866-45f1-ba1f-fd992d507a9c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl.shard-2b7c.com
+    reality-opts:
+      public-key: JoIT56dCrKkeYJWSPA6-rllSqlXYKPg1rC2w7D_xogU
+      short-id: 212a8beb0ea4817b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: 89.125.227.112
     port: 443
     uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
@@ -27,28 +41,14 @@ proxies:
       short-id: 212a8beb0ea4817b
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-0dd93ec0fe
-    server: 89.125.227.112
-    port: 443
-    uuid: ddf09ad0-02dc-485b-9048-1038de5bebf0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pl.node-edge09.com
-    reality-opts:
-      public-key: JoIT56dCrKkeYJWSPA6-rllSqlXYKPg1rC2w7D_xogU
-      short-id: 212a8beb0ea4817b
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - confing_v2rayy
-      - 4Kian-0dd93ec0fe
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - confing_v2rayy
-      - 4Kian-0dd93ec0fe
 rules:
   - MATCH,Proxy

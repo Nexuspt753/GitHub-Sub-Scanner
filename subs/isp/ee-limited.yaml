@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: 🇮🇷186904
+    server: outside.yeksancloud.ir
+    port: 80
+    uuid: 607b2c44-8f82-494e-9973-7e98ff997a8f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: myket.ir
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: outside.yeksancloud.ir
+    port: 80
+    uuid: 607b2c44-8f82-494e-9973-7e98ff997a8f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: myket.ir
+  - type: vless
+    name: 4Sarina-9f79a5222d
+    server: outside.yeksancloud.ir
+    port: 80
+    uuid: 607b2c44-8f82-494e-9973-7e98ff997a8f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: myket.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷186904
+      - 🇮🇷IR-🚀@VPNine1
+      - 4Sarina-9f79a5222d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷186904
+      - 🇮🇷IR-🚀@VPNine1
+      - 4Sarina-9f79a5222d
+rules:
+  - MATCH,Proxy

@@ -1,23 +1,48 @@
 proxies:
-  - type: ss
-    name: 4Sarina-601a391809
-    server: gd2.bjnet2.com
-    port: 36608
-    cipher: aes-128-gcm
-    password: 17b70f72-fc4f-41a7-a32f-e0bbad7d1400
+  - type: vmess
+    name: EPODONIOS
+    server: 39.108.113.127
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: 39.108.113.127
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-601a391809
+      - EPODONIOS
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-601a391809
+      - EPODONIOS
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

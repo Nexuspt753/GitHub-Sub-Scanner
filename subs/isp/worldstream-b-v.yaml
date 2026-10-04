@@ -1,32 +1,70 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-bec6a50abb
-    server: free-russian01-cdn.xiaohouzi.club
-    port: 80
-    uuid: 3d31728e-064d-42b8-b945-f79c008f73fc
-    alterId: 233
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: 104.234.138.246
+    port: 2083
+    uuid: 2782d0d7-9b73-46f0-ae68-01a4942d8177
     udp: true
     xudp: true
-    skip-cert-verify: false
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: free-russian01-cdn.xiaohouzi.club
+  - type: vless
+    name: EPODONIOS-01
+    server: 104.234.138.246
+    port: 2083
+    uuid: 2782d0d7-9b73-46f0-ae68-01a4942d8177
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-02
+    server: 104.234.138.246
+    port: 2083
+    uuid: 436ae796-c75f-4b5f-816d-48a0d0ba3a1b
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-03
+    server: 104.234.138.246
+    port: 2083
+    uuid: 436ae796-c75f-4b5f-816d-48a0d0ba3a1b
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-bec6a50abb
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-bec6a50abb
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
 rules:
   - MATCH,Proxy

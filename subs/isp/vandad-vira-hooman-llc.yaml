@@ -13,6 +13,19 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: connect.nyxserver.ir
   - type: vless
+    name: tanhanet
+    server: connect.nyxserver.ir
+    port: 80
+    uuid: cef2e5c6-23d6-415a-ac38-8d96e10b9053
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /arvan-tuel
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: connect.nyxserver.ir
+  - type: vless
     name: 4Mohsen-464b65fb2a
     server: connect.nyxserver.ir
     port: 80
@@ -31,6 +44,7 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
+      - tanhanet
       - 4Mohsen-464b65fb2a
   - name: Auto
     type: url-test
@@ -39,6 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - tanhanet
       - 4Mohsen-464b65fb2a
 rules:
   - MATCH,Proxy

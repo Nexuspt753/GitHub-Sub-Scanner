@@ -29,6 +29,58 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS
+    server: de-1.srv.dvzh.net
+    port: 443
+    uuid: 91344c03-b37f-42c5-90f1-cbb95c5cf256
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: de-1.srv.dvzh.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /upload/session
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: de-1.srv.dvzh.net
+  - type: vless
+    name: EPODONIOS-01
+    server: de-1.srv.dvzh.net
+    port: 443
+    uuid: 91344c03-b37f-42c5-90f1-cbb95c5cf256
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: de-1.srv.dvzh.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /upload/session
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: de-1.srv.dvzh.net
+  - type: vless
+    name: EPODONIOS-02
+    server: nl-2.srv.dvzh.net
+    port: 443
+    uuid: 91344c03-b37f-42c5-90f1-cbb95c5cf256
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-2.srv.dvzh.net
+    reality-opts:
+      public-key: 9GEc6lOjnGQyyE1951OZSBMWt4uCXsOjKyj9fysxHH0
+      short-id: e0ccc8c2f487d913
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
     server: 45.155.70.123
     port: 8443
     uuid: f82332b2-dc8c-eac4-ac12-f276e37e278a
@@ -82,20 +134,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-45cd5f5c6e
-    server: new3.api.go-vpn.club
-    port: 443
-    uuid: 41e71ba7-d389-47aa-94f7-ed1f55fdbcdf
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cdnjs.com
-    reality-opts:
-      public-key: E1te_g9q6EWQVOCgjwI4PF-cml9qqW7OEAf33tYkUxQ
-      short-id: 17d334ad29b2ff40
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-841e96ae9d
     server: 45.155.70.123
     port: 8443
@@ -116,10 +154,12 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
       - EXPRESSVPN_420
       - 4Nika-b57b618f0b
       - 4Jadi-f371c36145
-      - 4Sarina-45cd5f5c6e
       - 4FreeIran-841e96ae9d
   - name: Auto
     type: url-test
@@ -130,10 +170,12 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
       - EXPRESSVPN_420
       - 4Nika-b57b618f0b
       - 4Jadi-f371c36145
-      - 4Sarina-45cd5f5c6e
       - 4FreeIran-841e96ae9d
 rules:
   - MATCH,Proxy
