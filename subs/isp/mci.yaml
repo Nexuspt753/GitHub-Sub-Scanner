@@ -1,23 +1,28 @@
 proxies:
   - type: vless
-    name: 4Jadi-3652aa9930
-    server: master.sajjad.engineer
-    port: 2053
-    uuid: 191446c2-fa6a-4103-a76b-88e4ce0cc368
+    name: EPODONIOS
+    server: tuurk2.meligolit.lol
+    port: 5678
+    uuid: 876c4968-df77-4b80-87b0-c180ffb0853c
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3652aa9930
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3652aa9930
+      - EPODONIOS
 rules:
   - MATCH,Proxy

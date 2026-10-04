@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: proxyip.jp.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
     name: EPODONIOS
     server: 195.58.144.56
     port: 11907
@@ -25,7 +9,7 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 216.195.196.86
     port: 8443
     uuid: 7c973569-71da-4d18-8c80-aa4c8ee2f257
@@ -39,37 +23,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇯🇵
-    server: proxyip.jp.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    name: 4Nika-aece09a1aa
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vp10.pages.dev
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: 🇯🇵-01
-    server: proxyip.jp.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
   - type: vless
     name: 4FreeIran-f5d5d2e85f
     server: 195.58.144.56
@@ -79,28 +43,36 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: 4Mohsen-f3f00c177a
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 195.58.144.56
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
-      - 🇯🇵
-      - 🇯🇵-01
+      - DeltaKroneckerGithub
+      - 4Nika-aece09a1aa
       - 4FreeIran-f5d5d2e85f
+      - 4Mohsen-f3f00c177a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - DeltaKroneckerGithub-01
-      - 🇯🇵
-      - 🇯🇵-01
+      - DeltaKroneckerGithub
+      - 4Nika-aece09a1aa
       - 4FreeIran-f5d5d2e85f
+      - 4Mohsen-f3f00c177a
 rules:
   - MATCH,Proxy

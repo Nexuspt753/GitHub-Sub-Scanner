@@ -13,12 +13,27 @@ proxies:
       short-id: 536b9798
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: filembad
+    server: 147.125.185.1
+    port: 443
+    uuid: c916acaa-c87e-4c18-b8b6-5b2966cdb52a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dd86f.lecomain.com
+    reality-opts:
+      public-key: 9DRoNAXYVYthauhy5V8ydH1kgFXAExg0uKBK-iRXwwc
+      short-id: 536b9798
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - filembad
 rules:
   - MATCH,Proxy

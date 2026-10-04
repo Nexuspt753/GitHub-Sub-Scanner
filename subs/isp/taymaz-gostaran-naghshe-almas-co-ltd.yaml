@@ -1,6 +1,6 @@
 proxies:
   - type: vmess
-    name: 4Nika-187a70cd48
+    name: EPODONIOS
     server: parrsweb.site
     port: 443
     uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
@@ -10,35 +10,41 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Mohsen-3e52590932
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
+    name: 4Nika-ce9a599b3e
+    server: dl1.armd.fun
+    port: 443
+    uuid: 72ec8eaf-6a67-4026-aea6-963e3a9ca16a
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
+  - type: vmess
+    name: 4Nika-187a70cd48
+    server: parrsweb.site
+    port: 443
+    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 4Nika-ce9a599b3e
       - 4Nika-187a70cd48
-      - 4Mohsen-3e52590932
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 4Nika-ce9a599b3e
       - 4Nika-187a70cd48
-      - 4Mohsen-3e52590932
 rules:
   - MATCH,Proxy

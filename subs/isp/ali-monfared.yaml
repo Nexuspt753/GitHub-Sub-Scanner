@@ -1,26 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-040e104c78
-    server: z1.tekno3.ir
-    port: 44
-    uuid: a0400faa-553c-4728-aefa-80c3c5188d96
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: panel.zelnora.ir
+    port: 443
+    uuid: 466e329b-a232-46a2-95bb-51b236a6995c
     udp: true
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.zelnora.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-040e104c78
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-040e104c78
+      - EPODONIOS
 rules:
   - MATCH,Proxy

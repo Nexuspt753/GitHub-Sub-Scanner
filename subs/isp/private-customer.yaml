@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: vless
+    server: 104.234.135.88
+    port: 443
+    uuid: 0aec6598-7fb5-44e6-bff7-a4d550117830
+    udp: true
+    xudp: true
+  - type: vless
     name: DeltaKroneckerGithub
     server: jpga01.jumpernode.site
     port: 443
@@ -13,18 +20,94 @@ proxies:
       short-id: c8e49965
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: vless-01
+    server: 31.185.108.84
+    port: 443
+    uuid: JoinShin-_-:Daredevil_404
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 31.185.108.84
+    port: 443
+    uuid: Telegram:Daredevil_404
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-03
+    server: 31.185.108.84
+    port: 443
+    uuid: Telegramid:Daredevil_404
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: trojan
+    name: 4FreeIran-d16dd31a13
+    server: 86.38.247.109
+    port: 2087
+    password: sshs8_6481354771
+    udp: true
+    tls: true
+    sni: ul-singapore1.09vpn.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Sarina-e418753811
+    server: 31.185.108.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime23.workers.dev
+  - type: vless
+    name: 4Jadi-c178a0c743
+    server: 31.185.108.50
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?https://t.me/youtube@ZYFXSfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime23.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - vless
       - DeltaKroneckerGithub
+      - vless-01
+      - vless-02
+      - vless-03
+      - 4FreeIran-d16dd31a13
+      - 4Sarina-e418753811
+      - 4Jadi-c178a0c743
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - DeltaKroneckerGithub
+      - vless-01
+      - vless-02
+      - vless-03
+      - 4FreeIran-d16dd31a13
+      - 4Sarina-e418753811
+      - 4Jadi-c178a0c743
 rules:
   - MATCH,Proxy

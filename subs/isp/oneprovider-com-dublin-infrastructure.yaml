@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Nika-9be019cb85
+    server: 86.54.83.75
+    port: 443
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.asus.com
+    reality-opts:
+      public-key: gojmfVDE3y9OZmqSZqkJBTNGPyD5-sjkDYmcD8tsxCQ
+      short-id: cfa818cb27f59905
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-9be019cb85
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-9be019cb85
+rules:
+  - MATCH,Proxy
