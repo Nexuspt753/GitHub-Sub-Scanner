@@ -1,6 +1,32 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: filembad
+    server: panel.zelnora.ir
+    port: 443
+    uuid: 466e329b-a232-46a2-95bb-51b236a6995c
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.zelnora.ir
+  - type: vless
+    name: "[63143]"
+    server: panel.zelnora.ir
+    port: 443
+    uuid: 466e329b-a232-46a2-95bb-51b236a6995c
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.zelnora.ir
+  - type: vless
+    name: 4Sarina-e7dadae8aa
     server: panel.zelnora.ir
     port: 443
     uuid: 466e329b-a232-46a2-95bb-51b236a6995c
@@ -17,13 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - filembad
+      - "[63143]"
+      - 4Sarina-e7dadae8aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - filembad
+      - "[63143]"
+      - 4Sarina-e7dadae8aa
 rules:
   - MATCH,Proxy

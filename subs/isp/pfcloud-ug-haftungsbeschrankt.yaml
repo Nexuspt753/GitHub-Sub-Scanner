@@ -1,41 +1,34 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: s11.shahankhan.ir
-    port: 8080
-    uuid: 6fddf57a-313c-4d4a-8ae1-939b207a1588
+    name: vless
+    server: 31.57.185.92
+    port: 443
+    uuid: 09511b78-d678-45ce-8020-264d6db4576f
     udp: true
     xudp: true
   - type: vless
-    name: EPODONIOS
-    server: s11.shahankhan.ir
-    port: 8080
-    uuid: 6fddf57a-313c-4d4a-8ae1-939b207a1588
+    name: vless-01
+    server: 31.57.185.92
+    port: 2083
+    uuid: 78a82010-c288-49a8-a4db-efbd5e75729b
     udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: s11.shahankhan.ir
-    port: 8080
-    uuid: 6fddf57a-313c-4d4a-8ae1-939b207a1588
-    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - EPODONIOS
-      - EPODONIOS-01
+      - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - EPODONIOS
-      - EPODONIOS-01
+      - vless
+      - vless-01
 rules:
   - MATCH,Proxy

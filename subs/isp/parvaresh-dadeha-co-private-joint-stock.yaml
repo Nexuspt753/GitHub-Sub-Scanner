@@ -1,10 +1,52 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 94.139.180.250
+    port: 4109
+    uuid: 2bc4356b-816f-4329-9e4b-f098a3de99a3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: cIT2rZEiec-gDgmnX-5l0KgIDw_Ik-qA-4pGzGoSkHY
+      short-id: d38a24b31d88527f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 94.139.180.250
+    port: 4109
+    uuid: bc2b006a-7539-4e3f-9f1e-3f31056c7e7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: cIT2rZEiec-gDgmnX-5l0KgIDw_Ik-qA-4pGzGoSkHY
+      short-id: d38a24b31d88527f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: 94.139.180.250
+    port: 4109
+    uuid: bc2b006a-7539-4e3f-9f1e-3f31056c7e7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-edge.apps.apple.com
+    reality-opts:
+      public-key: cIT2rZEiec-gDgmnX-5l0KgIDw_Ik-qA-4pGzGoSkHY
+      short-id: d38a24b31d88527f
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
-    name: 4FreeIran-1cbf985e16
+    name: 4Nika-27eb55412e
     server: s1.connect.bloroxy.net
-    port: 1027
-    uuid: a8db1a30-f66a-428e-ad1d-4f17c76b57e3
-    alterId: 0
+    port: 1178
+    uuid: ccae75e4-a1e2-4d30-9e49-2f331c1f0e24
+    alterId: 1
     cipher: aes-128-gcm
     udp: true
     xudp: true
@@ -15,13 +57,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-1cbf985e16
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Nika-27eb55412e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-1cbf985e16
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Nika-27eb55412e
 rules:
   - MATCH,Proxy

@@ -1,9 +1,35 @@
 proxies:
   - type: vless
-    name: 4Mohsen-70f7c5190f
+    name: EPODONIOS
+    server: sr3.tovra.fun
+    port: 8443
+    uuid: 64608677-3eb3-46ab-a3f9-4b08dfa00f0d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de3.simchi.shop
+    reality-opts:
+      public-key: xmdtRdNTtp9XB0HkeA1G6dVT2m5oapMT6FiyscJbSRQ
+      short-id: 613352d6a1f0db55
+    xudp: true
+  - type: vless
+    name: vasl_bashim
     server: 0cf703b86ea5a239.RaVEnlO.iR
     port: 8080
     uuid: 50d10e6c-37e1-4512-b35a-2d4e0adfd079
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
+    name: 4Nika-339c769fab
+    server: 81dfbc47661b59f3.sddsask.ir
+    port: 8080
+    uuid: 08117346-6de0-407c-a53b-89b6c6e1e2f4
     udp: true
     xudp: true
     network: ws
@@ -17,13 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-70f7c5190f
+      - EPODONIOS
+      - vasl_bashim
+      - 4Nika-339c769fab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-70f7c5190f
+      - EPODONIOS
+      - vasl_bashim
+      - 4Nika-339c769fab
 rules:
   - MATCH,Proxy

@@ -1,23 +1,50 @@
 proxies:
   - type: ss
-    name: 🇰🇷KR-211.178.105.134-0172
+    name: EPODONIOS
     server: 211.178.105.134
     port: 6123
     cipher: aes-256-cfb
     password: qwerREWQ@@
     udp: true
+  - type: ss
+    name: 🇰🇷KR-211.178.105.134-0161
+    server: 211.178.105.134
+    port: 6123
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+    udp: true
+  - type: vless
+    name: 4Kian-a1ea9b7818
+    server: 123.111.169.70
+    port: 2083
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇰🇷KR-211.178.105.134-0172
+      - EPODONIOS
+      - 🇰🇷KR-211.178.105.134-0161
+      - 4Kian-a1ea9b7818
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇰🇷KR-211.178.105.134-0172
+      - EPODONIOS
+      - 🇰🇷KR-211.178.105.134-0161
+      - 4Kian-a1ea9b7818
 rules:
   - MATCH,Proxy

@@ -1,32 +1,62 @@
 proxies:
   - type: vless
-    name: 4Mohsen-f23c91a76c
-    server: 85.206.161.200
+    name: EPODONIOS
+    server: 88.119.165.131
     port: 443
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    uuid: 790910c3-9a97-4375-998a-fcc36b0a2902
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
+    servername: repo1.maven.org
+    reality-opts:
+      public-key: _AIb5QbjYK6iJBx6UpDqVBoFyUA_nkiHrj7gZrASDwc
+      short-id: bbfe4bd7d5dd0627
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: EPODONIOS-01
+    server: 88.119.165.131
+    port: 443
+    uuid: 790910c3-9a97-4375-998a-fcc36b0a2902
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: repo1.maven.org
+    reality-opts:
+      public-key: _AIb5QbjYK6iJBx6UpDqVBoFyUA_nkiHrj7gZrASDwc
+      short-id: bbfe4bd7d5dd0627
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: 88.119.165.131
+    port: 443
+    uuid: 790910c3-9a97-4375-998a-fcc36b0a2902
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: repo1.maven.org
+    reality-opts:
+      public-key: _AIb5QbjYK6iJBx6UpDqVBoFyUA_nkiHrj7gZrASDwc
+      short-id: bbfe4bd7d5dd0627
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f23c91a76c
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f23c91a76c
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
 rules:
   - MATCH,Proxy

@@ -1,0 +1,28 @@
+proxies:
+  - type: vless
+    name: 4Jadi-4b1433cdb4
+    server: 39.109.117.110
+    port: 43646
+    uuid: d92afe21-8e8b-42c7-98c2-8a33da64d28f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /d92afe21
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-4b1433cdb4
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-4b1433cdb4
+rules:
+  - MATCH,Proxy

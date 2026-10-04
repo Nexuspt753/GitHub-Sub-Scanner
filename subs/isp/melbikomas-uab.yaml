@@ -1,18 +1,4 @@
 proxies:
-  - type: ss
-    name: 4Kian-825fc1e4ac
-    server: 185.135.86.175
-    port: 9082
-    cipher: aes-256-cfb
-    password: 45xgMgm386pjWjTx
-    udp: true
-  - type: ss
-    name: 4Kian-391a6c4497
-    server: 195.238.126.20
-    port: 9011
-    cipher: aes-256-cfb
-    password: M3t2ZEQcMGRWBjRa
-    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 91.192.81.167
@@ -88,13 +74,20 @@ proxies:
     tls: true
     sni: la.freeguard.org
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-08
+    server: 91.192.81.167
+    port: 443
+    password: c623a730-48a2-11f0-b6c7-1239d0255272
+    udp: true
+    tls: true
+    sni: sg4.6n6.net
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-825fc1e4ac
-      - 4Kian-391a6c4497
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -104,14 +97,13 @@ proxy-groups:
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
       - DeltaKroneckerGithub-07
+      - DeltaKroneckerGithub-08
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-825fc1e4ac
-      - 4Kian-391a6c4497
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
@@ -121,5 +113,6 @@ proxy-groups:
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
       - DeltaKroneckerGithub-07
+      - DeltaKroneckerGithub-08
 rules:
   - MATCH,Proxy

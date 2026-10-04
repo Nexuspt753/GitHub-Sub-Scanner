@@ -1,29 +1,32 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-93d28ab9a3
-    server: 104.156.151.217
-    port: 2445
-    uuid: 465b777b-292d-4b95-8744-955551630700
+  - type: ss
+    name: EPODONIOS
+    server: 31.77.172.78
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: cyb3kQbYCbqBWS3XSIiRA8X_tXcT1VrV
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: fr-direct
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 104.156.151.217
+  - type: ss
+    name: EPODONIOS-01
+    server: gorpix.zedmobile.org
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: cyb3kQbYCbqBWS3XSIiRA8X_tXcT1VrV
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-93d28ab9a3
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-93d28ab9a3
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

@@ -15,16 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: vless
-    server: randomquaint.net
-    port: 8443
-    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    name: 4Kian-4e892024dc
+    server: 78.159.246.110
+    port: 443
+    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
+    servername: fbsv6.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-a185404230
+    server: 78.159.246.179
+    port: 2053
+    uuid: c2bbf90c-7f13-47dd-b68d-f0bd38b6b3c8
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: randomquaint.net
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -32,7 +45,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - vless
+      - 4Kian-4e892024dc
+      - 4Kian-a185404230
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -40,6 +54,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - vless
+      - 4Kian-4e892024dc
+      - 4Kian-a185404230
 rules:
   - MATCH,Proxy
