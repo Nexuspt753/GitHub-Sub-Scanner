@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 195.58.144.56
     port: 11907
@@ -9,7 +21,7 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 216.195.196.86
     port: 8443
     uuid: 7c973569-71da-4d18-8c80-aa4c8ee2f257
@@ -23,6 +35,24 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: "2"
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: "87"
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: 4Nika-aece09a1aa
     server: 195.58.144.56
     port: 11907
@@ -33,15 +63,6 @@ proxies:
     alpn:
       - h2
       - http/1.1
-    xudp: true
-  - type: vless
-    name: 4FreeIran-f5d5d2e85f
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4Mohsen-f3f00c177a
@@ -58,10 +79,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - "2"
+      - "87"
       - 4Nika-aece09a1aa
-      - 4FreeIran-f5d5d2e85f
       - 4Mohsen-f3f00c177a
   - name: Auto
     type: url-test
@@ -69,10 +92,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - "2"
+      - "87"
       - 4Nika-aece09a1aa
-      - 4FreeIran-f5d5d2e85f
       - 4Mohsen-f3f00c177a
 rules:
   - MATCH,Proxy

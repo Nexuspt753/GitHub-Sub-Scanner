@@ -12,12 +12,27 @@ proxies:
       public-key: jSx3_X_tBAcNgp7SrKSfZnr5WN0cTN2ShEJv4rHceQU
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-b10f10b748
+    server: 84.201.180.177
+    port: 7443
+    uuid: b4370239-e25b-4396-8d67-2c6f2f6c8655
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.dobro.ru
+    reality-opts:
+      public-key: 8qUiIosG5-OQWo0tD29BQCbxb50neUg8BynxdAvDzB4
+      short-id: "132142"
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-d85147abf5
+      - 4Nika-b10f10b748
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-d85147abf5
+      - 4Nika-b10f10b748
 rules:
   - MATCH,Proxy
