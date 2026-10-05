@@ -2,9 +2,48 @@ proxies:
   - type: vless
     name: EPODONIOS
     server: 23.137.249.110
+    port: 37470
+    uuid: 19a05406-a7ab-4e9d-89f3-d9db61fb495f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: 23.137.249.110
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 23.137.249.110
     port: 20365
     uuid: 1a524663-4a74-4aad-b530-8618a540d857
     udp: true
+    xudp: true
+  - type: vless
+    name: "[63530]"
+    server: 23.137.249.110
+    port: 37470
+    uuid: 19a05406-a7ab-4e9d-89f3-d9db61fb495f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: 23.137.249.110
+    xudp: true
+  - type: vless
+    name: 🇳🇱187436
+    server: 23.137.249.110
+    port: 37470
+    uuid: 19a05406-a7ab-4e9d-89f3-d9db61fb495f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: 23.137.249.110
     xudp: true
   - type: vless
     name: Free
@@ -50,16 +89,32 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Jadi-a953296dd4
+    server: 23.137.249.110
+    port: 30011
+    uuid: a7aee69e-6e02-47d1-8172-701866bbb28c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 23.137.249.110
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
+      - "[63530]"
+      - 🇳🇱187436
       - Free
       - 4Jadi-fecee7d73d
       - 4Nika-e7651a1b70
       - 4Nika-ddc100197b
+      - 4Jadi-a953296dd4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,9 +122,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
+      - "[63530]"
+      - 🇳🇱187436
       - Free
       - 4Jadi-fecee7d73d
       - 4Nika-e7651a1b70
       - 4Nika-ddc100197b
+      - 4Jadi-a953296dd4
 rules:
   - MATCH,Proxy

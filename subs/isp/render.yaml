@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 216.24.57.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime28.workers.dev
   - type: trojan
     name: EPODONIOS
     server: render.com
@@ -53,13 +66,6 @@ proxies:
         Host: www.ignitelimit.com
   - type: trojan
     name: Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#[
-    server: render.com
-    port: 443
-    password: humanity
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#kurdconfig
     server: render.com
     port: 443
     password: humanity
@@ -157,6 +163,24 @@ proxies:
         Host: channelhollowcon.onrender.com
   - type: vless
     name: EPODONIOS-04
+    server: hollowcon6.onrender.com
+    port: 443
+    uuid: f40ef9e3-ce9d-438f-a421-2b3f3361c86a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: hollowcon6.onrender.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/f40ef9e3-ce9d-438f-a421-2b3f3361c86a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hollowcon6.onrender.com
+  - type: vless
+    name: EPODONIOS-05
     server: hollowcon-c5lo.onrender.com
     port: 443
     uuid: f93cffab-a048-4d60-85d7-e9dbfe0e2df8
@@ -191,20 +215,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hollowcon-6ogo.onrender.com
-  - type: trojan
-    name: 4Nika-a2d764af38
-    server: 216.24.57.1
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: 4Mohsen-a5cf1aed5f
     server: 216.24.57.7
@@ -452,25 +462,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hollowcon-c5lo.onrender.com
+  - type: vmess
+    name: 4FreeIran-c6209ad8e0
+    server: 216.24.57.1
+    port: 443
+    uuid: a7ee85f4-2528-412e-994f-ce65f54754e4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: a7ee85f4
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dd2.1808.cf
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#EPODONIOS
       - FarazV2ray
       - prrofile_purple
       - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#[
-      - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#kurdconfig
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - hollowcon
       - hollowcon-01
       - EPODONIOS-04
+      - EPODONIOS-05
       - hollowcon-02
-      - 4Nika-a2d764af38
       - 4Mohsen-a5cf1aed5f
       - 4Mohsen-95b01f7523
       - 4Jadi-9543478517
@@ -487,26 +514,27 @@ proxy-groups:
       - 4Jadi-b49dc88d5e
       - 4FreeIran-8e427b502e
       - 4Kian-4f24164484
+      - 4FreeIran-c6209ad8e0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#EPODONIOS
       - FarazV2ray
       - prrofile_purple
       - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#[
-      - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&insecure=0&host=www.ignitelimit.com&ech=ip.gs+udp://8.8.8.8&type=ws&allowInsecure=0&sni=www.ignitelimit.com#kurdconfig
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - hollowcon
       - hollowcon-01
       - EPODONIOS-04
+      - EPODONIOS-05
       - hollowcon-02
-      - 4Nika-a2d764af38
       - 4Mohsen-a5cf1aed5f
       - 4Mohsen-95b01f7523
       - 4Jadi-9543478517
@@ -523,5 +551,6 @@ proxy-groups:
       - 4Jadi-b49dc88d5e
       - 4FreeIran-8e427b502e
       - 4Kian-4f24164484
+      - 4FreeIran-c6209ad8e0
 rules:
   - MATCH,Proxy

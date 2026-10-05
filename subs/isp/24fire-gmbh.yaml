@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: Telegram
+    server: de.realfast.click
+    port: 443
+    uuid: b3775ef9-979c-4aec-b576-3a73aa323798
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de.realfast.click
+    reality-opts:
+      public-key: x-xLSUDGxwcHdJud7sJlNWPDpQcRBAa8zGBjBLqRbFc
+      short-id: 48dd07dc65590f05
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-523eeacd48
+    server: de.realfast.click
+    port: 443
+    uuid: b3775ef9-979c-4aec-b576-3a73aa323798
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de.realfast.click
+    reality-opts:
+      public-key: x-xLSUDGxwcHdJud7sJlNWPDpQcRBAa8zGBjBLqRbFc
+      short-id: 48dd07dc65590f05
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-64e43641e4
+    server: de.realfast.click
+    port: 443
+    uuid: b3775ef9-979c-4aec-b576-3a73aa323798
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de.realfast.click
+    reality-opts:
+      public-key: x-xLSUDGxwcHdJud7sJlNWPDpQcRBAa8zGBjBLqRbFc
+      short-id: 48dd07dc65590f05
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Telegram
+      - 4Nika-523eeacd48
+      - 4Jadi-64e43641e4
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Telegram
+      - 4Nika-523eeacd48
+      - 4Jadi-64e43641e4
+rules:
+  - MATCH,Proxy

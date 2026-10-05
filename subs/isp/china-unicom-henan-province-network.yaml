@@ -199,20 +199,27 @@ proxies:
     name: DeltaKroneckerGithub-22
     server: ja262.magiclampcloud.cn
     port: 59443
+    password: 6edc9363c16bb2f7861bc1ab96edd69f
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-23
+    server: ja262.magiclampcloud.cn
+    port: 59443
     password: 970cff306f67f10cb3aa6cad2f73c2e2
     udp: true
     tls: true
     sni: ja262.magiclampcloud.cn
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-23
+    name: DeltaKroneckerGithub-24
     server: ja262.magiclampcloud.cn
     port: 59443
     password: ac312a46f833789e1e5c87222ec9949f
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-24
+    name: DeltaKroneckerGithub-25
     server: ja262.magiclampcloud.cn
     port: 59443
     password: 2bec9594deabbce4b0030700e6e916f0
@@ -220,6 +227,22 @@ proxies:
     tls: true
     sni: ja262.magiclampcloud.cn
     client-fingerprint: chrome
+  - type: vmess
+    name: 4Kian-af1e86a671
+    server: visa.cn
+    port: 80
+    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /sba-vm?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deee.horryan4.eu.org
 proxy-groups:
   - name: Proxy
     type: select
@@ -250,6 +273,8 @@ proxy-groups:
       - DeltaKroneckerGithub-22
       - DeltaKroneckerGithub-23
       - DeltaKroneckerGithub-24
+      - DeltaKroneckerGithub-25
+      - 4Kian-af1e86a671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -281,5 +306,7 @@ proxy-groups:
       - DeltaKroneckerGithub-22
       - DeltaKroneckerGithub-23
       - DeltaKroneckerGithub-24
+      - DeltaKroneckerGithub-25
+      - 4Kian-af1e86a671
 rules:
   - MATCH,Proxy
