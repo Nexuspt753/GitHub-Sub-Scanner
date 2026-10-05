@@ -1,0 +1,58 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.230.160.17
+    port: 443
+    uuid: 8a180a9e-3218-4140-bfd3-56cf230d27f8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+      - h2
+    servername: xn--80aksgi6f.xn----ctbzfboapgel4j.xn--p1ai
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: de-1-2.imnotgay.party
+    port: 443
+    uuid: 65616081-1772-49d7-a793-42bc13d22f69
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de-1-2.imnotgay.party
+    reality-opts:
+      public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 212.232.18.134
+    port: 443
+    uuid: 65616081-1772-49d7-a793-42bc13d22f69
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-1-2.imnotgay.party
+    reality-opts:
+      public-key: gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+rules:
+  - MATCH,Proxy

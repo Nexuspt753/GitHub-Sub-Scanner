@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 45.88.12.113
+    name: DeltaKroneckerGithub
+    server: 45.88.12.44
     port: 2083
-    uuid: aa8d7bf2-26e2-46bb-ac3b-33a932d26cb3
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -17,15 +17,45 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 🇩🇪187501
-    server: 45.88.12.113
+    name: EPODONIOS
+    server: 45.88.12.36
     port: 2083
-    uuid: aa8d7bf2-26e2-46bb-ac3b-33a932d26cb3
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: crt.viktorthebest.lol
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
+    server: 45.88.12.44
+    port: 2083
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - http/1.1
+    servername: crt.viktorthebest.lol
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇩🇪187686
+    server: 45.88.12.36
+    port: 2083
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: crt.viktorthebest.lol
     xudp: true
     network: ws
@@ -35,6 +65,55 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 🇩🇪DE-🚀@VPNine1
+    server: 45.88.12.36
+    port: 2083
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: crt.viktorthebest.lol
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇩🇪187657
+    server: 45.88.12.44
+    port: 2083
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: crt.viktorthebest.lol
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇩🇪DE-🚀@VPNine1-01
+    server: 45.88.12.44
+    port: 2083
+    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: crt.viktorthebest.lol
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-4cb6e9eb31
     server: 45.88.12.113
     port: 2083
     uuid: aa8d7bf2-26e2-46bb-ac3b-33a932d26cb3
@@ -55,17 +134,27 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - 🇩🇪187501
+      - EPODONIOS-01
+      - 🇩🇪187686
       - 🇩🇪DE-🚀@VPNine1
+      - 🇩🇪187657
+      - 🇩🇪DE-🚀@VPNine1-01
+      - 4Jadi-4cb6e9eb31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - 🇩🇪187501
+      - EPODONIOS-01
+      - 🇩🇪187686
       - 🇩🇪DE-🚀@VPNine1
+      - 🇩🇪187657
+      - 🇩🇪DE-🚀@VPNine1-01
+      - 4Jadi-4cb6e9eb31
 rules:
   - MATCH,Proxy

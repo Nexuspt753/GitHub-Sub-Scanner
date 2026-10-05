@@ -1,19 +1,24 @@
 proxies:
   - type: vless
     name: vless
-    server: 31.57.185.92
+    server: 31.57.185.106
     port: 443
-    uuid: 09511b78-d678-45ce-8020-264d6db4576f
+    uuid: 4b7d69f7-e1cf-448f-ab9e-753f13d0637f
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-8a2f9ceb5f
+    server: s11.shahankhan.ir
+    port: 8080
+    uuid: 6fddf57a-313c-4d4a-8ae1-939b207a1588
     udp: true
     xudp: true
   - type: vless
     name: vless-01
-    server: 31.57.185.92
-    port: 2083
-    uuid: 78a82010-c288-49a8-a4db-efbd5e75729b
+    server: 31.57.185.106
+    port: 443
+    uuid: 7d9d99a5-0588-4d1d-abcc-a76c67472ba2
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -21,6 +26,7 @@ proxy-groups:
     proxies:
       - Auto
       - vless
+      - 4Jadi-8a2f9ceb5f
       - vless-01
   - name: Auto
     type: url-test
@@ -29,6 +35,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - 4Jadi-8a2f9ceb5f
       - vless-01
 rules:
   - MATCH,Proxy

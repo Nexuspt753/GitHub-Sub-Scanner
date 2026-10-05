@@ -13,27 +13,12 @@ proxies:
       short-id: e88cb983f3c97528
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-e8c2b49432
-    server: 93.89.220.37
-    port: 443
-    uuid: 185e2bb3-2934-48d0-bbd5-dd20d16e83ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ibm.com
-    reality-opts:
-      public-key: lwKaUQ81wJUJRsqAPsfTPj5V_f9N50UYEwzRI_nuq2g
-      short-id: e88cb983f3c97528
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-e8c2b49432
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-e8c2b49432
 rules:
   - MATCH,Proxy

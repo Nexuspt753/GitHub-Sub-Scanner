@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 85.192.48.142
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nvidia.com
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Mohsen-ef1af09d84
     server: de-node.rumedia-cdn.com
@@ -7,17 +21,17 @@ proxies:
     sni: cf6.rumedia-cdn.com
     skip-cert-verify: true
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 2.59.253.251
+    name: EPODONIOS
+    server: 2.27.26.140
     port: 443
-    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    uuid: 02e2d68f-9982-4467-ad47-00cbeeae30e6
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: nvidia.com
+    client-fingerprint: chrome
+    servername: aq.cdn-global.pro
     reality-opts:
-      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
-      short-id: db04ce8bdb8900f1
+      public-key: HKkU-5UanGjWdmX8E-EGulXMk1BnidkFsVveyyOlTg8
+      short-id: 90f9d05bf95cb335
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -29,20 +43,6 @@ proxies:
     tls: true
     client-fingerprint: safari
     servername: aq-1.global-cdn.org
-    reality-opts:
-      public-key: HKkU-5UanGjWdmX8E-EGulXMk1BnidkFsVveyyOlTg8
-      short-id: 90f9d05bf95cb335
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: 2.27.26.140
-    port: 443
-    uuid: 02e2d68f-9982-4467-ad47-00cbeeae30e6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: aq.cdn-global.pro
     reality-opts:
       public-key: HKkU-5UanGjWdmX8E-EGulXMk1BnidkFsVveyyOlTg8
       short-id: 90f9d05bf95cb335
@@ -78,12 +78,12 @@ proxies:
     xudp: true
   - type: vless
     name: DeltaKroneckerGithub-03
-    server: 85.192.48.142
+    server: 2.59.253.251
     port: 443
     uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: nvidia.com
     reality-opts:
       public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
@@ -207,6 +207,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
+    name: 4Mohsen-51566105c5
+    server: 94.159.105.148
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4Nika-ac41cca32f
     server: 94.159.110.41
     port: 443
@@ -246,10 +263,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-ef1af09d84
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Mohsen-ef1af09d84
       - EPODONIOS
+      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 🇫🇮139907
       - DeltaKroneckerGithub-03
@@ -262,6 +279,7 @@ proxy-groups:
       - 4FreeIran-4766388035
       - 4Mohsen-9f5fdcf5e1
       - 4Mohsen-cc652b352a
+      - 4Mohsen-51566105c5
       - 4Nika-ac41cca32f
       - 4Mohsen-7a2f42796a
   - name: Auto
@@ -270,10 +288,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-ef1af09d84
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Mohsen-ef1af09d84
       - EPODONIOS
+      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 🇫🇮139907
       - DeltaKroneckerGithub-03
@@ -286,6 +304,7 @@ proxy-groups:
       - 4FreeIran-4766388035
       - 4Mohsen-9f5fdcf5e1
       - 4Mohsen-cc652b352a
+      - 4Mohsen-51566105c5
       - 4Nika-ac41cca32f
       - 4Mohsen-7a2f42796a
 rules:

@@ -1,38 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 78.159.246.110
-    port: 443
-    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fbsv6.guardora.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-9e23dbb19d
-    server: 78.159.246.110
-    port: 443
-    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: fbsv6.guardora.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fbsv6.guardora.pro
-  - type: vless
     name: 4Kian-a185404230
     server: 78.159.246.179
     port: 2053
@@ -42,22 +9,30 @@ proxies:
     client-fingerprint: safari
     servername: randomquaint.net
     xudp: true
+  - type: vless
+    name: 4Mohsen-ad08808355
+    server: randomquaint.net
+    port: 2053
+    uuid: c2bbf90c-7f13-47dd-b68d-f0bd38b6b3c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: randomquaint.net
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Nika-9e23dbb19d
       - 4Kian-a185404230
+      - 4Mohsen-ad08808355
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Nika-9e23dbb19d
       - 4Kian-a185404230
+      - 4Mohsen-ad08808355
 rules:
   - MATCH,Proxy

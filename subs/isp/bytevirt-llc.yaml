@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 141.11.139.215
+    port: 443
+    uuid: d342d11e-d224-4463-b982-532309285094
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 151.242.189.137
     port: 443
     password: "521314"
@@ -24,13 +40,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
+  - type: vless
+    name: 4FreeIran-d2b0bb7e32
+    server: 141.11.139.215
+    port: 443
+    uuid: d342d11e-d224-4463-b982-532309285094
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-141768bd0c
+      - 4FreeIran-d2b0bb7e32
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +72,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-141768bd0c
+      - 4FreeIran-d2b0bb7e32
 rules:
   - MATCH,Proxy
