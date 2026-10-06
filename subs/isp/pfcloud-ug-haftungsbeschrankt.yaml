@@ -3,8 +3,54 @@ proxies:
     name: vless
     server: 31.57.185.106
     port: 443
-    uuid: 4b7d69f7-e1cf-448f-ab9e-753f13d0637f
+    uuid: 061f175a-35ee-48d6-b80b-d457d17f9117
     udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 31.57.185.106
+    port: 443
+    uuid: 16011416-9809-4529-b253-f7493031696a
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 31.57.185.106
+    port: 443
+    uuid: 639c44bd-a425-41b1-b392-c1b4c07535d7
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-03
+    server: 31.57.185.106
+    port: 443
+    uuid: 7d9d99a5-0588-4d1d-abcc-a76c67472ba2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-04
+    server: 31.57.185.106
+    port: 443
+    uuid: 871e3e4b-97dd-4451-9190-264022050d37
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-05
+    server: 31.57.185.106
+    port: 443
+    uuid: cccb2d1e-cefe-4239-93e4-b71faa1b8c31
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-06
+    server: 31.57.185.106
+    port: 443
+    uuid: cccb2d1e-cefe-4239-93e4-b71faa1b8c31
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4Jadi-8a2f9ceb5f
@@ -13,21 +59,19 @@ proxies:
     uuid: 6fddf57a-313c-4d4a-8ae1-939b207a1588
     udp: true
     xudp: true
-  - type: vless
-    name: vless-01
-    server: 31.57.185.106
-    port: 443
-    uuid: 7d9d99a5-0588-4d1d-abcc-a76c67472ba2
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - 4Jadi-8a2f9ceb5f
       - vless-01
+      - vless-02
+      - vless-03
+      - vless-04
+      - vless-05
+      - vless-06
+      - 4Jadi-8a2f9ceb5f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,7 +79,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Jadi-8a2f9ceb5f
       - vless-01
+      - vless-02
+      - vless-03
+      - vless-04
+      - vless-05
+      - vless-06
+      - 4Jadi-8a2f9ceb5f
 rules:
   - MATCH,Proxy

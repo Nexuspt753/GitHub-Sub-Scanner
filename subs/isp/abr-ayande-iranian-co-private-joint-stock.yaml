@@ -6,20 +6,12 @@ proxies:
     uuid: 09bd2157-fe00-4819-9f52-4d29a1be911b
     udp: true
     xudp: true
-  - type: vless
-    name: vless-01
-    server: sst.talachandnimhub-net.ir
-    port: 1022
-    uuid: be1ebe01-3d91-4dec-9adb-3c2948baca18
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - vless-01
 rules:
   - MATCH,Proxy

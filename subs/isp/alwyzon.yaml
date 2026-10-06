@@ -1,46 +1,26 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 46.102.156.144
-    port: 2053
-    password: humanity
+  - type: vmess
+    name: 4Kian-416c962632
+    server: 94.177.9.66
+    port: 29825
+    uuid: 1933a425-2842-4d2b-8589-9ca2242d7415
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Nika-12981ae739
-    server: 46.102.156.144
-    port: 2053
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Nika-12981ae739
+      - 4Kian-416c962632
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Nika-12981ae739
+      - 4Kian-416c962632
 rules:
   - MATCH,Proxy
