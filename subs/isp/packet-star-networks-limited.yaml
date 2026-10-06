@@ -5,12 +5,38 @@ proxies:
     port: 30443
     password: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
     sni: filesconvert.org
+  - type: vless
+    name: EPODONIOS
+    server: uk.aliriw.com
+    port: 443
+    uuid: 27eea947-0046-4b91-a2c6-e35582eeecb5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: wordpress.org
+    reality-opts:
+      public-key: V1wO60MfptJ9jzeo94f1RKIcUPq6frrKoFWPp2Jutlo
+      short-id: 3bbaf2c984e16a31
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-34590524e9
+    server: 46.33.11.36
+    port: 443
+    uuid: f65b49ed-d3e6-46b3-9f92-1cab485e4a0e
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: edge2.sickok.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-e85e436996
+      - EPODONIOS
+      - 4Sarina-34590524e9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +44,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-e85e436996
+      - EPODONIOS
+      - 4Sarina-34590524e9
 rules:
   - MATCH,Proxy

@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 80.243.228.155
+    port: 2085
+    uuid: 50cee7a2-6b1c-4935-83ad-5bbe9a86e806
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

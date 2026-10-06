@@ -9,34 +9,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: EPODONIOS
-    server: 153.76.185.155
-    port: 3090
-    uuid: 43b15d01-8cc5-40ea-b42a-cb1a727224dc
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Kian-7335a8b823
-    server: 153.76.185.155
-    port: 3090
-    uuid: 43b15d01-8cc5-40ea-b42a-cb1a727224dc
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Kian-7335a8b823
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,7 +22,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4Kian-7335a8b823
 rules:
   - MATCH,Proxy

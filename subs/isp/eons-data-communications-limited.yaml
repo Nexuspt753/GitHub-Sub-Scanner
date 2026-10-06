@@ -6,12 +6,22 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: 28789988-887e-4e41-83cd-27bbfb7999ad
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 154.16.27.250
+    port: 27251
+    password: i99Cef
+    udp: true
+    tls: true
+    sni: ctldl.windowsupdate.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-53450d0803
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +29,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-53450d0803
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

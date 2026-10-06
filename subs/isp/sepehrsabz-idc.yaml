@@ -1,23 +1,53 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: p1tun2.greewebservices.ir
+    port: 2060
+    cipher: chacha20-ietf-poly1305
+    password: 3Q1UUZhdMJ1Xi4V_348v2g
+    udp: true
+  - type: ss
+    name: Shh_Proxy-New⁴
+    server: p1tun2.greewebservices.ir
+    port: 2060
+    cipher: chacha20-ietf-poly1305
+    password: 3Q1UUZhdMJ1Xi4V_348v2g
+    udp: true
+  - type: ss
     name: 4FreeIran-b436392a38
     server: p1tun2.greewebservices.ir
     port: 2060
     cipher: chacha20-ietf-poly1305
     password: 3Q1UUZhdMJ1Xi4V_348v2g
     udp: true
+  - type: vmess
+    name: 4Sarina-69592a361c
+    server: vip3.coinchain.site
+    port: 8080
+    uuid: 992b7390-b7e7-4adf-82aa-a8953a997380
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - Shh_Proxy-New⁴
       - 4FreeIran-b436392a38
+      - 4Sarina-69592a361c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - Shh_Proxy-New⁴
       - 4FreeIran-b436392a38
+      - 4Sarina-69592a361c
 rules:
   - MATCH,Proxy
