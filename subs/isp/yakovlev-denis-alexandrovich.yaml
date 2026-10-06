@@ -1,38 +1,47 @@
 proxies:
   - type: vless
-    name: 4Kian-b10ff84446
-    server: ee.h1cloud.net
-    port: 25895
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    name: DeltaKroneckerGithub
+    server: de12.h1cloud.net
+    port: 25095
+    uuid: 95003356-20f9-4c84-a21f-2f9c1fc285eb
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.samsung.com
+    client-fingerprint: chrome
+    servername: www.chip.de
+    reality-opts:
+      public-key: pvXuNe35fkSbA-CVmh6_b3ADAXLY8tBONjnwE8HM8yY
+      short-id: 397c81bed08f3f78
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: 4Mohsen-6a6b205d27
-    server: ee.h1cloud.net
-    port: 25895
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    name: 4Mohsen-badab84d2f
+    server: de12.h1cloud.net
+    port: 25095
+    uuid: 95003356-20f9-4c84-a21f-2f9c1fc285eb
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: www.samsung.com
+    client-fingerprint: chrome
+    servername: www.chip.de
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-b10ff84446
-      - 4Mohsen-6a6b205d27
+      - DeltaKroneckerGithub
+      - 4Mohsen-badab84d2f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-b10ff84446
-      - 4Mohsen-6a6b205d27
+      - DeltaKroneckerGithub
+      - 4Mohsen-badab84d2f
 rules:
   - MATCH,Proxy

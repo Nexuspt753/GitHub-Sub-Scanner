@@ -1,6 +1,15 @@
 proxies:
   - type: vless
-    name: 4Jadi-75dbfb73a7
+    name: vless
+    server: 179.254.170.86
+    port: 443
+    uuid: 3512b589-e803-43a7-8701-dcbda4bedfd1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: 4Nika-f5210cf5ff
     server: 179.254.163.11
     port: 443
     uuid: aef06aad-8e97-4452-9257-6142b5b1ceb7
@@ -10,33 +19,20 @@ proxies:
     servername: decemberfest.elfhost.ru
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-97b626f138
-    server: gemsubbgem.world
-    port: 443
-    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: gemsubbgem.world
-    reality-opts:
-      public-key: 6PJlXT9xrgJP8RXfhpWDMKPh4eqGt_IZmenc_a6v0gg
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-75dbfb73a7
-      - 4Jadi-97b626f138
+      - vless
+      - 4Nika-f5210cf5ff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-75dbfb73a7
-      - 4Jadi-97b626f138
+      - vless
+      - 4Nika-f5210cf5ff
 rules:
   - MATCH,Proxy
