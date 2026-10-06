@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: begemotov.cc
+    port: 443
+    uuid: e85d674a-0ef2-4e7b-943c-6f5eb54af52a
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - http/1.1
+    servername: begemotov.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /bgdews
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: begemotov.cc
+  - type: vless
     name: EPODONIOS
     server: msk1.animereze.site
     port: 443
@@ -64,7 +82,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 185.241.195.185
     port: 2224
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -74,32 +92,19 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: firefox
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 217.16.17.127
-    port: 25565
-    password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
-    udp: true
-    tls: true
-    sni: vkc2.safesurf.cloud
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: firefox
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
-    name: vless
-    server: birthdaysale.net
-    port: 8443
-    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    name: prrofile_purple
+    server: 217.16.31.218
+    port: 443
+    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
+    servername: max.ru
+    reality-opts:
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Jadi-72c74e47dc
@@ -133,34 +138,48 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: vless
+    server: birthdaysale.net
+    port: 8443
+    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - Telegram
       - Telegram-01
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - vless
+      - prrofile_purple
       - 4Jadi-72c74e47dc
       - 4Sarina-87802a1e41
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - Telegram
       - Telegram-01
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - vless
+      - prrofile_purple
       - 4Jadi-72c74e47dc
       - 4Sarina-87802a1e41
+      - vless
 rules:
   - MATCH,Proxy

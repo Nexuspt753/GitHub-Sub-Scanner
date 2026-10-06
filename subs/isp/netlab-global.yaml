@@ -1,6 +1,72 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
+    server: 38.150.33.232
+    port: 12329
+    uuid: 6faa980b-4a0f-4b4d-99f2-03b468da8541
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amazon.com
+    reality-opts:
+      public-key: dpG1tE9V93FM9IJeYC5-n_7RJxX7jOwrWLbQJgZpFFo
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 154.9.227.100
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 23.149.28.8
+    port: 8443
+    password: 78c6cf8f30399bad3f63f15a9600a8ef
+    udp: true
+    tls: true
+    sni: 23.149.28.8.sslip.io
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 23.149.28.8.sslip.io
+    port: 8443
+    password: 78c6cf8f30399bad3f63f15a9600a8ef
+    udp: true
+    tls: true
+    sni: 23.149.28.8.sslip.io
+    client-fingerprint: chrome
+  - type: vmess
+    name: DeltaKroneckerGithub-04
+    server: 72.249.206.49
+    port: 27074
+    uuid: dd37aaee-98e9-4942-ec48-17180c881942
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: trojan
+    name: 4Jadi-3fd3c3cbc1
+    server: 23.149.28.8.sslip.io
+    port: 8443
+    password: 78c6cf8f30399bad3f63f15a9600a8ef
+    udp: true
+    tls: true
+    sni: 23.149.28.8.sslip.io
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-fa942c451c
     server: 154.21.195.212
     port: 16000
     uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -15,43 +81,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: qcswhj2.edge-cache.danfeng4.xyz
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 23.149.28.8.sslip.io
-    port: 8443
-    password: 78c6cf8f30399bad3f63f15a9600a8ef
-    udp: true
-    tls: true
-    sni: 23.149.28.8.sslip.io
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-3fd3c3cbc1
-    server: 23.149.28.8.sslip.io
-    port: 8443
-    password: 78c6cf8f30399bad3f63f15a9600a8ef
-    udp: true
-    tls: true
-    sni: 23.149.28.8.sslip.io
-    client-fingerprint: chrome
-  - type: vless
-    name: 4Nika-1a01c853c4
-    server: 154.9.241.170
-    port: 443
-    uuid: 30b98a28-ed4e-46eb-8548-54c25f4db53c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: itunes.apple.com
-    reality-opts:
-      public-key: _E8d7s7B7xYfZImOkKmESW6MJDxwKxnsscu56jhE2EM
-      short-id: 3fb4e08c
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: itunes.apple.com
   - type: vmess
     name: 4Sarina-90c82de4a3
     server: 64.83.12.153
@@ -67,10 +96,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Jadi-3fd3c3cbc1
-      - 4Nika-1a01c853c4
+      - 4Nika-fa942c451c
       - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
@@ -78,10 +110,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Jadi-3fd3c3cbc1
-      - 4Nika-1a01c853c4
+      - 4Nika-fa942c451c
       - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy

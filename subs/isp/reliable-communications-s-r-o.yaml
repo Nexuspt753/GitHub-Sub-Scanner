@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 153.76.185.167
+    port: 3090
+    uuid: 755d2e25-9b0c-41ae-a27c-bd45318c7a4f
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 153.76.185.155
     port: 3090
@@ -24,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 4Kian-7335a8b823
   - name: Auto
@@ -32,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 4Kian-7335a8b823
 rules:

@@ -27,21 +27,27 @@ proxies:
       short-id: 4ea97814d62329ea
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: EPODONIOS-02
-    server: 89.125.100.42
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hl-freedom-1.undef.network
     port: 443
-    uuid: 3464a5bd-6a17-4ac3-8ca9-86a54c1aac7b
+    password: JaFKnqNcvnBT63t3rquidGsln
+    udp: true
+    client-fingerprint: chrome
+  - type: vless
+    name: tootffarangi🍓-4
+    server: 89.125.100.35
+    port: 443
+    uuid: 2394671f-1526-4e84-b0b6-7b8a628a7b44
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: samsung.com
+    servername: files.appstatic.ru
     reality-opts:
-      public-key: qxfjtrU0MD7HgM2M8-Jij33p-WGUSFLG7XnaVanRx0Y
+      public-key: amoE2JyGxhZ3GQP_kDn7Yw3_0JaZCPe0b_4s0ZM1YH4
+      short-id: 4ea97814d62329ea
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: tootffarangi🍓-7
     server: files.appstatic.ru
@@ -56,23 +62,8 @@ proxies:
       short-id: 4ea97814d62329ea
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 🇳🇱187855
-    server: 89.125.100.42
-    port: 443
-    uuid: 3464a5bd-6a17-4ac3-8ca9-86a54c1aac7b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: samsung.com
-    reality-opts:
-      public-key: qxfjtrU0MD7HgM2M8-Jij33p-WGUSFLG7XnaVanRx0Y
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: hl-freedom-2.undef.network
     port: 443
     password: Tn2Bf0iRwJkJQgDk6gX6x81RB
@@ -81,12 +72,19 @@ proxies:
     sni: hl-freedom-2.undef.network
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: hl-freedom-1.undef.network
+    name: DeltaKroneckerGithub-02
+    server: hl-freedom-2.undef.network
     port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
+    password: mJVGfrOkZGnMywJD2uwmuXgOQ
     udp: true
+    tls: true
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-2.undef.network
   - type: vless
     name: 4Kian-2c43e9c808
     server: 89.125.100.35
@@ -130,6 +128,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-4f67256968
+    server: 89.125.100.42
+    port: 443
+    uuid: 3464a5bd-6a17-4ac3-8ca9-86a54c1aac7b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: samsung.com
+    reality-opts:
+      public-key: qxfjtrU0MD7HgM2M8-Jij33p-WGUSFLG7XnaVanRx0Y
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -137,14 +150,15 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
-      - tootffarangi🍓-7
-      - 🇳🇱187855
       - DeltaKroneckerGithub
+      - tootffarangi🍓-4
+      - tootffarangi🍓-7
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-2c43e9c808
       - 4Nika-0d59a6b150
       - 4Kian-223e130c04
+      - 4Jadi-4f67256968
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -153,13 +167,14 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
-      - tootffarangi🍓-7
-      - 🇳🇱187855
       - DeltaKroneckerGithub
+      - tootffarangi🍓-4
+      - tootffarangi🍓-7
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-2c43e9c808
       - 4Nika-0d59a6b150
       - 4Kian-223e130c04
+      - 4Jadi-4f67256968
 rules:
   - MATCH,Proxy

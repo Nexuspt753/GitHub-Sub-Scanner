@@ -1,20 +1,4 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 185.151.146.211
-    port: 443
-    password: 7522e2c27233459aab8d0f1d715828d0
-    udp: true
-    tls: true
-    sni: www.gpt123.one
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 185.151.146.40
-    port: 443
-    password: 3ac6a6ca99f74941b1eaf892818e2ddb
-    udp: true
-    client-fingerprint: chrome
   - type: ss
     name: 4Jadi-67ae4e8337
     server: mn.qwer-cn.org
@@ -65,7 +49,7 @@ proxies:
     password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
     udp: true
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub
     server: 45.145.154.8
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -73,13 +57,18 @@ proxies:
     tls: true
     sni: 45.145.154.8
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 185.151.146.40
+    port: 443
+    password: 3ac6a6ca99f74941b1eaf892818e2ddb
+    udp: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Jadi-67ae4e8337
       - 4Sarina-0fa9372a00
       - 4Kian-ac00823e9a
@@ -87,15 +76,14 @@ proxy-groups:
       - 4Nika-17ebc57114
       - 4Mohsen-9f95212127
       - 4Kian-8c9ac3d6be
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Jadi-67ae4e8337
       - 4Sarina-0fa9372a00
       - 4Kian-ac00823e9a
@@ -103,6 +91,7 @@ proxy-groups:
       - 4Nika-17ebc57114
       - 4Mohsen-9f95212127
       - 4Kian-8c9ac3d6be
-      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

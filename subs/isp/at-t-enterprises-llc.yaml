@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 99.63.206.163
+    port: 443
+    uuid: f49d04d6-aaa7-4013-b323-bc35b78230db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s3ws.ragingbull.de5.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /wsrb7k2m
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: s3ws.ragingbull.de5.net
+  - type: vless
     name: 4Jadi-ec124b91c8
     server: 99.63.206.163
     port: 443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Jadi-ec124b91c8
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Jadi-ec124b91c8
 rules:
   - MATCH,Proxy
