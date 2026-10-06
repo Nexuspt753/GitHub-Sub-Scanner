@@ -1,29 +1,38 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 3f8efdt.fi1.h1clayd.click
-    port: 443
-    uuid: 9a0e84f8-4b58-477f-99da-5fac5a2e58e8
+    name: 4Kian-b10ff84446
+    server: ee.h1cloud.net
+    port: 25895
+    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
     udp: true
     tls: true
-    client-fingerprint: edge
-    servername: 3f8efdt.fi1.h1clayd.click
-    reality-opts:
-      public-key: 1D_o1pqfVoReg9zLPKNy1wCL7aGWytbmbYPbbJGaozY
-      short-id: 023a1e6ffc32be10
+    client-fingerprint: firefox
+    servername: www.samsung.com
+    xudp: true
+  - type: vless
+    name: 4Mohsen-6a6b205d27
+    server: ee.h1cloud.net
+    port: 25895
+    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.samsung.com
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-b10ff84446
+      - 4Mohsen-6a6b205d27
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-b10ff84446
+      - 4Mohsen-6a6b205d27
 rules:
   - MATCH,Proxy

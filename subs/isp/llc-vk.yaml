@@ -1,20 +1,22 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 109.120.181.153
+    name: EPODONIOS
+    server: msk1.animereze.site
     port: 443
-    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    uuid: 2463908b-9922-43d1-8186-a9d245790073
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: eh.vk.ru
+    servername: www.dell.com
     reality-opts:
-      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
-      short-id: db04ce8bdb8900f1
-    flow: xtls-rprx-vision
+      public-key: oL0LzTElvD_F8qhoabfvTh6ON_fZv_bM52I9Xqb8CSg
+      short-id: 848af9514e811495
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: uk1.animereze.site
     port: 443
     uuid: 2463908b-9922-43d1-8186-a9d245790073
@@ -62,7 +64,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 185.241.195.185
     port: 2224
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -73,7 +75,7 @@ proxies:
       - http/1.1
     client-fingerprint: firefox
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -87,6 +89,18 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: vless
+    server: birthdaysale.net
+    port: 8443
+    uuid: 7902aedf-ad9b-427a-b5ad-29d3575d0e2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
   - type: vless
     name: 4Jadi-72c74e47dc
     server: msk1.animereze.site
@@ -124,12 +138,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
       - Telegram
       - Telegram-01
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - vless
       - 4Jadi-72c74e47dc
       - 4Sarina-87802a1e41
   - name: Auto
@@ -138,12 +153,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
       - Telegram
       - Telegram-01
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - vless
       - 4Jadi-72c74e47dc
       - 4Sarina-87802a1e41
 rules:
