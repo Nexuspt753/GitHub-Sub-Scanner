@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 31.42.127.2
+    port: 52228
+    uuid: 6606b32b-5c56-40e8-97e3-10b1045f02fd
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 31.42.127.2
+    port: 52228
+    uuid: 8ef4192d-ba89-4e8c-939e-0947350940af
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇹🇷188799
+    server: 31.42.127.2
+    port: 52228
+    uuid: 6606b32b-5c56-40e8-97e3-10b1045f02fd
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇹🇷TR-🚀@VPNine1
+    server: 31.42.127.2
+    port: 52228
+    uuid: 6606b32b-5c56-40e8-97e3-10b1045f02fd
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇹🇷188711
+    server: 31.42.127.2
+    port: 52228
+    uuid: 8ef4192d-ba89-4e8c-939e-0947350940af
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇹🇷TR-🚀@VPNine1-01
+    server: 31.42.127.2
+    port: 52228
+    uuid: 8ef4192d-ba89-4e8c-939e-0947350940af
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇹🇷188799
+      - 🇹🇷TR-🚀@VPNine1
+      - 🇹🇷188711
+      - 🇹🇷TR-🚀@VPNine1-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇹🇷188799
+      - 🇹🇷TR-🚀@VPNine1
+      - 🇹🇷188711
+      - 🇹🇷TR-🚀@VPNine1-01
+rules:
+  - MATCH,Proxy
