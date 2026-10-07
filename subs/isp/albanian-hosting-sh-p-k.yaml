@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-1886de690a
-    server: 103.167.234.26
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
-  - type: vless
     name: 4Mohsen-7f0b2e9717
     server: 103.167.234.26
     port: 443
@@ -47,22 +31,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: vless
+    name: 4Nika-6f7701bba1
+    server: deu196.unboundaccess.org
+    port: 443
+    uuid: f788e136-b245-4617-9d41-b505c7f41ef9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1886de690a
       - 4Mohsen-7f0b2e9717
       - 4Kian-a70f8f660d
+      - 4Nika-6f7701bba1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1886de690a
       - 4Mohsen-7f0b2e9717
       - 4Kian-a70f8f660d
+      - 4Nika-6f7701bba1
 rules:
   - MATCH,Proxy

@@ -1,24 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: begemotov.cc
-    port: 443
-    uuid: e85d674a-0ef2-4e7b-943c-6f5eb54af52a
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    alpn:
-      - http/1.1
-    servername: begemotov.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /bgdews
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: begemotov.cc
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 185.241.195.185
     port: 2224
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -34,7 +16,6 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
