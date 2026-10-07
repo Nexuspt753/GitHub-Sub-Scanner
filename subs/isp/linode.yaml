@@ -1,5 +1,52 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 139.162.27.96
+    port: 2096
+    uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: free-server.techsonic.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /free-server.techsonic.dev
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free-server.techsonic.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: asia.csmaster.site
+    port: 443
+    uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: asia.csmaster.site
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: asia.csmaster.site
+    port: 8443
+    uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: asia.csmaster.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: asia.csmaster.site
+  - type: vless
     name: 4Nika-c1370dd3b2
     server: asia.csmaster.site
     port: 8443
@@ -35,6 +82,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-c1370dd3b2
       - 4Nika-3b83ca17a5
   - name: Auto
@@ -43,6 +93,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-c1370dd3b2
       - 4Nika-3b83ca17a5
 rules:

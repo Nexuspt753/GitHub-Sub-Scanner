@@ -1,23 +1,43 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: tr2.rexten.cc
+    server: 203.202.232.211
     port: 443
-    uuid: add59713-f5c6-4442-83a3-6bc9281f5c90
+    uuid: d342d11e-d224-4463-b982-532309285094
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: tr2.rexten.cc
-    reality-opts:
-      public-key: OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
     xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
+  - type: vless
+    name: v2ray_phoenix
+    server: 203.202.232.211
+    port: 443
+    uuid: d342d11e-d224-4463-b982-532309285094
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - v2ray_phoenix
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - v2ray_phoenix
 rules:
   - MATCH,Proxy

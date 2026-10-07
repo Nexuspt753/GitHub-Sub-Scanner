@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 2.144.27.137
+    name: canfingV2rayNG-214
+    server: 2.144.22.87
     port: 443
-    uuid: 88e498c1-0072-474c-a824-9c4e7d4c6d5c
+    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vip2.polnejat.ir
+    alpn:
+      - h2
+      - http/1.1
+    servername: api.bgp6.ir
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-geo-psiphon-gb
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip2.polnejat.ir
+  - type: vless
+    name: 🇮🇷189118
+    server: 2.144.22.87
+    port: 443
+    uuid: 5e9d217c-0f9f-4c8c-aa79-a600baa8765b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: api.bgp6.ir
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - canfingV2rayNG-214
+      - 🇮🇷189118
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - canfingV2rayNG-214
+      - 🇮🇷189118
 rules:
   - MATCH,Proxy

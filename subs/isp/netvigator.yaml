@@ -1,23 +1,25 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-0cff48bd34
-    server: xg1.xueshan168.cc
-    port: 20201
-    password: cf20ac54-9c77-4fec-b2b6-bcf8223aa4d5
-    sni: xg1.xueshan168.cc
-    skip-cert-verify: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: kaizen-hk-11.gocmydns.com
+    port: 443
+    password: 29db38f0-e302-3768-8867-0b9bf00c77e4cmynw
+    udp: true
+    tls: true
+    sni: images.apple.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-0cff48bd34
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-0cff48bd34
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,46 +1,32 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-fcd188e380
-    server: bg185.mechvpn.online
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 193.37.215.75
     port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: bg185.mechvpn.online
-  - type: hysteria2
-    name: 保加利亚
-    server: bg185.mechvpn.online
-    port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: bg185.mechvpn.online
-  - type: hysteria2
-    name: EPODONIOS
-    server: bg185.mechvpn.online
-    port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: bg185.mechvpn.online
-  - type: hysteria2
-    name: 4Nika-90f0cc01ee
-    server: bg185.mechvpn.online
-    port: 443
-    password: 53c76647-14d1-4df5-99cb-be99ad2e6bd9
-    sni: bg185.mechvpn.online
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-fcd188e380
-      - 保加利亚
-      - EPODONIOS
-      - 4Nika-90f0cc01ee
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-fcd188e380
-      - 保加利亚
-      - EPODONIOS
-      - 4Nika-90f0cc01ee
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

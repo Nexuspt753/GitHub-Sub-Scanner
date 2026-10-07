@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 176.108.252.139
+    port: 9881
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: dl.google.com
+    reality-opts:
+      public-key: Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0
+      short-id: aabb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 176.108.247.180
     port: 443
@@ -11,6 +27,22 @@ proxies:
     reality-opts:
       public-key: zjv3djnsCKDqP7zZFIrJ9ImzgdPE3zFMCYrOvdWqkEE
       short-id: 06bf5b24acb9
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 176.109.107.120
+    port: 443
+    uuid: c7e21691-d20d-4c99-b907-9fa16a1d23ac
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 2gis.ru
+    reality-opts:
+      public-key: 8wdJkt847b6FbdFKpxg5QWJyE7yijdyUYjKIlfE75EI
+      short-id: 766d197af8a04d7b
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: irdusti(27)🇷🇺¹
@@ -62,7 +94,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
       - irdusti(27)🇷🇺¹
       - 4FreeIran-522cf5a679
       - 4FreeIran-2cc3a5e2fc
@@ -72,7 +106,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - EPODONIOS-01
       - irdusti(27)🇷🇺¹
       - 4FreeIran-522cf5a679
       - 4FreeIran-2cc3a5e2fc

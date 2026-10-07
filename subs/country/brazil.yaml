@@ -1,22 +1,13 @@
 proxies:
-  - type: vmess
+  - type: trojan
     name: São Paulo · @DeltaKroneckerGithub
-    server: 89.39.161.157
+    server: 109.104.155.94
     port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
+    password: "3828095943467868160"
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: aksai.org
-    network: ws
-    ws-opts:
-      path: /linkvws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: aksai.org
+    sni: national-toucan.dolphin109.quest
+    client-fingerprint: chrome
   - type: vless
     name: Vinhedo · 4FreeIran-c529468201
     server: 157.151.4.93
@@ -33,23 +24,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vmess
-    name: São Paulo · 4Jadi-2b0cc9b375
-    server: 89.39.161.157
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: aksai.org
 proxy-groups:
   - name: Proxy
     type: select
@@ -57,7 +31,6 @@ proxy-groups:
       - Auto
       - São Paulo · @DeltaKroneckerGithub
       - Vinhedo · 4FreeIran-c529468201
-      - São Paulo · 4Jadi-2b0cc9b375
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,6 +39,5 @@ proxy-groups:
     proxies:
       - São Paulo · @DeltaKroneckerGithub
       - Vinhedo · 4FreeIran-c529468201
-      - São Paulo · 4Jadi-2b0cc9b375
 rules:
   - MATCH,Proxy
