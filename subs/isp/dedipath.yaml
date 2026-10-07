@@ -1,6 +1,47 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: lv.srv.safes-infrastructure.com
+    port: 8443
+    uuid: aa705581-4390-42e3-a53a-09d116032454
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lv.srv.safes-infrastructure.com
+    reality-opts:
+      public-key: yg8AxPPiKD1wQ-AlxB8Iwo0w59A4QTVob_FVAl4iuRw
+      short-id: e7d8f0aa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: filembad
+    server: lv.srv.safes-infrastructure.com
+    port: 8443
+    uuid: aa705581-4390-42e3-a53a-09d116032454
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: lv.srv.safes-infrastructure.com
+    reality-opts:
+      public-key: yg8AxPPiKD1wQ-AlxB8Iwo0w59A4QTVob_FVAl4iuRw
+      short-id: e7d8f0aa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-f7c2bf6fd6
+    server: lv.srv.safes-infrastructure.com
+    port: 8443
+    uuid: aa705581-4390-42e3-a53a-09d116032454
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: yg8AxPPiKD1wQ-AlxB8Iwo0w59A4QTVob_FVAl4iuRw
+      short-id: e7d8f0aa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-92bc491cd8
     server: lv.srv.safes-infrastructure.com
     port: 8443
     uuid: aa705581-4390-42e3-a53a-09d116032454
@@ -18,13 +59,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - filembad
+      - 4Mohsen-f7c2bf6fd6
+      - 4FreeIran-92bc491cd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - filembad
+      - 4Mohsen-f7c2bf6fd6
+      - 4FreeIran-92bc491cd8
 rules:
   - MATCH,Proxy

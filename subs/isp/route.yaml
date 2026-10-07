@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-d6b86f2d4b
+    server: 107.150.93.54
+    port: 443
+    uuid: 20ef7310-0b50-4943-98a6-3d0856b383b1
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: 20ef7310.ferrin.uk
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-d6b86f2d4b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-d6b86f2d4b
+rules:
+  - MATCH,Proxy

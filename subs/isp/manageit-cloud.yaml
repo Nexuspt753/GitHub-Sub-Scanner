@@ -1,6 +1,13 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: Netherlands.qelvra.ir
+    port: 8443
+    uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: turkey.qelvra.ir
     port: 2087
     uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
@@ -8,8 +15,22 @@ proxies:
     xudp: true
   - type: vless
     name: Net2ray
+    server: Netherlands.qelvra.ir
+    port: 8443
+    uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
+    udp: true
+    xudp: true
+  - type: vless
+    name: Net2ray-01
     server: germany.qelvra.ir
     port: 32427
+    uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
+    udp: true
+    xudp: true
+  - type: vless
+    name: Net2ray-02
+    server: turkey.qelvra.ir
+    port: 2087
     uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
     udp: true
     xudp: true
@@ -20,22 +41,17 @@ proxies:
     uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
     udp: true
     xudp: true
-  - type: vless
-    name: 4Jadi-13827e492c
-    server: germany.qelvra.ir
-    port: 32427
-    uuid: f3ab8321-0c15-4c9a-9917-3f1b6706ab12
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - Net2ray
+      - Net2ray-01
+      - Net2ray-02
       - 4Jadi-c8ebf987c1
-      - 4Jadi-13827e492c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,8 +59,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - Net2ray
+      - Net2ray-01
+      - Net2ray-02
       - 4Jadi-c8ebf987c1
-      - 4Jadi-13827e492c
 rules:
   - MATCH,Proxy

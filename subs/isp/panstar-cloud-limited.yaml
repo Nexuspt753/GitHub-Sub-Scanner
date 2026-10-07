@@ -1,15 +1,17 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    server: 216.195.196.86
+    port: 8443
+    uuid: 7c973569-71da-4d18-8c80-aa4c8ee2f257
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 5wGgDloyck_L25Y5rkWorpV3IK00pK0Lki7LR0VY0io
+      short-id: 4fba6fd2c74fd18f
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 🇭🇰
@@ -23,6 +25,40 @@ proxies:
       - h2
       - http/1.1
     xudp: true
+  - type: vless
+    name: 4Nika-aece09a1aa
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: 4Nika-6fac96f320
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: 4Mohsen-f3f00c177a
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 195.58.144.56
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -30,6 +66,9 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 🇭🇰
+      - 4Nika-aece09a1aa
+      - 4Nika-6fac96f320
+      - 4Mohsen-f3f00c177a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,5 +77,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 🇭🇰
+      - 4Nika-aece09a1aa
+      - 4Nika-6fac96f320
+      - 4Mohsen-f3f00c177a
 rules:
   - MATCH,Proxy

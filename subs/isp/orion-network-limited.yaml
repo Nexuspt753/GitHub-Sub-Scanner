@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 165.231.99.46
+    port: 8443
+    uuid: 20ef7310-0b50-4943-98a6-3d0856b383b1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vusr-6ac431f4.adhil.uk
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 165.231.99.45
     port: 8443
@@ -97,18 +108,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-d6ef7c6874
-    server: 165.231.177.114
-    port: 443
-    uuid: 70ad3e9c-89e6-4ee3-91c3-7cb10a4e483a
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    alpn:
-      - h2
-    servername: cab-6ac48f09.ferrin.uk
-    xudp: true
-  - type: vless
     name: 4Sarina-905c53ac12
     server: 165.231.177.50
     port: 443
@@ -119,24 +118,12 @@ proxies:
     alpn:
       - h2
     xudp: true
-  - type: vless
-    name: 4Nika-9fce5d838c
-    server: 165.231.99.46
-    port: 8443
-    uuid: 70ad3e9c-89e6-4ee3-91c3-7cb10a4e483a
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    alpn:
-      - h2
-    servername: file-6ac48f09.adhil.uk
-    flow: xtls-rprx-vision-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - tootffarangi🍓-3
       - vless
@@ -145,15 +132,14 @@ proxy-groups:
       - vless-03
       - 4FreeIran-5c5eeef836
       - 4Mohsen-ba44f9150c
-      - 4FreeIran-d6ef7c6874
       - 4Sarina-905c53ac12
-      - 4Nika-9fce5d838c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - tootffarangi🍓-3
       - vless
@@ -162,8 +148,6 @@ proxy-groups:
       - vless-03
       - 4FreeIran-5c5eeef836
       - 4Mohsen-ba44f9150c
-      - 4FreeIran-d6ef7c6874
       - 4Sarina-905c53ac12
-      - 4Nika-9fce5d838c
 rules:
   - MATCH,Proxy

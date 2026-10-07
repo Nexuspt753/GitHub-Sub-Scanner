@@ -6,12 +6,23 @@ proxies:
     uuid: 674eadf6-31fc-4bd4-bb4b-b97313c463fe
     udp: true
     xudp: true
+  - type: vmess
+    name: 4Mohsen-7a653dff2f
+    server: dashboard.afrawebsite.top
+    port: 3071
+    uuid: bbefddcb-9484-46cd-8664-3be3dde98bc7
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - meliproxyy
+      - 4Mohsen-7a653dff2f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +30,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - meliproxyy
+      - 4Mohsen-7a653dff2f
 rules:
   - MATCH,Proxy

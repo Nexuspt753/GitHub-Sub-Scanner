@@ -1,17 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 38.150.33.232
-    port: 12329
-    uuid: 6faa980b-4a0f-4b4d-99f2-03b468da8541
+    server: 154.9.227.100
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.amazon.com
-    reality-opts:
-      public-key: dpG1tE9V93FM9IJeYC5-n_7RJxX7jOwrWLbQJgZpFFo
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: bab-6.site
     xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 23.149.28.8.sslip.io
@@ -47,6 +50,31 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-fb4621ddfa
+    server: 189.24.108.152
+    port: 59719
+    uuid: cd55b3ae-6833-4eff-be18-55bd92164071
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.lu
+    reality-opts:
+      public-key: cWI4RpOZJqkX1HE9pQIZQ8eNeLWGX8UEzECyRehQnlQ
+      short-id: 6e6f9fa5decc02
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-01201e8624
+    server: 189.24.108.152
+    port: 59719
+    uuid: cd55b3ae-6833-4eff-be18-55bd92164071
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.lu
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Sarina-90c82de4a3
     server: 64.83.12.153
@@ -67,6 +95,8 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - 4Jadi-3fd3c3cbc1
       - 4Kian-43a3bcdefb
+      - 4Mohsen-fb4621ddfa
+      - 4Sarina-01201e8624
       - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
@@ -79,6 +109,8 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - 4Jadi-3fd3c3cbc1
       - 4Kian-43a3bcdefb
+      - 4Mohsen-fb4621ddfa
+      - 4Sarina-01201e8624
       - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy

@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 89.208.254.233
+    port: 443
+    uuid: ab1249da-9ac8-44c7-89a3-2d337ab25cb2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: halo.sigy.me
+    reality-opts:
+      public-key: PR2mhvCXer5q0MdcFq02GiyGhjSYqfyHVnFjjHhHOgY
+      short-id: 3221cb224d06a873
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 104.160.44.203
     port: 443
     password: 600421cf-11d7-429f-a65b-c30397f1bc03
@@ -17,6 +31,28 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-f3d71c4781
+    server: 89.208.254.233
+    port: 443
+    uuid: ab1249da-9ac8-44c7-89a3-2d337ab25cb2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: halo.sigy.me
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-07eecad797
+    server: 89.208.254.233
+    port: 443
+    uuid: ab1249da-9ac8-44c7-89a3-2d337ab25cb2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: halo.sigy.me
+    flow: xtls-rprx-vision-udp443
+    xudp: true
   - type: vmess
     name: 4Nika-2f67175f1c
     server: kr-arm2.018999.xyz
@@ -34,32 +70,17 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: kr-arm2.018999.xyz
-  - type: vmess
-    name: 4Kian-32a4fe5ef9
-    server: jp-amd1.018999.xyz
-    port: 443
-    uuid: 65e619e7-0bf1-4f5b-a390-5735b01a3713
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /65e619e7-0bf1-4f5b-a390-5735b01a3713
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp-amd1.018999.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-32e553f3cf
+      - 4Mohsen-f3d71c4781
+      - 4Mohsen-07eecad797
       - 4Nika-2f67175f1c
-      - 4Kian-32a4fe5ef9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,8 +88,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-32e553f3cf
+      - 4Mohsen-f3d71c4781
+      - 4Mohsen-07eecad797
       - 4Nika-2f67175f1c
-      - 4Kian-32a4fe5ef9
 rules:
   - MATCH,Proxy
