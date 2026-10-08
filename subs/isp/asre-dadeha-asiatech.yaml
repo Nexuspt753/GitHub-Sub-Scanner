@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: ir2.mobileemdad.top
+    port: 443
+    uuid: 3290c5f5-241c-464f-8098-c6b20bcadf94
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nobitex.ir
+    reality-opts:
+      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
+      short-id: 9ed2fa
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 193.151.134.182
@@ -8,18 +22,36 @@ proxies:
     tls: true
     sni: iprostable.enterprises
     client-fingerprint: chrome
+  - type: vless
+    name: 4Jadi-c8722b57a9
+    server: ir2.mobileemdad.top
+    port: 443
+    uuid: 3290c5f5-241c-464f-8098-c6b20bcadf94
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nobitex.ir
+    reality-opts:
+      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
+      short-id: 9ed2fa
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
+      - 4Jadi-c8722b57a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
+      - 4Jadi-c8722b57a9
 rules:
   - MATCH,Proxy

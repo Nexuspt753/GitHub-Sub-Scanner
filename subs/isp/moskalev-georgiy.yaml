@@ -1,34 +1,15 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 89.125.100.35
-    port: 443
-    uuid: 2394671f-1526-4e84-b0b6-7b8a628a7b44
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: files.appstatic.ru
-    reality-opts:
-      public-key: amoE2JyGxhZ3GQP_kDn7Yw3_0JaZCPe0b_4s0ZM1YH4
-      short-id: 4ea97814d62329ea
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: files.appstatic.ru
-    port: 443
-    uuid: 2394671f-1526-4e84-b0b6-7b8a628a7b44
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: files.appstatic.ru
-    reality-opts:
-      public-key: amoE2JyGxhZ3GQP_kDn7Yw3_0JaZCPe0b_4s0ZM1YH4
-      short-id: 4ea97814d62329ea
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
+    server: hl-freedom-2.undef.network
+    port: 443
+    password: Tn2Bf0iRwJkJQgDk6gX6x81RB
+    udp: true
+    tls: true
+    sni: hl-freedom-2.undef.network
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: hl-freedom-0.undef.network
     port: 443
     password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
@@ -43,14 +24,14 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hl-freedom-0.undef.network
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: hl-freedom-1.undef.network
     port: 443
     password: JaFKnqNcvnBT63t3rquidGsln
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: hl-freedom-2.undef.network
     port: 443
     password: mJVGfrOkZGnMywJD2uwmuXgOQ
@@ -63,58 +44,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hl-freedom-2.undef.network
-  - type: vless
-    name: 4Kian-2c43e9c808
-    server: 89.125.100.35
-    port: 443
-    uuid: 2394671f-1526-4e84-b0b6-7b8a628a7b44
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: files.appstatic.ru
-    reality-opts:
-      public-key: amoE2JyGxhZ3GQP_kDn7Yw3_0JaZCPe0b_4s0ZM1YH4
-      short-id: 4ea97814d62329ea
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-0d59a6b150
-    server: files.appstatic.ru
-    port: 443
-    uuid: 2394671f-1526-4e84-b0b6-7b8a628a7b44
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: files.appstatic.ru
-    reality-opts:
-      public-key: amoE2JyGxhZ3GQP_kDn7Yw3_0JaZCPe0b_4s0ZM1YH4
-      short-id: 4ea97814d62329ea
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Kian-2c43e9c808
-      - 4Nika-0d59a6b150
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Kian-2c43e9c808
-      - 4Nika-0d59a6b150
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

@@ -1,5 +1,34 @@
 proxies:
   - type: vless
+    name: vless
+    server: 103.102.228.113
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp58.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /TelegramU0001F1E8U0001F1F3
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp58.cc.cd
+  - type: vless
+    name: vless-01
+    server: 103.102.228.113
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /TelegramU0001F1E8U0001F1F3
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp58.cc.cd
+  - type: vless
     name: 4Nika-36a0d27b43
     server: 103.102.228.113
     port: 443
@@ -14,7 +43,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Jadi-81c5a7233f
+    name: 4Nika-c3438f1334
     server: 185.232.204.222
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -24,7 +53,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-62.mirra.now
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -33,6 +61,23 @@ proxies:
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Kian-2e6eb54e87
+    server: 185.232.204.222
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4FreeIran-81864d4afd
     server: 185.232.204.222
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -119,30 +164,56 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-a88603aed8
+    server: 94.177.51.198
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - vless
+      - vless-01
       - 4Nika-36a0d27b43
-      - 4Jadi-81c5a7233f
+      - 4Nika-c3438f1334
       - 4Kian-2e6eb54e87
+      - 4FreeIran-81864d4afd
       - 4Jadi-ffa1c3e5c2
       - 4Kian-010c666cff
       - 4Kian-ea4baaf2aa
       - 4Sarina-d47b2676b6
+      - 4Sarina-a88603aed8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vless
+      - vless-01
       - 4Nika-36a0d27b43
-      - 4Jadi-81c5a7233f
+      - 4Nika-c3438f1334
       - 4Kian-2e6eb54e87
+      - 4FreeIran-81864d4afd
       - 4Jadi-ffa1c3e5c2
       - 4Kian-010c666cff
       - 4Kian-ea4baaf2aa
       - 4Sarina-d47b2676b6
+      - 4Sarina-a88603aed8
 rules:
   - MATCH,Proxy

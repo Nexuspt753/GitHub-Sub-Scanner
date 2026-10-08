@@ -1,32 +1,62 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 103.27.187.162
-    port: 8443
-    uuid: 273e3ba1-ef63-47c1-88db-c368bf1e8736
+    name: 4Nika-768f6cf744
+    server: 185.170.211.189
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: cfbb.dongkunjian.ccwu.cc
+    servername: nl2.bbobr.win
+    reality-opts:
+      public-key: eztZ1H-OkkHao6d4FhX8Q728qN1UIeFcYH2jObRq1gc
+      short-id: fbe9c012125d90d2
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cfbb.dongkunjian.ccwu.cc
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-86abecf964
+    server: 185.170.211.189
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl2.bbobr.win
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-a38f5cddb5
+    server: 185.170.211.189
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl2.bbobr.win
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-768f6cf744
+      - 4Nika-86abecf964
+      - 4Nika-a38f5cddb5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-768f6cf744
+      - 4Nika-86abecf964
+      - 4Nika-a38f5cddb5
 rules:
   - MATCH,Proxy

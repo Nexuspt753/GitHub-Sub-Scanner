@@ -1,20 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 137.175.82.40
-    port: 30556
-    uuid: 949d278e-6d98-4014-84e9-59f1c6c93e0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.lovelive-anime.jp
-    reality-opts:
-      public-key: EcmNQqZxyW4GCEQF-7nH54w3qgBkLzsfqFSgafGjB0E
-      short-id: d082f567
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 38.28.197.130
     port: 443
     password: Aimer
@@ -105,10 +91,10 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Sarina-927680a8ac
-    server: ct3.ainivp.com
-    port: 33412
-    uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+    name: 4Jadi-bb0b9a5f59
+    server: yd4.ainivp.com
+    port: 33204
+    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
     alterId: 0
     cipher: auto
     udp: true
@@ -120,20 +106,37 @@ proxies:
       path: /ray
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ct3.ainivp.com
+        Host: yd4.ainivp.com
+  - type: vmess
+    name: 4Jadi-b89e3285d0
+    server: yd3.ainivp.com
+    port: 33409
+    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: yd3.ainivp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-83ba162e3b
       - 4Jadi-e0b29b07ba
       - 4Nika-48fd62cdab
       - 4FreeIran-a5f8eb8aa8
       - 4FreeIran-9928c008c7
-      - 4Sarina-927680a8ac
+      - 4Jadi-bb0b9a5f59
+      - 4Jadi-b89e3285d0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -141,12 +144,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Kian-83ba162e3b
       - 4Jadi-e0b29b07ba
       - 4Nika-48fd62cdab
       - 4FreeIran-a5f8eb8aa8
       - 4FreeIran-9928c008c7
-      - 4Sarina-927680a8ac
+      - 4Jadi-bb0b9a5f59
+      - 4Jadi-b89e3285d0
 rules:
   - MATCH,Proxy

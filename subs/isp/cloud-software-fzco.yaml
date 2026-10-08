@@ -1,15 +1,6 @@
 proxies:
   - type: trojan
     name: EPODONIOS
-    server: 46.8.100.93
-    port: 443
-    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
-    udp: true
-    tls: true
-    sni: nl.zhabulik.ru
-    client-fingerprint: chrome
-  - type: trojan
-    name: EPODONIOS-01
     server: nl.zhabulik.ru
     port: 443
     password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
@@ -54,8 +45,22 @@ proxies:
       - http/1.1
     client-fingerprint: chrome
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-01
     server: 46.8.103.64
+    port: 443
+    uuid: 8f67e374-53d9-43bb-85c9-a459a959cd1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: reserve-1.lunoa.ru
+    reality-opts:
+      public-key: zcB60qKELnjt8HqO_3lAE2qV1d-C8aZ7NXNSHv_iDV8
+      short-id: 1f763fda79312e53
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: reserve-1.lunoa.ru
     port: 443
     uuid: 8f67e374-53d9-43bb-85c9-a459a959cd1b
     udp: true
@@ -95,27 +100,6 @@ proxies:
       short-id: 1f763fda79312e53
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: 4Jadi-4943d003ba
-    server: 46.8.100.93
-    port: 443
-    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
-    udp: true
-    tls: true
-    sni: nl.zhabulik.ru
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Nika-13bba8119d
-    server: 46.8.100.93
-    port: 443
-    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
-    udp: true
-    tls: true
-    sni: nl.zhabulik.ru
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
   - type: trojan
     name: 4FreeIran-784d560286
     server: 46.8.100.93
@@ -172,26 +156,39 @@ proxies:
       short-id: 1f763fda79312e53
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-8d8c0fe3ae
+    server: reserve-1.lunoa.ru
+    port: 443
+    uuid: 8f67e374-53d9-43bb-85c9-a459a959cd1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: reserve-1.lunoa.ru
+    reality-opts:
+      public-key: zcB60qKELnjt8HqO_3lAE2qV1d-C8aZ7NXNSHv_iDV8
+      short-id: 1f763fda79312e53
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - "[🇷🇦]@CONFIG7X"
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS-01
       - EPODONIOS-02
       - i10VPN⁵
       - i10VPN⁶
-      - 4Jadi-4943d003ba
-      - 4Nika-13bba8119d
       - 4FreeIran-784d560286
       - 4Nika-2968d4eb82
       - 4Sarina-848b6a54c6
       - 4FreeIran-49ff6e782e
       - 4Nika-a3cf6f1b75
+      - 4Nika-8d8c0fe3ae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -199,19 +196,18 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - "[🇷🇦]@CONFIG7X"
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS-01
       - EPODONIOS-02
       - i10VPN⁵
       - i10VPN⁶
-      - 4Jadi-4943d003ba
-      - 4Nika-13bba8119d
       - 4FreeIran-784d560286
       - 4Nika-2968d4eb82
       - 4Sarina-848b6a54c6
       - 4FreeIran-49ff6e782e
       - 4Nika-a3cf6f1b75
+      - 4Nika-8d8c0fe3ae
 rules:
   - MATCH,Proxy
