@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: www.asamping.ir
+    port: 20901
+    uuid: ac9d915e-343c-4d6a-8d80-be975c1cefde
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: 77YMYK9A-znKQfNFN7qkFV_4hiCdpD693bnan884AiI
+      short-id: 60ef235534
+    xudp: true
+  - type: vless
+    name: 4Nika-a671bb27a1
+    server: www.asamping.ir
+    port: 20901
+    uuid: ac9d915e-343c-4d6a-8d80-be975c1cefde
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: 77YMYK9A-znKQfNFN7qkFV_4hiCdpD693bnan884AiI
+      short-id: 60ef235534
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Nika-a671bb27a1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Nika-a671bb27a1
+rules:
+  - MATCH,Proxy

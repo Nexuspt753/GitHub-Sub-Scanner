@@ -1,22 +1,36 @@
 proxies:
   - type: hysteria2
+    name: 4FreeIran-bc85aa82dd
+    server: 45.88.12.155
+    port: 443
+    password: cc4074d6-f450-4025-833a-a6e0100ceaff
+    sni: crt.molniya.sbs
+    skip-cert-verify: false
+  - type: hysteria2
     name: 4Mohsen-aa9b587561
     server: 104.165.205.46
     port: 9443
     password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
     sni: onecloudstream.com
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-facb70be5b
+    server: lv02.gotosvo.com
+    port: 9443
+    password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    sni: onecloudstream.com
+    skip-cert-verify: true
   - type: vless
     name: EPODONIOS
-    server: 45.88.12.44
+    server: 45.88.12.151
     port: 2083
-    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    uuid: cc4074d6-f450-4025-833a-a6e0100ceaff
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: crt.viktorthebest.lol
+    servername: crt.molniya.sbs
     xudp: true
     network: ws
     ws-opts:
@@ -24,14 +38,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 🇩🇪@FreakConfig
-    server: 45.88.12.36
+    name: EPODONIOS-01
+    server: 45.88.12.151
     port: 2083
-    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    uuid: cc4074d6-f450-4025-833a-a6e0100ceaff
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: crt.viktorthebest.lol
+    alpn:
+      - http/1.1
+    servername: crt.molniya.sbs
     xudp: true
     network: ws
     ws-opts:
@@ -39,14 +55,33 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Kian-c49aa79cd0
-    server: 45.88.12.36
+    name: GozargahAzad|🇩🇪
+    server: 45.88.12.151
     port: 2083
-    uuid: ecb99a7f-9ea4-4ca5-9eaa-7585240f6b9d
+    uuid: cc4074d6-f450-4025-833a-a6e0100ceaff
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: crt.viktorthebest.lol
+    alpn:
+      - http/1.1
+    servername: crt.molniya.sbs
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇩🇪190016
+    server: 45.88.12.151
+    port: 2083
+    uuid: cc4074d6-f450-4025-833a-a6e0100ceaff
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: crt.molniya.sbs
     xudp: true
     network: ws
     ws-opts:
@@ -75,10 +110,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-bc85aa82dd
       - 4Mohsen-aa9b587561
+      - 4Sarina-facb70be5b
       - EPODONIOS
-      - 🇩🇪@FreakConfig
-      - 4Kian-c49aa79cd0
+      - EPODONIOS-01
+      - GozargahAzad|🇩🇪
+      - 🇩🇪190016
       - 4Sarina-889fe782c1
   - name: Auto
     type: url-test
@@ -86,10 +124,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-bc85aa82dd
       - 4Mohsen-aa9b587561
+      - 4Sarina-facb70be5b
       - EPODONIOS
-      - 🇩🇪@FreakConfig
-      - 4Kian-c49aa79cd0
+      - EPODONIOS-01
+      - GozargahAzad|🇩🇪
+      - 🇩🇪190016
       - 4Sarina-889fe782c1
 rules:
   - MATCH,Proxy

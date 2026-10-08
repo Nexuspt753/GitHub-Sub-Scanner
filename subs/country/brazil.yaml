@@ -8,30 +8,12 @@ proxies:
     tls: true
     sni: national-toucan.dolphin109.quest
     client-fingerprint: chrome
-  - type: vmess
-    name: São Paulo · EPODONIOS
-    server: aksai.org
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /linkvws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: aksai.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - São Paulo · @DeltaKroneckerGithub
-      - São Paulo · EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - São Paulo · @DeltaKroneckerGithub
-      - São Paulo · EPODONIOS
 rules:
   - MATCH,Proxy

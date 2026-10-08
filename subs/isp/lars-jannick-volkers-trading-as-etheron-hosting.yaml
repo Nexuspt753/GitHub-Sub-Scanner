@@ -1,34 +1,30 @@
 proxies:
-  - type: vmess
-    name: DeltaKroneckerGithub
-    server: 5.181.134.24
+  - type: vless
+    name: filembad
+    server: 185.114.156.93
     port: 443
-    uuid: 5f72f180-b21b-4b7a-8484-240759012604
-    alterId: 0
-    cipher: auto
+    uuid: 40781fd4-c7df-4aeb-bd5a-ecfa3ba7b841
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: apjhdggyx.com
-    network: ws
-    ws-opts:
-      path: /5f72f180-b21b-4b7a-8484-240759096785
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: apjhdggyx.com
+    client-fingerprint: chrome
+    servername: lotus26.atlasparser.site
+    reality-opts:
+      public-key: xcTXD3of3Yt5hHdIwYGZ1LjMBgiL6sqj5J33J4U4ozM
+      short-id: a7c31f92
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - filembad
 rules:
   - MATCH,Proxy

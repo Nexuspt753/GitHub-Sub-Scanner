@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: Telegram
-    server: prt.roshdcollection.ir
-    port: 8044
-    cipher: chacha20-ietf-poly1305
-    password: EW_n5jLSdYN6IAvd12EvZjlMsKpnagBq
-    udp: true
   - type: vless
     name: EPODONIOS
     server: amrica.hellray-server.fun
@@ -34,38 +27,20 @@ proxies:
       short-id: af
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-64fd13ef88
-    server: amrica.hellray-server.fun
-    port: 2083
-    uuid: 3e9a1e75-fe1d-4f68-b684-d48abb8f2d64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.aparat.com
-    reality-opts:
-      public-key: 9jpb459jW9QgEeYwgXv8dJvuNl_SJ38dRpDrk-ZZuD4
-      short-id: af
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Telegram
       - EPODONIOS
       - V2ray_confiig
-      - 4Mohsen-64fd13ef88
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Telegram
       - EPODONIOS
       - V2ray_confiig
-      - 4Mohsen-64fd13ef88
 rules:
   - MATCH,Proxy

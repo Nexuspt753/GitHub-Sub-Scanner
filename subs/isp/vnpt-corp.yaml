@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 160.25.74.91
+    port: 443
+    uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: u695098ue79dbcd4s783.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-d406e99506
     server: 160.25.75.40
     port: 443
@@ -20,6 +31,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Jadi-d406e99506
   - name: Auto
     type: url-test
@@ -27,6 +39,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Jadi-d406e99506
 rules:
   - MATCH,Proxy

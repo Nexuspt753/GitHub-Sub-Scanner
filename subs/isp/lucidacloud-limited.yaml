@@ -1,13 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 83.229.121.78
-    port: 8443
-    password: 8r<[9'l6hAO#8ZQi
+    server: 45.136.12.21
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
     udp: true
     tls: true
-    sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 83.229.121.78
@@ -16,22 +23,15 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: EPODONIOS
-    server: 45.152.65.100
-    port: 443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 83.229.121.78
+    port: 8443
+    password: 8r<[9'l6hAO#8ZQi
     udp: true
     tls: true
+    sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
   - type: trojan
     name: 4Mohsen-165452696e
     server: 83.229.121.78
@@ -72,22 +72,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vless
-    name: 4Mohsen-96ea7f4fda
-    server: 45.152.65.100
-    port: 443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -95,11 +79,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
+      - DeltaKroneckerGithub-02
       - 4Mohsen-165452696e
       - 4Kian-e5a96f1ada
       - 4FreeIran-26630916d6
-      - 4Mohsen-96ea7f4fda
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -108,10 +91,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
+      - DeltaKroneckerGithub-02
       - 4Mohsen-165452696e
       - 4Kian-e5a96f1ada
       - 4FreeIran-26630916d6
-      - 4Mohsen-96ea7f4fda
 rules:
   - MATCH,Proxy

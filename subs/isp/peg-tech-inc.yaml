@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 137.175.82.40
+    port: 30556
+    uuid: 949d278e-6d98-4014-84e9-59f1c6c93e0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.lovelive-anime.jp
+    reality-opts:
+      public-key: EcmNQqZxyW4GCEQF-7nH54w3qgBkLzsfqFSgafGjB0E
+      short-id: d082f567
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.28.197.130
     port: 443
     password: Aimer
@@ -43,22 +57,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.94152251.xyz
   - type: vmess
-    name: 4Nika-48fd62cdab
-    server: 142.4.112.7
-    port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /path/1689849487190
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: 4FreeIran-a5f8eb8aa8
     server: 198.2.208.68
     port: 443
@@ -90,53 +88,17 @@ proxies:
       path: /path/1689326360096
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Jadi-bb0b9a5f59
-    server: yd4.ainivp.com
-    port: 33204
-    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /ray
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: yd4.ainivp.com
-  - type: vmess
-    name: 4Jadi-b89e3285d0
-    server: yd3.ainivp.com
-    port: 33409
-    uuid: 9227afcd-026e-781f-1abc-c06efabd2338
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /ray
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: yd3.ainivp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-83ba162e3b
       - 4Jadi-e0b29b07ba
-      - 4Nika-48fd62cdab
       - 4FreeIran-a5f8eb8aa8
       - 4FreeIran-9928c008c7
-      - 4Jadi-bb0b9a5f59
-      - 4Jadi-b89e3285d0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -144,12 +106,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-83ba162e3b
       - 4Jadi-e0b29b07ba
-      - 4Nika-48fd62cdab
       - 4FreeIran-a5f8eb8aa8
       - 4FreeIran-9928c008c7
-      - 4Jadi-bb0b9a5f59
-      - 4Jadi-b89e3285d0
 rules:
   - MATCH,Proxy

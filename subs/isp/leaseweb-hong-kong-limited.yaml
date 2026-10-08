@@ -1,26 +1,43 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 103.21.220.248
-    port: 29608
-    uuid: 88ee0e1e-a2a2-477e-88ce-4875c058aeba
+    server: 203.9.150.220
+    port: 443
+    uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: 123.714541.xyz
+    client-fingerprint: chrome
+    servername: asia.csmaster.site
     xudp: true
     network: ws
     ws-opts:
-      path: /Ra-vl
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 123.714541.xyz
+        Host: asia.csmaster.site
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 203.9.150.220
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

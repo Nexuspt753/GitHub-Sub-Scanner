@@ -1,50 +1,32 @@
 proxies:
   - type: vless
-    name: 4Kian-5435afe272
-    server: 172.93.167.45
+    name: DeltaKroneckerGithub
+    server: 172.93.167.175
     port: 443
-    uuid: 8344360f-0349-4784-a19f-33fd92e89389
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: api.w2m.ink
+    servername: bab-6.site
     xudp: true
     network: ws
     ws-opts:
-      path: /v2
+      path: /vws/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: api.w2m.ink
-  - type: vless
-    name: 4Sarina-91fded4ed5
-    server: 172.93.185.10
-    port: 443
-    uuid: 9583bc2e-3ea6-4db4-8718-3927bd9d2363
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: renqi.190417.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renqi.190417.xyz
+        Host: bab-6.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-5435afe272
-      - 4Sarina-91fded4ed5
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-5435afe272
-      - 4Sarina-91fded4ed5
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

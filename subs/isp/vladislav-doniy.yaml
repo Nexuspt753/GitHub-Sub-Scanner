@@ -1,5 +1,53 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.59.210.26
+    port: 2088
+    uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.yandex.ru
+    reality-opts:
+      public-key: Eq3c19Y0WGB1APWMADQB-oxCvZFSVFAQxG5L6b8EkUg
+      short-id: b1ad165f903c62fe
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.59.210.24
+    port: 2087
+    uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.yandex.ru
+    reality-opts:
+      public-key: W2OLbQ682PLJ9yHQ21Q0nPJk9U8RuL5YnlP-U1fdQzI
+      short-id: a11023050f134216
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 31.59.210.37
+    port: 443
+    uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.yandex.ru
+    reality-opts:
+      public-key: 5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4
+      short-id: 6dbf4931096f9890
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-336e11b9b5
     server: 31.59.210.26
     port: 2088
@@ -30,6 +78,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-336e11b9b5
       - 4Mohsen-ed64618182
   - name: Auto
@@ -38,6 +89,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Jadi-336e11b9b5
       - 4Mohsen-ed64618182
 rules:
