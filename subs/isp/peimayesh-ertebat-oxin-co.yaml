@@ -1,51 +1,41 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: nl.irgiftweb.com
-    port: 9090
-    uuid: a40b5ac2-160e-420d-8c98-91396a2eb6d6
+    server: book.wikidev.shop
+    port: 443
+    uuid: 444ecbf8-f8eb-4c1c-802d-53ad4c5c86d9
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: nl.irgiftweb.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /de
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: book.wikidev.shop
   - type: vless
-    name: 🇮🇷184473
-    server: nl.irgiftweb.com
-    port: 9090
-    uuid: a40b5ac2-160e-420d-8c98-91396a2eb6d6
+    name: 🇮🇷190092
+    server: book.wikidev.shop
+    port: 443
+    uuid: 444ecbf8-f8eb-4c1c-802d-53ad4c5c86d9
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: nl.irgiftweb.com
     xudp: true
-  - type: vless
-    name: 4Mohsen-89144c09e0
-    server: nl.irgiftweb.com
-    port: 9090
-    uuid: a40b5ac2-160e-420d-8c98-91396a2eb6d6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: nl.irgiftweb.com
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /de
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: book.wikidev.shop
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 🇮🇷184473
-      - 4Mohsen-89144c09e0
+      - 🇮🇷190092
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,7 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 🇮🇷184473
-      - 4Mohsen-89144c09e0
+      - 🇮🇷190092
 rules:
   - MATCH,Proxy

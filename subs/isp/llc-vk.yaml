@@ -1,6 +1,21 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 217.16.17.127
+    port: 25565
+    password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
+    udp: true
+    tls: true
+    sni: vkc2.safesurf.cloud
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: firefox
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 185.241.195.185
     port: 2224
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -24,13 +39,29 @@ proxies:
       short-id: e7
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-46ffea079b
+    server: 217.16.31.218
+    port: 443
+    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - prrofile_purple
+      - 4Mohsen-46ffea079b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +69,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - prrofile_purple
+      - 4Mohsen-46ffea079b
 rules:
   - MATCH,Proxy

@@ -2,16 +2,6 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 13.143.172.203
-    port: 2083
-    uuid: 88aefb0c-cdbf-489f-9e6b-9be5b5fd5a11
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 13.143.172.203
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 13.143.172.203
     port: 2096
     uuid: 88aefb0c-cdbf-489f-9e6b-9be5b5fd5a11
     udp: true
@@ -35,6 +25,20 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-01
+    server: 179.254.109.69
+    port: 443
+    uuid: 61bd5829-a243-4548-97f0-a210c2069fec
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: m.swegg.daxaryx.fun
+    reality-opts:
+      public-key: u9_Ta0DYmqruY94DwuZv4g_gnvY1xGMF1iT1SdV3cT8
+      short-id: d3a09fd1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: 179.254.109.41
     port: 443
     uuid: 6309cbfd-2582-4503-9094-75545cc9ff0a
@@ -122,7 +126,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: cosw.ggisopi.su
     port: 443
     uuid: d0f0a880-0df1-0003-bdf1-5669fb9483ce
@@ -134,7 +138,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-04
     server: 179.254.109.54
     port: 443
     uuid: d0f0a880-0df1-0005-bdf1-5669fb9483ce
@@ -147,7 +151,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-04
+    name: EPODONIOS-05
     server: 179.254.109.54
     port: 443
     uuid: d0f0a880-0df1-0005-bdf1-5669fb9483ce
@@ -280,49 +284,23 @@ proxies:
       public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-b1c2bb2ba2
-    server: 179.254.109.54
-    port: 443
-    uuid: d0f0a880-0df1-0005-bdf1-5669fb9483ce
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cosw.ggisopi.su
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-620cf6a8bc
-    server: 179.254.109.54
-    port: 443
-    uuid: d0f0a880-0df1-0005-bdf1-5669fb9483ce
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cosw.ggisopi.su
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
       - Channel
       - VConfing
       - v2ray_phoenix
       - Telegram:@v2rayng3
       - "71"
-      - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
+      - EPODONIOS-05
       - Free
       - 🇩🇪All¹⁰
       - 🇩🇪All⁵
@@ -332,8 +310,6 @@ proxy-groups:
       - 4Sarina-490baa7e81
       - 4FreeIran-b3e5c0a2ed
       - 4Jadi-930be20996
-      - 4Nika-b1c2bb2ba2
-      - 4Sarina-620cf6a8bc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -341,17 +317,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
       - Channel
       - VConfing
       - v2ray_phoenix
       - Telegram:@v2rayng3
       - "71"
-      - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
+      - EPODONIOS-05
       - Free
       - 🇩🇪All¹⁰
       - 🇩🇪All⁵
@@ -361,7 +337,5 @@ proxy-groups:
       - 4Sarina-490baa7e81
       - 4FreeIran-b3e5c0a2ed
       - 4Jadi-930be20996
-      - 4Nika-b1c2bb2ba2
-      - 4Sarina-620cf6a8bc
 rules:
   - MATCH,Proxy

@@ -1,11 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-729557b10b
-    server: us5.h1cloud.net
-    port: 25172
-    password: Hd7N0TU7Ow5ZqaIx
-    sni: us5.h1cloud.net
-    skip-cert-verify: true
   - type: vless
     name: DeltaKroneckerGithub
     server: 45.133.151.188
@@ -40,16 +33,34 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: EPODONIOS
-    server: 176.114.86.222
-    port: 8081
-    uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
+    server: fi3.h1cloud.net
+    port: 25090
+    uuid: a3c2ed66-2a7c-4a39-96df-b70fbfde750f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: biCk-kVr64zr2Vm6PRkrt3egFtuVXdJF5buWaG4wA1Y
+      short-id: 36e15949603e0e6e
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: EPODONIOS-01
+    server: fi3.h1cloud.net
+    port: 25090
+    uuid: a3c2ed66-2a7c-4a39-96df-b70fbfde750f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: biCk-kVr64zr2Vm6PRkrt3egFtuVXdJF5buWaG4wA1Y
+      short-id: 36e15949603e0e6e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: 176.114.86.222
     port: 8081
     uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
@@ -59,7 +70,23 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: meliproxyy
+    name: EPODONIOS-03
+    server: nl2.h1cloud.net
+    port: 25454
+    uuid: d91b8870-2ded-432d-a105-f3706d1feee1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ns.nl
+    reality-opts:
+      public-key: YOgsoXtChX3RvA0Gf9SSsP8VLP4GGk7dytVBo9qZCH4
+      short-id: 221ba0d14384ccf1
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Net2ray
     server: 31.131.251.17
     port: 443
     uuid: 9ea8b000-58ce-005a-b108-989dd4f248f1
@@ -174,28 +201,35 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Sarina-6e58bf4ee5
-    server: 31.131.251.17
-    port: 443
-    uuid: 9ea8b000-58ce-005a-b108-989dd4f248f1
+    name: 4Nika-956008cfc6
+    server: fi3.h1cloud.net
+    port: 25090
+    uuid: a3c2ed66-2a7c-4a39-96df-b70fbfde750f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: quatro.lmstream.org
+    servername: www.samsung.com
+    reality-opts:
+      public-key: biCk-kVr64zr2Vm6PRkrt3egFtuVXdJF5buWaG4wA1Y
+      short-id: 36e15949603e0e6e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-e73467cde9
+    server: fi3.h1cloud.net
+    port: 25090
+    uuid: a3c2ed66-2a7c-4a39-96df-b70fbfde750f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: biCk-kVr64zr2Vm6PRkrt3egFtuVXdJF5buWaG4wA1Y
+      short-id: 36e15949603e0e6e
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Jadi-bb4fb3fb49
-    server: 176.114.86.222
-    port: 8081
-    uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-6012fa68f6
     server: 176.114.86.222
     port: 8081
     uuid: b4090350-b91f-4920-b5c0-c3ffd2798534
@@ -209,12 +243,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-729557b10b
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
-      - meliproxyy
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - Net2ray
       - "9965"
       - "16"
       - "9970"
@@ -223,21 +258,22 @@ proxy-groups:
       - Nexus_Panell
       - "9971"
       - Channel
-      - 4Sarina-6e58bf4ee5
+      - 4Nika-956008cfc6
+      - 4Jadi-e73467cde9
       - 4Jadi-bb4fb3fb49
-      - 4FreeIran-6012fa68f6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-729557b10b
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
-      - meliproxyy
+      - EPODONIOS-02
+      - EPODONIOS-03
+      - Net2ray
       - "9965"
       - "16"
       - "9970"
@@ -246,8 +282,8 @@ proxy-groups:
       - Nexus_Panell
       - "9971"
       - Channel
-      - 4Sarina-6e58bf4ee5
+      - 4Nika-956008cfc6
+      - 4Jadi-e73467cde9
       - 4Jadi-bb4fb3fb49
-      - 4FreeIran-6012fa68f6
 rules:
   - MATCH,Proxy

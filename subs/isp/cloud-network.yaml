@@ -1,30 +1,27 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-d6ceb45616
-    server: 176.97.66.175
-    port: 443
-    password: humanity
+  - type: vless
+    name: 4Sarina-030ae4be62
+    server: 176.97.71.18
+    port: 9443
+    uuid: 52d5defc-88f6-4c2c-9b1f-c19bf3e99778
     udp: true
     tls: true
-    sni: www.ignitelimit.com
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    servername: www.amazon.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d6ceb45616
+      - 4Sarina-030ae4be62
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d6ceb45616
+      - 4Sarina-030ae4be62
 rules:
   - MATCH,Proxy

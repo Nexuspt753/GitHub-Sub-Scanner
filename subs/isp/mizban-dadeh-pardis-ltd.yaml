@@ -1,70 +1,25 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: vir-mnota.kevmixa.ir
-    port: 2082
-    uuid: e158674a-1d83-4235-a076-6acf43d1128c
+    name: vless
+    server: tun12.momasvps.ir
+    port: 5018
+    uuid: 4003b15e-da36-417e-a3f1-96661dc5e8fa
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: کانال
-    server: vir-mnota.kevmixa.ir
-    port: 2082
-    uuid: e158674a-1d83-4235-a076-6acf43d1128c
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇮🇷163653
-    server: vir-mnota.kevmixa.ir
-    port: 2082
-    uuid: e158674a-1d83-4235-a076-6acf43d1128c
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-a752065205
-    server: vir-mnota.kevmixa.ir
-    port: 2082
-    uuid: e158674a-1d83-4235-a076-6acf43d1128c
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - کانال
-      - 🇮🇷163653
-      - 4Kian-a752065205
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - کانال
-      - 🇮🇷163653
-      - 4Kian-a752065205
+      - vless
 rules:
   - MATCH,Proxy

@@ -1,32 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-2d0af997b3
-    server: ogbr41j4lr.panmiva.ir
-    port: 4500
-    uuid: ac072869-7d62-40d4-bc07-30c2d3cd296c
+  - type: ss
+    name: EPODONIOS
+    server: ser1.plasmoon.ir
+    port: 2027
+    cipher: chacha20-ietf-poly1305
+    password: zXaCn1MfCDaU_etEJZizB1btUUYyy9Wi
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tr.pasarguardspeed.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tr.pasarguardspeed.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-2d0af997b3
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-2d0af997b3
+      - EPODONIOS
 rules:
   - MATCH,Proxy
