@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.57.106.241
+    port: 443
+    uuid: a4801105-c0c7-4cab-87c6-f257ff2afc09
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.lmt.lv
+    reality-opts:
+      public-key: 4SJB--DChFNhmOUz0-BZK2dS3GhZ1yZwMVIhmpobB0o
+      short-id: 44f7c5615039ae1b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 217.19.4.61
+    port: 443
+    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bab-6.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bab-6.site
+  - type: vless
     name: vless
     server: lt.iblametech.ir
     port: 443
@@ -14,7 +44,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-02
     server: 31.57.108.242
     port: 8443
     password: 8r<[9'l6hAO#8ZQi
@@ -22,6 +52,13 @@ proxies:
     tls: true
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
+  - type: vless
+    name: vless-01
+    server: 31.58.226.42
+    port: 443
+    uuid: 443ecd75-ddcf-4e29-8b25-29e492999461
+    udp: true
+    xudp: true
   - type: vless
     name: EPODONIOS
     server: 188.130.207.202
@@ -48,6 +85,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
+  - type: vless
+    name: 4Jadi-6c4ba38323
+    server: all2.beshdash.ir
+    port: 3570
+    uuid: 2b7117f5-a16b-42d4-aba5-bab1c6e9bbca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sheets.google.com
+    reality-opts:
+      public-key: 23--GkjUax0cCnXtnqrD9VtAVZftA4ObXOzCNy0uaBA
+      short-id: 9c5eda5e06390754
+    xudp: true
+  - type: vless
+    name: 4Jadi-556870bf7b
+    server: all2.beshdash.ir
+    port: 5088
+    uuid: 2b7117f5-a16b-42d4-aba5-bab1c6e9bbca
+    udp: true
+    xudp: true
   - type: vless
     name: 4FreeIran-b0ded1d43f
     server: 94.183.235.247
@@ -94,6 +151,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bab-6.site
   - type: vless
+    name: 4Mohsen-fdb3643134
+    server: 31.58.76.68
+    port: 8443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /new/dh?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
+  - type: vless
     name: 4Nika-f4d4e8ab98
     server: 31.59.46.140
     port: 8443
@@ -138,36 +211,63 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: france.paydar.site
+  - type: vmess
+    name: 4Mohsen-60d413f5e5
+    server: france.paydar.site
+    port: 443
+    uuid: 1233c26d-95d1-459f-a1bb-7ca12bd5a124
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: grpc
+    grpc-opts:
+      grpc-service-name: france.paydar.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - vless
+      - DeltaKroneckerGithub-02
+      - vless-01
       - EPODONIOS
       - VPN
+      - 4Jadi-6c4ba38323
+      - 4Jadi-556870bf7b
       - 4FreeIran-b0ded1d43f
       - 4FreeIran-530d1158f7
       - 4Nika-44b72f6949
+      - 4Mohsen-fdb3643134
       - 4Nika-f4d4e8ab98
       - 4Kian-8e63a23619
       - 4Nika-0bcda8c769
+      - 4Mohsen-60d413f5e5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - vless
+      - DeltaKroneckerGithub-02
+      - vless-01
       - EPODONIOS
       - VPN
+      - 4Jadi-6c4ba38323
+      - 4Jadi-556870bf7b
       - 4FreeIran-b0ded1d43f
       - 4FreeIran-530d1158f7
       - 4Nika-44b72f6949
+      - 4Mohsen-fdb3643134
       - 4Nika-f4d4e8ab98
       - 4Kian-8e63a23619
       - 4Nika-0bcda8c769
+      - 4Mohsen-60d413f5e5
 rules:
   - MATCH,Proxy

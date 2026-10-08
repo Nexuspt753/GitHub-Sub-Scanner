@@ -8,12 +8,42 @@ proxies:
     tls: true
     sni: 38.180.173.150
     client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-a72b0fb209
+    server: 38.180.120.254
+    port: 443
+    uuid: 5b5e4cbf-2366-499a-8327-0cd9918c687d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn1.surfweb.club
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-56bef76710
+    server: 38.180.209.248
+    port: 443
+    uuid: 5b5e4cbf-2366-499a-8327-0cd9918c687d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: cloud.surfweb.club
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-a72b0fb209
+      - 4Mohsen-56bef76710
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +51,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-a72b0fb209
+      - 4Mohsen-56bef76710
 rules:
   - MATCH,Proxy

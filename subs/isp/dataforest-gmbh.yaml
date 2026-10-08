@@ -1,4 +1,16 @@
 proxies:
+  - type: hysteria2
+    name: 🇩🇪189465
+    server: 193.42.11.245
+    port: 8397
+    password: 8d1729b01c1ad743179ed4558c8404b0
+    sni: 193.42.11.245
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    obfs: salamander
+    obfs-password: 1vwbgf5t1k61nxmi
   - type: vless
     name: DeltaKroneckerGithub
     server: de12.h1cloud.net
@@ -129,19 +141,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sub.merky.top
   - type: vless
-    name: MARAMBASHI-01
-    server: 62.192.153.132
+    name: EXPRESSVPN_420
+    server: 94.143.231.146
     port: 443
-    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: example.org
-    reality-opts:
-      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    servername: sub.merky.top
     xudp: true
+    network: ws
+    ws-opts:
+      path: /merky-connect/de6/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sub.merky.top
   - type: vless
-    name: 🇩🇪188996
+    name: Shh_Proxy-New¹⁰
     server: 94.143.231.146
     port: 443
     uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
@@ -267,20 +283,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-93963665d9
-    server: 108.165.32.16
-    port: 443
-    uuid: 6dff8e33-b201-4cbb-8f89-b9418702bff2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.logitech.com
-    reality-opts:
-      public-key: IGIgHNW_hZRsP2DZqItH5wvFSr6H4rqpI9x-0IUCskU
-      short-id: ca3d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-9825ee0a9d
     server: 94.143.231.146
     port: 443
@@ -326,11 +328,47 @@ proxies:
       short-id: bc7c4660adb53714
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-fd4745c7cb
+    server: 84.75.76.16
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-def616346d
+    server: 84.75.76.16
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇩🇪189465
       - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
@@ -340,8 +378,8 @@ proxy-groups:
       - MARAMBASHI
       - EPODONIOS-02
       - EPODONIOS-03
-      - MARAMBASHI-01
-      - 🇩🇪188996
+      - EXPRESSVPN_420
+      - Shh_Proxy-New¹⁰
       - EPODONIOS-04
       - oPeNFre
       - 4Mohsen-2006a539d5
@@ -350,16 +388,18 @@ proxy-groups:
       - 4Jadi-2e2ed50d90
       - 4Kian-7d2777eadb
       - 4Mohsen-22a996b741
-      - 4Mohsen-93963665d9
       - 4Sarina-9825ee0a9d
       - 4Kian-9aa42c0e06
       - 4Kian-c88acca469
+      - 4Nika-fd4745c7cb
+      - 4Sarina-def616346d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇩🇪189465
       - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
@@ -369,8 +409,8 @@ proxy-groups:
       - MARAMBASHI
       - EPODONIOS-02
       - EPODONIOS-03
-      - MARAMBASHI-01
-      - 🇩🇪188996
+      - EXPRESSVPN_420
+      - Shh_Proxy-New¹⁰
       - EPODONIOS-04
       - oPeNFre
       - 4Mohsen-2006a539d5
@@ -379,9 +419,10 @@ proxy-groups:
       - 4Jadi-2e2ed50d90
       - 4Kian-7d2777eadb
       - 4Mohsen-22a996b741
-      - 4Mohsen-93963665d9
       - 4Sarina-9825ee0a9d
       - 4Kian-9aa42c0e06
       - 4Kian-c88acca469
+      - 4Nika-fd4745c7cb
+      - 4Sarina-def616346d
 rules:
   - MATCH,Proxy

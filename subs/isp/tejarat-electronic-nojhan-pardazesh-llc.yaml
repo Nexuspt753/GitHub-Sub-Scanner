@@ -1,88 +1,25 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: dl2.armanstore22.ir
-    port: 32989
-    uuid: 63ad98c8-f8c2-d771-336d-12bc5906aee2
+    name: vless
+    server: nim.marlifo.ir
+    port: 443
+    uuid: 9308a0b3-001b-4803-bfb6-4335beda8b89
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS-01
-    server: dl2.armanstore22.ir
-    port: 32989
-    uuid: 63ad98c8-f8c2-d771-336d-12bc5906aee2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: dl2.armanstore22.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: GozargahAzad|🇮🇷
-    server: dl2.armanstore22.ir
-    port: 32989
-    uuid: 63ad98c8-f8c2-d771-336d-12bc5906aee2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇮🇷187714
-    server: dl2.armanstore22.ir
-    port: 32989
-    uuid: 63ad98c8-f8c2-d771-336d-12bc5906aee2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: dl2.armanstore22.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - GozargahAzad|🇮🇷
-      - 🇮🇷187714
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - GozargahAzad|🇮🇷
-      - 🇮🇷187714
+      - vless
 rules:
   - MATCH,Proxy

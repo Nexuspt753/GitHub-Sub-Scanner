@@ -13,12 +13,27 @@ proxies:
       short-id: 1de525ef9721dde2
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.144.30.154
+    port: 443
+    uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: hazeljournal.gazette.help
+    reality-opts:
+      public-key: Sy2ETnsJ9yS4XUN6QEsJCMrDOrYxkB5uav1ZfSQGpg4
+      short-id: e07a69198f6a35df
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
