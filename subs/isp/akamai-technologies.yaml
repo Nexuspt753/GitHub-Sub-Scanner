@@ -73,17 +73,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-7c67466e19
-    server: 172.105.252.35
-    port: 443
-    uuid: 99de7aac-d2a5-48fd-92cb-d1e6c3c719a4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: in-full.privateip.net
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vmess
     name: 4Sarina-4ab167b05f
     server: 172.104.78.98
@@ -100,6 +89,23 @@ proxies:
       path: /chat
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-abb1a7084e
+    server: 172.105.239.241
+    port: 443
+    uuid: 3706161f-3ee3-48e5-bfcf-0d856cc6f0ab
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /down
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: js.adbse.xyz
 proxy-groups:
   - name: Proxy
     type: select
@@ -113,8 +119,8 @@ proxy-groups:
       - Hope_Net-join-us-on-Telegram
       - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
-      - 4Sarina-7c67466e19
       - 4Sarina-4ab167b05f
+      - 4Kian-abb1a7084e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -129,7 +135,7 @@ proxy-groups:
       - Hope_Net-join-us-on-Telegram
       - DeltaKroneckerGithub-01
       - 4Jadi-b85d6c5f32
-      - 4Sarina-7c67466e19
       - 4Sarina-4ab167b05f
+      - 4Kian-abb1a7084e
 rules:
   - MATCH,Proxy

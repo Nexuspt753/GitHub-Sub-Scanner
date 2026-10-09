@@ -13,27 +13,12 @@ proxies:
       short-id: a1d94c46b05d3d0f
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: filembad-291
-    server: akdeta.serveroff.net
-    port: 443
-    uuid: 9ff17e23-c6ed-4472-90e3-c85c74e88478
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: akdeta.serveroff.net
-    reality-opts:
-      public-key: Ean56I1ZAGD67m6VW-qXZ77bXsE5ClwvYLuQNyXRyH8
-      short-id: 832d9228ddd3
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - filembad-291
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - filembad-291
 rules:
   - MATCH,Proxy

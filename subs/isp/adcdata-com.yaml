@@ -1,27 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-ac147709a2
-    server: 139.28.168.201
-    port: 443
-    uuid: a368752a-32fc-42f3-980a-6b049218b23f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: china.letsconnectpoint.com
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: 4Mohsen-efda2bf943
+    server: 139.28.168.126
+    port: 8080
+    password: we_9m92rJZ93_m9Cj3KXB_mC9AS7Nx
+    sni: hopp-honkong-new.roxa.org
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-ac147709a2
+      - 4Mohsen-efda2bf943
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-ac147709a2
+      - 4Mohsen-efda2bf943
 rules:
   - MATCH,Proxy

@@ -33,6 +33,21 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-02
+    server: 185.115.34.209
+    port: 8444
+    uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.com
+    reality-opts:
+      public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
     server: 185.200.199.75
     port: 8444
     uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
@@ -46,6 +61,19 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-0a8bfa8e29
+    server: 185.192.22.159
+    port: 8444
+    uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -54,6 +82,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Kian-0a8bfa8e29
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -63,5 +93,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Kian-0a8bfa8e29
 rules:
   - MATCH,Proxy

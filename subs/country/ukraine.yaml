@@ -8,26 +8,6 @@ proxies:
     tls: true
     sni: ua.freeguard.org
     client-fingerprint: chrome
-  - type: ss
-    name: Mykolayiv · 4Sarina-2139501856
-    server: 194.54.80.37
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: Vr06rU_v1vFPYeXq9zbsAA
-    udp: true
-  - type: vless
-    name: Zaporizhzhya · 4FreeIran-76fae1bec0
-    server: 45.135.235.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime07.workers.dev
   - type: vless
     name: Kyiv · 4Jadi-866896e360
     server: 213.111.148.137
@@ -60,33 +40,14 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vless
-    name: Kyiv · 4Kian-3067de4eea
-    server: 173.242.63.235
-    port: 8443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Kyiv · @DeltaKroneckerGithub
-      - Mykolayiv · 4Sarina-2139501856
-      - Zaporizhzhya · 4FreeIran-76fae1bec0
       - Kyiv · 4Jadi-866896e360
       - Kyiv · 4Sarina-cfb76f0841
-      - Kyiv · 4Kian-3067de4eea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -94,10 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Kyiv · @DeltaKroneckerGithub
-      - Mykolayiv · 4Sarina-2139501856
-      - Zaporizhzhya · 4FreeIran-76fae1bec0
       - Kyiv · 4Jadi-866896e360
       - Kyiv · 4Sarina-cfb76f0841
-      - Kyiv · 4Kian-3067de4eea
 rules:
   - MATCH,Proxy

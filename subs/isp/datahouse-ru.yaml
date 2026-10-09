@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 62.152.58.96
+    port: 443
+    uuid: 23a64225-0119-44ce-a24e-114eae8648a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: adm.ichveter.click
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/events
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: Capoit
     server: 62.152.58.96
     port: 443
@@ -15,19 +30,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Kian-06ff8bccfc
-    server: 62.152.58.90
-    port: 443
-    uuid: 1bb2af63-4472-44ed-9c70-8f316258b68b
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: 360.yandex.ru
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-45a2d3e0fa
     server: 62.152.58.96
     port: 443
@@ -42,39 +44,22 @@ proxies:
       path: /api/v1/events
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-a0d54b9fae
-    server: 62.152.58.96
-    port: 443
-    uuid: 23a64225-0119-44ce-a24e-114eae8648a9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: adm.ichveter.click
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/events
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Capoit
-      - 4Kian-06ff8bccfc
       - 4FreeIran-45a2d3e0fa
-      - 4Nika-a0d54b9fae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Capoit
-      - 4Kian-06ff8bccfc
       - 4FreeIran-45a2d3e0fa
-      - 4Nika-a0d54b9fae
 rules:
   - MATCH,Proxy

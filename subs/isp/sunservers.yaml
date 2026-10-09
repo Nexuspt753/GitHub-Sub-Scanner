@@ -1,30 +1,110 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: static.responsiblecare.uk
-    port: 443
-    uuid: ae0d0211-b7dc-461d-9d41-1eb224876f30
+  - type: trojan
+    name: EPODONIOS
+    server: kaliningrad.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
     udp: true
     tls: true
+    sni: kaliningrad.gosgenarchive.com
+    alpn:
+      - h2
     client-fingerprint: chrome
-    servername: static.responsiblecare.uk
-    reality-opts:
-      public-key: nilJ07r1KZ0-KhmRNYeICXGhM9HeG9uxnRaqjYz3fWg
-      short-id: d38eea587f1a4f68
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: EPODONIOS-01
+    server: novosibirsk.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
+    udp: true
+    tls: true
+    sni: novosibirsk.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: 🇮🇹190796
+    server: kaliningrad.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
+    udp: true
+    tls: true
+    sni: kaliningrad.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: 🇮🇹190789
+    server: novosibirsk.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
+    udp: true
+    tls: true
+    sni: novosibirsk.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: 4Kian-64ebba5cd4
+    server: kaliningrad.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
+    udp: true
+    tls: true
+    sni: kaliningrad.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: 4Sarina-87580e320f
+    server: novosibirsk.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
+    udp: true
+    tls: true
+    sni: novosibirsk.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇹190796
+      - 🇮🇹190789
+      - 4Kian-64ebba5cd4
+      - 4Sarina-87580e320f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇹190796
+      - 🇮🇹190789
+      - 4Kian-64ebba5cd4
+      - 4Sarina-87580e320f
 rules:
   - MATCH,Proxy

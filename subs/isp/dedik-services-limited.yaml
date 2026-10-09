@@ -1,6 +1,24 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: EPODONIOS
+    server: ger1.fytpn.com
+    port: 443
+    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
+    udp: true
+    tls: true
+    sni: ger1.fytpn.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: "[67564]"
+    server: ger1.fytpn.com
+    port: 443
+    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
+    udp: true
+    tls: true
+    sni: ger1.fytpn.com
+    client-fingerprint: chrome
+  - type: vless
+    name: EPODONIOS-01
     server: 176.65.144.84
     port: 443
     uuid: 0f4081e7-612b-425f-8def-eebf144aedba
@@ -65,7 +83,7 @@ proxies:
     sni: ger1.fytpn.com
     client-fingerprint: firefox
   - type: trojan
-    name: 4FreeIran-c619dfee75
+    name: 4Kian-365ccb9043
     server: ger1.fytpn.com
     port: 443
     password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
@@ -87,33 +105,20 @@ proxies:
       short-id: 9e15546f267baa64
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-9ae9becc80
-    server: 2.27.160.4
-    port: 443
-    uuid: 0f4081e7-612b-425f-8def-eebf144aedba
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: delta.cloudserverix.com
-    reality-opts:
-      public-key: ITd6cmCxudmTvGcwnAzpd0VRe8jS9KJAQ1tmtVN3mCM
-      short-id: 9e15546f267baa64
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - "[67564]"
+      - EPODONIOS-01
       - Nexus_Panell
       - v2ray313
       - 🇺🇸
       - DeltaKroneckerGithub
-      - 4FreeIran-c619dfee75
+      - 4Kian-365ccb9043
       - 4Nika-0bd27745e5
-      - 4Kian-9ae9becc80
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -121,12 +126,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - "[67564]"
+      - EPODONIOS-01
       - Nexus_Panell
       - v2ray313
       - 🇺🇸
       - DeltaKroneckerGithub
-      - 4FreeIran-c619dfee75
+      - 4Kian-365ccb9043
       - 4Nika-0bd27745e5
-      - 4Kian-9ae9becc80
 rules:
   - MATCH,Proxy

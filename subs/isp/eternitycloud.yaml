@@ -1,4 +1,14 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 94.183.170.135
+    port: 8443
+    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: estproxy4.lockdwn.com
+    xudp: true
   - type: hysteria2
     name: 4Sarina-b7ac0aaefd
     server: ee1.sferavpn.pro
@@ -8,25 +18,17 @@ proxies:
     obfs: salamander
     obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub-01
     server: 94.183.170.135
-    port: 8443
+    port: 443
     uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: estproxy4.lockdwn.com
     xudp: true
-  - type: vless
-    name: 🇪🇪
-    server: 94.183.170.135
-    port: 8443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: estproxy4.lockdwn.com
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Mohsen-014cf5c716
     server: 94.183.170.135
@@ -74,42 +76,30 @@ proxies:
     client-fingerprint: firefox
     servername: estproxy4.lockdwn.com
     xudp: true
-  - type: vless
-    name: 4Jadi-911c7087fc
-    server: 94.183.170.135
-    port: 8443
-    uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: estproxy4.lockdwn.com
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-b7ac0aaefd
-      - EPODONIOS
-      - 🇪🇪
+      - DeltaKroneckerGithub-01
       - 4Mohsen-014cf5c716
       - 4Kian-feeaf87e27
       - 4Nika-b775242551
       - 4Sarina-25fec21297
-      - 4Jadi-911c7087fc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-b7ac0aaefd
-      - EPODONIOS
-      - 🇪🇪
+      - DeltaKroneckerGithub-01
       - 4Mohsen-014cf5c716
       - 4Kian-feeaf87e27
       - 4Nika-b775242551
       - 4Sarina-25fec21297
-      - 4Jadi-911c7087fc
 rules:
   - MATCH,Proxy

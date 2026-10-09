@@ -1,9 +1,22 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: fl-2.wwwiranstar.fun
+    port: 5000
+    uuid: 8cbb5a88-74d6-43d3-953b-01e0eeb0c9cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: FhMWFvLreYsLAVipnrvcbHBoYpNC0E9-Jt-ThM6f0Hk
+      short-id: ee559b4a6b899670
+    xudp: true
   - type: vmess
-    name: 4Nika-0595140de6
-    server: vip1.showtimeless.site
-    port: 8880
-    uuid: 90ee55d8-2651-4d0a-b9dc-f3d4bdc7c295
+    name: 4Sarina-ddd9560c28
+    server: vip2.showtimeless.site
+    port: 8055
+    uuid: b641b4ab-13e6-4dd8-803f-1b891419c3d5
     alterId: 0
     cipher: auto
     udp: true
@@ -14,13 +27,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-0595140de6
+      - EPODONIOS
+      - 4Sarina-ddd9560c28
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-0595140de6
+      - EPODONIOS
+      - 4Sarina-ddd9560c28
 rules:
   - MATCH,Proxy

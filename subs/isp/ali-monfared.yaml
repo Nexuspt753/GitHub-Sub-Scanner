@@ -1,44 +1,29 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: Eygelshoven-NL.mrapanel.shop
-    port: 13
-    uuid: bb441de5-4707-498c-b958-7ad469342b3d
+    name: 4Mohsen-70c05e279c
+    server: de-pro.hyperlinkbt.com
+    port: 11199
+    uuid: 8fa12199-c6c8-829c-0ca3-8cfae1e460d8
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: de-pro.hyperlinkbt.com
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: Eygelshoven-NL.mrapanel.shop
-  - type: vless
-    name: filembad
-    server: Eygelshoven-NL.mrapanel.shop
-    port: 13
-    uuid: bb441de5-4707-498c-b958-7ad469342b3d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: Eygelshoven-NL.mrapanel.shop
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - filembad
+      - 4Mohsen-70c05e279c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - filembad
+      - 4Mohsen-70c05e279c
 rules:
   - MATCH,Proxy
