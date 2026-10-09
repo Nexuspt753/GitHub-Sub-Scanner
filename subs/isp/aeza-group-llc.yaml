@@ -1,4 +1,16 @@
 proxies:
+  - type: trojan
+    name: filembad-36
+    server: 193.233.216.27
+    port: 443
+    password: 95621b8e-5cf7-4123-9df4-38d903054a1b
+    udp: true
+    tls: true
+    sni: www.garmin.com
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: EPODONIOS
     server: 193.233.245.205
@@ -28,21 +40,18 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: meliproxyy
-    server: 193.233.245.205
+    name: EPODONIOS-01
+    server: 77.110.105.102
     port: 443
-    uuid: 1b37dae1-f2f1-4787-9f39-28ffa6556922
+    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: podcasts.radiopult.net
-    reality-opts:
-      public-key: YXNmCyyyvFqCWjgUzDexg0CHjk8QYRgWNfqvpFdIk3k
-      short-id: d30cb21db3289c97
+    servername: ru-1.brodvpn.com
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: Free
     server: 77.110.105.102
     port: 443
     uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
@@ -80,57 +89,30 @@ proxies:
       short-id: d30cb21db3289c97
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-fa94ca4022
-    server: 77.110.105.102
-    port: 443
-    uuid: 89a0fe83-dcb3-4e3c-92ed-407fc668e7b1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ru-1.brodvpn.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-67b8e5ade6
-    server: 193.233.216.27
-    port: 443
-    uuid: 95621b8e-5cf7-4123-9df4-38d903054a1b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.lenovo.com
-    reality-opts:
-      public-key: xV6-xT1D05e6ARRKCGLxfMeBnE_BSS3CiFUTtsdntmg
-      short-id: 6088b605366523fc
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - filembad-36
       - EPODONIOS
       - MARAMBASHI
-      - meliproxyy
       - EPODONIOS-01
+      - Free
       - 4Nika-0497f4679b
       - 4Nika-fd642a71a6
-      - 4Kian-fa94ca4022
-      - 4Mohsen-67b8e5ade6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - filembad-36
       - EPODONIOS
       - MARAMBASHI
-      - meliproxyy
       - EPODONIOS-01
+      - Free
       - 4Nika-0497f4679b
       - 4Nika-fd642a71a6
-      - 4Kian-fa94ca4022
-      - 4Mohsen-67b8e5ade6
 rules:
   - MATCH,Proxy

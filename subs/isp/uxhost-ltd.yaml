@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-facb70be5b
+    server: lv02.gotosvo.com
+    port: 9443
+    password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    sni: onecloudstream.com
+    skip-cert-verify: true
   - type: vless
     name: EPODONIOS
     server: 45.88.12.151
@@ -51,6 +58,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: 4Nika-f369b81b82
+    server: 45.88.12.151
+    port: 2083
+    uuid: cc4074d6-f450-4025-833a-a6e0100ceaff
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: crt.molniya.sbs
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Nika-5193ba4381
     server: 45.88.12.151
     port: 2083
@@ -72,9 +96,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-facb70be5b
       - EPODONIOS
       - ICV2RAY
       - 𝗝𝗼𝗶𝗻
+      - 4Nika-f369b81b82
       - 4Nika-5193ba4381
   - name: Auto
     type: url-test
@@ -82,9 +108,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-facb70be5b
       - EPODONIOS
       - ICV2RAY
       - 𝗝𝗼𝗶𝗻
+      - 4Nika-f369b81b82
       - 4Nika-5193ba4381
 rules:
   - MATCH,Proxy

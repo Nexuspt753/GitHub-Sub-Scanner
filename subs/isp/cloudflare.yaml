@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 141.101.122.147
+    port: 443
+    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: a.cwvps.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: a.cwvps.eu.org
   - type: trojan
     name: 4Sarina-28083680d9
     server: 141.101.90.101
@@ -77,38 +93,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sni.111000.dynv6.net
-  - type: vless
-    name: 4Mohsen-fde969d167
-    server: 141.101.120.231
-    port: 443
-    uuid: 3bb6fd82-3a15-eaea-6168-4dac2b70079e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nahan-fog-af01.dfghttr2012.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /sync
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nahan-fog-af01.dfghttr2012.workers.dev
-  - type: vless
-    name: 4Nika-f960aee5ea
-    server: 141.101.120.73
-    port: 443
-    uuid: 5d8eb33a-2166-4daf-88fe-4be5799c493b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: noisy-term-e657.airdrop2014aa5168.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: noisy-term-e657.airdrop2014aa5168.workers.dev
   - type: vmess
     name: 4FreeIran-bb99f02c6b
     server: 141.101.120.197
@@ -218,6 +202,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ecc.vtcss.top
   - type: vmess
+    name: 4Nika-f4389cdf4c
+    server: cf.dalazhi.eu.org
+    port: 443
+    uuid: 64480f4c-61c2-4d88-89c3-fc0045229bfc
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /kplxvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf.dalazhi.eu.org
+  - type: vmess
     name: 4FreeIran-f75da9dc12
     server: cf.dalazhi.eu.org
     port: 443
@@ -239,13 +240,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-28083680d9
       - 4Sarina-9a4ecccaff
       - 4Jadi-f27a918520
       - 4Mohsen-e78630cfff
       - 4Jadi-03c07863f1
-      - 4Mohsen-fde969d167
-      - 4Nika-f960aee5ea
       - 4FreeIran-bb99f02c6b
       - 4FreeIran-461f88c06b
       - 4FreeIran-fbe3fb4863
@@ -253,6 +253,7 @@ proxy-groups:
       - 4FreeIran-1ada27ecce
       - 4FreeIran-b10a34341d
       - 4Jadi-4c6148e57b
+      - 4Nika-f4389cdf4c
       - 4FreeIran-f75da9dc12
   - name: Auto
     type: url-test
@@ -260,13 +261,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-28083680d9
       - 4Sarina-9a4ecccaff
       - 4Jadi-f27a918520
       - 4Mohsen-e78630cfff
       - 4Jadi-03c07863f1
-      - 4Mohsen-fde969d167
-      - 4Nika-f960aee5ea
       - 4FreeIran-bb99f02c6b
       - 4FreeIran-461f88c06b
       - 4FreeIran-fbe3fb4863
@@ -274,6 +274,7 @@ proxy-groups:
       - 4FreeIran-1ada27ecce
       - 4FreeIran-b10a34341d
       - 4Jadi-4c6148e57b
+      - 4Nika-f4389cdf4c
       - 4FreeIran-f75da9dc12
 rules:
   - MATCH,Proxy

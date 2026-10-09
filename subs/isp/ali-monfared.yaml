@@ -1,23 +1,44 @@
 proxies:
-  - type: ss
-    name: ✰𝗝𝗼𝗶𝗻
-    server: 176.120.17.22
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: vUtLhCy8T6zoZv9Y6EP2G9oyWXFFUv-d
+  - type: vless
+    name: EPODONIOS
+    server: Eygelshoven-NL.mrapanel.shop
+    port: 13
+    uuid: bb441de5-4707-498c-b958-7ad469342b3d
     udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: Eygelshoven-NL.mrapanel.shop
+  - type: vless
+    name: filembad
+    server: Eygelshoven-NL.mrapanel.shop
+    port: 13
+    uuid: bb441de5-4707-498c-b958-7ad469342b3d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: Eygelshoven-NL.mrapanel.shop
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ✰𝗝𝗼𝗶𝗻
+      - EPODONIOS
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ✰𝗝𝗼𝗶𝗻
+      - EPODONIOS
+      - filembad
 rules:
   - MATCH,Proxy
