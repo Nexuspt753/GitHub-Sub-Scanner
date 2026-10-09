@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Sarina-5035102a27
+    name: DeltaKroneckerGithub
     server: 195.26.26.172
     port: 1819
     uuid: 5770d87a-78ec-4241-9972-b8acc774f62d
@@ -19,7 +19,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sj.sls.diginoisb.ir
   - type: vless
-    name: 4Nika-facf1845f9
+    name: 4Sarina-5035102a27
     server: 195.26.26.172
     port: 1819
     uuid: 5770d87a-78ec-4241-9972-b8acc774f62d
@@ -55,22 +55,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Mohsen-7129006181
+    server: 45.138.72.141
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-5035102a27
-      - 4Nika-facf1845f9
       - 4Sarina-efb2c4047b
+      - 4Mohsen-7129006181
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-5035102a27
-      - 4Nika-facf1845f9
       - 4Sarina-efb2c4047b
+      - 4Mohsen-7129006181
 rules:
   - MATCH,Proxy

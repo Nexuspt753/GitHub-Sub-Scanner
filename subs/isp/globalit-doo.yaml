@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 4Mohsen-61912d3385
-    server: 104.249.22.75
-    port: 43377
-    cipher: chacha20-ietf-poly1305
-    password: 2MaqmLJwWXtdJPvpzXD2MSYiZrXDwneqZbAEXqZUw7RzX7ndd3xFM9C3u9NdRXZPTNgDBenPLn6B6VrwmodCSEQc8RfuxBn8
+  - type: vless
+    name: 4Kian-95c617126f
+    server: sql.popmintxo.cc
+    port: 443
+    uuid: d806a58b-33aa-42e0-b170-395e49c16b37
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: Y0noOXC8qHmbM0GmDpj-9BBwKSOtHs-uMbNfKU050GQ
+      short-id: b558b9305a0b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-61912d3385
+      - 4Kian-95c617126f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-61912d3385
+      - 4Kian-95c617126f
 rules:
   - MATCH,Proxy

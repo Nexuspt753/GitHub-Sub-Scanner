@@ -1,32 +1,30 @@
 proxies:
   - type: vless
-    name: 4Sarina-90f517dc07
-    server: 45.82.244.40
-    port: 443
-    uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
+    name: 4Sarina-d4dd1714ce
+    server: 185.106.96.231
+    port: 10829
+    uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: hk.152568.xyz
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u695098u99a93686s848.gogocs.xyz
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/packages/runtime-core.tar.gzfp=edge
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hk.152568.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-90f517dc07
+      - 4Sarina-d4dd1714ce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-90f517dc07
+      - 4Sarina-d4dd1714ce
 rules:
   - MATCH,Proxy

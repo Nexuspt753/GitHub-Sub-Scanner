@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 178.239.117.24
-    port: 443
-    uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: asia.csmaster.site
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: asia.csmaster.site
-  - type: vless
     name: 4Mohsen-8c37cb87b6
     server: 103.195.188.206
     port: 443
@@ -79,62 +63,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vmess
-    name: 4Jadi-09846e0d88
-    server: 45.127.32.220
-    port: 55002
-    uuid: b25731af-0428-4274-be5d-31a273a8d632
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: b25731af-0428-4274-be5d-31a273a8d632-vm
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.bing.com
-  - type: vmess
-    name: 4Sarina-b231d7a096
-    server: 45.127.32.220
-    port: 55002
-    uuid: b25731af-0428-4274-be5d-31a273a8d632
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: b25731af-0428-4274-be5d-31a273a8d632-vm
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.bing.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Mohsen-8c37cb87b6
       - 4Nika-cbb1a72d19
       - 4Sarina-cfe5e8f69d
       - 4Jadi-0a106a9392
-      - 4Jadi-09846e0d88
-      - 4Sarina-b231d7a096
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Mohsen-8c37cb87b6
       - 4Nika-cbb1a72d19
       - 4Sarina-cfe5e8f69d
       - 4Jadi-0a106a9392
-      - 4Jadi-09846e0d88
-      - 4Sarina-b231d7a096
 rules:
   - MATCH,Proxy

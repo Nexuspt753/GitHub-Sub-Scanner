@@ -1,32 +1,43 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.192.201.140
+    name: 4Mohsen-eb532bd3c8
+    server: 82.29.36.250
     port: 443
-    uuid: 08aaab35-a42d-4755-a03e-20c18cb1b3e8
+    uuid: 41a7af38-0bb1-4493-aa8d-634af0c2548b
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: argo6.5671234.xyz
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: 09XPceP705hC-5sEDXDSLeL2eMOrF-mFISK8JaJ7q2g
+      short-id: 09353d6dc5b789
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /e8e2cecb6188f7fb
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: argo6.5671234.xyz
+  - type: vless
+    name: 4Sarina-3948b2e8d5
+    server: 82.29.36.250
+    port: 443
+    uuid: 41a7af38-0bb1-4493-aa8d-634af0c2548b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Mohsen-eb532bd3c8
+      - 4Sarina-3948b2e8d5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Mohsen-eb532bd3c8
+      - 4Sarina-3948b2e8d5
 rules:
   - MATCH,Proxy

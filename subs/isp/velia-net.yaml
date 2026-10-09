@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 148.72.164.235
+    port: 11995
+    cipher: aes-128-gcm
+    password: 827e870752e820c4ef7cc4058c1d0a99
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

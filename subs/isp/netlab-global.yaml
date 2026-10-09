@@ -1,7 +1,35 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 23.149.28.8
+    server: 154.40.55.185
+    port: 443
+    uuid: 52919204-4ed9-42c8-97a0-0f01d007f898
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.oracle.com
+    reality-opts:
+      public-key: XY0OTrgnRWxHbqBC8u4qFWvZakjNZY83AAnL_lwHu1M
+      short-id: 7f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 154.37.216.186
+    port: 443
+    uuid: ebdec762-050b-4d54-b7bf-0406ce22f734
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: KkSH2hoA6PuNJL5ZNUDGuWoAYe5kIwcGbrbCYuxHTx8
+      short-id: f39ad9d9eb26df47
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 23.149.28.8.sslip.io
     port: 8443
     password: 78c6cf8f30399bad3f63f15a9600a8ef
     udp: true
@@ -9,8 +37,8 @@ proxies:
     sni: 23.149.28.8.sslip.io
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 23.149.28.8.sslip.io
+    name: DeltaKroneckerGithub-03
+    server: 23.149.28.8
     port: 8443
     password: 78c6cf8f30399bad3f63f15a9600a8ef
     udp: true
@@ -26,6 +54,31 @@ proxies:
     tls: true
     sni: 23.149.28.8.sslip.io
     client-fingerprint: chrome
+  - type: vless
+    name: 4FreeIran-779491c232
+    server: 154.40.55.185
+    port: 443
+    uuid: 52919204-4ed9-42c8-97a0-0f01d007f898
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.oracle.com
+    reality-opts:
+      public-key: XY0OTrgnRWxHbqBC8u4qFWvZakjNZY83AAnL_lwHu1M
+      short-id: 7f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-94c56e8193
+    server: 154.40.55.185
+    port: 443
+    uuid: 52919204-4ed9-42c8-97a0-0f01d007f898
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.oracle.com
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Sarina-90c82de4a3
     server: 64.83.12.153
@@ -43,7 +96,11 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Jadi-3fd3c3cbc1
+      - 4FreeIran-779491c232
+      - 4Mohsen-94c56e8193
       - 4Sarina-90c82de4a3
   - name: Auto
     type: url-test
@@ -53,7 +110,11 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Jadi-3fd3c3cbc1
+      - 4FreeIran-779491c232
+      - 4Mohsen-94c56e8193
       - 4Sarina-90c82de4a3
 rules:
   - MATCH,Proxy

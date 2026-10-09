@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: Selinc
+    server: 158.160.160.21
+    port: 443
+    uuid: 06d05a0a-f298-0001-8fab-3de32e3fb770
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: matrix.stargazed.space
+    reality-opts:
+      public-key: RMjWKm3Jj09ytfHD-90J0c3qdpQtjqJ4muUSAuF2eXQ
+      short-id: 0e9e64843ec8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: "["
     server: 158.160.160.21
     port: 443
@@ -41,26 +55,15 @@ proxies:
       short-id: 0e9e64843ec8
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-5979d5a5c7
-    server: 93.77.188.102
-    port: 443
-    uuid: 2eb1e3e2-34b9-4ca8-864f-9fada68d6c81
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: wde5.whitedeu.org
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - Selinc
       - "["
       - 4Nika-ea6f00b5b4
-      - 4Jadi-5979d5a5c7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,8 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - Selinc
       - "["
       - 4Nika-ea6f00b5b4
-      - 4Jadi-5979d5a5c7
 rules:
   - MATCH,Proxy
