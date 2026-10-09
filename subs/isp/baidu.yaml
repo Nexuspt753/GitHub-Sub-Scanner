@@ -1,0 +1,82 @@
+proxies:
+  - type: vmess
+    name: EPODONIOS
+    server: 120.48.133.162
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: EPODONIOS-01
+    server: 120.48.133.162
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 10062@proxy_online_net
+    server: 120.48.133.162
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: filembad
+    server: 120.48.133.162
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 10062@proxy_online_net
+      - filembad
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 10062@proxy_online_net
+      - filembad
+rules:
+  - MATCH,Proxy

@@ -1,9 +1,19 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 153.76.185.87
+    name: EPODONIOS
+    server: 153.76.185.169
     port: 3090
-    uuid: 1eb957df-99d1-4e23-a90d-a3832321df50
+    uuid: 20323c4f-08de-45a7-9e30-96f8b07c6031
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-ae63414005
+    server: 153.76.185.169
+    port: 3090
+    uuid: 20323c4f-08de-45a7-9e30-96f8b07c6031
     udp: true
     xudp: true
     network: grpc
@@ -14,13 +24,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4FreeIran-ae63414005
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4FreeIran-ae63414005
 rules:
   - MATCH,Proxy

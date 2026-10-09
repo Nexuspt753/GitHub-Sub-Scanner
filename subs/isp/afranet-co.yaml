@@ -6,12 +6,20 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: ueWtfPaGavAj6Pc-suQgBg
     udp: true
+  - type: ss
+    name: EPODONIOS
+    server: p2tun1.greewebservices.ir
+    port: 1010
+    cipher: chacha20-ietf-poly1305
+    password: XPjTkv8alWK_UQdMpznwPg
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - V2ray_confiig
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - V2ray_confiig
+      - EPODONIOS
 rules:
   - MATCH,Proxy

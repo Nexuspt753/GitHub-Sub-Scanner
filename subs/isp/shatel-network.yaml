@@ -1,32 +1,38 @@
 proxies:
-  - type: vless
-    name: 🇮🇷188176
-    server: ts3.ultranv.ir
-    port: 8282
-    uuid: 98d873c7-973f-4650-802f-dbdadf8b65e2
+  - type: vmess
+    name: EPODONIOS
+    server: dashboard.ojeshop.top
+    port: 5380
+    uuid: 4835db35-e066-4c52-9e11-3bbab4d13f9a
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tls.codmaxx.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tls.codmaxx.ir
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-69592a361c
+    server: vip3.coinchain.site
+    port: 8080
+    uuid: 992b7390-b7e7-4adf-82aa-a8953a997380
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇮🇷188176
+      - EPODONIOS
+      - 4Sarina-69592a361c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇷188176
+      - EPODONIOS
+      - 4Sarina-69592a361c
 rules:
   - MATCH,Proxy

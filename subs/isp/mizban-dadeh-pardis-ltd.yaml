@@ -1,9 +1,18 @@
 proxies:
   - type: vless
     name: vless
-    server: tun12.momasvps.ir
-    port: 5018
-    uuid: 4003b15e-da36-417e-a3f1-96661dc5e8fa
+    server: xn--kabok-q21cp4224a.netbazshop.ir
+    port: 2083
+    uuid: 7cd604a3-8eb9-45d0-ad22-7e901a884d4e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: xn--kabok-q21cp4224a.netbazshop.ir
+    port: 2083
+    uuid: 7cd604a3-8eb9-45d0-ad22-7e901a884d4e
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -14,6 +23,7 @@ proxy-groups:
     proxies:
       - Auto
       - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
 rules:
   - MATCH,Proxy

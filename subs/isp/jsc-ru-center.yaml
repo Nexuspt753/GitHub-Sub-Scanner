@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-36fd5437fa
+    server: 195.24.65.221
+    port: 2096
+    uuid: 9e960af7-e6da-4cb4-8617-b4496a7c6cd2
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: max.ru
+    reality-opts:
+      public-key: "-Dg4mGAAM5Lwe9ri7Bx5WlYdPBsyYJy-Pai2Z0FGlyc"
+      short-id: afee962d
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-36fd5437fa
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-36fd5437fa
+rules:
+  - MATCH,Proxy

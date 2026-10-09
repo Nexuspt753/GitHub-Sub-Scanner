@@ -7,21 +7,12 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 193.187.119.41
-    port: 443
-    password: owreRY1bmquS1WcYN2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,6 +20,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
