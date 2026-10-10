@@ -39,6 +39,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-b0b62da380
+    server: 185.86.145.183
+    port: 443
+    uuid: 7ec9f26a-edec-4bf1-addd-700626df27c1
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - http/1.1
+    servername: cosmo-pulse.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /nl7ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cosmo-pulse.ru
+  - type: vless
+    name: 4Mohsen-46ffea079b
+    server: 217.16.31.218
+    port: 443
+    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -47,6 +79,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - EPODONIOS
       - DeltaKroneckerGithub-01
+      - 4Mohsen-b0b62da380
+      - 4Mohsen-46ffea079b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,5 +90,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - EPODONIOS
       - DeltaKroneckerGithub-01
+      - 4Mohsen-b0b62da380
+      - 4Mohsen-46ffea079b
 rules:
   - MATCH,Proxy

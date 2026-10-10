@@ -13,12 +13,42 @@ proxies:
       short-id: b927c029ece94e02
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 89.23.113.11
+    port: 443
+    uuid: 186a7d6f-e360-4c5f-bafb-a816f79e231b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru-in-lt-4vp.movietop24.site
+    reality-opts:
+      public-key: DP_8vX-l2ugAHn828ZGa4wHp4Y7YOZrhGKiTMaFoCDc
+      short-id: 4ea43db267b5fd8b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-fb173775ba
+    server: 89.23.113.11
+    port: 443
+    uuid: 186a7d6f-e360-4c5f-bafb-a816f79e231b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru-in-lt-4vp.movietop24.site
+    reality-opts:
+      public-key: DP_8vX-l2ugAHn828ZGa4wHp4Y7YOZrhGKiTMaFoCDc
+      short-id: 4ea43db267b5fd8b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-fb173775ba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-fb173775ba
 rules:
   - MATCH,Proxy

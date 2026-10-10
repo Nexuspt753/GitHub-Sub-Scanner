@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: 4Sarina-cce1432e70
+    server: 79.174.92.222
+    port: 443
+    uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: m.vk.com
+    reality-opts:
+      public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
+      short-id: a1b2c3d4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vmess
     name: 4Kian-60faed0634
     server: 194.226.142.120
@@ -11,23 +27,6 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Nika-7883f07192
-    server: 194.226.142.120
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -51,42 +50,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Mohsen-3af373e116
-    server: 195.19.20.80
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-cce1432e70
       - 4Kian-60faed0634
-      - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707
-      - 4Mohsen-3af373e116
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-cce1432e70
       - 4Kian-60faed0634
-      - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707
-      - 4Mohsen-3af373e116
 rules:
   - MATCH,Proxy

@@ -1,17 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 195.58.144.56
     port: 11907
@@ -19,21 +7,9 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
     xudp: true
   - type: vless
     name: EPODONIOS-01
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: EPODONIOS-02
     server: 195.58.144.56
     port: 11907
     uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
@@ -46,19 +22,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
 rules:
   - MATCH,Proxy

@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 178.253.233.118
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl7.bbobr.win
+    reality-opts:
+      public-key: aRhhdxVu0EiUbVl1Wyq6DLjJMRRJ78YQY2rN5Ne98gg
+      short-id: 5d3849c8fc1e63b0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: "111"
+    server: 178.253.233.118
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl7.bbobr.win
+    reality-opts:
+      public-key: aRhhdxVu0EiUbVl1Wyq6DLjJMRRJ78YQY2rN5Ne98gg
+      short-id: 5d3849c8fc1e63b0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-0e66b97d49
     server: 178.253.233.118
     port: 443
@@ -20,6 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - "111"
       - 4Jadi-0e66b97d49
   - name: Auto
     type: url-test
@@ -27,6 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - "111"
       - 4Jadi-0e66b97d49
 rules:
   - MATCH,Proxy
