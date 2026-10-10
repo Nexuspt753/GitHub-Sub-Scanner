@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Nika-bd4ab0097b
+    name: DeltaKroneckerGithub
     server: se3.h1cloud.net
     port: 25119
     uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
@@ -14,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-debd75dc8e
+    name: 4Nika-bd4ab0097b
     server: se3.h1cloud.net
     port: 25119
     uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
@@ -22,6 +22,9 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: www.samsung.com
+    reality-opts:
+      public-key: szPq4a3cvxfBOmGyg-UJCV3d1Jqjnj7YR3gaxyYtnk4
+      short-id: 10f517
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -29,15 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-bd4ab0097b
-      - 4Kian-debd75dc8e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-bd4ab0097b
-      - 4Kian-debd75dc8e
 rules:
   - MATCH,Proxy

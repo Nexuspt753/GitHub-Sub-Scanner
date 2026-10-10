@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 141.101.122.147
+    port: 443
+    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: a.cwvps.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: a.cwvps.eu.org
   - type: trojan
     name: 4Sarina-28083680d9
     server: 141.101.90.101
@@ -215,22 +231,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Jadi-4c6148e57b
-    server: 141.101.123.42
-    port: 2052
-    uuid: 0afb8b2c-149a-49a8-e90f-d77884ac922f
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /blue99
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ecc.vtcss.top
-  - type: vmess
     name: 4Nika-f4389cdf4c
     server: cf.dalazhi.eu.org
     port: 443
@@ -247,28 +247,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf.dalazhi.eu.org
-  - type: vmess
-    name: 4FreeIran-f75da9dc12
-    server: cf.dalazhi.eu.org
-    port: 443
-    uuid: 64480f4c-61c2-4d88-89c3-fc0045229bfc
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /kplxvws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: us.dalazhi.eu.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-28083680d9
       - 4Sarina-9a4ecccaff
       - 4Jadi-f27a918520
@@ -283,15 +267,14 @@ proxy-groups:
       - 4Jadi-6357f04be2
       - 4FreeIran-1ada27ecce
       - 4FreeIran-b10a34341d
-      - 4Jadi-4c6148e57b
       - 4Nika-f4389cdf4c
-      - 4FreeIran-f75da9dc12
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-28083680d9
       - 4Sarina-9a4ecccaff
       - 4Jadi-f27a918520
@@ -306,8 +289,6 @@ proxy-groups:
       - 4Jadi-6357f04be2
       - 4FreeIran-1ada27ecce
       - 4FreeIran-b10a34341d
-      - 4Jadi-4c6148e57b
       - 4Nika-f4389cdf4c
-      - 4FreeIran-f75da9dc12
 rules:
   - MATCH,Proxy

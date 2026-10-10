@@ -1,39 +1,48 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: EPODONIOS
-    server: 84.75.255.49
-    port: 443
-    uuid: 14af8b56-0f21-462b-95e5-6705bc6125db
+    server: 82.163.7.43
+    port: 7443
+    password: 80L0GT8FBWLLP39qdXJCtYRRqD1yG_ut
     udp: true
     tls: true
+    sni: node18.overcdn.ru
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: ch2.responsiblecare.uk
-    reality-opts:
-      public-key: nilJ07r1KZ0-KhmRNYeICXGhM9HeG9uxnRaqjYz3fWg
-      short-id: 356a70f0d72b4e80
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Jadi-6ac7d56167
-    server: 84.75.255.49
-    port: 443
-    uuid: 14af8b56-0f21-462b-95e5-6705bc6125db
+  - type: trojan
+    name: "[68572]"
+    server: 82.163.7.43
+    port: 7443
+    password: 80L0GT8FBWLLP39qdXJCtYRRqD1yG_ut
     udp: true
     tls: true
+    sni: node18.overcdn.ru
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: ch2.responsiblecare.uk
-    reality-opts:
-      public-key: nilJ07r1KZ0-KhmRNYeICXGhM9HeG9uxnRaqjYz3fWg
-      short-id: 356a70f0d72b4e80
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: trojan
+    name: 4FreeIran-65e953a81d
+    server: 82.163.7.43
+    port: 7443
+    password: 80L0GT8FBWLLP39qdXJCtYRRqD1yG_ut
+    udp: true
+    tls: true
+    sni: node18.overcdn.ru
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Jadi-6ac7d56167
+      - "[68572]"
+      - 4FreeIran-65e953a81d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +50,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Jadi-6ac7d56167
+      - "[68572]"
+      - 4FreeIran-65e953a81d
 rules:
   - MATCH,Proxy

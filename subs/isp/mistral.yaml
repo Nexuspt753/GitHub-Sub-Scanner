@@ -1,32 +1,38 @@
 proxies:
-  - type: vless
-    name: 4Nika-74239735c8
-    server: 217.154.53.220
-    port: 443
-    uuid: e911c552-3a98-41e0-b5fb-0dd3879887b7
+  - type: vmess
+    name: 🔵@chillguy_vpn
+    server: ovhpok.goalir.co.uk
+    port: 2080
+    uuid: bc3804ce-caf8-4249-bc98-393c9daf7adf
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vod.ensf.top
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/irc
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vod.ensf.top
+    skip-cert-verify: false
+  - type: vmess
+    name: 🚀@VPNine1
+    server: ovhpok.goalir.co.uk
+    port: 2080
+    uuid: bc3804ce-caf8-4249-bc98-393c9daf7adf
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-74239735c8
+      - 🔵@chillguy_vpn
+      - 🚀@VPNine1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-74239735c8
+      - 🔵@chillguy_vpn
+      - 🚀@VPNine1
 rules:
   - MATCH,Proxy

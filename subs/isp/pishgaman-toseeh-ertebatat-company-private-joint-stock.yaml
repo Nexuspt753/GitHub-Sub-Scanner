@@ -1,48 +1,62 @@
 proxies:
   - type: vless
-    name: 🇮🇷190467
-    server: pish.pasarguardspeed.ir
-    port: 4520
-    uuid: 74221264-812a-4e87-b7a1-a6d2a40a70a0
+    name: EPODONIOS
+    server: dc-4.xorian.ir
+    port: 60031
+    uuid: 770fc5d5-65c9-48c7-aeb5-bcf799788e55
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: SPEEDTEST.NET
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: data-pi-23.xorian.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 🇮🇷IR-🚀@VPNine1
-    server: pish.pasarguardspeed.ir
-    port: 4520
-    uuid: 74221264-812a-4e87-b7a1-a6d2a40a70a0
+    server: dc-4.xorian.ir
+    port: 60031
+    uuid: 770fc5d5-65c9-48c7-aeb5-bcf799788e55
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: SPEEDTEST.NET
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: data-pi-23.xorian.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-bbde85a99a
+    server: dc-4.xorian.ir
+    port: 60031
+    uuid: 770fc5d5-65c9-48c7-aeb5-bcf799788e55
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: data-pi-23.xorian.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇮🇷190467
+      - EPODONIOS
       - 🇮🇷IR-🚀@VPNine1
+      - 4Jadi-bbde85a99a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇷190467
+      - EPODONIOS
       - 🇮🇷IR-🚀@VPNine1
+      - 4Jadi-bbde85a99a
 rules:
   - MATCH,Proxy
