@@ -1,4 +1,21 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 140.225.209.150
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: hysteria2
     name: 4FreeIran-f62c00d0b5
     server: 104.165.205.21
@@ -6,6 +23,30 @@ proxies:
     password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
     sni: onecloudstream.com
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-facb70be5b
+    server: lv02.gotosvo.com
+    port: 9443
+    password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    sni: onecloudstream.com
+    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 140.225.208.50
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: EPODONIOS
     server: 45.88.12.151
@@ -58,16 +99,67 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-5193ba4381
-    server: 45.88.12.151
+    name: 4Kian-56c20474a7
+    server: 140.225.209.150
     port: 2083
-    uuid: cc4074d6-f450-4025-833a-a6e0100ceaff
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: crt.molniya.sbs
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-e5b988b835
+    server: 140.225.209.150
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-6eadf6641b
+    server: 140.225.208.50
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-97486e02a6
+    server: 140.225.208.50
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
     xudp: true
     network: ws
     ws-opts:
@@ -79,21 +171,33 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-f62c00d0b5
+      - 4Sarina-facb70be5b
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - ICV2RAY
       - 𝗝𝗼𝗶𝗻
-      - 4Nika-5193ba4381
+      - 4Kian-56c20474a7
+      - 4Sarina-e5b988b835
+      - 4Sarina-6eadf6641b
+      - 4Sarina-97486e02a6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-f62c00d0b5
+      - 4Sarina-facb70be5b
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - ICV2RAY
       - 𝗝𝗼𝗶𝗻
-      - 4Nika-5193ba4381
+      - 4Kian-56c20474a7
+      - 4Sarina-e5b988b835
+      - 4Sarina-6eadf6641b
+      - 4Sarina-97486e02a6
 rules:
   - MATCH,Proxy

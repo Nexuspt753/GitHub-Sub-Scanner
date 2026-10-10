@@ -1,6 +1,20 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: p2tun2.greewebservices.ir
+    port: 1020
+    cipher: chacha20-ietf-poly1305
+    password: ueWtfPaGavAj6Pc-suQgBg
+    udp: true
+  - type: ss
     name: V2ray_confiig
+    server: p2tun2.greewebservices.ir
+    port: 1020
+    cipher: chacha20-ietf-poly1305
+    password: ueWtfPaGavAj6Pc-suQgBg
+    udp: true
+  - type: ss
+    name: 4Mohsen-b353ab79c8
     server: p2tun2.greewebservices.ir
     port: 1020
     cipher: chacha20-ietf-poly1305
@@ -11,13 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - V2ray_confiig
+      - 4Mohsen-b353ab79c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - V2ray_confiig
+      - 4Mohsen-b353ab79c8
 rules:
   - MATCH,Proxy

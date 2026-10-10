@@ -1,32 +1,29 @@
 proxies:
   - type: vless
-    name: 4Jadi-ad909439ec
-    server: serv40.strettenvpn.com
-    port: 7771
-    uuid: 707db87b-9cbf-438f-b4c7-9d984c8e944a
+    name: DeltaKroneckerGithub
+    server: 94.183.206.84
+    port: 443
+    uuid: 4f51ca84-43ea-4087-b8a2-938e0ccbe27a
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: sun6-21.userapi.com
+    client-fingerprint: firefox
+    servername: google.com
     reality-opts:
-      public-key: yhUfTGgu5PYRlFqMnRZkxffH_aU05AFUToGI8_EKF28
-      short-id: c4a9f1e2
+      public-key: mDDDyruO33nuqcTS7pZOjd9oOpDHUf0aEv2TQ1DFGV4
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-ad909439ec
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-ad909439ec
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

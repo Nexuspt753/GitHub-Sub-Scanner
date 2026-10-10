@@ -1,6 +1,18 @@
 proxies:
   - type: vless
     name: vless
+    server: cdn.foxxxy.online
+    port: 443
+    uuid: 1d943027-46ec-40ad-9d98-db8d29439d60
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: vless-01
     server: v-cdn.layeriq.ru
     port: 443
     uuid: db4fb2a7-a31d-46d8-b6d2-76eafe8cfe2a
@@ -14,6 +26,7 @@ proxy-groups:
     proxies:
       - Auto
       - vless
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
 rules:
   - MATCH,Proxy

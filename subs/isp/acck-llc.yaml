@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Mohsen-eb532bd3c8
+    name: DeltaKroneckerGithub
     server: 82.29.36.250
     port: 443
     uuid: 41a7af38-0bb1-4493-aa8d-634af0c2548b
@@ -14,30 +14,53 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-3948b2e8d5
-    server: 82.29.36.250
+    name: EPODONIOS
+    server: 45.192.202.199
     port: 443
-    uuid: 41a7af38-0bb1-4493-aa8d-634af0c2548b
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: aws.amazon.com
-    flow: xtls-rprx-vision
+    servername: edgetunnel-4uw.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
+  - type: vless
+    name: 4Kian-0b73cf1683
+    server: 45.192.202.199
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-eb532bd3c8
-      - 4Sarina-3948b2e8d5
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-0b73cf1683
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-eb532bd3c8
-      - 4Sarina-3948b2e8d5
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-0b73cf1683
 rules:
   - MATCH,Proxy

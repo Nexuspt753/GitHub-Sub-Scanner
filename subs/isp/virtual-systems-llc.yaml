@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 213.111.148.137
+    port: 443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: android
+    servername: proxy-1cu.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-1cu.pages.dev
+  - type: vless
     name: 4Jadi-866896e360
     server: 213.111.148.137
     port: 443
@@ -36,6 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Jadi-866896e360
       - 4Sarina-cfb76f0841
   - name: Auto
@@ -44,6 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Jadi-866896e360
       - 4Sarina-cfb76f0841
 rules:

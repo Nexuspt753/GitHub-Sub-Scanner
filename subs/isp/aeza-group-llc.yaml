@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 77.110.105.122
+    port: 443
+    uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: co-pl.speedtec.ru
+    reality-opts:
+      public-key: EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI
+      short-id: 226509f017e4c36d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 193.233.245.205
     port: 443
@@ -41,37 +55,24 @@ proxies:
       short-id: d30cb21db3289c97
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-f898f896e3
-    server: 138.124.14.53
-    port: 443
-    uuid: a6065b11-fc54-4097-945e-aa95cad3982a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: uzlsyeqjwkmc.cdn-node.space
-    reality-opts:
-      public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - MARAMBASHI
       - 4Nika-fd642a71a6
-      - 4FreeIran-f898f896e3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - MARAMBASHI
       - 4Nika-fd642a71a6
-      - 4FreeIran-f898f896e3
 rules:
   - MATCH,Proxy

@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: pol2.fytpn.com
+    port: 8443
+    uuid: a889fba5-5472-4022-a6b4-9710157fda2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pol2.fytpn.com
+    reality-opts:
+      public-key: 7JLSiscJksRdmmRLnbqXlBgc4nce6lTvhKp3NIlXHFg
+      short-id: a2aa
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: EPODONIOS
     server: pol2.fytpn.com
@@ -8,6 +22,20 @@ proxies:
     tls: true
     sni: pol2.fytpn.com
     client-fingerprint: chrome
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 222.167.245.248
+    port: 8443
+    uuid: a889fba5-5472-4022-a6b4-9710157fda2f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pol2.fytpn.com
+    reality-opts:
+      public-key: 7JLSiscJksRdmmRLnbqXlBgc4nce6lTvhKp3NIlXHFg
+      short-id: a2aa
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: v2ray313
     server: pol2.fytpn.com
@@ -17,29 +45,6 @@ proxies:
     tls: true
     sni: pol2.fytpn.com
     client-fingerprint: chrome
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: stoniy.fytpn.com
-    port: 56789
-    uuid: a889fba5-5472-4022-a6b4-9710157fda2f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: stoniy.fytpn.com
-    reality-opts:
-      public-key: PDHRi_RRFsPhxLoH2C1l9A9HdL2y7g1uOzXmY0XnmzQ
-      short-id: a2aa
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: stoniy.fytpn.com
-    port: 2097
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-    udp: true
-    tls: true
-    sni: stoniy.fytpn.com
-    client-fingerprint: firefox
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: pol2.fytpn.com
@@ -50,7 +55,25 @@ proxies:
     sni: pol2.fytpn.com
     client-fingerprint: firefox
   - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 222.167.245.248
+    port: 2097
+    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
+    udp: true
+    tls: true
+    sni: pol2.fytpn.com
+    client-fingerprint: firefox
+  - type: trojan
     name: 4Mohsen-bdc70fc10d
+    server: pol2.fytpn.com
+    port: 2097
+    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
+    udp: true
+    tls: true
+    sni: pol2.fytpn.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-c90501c094
     server: pol2.fytpn.com
     port: 2097
     password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
@@ -68,40 +91,44 @@ proxies:
     sni: pol2.fytpn.com
     client-fingerprint: chrome
   - type: trojan
-    name: 4Jadi-3a23ff2746
-    server: stoniy.fytpn.com
+    name: 🇵🇱PL-222.167.245.248-0521
+    server: pol2.fytpn.com
     port: 2097
     password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
     udp: true
     tls: true
-    sni: stoniy.fytpn.com
+    sni: pol2.fytpn.com
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - v2ray313
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - v2ray313
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-bdc70fc10d
+      - 4FreeIran-c90501c094
       - 4Mohsen-b513976bd1
-      - 4Jadi-3a23ff2746
+      - 🇵🇱PL-222.167.245.248-0521
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - v2ray313
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
+      - v2ray313
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-bdc70fc10d
+      - 4FreeIran-c90501c094
       - 4Mohsen-b513976bd1
-      - 4Jadi-3a23ff2746
+      - 🇵🇱PL-222.167.245.248-0521
 rules:
   - MATCH,Proxy

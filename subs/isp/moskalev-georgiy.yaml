@@ -1,4 +1,19 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hl-freedom-1.undef.network
+    port: 443
+    password: 7LBbob9IutFObLxLf9Svc1HaV
+    udp: true
+    tls: true
+    sni: hl-freedom-1.undef.network
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-1.undef.network
   - type: vless
     name: EPODONIOS
     server: 201.10.90.118
@@ -14,7 +29,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: hl-freedom-2.undef.network
     port: 443
     password: Tn2Bf0iRwJkJQgDk6gX6x81RB
@@ -23,14 +38,14 @@ proxies:
     sni: hl-freedom-2.undef.network
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: hl-freedom-1.undef.network
     port: 443
     password: JaFKnqNcvnBT63t3rquidGsln
     udp: true
     client-fingerprint: chrome
   - type: vless
-    name: 4Jadi-2a90c2df89
+    name: irdusti(35)🇵🇱
     server: 201.10.90.118
     port: 443
     uuid: 86096188-0ece-41af-922d-792c5f96c3ad
@@ -48,19 +63,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - 4Jadi-2a90c2df89
+      - DeltaKroneckerGithub-02
+      - irdusti(35)🇵🇱
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - 4Jadi-2a90c2df89
+      - DeltaKroneckerGithub-02
+      - irdusti(35)🇵🇱
 rules:
   - MATCH,Proxy

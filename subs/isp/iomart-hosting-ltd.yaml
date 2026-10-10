@@ -6,12 +6,28 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: OiLR7aA0k5jJxv0uikQlTU
     udp: true
+  - type: ss
+    name: 4Sarina-d8f216f8c1
+    server: 78.129.252.65
+    port: 17096
+    cipher: aes-128-gcm
+    password: 7c55c080c3949e03f1a6a559a9851c68
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 78.129.252.65
+    port: 17096
+    cipher: aes-128-gcm
+    password: 7c55c080c3949e03f1a6a559a9851c68
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-8d08f415f7
+      - 4Sarina-d8f216f8c1
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +35,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-8d08f415f7
+      - 4Sarina-d8f216f8c1
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

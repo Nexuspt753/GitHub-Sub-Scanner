@@ -1,26 +1,24 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 103.7.137.51
-    port: 443
-    uuid: 489f1717-d3c7-4940-ad68-bdbdbab857f4
+  - type: ss
+    name: EPODONIOS
+    server: 103.11.76.248
+    port: 28679
+    cipher: 2022-blake3-aes-128-gcm
+    password: NzJlOTQ5NWYtM2ZkYi00Cg==
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: x.m-90.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: t.me/TEAMNETGRATISCOL
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: x.m-90.xyz
   - type: ss
     name: 4Kian-5a090cd087
     server: 103.11.76.248
     port: 28679
     cipher: 2022-blake3-aes-128-gcm
     password: NzJlOTQ5NWYtM2ZkYi00Cg==
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 103.11.76.248
+    port: 28679
+    cipher: 2022-blake3-aes-128-gcm
+    password: NzJlOTQ5NWYtM2ZkYi00Cg%3D%3D
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-01
@@ -34,8 +32,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Kian-5a090cd087
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
@@ -43,8 +42,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Kian-5a090cd087
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

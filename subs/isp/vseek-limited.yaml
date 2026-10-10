@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Nika-c064e78d8a
+    server: 5.199.0.226
+    port: 443
+    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rnxq-1lpi3m.linmeisoft.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rnxq-1lpi3m.linmeisoft.com
+  - type: vless
     name: 4FreeIran-8631a65c0f
     server: 5.199.0.226
     port: 443
@@ -11,6 +27,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-c064e78d8a
       - 4FreeIran-8631a65c0f
   - name: Auto
     type: url-test
@@ -18,6 +35,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-c064e78d8a
       - 4FreeIran-8631a65c0f
 rules:
   - MATCH,Proxy

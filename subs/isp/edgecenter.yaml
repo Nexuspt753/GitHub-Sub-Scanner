@@ -1,0 +1,70 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 146.185.197.95
+    port: 443
+    uuid: 9ea8b000-58ce-0005-b108-989dd4f248f1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /live/ws2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇷🇺191327
+    server: 146.185.197.95
+    port: 443
+    uuid: 9ea8b000-58ce-0005-b108-989dd4f248f1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /live/ws2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇷🇺RU-🚀@VPNine1
+    server: 146.185.197.95
+    port: 443
+    uuid: 9ea8b000-58ce-0005-b108-989dd4f248f1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /live/ws2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-3bd367a2b2
+    server: 146.185.197.95
+    port: 443
+    uuid: 9ea8b000-58ce-0005-b108-989dd4f248f1
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /live/ws2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇷🇺191327
+      - 🇷🇺RU-🚀@VPNine1
+      - 4Kian-3bd367a2b2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇷🇺191327
+      - 🇷🇺RU-🚀@VPNine1
+      - 4Kian-3bd367a2b2
+rules:
+  - MATCH,Proxy

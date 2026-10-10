@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: Sao Paulo · @DeltaKroneckerGithub
+    server: 35.199.90.53
+    port: 443
+    uuid: 5e517b94-e207-47ee-be3c-3020a57594e8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: pCImwRkTjx8OIUiu1WFelZQFt1p3Q0lUoPbvjVq8GTs
+      short-id: b62a4da6cd1c4dd6
+    xudp: true
   - type: trojan
     name: São Paulo · @DeltaKroneckerGithub
     server: 109.104.155.94
@@ -8,18 +21,72 @@ proxies:
     tls: true
     sni: national-toucan.dolphin109.quest
     client-fingerprint: chrome
+  - type: vless
+    name: Sao Paulo · 4Kian-fd22fb12fc
+    server: 35.199.90.53
+    port: 443
+    uuid: 5e517b94-e207-47ee-be3c-3020a57594e8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: pCImwRkTjx8OIUiu1WFelZQFt1p3Q0lUoPbvjVq8GTs
+      short-id: b62a4da6cd1c4dd6
+    xudp: true
+  - type: vless
+    name: Vinhedo · 4FreeIran-c529468201
+    server: 157.151.4.93
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vmess
+    name: São Paulo · 4Mohsen-08da0ecb5d
+    server: 89.39.161.157
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: aksai.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Sao Paulo · @DeltaKroneckerGithub
       - São Paulo · @DeltaKroneckerGithub
+      - Sao Paulo · 4Kian-fd22fb12fc
+      - Vinhedo · 4FreeIran-c529468201
+      - São Paulo · 4Mohsen-08da0ecb5d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Sao Paulo · @DeltaKroneckerGithub
       - São Paulo · @DeltaKroneckerGithub
+      - Sao Paulo · 4Kian-fd22fb12fc
+      - Vinhedo · 4FreeIran-c529468201
+      - São Paulo · 4Mohsen-08da0ecb5d
 rules:
   - MATCH,Proxy

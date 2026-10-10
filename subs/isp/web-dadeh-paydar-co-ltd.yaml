@@ -1,14 +1,4 @@
 proxies:
-  - type: vmess
-    name: Selinc
-    server: parrsweb.site
-    port: 443
-    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vless
     name: 4FreeIran-43cf4bf262
     server: www.xenhost.ir
@@ -27,32 +17,18 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.xenhost.ir
-  - type: vmess
-    name: 4Nika-187a70cd48
-    server: parrsweb.site
-    port: 443
-    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Selinc
       - 4FreeIran-43cf4bf262
-      - 4Nika-187a70cd48
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Selinc
       - 4FreeIran-43cf4bf262
-      - 4Nika-187a70cd48
 rules:
   - MATCH,Proxy

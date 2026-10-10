@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Jadi-25594f8f19
+    server: 194.180.191.249
+    port: 443
+    uuid: 817b61c8-9bf0-4365-8a52-e43dfad274a6
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: shin-ra.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shin-ra.ccwu.cc
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-25594f8f19
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-25594f8f19
+rules:
+  - MATCH,Proxy

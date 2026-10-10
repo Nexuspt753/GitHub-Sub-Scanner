@@ -1,0 +1,128 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 92.242.165.10
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 92.242.165.20
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-1d56ab0c64
+    server: 92.242.165.10
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-086837644e
+    server: 92.242.165.10
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-7725d1e489
+    server: 92.242.165.20
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-f13a583854
+    server: 92.242.165.20
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-1d56ab0c64
+      - 4FreeIran-086837644e
+      - 4Sarina-7725d1e489
+      - 4Sarina-f13a583854
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-1d56ab0c64
+      - 4FreeIran-086837644e
+      - 4Sarina-7725d1e489
+      - 4Sarina-f13a583854
+rules:
+  - MATCH,Proxy

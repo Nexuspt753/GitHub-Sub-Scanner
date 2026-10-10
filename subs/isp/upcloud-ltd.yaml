@@ -1,20 +1,29 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 87.58.158.82
+    name: DeltaKroneckerGithub
+    server: 213.163.207.214
     port: 443
-    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    uuid: d3ad7253-2dbd-42fd-9b07-04caea38de54
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: cdn-dynmedia.shalana.shop
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: cdn-dynmedia.shalana.shop
+    port: 443
+    uuid: d3ad7253-2dbd-42fd-9b07-04caea38de54
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: dk7.bbobr.win
-    reality-opts:
-      public-key: zBNHm7DwlBZ2rfu2F5e3jMsmR2q74KpS2L6EavCVmkA
-      short-id: f6985908fcb5612f
-    flow: xtls-rprx-vision
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn-dynmedia.shalana.shop
     xudp: true
   - type: vless
-    name: "117"
+    name: EPODONIOS
     server: 87.58.158.82
     port: 443
     uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
@@ -29,6 +38,21 @@ proxies:
     xudp: true
   - type: vmess
     name: EPODONIOS-01
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: ✈️ @FreeConfigForYou
     server: fr-nin.neninet.ir
     port: 18875
     uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
@@ -98,30 +122,48 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: riga-nin.neninet.ir
+  - type: vmess
+    name: 4FreeIran-63d0b24660
+    server: riga-nin.neninet.ir
+    port: 54978
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: riga-nin.neninet.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - "117"
       - EPODONIOS-01
+      - ✈️ @FreeConfigForYou
       - 4Kian-3cc264d0a8
       - 4FreeIran-4620a0c279
       - 4FreeIran-07d77a5e12
       - 4Mohsen-374bcd9916
+      - 4FreeIran-63d0b24660
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - "117"
       - EPODONIOS-01
+      - ✈️ @FreeConfigForYou
       - 4Kian-3cc264d0a8
       - 4FreeIran-4620a0c279
       - 4FreeIran-07d77a5e12
       - 4Mohsen-374bcd9916
+      - 4FreeIran-63d0b24660
 rules:
   - MATCH,Proxy
