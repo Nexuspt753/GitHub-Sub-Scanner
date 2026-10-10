@@ -24,6 +24,15 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: vless
+    server: 136.244.67.248
+    port: 443
+    uuid: aea43dac-5242-590a-9da6-23a7118bc132
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
   - type: trojan
     name: 4Nika-ab4e651797
     server: 108.61.171.167
@@ -51,21 +60,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-75bd92a586
-    server: 45.76.207.88
+    name: 4Nika-b1969ff785
+    server: 107.191.53.84
     port: 443
     uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: mia0.pages.dev
+    servername: mia10.pages.dev
     xudp: true
     network: ws
     ws-opts:
       path: /TG:@MiaChatChannel
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: mia0.pages.dev
+        Host: mia10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -73,9 +82,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - vless
       - 4Nika-ab4e651797
       - 4Mohsen-d6b4c139d9
-      - 4Mohsen-75bd92a586
+      - 4Nika-b1969ff785
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -84,8 +94,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - vless
       - 4Nika-ab4e651797
       - 4Mohsen-d6b4c139d9
-      - 4Mohsen-75bd92a586
+      - 4Nika-b1969ff785
 rules:
   - MATCH,Proxy

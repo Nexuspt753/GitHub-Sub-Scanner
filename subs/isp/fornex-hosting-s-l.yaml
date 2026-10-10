@@ -13,6 +13,16 @@ proxies:
       short-id: 9e4eced6e98ed4d4
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: trojan
+    server: 130.17.20.207
+    port: 443
+    password: 6EEINO4XoG1Bl0PrG3Pvrg
+    udp: true
+    tls: true
+    alpn:
+      - h3
+    client-fingerprint: chrome
   - type: vless
     name: EPODONIOS
     server: 89.127.211.136
@@ -43,6 +53,20 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-02
+    server: 89.127.211.136
+    port: 443
+    uuid: 43f9d37f-eb1b-422b-95c9-8b871b85cac6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.co.uk
+    reality-opts:
+      public-key: B_ECg6QHMzkOBnIooFJF3TmrqTxyi5KZG0hpOdiu3EE
+      short-id: 2defe5aff7b28dea
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
     server: 89.127.211.136
     port: 443
     uuid: 43f9d37f-eb1b-422b-95c9-8b871b85cac6
@@ -112,7 +136,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: V2rayng_Fast
+    name: v2ray313-01
     server: 89.127.211.136
     port: 443
     uuid: 43f9d37f-eb1b-422b-95c9-8b871b85cac6
@@ -140,7 +164,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-04
     server: 185.134.201.230
     port: 443
     uuid: f53f5bb4-b8b0-4f02-9b1c-1336f5fb0e05
@@ -186,35 +210,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-7d29e33b7b
-    server: 89.127.211.136
-    port: 443
-    uuid: 43f9d37f-eb1b-422b-95c9-8b871b85cac6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.sony.co.uk
-    reality-opts:
-      public-key: B_ECg6QHMzkOBnIooFJF3TmrqTxyi5KZG0hpOdiu3EE
-      short-id: 2defe5aff7b28dea
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Jadi-35d30dbf7f
-    server: 89.127.211.136
-    port: 443
-    uuid: 43f9d37f-eb1b-422b-95c9-8b871b85cac6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.sony.co.uk
-    reality-opts:
-      public-key: B_ECg6QHMzkOBnIooFJF3TmrqTxyi5KZG0hpOdiu3EE
-      short-id: 2defe5aff7b28dea
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-d64d497e26
     server: 89.127.211.136
     port: 443
     uuid: 43f9d37f-eb1b-422b-95c9-8b871b85cac6
@@ -309,32 +305,50 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-da06da3386
+    server: 89.127.218.61
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - trojan
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇩🇪All²
       - V2ray_Alpha🏐
       - v2ray313
       - MARAMBASHI
-      - V2rayng_Fast
+      - v2ray313-01
       - Net2ray
-      - EPODONIOS-03
+      - EPODONIOS-04
       - tootffarangi🍓-8
       - 4Sarina-1695f1a037
-      - 4Mohsen-7d29e33b7b
       - 4Jadi-35d30dbf7f
-      - 4Kian-d64d497e26
       - 4Sarina-abcb2e985d
       - 4Mohsen-e59a0009ad
       - 4Nika-25643e3fbe
       - 4Kian-3f1416acf3
       - 4Jadi-9d26ee478f
+      - 4Nika-da06da3386
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -342,25 +356,26 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - trojan
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇩🇪All²
       - V2ray_Alpha🏐
       - v2ray313
       - MARAMBASHI
-      - V2rayng_Fast
+      - v2ray313-01
       - Net2ray
-      - EPODONIOS-03
+      - EPODONIOS-04
       - tootffarangi🍓-8
       - 4Sarina-1695f1a037
-      - 4Mohsen-7d29e33b7b
       - 4Jadi-35d30dbf7f
-      - 4Kian-d64d497e26
       - 4Sarina-abcb2e985d
       - 4Mohsen-e59a0009ad
       - 4Nika-25643e3fbe
       - 4Kian-3f1416acf3
       - 4Jadi-9d26ee478f
+      - 4Nika-da06da3386
 rules:
   - MATCH,Proxy

@@ -1,9 +1,30 @@
 proxies:
   - type: vless
-    name: 4Jadi-53df392181
-    server: 213.142.149.140
-    port: 19000
-    uuid: 9bbe5565-56fa-4935-940d-1442f443fcc8
+    name: EPODONIOS
+    server: api.yespanel.ir
+    port: 23324
+    uuid: 8c8e4c33-c28c-4ea2-9aa9-43cb766edd53
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: api.yespanel.ir
+    port: 57132
+    uuid: 8c8e4c33-c28c-4ea2-9aa9-43cb766edd53
+    udp: true
+    xudp: true
+  - type: vless
+    name: filembad
+    server: api.yespanel.ir
+    port: 23324
+    uuid: 8c8e4c33-c28c-4ea2-9aa9-43cb766edd53
+    udp: true
+    xudp: true
+  - type: vless
+    name: filembad-01
+    server: api.yespanel.ir
+    port: 57132
+    uuid: 8c8e4c33-c28c-4ea2-9aa9-43cb766edd53
     udp: true
     xudp: true
 proxy-groups:
@@ -11,13 +32,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-53df392181
+      - EPODONIOS
+      - EPODONIOS-01
+      - filembad
+      - filembad-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-53df392181
+      - EPODONIOS
+      - EPODONIOS-01
+      - filembad
+      - filembad-01
 rules:
   - MATCH,Proxy

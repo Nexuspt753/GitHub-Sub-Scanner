@@ -6,12 +6,28 @@ proxies:
     cipher: aes-128-gcm
     password: l2NidZbckMu4PnIHsJTYJg
     udp: true
+  - type: ss
+    name: ICV2RAY
+    server: www.asamping.ir
+    port: 1468
+    cipher: aes-128-gcm
+    password: l2NidZbckMu4PnIHsJTYJg
+    udp: true
+  - type: ss
+    name: 4Jadi-6a5682dd47
+    server: www.asamping.ir
+    port: 1468
+    cipher: aes-128-gcm
+    password: l2NidZbckMu4PnIHsJTYJg
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - ICV2RAY
+      - 4Jadi-6a5682dd47
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +35,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - ICV2RAY
+      - 4Jadi-6a5682dd47
 rules:
   - MATCH,Proxy

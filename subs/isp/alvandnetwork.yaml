@@ -1,13 +1,6 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: ser1.plasmoon.ir
-    port: 2027
-    cipher: chacha20-ietf-poly1305
-    password: zXaCn1MfCDaU_etEJZizB1btUUYyy9Wi
-    udp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS
     server: p1tun01.greewebservices.ir
     port: 38830
     uuid: 56795a1d-0ffd-464f-86fb-c5eddd3ecce0
@@ -58,27 +51,15 @@ proxies:
       public-key: xQnXh5EfPDhcEBB7rRiLca33GYrMEeUa35domLL_yA8
       short-id: e3085d4f
     xudp: true
-  - type: vmess
-    name: 4Nika-3166ccf33b
-    server: asia.servocean.ir
-    port: 1020
-    uuid: ca9640a3-b21a-4073-964b-83188048dd22
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - prrofile_purple
       - vmesskhodam
       - 4Jadi-7a3ee58b95
-      - 4Nika-3166ccf33b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,10 +67,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - prrofile_purple
       - vmesskhodam
       - 4Jadi-7a3ee58b95
-      - 4Nika-3166ccf33b
 rules:
   - MATCH,Proxy

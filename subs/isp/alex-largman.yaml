@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 122.8.45.4
+    port: 8443
+    uuid: 2d24e797-ec6c-0808-dd31-9cd22b5dfdc7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.canon.com
+    reality-opts:
+      public-key: iVDh09Vm2DqZMNQoUdf-LCZ6TqVGb9mLXnClAK2LRj4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 170.168.97.8
+    port: 8443
+    uuid: 4350213a-b4e7-262a-0bd7-bd16957cf71a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.hp.com
+    reality-opts:
+      public-key: QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: VConfing
     server: 122.8.45.4
     port: 8443
@@ -107,6 +137,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
       - VConfing
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
       - 4FreeIran-e19e61f0f2
@@ -120,6 +152,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
       - VConfing
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
       - 4FreeIran-e19e61f0f2

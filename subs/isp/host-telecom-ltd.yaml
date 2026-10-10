@@ -1,29 +1,82 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: sweth.ali-bard.online
-    port: 443
-    uuid: 15c9be2b-20f1-47b7-bf33-747ed1ff7fb7
+    name: EPODONIOS
+    server: 170.168.4.59
+    port: 17170
+    uuid: 3eec23c1-2a0d-4d53-afa5-62745a1f5ffe
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: sweth.ali-bard.online
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: northerntrail.gazette.help
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 170.168.4.59
+    port: 17170
+    uuid: 3eec23c1-2a0d-4d53-afa5-62745a1f5ffe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: northerntrail.gazette.help
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: GozargahAzad|🇫🇮
+    server: 170.168.4.59
+    port: 17170
+    uuid: 3eec23c1-2a0d-4d53-afa5-62745a1f5ffe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: northerntrail.gazette.help
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇫🇮191132
+    server: 170.168.4.59
+    port: 17170
+    uuid: 3eec23c1-2a0d-4d53-afa5-62745a1f5ffe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: northerntrail.gazette.help
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - GozargahAzad|🇫🇮
+      - 🇫🇮191132
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - EPODONIOS-01
+      - GozargahAzad|🇫🇮
+      - 🇫🇮191132
 rules:
   - MATCH,Proxy

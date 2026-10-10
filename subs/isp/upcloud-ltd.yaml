@@ -1,73 +1,65 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: milo.rubinaz.xyz
-    port: 8080
-    uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-    udp: true
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: test.keoplentuio.xyz
-    port: 2053
-    uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
-    udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: test.keoplentuio.xyz
-    port: 2053
-    uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Jadi-ccb102a9e1
-    server: milo.rubinaz.xyz
-    port: 8080
-    uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-666c65e9e2
-    server: test.keoplentuio.xyz
-    port: 2053
-    uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
-    udp: true
-    xudp: true
   - type: vmess
-    name: 4Mohsen-374bcd9916
-    server: riga-nin.neninet.ir
-    port: 54978
-    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    name: EPODONIOS
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: riga-nin.neninet.ir
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: ✈️ @FreeConfigForYou
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4FreeIran-4620a0c279
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - 4Jadi-ccb102a9e1
-      - 4Nika-666c65e9e2
-      - 4Mohsen-374bcd9916
+      - ✈️ @FreeConfigForYou
+      - 4FreeIran-4620a0c279
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - 4Jadi-ccb102a9e1
-      - 4Nika-666c65e9e2
-      - 4Mohsen-374bcd9916
+      - ✈️ @FreeConfigForYou
+      - 4FreeIran-4620a0c279
 rules:
   - MATCH,Proxy
