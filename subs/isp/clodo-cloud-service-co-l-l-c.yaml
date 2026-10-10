@@ -16,44 +16,36 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: lucasjow.us.ci
   - type: vless
-    name: DeltaKroneckerGithub-01
+    name: vless
     server: 103.90.75.41
     port: 8443
-    uuid: d342d11e-d224-4463-b982-532309285094
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ccc.010304.xyz
+    alpn:
+      - http/1.1
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ccc.010304.xyz
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 89.150.34.41
-    port: 2053
-    password: humanity
+  - type: vless
+    name: vless-01
+    server: 103.90.75.41
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    sni: www.calmlunch.com
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    alpn:
+      - http/1.1
+    xudp: true
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-01
     server: 103.90.72.71
     port: 443
     cipher: none
     password: 3e96ef7d-8637-42c2-ac73-75182196e755
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-02
     server: 103.90.72.71
     port: 443
     cipher: none
@@ -109,23 +101,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
-    name: 4Nika-1a2d10493c
-    server: 80.74.25.110
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
     name: 4FreeIran-41da9fc8de
     server: 89.150.35.155
     port: 443
@@ -160,22 +135,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apjhdggyx.com
+  - type: vmess
+    name: 4FreeIran-a4052ccc21
+    server: 89.150.35.155
+    port: 443
+    uuid: 5f72f180-b21b-4b7a-8484-240759012604
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: apjhdggyx.com
+    network: ws
+    ws-opts:
+      path: /5f72f180-b21b-4b7a-8484-240759096785
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: apjhdggyx.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - vless
+      - vless-01
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Kian-46d21ea821
       - 4FreeIran-19aebc60bd
       - 4Jadi-95c21e4794
-      - 4Nika-1a2d10493c
       - 4FreeIran-41da9fc8de
       - 4Mohsen-2b5bdc6b2e
+      - 4FreeIran-a4052ccc21
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -183,15 +176,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - vless
+      - vless-01
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - 4Kian-46d21ea821
       - 4FreeIran-19aebc60bd
       - 4Jadi-95c21e4794
-      - 4Nika-1a2d10493c
       - 4FreeIran-41da9fc8de
       - 4Mohsen-2b5bdc6b2e
+      - 4FreeIran-a4052ccc21
 rules:
   - MATCH,Proxy

@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.181.42.136
+    port: 9443
+    password: trj-qWC4DKUemeUYWSKA1xx7okumSKKw0QSX
+    udp: true
+    tls: true
+    sni: www.jqyverse.com
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Jadi-1e9a22ebc2
     server: 38.181.42.136
     port: 9443
@@ -13,6 +22,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Jadi-1e9a22ebc2
   - name: Auto
     type: url-test
@@ -20,6 +30,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Jadi-1e9a22ebc2
 rules:
   - MATCH,Proxy

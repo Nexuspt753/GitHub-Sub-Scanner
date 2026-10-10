@@ -1,38 +1,46 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-b082450f5d
-    server: de1.trb2v.blog
-    port: 8880
-    uuid: 2559f36a-9e7a-41d4-84f2-0f60e0e7ae27
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: de.trackless.sbs
+    port: 19444
+    uuid: 0dcbab9b-4c87-473b-a0a6-c29a641e8cbc
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: gU7zZLaPvCNsgvu4DFSo7K6wD47Al2IWDqtHCjkKyXs
+      short-id: 44ae4d30a085848f
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4FreeIran-b5b4c34424
-    server: dl1.armd.fun
-    port: 443
-    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS-01
+    server: de.trackless.sbs
+    port: 19444
+    uuid: 0dcbab9b-4c87-473b-a0a6-c29a641e8cbc
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: gU7zZLaPvCNsgvu4DFSo7K6wD47Al2IWDqtHCjkKyXs
+      short-id: 44ae4d30a085848f
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-b082450f5d
-      - 4FreeIran-b5b4c34424
+      - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b082450f5d
-      - 4FreeIran-b5b4c34424
+      - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Sarina-9e4e646228
+    server: 209.206.51.240
+    port: 443
+    uuid: 573c6482-37db-454a-8c31-5b45a338a580
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: and-75r.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: and-75r.pages.dev
+  - type: vless
     name: 4Nika-2be5de0b11
     server: 209.206.51.240
     port: 443
@@ -19,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-9e4e646228
       - 4Nika-2be5de0b11
   - name: Auto
     type: url-test
@@ -26,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-9e4e646228
       - 4Nika-2be5de0b11
 rules:
   - MATCH,Proxy

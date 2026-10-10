@@ -36,22 +36,6 @@ proxies:
     tls: true
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
-  - type: vless
-    name: 4Jadi-91dced19fe
-    server: 185.220.249.44
-    port: 2053
-    uuid: 6d1590ed-4c0f-4bbc-931d-2431737615dd
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 185.220.249.44
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws-cdn1-vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: es.fastmirror-labs.xyz
   - type: vmess
     name: 4Sarina-93665ccc41
     server: 147.45.125.231
@@ -87,6 +71,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-10a118da43
+    server: 147.45.125.231
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -95,9 +97,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Jadi-91dced19fe
       - 4Sarina-93665ccc41
       - 4Nika-23a4b79f1d
+      - 4Sarina-10a118da43
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -107,8 +109,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Jadi-91dced19fe
       - 4Sarina-93665ccc41
       - 4Nika-23a4b79f1d
+      - 4Sarina-10a118da43
 rules:
   - MATCH,Proxy
