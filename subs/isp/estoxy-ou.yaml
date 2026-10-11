@@ -1,6 +1,106 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: fr4.sodahub.online
+    port: 8443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr4.sodahub.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.209.15.100
+    port: 8443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n1.vimeostream.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 37.49.230.85
+    port: 8443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: fr5.sodahub.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 205.237.105.31
+    port: 11443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: f4.vimeostream.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/stream/ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: f4.vimeostream.online
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 185.209.15.100
+    port: 443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n1.vimeostream.online
+    reality-opts:
+      public-key: kK2a0QSYg0XQIMQOvDI7lJJvJcMH0-52RB90FivhVmM
+      short-id: c334408a1056aaf8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-05
+    server: 37.49.229.6
+    port: 443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n3.vimeostream.online
+    reality-opts:
+      public-key: nSDCUz3Hfy3iu_EtHXZKAqRV87rPoP_EFQe3QyhcKik
+      short-id: eba7ad82c6344ab6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-06
+    server: 37.49.229.6
+    port: 8443
+    uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n3.vimeostream.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-07
     server: 37.49.230.24
     port: 443
     password: a7J9BMDPu1wuDTJ-cZoKBqvoPT9Uc7fL
@@ -14,6 +114,13 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+      - DeltaKroneckerGithub-07
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +128,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
+      - DeltaKroneckerGithub-06
+      - DeltaKroneckerGithub-07
 rules:
   - MATCH,Proxy

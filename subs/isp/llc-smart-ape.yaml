@@ -1,23 +1,33 @@
 proxies:
-  - type: hysteria2
-    name: 4Kian-9c1c532211
-    server: 94.198.54.132
+  - type: vless
+    name: 4Sarina-b8754b1c5d
+    server: 31.177.111.140
     port: 443
-    password: f317b5d6-d399-4d3d-a051-89d674ae953c
-    sni: msk.frkn.org
-    skip-cert-verify: true
+    uuid: 8752cdb4-b728-4313-8726-6ec644822796
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: cdn.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /client/collect/6b3a32fb9f37/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-9c1c532211
+      - 4Sarina-b8754b1c5d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9c1c532211
+      - 4Sarina-b8754b1c5d
 rules:
   - MATCH,Proxy

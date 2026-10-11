@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 188.225.45.77
-    port: 443
-    uuid: 57284239-1ceb-439f-826e-cd25fcc1c1c5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 5post-gate.x5.ru
-    reality-opts:
-      public-key: 5SjHShy0uFG9MmzFbZ21Ozg623ZXKwLf3pzC_QA8CBE
-      short-id: 5803463a64073dfc
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: EPODONIOS
     server: 188.225.45.77
     port: 443
@@ -96,6 +80,13 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: 4Sarina-3ccf0b9c7e
+    server: 188.225.45.77
+    port: 443
+    uuid: 57284239-1ceb-439f-826e-cd25fcc1c1c5
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Mohsen-14ae8f7fa0
     server: 188.225.45.77
     port: 443
@@ -143,49 +134,34 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Jadi-bd0ae62d06
-    server: 188.225.45.77
-    port: 443
-    uuid: 57284239-1ceb-439f-826e-cd25fcc1c1c5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 5post-gate.x5.ru
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 10092@proxy_online_net
       - "105"
       - kurdconfig
       - 🇷🇺@FreakConfig
+      - 4Sarina-3ccf0b9c7e
       - 4Mohsen-14ae8f7fa0
       - 4Mohsen-de3a750d89
       - 4Nika-db2ea893ce
-      - 4Jadi-bd0ae62d06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 10092@proxy_online_net
       - "105"
       - kurdconfig
       - 🇷🇺@FreakConfig
+      - 4Sarina-3ccf0b9c7e
       - 4Mohsen-14ae8f7fa0
       - 4Mohsen-de3a750d89
       - 4Nika-db2ea893ce
-      - 4Jadi-bd0ae62d06
 rules:
   - MATCH,Proxy

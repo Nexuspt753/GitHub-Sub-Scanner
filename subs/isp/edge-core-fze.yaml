@@ -1,23 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-fe38340008
-    server: 157.228.69.91
-    port: 27313
-    password: 8bd04756-3beb-4348-82c9-d35453df50ce
-    sni: spainspeedboostjbl88.qcloud.surf
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: ee.illusion-vpn.ru
+    port: 8443
+    uuid: 8c617ef3-e055-51eb-853f-118cd0560c43
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ee.illusion-vpn.ru
+    reality-opts:
+      public-key: KBEhIK-ogl2JAF5Z1A7inIgiW26rcrgxEbWUCfgs6Uk
+      short-id: 0ca3deb0d87b27c0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-fe38340008
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-fe38340008
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
