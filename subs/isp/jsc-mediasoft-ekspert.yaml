@@ -1,32 +1,30 @@
 proxies:
   - type: vless
-    name: 4Nika-f5d3275bc6
-    server: 194.87.239.12
+    name: DeltaKroneckerGithub
+    server: ru1.gigobingo.ru
     port: 443
-    uuid: 49fcd608-ccfe-4e7c-bd9b-9fcfc496dcef
+    uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: smartcaptcha.yandexcloud.net
+    client-fingerprint: safari
+    servername: ru1.gigobingo.ru
     reality-opts:
-      public-key: Pr2FbBcC3ckY58xISm5ZiYjsIZ9VuC2tOuYlTjHTel0
-      short-id: 0b6f3aca20cef3a4
+      public-key: Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ
+      short-id: ef7c4e4302bd52d7
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-f5d3275bc6
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-f5d3275bc6
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

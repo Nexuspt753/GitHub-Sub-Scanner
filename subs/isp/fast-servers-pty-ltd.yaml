@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 130.49.77.5
+    port: 8443
+    uuid: 1e4668ca-6526-84ac-2a53-28bbc209da13
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.philips.com
+    reality-opts:
+      public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
+    server: 45.88.13.5
+    port: 8443
+    uuid: 2bb8b13c-b3f0-2552-da05-d0929bfb36db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: ✨
     server: 130.49.77.5
     port: 8443
@@ -15,7 +45,35 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS
+    name: Tarkshodeh
+    server: 45.88.13.5
+    port: 8443
+    uuid: 2bb8b13c-b3f0-2552-da05-d0929bfb36db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-02
+    server: 5.181.171.2
+    port: 443
+    uuid: a87bf8a2-17a4-3054-b51e-876b5f1d0f24
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speed.cloudflare.com
+    reality-opts:
+      public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-03
     server: 5.181.171.2
     port: 443
     uuid: a87bf8a2-17a4-3054-b51e-876b5f1d0f24
@@ -77,21 +135,6 @@ proxies:
     servername: www.philips.com
     reality-opts:
       public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Nika-f1e4031bb3
-    server: 45.88.13.5
-    port: 8443
-    uuid: 2bb8b13c-b3f0-2552-da05-d0929bfb36db
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
     xudp: true
     network: grpc
     grpc-opts:
@@ -192,6 +235,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Mohsen-7b23a95905
+    server: 5.181.171.2
+    port: 443
+    uuid: a87bf8a2-17a4-3054-b51e-876b5f1d0f24
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speed.cloudflare.com
+    reality-opts:
+      public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-c024d4b39e
     server: 5.181.171.2
     port: 443
@@ -209,13 +265,16 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - ✨
       - EPODONIOS
+      - EPODONIOS-01
+      - ✨
+      - Tarkshodeh
+      - EPODONIOS-02
+      - EPODONIOS-03
       - leviconfigs🪐-9
       - MARAMBASHI
       - V2rayng_Fast
       - 4FreeIran-7776954076
-      - 4Nika-f1e4031bb3
       - 4Mohsen-f479429905
       - 4Mohsen-4a633d7d62
       - 4Sarina-4bcf7c8e76
@@ -223,6 +282,7 @@ proxy-groups:
       - 4Jadi-9a2e8b334b
       - 4Sarina-e271e0fc7d
       - 4Mohsen-ebc183557f
+      - 4Mohsen-7b23a95905
       - 4Nika-c024d4b39e
   - name: Auto
     type: url-test
@@ -230,13 +290,16 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - ✨
       - EPODONIOS
+      - EPODONIOS-01
+      - ✨
+      - Tarkshodeh
+      - EPODONIOS-02
+      - EPODONIOS-03
       - leviconfigs🪐-9
       - MARAMBASHI
       - V2rayng_Fast
       - 4FreeIran-7776954076
-      - 4Nika-f1e4031bb3
       - 4Mohsen-f479429905
       - 4Mohsen-4a633d7d62
       - 4Sarina-4bcf7c8e76
@@ -244,6 +307,7 @@ proxy-groups:
       - 4Jadi-9a2e8b334b
       - 4Sarina-e271e0fc7d
       - 4Mohsen-ebc183557f
+      - 4Mohsen-7b23a95905
       - 4Nika-c024d4b39e
 rules:
   - MATCH,Proxy

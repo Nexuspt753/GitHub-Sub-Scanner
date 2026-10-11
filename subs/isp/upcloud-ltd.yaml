@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: cdn-dynmedia.shalana.shop
+    port: 443
+    uuid: d3ad7253-2dbd-42fd-9b07-04caea38de54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn-dynmedia.shalana.shop
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 87.58.158.82
     port: 443
@@ -42,20 +55,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: برای
-    server: 87.58.158.82
-    port: 443
-    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dk7.bbobr.win
-    reality-opts:
-      public-key: zBNHm7DwlBZ2rfu2F5e3jMsmR2q74KpS2L6EavCVmkA
-      short-id: f6985908fcb5612f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-3cc264d0a8
     server: 87.58.158.82
     port: 443
@@ -69,8 +68,64 @@ proxies:
       short-id: f6985908fcb5612f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-8b3eb33c12
+    server: 87.58.158.82
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: dk7.bbobr.win
+    reality-opts:
+      public-key: zBNHm7DwlBZ2rfu2F5e3jMsmR2q74KpS2L6EavCVmkA
+      short-id: f6985908fcb5612f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vmess
+    name: 4FreeIran-4620a0c279
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4FreeIran-07d77a5e12
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
   - type: vmess
     name: 4Mohsen-374bcd9916
+    server: riga-nin.neninet.ir
+    port: 54978
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: riga-nin.neninet.ir
+  - type: vmess
+    name: 4Jadi-11f472f302
     server: riga-nin.neninet.ir
     port: 54978
     uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
@@ -86,23 +141,31 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - "117"
       - Alpha_V2rayip
-      - برای
       - 4Kian-3cc264d0a8
+      - 4Sarina-8b3eb33c12
+      - 4FreeIran-4620a0c279
+      - 4FreeIran-07d77a5e12
       - 4Mohsen-374bcd9916
+      - 4Jadi-11f472f302
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - "117"
       - Alpha_V2rayip
-      - برای
       - 4Kian-3cc264d0a8
+      - 4Sarina-8b3eb33c12
+      - 4FreeIran-4620a0c279
+      - 4FreeIran-07d77a5e12
       - 4Mohsen-374bcd9916
+      - 4Jadi-11f472f302
 rules:
   - MATCH,Proxy

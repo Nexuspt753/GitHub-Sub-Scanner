@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: swe.wizard.select
+    port: 443
+    uuid: 3db6eb7e-c548-11f1-9902-a337233c6cda
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swe.wizard.select
+    reality-opts:
+      public-key: Sikc1gu5t_uwitf1xTTChP9tpT_sjY530p2tioHbmz0
+      short-id: 3b20e438da99
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇸🇪SE-🚀@VPNine1
+    server: swe.wizard.select
+    port: 443
+    uuid: 3db6eb7e-c548-11f1-9902-a337233c6cda
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swe.wizard.select
+    reality-opts:
+      public-key: Sikc1gu5t_uwitf1xTTChP9tpT_sjY530p2tioHbmz0
+      short-id: 3b20e438da99
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇸🇪SE-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇸🇪SE-🚀@VPNine1
+rules:
+  - MATCH,Proxy

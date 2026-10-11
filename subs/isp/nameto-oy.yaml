@@ -1,5 +1,22 @@
 proxies:
   - type: vless
+    name: 4Kian-1d56ab0c64
+    server: 92.242.165.10
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Sarina-7725d1e489
     server: 92.242.165.20
     port: 2083
@@ -21,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-1d56ab0c64
       - 4Sarina-7725d1e489
   - name: Auto
     type: url-test
@@ -28,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-1d56ab0c64
       - 4Sarina-7725d1e489
 rules:
   - MATCH,Proxy

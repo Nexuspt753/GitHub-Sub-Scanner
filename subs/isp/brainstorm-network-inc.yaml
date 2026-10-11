@@ -44,13 +44,6 @@ proxies:
     skip-cert-verify: false
     obfs: salamander
     obfs-password: ec66908dbc46e6920143d9b684adf277
-  - type: ss
-    name: EPODONIOS-01
-    server: 94.156.250.148
-    port: 7001
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
   - type: hysteria2
     name: 4Mohsen-0c8c720320
     server: 155.94.134.183
@@ -69,13 +62,17 @@ proxies:
     skip-cert-verify: false
     obfs: salamander
     obfs-password: ec66908dbc46e6920143d9b684adf277
-  - type: ss
-    name: 🇬🇧
-    server: 94.156.250.148
-    port: 7001
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
+  - type: vless
+    name: EPODONIOS-01
+    server: fr-tx.sbrf-cdn342.ru
+    port: 443
+    uuid: 01ea3b87-b7b1-4aef-b24a-9c43fbd3b26f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sub.sbrf-cdn342.ru
+    flow: xtls-rprx-vision-udp443
+    xudp: true
   - type: ss
     name: 4Mohsen-423c87dd24
     server: 185.213.23.63
@@ -161,6 +158,13 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-07
+    server: 185.213.23.63
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-08
     server: 185.226.172.8
     port: 8008
     cipher: aes-256-gcm
@@ -174,18 +178,18 @@ proxies:
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
   - type: ss
+    name: EPODONIOS-04
+    server: 94.156.250.148
+    port: 7001
+    cipher: aes-256-gcm
+    password: RexnBgU7EV5ADxG
+    udp: true
+  - type: ss
     name: ">>@shadowproxy66::XX"
     server: 185.226.172.8
     port: 8008
     cipher: aes-256-gcm
     password: XKFKl2rULjIp74
-    udp: true
-  - type: ss
-    name: 🇳🇴NO-185.213.23.63-0175
-    server: 185.213.23.63
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
   - type: ss
     name: 🇬🇧GB-94.156.250.148-0251
@@ -194,20 +198,6 @@ proxies:
     cipher: aes-256-gcm
     password: RexnBgU7EV5ADxG
     udp: true
-  - type: vless
-    name: 4Kian-bccfc76ade
-    server: 1.sdwan.realm-sync.com
-    port: 55567
-    uuid: da4f61d1-8ca2-4bbf-a79a-1dfff04073e6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.discoverasr.com
-    reality-opts:
-      public-key: 0soGDTguByd3I9e2nLuzkw5BOHELZ_AHHDkA0Zx3JRA
-      short-id: f3f70ca767
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -218,10 +208,9 @@ proxy-groups:
       - Nexus_Panell
       - V2raySaman
       - V2rayng_mar_ket
-      - EPODONIOS-01
       - 4Mohsen-0c8c720320
       - 4Sarina-ff88018a3a
-      - 🇬🇧
+      - EPODONIOS-01
       - 4Mohsen-423c87dd24
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -234,11 +223,11 @@ proxy-groups:
       - EPODONIOS-02
       - DeltaKroneckerGithub-06
       - DeltaKroneckerGithub-07
+      - DeltaKroneckerGithub-08
       - EPODONIOS-03
+      - EPODONIOS-04
       - ">>@shadowproxy66::XX"
-      - 🇳🇴NO-185.213.23.63-0175
       - 🇬🇧GB-94.156.250.148-0251
-      - 4Kian-bccfc76ade
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -250,10 +239,9 @@ proxy-groups:
       - Nexus_Panell
       - V2raySaman
       - V2rayng_mar_ket
-      - EPODONIOS-01
       - 4Mohsen-0c8c720320
       - 4Sarina-ff88018a3a
-      - 🇬🇧
+      - EPODONIOS-01
       - 4Mohsen-423c87dd24
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -266,10 +254,10 @@ proxy-groups:
       - EPODONIOS-02
       - DeltaKroneckerGithub-06
       - DeltaKroneckerGithub-07
+      - DeltaKroneckerGithub-08
       - EPODONIOS-03
+      - EPODONIOS-04
       - ">>@shadowproxy66::XX"
-      - 🇳🇴NO-185.213.23.63-0175
       - 🇬🇧GB-94.156.250.148-0251
-      - 4Kian-bccfc76ade
 rules:
   - MATCH,Proxy

@@ -1,20 +1,5 @@
 proxies:
   - type: vmess
-    name: EPODONIOS
-    server: 39.108.113.127
-    port: 10086
-    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: v2ray_phoenix
     server: 39.108.113.127
     port: 10086
@@ -89,45 +74,26 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Jadi-95ff5497f3
-    server: 39.108.113.127
-    port: 10086
-    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - v2ray_phoenix
       - 4Kian-f43fc55284
       - 4Mohsen-6f806933d0
       - 4Nika-4473db2b63
       - 4Nika-adbb10810d
-      - 4Jadi-95ff5497f3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - v2ray_phoenix
       - 4Kian-f43fc55284
       - 4Mohsen-6f806933d0
       - 4Nika-4473db2b63
       - 4Nika-adbb10810d
-      - 4Jadi-95ff5497f3
 rules:
   - MATCH,Proxy
