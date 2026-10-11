@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 146.103.100.242
+    port: 443
+    uuid: a7c35c0c-e8b6-49a4-9d2c-1acee63fe2d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dzen.ru
+    reality-opts:
+      public-key: CxjnGHCI3HXN2RAXwytela7jXyOGDCBqzMAqTfm60D0
+      short-id: 4ed920401771c4ab
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 5.35.33.204
     port: 443
     uuid: 1dea5ce4-809b-4b84-b680-3d67f5510eaa
@@ -14,7 +28,49 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 87.199.205.28
+    port: 443
+    uuid: 501a2da5-cb22-4a3f-915e-e3b821d1d62d
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: vkvd754.okcdn.ru
+    reality-opts:
+      public-key: W-9zyiOq287RtXVTZlTFbSDJ0Mx8joyBLJoA7ZE7eBw
+      short-id: ef1d3554c652a436
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
+    server: 78.40.194.233
+    port: 443
+    uuid: 5b5e4cbf-2366-499a-8327-0cd9918c687d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn2.surfweb.club
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ICV2RAY
+    server: 78.40.194.233
+    port: 443
+    uuid: 5b5e4cbf-2366-499a-8327-0cd9918c687d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn2.surfweb.club
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: V2raySaman
     server: 78.40.194.233
     port: 443
     uuid: 5b5e4cbf-2366-499a-8327-0cd9918c687d
@@ -188,23 +244,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-cb1667fddc
-    server: 146.103.122.9
-    port: 443
-    uuid: d51bbf58-3e5d-4a5f-b920-1e36649ec683
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: www.sony.nl
-    reality-opts:
-      public-key: GqRQBB578Wpb5Wt0o6U7tqsc1qXpsNrDyGkKWb17Dyk
-      short-id: 51015bd9b774beae
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-044e89e464
     server: 146.103.105.233
     port: 443
@@ -224,7 +263,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
+      - ICV2RAY
+      - V2raySaman
       - EPODONIOS-01
       - EPODONIOS-02
       - meliproxyy
@@ -235,7 +278,6 @@ proxy-groups:
       - 4Nika-e24283bb73
       - 4FreeIran-bc4aeb047d
       - 4FreeIran-37687b4e68
-      - 4Mohsen-cb1667fddc
       - 4FreeIran-044e89e464
   - name: Auto
     type: url-test
@@ -244,7 +286,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
+      - ICV2RAY
+      - V2raySaman
       - EPODONIOS-01
       - EPODONIOS-02
       - meliproxyy
@@ -255,7 +301,6 @@ proxy-groups:
       - 4Nika-e24283bb73
       - 4FreeIran-bc4aeb047d
       - 4FreeIran-37687b4e68
-      - 4Mohsen-cb1667fddc
       - 4FreeIran-044e89e464
 rules:
   - MATCH,Proxy

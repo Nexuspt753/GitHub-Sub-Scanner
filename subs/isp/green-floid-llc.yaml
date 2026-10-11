@@ -1,16 +1,30 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 85.90.197.220
+    server: 195.123.213.28
     port: 443
-    uuid: 8f704ed6-9a1a-4d04-94dd-1bff501716de
+    uuid: 02fcc1a4-ee90-4970-8bbb-4ffaa8109d24
     udp: true
     tls: true
     client-fingerprint: chrome
     servername: www.cloudflare.com
     reality-opts:
-      public-key: biNcdU5mywtNw-KyPpLHindBxdEyAolT1WJ26N0b7y4
-      short-id: 94acb54627612d43
+      public-key: NMgy1XgCSXExOg6Tg8xG9lCWttMF6sjdpB41lZy6FWo
+      short-id: 5c256336e3b673fa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 46.28.71.247
+    port: 443
+    uuid: 12c53e32-e589-47d6-b857-e4132294f767
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: v4MuZIvFrTPT5GHMSaPryUAbIZlLstmsUTzmC1E-JTE
+      short-id: 0dfc23fe80778c00
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -41,31 +55,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-bcbcdcbd0b
-    server: 85.90.197.220
-    port: 443
-    uuid: 8f704ed6-9a1a-4d04-94dd-1bff501716de
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-e024336e71
-    server: 85.90.197.220
-    port: 443
-    uuid: 8f704ed6-9a1a-4d04-94dd-1bff501716de
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: biNcdU5mywtNw-KyPpLHindBxdEyAolT1WJ26N0b7y4
-      short-id: 94acb54627612d43
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-bf9ca44545
     server: 85.90.197.220
     port: 443
@@ -79,31 +68,16 @@ proxies:
       short-id: 94acb54627612d43
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-75ed585aca
-    server: 193.238.154.5
-    port: 443
-    uuid: e0b9fb0f-1bbd-478b-9580-c2294778338b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: assets-es.pleiades.codes
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-96aae40ee1
       - 4Kian-4e895e944f
-      - 4Mohsen-bcbcdcbd0b
-      - 4Kian-e024336e71
       - 4Nika-bf9ca44545
-      - 4Kian-75ed585aca
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -111,11 +85,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-96aae40ee1
       - 4Kian-4e895e944f
-      - 4Mohsen-bcbcdcbd0b
-      - 4Kian-e024336e71
       - 4Nika-bf9ca44545
-      - 4Kian-75ed585aca
 rules:
   - MATCH,Proxy

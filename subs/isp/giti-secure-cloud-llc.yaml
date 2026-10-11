@@ -1,6 +1,13 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: vless
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: 22c6684b-cd4f-4c8e-62e3-a17fc698471f
+    udp: true
+    xudp: true
+  - type: vless
+    name: appsooner
     server: 94.183.154.216
     port: 1003
     uuid: 3cdc6bec-363e-4754-9797-f0e622680198
@@ -12,13 +19,6 @@ proxies:
       public-key: r-Ewj6XI7GKX1TbyRuOCV4o7c00HATiljR-exskeIR0
       short-id: 88f23ad5a4ea1d57
     flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: vless
-    server: s2.zynetraq.ir
-    port: 2087
-    uuid: 22c6684b-cd4f-4c8e-62e3-a17fc698471f
-    udp: true
     xudp: true
   - type: vless
     name: vless-01
@@ -30,7 +30,14 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: "["
+    name: vless-02
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4FreeIran-c45766b041
     server: 94.183.154.216
     port: 1001
     uuid: e33e40d2-859e-471f-b7dc-6f768f7cad9c
@@ -41,27 +48,6 @@ proxies:
     reality-opts:
       public-key: KX755gv-2X6CXLfWm33OmTc3zHKHcNQK7nPZ06nki1U
       short-id: 429e38fcd14a06a8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: vless-02
-    server: s2.zynetraq.ir
-    port: 2087
-    uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4FreeIran-98dbe5546a
-    server: 94.183.154.216
-    port: 1003
-    uuid: 3cdc6bec-363e-4754-9797-f0e622680198
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.filimo.com
-    reality-opts:
-      public-key: r-Ewj6XI7GKX1TbyRuOCV4o7c00HATiljR-exskeIR0
-      short-id: 88f23ad5a4ea1d57
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -83,12 +69,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - vless
+      - appsooner
       - vless-01
-      - "["
       - vless-02
-      - 4FreeIran-98dbe5546a
+      - 4FreeIran-c45766b041
       - 4Sarina-a45adf7488
   - name: Auto
     type: url-test
@@ -96,12 +81,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - vless
+      - appsooner
       - vless-01
-      - "["
       - vless-02
-      - 4FreeIran-98dbe5546a
+      - 4FreeIran-c45766b041
       - 4Sarina-a45adf7488
 rules:
   - MATCH,Proxy

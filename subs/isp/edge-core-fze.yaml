@@ -13,12 +13,27 @@ proxies:
       short-id: 0ca3deb0d87b27c0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.86.60.79
+    port: 8443
+    uuid: 8c617ef3-e055-51eb-853f-118cd0560c43
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: ee.illusion-vpn.ru
+    reality-opts:
+      public-key: KBEhIK-ogl2JAF5Z1A7inIgiW26rcrgxEbWUCfgs6Uk
+      short-id: 0ca3deb0d87b27c0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

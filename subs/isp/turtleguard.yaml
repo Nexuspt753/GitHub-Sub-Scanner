@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 94.183.206.123
+    port: 443
+    uuid: 6d5c8390-69fb-4bcf-a2f9-d7f850aaf2cc
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: optim.tildacdn.pub
+    reality-opts:
+      public-key: 54D9VU01h1iNtBP1XVSrQJr_7Cabjg8VC692kjT_VEg
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 94.183.206.84
     port: 443
     uuid: 4f51ca84-43ea-4087-b8a2-938e0ccbe27a
@@ -18,6 +31,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

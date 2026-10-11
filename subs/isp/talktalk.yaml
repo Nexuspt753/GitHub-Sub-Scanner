@@ -1,46 +1,62 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 80.47.236.123
-    port: 443
-    uuid: cbab75ea-b4f7-141f-5460-acd723ad6ee7
+  - type: vmess
+    name: 4FreeIran-4620a0c279
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.tno.nl
-    reality-opts:
-      public-key: ZrdPHtBvi7yMRj17SohKaGQEXuDptmCJWCi8gk5HlD8
-      short-id: 35938c4e546cd459
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 🇬🇧GB-🚀@VPNine1
-    server: 80.47.236.123
-    port: 443
-    uuid: cbab75ea-b4f7-141f-5460-acd723ad6ee7
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4FreeIran-07d77a5e12
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.tno.nl
-    reality-opts:
-      public-key: ZrdPHtBvi7yMRj17SohKaGQEXuDptmCJWCi8gk5HlD8
-      short-id: 35938c4e546cd459
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4Mohsen-374bcd9916
+    server: riga-nin.neninet.ir
+    port: 54978
+    uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: riga-nin.neninet.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇬🇧GB-🚀@VPNine1
+      - 4FreeIran-4620a0c279
+      - 4FreeIran-07d77a5e12
+      - 4Mohsen-374bcd9916
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇬🇧GB-🚀@VPNine1
+      - 4FreeIran-4620a0c279
+      - 4FreeIran-07d77a5e12
+      - 4Mohsen-374bcd9916
 rules:
   - MATCH,Proxy
