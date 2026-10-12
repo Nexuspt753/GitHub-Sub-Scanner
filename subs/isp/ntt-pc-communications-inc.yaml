@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-1eee2a47bb
-    server: 161.34.39.108
+  - type: vless
+    name: 4FreeIran-41fcf40c55
+    server: proxyip.jp.cmliussss.net
     port: 443
-    password: tsuchiya
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
     tls: true
-    sni: 161.34.39.108
     client-fingerprint: chrome
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-1eee2a47bb
+      - 4FreeIran-41fcf40c55
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-1eee2a47bb
+      - 4FreeIran-41fcf40c55
 rules:
   - MATCH,Proxy

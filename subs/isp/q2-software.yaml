@@ -13,33 +13,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime35.workers.dev
   - type: vless
-    name: vmess_ir
-    server: 192.0.63.150
-    port: 443
-    uuid: 3f073591-ad53-4f73-89da-bca5379b9b1b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: bomb.pasta-makers.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: bomb.pasta-makers.online
-  - type: vless
-    name: vless
-    server: ipc1.seriousz.com
-    port: 443
-    uuid: 6ba0b1f9-f5ae-42ff-bd04-cba1371f1542
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
     name: 4Mohsen-30b02f498e
     server: 192.0.63.4
     port: 80
@@ -77,17 +50,25 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime36.workers.dev
+  - type: vless
+    name: vless
+    server: ipc1.seriousz.com
+    port: 443
+    uuid: 6ba0b1f9-f5ae-42ff-bd04-cba1371f1542
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - vmess_ir
-      - vless
       - 4Mohsen-30b02f498e
       - 4Jadi-b1de663920
       - 4Mohsen-6a9bf4df09
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -95,10 +76,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - vmess_ir
-      - vless
       - 4Mohsen-30b02f498e
       - 4Jadi-b1de663920
       - 4Mohsen-6a9bf4df09
+      - vless
 rules:
   - MATCH,Proxy

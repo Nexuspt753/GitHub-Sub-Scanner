@@ -1,30 +1,50 @@
 proxies:
   - type: vless
-    name: 4FreeIran-ff17f922fc
-    server: 88.218.92.201
+    name: EPODONIOS
+    server: 88.218.95.88
     port: 443
-    uuid: M75iXJmnlyAiXS
+    uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.heise.de
+    servername: www.google.com
     reality-opts:
-      public-key: HUVDj9wYqh-S8KLlrcfwk_NQLqWCmNgHGjPjaOadG2g
-      short-id: 4fff3fcd
-    flow: xtls-rprx-vision
+      public-key: rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE
+      short-id: 43adea0ec9f97a0a
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 10235@proxy_online_net
+    server: 88.218.95.88
+    port: 443
+    uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE
+      short-id: 43adea0ec9f97a0a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-ff17f922fc
+      - EPODONIOS
+      - 10235@proxy_online_net
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-ff17f922fc
+      - EPODONIOS
+      - 10235@proxy_online_net
 rules:
   - MATCH,Proxy

@@ -3,6 +3,19 @@ proxies:
     name: DeltaKroneckerGithub
     server: es3.h1cloud.net
     port: 25136
+    uuid: 440b5558-e701-4c6f-8de2-d24dcf1ebbe6
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: nkmfL3QCskKAfBUk-OiTgcWyIXGmXrZVtDEoio0Qo1w
+      short-id: f78838fbd85e59ae
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: es3.h1cloud.net
+    port: 25136
     uuid: c1c13ef7-affa-47e1-8967-25cc67679c10
     udp: true
     tls: true
@@ -18,6 +31,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

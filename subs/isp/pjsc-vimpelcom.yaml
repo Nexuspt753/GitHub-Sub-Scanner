@@ -1,6 +1,18 @@
 proxies:
   - type: vless
     name: EPODONIOS
+    server: summerculture.net
+    port: 2053
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: 78.159.250.214
     port: 443
     uuid: 4054fdc2-ee80-4419-8a8e-d937df4719e2
@@ -10,6 +22,20 @@ proxies:
     servername: ads.x5.ru
     reality-opts:
       public-key: drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
+    server: 78.159.250.214
+    port: 443
+    uuid: 4054fdc2-ee80-4419-8a8e-d937df4719e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: qq.utiltools.site
+    reality-opts:
+      public-key: drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI
+      short-id: "00000000"
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -52,7 +78,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-03
     server: 78.159.250.214
     port: 443
     uuid: eb78e1f0-d921-4ca9-a889-261fcc5a0547
@@ -117,6 +143,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vless-02
+    server: 78.159.250.84
+    port: 8443
+    uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Kian-3d42bc703c
     server: 78.159.250.214
     port: 443
@@ -135,14 +168,17 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - vless
       - prrofile_purple
       - "109"
-      - EPODONIOS-01
+      - EPODONIOS-03
       - ATOVPN
       - vless-01
       - 4Mohsen-384b32c191
       - 4Mohsen-09ae7caf14
+      - vless-02
       - 4Kian-3d42bc703c
   - name: Auto
     type: url-test
@@ -151,14 +187,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - vless
       - prrofile_purple
       - "109"
-      - EPODONIOS-01
+      - EPODONIOS-03
       - ATOVPN
       - vless-01
       - 4Mohsen-384b32c191
       - 4Mohsen-09ae7caf14
+      - vless-02
       - 4Kian-3d42bc703c
 rules:
   - MATCH,Proxy

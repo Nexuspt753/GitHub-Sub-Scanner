@@ -27,6 +27,17 @@ proxies:
       short-id: ef7c4e4302bd52d7
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-8e499ccc79
+    server: 185.244.28.177
+    port: 443
+    uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de3.gigobingo.ru
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,6 +45,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Sarina-8e499ccc79
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,5 +54,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Sarina-8e499ccc79
 rules:
   - MATCH,Proxy
