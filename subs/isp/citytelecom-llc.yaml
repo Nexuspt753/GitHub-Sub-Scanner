@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Kian-3232815a9e
-    server: 185.229.9.234
-    port: 443
-    uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+    name: DeltaKroneckerGithub
+    server: 185.229.9.176
+    port: 46018
+    uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: yandex.ru
+    servername: ligastavok.ru
     reality-opts:
-      public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
-      short-id: 743541f932fa3959
-    flow: xtls-rprx-vision
+      public-key: een4U3X5mnY1gH2swiakXS9BJ8P4omf8Qp_s8sTp_3Y
+      short-id: 68ae5e7c11f80af5
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-3232815a9e
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-3232815a9e
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -6,12 +6,25 @@ proxies:
     password: f317b5d6-d399-4d3d-a051-89d674ae953c
     sni: msk.frkn.org
     skip-cert-verify: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 31.177.111.163
+    port: 8443
+    password: dKn7hqgST668mj_8EgoMUd3_zPSxnTFQ
+    udp: true
+    tls: true
+    sni: ru1.quickgo.cc
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: random
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-9c1c532211
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +32,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-9c1c532211
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

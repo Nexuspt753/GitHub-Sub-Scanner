@@ -1,46 +1,25 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 31.76.111.79
-    port: 443
-    uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: hh.ru
-    reality-opts:
-      public-key: 8w1MyEJV4l9QeNWbYMXny5tTLNTw_9nsQ7jOuiQhix4
-      short-id: 0123456789abcdef
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-0a9b1f1b74
-    server: 31.76.111.79
-    port: 443
-    uuid: ac9a573b-67ff-4953-9e13-4cf43576f8f0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: hh.ru
-    reality-opts:
-      public-key: 8w1MyEJV4l9QeNWbYMXny5tTLNTw_9nsQ7jOuiQhix4
-      short-id: 0123456789abcdef
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: iranping24
+    server: 153.76.204.223
+    port: 13188
+    password: 0637f970-5223-4d8e-86b4-07c62509c6e8
+    sni: audio-forwarder.nord-central.duckdns.org
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: WM0CSORkdxWByZqumlLav9pU7irma8IV
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Nika-0a9b1f1b74
+      - iranping24
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Nika-0a9b1f1b74
+      - iranping24
 rules:
   - MATCH,Proxy

@@ -1,13 +1,15 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: 🇳🇱
     server: 148.253.212.42
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.pleadcourt.org
-    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
     network: ws
     ws-opts:
       path: /assignment
@@ -19,13 +21,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 🇳🇱
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 🇳🇱
 rules:
   - MATCH,Proxy

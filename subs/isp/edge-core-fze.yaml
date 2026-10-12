@@ -14,26 +14,49 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 45.86.60.79
+    name: EPODONIOS
+    server: tr3.pad-sservice.lat
     port: 8443
-    uuid: 8c617ef3-e055-51eb-853f-118cd0560c43
+    uuid: 6f838527-1e6a-4220-87c5-425202e49200
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: ee.illusion-vpn.ru
-    reality-opts:
-      public-key: KBEhIK-ogl2JAF5Z1A7inIgiW26rcrgxEbWUCfgs6Uk
-      short-id: 0ca3deb0d87b27c0
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: tr3.pad-sservice.lat
     xudp: true
+    network: ws
+    ws-opts:
+      path: /t1r
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr3.pad-service.com
+  - type: vless
+    name: 4Nika-a177ab99a2
+    server: tr3.pad-sservice.lat
+    port: 8443
+    uuid: 6f838527-1e6a-4220-87c5-425202e49200
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: tr3.pad-sservice.lat
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t1r
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr3.pad-service.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - 4Nika-a177ab99a2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +64,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - 4Nika-a177ab99a2
 rules:
   - MATCH,Proxy

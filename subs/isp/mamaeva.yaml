@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-bd6ab4735a
+    server: 95.140.158.168
+    port: 443
+    uuid: a96ad3ea-4820-43d2-bbf3-27c6bf19d652
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: fi.bootless.ru
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-bd6ab4735a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-bd6ab4735a
+rules:
+  - MATCH,Proxy

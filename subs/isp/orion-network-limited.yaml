@@ -1,28 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 196.245.52.146
+    port: 25535
+    uuid: c379d8e4-c67d-42ec-a3ed-ca99d1ad0546
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: Jh7CocBJSA55VZcLfXwXwoQ_Hi5pV-L1vv1SY-IrSh4
+      short-id: 7642ce57308852e7
+    xudp: true
+  - type: vless
     name: vless
-    server: 165.231.177.114
-    port: 443
-    uuid: 70ad3e9c-89e6-4ee3-91c3-7cb10a4e483a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 165.231.177.114
-    port: 443
-    uuid: 70ad3e9c-89e6-4ee3-91c3-7cb10a4e483a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-  - type: vless
-    name: vless-02
     server: 165.231.177.50
     port: 443
     uuid: 70ad3e9c-89e6-4ee3-91c3-7cb10a4e483a
@@ -51,9 +42,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
-      - vless-01
-      - vless-02
       - 4FreeIran-5c5eeef836
   - name: Auto
     type: url-test
@@ -61,9 +51,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
-      - vless-01
-      - vless-02
       - 4FreeIran-5c5eeef836
 rules:
   - MATCH,Proxy

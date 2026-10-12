@@ -1,53 +1,18 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: ir28482.jdjcr.3842.marzara.ir
-    port: 1111
-    cipher: chacha20-ietf-poly1305
-    password: Bp8W5Pqep4qf7D6H2q7hnA
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
+    name: IRAN_V2PING
     server: ir28482.jdjcr.3842.marzara.ir
     port: 1111
     cipher: chacha20-ietf-poly1305
     password: Lv93UPJw6HziaqJnwxXRDw
     udp: true
   - type: ss
-    name: IRAN_V2PING
+    name: filembad
     server: ir28482.jdjcr.3842.marzara.ir
     port: 1111
     cipher: chacha20-ietf-poly1305
-    password: Bp8W5Pqep4qf7D6H2q7hnA
+    password: j-jLF3iKqnjdDGE3WdCYFA
     udp: true
-  - type: vless
-    name: EPODONIOS-02
-    server: iran.mstr.pingxoxo.info
-    port: 36171
-    uuid: ce4b2104-f1fe-4216-ad67-8c21869b9118
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play-apps-features.googleusercontent.com
-    reality-opts:
-      public-key: IYhfI8lsuJrFV8zzp1XXbh9sPkvBlBNOTtJwBubhxxw
-      short-id: e4eb3ada03de9e92
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: vless
-    server: iran.mstr.pingxoxo.info
-    port: 36171
-    uuid: ce4b2104-f1fe-4216-ad67-8c21869b9118
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play-apps-features.googleusercontent.com
-    reality-opts:
-      public-key: IYhfI8lsuJrFV8zzp1XXbh9sPkvBlBNOTtJwBubhxxw
-      short-id: e4eb3ada03de9e92
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: 4FreeIran-32e8a4c471
     server: iran.mstr.pingxoxo.info
@@ -62,40 +27,22 @@ proxies:
       short-id: e4eb3ada03de9e92
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4FreeIran-5e89b034f4
-    server: ir28482.jdjcr.3842.marzara.ir
-    port: 13041
-    uuid: bbbd34c2-bf6c-48d1-8e91-3cd12f14f2fb
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
       - IRAN_V2PING
-      - EPODONIOS-02
-      - vless
+      - filembad
       - 4FreeIran-32e8a4c471
-      - 4FreeIran-5e89b034f4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
       - IRAN_V2PING
-      - EPODONIOS-02
-      - vless
+      - filembad
       - 4FreeIran-32e8a4c471
-      - 4FreeIran-5e89b034f4
 rules:
   - MATCH,Proxy

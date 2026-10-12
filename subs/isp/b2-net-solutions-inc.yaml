@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: 4Jadi-6536453dc2
-    server: it.geconnecction.com
+    name: DeltaKroneckerGithub
+    server: 152.232.57.10
     port: 443
-    uuid: d7edbdf0-11b5-4032-b9c9-3e3fc907fe4f
+    uuid: fdb13b1b-d306-4abd-b832-51991d1e62db
     udp: true
     tls: true
-    client-fingerprint: edge
-    servername: it.geconnecction.com
+    client-fingerprint: random
+    servername: api.videobereg.cc
     reality-opts:
-      public-key: AFTJFoYhjhTiZSrW5v6L0FR6riLbuXwm1pTrHSG073I
-      short-id: c5e512a8
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: api.videobereg.cc
+    port: 443
+    uuid: fdb13b1b-d306-4abd-b832-51991d1e62db
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-6536453dc2
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6536453dc2
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
