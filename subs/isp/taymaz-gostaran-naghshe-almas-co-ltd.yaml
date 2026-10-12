@@ -1,30 +1,62 @@
 proxies:
-  - type: vless
-    name: 4Kian-06a9e14e53
-    server: de.trackless.sbs
-    port: 19444
-    uuid: 0dcbab9b-4c87-473b-a0a6-c29a641e8cbc
+  - type: vmess
+    name: 4Jadi-b082450f5d
+    server: de1.trb2v.blog
+    port: 8880
+    uuid: 2559f36a-9e7a-41d4-84f2-0f60e0e7ae27
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: gU7zZLaPvCNsgvu4DFSo7K6wD47Al2IWDqtHCjkKyXs
-      short-id: 44ae4d30a085848f
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-b5b4c34424
+    server: dl1.armd.fun
+    port: 443
+    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-0a9975d7f6
+    server: dl1.armd.fun
+    port: 443
+    uuid: f6f54cb7-6a60-49cd-a871-f7b26064dce9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-ce9a599b3e
+    server: dl1.armd.fun
+    port: 443
+    uuid: 72ec8eaf-6a67-4026-aea6-963e3a9ca16a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-06a9e14e53
+      - 4Jadi-b082450f5d
+      - 4FreeIran-b5b4c34424
+      - 4Jadi-0a9975d7f6
+      - 4Nika-ce9a599b3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-06a9e14e53
+      - 4Jadi-b082450f5d
+      - 4FreeIran-b5b4c34424
+      - 4Jadi-0a9975d7f6
+      - 4Nika-ce9a599b3e
 rules:
   - MATCH,Proxy

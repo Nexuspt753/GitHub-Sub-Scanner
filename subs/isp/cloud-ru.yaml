@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-4270b99c43
+    server: kozyavka.yandex-api.com
+    port: 443
+    uuid: 1b7ee703-fa08-4305-8469-ae3e30e61e44
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: kozyavka.yandex-api.com
+    reality-opts:
+      public-key: _qSbW4JL4Ffqvj25vX-6a2ul9Qlj6PBdlF0ghsf_0RQ
+      short-id: a9dc98a7dc87a7dc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-4270b99c43
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-4270b99c43
+rules:
+  - MATCH,Proxy

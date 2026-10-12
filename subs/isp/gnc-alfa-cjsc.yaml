@@ -31,6 +31,22 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-281765d9b2
+    server: 88.218.95.88
+    port: 443
+    uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.google.com
+    reality-opts:
+      public-key: rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE
+      short-id: 43adea0ec9f97a0a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -38,6 +54,7 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - 10235@proxy_online_net
+      - 4Jadi-281765d9b2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,5 +63,6 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - 10235@proxy_online_net
+      - 4Jadi-281765d9b2
 rules:
   - MATCH,Proxy
