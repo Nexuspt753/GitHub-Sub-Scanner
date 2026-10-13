@@ -1,26 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Nika-7dfd406339
-    server: xgr.goldnshop.com
-    port: 2083
-    uuid: beadd688-6285-4f0e-bb5e-d984570567a4
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: nltun.nidu.ir
+    port: 443
+    uuid: e7548825-01c7-404d-a7c0-4d0df6331656
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.aparat.com
+    reality-opts:
+      public-key: i6j8f4N2K35dpfogvbEUc7HSY33qauB_9kuDJU6FAUU
+      short-id: 733dd8f9c1a9a99f
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-7dfd406339
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-7dfd406339
+      - EPODONIOS
 rules:
   - MATCH,Proxy

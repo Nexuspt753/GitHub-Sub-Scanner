@@ -1,0 +1,86 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 23.146.248.149
+    port: 443
+    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: rnxq-1lpi3m.linmeisoft.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rnxq-1lpi3m.linmeisoft.com
+  - type: vless
+    name: 4Nika-195e1ffdb9
+    server: 23.146.248.149
+    port: 443
+    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rnxq-1lpi3m.linmeisoft.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rnxq-1lpi3m.linmeisoft.com
+  - type: vless
+    name: 4FreeIran-be4a295e7e
+    server: 23.146.248.149
+    port: 443
+    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: rnxq-1lpi3m.linmeisoft.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rnxq-1lpi3m.linmeisoft.com
+  - type: vless
+    name: 4Nika-300260e3a1
+    server: 23.146.248.149
+    port: 443
+    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: rnxq-1lpi3m.linmeisoft.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rnxq-1lpi3m.linmeisoft.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - 4Nika-195e1ffdb9
+      - 4FreeIran-be4a295e7e
+      - 4Nika-300260e3a1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - 4Nika-195e1ffdb9
+      - 4FreeIran-be4a295e7e
+      - 4Nika-300260e3a1
+rules:
+  - MATCH,Proxy

@@ -1,18 +1,49 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: se3.h1cloud.net
-    port: 25119
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    server: se1.h1cloud.net
+    port: 26128
+    uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.icloud.com
+    reality-opts:
+      public-key: sACiHit5lNtPRK_eFP6jT8dMPUZ4kQRsfPj_LL5p7Uk
+      short-id: 13ac4d3bdadf1ea1
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 732051t.se1.h1clayd.click
+    port: 443
+    uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.samsung.com
+    servername: 732051t.se1.h1clayd.click
     reality-opts:
-      public-key: szPq4a3cvxfBOmGyg-UJCV3d1Jqjnj7YR3gaxyYtnk4
-      short-id: 10f517
-    flow: xtls-rprx-vision
+      public-key: NqyAfxsF9xeJZi_5itA5VCxaja1ioXjw7xPM_QonKVk
+      short-id: 0983a448f995e806
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: se1.h1cloud.net
+    port: 26226
+    uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.dn.se
+    reality-opts:
+      public-key: zsSr4H-YgykAOYdIYFaAnFQtIguRhP825FodeKSoxjA
+      short-id: 2ddf3f1151012c98
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: tootffarangi🍓-10
     server: se1.h1cloud.net
@@ -30,49 +61,31 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4FreeIran-ce50611c78
-    server: 732051t.se1.h1clayd.click
-    port: 443
+    name: 4Kian-8c3484f444
+    server: se1.h1cloud.net
+    port: 26226
     uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 732051t.se1.h1clayd.click
+    servername: www.dn.se
     reality-opts:
-      public-key: NqyAfxsF9xeJZi_5itA5VCxaja1ioXjw7xPM_QonKVk
-      short-id: 0983a448f995e806
+      public-key: zsSr4H-YgykAOYdIYFaAnFQtIguRhP825FodeKSoxjA
+      short-id: 2ddf3f1151012c98
     xudp: true
-  - type: vless
-    name: 4Jadi-f31c11151b
-    server: 732051t.se1.h1clayd.click
-    port: 443
-    uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 732051t.se1.h1clayd.click
-    xudp: true
-  - type: vless
-    name: 4Kian-debd75dc8e
-    server: se3.h1cloud.net
-    port: 25119
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - tootffarangi🍓-10
-      - 4FreeIran-ce50611c78
-      - 4Jadi-f31c11151b
-      - 4Kian-debd75dc8e
+      - 4Kian-8c3484f444
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -80,9 +93,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - EPODONIOS
       - tootffarangi🍓-10
-      - 4FreeIran-ce50611c78
-      - 4Jadi-f31c11151b
-      - 4Kian-debd75dc8e
+      - 4Kian-8c3484f444
 rules:
   - MATCH,Proxy

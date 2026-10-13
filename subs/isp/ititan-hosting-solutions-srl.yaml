@@ -1,53 +1,5 @@
 proxies:
   - type: vless
-    name: iranping24
-    server: 8c1de2g.rurumusical.com
-    port: 443
-    uuid: cee148ae-be81-40ac-9b05-e8a342586eda
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8c1de2g.rurumusical.com
-    reality-opts:
-      public-key: NrmwzA19Bqgea2EOba8EYmGtDtSD2rVA6vufqw_ibmU
-      short-id: 8c0e9c27e7848048
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: filembad-420
-    server: 8c1de2g.rurumusical.com
-    port: 443
-    uuid: cee148ae-be81-40ac-9b05-e8a342586eda
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8c1de2g.rurumusical.com
-    reality-opts:
-      public-key: NrmwzA19Bqgea2EOba8EYmGtDtSD2rVA6vufqw_ibmU
-      short-id: 8c0e9c27e7848048
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇩🇪193106
-    server: 8c1de2g.rurumusical.com
-    port: 443
-    uuid: cee148ae-be81-40ac-9b05-e8a342586eda
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 8c1de2g.rurumusical.com
-    reality-opts:
-      public-key: NrmwzA19Bqgea2EOba8EYmGtDtSD2rVA6vufqw_ibmU
-      short-id: 8c0e9c27e7848048
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Kian-f78db65efd
     server: 8c1de2g.rurumusical.com
     port: 443
@@ -63,24 +15,29 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: vless
+    server: 8c1de2x.rurumusical.com
+    port: 443
+    uuid: cee148ae-be81-40ac-9b05-e8a342586eda
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - iranping24
-      - filembad-420
-      - 🇩🇪193106
       - 4Kian-f78db65efd
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - iranping24
-      - filembad-420
-      - 🇩🇪193106
       - 4Kian-f78db65efd
+      - vless
 rules:
   - MATCH,Proxy

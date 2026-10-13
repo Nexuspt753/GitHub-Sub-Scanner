@@ -1,6 +1,22 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 188.164.248.123
+    port: 8443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp21.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp21.cc.cd
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 188.164.248.216
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -15,24 +31,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 188.164.248.67
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp21.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp21.cc.cd
   - type: vless
     name: EPODONIOS
-    server: 188.164.248.216
-    port: 443
-    uuid: d342d11e-d224-4463-b982-532309285094
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ccc.010304.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ccc.010304.xyz
-  - type: vless
-    name: EPODONIOS-01
     server: 188.164.248.216
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -128,7 +144,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
   - type: vless
-    name: 4Nika-8840a04fae
+    name: 4Nika-f81b238d69
     server: 188.164.248.216
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -142,7 +158,6 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ccc.010304.xyz
   - type: vless
     name: 4Sarina-5b5625e837
     server: 188.164.248.216
@@ -165,14 +180,15 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
-      - EPODONIOS-01
       - ICV2RAY
       - 4Kian-608ad570f9
       - 4Kian-fba92fda9f
       - 4Mohsen-de87693533
       - 4Mohsen-e3ab4f3bd1
-      - 4Nika-8840a04fae
+      - 4Nika-f81b238d69
       - 4Sarina-5b5625e837
   - name: Auto
     type: url-test
@@ -181,14 +197,15 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
-      - EPODONIOS-01
       - ICV2RAY
       - 4Kian-608ad570f9
       - 4Kian-fba92fda9f
       - 4Mohsen-de87693533
       - 4Mohsen-e3ab4f3bd1
-      - 4Nika-8840a04fae
+      - 4Nika-f81b238d69
       - 4Sarina-5b5625e837
 rules:
   - MATCH,Proxy

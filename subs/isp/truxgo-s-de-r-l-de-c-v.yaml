@@ -1,21 +1,20 @@
 proxies:
   - type: trojan
-    name: 4Kian-c57ff508f2
+    name: 4Mohsen-1b6e8d81b9
+    server: 131.196.254.151
+    port: 443
+    password: humanity
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-00e9f3bd08
     server: 131.196.254.151
     port: 443
     password: humanity
     udp: true
     tls: true
-    sni: www.pleadcourt.org
-    alpn:
-      - http/1.1
-    client-fingerprint: unsafe
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.pleadcourt.org
+    sni: www.volumeroot.com
+    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-d1a40c77fd
     server: 131.196.253.141
@@ -37,7 +36,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-c57ff508f2
+      - 4Mohsen-1b6e8d81b9
+      - 4Mohsen-00e9f3bd08
       - 4Jadi-d1a40c77fd
   - name: Auto
     type: url-test
@@ -45,7 +45,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-c57ff508f2
+      - 4Mohsen-1b6e8d81b9
+      - 4Mohsen-00e9f3bd08
       - 4Jadi-d1a40c77fd
 rules:
   - MATCH,Proxy

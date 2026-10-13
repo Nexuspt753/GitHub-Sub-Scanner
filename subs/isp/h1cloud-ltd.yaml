@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: al3.h1cloud.net
+    port: 25222
+    uuid: 83383473-0d62-4089-ac4d-d7ecb413504a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: booking.com
+    reality-opts:
+      public-key: JpJpgrE3EOho_ldp0woAiPL-dh8he8V0m4-rV2Uc9TY
+      short-id: 110177aa0babc87e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

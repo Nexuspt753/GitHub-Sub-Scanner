@@ -11,6 +11,18 @@ proxies:
     port: 23443
     password: 2a3b101d-d8f9-40e7-9373-b0ef487c0035
     sni: disk.api-yandex.net
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ru2.x8lab.org
+    port: 9443
+    password: bVhfAPS7f_tagBb-G79z0zWB6L1yK84H
+    udp: true
+    tls: true
+    sni: ru2.x8lab.org
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -18,6 +30,7 @@ proxy-groups:
       - Auto
       - 4FreeIran-702379d429
       - 4Nika-b5901c1d84
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +39,6 @@ proxy-groups:
     proxies:
       - 4FreeIran-702379d429
       - 4Nika-b5901c1d84
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

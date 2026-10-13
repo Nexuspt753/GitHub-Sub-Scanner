@@ -1,19 +1,17 @@
 proxies:
   - type: vless
-    name: 4FreeIran-5a215fa031
+    name: 4FreeIran-6a5b8b5ac7
     server: ware.tunnelgate.org
     port: 443
     uuid: 4deb9957-e037-4ae2-8892-da357cc6f99f
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
     servername: ware.tunnelgate.org
     xudp: true
     network: ws
     ws-opts:
-      path: /ws/v1/rufp=qq
+      path: /ws/v1/ru
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ware.tunnelgate.org
@@ -22,13 +20,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5a215fa031
+      - 4FreeIran-6a5b8b5ac7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5a215fa031
+      - 4FreeIran-6a5b8b5ac7
 rules:
   - MATCH,Proxy
