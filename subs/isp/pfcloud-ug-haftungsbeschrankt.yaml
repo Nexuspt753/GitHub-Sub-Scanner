@@ -1,42 +1,31 @@
 proxies:
-  - type: vless
+  - type: ss
     name: EPODONIOS
     server: 31.57.185.253
-    port: 55932
-    uuid: c6117371-7a24-4621-bac0-f70fa266b061
+    port: 41575
+    cipher: 2022-blake3-aes-256-gcm
+    password: a8H2a7f8S1tCO9cq/8jLiKVW85YCHvQvpmL4z/+93cw=:dyp231b5v7aZ3fC66aG/bF4UY4t21+0cajg7TVXofxg=
     udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
-    name: ⚡️
-    server: 31.57.185.253
-    port: 55932
-    uuid: c6117371-7a24-4621-bac0-f70fa266b061
+    name: 4Sarina-7b7cbb421e
+    server: nekonkori.farshadsv.ir
+    port: 2082
+    uuid: d798fefc-86e7-432d-8cc5-547994495874
     udp: true
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-4349a812a0
-    server: 31.57.185.253
-    port: 55932
-    uuid: c6117371-7a24-4621-bac0-f70fa266b061
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nekonkori.farshadsv.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - ⚡️
-      - 4Sarina-4349a812a0
+      - 4Sarina-7b7cbb421e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,7 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - ⚡️
-      - 4Sarina-4349a812a0
+      - 4Sarina-7b7cbb421e
 rules:
   - MATCH,Proxy

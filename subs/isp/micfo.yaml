@@ -1,0 +1,74 @@
+proxies:
+  - type: vless
+    name: filembad
+    server: 104.143.219.17
+    port: 3090
+    uuid: 5995e686-a3ae-4c05-a739-4a4466b69697
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: tootffarangi🍓-5
+    server: 104.143.219.17
+    port: 3090
+    uuid: 5995e686-a3ae-4c05-a739-4a4466b69697
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇺🇸193145
+    server: 104.143.219.17
+    port: 3090
+    uuid: 5995e686-a3ae-4c05-a739-4a4466b69697
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: iranping24
+    server: 104.143.219.95
+    port: 3090
+    uuid: 894cf78c-0dad-43b5-a09d-3f64b0c478e4
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇦🇪AE-🚀@VPNine1
+    server: 104.143.219.95
+    port: 3090
+    uuid: 894cf78c-0dad-43b5-a09d-3f64b0c478e4
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - filembad
+      - tootffarangi🍓-5
+      - 🇺🇸193145
+      - iranping24
+      - 🇦🇪AE-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - filembad
+      - tootffarangi🍓-5
+      - 🇺🇸193145
+      - iranping24
+      - 🇦🇪AE-🚀@VPNine1
+rules:
+  - MATCH,Proxy

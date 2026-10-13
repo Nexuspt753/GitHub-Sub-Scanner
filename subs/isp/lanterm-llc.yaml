@@ -1,0 +1,47 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 23.149.28.8.sslip.io
+    port: 8443
+    password: 78c6cf8f30399bad3f63f15a9600a8ef
+    udp: true
+    tls: true
+    sni: 23.149.28.8.sslip.io
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 23.149.28.8
+    port: 8443
+    password: 78c6cf8f30399bad3f63f15a9600a8ef
+    udp: true
+    tls: true
+    sni: 23.149.28.8.sslip.io
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-3fd3c3cbc1
+    server: 23.149.28.8.sslip.io
+    port: 8443
+    password: 78c6cf8f30399bad3f63f15a9600a8ef
+    udp: true
+    tls: true
+    sni: 23.149.28.8.sslip.io
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-3fd3c3cbc1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-3fd3c3cbc1
+rules:
+  - MATCH,Proxy

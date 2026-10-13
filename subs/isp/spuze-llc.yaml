@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-b64e441acd
+    server: 23.166.40.27
+    port: 443
+    uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u695098u07fcba7ds79.kukuss.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-d5404cbf2f
+    server: s880.gogocs.xyz
+    port: 443
+    uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u695098u07fcba7ds79.kukuss.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-a118a7e1b6
+    server: s881.wagahaha.xyz
+    port: 443
+    uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u695098u07fcba7ds79.kukuss.top
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-b64e441acd
+      - 4Nika-d5404cbf2f
+      - 4Nika-a118a7e1b6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-b64e441acd
+      - 4Nika-d5404cbf2f
+      - 4Nika-a118a7e1b6
+rules:
+  - MATCH,Proxy

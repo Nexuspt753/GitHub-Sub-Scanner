@@ -45,6 +45,21 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: EPODONIOS-01
+    server: 93.123.39.84
+    port: 443
+    uuid: 5298d5c5-0633-4989-95c8-68ee13cd507e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: ee2x.global-cdn.org
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: MARAMBASHI
     server: 31.207.7.117
     port: 443
@@ -89,6 +104,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Sarina-3dcae394c1
+    server: 93.123.39.84
+    port: 443
+    uuid: 5298d5c5-0633-4989-95c8-68ee13cd507e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: ee2x.global-cdn.org
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -97,9 +127,11 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - EPODONIOS-01
       - MARAMBASHI
       - 4Kian-52224a6054
       - 4Sarina-6028af185b
+      - 4Sarina-3dcae394c1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -109,8 +141,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - EPODONIOS
+      - EPODONIOS-01
       - MARAMBASHI
       - 4Kian-52224a6054
       - 4Sarina-6028af185b
+      - 4Sarina-3dcae394c1
 rules:
   - MATCH,Proxy
