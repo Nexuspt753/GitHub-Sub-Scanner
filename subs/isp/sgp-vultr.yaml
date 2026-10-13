@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: 🇸🇬
+    server: 139.180.146.200
+    port: 8886
+    password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+    udp: true
+    tls: true
+    sni: 139.180.146.200
+    client-fingerprint: chrome
+  - type: trojan
     name: DeltaKroneckerGithub
     server: 139.180.146.200
     port: 8886
@@ -56,43 +65,12 @@ proxies:
     tls: true
     sni: 139.180.146.200
     client-fingerprint: chrome
-  - type: vless
-    name: 4Mohsen-0894a2839b
-    server: 207.148.71.119
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Mohsen-2908b095eb
-    server: 207.148.71.119
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇸🇬
       - DeltaKroneckerGithub
       - 4Nika-758cec5d9b
       - DeltaKroneckerGithub-01
@@ -100,14 +78,13 @@ proxy-groups:
       - 4FreeIran-aef076ecf7
       - 4Sarina-7e9f16a6fa
       - 4Mohsen-7beab5f130
-      - 4Mohsen-0894a2839b
-      - 4Mohsen-2908b095eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇸🇬
       - DeltaKroneckerGithub
       - 4Nika-758cec5d9b
       - DeltaKroneckerGithub-01
@@ -115,7 +92,5 @@ proxy-groups:
       - 4FreeIran-aef076ecf7
       - 4Sarina-7e9f16a6fa
       - 4Mohsen-7beab5f130
-      - 4Mohsen-0894a2839b
-      - 4Mohsen-2908b095eb
 rules:
   - MATCH,Proxy

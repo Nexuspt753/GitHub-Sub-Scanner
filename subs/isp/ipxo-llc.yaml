@@ -1,6 +1,19 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 104.129.164.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime40.workers.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 172.111.146.64
     port: 80
     uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
@@ -25,21 +38,6 @@ proxies:
       short-id: 1be482b8e08aa0ef
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: EPODONIOS-01
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: "|"
     server: 172.93.122.4
@@ -69,22 +67,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
-    name: EPODONIOS-02
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 🇯🇵JP-172.111.146.64-0181
+    name: EPODONIOS-01
     server: 172.111.146.64
     port: 80
     uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
@@ -169,21 +152,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Nika-17d4cbd92f
-    server: 172.111.146.64
-    port: 80
-    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /vmess/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: 4Nika-ee8fb5f300
     server: 172.111.146.64
     port: 80
@@ -221,18 +189,16 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
       - "|"
       - گیگی
-      - EPODONIOS-02
-      - 🇯🇵JP-172.111.146.64-0181
+      - EPODONIOS-01
       - 4Kian-578ff194f6
       - 4Mohsen-eac6d067f0
       - 4Kian-1e1c431400
       - 4Kian-fc64e89283
       - 4Jadi-50d63ee57e
-      - 4Nika-17d4cbd92f
       - 4Nika-ee8fb5f300
       - 4Sarina-5500ec4ae5
   - name: Auto
@@ -242,18 +208,16 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
       - "|"
       - گیگی
-      - EPODONIOS-02
-      - 🇯🇵JP-172.111.146.64-0181
+      - EPODONIOS-01
       - 4Kian-578ff194f6
       - 4Mohsen-eac6d067f0
       - 4Kian-1e1c431400
       - 4Kian-fc64e89283
       - 4Jadi-50d63ee57e
-      - 4Nika-17d4cbd92f
       - 4Nika-ee8fb5f300
       - 4Sarina-5500ec4ae5
 rules:

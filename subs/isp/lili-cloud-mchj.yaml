@@ -1,26 +1,12 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: 4Sarina-004cfb806f
     server: lili11.stone-bridge.org
     port: 8443
     uuid: a1f00f09-80b8-415f-8258-801590975ca5
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: lili11.stone-bridge.org
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-f6051425c2
-    server: lili11.stone-bridge.org
-    port: 8443
-    uuid: a1f00f09-80b8-415f-8258-801590975ca5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     alpn:
       - h2
       - http/1.1
@@ -32,15 +18,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Mohsen-f6051425c2
+      - 4Sarina-004cfb806f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Mohsen-f6051425c2
+      - 4Sarina-004cfb806f
 rules:
   - MATCH,Proxy

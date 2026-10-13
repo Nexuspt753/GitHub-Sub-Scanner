@@ -1,5 +1,21 @@
 proxies:
   - type: vmess
+    name: 4Nika-c29b47c77f
+    server: 142.171.48.179
+    port: 28167
+    uuid: 8bfcefb6-7578-4b71-8777-4b1438660d71
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gw.alicdn.com
+  - type: vmess
     name: 4Jadi-307d5983f1
     server: 142.171.48.179
     port: 28167
@@ -31,20 +47,58 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: gw.alicdn.com
+  - type: vmess
+    name: 4Jadi-b11502b5f2
+    server: 142.171.48.179
+    port: 28167
+    uuid: c20f5c31-488e-44c7-b26a-8be8e0737066
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gw.alicdn.com
+  - type: vmess
+    name: 4Nika-e83104af66
+    server: 142.171.48.179
+    port: 28167
+    uuid: f949f286-b709-4617-8f26-2e0dfdd7ca6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gw.alicdn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-c29b47c77f
       - 4Jadi-307d5983f1
       - 4Nika-9a10ea8f53
+      - 4Jadi-b11502b5f2
+      - 4Nika-e83104af66
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-c29b47c77f
       - 4Jadi-307d5983f1
       - 4Nika-9a10ea8f53
+      - 4Jadi-b11502b5f2
+      - 4Nika-e83104af66
 rules:
   - MATCH,Proxy

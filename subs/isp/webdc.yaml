@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: iranping24
+    server: tundra.venorix.online
+    port: 443
+    uuid: 6c21cf57-a9a9-4075-ad9f-631152bd911e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tundra.venorix.online
+    reality-opts:
+      public-key: IHm9_n5a0hMAvgclNtwWpNpq68Xdj9-Q5NG3eLkcFjE
+      short-id: 52fe21c959620cd8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-1e634a7ff9
+    server: tundra.venorix.online
+    port: 443
+    uuid: 6c21cf57-a9a9-4075-ad9f-631152bd911e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tundra.venorix.online
+    reality-opts:
+      public-key: IHm9_n5a0hMAvgclNtwWpNpq68Xdj9-Q5NG3eLkcFjE
+      short-id: 52fe21c959620cd8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-c0183c3bcf
+    server: tundra.venorix.online
+    port: 443
+    uuid: 6c21cf57-a9a9-4075-ad9f-631152bd911e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tundra.venorix.online
+    reality-opts:
+      public-key: IHm9_n5a0hMAvgclNtwWpNpq68Xdj9-Q5NG3eLkcFjE
+      short-id: 52fe21c959620cd8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-f62a70b46d
+    server: tundra.venorix.online
+    port: 443
+    uuid: 6c21cf57-a9a9-4075-ad9f-631152bd911e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tundra.venorix.online
+    reality-opts:
+      public-key: IHm9_n5a0hMAvgclNtwWpNpq68Xdj9-Q5NG3eLkcFjE
+      short-id: 52fe21c959620cd8
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - iranping24
+      - 4Jadi-1e634a7ff9
+      - 4Mohsen-c0183c3bcf
+      - 4Kian-f62a70b46d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - iranping24
+      - 4Jadi-1e634a7ff9
+      - 4Mohsen-c0183c3bcf
+      - 4Kian-f62a70b46d
+rules:
+  - MATCH,Proxy
