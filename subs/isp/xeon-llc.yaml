@@ -1,30 +1,50 @@
 proxies:
   - type: vless
-    name: 4Nika-1587c601b4
-    server: 82.202.178.133
-    port: 31443
-    uuid: 7dede1f3-5151-49cf-a390-18bb4be53b75
+    name: EPODONIOS
+    server: mobile-api-12.sova.toys
+    port: 443
+    uuid: 03218c7c-acd1-45c0-87a1-9cc77101c6b4
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: smartcaptcha.yandexcloud.net
+    servername: mobile-api-12.sova.toys
     reality-opts:
-      public-key: lA0NS88gVVkaZf4qA1aYystzmLsZ5SNzszDsC-8DMSM
-      short-id: e351ebf520
-    flow: xtls-rprx-vision
+      public-key: 1A9loATtqTbKfErpj24clMebWdbmBRDgUIADwtlvtAw
+      short-id: 70c20a2f5a7d542e
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: iranping24
+    server: mobile-api-12.sova.toys
+    port: 443
+    uuid: 03218c7c-acd1-45c0-87a1-9cc77101c6b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mobile-api-12.sova.toys
+    reality-opts:
+      public-key: 1A9loATtqTbKfErpj24clMebWdbmBRDgUIADwtlvtAw
+      short-id: 70c20a2f5a7d542e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-1587c601b4
+      - EPODONIOS
+      - iranping24
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-1587c601b4
+      - EPODONIOS
+      - iranping24
 rules:
   - MATCH,Proxy

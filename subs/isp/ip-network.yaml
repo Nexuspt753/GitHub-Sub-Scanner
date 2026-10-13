@@ -1,29 +1,38 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-095799eac1
-    server: tegerm.ketabkhan24.ir
-    port: 8011
-    uuid: d02fcca7-e77f-42f1-94bf-5545eec68f0a
+  - type: vmess
+    name: 4FreeIran-27f09b2edd
+    server: 77.90.11.178
+    port: 17662
+    uuid: eafa523f-3472-4efc-f1c5-6ce25b3910a9
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: 5YXPSSoLRpZ5io9Gh4AJJ2rEUqs7MQ9c8HMy7IRU8Ho
-      short-id: 5aa1dc90a28cacc3
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-d30cb72cb0
+    server: 77.90.11.178
+    port: 17662
+    uuid: eafa523f-3472-4efc-f1c5-6ce25b3910a9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-095799eac1
+      - 4FreeIran-27f09b2edd
+      - 4FreeIran-d30cb72cb0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-095799eac1
+      - 4FreeIran-27f09b2edd
+      - 4FreeIran-d30cb72cb0
 rules:
   - MATCH,Proxy

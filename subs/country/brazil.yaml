@@ -1,22 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: São Paulo · 4FreeIran-b66b8aced6
-    server: 147.15.23.247
-    port: 20000
-    password: CyG0RFxMjzs41uQD4OLuHQ==
-    sni: rmgyvpn.rest
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: CyG0RFxMjzs41uQD4OLuHQ==
-  - type: hysteria2
-    name: São Paulo · 4FreeIran-86c8886af3
-    server: 147.15.23.247
-    port: 20000
-    password: CyG0RFxMjzs41uQD4OLuHQ==
-    sni: rmgyvpn.rest
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: salamander
   - type: trojan
     name: São Paulo · @DeltaKroneckerGithub
     server: 109.104.155.94
@@ -26,22 +8,36 @@ proxies:
     tls: true
     sni: national-toucan.dolphin109.quest
     client-fingerprint: chrome
+  - type: vless
+    name: Vinhedo · 4FreeIran-c529468201
+    server: 157.151.4.93
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - São Paulo · 4FreeIran-b66b8aced6
-      - São Paulo · 4FreeIran-86c8886af3
       - São Paulo · @DeltaKroneckerGithub
+      - Vinhedo · 4FreeIran-c529468201
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - São Paulo · 4FreeIran-b66b8aced6
-      - São Paulo · 4FreeIran-86c8886af3
       - São Paulo · @DeltaKroneckerGithub
+      - Vinhedo · 4FreeIran-c529468201
 rules:
   - MATCH,Proxy

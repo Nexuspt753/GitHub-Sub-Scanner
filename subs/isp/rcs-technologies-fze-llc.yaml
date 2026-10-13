@@ -1,23 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-6a7b34a6dd
-    server: 78.17.209.108
-    port: 8443
-    password: d402d4c0b8354a90b70bb2566dce9a08
-    sni: i.wareznet.ru
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: hehehe.hohoterz.beer
+    port: 443
+    uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hehehe.hohoterz.beer
+    reality-opts:
+      public-key: 9xlKofHgn6_79fzCJNtw11zc1zicldVPHk6_h1KTIXA
+      short-id: 9532ce4ecd911eac
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-6a7b34a6dd
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-6a7b34a6dd
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

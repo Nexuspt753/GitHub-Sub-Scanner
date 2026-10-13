@@ -1,38 +1,4 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: ir28482.jdjcr.3842.marzara.ir
-    port: 1111
-    cipher: chacha20-ietf-poly1305
-    password: 6Nr35NP8wZJ6DmHbIUvFxw
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: ir28482.jdjcr.3842.marzara.ir
-    port: 1111
-    cipher: chacha20-ietf-poly1305
-    password: ueZ5t3ok_lwiAjg1yb7OzQ
-    udp: true
-  - type: vless
-    name: EPODONIOS-02
-    server: turk.karmatel.ir
-    port: 2087
-    uuid: 1bb7b56e-e016-4f90-ac8f-f71397141604
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: trt.karmatel.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vs1.karmatel.ir
   - type: vless
     name: 4Nika-858a3c2762
     server: turk.karmatel.ir
@@ -53,6 +19,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vs1.karmatel.ir
+  - type: vless
+    name: vless
+    server: turk.karmatel.ir
+    port: 2083
+    uuid: 1bb7b56e-e016-4f90-ac8f-f71397141604
+    udp: true
+    xudp: true
+  - type: vmess
+    name: 4Sarina-d260b8222f
+    server: eeetst.aparatratinfo.ir
+    port: 8443
+    uuid: 4b89551a-7b7c-442b-b790-207e48229045
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: 4Jadi-d8b182a1c5
     server: eeetst.aparatratinfo.ir
@@ -68,10 +51,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
       - 4Nika-858a3c2762
+      - vless
+      - 4Sarina-d260b8222f
       - 4Jadi-d8b182a1c5
   - name: Auto
     type: url-test
@@ -79,10 +61,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
       - 4Nika-858a3c2762
+      - vless
+      - 4Sarina-d260b8222f
       - 4Jadi-d8b182a1c5
 rules:
   - MATCH,Proxy

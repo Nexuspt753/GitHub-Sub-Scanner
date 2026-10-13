@@ -56,6 +56,23 @@ proxies:
       short-id: 266337e69bb1f189
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-024b949e4c
+    server: 31.59.216.162
+    port: 2083
+    uuid: ce29a04d-c95a-4451-9518-bae0c074e0d7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: crt.onecloudstream.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-wsfp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -65,6 +82,7 @@ proxy-groups:
       - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
       - 4Kian-f0d44bce16
+      - 4Sarina-024b949e4c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,5 +93,6 @@ proxy-groups:
       - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
       - 4Kian-f0d44bce16
+      - 4Sarina-024b949e4c
 rules:
   - MATCH,Proxy

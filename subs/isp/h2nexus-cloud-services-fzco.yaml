@@ -6,15 +6,6 @@ proxies:
     password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
     sni: cf6.rumedia-cdn.com
     skip-cert-verify: true
-  - type: hysteria2
-    name: 4Sarina-9173fb8e53
-    server: 177.1.195.242
-    port: 24000
-    password: 81d953a0-f0cf-4452-a669-747d32efd6c1
-    sni: hy.kirian.su
-    skip-cert-verify: false
-    obfs: salamander
-    obfs-password: 9VK3Nqd0bcXGPxcay9hRLY28HBtKo5
   - type: vless
     name: DeltaKroneckerGithub
     server: 85.192.48.142
@@ -64,6 +55,13 @@ proxies:
     cipher: none
     password: 3e96ef7d-8637-42c2-ac73-75182196e755
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-04
+    server: 94.159.102.107
+    port: 8443
+    cipher: none
+    password: 3e96ef7d-8637-42c2-ac73-75182196e755
+    udp: true
   - type: vless
     name: 4Mohsen-13be07cbec
     server: 94.159.97.247
@@ -90,6 +88,20 @@ proxies:
     reality-opts:
       public-key: qBtxq4RZxDLCJT8i48iaGMhacv8MOI0yhIFiuwYJm08
       short-id: 825d392c67e4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4766388035
+    server: 144.31.131.38
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: prod.pl-node-01.security-sbrf.ru
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
@@ -121,6 +133,23 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4FreeIran-efd4e25213
+    server: 94.159.105.148
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -162,41 +191,25 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Jadi-520ec1ef5b
-    server: 94.159.110.41
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-ef1af09d84
-      - 4Sarina-9173fb8e53
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Mohsen-13be07cbec
       - 4Kian-c5cb636606
+      - 4FreeIran-4766388035
       - 4Mohsen-9f5fdcf5e1
       - 4Mohsen-cc652b352a
+      - 4FreeIran-efd4e25213
       - 4Nika-ac41cca32f
       - 4Mohsen-7a2f42796a
-      - 4Jadi-520ec1ef5b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -204,17 +217,18 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-ef1af09d84
-      - 4Sarina-9173fb8e53
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Mohsen-13be07cbec
       - 4Kian-c5cb636606
+      - 4FreeIran-4766388035
       - 4Mohsen-9f5fdcf5e1
       - 4Mohsen-cc652b352a
+      - 4FreeIran-efd4e25213
       - 4Nika-ac41cca32f
       - 4Mohsen-7a2f42796a
-      - 4Jadi-520ec1ef5b
 rules:
   - MATCH,Proxy

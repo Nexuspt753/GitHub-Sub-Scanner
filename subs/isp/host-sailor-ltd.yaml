@@ -1,0 +1,40 @@
+proxies:
+  - type: vless
+    name: 4Jadi-5908483506
+    server: hs.riverveil.com
+    port: 27631
+    uuid: 3084f0d9-cb7e-425d-8d8f-7b5e3b5570c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: ydFMrFC_HRlVDj7e4jVGx1XZCuogpHZ82K3j-Kns0AE
+    xudp: true
+  - type: vless
+    name: 4Mohsen-c2e65deb95
+    server: hs.riverveil.com
+    port: 27631
+    uuid: 3084f0d9-cb7e-425d-8d8f-7b5e3b5570c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-5908483506
+      - 4Mohsen-c2e65deb95
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-5908483506
+      - 4Mohsen-c2e65deb95
+rules:
+  - MATCH,Proxy

@@ -1,9 +1,23 @@
 proxies:
   - type: vless
-    name: 4Sarina-21943c280c
-    server: 153.56.210.210
+    name: EPODONIOS
+    server: 153.56.210.61
     port: 443
-    uuid: 8e826a69-63f6-0001-a67d-4a1958e8b2d2
+    uuid: 0de1d303-d7de-0001-8679-c4cb67e2e2cc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amd.com
+    reality-opts:
+      public-key: WWeAHWUVD-phmnjNJ823cer0c4CMIbEs08AhsuEZmDc
+      short-id: a696de84963656de
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: iranping24
+    server: 153.56.210.61
+    port: 443
+    uuid: 0de1d303-d7de-0001-8679-c4cb67e2e2cc
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-21943c280c
+      - EPODONIOS
+      - iranping24
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-21943c280c
+      - EPODONIOS
+      - iranping24
 rules:
   - MATCH,Proxy

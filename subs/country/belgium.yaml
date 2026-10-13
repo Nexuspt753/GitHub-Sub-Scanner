@@ -39,19 +39,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Brussels · 🇧🇪139839
-    server: 109.69.218.217
-    port: 443
-    uuid: 2a12bb81-f3a3-41bb-99ab-36febf676b4a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kind-wolf.cdn.cachefleet.com
-    reality-opts:
-      public-key: 8hse7wRRL-F66rQ-aAeetKTw0MSeJC7Rr6EaDeLzdCU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Zaventem · EPODONIOS
     server: 109.69.218.168
     port: 443
@@ -64,21 +51,6 @@ proxies:
       public-key: cv_KJnMzQUZruACPbH-BCgLWrYqPm2dbUymg-gW_sVc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Brussels · EPODONIOS-02
-    server: 13.143.186.27
-    port: 443
-    uuid: ed8704b8-9e9e-48e6-b55b-ae9079ab3a59
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sunshine.videofriend.site
-    reality-opts:
-      public-key: aQly1zWk_i62TgzCZB1JnaInYIiNZuss4NA0JDWxtm0
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: Zaventem · 🇧🇪139755
     server: 109.69.218.168
@@ -185,22 +157,6 @@ proxies:
     name: Brussels · 4Kian-5949c13cba
     server: 141.227.186.38
     port: 2053
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
-  - type: vless
-    name: Brussels · 4Mohsen-ba383231bd
-    server: 194.71.227.213
-    port: 443
     uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
     tls: true
@@ -327,6 +283,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.42088326.xyz
+  - type: vmess
+    name: Saint-Gilles · 4Mohsen-b3008313c8
+    server: 37.120.236.251
+    port: 443
+    uuid: ed162daa-ee20-44ed-830f-b522c501387a
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/143013092425
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.42088326.xyz
 proxy-groups:
   - name: Proxy
     type: select
@@ -335,9 +308,7 @@ proxy-groups:
       - Brussels · EPODONIOS
       - Brussels · EPODONIOS-01
       - Brussels · 🇧🇪139840
-      - Brussels · 🇧🇪139839
       - Zaventem · EPODONIOS
-      - Brussels · EPODONIOS-02
       - Zaventem · 🇧🇪139755
       - Brussels · @irdusti(37)🇧🇪
       - Brussels · 4Nika-4eec64430a
@@ -346,7 +317,6 @@ proxy-groups:
       - Brussels · 4Nika-b3590e5bf5
       - Brussels · 4Nika-ed3fd0ed91
       - Brussels · 4Kian-5949c13cba
-      - Brussels · 4Mohsen-ba383231bd
       - Brussels · 4Nika-a921884181
       - Zaventem · 4Nika-6822f1e17e
       - Brussels · 4Sarina-97746bdef8
@@ -354,6 +324,7 @@ proxy-groups:
       - Brussels · 4Jadi-c0afcfcbfa
       - Saint-Gilles · 4Nika-bbb9f3e54f
       - Saint-Gilles · 4Nika-6f07bd09da
+      - Saint-Gilles · 4Mohsen-b3008313c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -363,9 +334,7 @@ proxy-groups:
       - Brussels · EPODONIOS
       - Brussels · EPODONIOS-01
       - Brussels · 🇧🇪139840
-      - Brussels · 🇧🇪139839
       - Zaventem · EPODONIOS
-      - Brussels · EPODONIOS-02
       - Zaventem · 🇧🇪139755
       - Brussels · @irdusti(37)🇧🇪
       - Brussels · 4Nika-4eec64430a
@@ -374,7 +343,6 @@ proxy-groups:
       - Brussels · 4Nika-b3590e5bf5
       - Brussels · 4Nika-ed3fd0ed91
       - Brussels · 4Kian-5949c13cba
-      - Brussels · 4Mohsen-ba383231bd
       - Brussels · 4Nika-a921884181
       - Zaventem · 4Nika-6822f1e17e
       - Brussels · 4Sarina-97746bdef8
@@ -382,5 +350,6 @@ proxy-groups:
       - Brussels · 4Jadi-c0afcfcbfa
       - Saint-Gilles · 4Nika-bbb9f3e54f
       - Saint-Gilles · 4Nika-6f07bd09da
+      - Saint-Gilles · 4Mohsen-b3008313c8
 rules:
   - MATCH,Proxy

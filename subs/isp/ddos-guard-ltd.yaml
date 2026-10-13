@@ -1,20 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 91.215.43.248
-    port: 443
-    uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: my.kempekl.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: EPODONIOS
     server: 95.129.236.252
     port: 443
@@ -45,13 +30,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: vless
-    server: 91.215.41.42
-    port: 443
-    uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
     port: 443
@@ -81,21 +59,37 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-e5ac03588d
-    server: 91.215.43.248
-    port: 443
-    uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+    name: 4FreeIran-a7cb6d9a12
+    server: 95.129.234.36
+    port: 20443
+    uuid: a1f00f09-80b8-415f-8258-801590975ca5
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: my.kempekl.online
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: nar-tr1.blue-orchard.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-a7686dbbae
+    server: 95.129.234.36
+    port: 9443
+    uuid: a1f00f09-80b8-415f-8258-801590975ca5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: eh-ger1.country-tools.net
     xudp: true
     network: ws
     ws-opts:
-      path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+      path: /images
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: my.kempekl.online
+        Host: eh-ger1.country-tools.net
   - type: vless
     name: 4Mohsen-85f44f7166
     server: 91.215.43.248
@@ -117,13 +111,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - vless
       - 4Mohsen-b66a7367f9
       - 4Nika-9e07d72fe5
-      - 4FreeIran-e5ac03588d
+      - 4FreeIran-a7cb6d9a12
+      - 4Jadi-a7686dbbae
       - 4Mohsen-85f44f7166
   - name: Auto
     type: url-test
@@ -131,13 +124,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇷🇺139881
-      - vless
       - 4Mohsen-b66a7367f9
       - 4Nika-9e07d72fe5
-      - 4FreeIran-e5ac03588d
+      - 4FreeIran-a7cb6d9a12
+      - 4Jadi-a7686dbbae
       - 4Mohsen-85f44f7166
 rules:
   - MATCH,Proxy
