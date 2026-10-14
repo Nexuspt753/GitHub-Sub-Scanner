@@ -1,44 +1,5 @@
 proxies:
   - type: vmess
-    name: EPODONIOS
-    server: 176.120.17.222
-    port: 8080
-    uuid: 19a49ad7-8f13-4f37-97b2-b987d5e97b3e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
-    name: filembad-484
-    server: 176.120.17.222
-    port: 8080
-    uuid: 19a49ad7-8f13-4f37-97b2-b987d5e97b3e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
-    name: 4Mohsen-20833a693c
-    server: 176.120.17.222
-    port: 8080
-    uuid: 19a49ad7-8f13-4f37-97b2-b987d5e97b3e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
     name: 4FreeIran-072ac434ce
     server: 176.120.17.222
     port: 8080
@@ -116,34 +77,43 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4FreeIran-e4db6e404e
+    server: 176.120.17.222
+    port: 8080
+    uuid: f9ef3d7f-c1dc-42f9-85bd-4f2240147887
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - filembad-484
-      - 4Mohsen-20833a693c
       - 4FreeIran-072ac434ce
       - 4Kian-30fa415eb9
       - 4Jadi-db5b5f4b6b
       - 4Nika-8ce1f755ff
       - 4Jadi-cdafa9577f
       - 4Mohsen-c8ffb9f188
+      - 4FreeIran-e4db6e404e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - filembad-484
-      - 4Mohsen-20833a693c
       - 4FreeIran-072ac434ce
       - 4Kian-30fa415eb9
       - 4Jadi-db5b5f4b6b
       - 4Nika-8ce1f755ff
       - 4Jadi-cdafa9577f
       - 4Mohsen-c8ffb9f188
+      - 4FreeIran-e4db6e404e
 rules:
   - MATCH,Proxy

@@ -17,19 +17,6 @@ proxies:
     tls: true
     sni: ir.maralfood1i.ir
     client-fingerprint: chrome
-  - type: vless
-    name: Free
-    server: 0cf703b86ea5a239.RaVEnlO.iR
-    port: 8080
-    uuid: 50d10e6c-37e1-4512-b35a-2d4e0adfd079
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
   - type: trojan
     name: 4FreeIran-433fa4c604
     server: ir.maralfood1i.ir
@@ -65,6 +52,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snapp.ir
+  - type: vmess
+    name: 4Jadi-9ce8d1edd3
+    server: octpus1.gsmonline.ir
+    port: 8080
+    uuid: 6a6726c0-89c1-4f25-a1a7-9659a98cef37
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snapp.ir
 proxy-groups:
   - name: Proxy
     type: select
@@ -72,10 +75,10 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - Telegram
-      - Free
       - 4FreeIran-433fa4c604
       - 4Nika-aaae3bff69
       - 4Sarina-99a7992478
+      - 4Jadi-9ce8d1edd3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -84,9 +87,9 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - Telegram
-      - Free
       - 4FreeIran-433fa4c604
       - 4Nika-aaae3bff69
       - 4Sarina-99a7992478
+      - 4Jadi-9ce8d1edd3
 rules:
   - MATCH,Proxy

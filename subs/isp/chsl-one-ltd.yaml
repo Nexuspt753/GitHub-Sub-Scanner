@@ -1,21 +1,6 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 144.31.195.61
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.volumeroot.com
-    client-fingerprint: unsafe
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.volumeroot.com
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: 37.46.18.19
     port: 443
     password: 8r<[9'l6hAO#8ZQi
@@ -30,24 +15,30 @@ proxies:
     password: humanity
     udp: true
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Nika-5546020393
-    server: 144.31.195.61
+  - type: vless
+    name: 4Nika-4a3dbb27cd
+    server: 195.133.65.232
     port: 443
-    password: humanity
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
     tls: true
-    sni: www.volumeroot.com
     client-fingerprint: chrome
+    servername: vp58.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /Telegram🇨🇳 @VPNine1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp58.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Nika-1acc9551d1
-      - 4Nika-5546020393
+      - 4Nika-4a3dbb27cd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,8 +46,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Nika-1acc9551d1
-      - 4Nika-5546020393
+      - 4Nika-4a3dbb27cd
 rules:
   - MATCH,Proxy
