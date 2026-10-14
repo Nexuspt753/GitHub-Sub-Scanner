@@ -1,29 +1,46 @@
 proxies:
   - type: vless
-    name: 4Nika-dba5909d8c
-    server: xzfp.gsgg.electrocitymarket.ru
+    name: DeltaKroneckerGithub
+    server: de-1-1.unturned-rust-dead.lol
     port: 443
-    uuid: d2519b5e-495e-462e-9703-bbf68011d2f3
+    uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: xzfp.gsgg.electrocitymarket.ru
+    client-fingerprint: ios
+    servername: de-1-1.unturned-rust-dead.lol
+    reality-opts:
+      public-key: aYz4_13W8gtAXGBrWeqJXtExahAJ9kUPDapqeyAlYCk
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-f8b56baecb
+    server: de-1-1.unturned-rust-dead.lol
+    port: 443
+    uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: de-1-1.unturned-rust-dead.lol
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-dba5909d8c
+      - DeltaKroneckerGithub
+      - 4Sarina-f8b56baecb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-dba5909d8c
+      - DeltaKroneckerGithub
+      - 4Sarina-f8b56baecb
 rules:
   - MATCH,Proxy

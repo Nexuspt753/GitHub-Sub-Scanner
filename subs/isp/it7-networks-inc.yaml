@@ -1,29 +1,17 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 65.49.231.108
-    port: 443
-    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    server: bwg.riverveil.com
+    port: 25469
+    uuid: 3d838129-8aef-4e8e-ac46-3f950fe98276
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: rnxq-1lpi3m.linmeisoft.com
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: owC470odZmynnyt2s8g5_VLPUwXpTw2puWtJOGwBWxM
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rnxq-1lpi3m.linmeisoft.com
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 104.160.44.203
-    port: 443
-    password: 600421cf-11d7-429f-a65b-c30397f1bc03
-    udp: true
-    tls: true
-    sni: la14.freeguard.org
-    client-fingerprint: chrome
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -33,6 +21,17 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-ab81aff35d
+    server: bwg.riverveil.com
+    port: 25469
+    uuid: 3d838129-8aef-4e8e-ac46-3f950fe98276
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Kian-22f6f13215
     server: 65.49.231.108
@@ -66,34 +65,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: kr-arm2.018999.xyz
-  - type: vmess
-    name: 4Kian-32a4fe5ef9
-    server: jp-amd1.018999.xyz
-    port: 443
-    uuid: 65e619e7-0bf1-4f5b-a390-5735b01a3713
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /65e619e7-0bf1-4f5b-a390-5735b01a3713
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp-amd1.018999.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-32e553f3cf
+      - 4Nika-ab81aff35d
       - 4Kian-22f6f13215
       - 4Nika-2f67175f1c
-      - 4Kian-32a4fe5ef9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -101,10 +82,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-32e553f3cf
+      - 4Nika-ab81aff35d
       - 4Kian-22f6f13215
       - 4Nika-2f67175f1c
-      - 4Kian-32a4fe5ef9
 rules:
   - MATCH,Proxy

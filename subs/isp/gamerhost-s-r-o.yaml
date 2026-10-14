@@ -13,12 +13,27 @@ proxies:
       short-id: f19e02a2fb573c18
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-ade20e2ee0
+    server: 5.39.202.125
+    port: 443
+    uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: czekkk.loknietotop.digital
+    reality-opts:
+      public-key: WU5baXUzRH9BceiYI8MPBmDMEloTFImx2vvE5uh1yjM
+      short-id: f19e02a2fb573c18
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-ade20e2ee0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-ade20e2ee0
 rules:
   - MATCH,Proxy
