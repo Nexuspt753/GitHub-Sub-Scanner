@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: br.urobotix.tech
+    port: 443
+    uuid: 7b9b233c-c646-4859-88b2-2a55695c6487
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: br.urobotix.tech
+    reality-opts:
+      public-key: jQx41aPKBwFCRKregjdLMmwo4ShIYfjHWIMIl-0HJhc
+      short-id: 288d01b5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 157.228.156.211
     port: 443
     uuid: 7b9b233c-c646-4859-88b2-2a55695c6487
@@ -19,6 +33,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

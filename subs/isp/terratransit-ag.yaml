@@ -1,23 +1,29 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
+  - type: vless
+    name: 🇸🇬194381
     server: www.asamping.ir
-    port: 1468
-    cipher: aes-128-gcm
-    password: l2NidZbckMu4PnIHsJTYJg
+    port: 2052
+    uuid: 4da2b397-98db-4aaa-aa24-321f478f5f61
     udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.asamping.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 🇸🇬194381
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 🇸🇬194381
 rules:
   - MATCH,Proxy

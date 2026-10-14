@@ -1,37 +1,4 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: p2tun3.greewebservices.ir
-    port: 1030
-    cipher: chacha20-ietf-poly1305
-    password: DGAgtTvNNo023YQCWcSHSg
-    udp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: tun1.applly.ir
-    port: 8700
-    uuid: 54065f18-8686-4fe6-8c2f-17f520a09695
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: arvancloud.ir
-  - type: vless
-    name: EPODONIOS-02
-    server: tun3.appii.ir
-    port: 8023
-    uuid: 54065f18-8686-4fe6-8c2f-17f520a09695
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: 3VKs9HG9EgsB69ppfvFEJcXiO5MDOvvQOByDD2HceXQ
-      short-id: b7e45d3a65bfc319
-    xudp: true
   - type: vless
     name: "["
     server: tun3.phonepanel.ir
@@ -58,41 +25,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: arvancloud.ir
-  - type: vless
-    name: 4FreeIran-46b3708674
-    server: tun3.appii.ir
-    port: 8023
-    uuid: 54065f18-8686-4fe6-8c2f-17f520a09695
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: 3VKs9HG9EgsB69ppfvFEJcXiO5MDOvvQOByDD2HceXQ
-      short-id: b7e45d3a65bfc319
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
       - "["
       - 4Jadi-92d7f60510
-      - 4FreeIran-46b3708674
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
       - "["
       - 4Jadi-92d7f60510
-      - 4FreeIran-46b3708674
 rules:
   - MATCH,Proxy

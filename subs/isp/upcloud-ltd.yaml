@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 87.58.158.82
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dk7.bbobr.win
+    reality-opts:
+      public-key: zBNHm7DwlBZ2rfu2F5e3jMsmR2q74KpS2L6EavCVmkA
+      short-id: f6985908fcb5612f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: "117"
     server: 87.58.158.82
     port: 443
@@ -41,10 +55,60 @@ proxies:
       short-id: f6985908fcb5612f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: bored_vpn
+    server: 85.9.209.229
+    port: 8880
+    uuid: a441c530-8c8b-4ef9-8d98-0571ad49c433
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.forvo.com
+    reality-opts:
+      public-key: 7ftU0SggASCqf9TsUminHpucXB1LEQ1dPrcYFV7Dny4
+    xudp: true
+  - type: vless
+    name: mehrosaboran
+    server: 85.9.209.229
+    port: 8880
+    uuid: a441c530-8c8b-4ef9-8d98-0571ad49c433
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.forvo.com
+    reality-opts:
+      public-key: 7ftU0SggASCqf9TsUminHpucXB1LEQ1dPrcYFV7Dny4
+    xudp: true
+  - type: vless
+    name: "[70932]"
+    server: 85.9.209.229
+    port: 8880
+    uuid: a441c530-8c8b-4ef9-8d98-0571ad49c433
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.forvo.com
+    reality-opts:
+      public-key: 7ftU0SggASCqf9TsUminHpucXB1LEQ1dPrcYFV7Dny4
+    xudp: true
+  - type: vless
+    name: 4Kian-3cc264d0a8
+    server: 87.58.158.82
+    port: 443
+    uuid: 267b3a79-81f2-42ac-a409-c23b05b6329d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dk7.bbobr.win
+    reality-opts:
+      public-key: zBNHm7DwlBZ2rfu2F5e3jMsmR2q74KpS2L6EavCVmkA
+      short-id: f6985908fcb5612f
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
-    name: 4Mohsen-374bcd9916
-    server: riga-nin.neninet.ir
-    port: 54978
+    name: 4Mohsen-5ed1b6b170
+    server: de-nin.neninet.ir
+    port: 31074
     uuid: 475e7934-442f-40c5-972b-12f6e0a5a05d
     alterId: 0
     cipher: auto
@@ -52,25 +116,55 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: riga-nin.neninet.ir
+    servername: de-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4FreeIran-4620a0c279
+    server: fr-nin.neninet.ir
+    port: 18875
+    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: fr-nin.neninet.ir
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - "117"
       - v2raybaaz
       - برای
-      - 4Mohsen-374bcd9916
+      - bored_vpn
+      - mehrosaboran
+      - "[70932]"
+      - 4Kian-3cc264d0a8
+      - 4Mohsen-5ed1b6b170
+      - 4FreeIran-4620a0c279
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - "117"
       - v2raybaaz
       - برای
-      - 4Mohsen-374bcd9916
+      - bored_vpn
+      - mehrosaboran
+      - "[70932]"
+      - 4Kian-3cc264d0a8
+      - 4Mohsen-5ed1b6b170
+      - 4FreeIran-4620a0c279
 rules:
   - MATCH,Proxy

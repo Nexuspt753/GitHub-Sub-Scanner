@@ -1,6 +1,22 @@
 proxies:
   - type: vless
-    name: 🇮🇱
+    name: DeltaKroneckerGithub
+    server: 185.253.75.119
+    port: 443
+    uuid: d342d11e-d224-4463-b982-532309285094
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
+  - type: vless
+    name: EPODONIOS
     server: 185.253.75.119
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -33,7 +49,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 🇮🇱
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Nika-95c80c3330
   - name: Auto
     type: url-test
@@ -41,7 +58,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇱
+      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Nika-95c80c3330
 rules:
   - MATCH,Proxy

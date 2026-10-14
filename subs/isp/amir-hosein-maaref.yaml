@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: 🇮🇷194370
+    server: psbb.configfast.ir
+    port: 7002
+    uuid: 4c35f64c-6694-415d-a556-c54e527dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 9TCCTr8UqxiuVEt3NZGpZTHTM21rws2m23QnObO34FI
+      short-id: 65a4714eaec41d42
+    xudp: true
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: psbb.configfast.ir
+    port: 7002
+    uuid: 4c35f64c-6694-415d-a556-c54e527dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 9TCCTr8UqxiuVEt3NZGpZTHTM21rws2m23QnObO34FI
+      short-id: 65a4714eaec41d42
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷194370
+      - 🇮🇷IR-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷194370
+      - 🇮🇷IR-🚀@VPNine1
+rules:
+  - MATCH,Proxy

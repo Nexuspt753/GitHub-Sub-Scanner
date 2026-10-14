@@ -1,25 +1,56 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-ac9107b7b5
-    server: 37.48.65.144
-    port: 443
-    password: 0cb2cd1f-870b-485c-914a-60aba39eed39
+  - type: vless
+    name: 10384@proxy_online_net
+    server: 167.94.163.63
+    port: 10443
+    uuid: f37f88ef-c57e-0114-9b16-659ff67530b7
     udp: true
     tls: true
-    sni: tt6.tjvpn.top
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: static.samoworks.com
+    xudp: true
+  - type: vless
+    name: 🇰🇷194271
+    server: 167.94.163.63
+    port: 10443
+    uuid: f37f88ef-c57e-0114-9b16-659ff67530b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: static.samoworks.com
+    xudp: true
+  - type: vless
+    name: 🔵@chillguy_vpn
+    server: 167.94.163.63
+    port: 10443
+    uuid: f37f88ef-c57e-0114-9b16-659ff67530b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: static.samoworks.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-ac9107b7b5
+      - 10384@proxy_online_net
+      - 🇰🇷194271
+      - 🔵@chillguy_vpn
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-ac9107b7b5
+      - 10384@proxy_online_net
+      - 🇰🇷194271
+      - 🔵@chillguy_vpn
 rules:
   - MATCH,Proxy
