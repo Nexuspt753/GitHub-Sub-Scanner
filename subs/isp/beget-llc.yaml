@@ -1,19 +1,6 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: 85.198.101.160
-    port: 443
-    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
     server: 217.26.30.125
     port: 7443
     uuid: 4f466863-b6c5-4fdc-955e-7a601c18d89a
@@ -80,6 +67,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 🚨
+    server: 85.198.101.160
+    port: 443
+    uuid: 4f35284c-311a-4c2c-b196-fda3ac8a0b66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: MSHKV2n0D01xQkXUY64I1gSraEVZb1GH8YPF9tF55kQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: IRAN_V2RAY1
     server: 217.26.30.125
     port: 7443
@@ -95,7 +95,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-01
     server: 212.67.15.8
     port: 443
     uuid: d3fd4488-fc7d-4207-9e48-29167f847113
@@ -177,40 +177,24 @@ proxies:
       short-id: 1e6443b50d6d9381
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-f4154fad58
-    server: 45.144.179.138
-    port: 443
-    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - Продлите
       - ☝️
       - 🇪🇺
       - 👇
+      - 🚨
       - IRAN_V2RAY1
-      - EPODONIOS-02
+      - EPODONIOS-01
       - Nexus_Panell
       - 4Mohsen-ec281c3127
       - 4FreeIran-8895bc049b
       - 4Sarina-bffffd50a5
       - 4Kian-5d0d2a903b
-      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -218,18 +202,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - Продлите
       - ☝️
       - 🇪🇺
       - 👇
+      - 🚨
       - IRAN_V2RAY1
-      - EPODONIOS-02
+      - EPODONIOS-01
       - Nexus_Panell
       - 4Mohsen-ec281c3127
       - 4FreeIran-8895bc049b
       - 4Sarina-bffffd50a5
       - 4Kian-5d0d2a903b
-      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

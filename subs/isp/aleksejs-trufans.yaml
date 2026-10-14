@@ -15,22 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: vless
-    server: gertest4x.nekosocks.com
-    port: 8443
-    uuid: 66d7c0fb-cbfd-4705-a46c-e99da459976f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-10707fd258
-      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-10707fd258
-      - vless
 rules:
   - MATCH,Proxy

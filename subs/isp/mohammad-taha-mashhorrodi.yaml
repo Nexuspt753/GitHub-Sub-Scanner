@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: 4Nika-858a3c2762
+    name: 4Mohsen-352b3acda1
     server: turk.karmatel.ir
     port: 2087
-    uuid: 06e052f1-4177-4439-a2e3-117c8e9ddfd8
+    uuid: 1bb7b56e-e016-4f90-ac8f-f71397141604
     udp: true
     tls: true
     client-fingerprint: safari
@@ -19,23 +19,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vs1.karmatel.ir
-  - type: vless
-    name: vless
-    server: turk.karmatel.ir
-    port: 2083
-    uuid: 1bb7b56e-e016-4f90-ac8f-f71397141604
-    udp: true
-    xudp: true
-  - type: vmess
-    name: 4Sarina-d260b8222f
-    server: eeetst.aparatratinfo.ir
-    port: 8443
-    uuid: 4b89551a-7b7c-442b-b790-207e48229045
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vmess
     name: 4Jadi-d8b182a1c5
     server: eeetst.aparatratinfo.ir
@@ -46,24 +29,32 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-48aa985d03
+    server: eeetst.aparatratinfo.ir
+    port: 8443
+    uuid: 8f2c5026-bfb0-414a-8600-d1660023bb08
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-858a3c2762
-      - vless
-      - 4Sarina-d260b8222f
+      - 4Mohsen-352b3acda1
       - 4Jadi-d8b182a1c5
+      - 4Nika-48aa985d03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-858a3c2762
-      - vless
-      - 4Sarina-d260b8222f
+      - 4Mohsen-352b3acda1
       - 4Jadi-d8b182a1c5
+      - 4Nika-48aa985d03
 rules:
   - MATCH,Proxy

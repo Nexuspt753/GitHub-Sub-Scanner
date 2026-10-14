@@ -1,6 +1,6 @@
 proxies:
   - type: vmess
-    name: DeltaKroneckerGithub
+    name: EPODONIOS
     server: renderer-stream-2-114.mirra.now
     port: 443
     uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
@@ -10,9 +10,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-114.mirra.now
-    alpn:
-      - h2
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -97,26 +94,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-114.mirra.now
   - type: vmess
-    name: 4Mohsen-1faeefb33a
-    server: renderer-stream-2-114.mirra.now
-    port: 443
-    uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-114.mirra.now
-    alpn:
-      - h2
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-114.mirra.now
-  - type: vmess
     name: 4Nika-b2fd9a1f20
     server: renderer-stream-2-114.mirra.now
     port: 443
@@ -150,71 +127,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-114.mirra.now
-  - type: vmess
-    name: 4Nika-16e9b3e347
-    server: renderer-stream-2-114.mirra.now
-    port: 443
-    uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-114.mirra.now
-  - type: vmess
-    name: 4Jadi-3082739d28
-    server: renderer-stream-2-114.mirra.now
-    port: 443
-    uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-114.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-114.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Kian-62514922f5
       - 4Mohsen-cc8fecf1f0
       - 4Mohsen-cccf338925
       - 4Kian-31eb4ac0ce
-      - 4Mohsen-1faeefb33a
       - 4Nika-b2fd9a1f20
       - 4FreeIran-2faa10d6f5
-      - 4Nika-16e9b3e347
-      - 4Jadi-3082739d28
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
       - 4Kian-62514922f5
       - 4Mohsen-cc8fecf1f0
       - 4Mohsen-cccf338925
       - 4Kian-31eb4ac0ce
-      - 4Mohsen-1faeefb33a
       - 4Nika-b2fd9a1f20
       - 4FreeIran-2faa10d6f5
-      - 4Nika-16e9b3e347
-      - 4Jadi-3082739d28
 rules:
   - MATCH,Proxy
