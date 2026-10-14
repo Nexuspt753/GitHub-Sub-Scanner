@@ -31,6 +31,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: gw.alicdn.com
+  - type: vmess
+    name: 4Nika-9a10ea8f53
+    server: 142.171.48.179
+    port: 28167
+    uuid: a0181cb3-fcc5-4a0a-9e71-db943a2309fa
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gw.alicdn.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -38,6 +54,7 @@ proxy-groups:
       - Auto
       - 4Mohsen-38aab9e30a
       - 4Sarina-1d8d367ed1
+      - 4Nika-9a10ea8f53
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,5 +63,6 @@ proxy-groups:
     proxies:
       - 4Mohsen-38aab9e30a
       - 4Sarina-1d8d367ed1
+      - 4Nika-9a10ea8f53
 rules:
   - MATCH,Proxy

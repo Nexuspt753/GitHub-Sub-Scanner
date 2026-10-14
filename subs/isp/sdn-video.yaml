@@ -10,20 +10,15 @@ proxies:
     name: vless-01
     server: 78.159.246.85
     port: 2053
-    uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
     udp: true
     xudp: true
   - type: vless
     name: vless-02
-    server: fitindoor.net
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+    server: 78.159.246.179
+    port: 8443
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
     xudp: true
   - type: vless
     name: vless-03
@@ -31,19 +26,6 @@ proxies:
     port: 2053
     uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
     udp: true
-    xudp: true
-  - type: vless
-    name: 4Jadi-5f1cbe410e
-    server: 78.159.246.179
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: randomquaint.net
     xudp: true
   - type: vless
     name: 4Nika-1b59f1c781
@@ -57,19 +39,6 @@ proxies:
       - h2
       - http/1.1
     xudp: true
-  - type: vless
-    name: 4Kian-0c7842e85b
-    server: randomquaint.net
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: randomquaint.net
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -79,9 +48,7 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
-      - 4Jadi-5f1cbe410e
       - 4Nika-1b59f1c781
-      - 4Kian-0c7842e85b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -92,8 +59,6 @@ proxy-groups:
       - vless-01
       - vless-02
       - vless-03
-      - 4Jadi-5f1cbe410e
       - 4Nika-1b59f1c781
-      - 4Kian-0c7842e85b
 rules:
   - MATCH,Proxy

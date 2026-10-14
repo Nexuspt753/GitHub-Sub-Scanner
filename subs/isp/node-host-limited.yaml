@@ -1,18 +1,13 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: mog.keyblack.site
-    port: 8444
-    uuid: ef8c7169-87fc-49ad-be91-1f3984ab446d
+  - type: trojan
+    name: Shh_Proxy
+    server: 191.44.113.95
+    port: 443
+    password: pkj3BBnG2NE4wD-72SwgzNcfaHSes-dr
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: DQGwrxOgoiyBDrbdFUofP88FGtxHDA2duzNXKkyxaig
-      short-id: 6ba85179e30d4fc2
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: 16.img.avito.st
+    client-fingerprint: chrome
   - type: vless
     name: EPODONIOS
     server: 194.238.57.23
@@ -199,15 +194,20 @@ proxies:
       short-id: c885e8f8
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: 4Mohsen-2bad305f41
-    server: 191.44.113.95
+  - type: vless
+    name: 🇺🇸US-🚀@VPNine1
+    server: fi.quic.best
     port: 443
-    password: pkj3BBnG2NE4wD-72SwgzNcfaHSes-dr
+    uuid: c2331311-c9fd-4af9-8f34-7a9edcee3b92
     udp: true
     tls: true
-    sni: 16.img.avito.st
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - h3
+    servername: fi.quic.best
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4FreeIran-aedd5ad05d
     server: 194.238.57.23
@@ -294,12 +294,23 @@ proxies:
       short-id: 6ba85179e30d4fc2
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-7febee4d50
+    server: mog.keyblack.site
+    port: 8444
+    uuid: ef8c7169-87fc-49ad-be91-1f3984ab446d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - Shh_Proxy
       - EPODONIOS
       - Tarkahodeh
       - EPODONIOS-01
@@ -313,20 +324,21 @@ proxy-groups:
       - vpnsal
       - "59"
       - Net2ray
-      - 4Mohsen-2bad305f41
+      - 🇺🇸US-🚀@VPNine1
       - 4FreeIran-aedd5ad05d
       - 4FreeIran-614c33caa8
       - 4Kian-8cb977b2e1
       - 4Nika-a719feadc8
       - 4Jadi-eb0c27bfed
       - 4Jadi-15aad009d6
+      - 4Mohsen-7febee4d50
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - Shh_Proxy
       - EPODONIOS
       - Tarkahodeh
       - EPODONIOS-01
@@ -340,12 +352,13 @@ proxy-groups:
       - vpnsal
       - "59"
       - Net2ray
-      - 4Mohsen-2bad305f41
+      - 🇺🇸US-🚀@VPNine1
       - 4FreeIran-aedd5ad05d
       - 4FreeIran-614c33caa8
       - 4Kian-8cb977b2e1
       - 4Nika-a719feadc8
       - 4Jadi-eb0c27bfed
       - 4Jadi-15aad009d6
+      - 4Mohsen-7febee4d50
 rules:
   - MATCH,Proxy

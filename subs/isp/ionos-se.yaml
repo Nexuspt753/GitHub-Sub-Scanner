@@ -1,20 +1,7 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 212.227.235.66
-    port: 2053
-    uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.apple.com
-    reality-opts:
-      public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
-      short-id: 29e8dcd2b37aaa7f
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 69.48.201.136
+    server: uspanel.unixzone.us
     port: 30016
     uuid: 03dc60cb-a8d4-4226-93fe-0e6cbf77fe5a
     udp: true
@@ -25,6 +12,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: uspanel.unixzone.us
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.70.111.146
+    port: 443
+    uuid: 84ed0e09-6803-4ef9-a977-74b657d971e5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: ZNmuzIn-zyJi2C0sWRpL9fsMYCgYauXpJElXTqY_LEE
+      short-id: d7de3a6ff4018957
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: 4FreeIran-6d2b8ae84b
     server: 212.227.146.33
@@ -32,6 +33,33 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: GvsjQ0OZ5nGQXDGfzfWZf5
     udp: true
+  - type: trojan
+    name: 4Jadi-ef4ec2e92e
+    server: 212.227.144.37
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇪🇸
+    server: 212.227.235.66
+    port: 2053
+    uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+      short-id: 29e8dcd2b37aaa7f
+    xudp: true
   - type: vless
     name: 4Mohsen-39d3ac2d54
     server: 87.106.65.110
@@ -104,6 +132,24 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apjhdggyx.com
   - type: vmess
+    name: 4Sarina-7c23e7fef1
+    server: 194.164.192.16
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4Kian-c7c0790242
     server: 85.215.41.19
     port: 443
@@ -121,41 +167,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Kian-00883a681d
-    server: 85.215.41.19
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Mohsen-4236145ddb
-    server: 85.215.41.19
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -164,14 +175,15 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4FreeIran-6d2b8ae84b
+      - 4Jadi-ef4ec2e92e
+      - 🇪🇸
       - 4Mohsen-39d3ac2d54
       - 4Nika-7f9004590b
       - 4Sarina-6fc0d37c73
       - 4Nika-c724be7d62
       - 4FreeIran-8d1a32bc8a
+      - 4Sarina-7c23e7fef1
       - 4Kian-c7c0790242
-      - 4Kian-00883a681d
-      - 4Mohsen-4236145ddb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -181,13 +193,14 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4FreeIran-6d2b8ae84b
+      - 4Jadi-ef4ec2e92e
+      - 🇪🇸
       - 4Mohsen-39d3ac2d54
       - 4Nika-7f9004590b
       - 4Sarina-6fc0d37c73
       - 4Nika-c724be7d62
       - 4FreeIran-8d1a32bc8a
+      - 4Sarina-7c23e7fef1
       - 4Kian-c7c0790242
-      - 4Kian-00883a681d
-      - 4Mohsen-4236145ddb
 rules:
   - MATCH,Proxy

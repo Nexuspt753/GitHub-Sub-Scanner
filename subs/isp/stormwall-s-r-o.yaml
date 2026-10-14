@@ -18,6 +18,22 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 5.252.33.175
+    port: 9882
+    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+      short-id: aabbccdd
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 5.252.33.175
     port: 9873
     uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
     udp: true
@@ -63,19 +79,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Jadi-a2bbab83a4
-    server: 5.252.33.175
-    port: 9882
-    uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: dl.google.com
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -83,9 +86,9 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
       - 4Kian-79e1e388a8
-      - 4Jadi-a2bbab83a4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -94,8 +97,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
       - 4Kian-79e1e388a8
-      - 4Jadi-a2bbab83a4
 rules:
   - MATCH,Proxy
