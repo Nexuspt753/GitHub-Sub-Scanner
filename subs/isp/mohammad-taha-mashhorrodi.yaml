@@ -1,5 +1,25 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: turk.karmatel.ir
+    port: 2087
+    uuid: 6e8ca04d-52f1-4e4d-bf9e-b9f50fc5fde7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: trt.karmatel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vs1.karmatel.ir
+  - type: vless
     name: 10392@proxy_online_net
     server: turk.karmatel.ir
     port: 2087
@@ -20,13 +40,13 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vs1.karmatel.ir
   - type: vless
-    name: 4Mohsen-352b3acda1
+    name: 4Sarina-b8ef9e1ead
     server: turk.karmatel.ir
     port: 2087
-    uuid: 1bb7b56e-e016-4f90-ac8f-f71397141604
+    uuid: 6e8ca04d-52f1-4e4d-bf9e-b9f50fc5fde7
     udp: true
     tls: true
-    client-fingerprint: safari
+    client-fingerprint: chrome
     alpn:
       - h2
       - http/1.1
@@ -44,15 +64,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 10392@proxy_online_net
-      - 4Mohsen-352b3acda1
+      - 4Sarina-b8ef9e1ead
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 10392@proxy_online_net
-      - 4Mohsen-352b3acda1
+      - 4Sarina-b8ef9e1ead
 rules:
   - MATCH,Proxy

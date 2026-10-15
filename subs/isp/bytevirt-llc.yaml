@@ -24,6 +24,20 @@ proxies:
     tls: true
     sni: hhtj.hhllfly.kdns.fr
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-0eb90d8182
+    server: 89.28.239.178
+    port: 443
+    uuid: a51af616-47c0-47ae-8a98-d2788609c3d5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ntu.edu.sg
+    reality-opts:
+      public-key: KEmiyRhVcut9SjbstHGl9pb61vJATkIDwUK0mfcdulU
+      short-id: 33c6
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -31,6 +45,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-0eb90d8182
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,5 +54,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-0eb90d8182
 rules:
   - MATCH,Proxy
