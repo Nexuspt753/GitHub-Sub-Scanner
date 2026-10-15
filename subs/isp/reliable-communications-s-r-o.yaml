@@ -1,9 +1,29 @@
 proxies:
   - type: vless
-    name: 4Mohsen-bee3655d88
-    server: 153.76.185.111
+    name: EPODONIOS
+    server: 153.76.185.93
     port: 3090
-    uuid: 6efdfe5c-b7f6-49f9-865a-8c3600330acc
+    uuid: 2040f170-de2a-49bb-a903-125f0731c54d
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇨🇿194696
+    server: 153.76.185.93
+    port: 3090
+    uuid: 2040f170-de2a-49bb-a903-125f0731c54d
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-9434b691f3
+    server: 153.76.185.93
+    port: 3090
+    uuid: 2040f170-de2a-49bb-a903-125f0731c54d
     udp: true
     xudp: true
     network: grpc
@@ -14,13 +34,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-bee3655d88
+      - EPODONIOS
+      - 🇨🇿194696
+      - 4Mohsen-9434b691f3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-bee3655d88
+      - EPODONIOS
+      - 🇨🇿194696
+      - 4Mohsen-9434b691f3
 rules:
   - MATCH,Proxy

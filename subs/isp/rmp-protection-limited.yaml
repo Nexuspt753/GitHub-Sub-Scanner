@@ -1,46 +1,30 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-b5dd73a0da
-    server: 93.152.223.201
+  - type: vless
+    name: 4Nika-46b2bda174
+    server: de-01.mansurchik.ru
     port: 443
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
+    uuid: a18cd33e-c092-4cad-9533-8abbfb6e3a50
     udp: true
     tls: true
-    sni: ger2.fytpn.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-8fd080f998
-    server: 93.152.223.201
-    port: 443
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-    udp: true
-    tls: true
-    sni: ger2.fytpn.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-015e39cf63
-    server: ger2.fytpn.com
-    port: 443
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-    udp: true
-    tls: true
-    client-fingerprint: chrome
+    client-fingerprint: qq
+    servername: de-01.mansurchik.ru
+    reality-opts:
+      public-key: AEmotpXG5yIgVqV8jVdc4nFoOVM1cGbPqMXa7ALr20o
+      short-id: 9b10e3cb13b7ed
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b5dd73a0da
-      - 4Mohsen-8fd080f998
-      - 4Mohsen-015e39cf63
+      - 4Nika-46b2bda174
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b5dd73a0da
-      - 4Mohsen-8fd080f998
-      - 4Mohsen-015e39cf63
+      - 4Nika-46b2bda174
 rules:
   - MATCH,Proxy

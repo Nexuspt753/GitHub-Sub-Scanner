@@ -1,0 +1,86 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 89.144.145.233
+    port: 60635
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 89.144.145.233
+    port: 64845
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: filembad
+    server: 89.144.145.233
+    port: 60635
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇮🇷194830
+    server: 89.144.145.233
+    port: 60635
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: 89.144.145.233
+    port: 60635
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: filembad-01
+    server: 89.144.145.233
+    port: 64845
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Kian-9a51870031
+    server: 89.144.145.233
+    port: 60635
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-bceb9159a9
+    server: 89.144.145.233
+    port: 64845
+    uuid: c0c5d026-9f17-4b35-b180-2b96956c6ba2
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - filembad
+      - 🇮🇷194830
+      - 🇮🇷IR-🚀@VPNine1
+      - filembad-01
+      - 4Kian-9a51870031
+      - 4Jadi-bceb9159a9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - filembad
+      - 🇮🇷194830
+      - 🇮🇷IR-🚀@VPNine1
+      - filembad-01
+      - 4Kian-9a51870031
+      - 4Jadi-bceb9159a9
+rules:
+  - MATCH,Proxy

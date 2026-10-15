@@ -1,48 +1,44 @@
 proxies:
-  - type: trojan
-    name: EPODONIOS
-    server: 178.172.227.178
-    port: 500
-    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+  - type: vless
+    name: 4FreeIran-c02ce48e56
+    server: 178.172.227.124
+    port: 14430
+    uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
     udp: true
-    tls: true
-    sni: by01.botovod.space
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: trojan
-    name: 4Nika-cb8dd175c3
-    server: 178.172.227.178
-    port: 500
-    password: 8qCNZU2XdtefT7uB4uPxgRR839btqMG8
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 178.172.227.124
+  - type: vless
+    name: 4Jadi-d6171b27e1
+    server: 178.172.227.228
+    port: 14430
+    uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
     udp: true
-    tls: true
-    sni: by01.botovod.space
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 178.172.227.228
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Nika-cb8dd175c3
+      - 4FreeIran-c02ce48e56
+      - 4Jadi-d6171b27e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Nika-cb8dd175c3
+      - 4FreeIran-c02ce48e56
+      - 4Jadi-d6171b27e1
 rules:
   - MATCH,Proxy
