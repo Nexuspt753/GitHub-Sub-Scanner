@@ -10,7 +10,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: kurdconfig
+    name: EPODONIOS-01
     server: 206.245.146.248
     port: 2085
     uuid: ec553e40-bd11-44fc-91ba-284fe7264706
@@ -20,7 +20,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: kurdconfig-01
+    name: kurdconfig
     server: 206.245.146.248
     port: 2085
     uuid: ec553e40-bd11-44fc-91ba-284fe7264706
@@ -39,15 +39,26 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-b73d1daecd
+    server: 206.245.146.248
+    port: 2085
+    uuid: ec553e40-bd11-44fc-91ba-284fe7264706
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - kurdconfig
-      - kurdconfig-01
       - 4Kian-f51dce228d
+      - 4FreeIran-b73d1daecd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,8 +66,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - kurdconfig
-      - kurdconfig-01
       - 4Kian-f51dce228d
+      - 4FreeIran-b73d1daecd
 rules:
   - MATCH,Proxy

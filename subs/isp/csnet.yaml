@@ -13,6 +13,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 103.172.197.3
+    port: 16006
+    uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 103.172.197.3
     port: 16006
@@ -26,20 +39,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 103.172.197.3
-    port: 16006
-    uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇮🇩
+    name: Free
     server: 103.172.197.3
     port: 16006
     uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
@@ -77,31 +77,17 @@ proxies:
       public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-3a5ff0d9f4
-    server: 103.172.197.3
-    port: 16006
-    uuid: f8c9d2a1-da40-4f90-b671-11772a0b13d6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: ll7JTP628PuBMZJvx6fuhGSmCRSURnReAetmhCEL8GU
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - 🇮🇩
+      - Free
       - 4Mohsen-0ee6454310
       - 4FreeIran-c2e5208847
-      - 4Nika-3a5ff0d9f4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -109,11 +95,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - 🇮🇩
+      - Free
       - 4Mohsen-0ee6454310
       - 4FreeIran-c2e5208847
-      - 4Nika-3a5ff0d9f4
 rules:
   - MATCH,Proxy

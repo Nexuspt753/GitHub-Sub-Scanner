@@ -13,8 +13,24 @@ proxies:
       short-id: 835391010667297d
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: 107.191.53.86
+    port: 4798
+    uuid: 7567e082-6a72-4840-8610-1383b0022b39
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 45.76.60.234
     port: 443
     password: Bw5Mz7QkVp
@@ -146,31 +162,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ruu2rx-oycdrnsrzc.9uokolpk04vmg2ecqb8oys7.workers.dev
-  - type: vless
-    name: 4Mohsen-74094491b5
-    server: vu2us97h.87544899.xyz
-    port: 443
-    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: maps.apple.com
-    reality-opts:
-      public-key: kCYu5PbOfpqpetoFkUV0weDpxdeCN0UWRcL6mZtf6xc
-      short-id: 58f26f1ff75e9031
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-8678f88440
-    server: vu2us97h.87544899.xyz
-    port: 443
-    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: maps.apple.com
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -178,6 +169,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-ab4e651797
       - 4Jadi-242a3db97b
       - 4Mohsen-d6b4c139d9
@@ -186,8 +178,6 @@ proxy-groups:
       - 4Mohsen-75bd92a586
       - 4Jadi-4f05bff7f5
       - 4Mohsen-ff117a1f64
-      - 4Mohsen-74094491b5
-      - 4Kian-8678f88440
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -196,6 +186,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-ab4e651797
       - 4Jadi-242a3db97b
       - 4Mohsen-d6b4c139d9
@@ -204,7 +195,5 @@ proxy-groups:
       - 4Mohsen-75bd92a586
       - 4Jadi-4f05bff7f5
       - 4Mohsen-ff117a1f64
-      - 4Mohsen-74094491b5
-      - 4Kian-8678f88440
 rules:
   - MATCH,Proxy

@@ -1,20 +1,17 @@
 proxies:
   - type: vless
-    name: 4Mohsen-c817d80d1e
-    server: 103.251.167.112
-    port: 8443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    name: 4Mohsen-f71011bb0f
+    server: video-origin.lovkisport.blog
+    port: 443
+    uuid: f310a861-cca2-4f6f-8db2-30102fccd0ae
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
+    servername: video-origin.lovkisport.blog
     xudp: true
-    network: ws
-    ws-opts:
-      path: /library/lang
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vmess
     name: 4Sarina-433b9c740d
     server: 5.255.109.47
@@ -55,7 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-c817d80d1e
+      - 4Mohsen-f71011bb0f
       - 4Sarina-433b9c740d
       - 4Jadi-7e975e438e
   - name: Auto
@@ -64,7 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-c817d80d1e
+      - 4Mohsen-f71011bb0f
       - 4Sarina-433b9c740d
       - 4Jadi-7e975e438e
 rules:

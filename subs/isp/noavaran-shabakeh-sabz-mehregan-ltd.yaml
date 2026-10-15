@@ -1,21 +1,4 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-48bb5194a2
-    server: US.1.diginoisb.ir
-    port: 80
-    password: 5f205628a5144ee2979c0e1daac9fe6a
-    udp: true
-    tls: true
-    sni: panel.IR.www.vpxpp.ir
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /root
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: panel.IR.www.vpxpp.ir
   - type: vless
     name: 4FreeIran-ed39073216
     server: 62.60.166.65
@@ -34,7 +17,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-48bb5194a2
       - 4FreeIran-ed39073216
   - name: Auto
     type: url-test
@@ -42,7 +24,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-48bb5194a2
       - 4FreeIran-ed39073216
 rules:
   - MATCH,Proxy
