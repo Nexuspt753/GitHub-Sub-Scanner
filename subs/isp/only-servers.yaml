@@ -8,12 +8,23 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: 4Kian-d8d47d7e31
+    server: sync.happ-soft.com
+    port: 443
+    uuid: 88081ee0-d46a-4913-acdc-5c78e018c44d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sync.happ-soft.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - 4Kian-d8d47d7e31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +32,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - 4Kian-d8d47d7e31
 rules:
   - MATCH,Proxy

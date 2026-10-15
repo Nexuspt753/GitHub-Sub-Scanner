@@ -44,6 +44,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Nika-f4154fad58
+    server: 45.144.179.138
+    port: 443
+    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
@@ -52,6 +67,7 @@ proxy-groups:
       - EPODONIOS
       - IRAN_V2RAY1
       - 4FreeIran-8895bc049b
+      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -61,5 +77,6 @@ proxy-groups:
       - EPODONIOS
       - IRAN_V2RAY1
       - 4FreeIran-8895bc049b
+      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

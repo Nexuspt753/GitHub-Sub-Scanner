@@ -2,31 +2,21 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: se1.h1cloud.net
-    port: 26100
+    port: 26128
     uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: random
     servername: www.icloud.com
     reality-opts:
-      public-key: 1uuvuG2Jl_o6yoVvOYm3hEboArh2Znu7zCy4Tqj36TI
-      short-id: 8045087bda646f1b
+      public-key: sACiHit5lNtPRK_eFP6jT8dMPUZ4kQRsfPj_LL5p7Uk
+      short-id: 13ac4d3bdadf1ea1
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-01
-    server: 732051t.se1.h1clayd.click
-    port: 443
-    uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 732051t.se1.h1clayd.click
-    reality-opts:
-      public-key: NqyAfxsF9xeJZi_5itA5VCxaja1ioXjw7xPM_QonKVk
-      short-id: 0983a448f995e806
-    xudp: true
-  - type: vless
-    name: EPODONIOS
     server: se1.h1cloud.net
     port: 26226
     uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
@@ -42,21 +32,33 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS-01
-    server: se3.h1cloud.net
-    port: 25119
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    name: DeltaKroneckerGithub-02
+    server: 732051t.se1.h1clayd.click
+    port: 443
+    uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.samsung.com
+    servername: 732051t.se1.h1clayd.click
     reality-opts:
-      public-key: szPq4a3cvxfBOmGyg-UJCV3d1Jqjnj7YR3gaxyYtnk4
-      short-id: 10f517
-    flow: xtls-rprx-vision
+      public-key: NqyAfxsF9xeJZi_5itA5VCxaja1ioXjw7xPM_QonKVk
+      short-id: 0983a448f995e806
     xudp: true
   - type: vless
-    name: tootffarangi🍓-10
+    name: DeltaKroneckerGithub-03
+    server: se1.h1cloud.net
+    port: 26100
+    uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.icloud.com
+    reality-opts:
+      public-key: 1uuvuG2Jl_o6yoVvOYm3hEboArh2Znu7zCy4Tqj36TI
+      short-id: 8045087bda646f1b
+    xudp: true
+  - type: vless
+    name: EPODONIOS
     server: se1.h1cloud.net
     port: 26226
     uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
@@ -88,30 +90,18 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Mohsen-62ca03a78f
-    server: se3.h1cloud.net
-    port: 25119
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    name: 4Jadi-c3fa90a122
+    server: se1.h1cloud.net
+    port: 26226
+    uuid: ec572cf0-1337-4c51-b4ec-ff2f538c1f4c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: szPq4a3cvxfBOmGyg-UJCV3d1Jqjnj7YR3gaxyYtnk4
-      short-id: 10f517
-    flow: xtls-rprx-vision
+    servername: www.dn.se
     xudp: true
-  - type: vless
-    name: 4Kian-debd75dc8e
-    server: se3.h1cloud.net
-    port: 25119
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -119,12 +109,11 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
-      - EPODONIOS-01
-      - tootffarangi🍓-10
       - 4Kian-8c3484f444
-      - 4Mohsen-62ca03a78f
-      - 4Kian-debd75dc8e
+      - 4Jadi-c3fa90a122
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -133,11 +122,10 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - EPODONIOS
-      - EPODONIOS-01
-      - tootffarangi🍓-10
       - 4Kian-8c3484f444
-      - 4Mohsen-62ca03a78f
-      - 4Kian-debd75dc8e
+      - 4Jadi-c3fa90a122
 rules:
   - MATCH,Proxy

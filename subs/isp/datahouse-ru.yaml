@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 62.152.58.96
+    port: 443
+    uuid: 23a64225-0119-44ce-a24e-114eae8648a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: adm.ichveter.click
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/events
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: Capoit
     server: 62.152.58.96
     port: 443
@@ -49,6 +64,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Capoit
       - 4FreeIran-45a2d3e0fa
       - 4Nika-a0d54b9fae
@@ -58,6 +74,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Capoit
       - 4FreeIran-45a2d3e0fa
       - 4Nika-a0d54b9fae

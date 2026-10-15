@@ -8,33 +8,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 103.224.182.210
-    port: 443
-    password: 8008b06e-2d1d-421c-9cdc-20af1f59093a
-    udp: true
-    tls: true
-    sni: swejs.stablize.top
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 103.224.182.210
-    port: 443
-    password: b3d27d09-77fe-431d-9829-6eba7dce20b0
-    udp: true
-    tls: true
-    sni: 14.earths.team
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-03
-    server: 103.224.182.251
-    port: 443
-    password: f10d81d8-ad4b-300a-825b-f54f515bd06e
-    udp: true
-    tls: true
-    sni: us1.jjzgy.live
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Mohsen-490523c3c8
     server: cnamemc1.cdncisco4.co
     port: 443
@@ -62,17 +35,31 @@ proxies:
       path: /422Kdfwzf49IxeZJa
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-5dba8749ee
+    server: ee.cloudflare.quest
+    port: 80
+    uuid: f9247df4-02d5-4b31-acc5-4022652c5953
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ee.cloudflare.quest
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - 4Mohsen-490523c3c8
       - 4FreeIran-1ea2eefe37
+      - 4Nika-5dba8749ee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -80,10 +67,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - 4Mohsen-490523c3c8
       - 4FreeIran-1ea2eefe37
+      - 4Nika-5dba8749ee
 rules:
   - MATCH,Proxy

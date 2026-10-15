@@ -1,19 +1,20 @@
 proxies:
   - type: vless
-    name: 4Kian-a706818c2a
-    server: nld26.luckernld.org
+    name: DeltaKroneckerGithub
+    server: 31.59.217.164
     port: 443
-    uuid: 40d7798a-6c76-4298-a9d4-9e6181cd2dd7
+    uuid: 4b09d40d-e36a-47c3-baa4-e6bf551b3183
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.cybo.com
+    servername: www.adobe.com
     reality-opts:
-      public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
+      public-key: kOkILS7UXUQDNPLYn4SQ65kMIWKXNOttV5Kddw4ZqTo
+      short-id: 1625a2a79d01328f
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-ebafbb11ad
+    name: 4Kian-a706818c2a
     server: nld26.luckernld.org
     port: 443
     uuid: 40d7798a-6c76-4298-a9d4-9e6181cd2dd7
@@ -39,22 +40,41 @@ proxies:
       short-id: 266337e69bb1f189
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-024b949e4c
+    server: 31.59.216.162
+    port: 2083
+    uuid: ce29a04d-c95a-4451-9518-bae0c074e0d7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: crt.onecloudstream.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-wsfp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-a706818c2a
-      - 4Mohsen-ebafbb11ad
       - 4Kian-f0d44bce16
+      - 4Sarina-024b949e4c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-a706818c2a
-      - 4Mohsen-ebafbb11ad
       - 4Kian-f0d44bce16
+      - 4Sarina-024b949e4c
 rules:
   - MATCH,Proxy

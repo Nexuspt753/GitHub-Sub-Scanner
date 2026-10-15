@@ -1,4 +1,57 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 176.122.183.26
+    port: 42346
+    uuid: d5bc1380-2afd-4c7e-bacd-54e7833b0140
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: fk0_CYMC_RKIbBDwS-lagle8Jm-hnvkSlV_7P0nBagM
+      short-id: 3f8ced2bf06b8448
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 144.34.171.49
+    port: 443
+    uuid: 9e8ad642-c786-489a-b9b1-22379821fce8
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: vpn.pokertool.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws-70a22f9c78d4cfa9
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vpn.pokertool.site
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 172.96.192.239
+    port: 443
+    uuid: f4213964-a506-4c1a-8f74-4c73ce333212
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: OwmPqDIqYlaY_ULICISn-RtyUoFzkTE1ipZAKTLKiBs
+      short-id: ffda4d8141e2bdf7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 104.160.44.203
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: la14.freeguard.org
+    client-fingerprint: chrome
   - type: trojan
     name: 4Mohsen-32e553f3cf
     server: 185.212.56.168
@@ -22,23 +75,17 @@ proxies:
       short-id: "544002"
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-2f67175f1c
-    server: kr-arm2.018999.xyz
+  - type: vless
+    name: 4FreeIran-df6130587d
+    server: 173.242.114.16
     port: 443
-    uuid: e98fc1a0-9c52-4091-91a5-c159b0aa274e
-    alterId: 0
-    cipher: auto
+    uuid: a51af616-47c0-47ae-8a98-d2788609c3d5
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /e98fc1a0-9c52-4091-91a5-c159b0aa274e
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kr-arm2.018999.xyz
+    client-fingerprint: chrome
+    servername: www.foxnews.com
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Kian-32a4fe5ef9
     server: jp-amd1.018999.xyz
@@ -61,9 +108,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-32e553f3cf
       - 4Nika-36167a55c1
-      - 4Nika-2f67175f1c
+      - 4FreeIran-df6130587d
       - 4Kian-32a4fe5ef9
   - name: Auto
     type: url-test
@@ -71,9 +122,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-32e553f3cf
       - 4Nika-36167a55c1
-      - 4Nika-2f67175f1c
+      - 4FreeIran-df6130587d
       - 4Kian-32a4fe5ef9
 rules:
   - MATCH,Proxy

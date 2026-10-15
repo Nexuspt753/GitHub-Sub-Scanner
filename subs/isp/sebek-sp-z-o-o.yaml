@@ -49,12 +49,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
   - type: trojan
-    name: 4Sarina-b94fb4f8b5
+    name: 4Kian-d5e32ca866
     server: 148.253.212.42
     port: 443
     password: humanity
     udp: true
-    client-fingerprint: chrome
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
 proxy-groups:
   - name: Proxy
     type: select
@@ -63,7 +73,7 @@ proxy-groups:
       - EPODONIOS
       - 🇳🇱
       - DeltaKroneckerGithub
-      - 4Sarina-b94fb4f8b5
+      - 4Kian-d5e32ca866
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -73,6 +83,6 @@ proxy-groups:
       - EPODONIOS
       - 🇳🇱
       - DeltaKroneckerGithub
-      - 4Sarina-b94fb4f8b5
+      - 4Kian-d5e32ca866
 rules:
   - MATCH,Proxy
