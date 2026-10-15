@@ -1,14 +1,6 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 38.54.13.189
-    port: 443
-    password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: 154.90.55.81
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -17,7 +9,7 @@ proxies:
     sni: 154.90.55.81
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 154.90.62.70
     port: 56127
     password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
@@ -25,8 +17,21 @@ proxies:
     tls: true
     sni: 154.90.62.70
     client-fingerprint: chrome
+  - type: vless
+    name: EPODONIOS
+    server: platform101.golnamakcert.top
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /platform101
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform101.halalkhor.info
   - type: trojan
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 38.54.29.52
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -127,6 +132,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: platform101.halalkhor.info
+  - type: vless
+    name: 4Mohsen-f80c8e412f
+    server: platform101.golnamakcert.top
+    port: 80
+    uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /platform101
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: platform101.halalkhor.info
 proxy-groups:
   - name: Proxy
     type: select
@@ -134,8 +152,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - "[🏁]t.me/v2ray_configs_pools"
       - 4Mohsen-f3ebb32391
       - 4Mohsen-867b00cfb1
@@ -143,6 +161,7 @@ proxy-groups:
       - 4Nika-c28c5c9d89
       - 4Jadi-b21480e54f
       - 4Jadi-20a5927d1b
+      - 4Mohsen-f80c8e412f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -151,8 +170,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - EPODONIOS
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
       - "[🏁]t.me/v2ray_configs_pools"
       - 4Mohsen-f3ebb32391
       - 4Mohsen-867b00cfb1
@@ -160,5 +179,6 @@ proxy-groups:
       - 4Nika-c28c5c9d89
       - 4Jadi-b21480e54f
       - 4Jadi-20a5927d1b
+      - 4Mohsen-f80c8e412f
 rules:
   - MATCH,Proxy

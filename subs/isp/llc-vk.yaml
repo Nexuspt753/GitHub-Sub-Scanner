@@ -1,20 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 109.120.181.153
-    port: 443
-    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: eh.vk.ru
-    reality-opts:
-      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
-      short-id: db04ce8bdb8900f1
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -30,20 +16,6 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: EPODONIOS
-    server: 217.16.31.218
-    port: 443
-    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: max.ru
-    reality-opts:
-      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
-      short-id: e7
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
     server: video.save-files.online
     port: 443
     uuid: d1004cfe-c279-e865-d865-71964dbdf85d
@@ -59,7 +31,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: video.save-files.online
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 185.241.195.185
     port: 2224
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -70,19 +42,21 @@ proxies:
       - http/1.1
     client-fingerprint: firefox
   - type: vless
-    name: 4Jadi-ac9df40fd1
-    server: cdn1.whitenw.net
-    port: 7449
-    uuid: 7ac594a4-fabc-486c-9a91-5662c09e63cd
+    name: v2ray_phoenix
+    server: video.save-files.online
+    port: 443
+    uuid: d1004cfe-c279-e865-d865-71964dbdf85d
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: LQ9efyV9IrV5BRFwC3tNI9kXu8WyeiZV-juU6PsUAy4
-      short-id: 60bc5cc8b4c6cf3f
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: video.save-files.online
     xudp: true
+    network: ws
+    ws-opts:
+      path: /live/hls/channel/7c4b8e13
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: video.save-files.online
   - type: vless
     name: 4Jadi-bce399b3d2
     server: 83.166.238.57
@@ -95,20 +69,6 @@ proxies:
     reality-opts:
       public-key: QXw5YbUfPssdgGZIfAol5PonYGWSjlWsWpoij93VU20
       short-id: b276e04195d77f6b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-46ffea079b
-    server: 217.16.31.218
-    port: 443
-    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: max.ru
-    reality-opts:
-      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
-      short-id: e7
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -133,13 +93,10 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - DeltaKroneckerGithub-02
-      - 4Jadi-ac9df40fd1
+      - DeltaKroneckerGithub-01
+      - v2ray_phoenix
       - 4Jadi-bce399b3d2
-      - 4Mohsen-46ffea079b
       - 4FreeIran-5b694562ab
   - name: Auto
     type: url-test
@@ -148,13 +105,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - DeltaKroneckerGithub-02
-      - 4Jadi-ac9df40fd1
+      - DeltaKroneckerGithub-01
+      - v2ray_phoenix
       - 4Jadi-bce399b3d2
-      - 4Mohsen-46ffea079b
       - 4FreeIran-5b694562ab
 rules:
   - MATCH,Proxy

@@ -1,32 +1,30 @@
 proxies:
   - type: vless
-    name: 4Mohsen-43e9ffefd0
-    server: 43.254.218.158
-    port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    name: DeltaKroneckerGithub
+    server: 43.247.132.42
+    port: 41563
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
+    servername: iosapps.itunes.apple.com
+    reality-opts:
+      public-key: HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc
+      short-id: 25c79e5856c7
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-43e9ffefd0
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-43e9ffefd0
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

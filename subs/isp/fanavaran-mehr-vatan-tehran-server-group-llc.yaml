@@ -1,38 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-64f49786ac
-    server: dashboard.afrashop.top
-    port: 5381
-    uuid: 130b0fbf-4f19-44d0-911f-95355e9632e4
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-91b1b82e2f
+    server: wst.fun-market.ir
+    port: 443
+    uuid: 6b4c3431-3006-4f05-a7bb-b838ebb85977
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.receptivity.io
+    reality-opts:
+      public-key: jaiiFiwfD2p_bOWdwUxMQUq1n8pB4IHE4gf7X1RlvR8
+      short-id: de0f8ea9800d
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4FreeIran-1388efb005
-    server: dashboard.afrashop.top
-    port: 5381
-    uuid: b2bc2ff5-e36e-453b-84e9-d93a33203ac3
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-64f49786ac
-      - 4FreeIran-1388efb005
+      - 4FreeIran-91b1b82e2f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-64f49786ac
-      - 4FreeIran-1388efb005
+      - 4FreeIran-91b1b82e2f
 rules:
   - MATCH,Proxy

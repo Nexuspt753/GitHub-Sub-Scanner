@@ -13,12 +13,42 @@ proxies:
       short-id: a111111111111111
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Telegram
+    server: 138.124.98.219
+    port: 443
+    uuid: 92295a0d-b610-4075-85e9-bfab09ec6f3a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ah.nl
+    reality-opts:
+      public-key: IyUvo6owCe4Zfr8aIVdtweSNHQSpSyiO-OKsRDJ9BBs
+      short-id: a111111111111111
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-6796d5ffc9
+    server: 138.124.98.219
+    port: 443
+    uuid: 92295a0d-b610-4075-85e9-bfab09ec6f3a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ah.nl
+    reality-opts:
+      public-key: IyUvo6owCe4Zfr8aIVdtweSNHQSpSyiO-OKsRDJ9BBs
+      short-id: a111111111111111
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - Telegram
+      - 4Nika-6796d5ffc9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - Telegram
+      - 4Nika-6796d5ffc9
 rules:
   - MATCH,Proxy

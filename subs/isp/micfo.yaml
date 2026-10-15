@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: iranping24
+    server: 104.143.219.15
+    port: 3090
+    uuid: 307bb9c3-50c1-440f-a946-16be6aea2224
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 104.143.219.10
     port: 3090
@@ -41,6 +51,16 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: tootffarangi🍓-11
+    server: 104.143.219.10
+    port: 3090
+    uuid: aff31950-093e-49e7-9646-63a8dcb7182d
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: tootffarangi🍓-11-01
     server: 104.143.219.14
     port: 3090
     uuid: d6d100e7-c74a-4ce5-8643-c1f8947807c5
@@ -79,32 +99,48 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Nika-db23af0de0
+    server: 104.143.219.14
+    port: 3090
+    uuid: d6d100e7-c74a-4ce5-8643-c1f8947807c5
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - iranping24
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - tootffarangi🍓-11
+      - tootffarangi🍓-11-01
       - 4FreeIran-2695fd7c31
       - 4FreeIran-ee78a9a09a
       - 4Sarina-2f7201c81f
+      - 4Nika-db23af0de0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - iranping24
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
       - EPODONIOS-03
       - tootffarangi🍓-11
+      - tootffarangi🍓-11-01
       - 4FreeIran-2695fd7c31
       - 4FreeIran-ee78a9a09a
       - 4Sarina-2f7201c81f
+      - 4Nika-db23af0de0
 rules:
   - MATCH,Proxy
