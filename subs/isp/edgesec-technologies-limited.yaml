@@ -1,25 +1,31 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-899450cb02
-    server: 153.76.204.223
-    port: 13188
-    password: 0637f970-5223-4d8e-86b4-07c62509c6e8
-    sni: audio-forwarder.nord-central.duckdns.org
-    skip-cert-verify: false
-    obfs: salamander
-    obfs-password: WM0CSORkdxWByZqumlLav9pU7irma8IV
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.76.246.39
+    port: 706
+    uuid: e5544327-834c-455a-9db5-2454c788fa17
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.amd.com
+    reality-opts:
+      public-key: 6ABNRK-j4hVgo-DwsX3zxMSjMOuudrVZRxLde3XB530
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-899450cb02
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-899450cb02
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

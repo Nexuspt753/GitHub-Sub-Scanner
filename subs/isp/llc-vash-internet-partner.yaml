@@ -1,5 +1,44 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 178.172.227.228
+    port: 14430
+    uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 178.172.227.228
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 95.128.71.79
+    port: 14430
+    uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 95.128.71.79
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 178.172.227.124
+    port: 14430
+    uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 178.172.227.124
+  - type: vless
     name: 4Nika-32a38b93be
     server: 178.172.227.124
     port: 10444
@@ -26,6 +65,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 178.172.227.124
+  - type: vless
+    name: 4Jadi-dc0f4c2beb
+    server: 95.128.71.79
+    port: 10444
+    uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+      short-id: 8debcf36f1cc69ff
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Kian-9f51799cb3
     server: 95.128.71.79
@@ -57,8 +110,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-32a38b93be
       - 4FreeIran-c02ce48e56
+      - 4Jadi-dc0f4c2beb
       - 4Kian-9f51799cb3
       - 4Jadi-d6171b27e1
   - name: Auto
@@ -67,8 +124,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-32a38b93be
       - 4FreeIran-c02ce48e56
+      - 4Jadi-dc0f4c2beb
       - 4Kian-9f51799cb3
       - 4Jadi-d6171b27e1
 rules:

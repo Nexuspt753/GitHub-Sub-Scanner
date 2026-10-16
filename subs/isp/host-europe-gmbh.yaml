@@ -8,15 +8,20 @@ proxies:
     tls: true
     sni: telegram.org
     client-fingerprint: chrome
-  - type: trojan
+  - type: ss
     name: DeltaKroneckerGithub-01
-    server: tr1.euroline.cloud
-    port: 443
-    password: AnadoluSpeed
+    server: 37.148.203.124
+    port: 12238
+    cipher: aes-128-gcm
+    password: 6163d9d532e40f417dd8ebb5f9716495
     udp: true
-    tls: true
-    sni: telegram.org
-    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 37.148.203.124
+    port: 12238
+    cipher: aes-128-gcm
+    password: 6163d9d532e40f417dd8ebb5f9716495
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -24,6 +29,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,5 +38,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

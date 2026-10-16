@@ -6,12 +6,37 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: xs1AftU3PVyzZ5qLtZlTekfV9tF7JR7l
     udp: true
+  - type: vless
+    name: vless
+    server: 89.40.90.131
+    port: 9090
+    uuid: f9e47c0e-f2ce-46dc-aa01-7fb43181ca71
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vmess
+    name: 4Nika-27eb55412e
+    server: s1.connect.bloroxy.net
+    port: 1178
+    uuid: ccae75e4-a1e2-4d30-9e49-2f331c1f0e24
+    alterId: 1
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: none
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-04fc981ffb
+      - vless
+      - 4Nika-27eb55412e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +44,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-04fc981ffb
+      - vless
+      - 4Nika-27eb55412e
 rules:
   - MATCH,Proxy

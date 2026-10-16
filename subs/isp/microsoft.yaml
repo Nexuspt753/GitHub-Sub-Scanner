@@ -1,6 +1,13 @@
 proxies:
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 51.124.214.122
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: y7KeRTzmH0vXT2kp
+    udp: true
   - type: vmess
-    name: EPODONIOS
+    name: vmesskhodam
     server: 51.132.38.134
     port: 47832
     uuid: 859cb52d-0a26-4b2f-a9b1-0eb83115c9d1
@@ -24,7 +31,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - vmesskhodam
       - 4Nika-73fe828df7
   - name: Auto
     type: url-test
@@ -32,7 +40,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - vmesskhodam
       - 4Nika-73fe828df7
 rules:
   - MATCH,Proxy

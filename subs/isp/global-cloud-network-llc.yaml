@@ -1,30 +1,25 @@
 proxies:
   - type: vless
-    name: vless
-    server: 185.141.227.180
-    port: 2053
-    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 185.141.227.180
-    port: 2053
-    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    name: DeltaKroneckerGithub
+    server: 46.243.232.174
+    port: 8548
+    uuid: 661b4f83-f297-4a72-9663-ac71a7547644
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: edge
+    alpn:
+      - http/1.1
+    servername: ru-vpn.nimarko.org
     xudp: true
+    network: ws
+    ws-opts:
+      path: /r/065c088d5d7d4fa1bb78afea7e2e5c5e
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ru-vpn.nimarko.org
   - type: vless
-    name: vless-02
+    name: vless
     server: 37.18.14.168
-    port: 2053
-    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-03
-    server: dismissaltree.net
     port: 2053
     uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
     udp: true
@@ -75,13 +70,6 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: vless-04
-    server: 185.141.227.180
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Sarina-183abb5a6b
     server: 217.19.122.200
     port: 443
@@ -104,14 +92,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
-      - vless-01
-      - vless-02
-      - vless-03
       - EPODONIOS
       - 🇩🇪All⁵
       - 4Mohsen-2aa1630fef
-      - vless-04
       - 4Sarina-183abb5a6b
   - name: Auto
     type: url-test
@@ -119,14 +104,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
-      - vless-01
-      - vless-02
-      - vless-03
       - EPODONIOS
       - 🇩🇪All⁵
       - 4Mohsen-2aa1630fef
-      - vless-04
       - 4Sarina-183abb5a6b
 rules:
   - MATCH,Proxy

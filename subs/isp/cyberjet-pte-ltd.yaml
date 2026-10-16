@@ -1,8 +1,8 @@
 proxies:
   - type: vless
-    name: meliproxyy
+    name: DeltaKroneckerGithub
     server: 545.150333.xyz
-    port: 21001
+    port: 21004
     uuid: b17f6233-6726-41ff-9f62-fde7ccdbd282
     udp: true
     tls: true
@@ -10,20 +10,35 @@ proxies:
     servername: www.cloudflare.com
     reality-opts:
       public-key: 7RyQhh-unO6BjkHRVycWKlFyQgJ3vi5_bAI3Mc8CGCA
-      short-id: c6887d3b76ef73c9
+      short-id: 4ba266730580fd96
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 545.150333.xyz
+    port: 21003
+    uuid: b17f6233-6726-41ff-9f62-fde7ccdbd282
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 7RyQhh-unO6BjkHRVycWKlFyQgJ3vi5_bAI3Mc8CGCA
+      short-id: 5a2d904fe6d0a39b
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - meliproxyy
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - meliproxyy
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

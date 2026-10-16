@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: 4FreeIran-aaf6269e78
+    name: DeltaKroneckerGithub
     server: 103.41.7.43
-    port: 2062
-    uuid: d83592a3-a94f-4f7e-b105-b3deedde2a7a
+    port: 2061
+    uuid: 9c2888cf-99f8-4c04-ac07-c033359ff975
     udp: true
     tls: true
     client-fingerprint: chrome
     servername: www.apple.com
     reality-opts:
       public-key: Ub1ffFeVtG2zd_t001wgmuhojSAxvaVwuo_pAapScBA
-      short-id: be61aab9c7ffd106
+      short-id: c77f719b082817e4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-59f78e49c0
+    server: 103.41.7.43
+    port: 2061
+    uuid: 9c2888cf-99f8-4c04-ac07-c033359ff975
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: Ub1ffFeVtG2zd_t001wgmuhojSAxvaVwuo_pAapScBA
+      short-id: c77f719b082817e4
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-aaf6269e78
+      - DeltaKroneckerGithub
+      - 4Mohsen-59f78e49c0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-aaf6269e78
+      - DeltaKroneckerGithub
+      - 4Mohsen-59f78e49c0
 rules:
   - MATCH,Proxy

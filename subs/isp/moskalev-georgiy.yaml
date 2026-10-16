@@ -1,18 +1,20 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: hl-freedom-1.undef.network
+    port: 443
+    password: JaFKnqNcvnBT63t3rquidGsln
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: hl-freedom-2.undef.network
     port: 443
-    password: mJVGfrOkZGnMywJD2uwmuXgOQ
+    password: Tn2Bf0iRwJkJQgDk6gX6x81RB
     udp: true
     tls: true
+    sni: hl-freedom-2.undef.network
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /f2fc2a1f
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hl-freedom-2.undef.network
   - type: vless
     name: EPODONIOS
     server: 89.125.100.59
@@ -56,21 +58,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: hl-freedom-2.undef.network
-    port: 443
-    password: Tn2Bf0iRwJkJQgDk6gX6x81RB
-    udp: true
-    tls: true
-    sni: hl-freedom-2.undef.network
-    client-fingerprint: chrome
-  - type: trojan
     name: DeltaKroneckerGithub-02
     server: hl-freedom-1.undef.network
     port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
+    password: 7LBbob9IutFObLxLf9Svc1HaV
     udp: true
+    tls: true
+    sni: hl-freedom-1.undef.network
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-1.undef.network
   - type: vless
     name: 4Mohsen-cbfbcbb31e
     server: 89.125.100.59
@@ -91,10 +92,10 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - v2ray313
       - vmess_ir
-      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Mohsen-cbfbcbb31e
   - name: Auto
@@ -104,10 +105,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - v2ray313
       - vmess_ir
-      - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - 4Mohsen-cbfbcbb31e
 rules:

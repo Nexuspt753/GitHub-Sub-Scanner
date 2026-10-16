@@ -1,25 +1,30 @@
 proxies:
   - type: vless
-    name: vless
+    name: 4FreeIran-e9986f44f8
     server: 195.137.226.11
     port: 443
     uuid: 54d67aa6-fe54-4b8e-b3b6-62b7e043eb35
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: mobile.zandix.ir
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4FreeIran-e9986f44f8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4FreeIran-e9986f44f8
 rules:
   - MATCH,Proxy
