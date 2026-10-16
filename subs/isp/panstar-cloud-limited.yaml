@@ -21,18 +21,6 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: 4Nika-6fac96f320
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
     name: 4Mohsen-f3f00c177a
     server: 195.58.144.56
     port: 11907
@@ -42,22 +30,6 @@ proxies:
     client-fingerprint: chrome
     servername: 195.58.144.56
     xudp: true
-  - type: vless
-    name: 4Kian-2c13861448
-    server: 45.8.173.99
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
@@ -65,9 +37,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 4Mohsen-d37d4cf70b
-      - 4Nika-6fac96f320
       - 4Mohsen-f3f00c177a
-      - 4Kian-2c13861448
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -76,8 +46,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 4Mohsen-d37d4cf70b
-      - 4Nika-6fac96f320
       - 4Mohsen-f3f00c177a
-      - 4Kian-2c13861448
 rules:
   - MATCH,Proxy

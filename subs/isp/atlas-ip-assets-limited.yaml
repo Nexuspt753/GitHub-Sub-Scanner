@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 87.192.47.10
-    port: 52006
-    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - ""
-    servername: grok.setlisting.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-b300de3f4d
     server: 87.192.47.10
     port: 52006
@@ -32,7 +18,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
       - 4Mohsen-b300de3f4d
   - name: Auto
     type: url-test
@@ -40,7 +25,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - 4Mohsen-b300de3f4d
 rules:
   - MATCH,Proxy

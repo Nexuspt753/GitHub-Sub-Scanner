@@ -1,59 +1,25 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 42.200.173.5
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: kaizen-hk-11.gocmydns.com
     port: 443
-    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    password: 29db38f0-e302-3768-8867-0b9bf00c77e4cmynw
     udp: true
     tls: true
+    sni: images.apple.com
     client-fingerprint: chrome
-    servername: s3.ap-east-1.amazonaws.com
-    reality-opts:
-      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-      short-id: 1a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-b6c349d175
-    server: 42.200.173.5
-    port: 443
-    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s3.ap-east-1.amazonaws.com
-    reality-opts:
-      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-      short-id: 1a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-9d09dbcab7
-    server: 42.200.173.5
-    port: 443
-    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s3.ap-east-1.amazonaws.com
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Mohsen-b6c349d175
-      - 4Sarina-9d09dbcab7
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Mohsen-b6c349d175
-      - 4Sarina-9d09dbcab7
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

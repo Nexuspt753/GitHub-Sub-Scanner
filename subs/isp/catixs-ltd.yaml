@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 156.229.163.237
-    port: 10238
-    uuid: 0ef17f4c-c627-47f9-8baa-6ce8b8e690ab
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
-  - type: vless
     name: 4Mohsen-8ab706e3eb
     server: 156.229.161.107
     port: 10001
@@ -29,56 +13,18 @@ proxies:
       short-id: fb2c6678
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-edc0746229
-    server: 45.202.254.133
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
-  - type: vless
-    name: 4Jadi-89f93e232c
-    server: 45.202.254.133
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Mohsen-8ab706e3eb
-      - 4Kian-edc0746229
-      - 4Jadi-89f93e232c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Mohsen-8ab706e3eb
-      - 4Kian-edc0746229
-      - 4Jadi-89f93e232c
 rules:
   - MATCH,Proxy

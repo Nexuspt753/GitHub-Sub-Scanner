@@ -1,16 +1,4 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 185.42.212.93
-    port: 2095
-    uuid: f9e47c0e-f2ce-46dc-aa01-7fb43181ca71
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
   - type: vmess
     name: 4Jadi-4d23aeb948
     server: V2r.seervexo.ir
@@ -27,40 +15,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
+    name: 4Jadi-16590d59b7
+    server: V2r.seervexo.ir
+    port: 1590
+    uuid: 6573d372-0bc0-4aae-8636-58f6a1ea07cf
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-dd90b943ba
+    server: V2r.seervexo.ir
+    port: 1590
+    uuid: 6573d372-0bc0-4aae-8636-58f6a1ea07cf
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Sarina-da8f66e8d4
     server: vvv2.seervexo.ir
     port: 6347
     uuid: 6573d372-0bc0-4aae-8636-58f6a1ea07cf
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Sarina-5926c0c4af
-    server: vvv2.seervexo.ir
-    port: 8002
-    uuid: 6573d372-0bc0-4aae-8636-58f6a1ea07cf
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Nika-f07ce805d1
-    server: vvv2.seervexo.ir
-    port: 8002
-    uuid: 4137aa32-d79c-41e7-80f5-3475df81c21b
     alterId: 0
     cipher: auto
     udp: true
@@ -76,21 +54,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
       - 4Jadi-4d23aeb948
+      - 4Jadi-16590d59b7
+      - 4Mohsen-dd90b943ba
       - 4Sarina-da8f66e8d4
-      - 4Sarina-5926c0c4af
-      - 4Nika-f07ce805d1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - 4Jadi-4d23aeb948
+      - 4Jadi-16590d59b7
+      - 4Mohsen-dd90b943ba
       - 4Sarina-da8f66e8d4
-      - 4Sarina-5926c0c4af
-      - 4Nika-f07ce805d1
 rules:
   - MATCH,Proxy

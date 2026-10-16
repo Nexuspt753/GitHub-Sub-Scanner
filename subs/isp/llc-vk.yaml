@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 109.120.181.153
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eh.vk.ru
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 185.241.195.185
     port: 2224
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -27,7 +41,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: video.save-files.online
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -42,23 +56,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: v2ray_phoenix
-    server: video.save-files.online
-    port: 443
-    uuid: d1004cfe-c279-e865-d865-71964dbdf85d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: video.save-files.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /live/hls/channel/7c4b8e13
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: video.save-files.online
-  - type: vless
-    name: 4Kian-54ed5e001c
+    name: 4Mohsen-46ffea079b
     server: 217.16.31.218
     port: 443
     uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
@@ -93,10 +91,10 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - v2ray_phoenix
-      - 4Kian-54ed5e001c
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
+      - 4Mohsen-46ffea079b
       - 4FreeIran-5b694562ab
   - name: Auto
     type: url-test
@@ -105,10 +103,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
       - DeltaKroneckerGithub-01
-      - v2ray_phoenix
-      - 4Kian-54ed5e001c
+      - EPODONIOS
+      - DeltaKroneckerGithub-02
+      - 4Mohsen-46ffea079b
       - 4FreeIran-5b694562ab
 rules:
   - MATCH,Proxy
