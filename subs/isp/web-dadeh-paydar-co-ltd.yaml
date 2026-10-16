@@ -1,26 +1,28 @@
 proxies:
-  - type: vmess
-    name: 4Nika-187a70cd48
-    server: parrsweb.site
-    port: 443
-    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: 194.32.214.114
+    port: 8443
+    uuid: f9e47c0e-f2ce-46dc-aa01-7fb43181ca71
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-187a70cd48
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-187a70cd48
+      - vless
 rules:
   - MATCH,Proxy

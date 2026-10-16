@@ -1,20 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 103.180.20.132
-    port: 20007
-    uuid: 4fcd1f98-0f62-467e-9516-8df807386953
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: h67BY8lUGUOtatqfbLJ8pgxS-bYXqODnS_aBIRUrIDw
-      short-id: 22b82cf5d70ea10e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 103.148.73.173
     port: 8443
     uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
@@ -29,40 +15,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ty986gfazs.cainiaohub.xyz
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 103.180.20.132
-    port: 20002
-    uuid: 2b2ec2d5-8961-473e-8b2b-5d926dc3ce5e
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: QTJCsEI6kStTp5vCNDl-M1QhDK5Ki2qgEYwCxpwst0E
-      short-id: c0196c432a03dcb5
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-6737ccaddc
-    server: 103.180.20.132
-    port: 20007
-    uuid: 4fcd1f98-0f62-467e-9516-8df807386953
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: www.cloudflare.com
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Nika-6737ccaddc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -70,8 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Nika-6737ccaddc
 rules:
   - MATCH,Proxy
