@@ -1,40 +1,6 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
-    server: 168.235.125.93
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.pleadcourt.org
-    alpn:
-      - http/1.1
-    client-fingerprint: unsafe
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.pleadcourt.org
-  - type: trojan
     name: DeltaKroneckerGithub
-    server: 168.235.125.93
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.pleadcourt.org
-    alpn:
-      - http/1.1
-    client-fingerprint: unsafe
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.pleadcourt.org
-  - type: trojan
-    name: 4Kian-075c1eb232
     server: 168.235.125.93
     port: 443
     password: humanity
@@ -55,17 +21,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Kian-075c1eb232
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Kian-075c1eb232
 rules:
   - MATCH,Proxy

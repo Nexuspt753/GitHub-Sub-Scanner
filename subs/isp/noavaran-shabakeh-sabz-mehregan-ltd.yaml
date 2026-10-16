@@ -1,29 +1,52 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-ed39073216
-    server: 62.60.166.65
-    port: 8080
-    uuid: 8fef56ab-8ac8-4167-a5f8-21ef027c3d1c
+  - type: trojan
+    name: EPODONIOS
+    server: US.2.diginoisb.ir
+    port: 81
+    password: a9e9fcdd487f4c118d97e5089134cc94
     udp: true
     tls: true
+    sni: panel.IR.www.vpxpp.ir
+    alpn:
+      - http/1.1
     client-fingerprint: chrome
-    servername: blog.api.www.cloudflare.com
-    reality-opts:
-      public-key: GAUXAoB8qvhs5jQ-Tnm-3a2aMvpNFCU9AsUYKmfINFE
-      short-id: "0873"
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /root
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.IR.www.vpxpp.ir
+  - type: trojan
+    name: 🇮🇷IR-🚀@VPNine1
+    server: US.2.diginoisb.ir
+    port: 81
+    password: a9e9fcdd487f4c118d97e5089134cc94
+    udp: true
+    tls: true
+    sni: panel.IR.www.vpxpp.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /root
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.IR.www.vpxpp.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-ed39073216
+      - EPODONIOS
+      - 🇮🇷IR-🚀@VPNine1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-ed39073216
+      - EPODONIOS
+      - 🇮🇷IR-🚀@VPNine1
 rules:
   - MATCH,Proxy

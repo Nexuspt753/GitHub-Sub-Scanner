@@ -1,40 +1,6 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
-    server: 151.236.14.87
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.volumeroot.com
-    alpn:
-      - http/1.1
-    client-fingerprint: unsafe
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.volumeroot.com
-  - type: trojan
     name: DeltaKroneckerGithub
-    server: 151.236.14.87
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.volumeroot.com
-    alpn:
-      - http/1.1
-    client-fingerprint: unsafe
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.volumeroot.com
-  - type: trojan
-    name: 4Mohsen-d1de0cc9a6
     server: 151.236.14.87
     port: 443
     password: humanity
@@ -98,46 +64,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vless
-    name: 4FreeIran-482c4e8245
-    server: 213.111.177.107
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Mohsen-d1de0cc9a6
       - 4Mohsen-ba383231bd
       - 4Nika-a921884181
       - 4FreeIran-2378cf3406
-      - 4FreeIran-482c4e8245
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Mohsen-d1de0cc9a6
       - 4Mohsen-ba383231bd
       - 4Nika-a921884181
       - 4FreeIran-2378cf3406
-      - 4FreeIran-482c4e8245
 rules:
   - MATCH,Proxy

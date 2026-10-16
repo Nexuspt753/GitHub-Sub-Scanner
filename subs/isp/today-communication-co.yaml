@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: nl5.hap-plus.ru
+    port: 8443
+    uuid: 05d7a479-a099-40cf-aecf-41aa934767b0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nl5.hap-plus.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/events
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl5.hap-plus.ru
+  - type: vless
     name: EPODONIOS
     server: nl5.hap-plus.ru
     port: 8443
@@ -19,24 +37,6 @@ proxies:
         Host: nl5.hap-plus.ru
   - type: vless
     name: EPODONIOS-01
-    server: nl5.hap-plus.ru
-    port: 8443
-    uuid: 05d7a479-a099-40cf-aecf-41aa934767b0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: nl5.hap-plus.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/events
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl5.hap-plus.ru
-  - type: vless
-    name: EPODONIOS-02
     server: nl5.hap-plus.ru
     port: 8443
     uuid: 05d7a479-a099-40cf-aecf-41aa934767b0
@@ -210,22 +210,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nl5.hap-plus.ru
   - type: vless
-    name: 4Jadi-4529201da3
-    server: nl5.hap-plus.ru
-    port: 8443
-    uuid: 05d7a479-a099-40cf-aecf-41aa934767b0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl5.hap-plus.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/events
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl5.hap-plus.ru
-  - type: vless
     name: 4Kian-a7b3e8860d
     server: nl5.hap-plus.ru
     port: 8443
@@ -364,9 +348,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - ✅
       - 10405@proxy_online_net
       - 10409@proxy_online_net
@@ -376,7 +360,6 @@ proxy-groups:
       - 🇳🇱📍@MDvpnSEC
       - 10439@proxy_online_net
       - FarazV2ray-01
-      - 4Jadi-4529201da3
       - 4Kian-a7b3e8860d
       - 4Nika-69c3cf49fa
       - 4Jadi-1ac1287dfb
@@ -391,9 +374,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - ✅
       - 10405@proxy_online_net
       - 10409@proxy_online_net
@@ -403,7 +386,6 @@ proxy-groups:
       - 🇳🇱📍@MDvpnSEC
       - 10439@proxy_online_net
       - FarazV2ray-01
-      - 4Jadi-4529201da3
       - 4Kian-a7b3e8860d
       - 4Nika-69c3cf49fa
       - 4Jadi-1ac1287dfb
