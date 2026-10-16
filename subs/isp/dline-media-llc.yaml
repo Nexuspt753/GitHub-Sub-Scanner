@@ -1,6 +1,19 @@
 proxies:
   - type: vless
-    name: 4Sarina-48b67cf2bc
+    name: EPODONIOS
+    server: s2.dipvpn.ru
+    port: 443
+    uuid: 3559f1f7-7d70-46c9-82db-d2b46269300b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dipvpn.ru
+    reality-opts:
+      public-key: 1BdgrQ_esOEya01sDCBYK4MGpJgaUhssHQG-aWJkyFQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: canfingV2rayNG-110
     server: s2.dipvpn.ru
     port: 443
     uuid: 3559f1f7-7d70-46c9-82db-d2b46269300b
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-48b67cf2bc
+      - EPODONIOS
+      - canfingV2rayNG-110
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-48b67cf2bc
+      - EPODONIOS
+      - canfingV2rayNG-110
 rules:
   - MATCH,Proxy

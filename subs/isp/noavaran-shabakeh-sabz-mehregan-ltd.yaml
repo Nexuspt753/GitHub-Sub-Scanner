@@ -1,33 +1,45 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: EPODONIOS
-    server: 62.60.166.65
-    port: 27744
-    uuid: c87f7a9d-ec5c-4e7b-a7bc-cbfd1bb3fff0
+    server: US.2.diginoisb.ir
+    port: 81
+    password: a9e9fcdd487f4c118d97e5089134cc94
     udp: true
-    xudp: true
-  - type: vless
-    name: 🇮🇷195116
-    server: 62.60.166.65
-    port: 27744
-    uuid: c87f7a9d-ec5c-4e7b-a7bc-cbfd1bb3fff0
+    tls: true
+    sni: panel.IR.www.vpxpp.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /root
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.IR.www.vpxpp.ir
+  - type: trojan
+    name: 🇮🇷195584
+    server: US.2.diginoisb.ir
+    port: 81
+    password: a9e9fcdd487f4c118d97e5089134cc94
     udp: true
-    xudp: true
-  - type: vless
-    name: 4Mohsen-cc43154f0c
-    server: 62.60.166.65
-    port: 27744
-    uuid: c87f7a9d-ec5c-4e7b-a7bc-cbfd1bb3fff0
-    udp: true
-    xudp: true
+    tls: true
+    sni: panel.IR.www.vpxpp.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /root
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: panel.IR.www.vpxpp.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 🇮🇷195116
-      - 4Mohsen-cc43154f0c
+      - 🇮🇷195584
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,7 +47,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 🇮🇷195116
-      - 4Mohsen-cc43154f0c
+      - 🇮🇷195584
 rules:
   - MATCH,Proxy

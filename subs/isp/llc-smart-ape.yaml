@@ -1,78 +1,33 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 188.127.251.227
+    name: 4Mohsen-989c890da6
+    server: 31.177.111.121
     port: 443
-    uuid: 9bbf927b-f950-4c67-ac8a-c6ff779ce8a2
+    uuid: f42f0e16-57fd-442f-bc16-f2a2470bca91
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: yabro-wbplugin.edadeal.yandex.ru
-    reality-opts:
-      public-key: jcjL7-bGaMS2naBCF6zrqW7-ISUw6LpUHQ56JuuD9w8
-      short-id: 154ebe1fc9956268
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: api.cdnrt.net
     xudp: true
-  - type: vless
-    name: filembad
-    server: 188.127.251.227
-    port: 443
-    uuid: 9bbf927b-f950-4c67-ac8a-c6ff779ce8a2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yabro-wbplugin.edadeal.yandex.ru
-    reality-opts:
-      public-key: jcjL7-bGaMS2naBCF6zrqW7-ISUw6LpUHQ56JuuD9w8
-      short-id: 154ebe1fc9956268
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇷🇺194334
-    server: 188.127.251.227
-    port: 443
-    uuid: 9bbf927b-f950-4c67-ac8a-c6ff779ce8a2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yabro-wbplugin.edadeal.yandex.ru
-    reality-opts:
-      public-key: jcjL7-bGaMS2naBCF6zrqW7-ISUw6LpUHQ56JuuD9w8
-      short-id: 154ebe1fc9956268
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-841c5582c4
-    server: 188.127.251.227
-    port: 443
-    uuid: 9bbf927b-f950-4c67-ac8a-c6ff779ce8a2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yabro-wbplugin.edadeal.yandex.ru
-    reality-opts:
-      public-key: jcjL7-bGaMS2naBCF6zrqW7-ISUw6LpUHQ56JuuD9w8
-      short-id: 154ebe1fc9956268
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /client/telemetry/0fc51861c60c/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - filembad
-      - 🇷🇺194334
-      - 4FreeIran-841c5582c4
+      - 4Mohsen-989c890da6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - filembad
-      - 🇷🇺194334
-      - 4FreeIran-841c5582c4
+      - 4Mohsen-989c890da6
 rules:
   - MATCH,Proxy

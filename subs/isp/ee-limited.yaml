@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: lake.next.nx.kg
-    port: 2041
-    uuid: 5e90bbb0-4880-419f-99a4-8ba3648f880e
-    udp: true
-    xudp: true
-  - type: vless
-    name: "["
-    server: lake.next.nx.kg
-    port: 2041
-    uuid: 5e90bbb0-4880-419f-99a4-8ba3648f880e
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Jadi-87e23ecf02
     server: lake.next.nx.kg
     port: 2041
@@ -30,24 +16,32 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-a1d92dc41e
+    server: de2.pi10.ir
+    port: 54102
+    uuid: 113ae61b-d6da-4d08-9221-48595cb8436c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - "["
       - 4Jadi-87e23ecf02
       - 4Nika-a9bda2f93e
+      - 4Kian-a1d92dc41e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - "["
       - 4Jadi-87e23ecf02
       - 4Nika-a9bda2f93e
+      - 4Kian-a1d92dc41e
 rules:
   - MATCH,Proxy
