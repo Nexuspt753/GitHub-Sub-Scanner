@@ -14,15 +14,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-bee236771f
+    name: EPODONIOS
     server: ul-mexico1.09vpn.com
     port: 8443
     uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
     network: ws
     ws-opts:
-      path: /vless/security=tls
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 🇲🇽
+    server: ul-mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
@@ -31,7 +47,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-bee236771f
+      - EPODONIOS
+      - 🇲🇽
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-bee236771f
+      - EPODONIOS
+      - 🇲🇽
 rules:
   - MATCH,Proxy

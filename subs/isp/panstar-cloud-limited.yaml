@@ -1,5 +1,24 @@
 proxies:
   - type: vless
+    name: 4Mohsen-d37d4cf70b
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: 4Mohsen-f3f00c177a
+    server: 195.58.144.56
+    port: 11907
+    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 195.58.144.56
+    xudp: true
+  - type: vless
     name: 4Kian-2c13861448
     server: 45.8.173.99
     port: 443
@@ -20,6 +39,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-d37d4cf70b
+      - 4Mohsen-f3f00c177a
       - 4Kian-2c13861448
   - name: Auto
     type: url-test
@@ -27,6 +48,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-d37d4cf70b
+      - 4Mohsen-f3f00c177a
       - 4Kian-2c13861448
 rules:
   - MATCH,Proxy

@@ -1,5 +1,23 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: 84.234.31.249
+    port: 443
+    password: Masir_Sefid
+    udp: true
+    tls: true
+    sni: store.steampowered.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: VpnCostumer+|+بیا+تو+وصل+باش+💙
+    server: 84.234.31.249
+    port: 443
+    password: Masir_Sefid
+    udp: true
+    tls: true
+    sni: store.steampowered.com
+    client-fingerprint: chrome
+  - type: trojan
     name: DeltaKroneckerGithub
     server: 83.228.224.161
     port: 443
@@ -15,35 +33,24 @@ proxies:
     tls: true
     sni: store.steampowered.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-ebde548217
-    server: pro.turbooserver.com
-    port: 80
-    uuid: 8dcbc92f-5c77-42a8-8d35-064e14c55f6e
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: pro.turbooserver.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - VpnCostumer+|+بیا+تو+وصل+باش+💙
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-ebde548217
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - VpnCostumer+|+بیا+تو+وصل+باش+💙
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - 4Sarina-ebde548217
 rules:
   - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: vless
+    server: fast-pars.netbazshop.ir
+    port: 46927
+    uuid: 1c2ddf7e-33ad-49f2-9564-5cfb0914359e
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+rules:
+  - MATCH,Proxy

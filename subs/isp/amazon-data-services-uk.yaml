@@ -1,0 +1,28 @@
+proxies:
+  - type: vless
+    name: 4Jadi-dd365fbf2f
+    server: 3.8.150.222
+    port: 443
+    uuid: 7060231d-b9ba-495f-a218-bf427940cf3e
+    udp: true
+    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-dd365fbf2f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-dd365fbf2f
+rules:
+  - MATCH,Proxy

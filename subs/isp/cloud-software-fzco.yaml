@@ -1,34 +1,25 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.38.60.153
-    port: 2053
-    uuid: e6df2095-a73c-4043-8693-8d5a03686870
+    name: vless
+    server: 95.182.89.57
+    port: 25020
+    uuid: 42814d78-4309-41ff-8a14-50f21e024077
     udp: true
     tls: true
-    client-fingerprint: unsafe
-    alpn:
-      - http/1.1
-    servername: lucasjow.us.ci
+    client-fingerprint: chrome
     xudp: true
-    network: ws
-    ws-opts:
-      path: /cart/docs/www/proxyip=108.160.132.132
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lucasjow.us.ci
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - vless
 rules:
   - MATCH,Proxy
