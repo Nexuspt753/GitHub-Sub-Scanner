@@ -1,21 +1,17 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: EPODONIOS
-    server: US.2.diginoisb.ir
-    port: 81
-    password: a9e9fcdd487f4c118d97e5089134cc94
+    server: FI.2.vpxpp.ir
+    port: 1053
+    uuid: 4f4fc6d5-7828-4865-b360-26510a8c0d4d
     udp: true
     tls: true
-    sni: panel.IR.www.vpxpp.ir
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /root
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: panel.IR.www.vpxpp.ir
+    alpn:
+      - h2
+      - http/1.1
+    servername: panel.IR.www.vpxpp.ir
+    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: us.2.diginoisb.ir
@@ -25,23 +21,28 @@ proxies:
     tls: true
     sni: panel.IR.www.vpxpp.ir
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Sarina-33ddc1a454
-    server: US.2.diginoisb.ir
-    port: 81
-    password: a9e9fcdd487f4c118d97e5089134cc94
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: FI.2.vpxpp.ir
+    port: 1053
+    uuid: 4f4fc6d5-7828-4865-b360-26510a8c0d4d
     udp: true
     tls: true
-    sni: panel.IR.www.vpxpp.ir
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /root
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: panel.IR.www.vpxpp.ir
+    alpn:
+      - h2
+      - http/1.1
+    servername: panel.IR.www.vpxpp.ir
+    xudp: true
+  - type: vless
+    name: vless
+    server: ajsbsk.lanwkss.wlansks.wlsjsks.wldhd.lsjs.com.vpxpp.ir
+    port: 27744
+    uuid: 4f4fc6d5-7828-4865-b360-26510a8c0d4d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -49,7 +50,8 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-33ddc1a454
+      - 🇮🇷IR-🚀@VPNine1
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,6 +60,7 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - DeltaKroneckerGithub
-      - 4Sarina-33ddc1a454
+      - 🇮🇷IR-🚀@VPNine1
+      - vless
 rules:
   - MATCH,Proxy
