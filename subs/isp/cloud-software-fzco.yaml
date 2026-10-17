@@ -8,12 +8,45 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vmess
+    name: EPODONIOS
+    server: uss-2.povrak.ir
+    port: 50407
+    uuid: 6df4f26a-258a-4a58-bf45-cb6091277e36
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-01
+    server: uss-2.povrak.ir
+    port: 64852
+    uuid: 675bcc24-bb80-401d-a09d-6c73e1d46be6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-e6a8688b34
+    server: 95.182.80.242
+    port: 443
+    uuid: 803cd116-56f6-4680-9ef7-82e2ded5810b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Mohsen-e6a8688b34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +54,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Mohsen-e6a8688b34
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.141.227.223
+    port: 443
+    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: z1q3pv4g78.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /useraction/events/b892639b7195/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: z1q3pv4g78.rucdncomp.pro
+  - type: vless
     name: vless
     server: 185.141.227.180
     port: 2053
@@ -8,18 +24,40 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: 4Mohsen-2aa1630fef
+    server: 185.141.227.180
+    port: 2053
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 185.141.227.180
+    port: 2053
+    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
+      - 4Mohsen-2aa1630fef
+      - vless-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
+      - 4Mohsen-2aa1630fef
+      - vless-01
 rules:
   - MATCH,Proxy

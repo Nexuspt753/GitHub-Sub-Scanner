@@ -1,30 +1,31 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.135.82.166
-    port: 443
-    uuid: c9c219dc-50da-4135-8e5b-67020291f0ec
+    name: EPODONIOS
+    server: 186.246.29.249
+    port: 3443
+    uuid: 92e135b9-4c04-4e7e-8b28-d8074a202cf8
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: aujn2bb6rg.cdnvertex.store
+    client-fingerprint: chrome
+    servername: cdn.polina.lol
     reality-opts:
-      public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
-      short-id: 6ba85179e30d4fc2
-    flow: xtls-rprx-vision
+      public-key: B2hPRdH13moEXzVXSINTdTHCYkgaNO53lgCIhDx7cmg
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy

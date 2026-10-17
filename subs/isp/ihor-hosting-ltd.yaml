@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.71.23.244
+    port: 443
+    uuid: 817b61c8-9bf0-4365-8a52-e43dfad274a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shin-ra.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shin-ra.ccwu.cc
+  - type: vless
     name: 4FreeIran-f96fa1be1c
     server: 103.71.22.133
     port: 8443
@@ -90,6 +106,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-f96fa1be1c
       - 4Mohsen-c934b0efe7
       - 4Jadi-33f60f81e2
@@ -101,6 +118,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-f96fa1be1c
       - 4Mohsen-c934b0efe7
       - 4Jadi-33f60f81e2

@@ -13,12 +13,27 @@ proxies:
       short-id: 9e15546f267baa64
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-9ae9becc80
+    server: 2.27.160.4
+    port: 443
+    uuid: 0f4081e7-612b-425f-8def-eebf144aedba
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: delta.cloudserverix.com
+    reality-opts:
+      public-key: ITd6cmCxudmTvGcwnAzpd0VRe8jS9KJAQ1tmtVN3mCM
+      short-id: 9e15546f267baa64
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 🇺🇸
+      - 4Kian-9ae9becc80
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 🇺🇸
+      - 4Kian-9ae9becc80
 rules:
   - MATCH,Proxy
