@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 80.243.228.25
+    port: 2085
+    uuid: 122c1f94-fd58-491e-8b5d-54e4e6175936
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: tootffarangi🍓-12
     server: 80.243.228.25
     port: 2085
@@ -10,7 +20,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 80.243.228.84
     port: 2085
     uuid: fe33cc59-c464-4e60-9aff-2793793317bf
@@ -39,24 +49,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-f84bfaa736
+    server: 80.243.228.84
+    port: 2085
+    uuid: fe33cc59-c464-4e60-9aff-2793793317bf
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - tootffarangi🍓-12
       - EPODONIOS
+      - tootffarangi🍓-12
+      - EPODONIOS-01
       - tootffarangi🍓-13
       - 4Sarina-cc63b438ba
+      - 4Mohsen-f84bfaa736
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - tootffarangi🍓-12
       - EPODONIOS
+      - tootffarangi🍓-12
+      - EPODONIOS-01
       - tootffarangi🍓-13
       - 4Sarina-cc63b438ba
+      - 4Mohsen-f84bfaa736
 rules:
   - MATCH,Proxy
