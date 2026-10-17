@@ -1,29 +1,34 @@
 proxies:
   - type: vless
-    name: 🇸🇬194381
-    server: www.asamping.ir
-    port: 2052
-    uuid: 4da2b397-98db-4aaa-aa24-321f478f5f61
+    name: 🇱🇻195705
+    server: help855.mrgeost.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: help855.mrgeost.ir
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /gropcdn
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.asamping.ir
+        Host: help855.mrgeost.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇸🇬194381
+      - 🇱🇻195705
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇸🇬194381
+      - 🇱🇻195705
 rules:
   - MATCH,Proxy

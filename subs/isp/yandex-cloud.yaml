@@ -1,34 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 84.201.128.112
+    name: filembad-193
+    server: lv.chick-chirik.com
     port: 443
-    uuid: 5ca83936-136d-4314-8453-4ba10a86cf60
+    uuid: 71c8d2c6-a7f1-4c74-b37d-d7f06fef9c04
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: cloudflare.vhub.pro
+    client-fingerprint: chrome
+    servername: lv.chick-chirik.com
+    reality-opts:
+      public-key: 2v1vd2gw3A9Sw6w36s63QaSeMYnY4DrkEPUdKAbBPzE
+      short-id: 25f11b01338a8963
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /websocket?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cloudflare.vhub.pro
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - filembad-193
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - filembad-193
 rules:
   - MATCH,Proxy

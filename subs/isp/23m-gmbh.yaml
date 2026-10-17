@@ -1,5 +1,37 @@
 proxies:
   - type: trojan
+    name: 🇳🇱
+    server: 185.230.44.62
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
+  - type: trojan
+    name: 🇳🇱-01
+    server: 92.42.99.143
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.volumeroot.com
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.volumeroot.com
+  - type: trojan
     name: 4Sarina-226c3280f9
     server: 92.42.99.143
     port: 443
@@ -34,6 +66,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇳🇱
+      - 🇳🇱-01
       - 4Sarina-226c3280f9
       - 4Mohsen-31decabd71
       - 4Jadi-81a0d1cf5c
@@ -43,6 +77,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 🇳🇱
+      - 🇳🇱-01
       - 4Sarina-226c3280f9
       - 4Mohsen-31decabd71
       - 4Jadi-81a0d1cf5c

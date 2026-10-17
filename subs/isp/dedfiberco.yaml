@@ -1,0 +1,28 @@
+proxies:
+  - type: vless
+    name: "[72977]"
+    server: 104.237.250.27
+    port: 20315
+    uuid: 58539380-4442-4f30-9b15-c1bc61c53b1c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - "[72977]"
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - "[72977]"
+rules:
+  - MATCH,Proxy

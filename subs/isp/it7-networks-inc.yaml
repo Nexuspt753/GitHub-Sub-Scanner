@@ -1,27 +1,29 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 95.169.3.45
-    port: 46005
-    cipher: chacha20-ietf-poly1305
-    password: "123456"
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 176.122.183.26
+    port: 42346
+    uuid: d5bc1380-2afd-4c7e-bacd-54e7833b0140
     udp: true
-  - type: ss
-    name: EPODONIOS-01
-    server: 95.169.3.45
-    port: 46008
-    cipher: chacha20-ietf-poly1305
-    password: "123456"
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: fk0_CYMC_RKIbBDwS-lagle8Jm-hnvkSlV_7P0nBagM
+      short-id: 3f8ced2bf06b8448
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 104.160.44.203
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
     udp: true
-  - type: ss
-    name: 🇺🇸
-    server: 95.169.3.45
-    port: 46008
-    cipher: chacha20-ietf-poly1305
-    password: "123456"
-    udp: true
+    tls: true
+    sni: la14.freeguard.org
+    client-fingerprint: chrome
   - type: vmess
-    name: EPODONIOS-02
+    name: EPODONIOS
     server: jp-amd1.018999.xyz
     port: 443
     uuid: 65e619e7-0bf1-4f5b-a390-5735b01a3713
@@ -46,23 +48,6 @@ proxies:
     tls: true
     sni: tw.softbank.mjj-home.com
     client-fingerprint: chrome
-  - type: vmess
-    name: 🇺🇸US-144.34.234.111-1279
-    server: jp-amd1.018999.xyz
-    port: 443
-    uuid: 65e619e7-0bf1-4f5b-a390-5735b01a3713
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /65e619e7-0bf1-4f5b-a390-5735b01a3713
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp-amd1.018999.xyz
   - type: vmess
     name: 4Nika-2f67175f1c
     server: kr-arm2.018999.xyz
@@ -102,12 +87,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - 🇺🇸
-      - EPODONIOS-02
       - 4Mohsen-32e553f3cf
-      - 🇺🇸US-144.34.234.111-1279
       - 4Nika-2f67175f1c
       - 4Kian-32a4fe5ef9
   - name: Auto
@@ -116,12 +99,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - EPODONIOS-01
-      - 🇺🇸
-      - EPODONIOS-02
       - 4Mohsen-32e553f3cf
-      - 🇺🇸US-144.34.234.111-1279
       - 4Nika-2f67175f1c
       - 4Kian-32a4fe5ef9
 rules:
