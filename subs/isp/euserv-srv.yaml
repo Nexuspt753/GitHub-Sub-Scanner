@@ -1,0 +1,41 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 81.7.11.36
+    port: 8080
+    uuid: 05dc0d3a-d594-433b-9c9d-d990184233a1
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇩🇪196696
+    server: 81.7.11.36
+    port: 8080
+    uuid: 05dc0d3a-d594-433b-9c9d-d990184233a1
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇩🇪DE-🚀@VPNine1
+    server: 81.7.11.36
+    port: 8080
+    uuid: 05dc0d3a-d594-433b-9c9d-d990184233a1
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - 🇩🇪196696
+      - 🇩🇪DE-🚀@VPNine1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - 🇩🇪196696
+      - 🇩🇪DE-🚀@VPNine1
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,20 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: 94.158.219.126
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
+  - type: trojan
     name: v2ray313
     server: 94.158.219.126
     port: 443
@@ -14,6 +29,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
+  - type: vless
+    name: TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=snip.edgeoneai.cc.cd&fp=unsafe&type=ws&allowInsecure=0&sni=snip.edgeoneai.cc.cd#EPODONIOS
+    server: 62.182.192.195
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    xudp: true
   - type: vless
     name: TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=snip.edgeoneai.cc.cd&fp=unsafe&type=ws&allowInsecure=0&sni=snip.edgeoneai.cc.cd#@MARAMBASHI
     server: 62.182.192.195
@@ -114,7 +136,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
-    name: 4FreeIran-9ba7614c69
+    name: 4Jadi-e5b4bb2514
     server: 188.253.25.172
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -124,7 +146,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: renderer-stream-2-62.mirra.now
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -136,7 +157,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - v2ray313
+      - TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=snip.edgeoneai.cc.cd&fp=unsafe&type=ws&allowInsecure=0&sni=snip.edgeoneai.cc.cd#EPODONIOS
       - TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=snip.edgeoneai.cc.cd&fp=unsafe&type=ws&allowInsecure=0&sni=snip.edgeoneai.cc.cd#@MARAMBASHI
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -146,14 +169,16 @@ proxy-groups:
       - 4Jadi-b7494c2529
       - 4FreeIran-c25eb334c4
       - 4Mohsen-7bcbc83d0e
-      - 4FreeIran-9ba7614c69
+      - 4Jadi-e5b4bb2514
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - v2ray313
+      - TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=snip.edgeoneai.cc.cd&fp=unsafe&type=ws&allowInsecure=0&sni=snip.edgeoneai.cc.cd#EPODONIOS
       - TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=snip.edgeoneai.cc.cd&fp=unsafe&type=ws&allowInsecure=0&sni=snip.edgeoneai.cc.cd#@MARAMBASHI
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
@@ -163,6 +188,6 @@ proxy-groups:
       - 4Jadi-b7494c2529
       - 4FreeIran-c25eb334c4
       - 4Mohsen-7bcbc83d0e
-      - 4FreeIran-9ba7614c69
+      - 4Jadi-e5b4bb2514
 rules:
   - MATCH,Proxy

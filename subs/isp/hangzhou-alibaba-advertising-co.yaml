@@ -1,5 +1,20 @@
 proxies:
   - type: vmess
+    name: EPODONIOS
+    server: 39.108.113.127
+    port: 10086
+    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: DeltaKroneckerGithub
     server: 39.108.113.127
     port: 10086
@@ -30,36 +45,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Nika-b2cd6dc7db
-    server: 39.108.113.127
-    port: 10086
-    uuid: 4fc543d5-23ce-4556-ae2b-01685edd4397
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Kian-f43fc55284
-    server: 39.108.113.127
-    port: 10086
-    uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: 4Nika-aea2bf2971
     server: 39.108.113.127
     port: 10086
@@ -79,10 +64,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
       - 4Mohsen-d7fa23155b
-      - 4Nika-b2cd6dc7db
-      - 4Kian-f43fc55284
       - 4Nika-aea2bf2971
   - name: Auto
     type: url-test
@@ -90,10 +74,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
       - 4Mohsen-d7fa23155b
-      - 4Nika-b2cd6dc7db
-      - 4Kian-f43fc55284
       - 4Nika-aea2bf2971
 rules:
   - MATCH,Proxy

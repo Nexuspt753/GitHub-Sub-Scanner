@@ -2,32 +2,18 @@ proxies:
   - type: vless
     name: vless
     server: 78.159.246.179
-    port: 8443
-    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 78.159.246.85
     port: 2053
-    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-b74ad3b865
-    server: 78.159.246.179
-    port: 2053
-    uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     alpn:
-      - http/1.1
       - h2
+      - ""
     servername: randomquaint.net
     xudp: true
   - type: vless
-    name: vless-02
+    name: vless-01
     server: 78.159.246.85
     port: 2053
     uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
@@ -47,7 +33,7 @@ proxies:
     servername: randomquaint.net
     xudp: true
   - type: vless
-    name: vless-03
+    name: vless-02
     server: 78.159.246.85
     port: 2053
     uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
@@ -60,10 +46,8 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
-      - 4Kian-b74ad3b865
-      - vless-02
       - 4Mohsen-3ddb901fa2
-      - vless-03
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -72,9 +56,7 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
-      - 4Kian-b74ad3b865
-      - vless-02
       - 4Mohsen-3ddb901fa2
-      - vless-03
+      - vless-02
 rules:
   - MATCH,Proxy
