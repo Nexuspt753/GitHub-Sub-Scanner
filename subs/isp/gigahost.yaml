@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4FreeIran-f339e63a14
+    server: 185.14.97.217
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Jadi-5b3b25233e
     server: 185.14.97.217
     port: 8443
@@ -31,38 +47,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
-  - type: vless
-    name: 4Mohsen-bc889fd764
-    server: 194.32.107.150
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-f339e63a14
       - 4Jadi-5b3b25233e
       - 4Nika-c16a1c1935
-      - 4Mohsen-bc889fd764
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-f339e63a14
       - 4Jadi-5b3b25233e
       - 4Nika-c16a1c1935
-      - 4Mohsen-bc889fd764
 rules:
   - MATCH,Proxy

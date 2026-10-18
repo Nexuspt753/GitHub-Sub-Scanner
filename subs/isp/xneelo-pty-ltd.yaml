@@ -6,29 +6,12 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
-  - type: vless
-    name: 4Nika-cc1104af7c
-    server: 156.38.157.171
-    port: 8443
-    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vlso5.1d.mom
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /socks5=888:888@hkip.1d.mom:1080
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vlso5.1d.mom
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-aa9fa46986
-      - 4Nika-cc1104af7c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -36,6 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-aa9fa46986
-      - 4Nika-cc1104af7c
 rules:
   - MATCH,Proxy

@@ -7,6 +7,8 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
     servername: cdn.topingr.ir
     xudp: true
     network: ws
@@ -14,6 +16,38 @@ proxies:
       path: /gropcdn
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+  - type: vless
+    name: EPODONIOS-01
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-02
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
   - type: vless
     name: ICV2RAY
     server: cdn.topingr.ir
@@ -80,12 +114,38 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn.topingr.ir
   - type: vless
-    name: EPODONIOS-01
+    name: 🔵@chillguy_vpn
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+  - type: vless
+    name: 🇸🇬196567
     server: vip1.beshdash.ir
     port: 18242
-    uuid: dd0f11ca-f367-4a52-aed3-9b5e165f08e4
+    uuid: daa00a63-778e-443b-b1f5-a8388258b58b
     udp: true
     xudp: true
+  - type: vmess
+    name: 🇩🇪DE-🚀@VPNine1
+    server: fer-5.povrak.ir
+    port: 47014
+    uuid: d4aa69e8-2739-42b3-9cd4-af1e4fb04ad5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: 4Jadi-dab8c5b55f
     server: cdn.topingr.ir
@@ -153,21 +213,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn.topingr.ir
+  - type: vless
+    name: 4FreeIran-95b40a30b0
+    server: vip1.beshdash.ir
+    port: 18242
+    uuid: daa00a63-778e-443b-b1f5-a8388258b58b
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-d591ff76df
+    server: vip1.beshdash.ir
+    port: 18242
+    uuid: dd0f11ca-f367-4a52-aed3-9b5e165f08e4
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - ICV2RAY
       - ICV2RAY-01
       - ICV2RAY-02
       - meliproxyy
-      - EPODONIOS-01
+      - 🔵@chillguy_vpn
+      - 🇸🇬196567
+      - 🇩🇪DE-🚀@VPNine1
       - 4Jadi-dab8c5b55f
       - 4Jadi-b06e16fdfd
       - 4Sarina-ccf6005669
       - 4Jadi-8399504d37
+      - 4FreeIran-95b40a30b0
+      - 4Sarina-d591ff76df
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -175,14 +255,20 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - ICV2RAY
       - ICV2RAY-01
       - ICV2RAY-02
       - meliproxyy
-      - EPODONIOS-01
+      - 🔵@chillguy_vpn
+      - 🇸🇬196567
+      - 🇩🇪DE-🚀@VPNine1
       - 4Jadi-dab8c5b55f
       - 4Jadi-b06e16fdfd
       - 4Sarina-ccf6005669
       - 4Jadi-8399504d37
+      - 4FreeIran-95b40a30b0
+      - 4Sarina-d591ff76df
 rules:
   - MATCH,Proxy

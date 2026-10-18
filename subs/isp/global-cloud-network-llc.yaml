@@ -1,12 +1,42 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.141.227.223
+    port: 443
+    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: z1q3pv4g78.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /useraction/events/b892639b7195/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: z1q3pv4g78.rucdncomp.pro
+  - type: vless
+    name: 🇩🇪
+    server: 185.141.227.223
+    port: 443
+    uuid: a443d7bf-f506-46ce-b64d-cf8891c0a9f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: z1q3pv4g78.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /useraction/events/b892639b7195/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: z1q3pv4g78.rucdncomp.pro
+  - type: vless
     name: vless
     server: 185.141.227.180
     port: 2053
     uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4Mohsen-2aa1630fef
@@ -18,7 +48,7 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: 4FreeIran-3289b61e99
+    name: 4Kian-8d40a9023f
     server: 185.141.227.223
     port: 443
     uuid: a443d7bf-f506-46ce-b64d-cf8891c0a9f7
@@ -38,17 +68,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - 🇩🇪
       - vless
       - 4Mohsen-2aa1630fef
-      - 4FreeIran-3289b61e99
+      - 4Kian-8d40a9023f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - 🇩🇪
       - vless
       - 4Mohsen-2aa1630fef
-      - 4FreeIran-3289b61e99
+      - 4Kian-8d40a9023f
 rules:
   - MATCH,Proxy

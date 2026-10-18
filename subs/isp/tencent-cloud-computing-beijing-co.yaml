@@ -1,26 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Nika-99ce91d3b5
-    server: 129.226.157.220
-    port: 59121
-    uuid: d9865d63-d95c-454b-ba07-8e88b838a801
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Jadi-1cc49a098c
+    server: 124.156.173.124
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-99ce91d3b5
+      - 4Jadi-1cc49a098c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-99ce91d3b5
+      - 4Jadi-1cc49a098c
 rules:
   - MATCH,Proxy

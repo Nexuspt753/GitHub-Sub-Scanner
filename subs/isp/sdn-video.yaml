@@ -2,20 +2,7 @@ proxies:
   - type: vless
     name: vless
     server: 78.159.246.179
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - ""
-    servername: randomquaint.net
-    xudp: true
-  - type: vless
-    name: 4Nika-8ad2a1ef91
-    server: 78.159.246.85
-    port: 2053
+    port: 8443
     uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
     udp: true
     xudp: true
@@ -24,6 +11,26 @@ proxies:
     server: 78.159.246.85
     port: 2053
     uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Kian-b74ad3b865
+    server: 78.159.246.179
+    port: 2053
+    uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+      - h2
+    servername: randomquaint.net
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 78.159.246.85
+    port: 2053
+    uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
     udp: true
     xudp: true
   - type: vless
@@ -40,37 +47,11 @@ proxies:
     servername: randomquaint.net
     xudp: true
   - type: vless
-    name: 4Jadi-5f1cbe410e
-    server: 78.159.246.179
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: randomquaint.net
-    xudp: true
-  - type: vless
-    name: vless-02
+    name: vless-03
     server: 78.159.246.85
     port: 2053
     uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
     udp: true
-    xudp: true
-  - type: vless
-    name: 4Kian-0c7842e85b
-    server: randomquaint.net
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: randomquaint.net
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -78,12 +59,11 @@ proxy-groups:
     proxies:
       - Auto
       - vless
-      - 4Nika-8ad2a1ef91
       - vless-01
-      - 4Mohsen-3ddb901fa2
-      - 4Jadi-5f1cbe410e
+      - 4Kian-b74ad3b865
       - vless-02
-      - 4Kian-0c7842e85b
+      - 4Mohsen-3ddb901fa2
+      - vless-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,11 +71,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Nika-8ad2a1ef91
       - vless-01
-      - 4Mohsen-3ddb901fa2
-      - 4Jadi-5f1cbe410e
+      - 4Kian-b74ad3b865
       - vless-02
-      - 4Kian-0c7842e85b
+      - 4Mohsen-3ddb901fa2
+      - vless-03
 rules:
   - MATCH,Proxy

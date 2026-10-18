@@ -184,16 +184,19 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 164.37.224.220
-    port: 25452
+    port: 25454
     uuid: 68c3d665-b2b5-4ffb-9f37-9f3d8c47324d
     udp: true
     tls: true
     client-fingerprint: firefox
     servername: www.ns.nl
     reality-opts:
-      public-key: zJI16_ywLd4clshY0IQQPxQ_YBbIq2b0XTO_dnTJOy4
-      short-id: fe51f413b9646e97
+      public-key: YOgsoXtChX3RvA0Gf9SSsP8VLP4GGk7dytVBo9qZCH4
+      short-id: 221ba0d14384ccf1
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-01
     server: 164.37.224.244
@@ -262,19 +265,6 @@ proxies:
     password: H7mP2xY9kJ4nQ8wR5tF6vB3z
     sni: 127.0.0.1
     skip-cert-verify: true
-  - type: vless
-    name: 10538@proxy_online_net
-    server: 164.37.224.244
-    port: 25239
-    uuid: d54a7512-dda3-4218-8ae7-c591d300fd7c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.microsoft.com
-    reality-opts:
-      public-key: 0hYbfdNYeWetabbW1wCcrwi0e1VQA45Jhgi42YxU5nk
-      short-id: 9a382b227140e86f
-    xudp: true
   - type: hysteria2
     name: ">>@oneclickvpnkeys::TW"
     server: 103.115.109.49
@@ -328,19 +318,6 @@ proxies:
     servername: nl4.nztvpn.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-6721583d0e
-    server: 164.37.224.244
-    port: 25239
-    uuid: d54a7512-dda3-4218-8ae7-c591d300fd7c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.microsoft.com
-    reality-opts:
-      public-key: 0hYbfdNYeWetabbW1wCcrwi0e1VQA45Jhgi42YxU5nk
-      short-id: 9a382b227140e86f
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -379,13 +356,11 @@ proxy-groups:
       - vpnsal
       - EPODONIOS-02
       - EPODONIOS-03
-      - 10538@proxy_online_net
       - ">>@oneclickvpnkeys::TW"
       - ">>@oneclickvpnkeys::TW-01"
       - 4FreeIran-707c92e0d2
       - 4Mohsen-d87ac98d52
       - 4Jadi-3e2549dd72
-      - 4Jadi-6721583d0e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -425,12 +400,10 @@ proxy-groups:
       - vpnsal
       - EPODONIOS-02
       - EPODONIOS-03
-      - 10538@proxy_online_net
       - ">>@oneclickvpnkeys::TW"
       - ">>@oneclickvpnkeys::TW-01"
       - 4FreeIran-707c92e0d2
       - 4Mohsen-d87ac98d52
       - 4Jadi-3e2549dd72
-      - 4Jadi-6721583d0e
 rules:
   - MATCH,Proxy

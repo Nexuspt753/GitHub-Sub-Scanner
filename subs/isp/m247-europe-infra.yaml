@@ -14,21 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇷🇴
-    server: 146.70.124.85
-    port: 443
-    uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.datadoghq.com
-    reality-opts:
-      public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
-      short-id: fe24f8a0a560056e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-14fa4f26aa
+    name: EPODONIOS
     server: 146.70.124.85
     port: 443
     uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
@@ -52,15 +38,31 @@ proxies:
     servername: www.datadoghq.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-52ea9a3b6a
+    server: 146.70.233.51
+    port: 443
+    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: 20664.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 20664.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 🇷🇴
-      - 4FreeIran-14fa4f26aa
+      - EPODONIOS
       - 4Nika-379acc89b1
+      - 4Nika-52ea9a3b6a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,8 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 🇷🇴
-      - 4FreeIran-14fa4f26aa
+      - EPODONIOS
       - 4Nika-379acc89b1
+      - 4Nika-52ea9a3b6a
 rules:
   - MATCH,Proxy

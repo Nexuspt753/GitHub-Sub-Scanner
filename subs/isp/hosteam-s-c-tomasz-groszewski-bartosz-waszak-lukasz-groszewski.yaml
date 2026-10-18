@@ -1,6 +1,17 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: pl2.dedushka.top
+    port: 443
+    password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
+    udp: true
+    tls: true
+    sni: pl2.dedushka.top
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: pl1.dedushka.top
     port: 443
     password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
@@ -16,6 +27,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,21 +1,23 @@
 proxies:
   - type: vless
-    name: 4FreeIran-3f3d934404
-    server: 156.226.168.221
-    port: 35193
-    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
+    name: 4Sarina-d249ace40c
+    server: 156.246.89.172
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
-      short-id: e8daed2d
-    flow: xtls-rprx-vision
+    servername: snip.edgeoneai.cc.cd
     xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vless
-    name: 4FreeIran-bcea5b5406
-    server: 156.246.89.172
+    name: 4Nika-a8eddced84
+    server: 45.192.206.187
     port: 443
     uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
@@ -45,6 +47,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Sarina-06b89c64d3
+    server: 45.192.243.25
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vmess
     name: 4FreeIran-d4025024da
     server: 156.231.116.156
@@ -67,9 +85,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-3f3d934404
-      - 4FreeIran-bcea5b5406
+      - 4Sarina-d249ace40c
+      - 4Nika-a8eddced84
       - 4Kian-a42e255409
+      - 4Sarina-06b89c64d3
       - 4FreeIran-d4025024da
   - name: Auto
     type: url-test
@@ -77,9 +96,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-3f3d934404
-      - 4FreeIran-bcea5b5406
+      - 4Sarina-d249ace40c
+      - 4Nika-a8eddced84
       - 4Kian-a42e255409
+      - 4Sarina-06b89c64d3
       - 4FreeIran-d4025024da
 rules:
   - MATCH,Proxy
