@@ -15,12 +15,27 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Kian-9e164f90a0
+    server: 107.189.26.239
+    port: 443
+    uuid: 820a850b-6e10-45e6-8142-2df17a394504
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.dodostatic.net
+    reality-opts:
+      public-key: F3XkvPrGmCOrJpNhpPqkVHrZ58YA0Z8VCp6y7s6We2U
+      short-id: c09a8eae8476d36c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-917c6800a2
+      - 4Kian-9e164f90a0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-917c6800a2
+      - 4Kian-9e164f90a0
 rules:
   - MATCH,Proxy

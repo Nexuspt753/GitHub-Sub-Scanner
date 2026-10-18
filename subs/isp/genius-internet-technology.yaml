@@ -32,6 +32,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ru-1.dnspro.icu
+  - type: vmess
+    name: 4Nika-f80440d5a9
+    server: ru-1.dnspro.icu
+    port: 4342
+    uuid: 72528103-0642-30c0-a2b3-8aa77a73cec9
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ru-1.dnspro.icu
 proxy-groups:
   - name: Proxy
     type: select
@@ -39,6 +55,7 @@ proxy-groups:
       - Auto
       - 4Jadi-9c67c305ff
       - 4FreeIran-6f7a656220
+      - 4Nika-f80440d5a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -47,5 +64,6 @@ proxy-groups:
     proxies:
       - 4Jadi-9c67c305ff
       - 4FreeIran-6f7a656220
+      - 4Nika-f80440d5a9
 rules:
   - MATCH,Proxy

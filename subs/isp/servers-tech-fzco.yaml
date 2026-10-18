@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 87.199.205.28
+    port: 443
+    uuid: 501a2da5-cb22-4a3f-915e-e3b821d1d62d
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: vkvd754.okcdn.ru
+    reality-opts:
+      public-key: W-9zyiOq287RtXVTZlTFbSDJ0Mx8joyBLJoA7ZE7eBw
+      short-id: ef1d3554c652a436
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: 4Kian-e28cbaa6d0
     server: 212.34.140.184
@@ -6,19 +20,6 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: 0NeN5ta7FLa5B9DLytU0um
     udp: true
-  - type: vless
-    name: EPODONIOS
-    server: 89.124.100.104
-    port: 8080
-    uuid: 22136b20-6365-4ae6-b21a-799a00ab1346
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: graphs.4cdn.de
-    reality-opts:
-      public-key: t_z1GMEv2FYr0Bo57WBuKRRlkyOMj40025j-OcWCtkU
-      short-id: "75"
-    xudp: true
   - type: vless
     name: 4Jadi-633bb34796
     server: 87.199.205.28
@@ -58,6 +59,36 @@ proxies:
     servername: 50d9ab69755390c8.wgse.info
     xudp: true
   - type: vless
+    name: 4Nika-98200525f0
+    server: net2.intfreed.ru
+    port: 443
+    uuid: bf92bdef-ab8d-4481-8798-2d39023357b2
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: video.intfreed.ru
+    reality-opts:
+      public-key: JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw
+      short-id: 7755e972daf8eec8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-bc4aeb047d
+    server: 89.110.66.154
+    port: 443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /streams/home?ed=2560fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
+  - type: vless
     name: 4FreeIran-044e89e464
     server: 146.103.105.233
     port: 443
@@ -76,11 +107,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-e28cbaa6d0
-      - EPODONIOS
       - 4Jadi-633bb34796
       - 4Sarina-23d5e4423b
       - 4Jadi-d312845961
+      - 4Nika-98200525f0
+      - 4FreeIran-bc4aeb047d
       - 4FreeIran-044e89e464
   - name: Auto
     type: url-test
@@ -88,11 +121,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-e28cbaa6d0
-      - EPODONIOS
       - 4Jadi-633bb34796
       - 4Sarina-23d5e4423b
       - 4Jadi-d312845961
+      - 4Nika-98200525f0
+      - 4FreeIran-bc4aeb047d
       - 4FreeIran-044e89e464
 rules:
   - MATCH,Proxy
