@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: 4Nika-93b56c45d0
+    server: 216.23.122.125
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
   - type: vmess
     name: 4Jadi-b12e90fb1e
     server: jp.6807251.xyz
@@ -19,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-93b56c45d0
       - 4Jadi-b12e90fb1e
   - name: Auto
     type: url-test
@@ -26,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-93b56c45d0
       - 4Jadi-b12e90fb1e
 rules:
   - MATCH,Proxy

@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 131.143.180.87
-    port: 443
-    uuid: c7282af7-a52f-4a65-af60-ae5852f2bf36
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.logitech.com
-    reality-opts:
-      public-key: ZxdYEReKF-M_vIMpZWVMHf7ixDZmzIg-6Xt7IzstgwE
-      short-id: 16e300b06a6a7413
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: 131.143.180.87
     port: 443
@@ -57,42 +43,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4FreeIran-df7eb6e47a
-    server: 179.255.99.75
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 🫑100@oneclickvpnkeys
       - 4Mohsen-c42f867b6e
-      - 4FreeIran-df7eb6e47a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - 🫑100@oneclickvpnkeys
       - 4Mohsen-c42f867b6e
-      - 4FreeIran-df7eb6e47a
 rules:
   - MATCH,Proxy

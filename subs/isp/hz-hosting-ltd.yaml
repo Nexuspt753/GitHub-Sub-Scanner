@@ -1,13 +1,17 @@
 proxies:
   - type: vless
-    name: vless
-    server: nl.cachevault.net
-    port: 443
-    uuid: 2b9fc113-db27-4635-86d8-fa4556a5b7ba
+    name: DeltaKroneckerGithub
+    server: 185.253.116.33
+    port: 14430
+    uuid: aee7ae19-672f-49d8-8a92-aa7cdfc89f89
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 185.253.116.33
   - type: vless
     name: 4Nika-2f31af3967
     server: 185.253.116.33
@@ -42,7 +46,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
+      - DeltaKroneckerGithub
       - 4Nika-2f31af3967
       - 4FreeIran-884ae5a43a
   - name: Auto
@@ -51,7 +55,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - DeltaKroneckerGithub
       - 4Nika-2f31af3967
       - 4FreeIran-884ae5a43a
 rules:

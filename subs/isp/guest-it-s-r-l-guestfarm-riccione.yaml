@@ -7,25 +7,12 @@ proxies:
     udp: true
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-a2b7651420
-    server: r52eed005a3085a38.valzema.ir
-    port: 2096
-    uuid: 410bc842-c3df-4fc5-9e11-0feab5c97d64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: r9b98f8977dfbeb5.valzema.ir
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-4d8f45f15f
-      - 4Kian-a2b7651420
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +20,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-4d8f45f15f
-      - 4Kian-a2b7651420
 rules:
   - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: c20s5.portablesubmarines.com
+    port: 443
+    uuid: 85fe968d-fbb5-40dc-8422-30635eccb149
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: portal.citygrainla.com
+    reality-opts:
+      public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
+      short-id: 051f20c2344a2dfd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 40TEHRANARGO
     server: c20s5.portablesubmarines.com
     port: 443
@@ -32,6 +46,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 40TEHRANARGO
       - 4Mohsen-a86248b750
   - name: Auto
@@ -40,6 +55,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 40TEHRANARGO
       - 4Mohsen-a86248b750
 rules:
