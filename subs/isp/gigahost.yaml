@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Jadi-5b3b25233e
+    server: 185.14.97.217
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Nika-c16a1c1935
     server: 194.32.107.150
     port: 443
@@ -36,6 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-5b3b25233e
       - 4Nika-c16a1c1935
       - 4Mohsen-bc889fd764
   - name: Auto
@@ -44,6 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-5b3b25233e
       - 4Nika-c16a1c1935
       - 4Mohsen-bc889fd764
 rules:

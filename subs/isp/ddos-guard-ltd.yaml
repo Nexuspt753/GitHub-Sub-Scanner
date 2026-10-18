@@ -1,21 +1,6 @@
 proxies:
   - type: vless
     name: EPODONIOS
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS-01
     server: gpt.prem-ai.shop
     port: 443
     uuid: c19ecc7f-8312-4d9d-90c9-1a997d82d3c5
@@ -47,24 +32,6 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 🇩🇪
-    server: gpt.prem-ai.shop
-    port: 443
-    uuid: c19ecc7f-8312-4d9d-90c9-1a997d82d3c5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: gpt.prem-ai.shop
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /stream/v1/session/media
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: gpt.prem-ai.shop
   - type: vless
     name: 4Mohsen-b66a7367f9
     server: 95.129.236.252
@@ -98,17 +65,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: gpt.prem-ai.shop
+  - type: vless
+    name: 4Sarina-cb16b46803
+    server: gpt.prem-ai.shop
+    port: 443
+    uuid: c19ecc7f-8312-4d9d-90c9-1a997d82d3c5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: gpt.prem-ai.shop
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/v1/session/mediafp=edge
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gpt.prem-ai.shop
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - 🇷🇺139881
-      - 🇩🇪
       - 4Mohsen-b66a7367f9
       - 4Kian-345fae7ca4
+      - 4Sarina-cb16b46803
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -116,10 +100,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - 🇷🇺139881
-      - 🇩🇪
       - 4Mohsen-b66a7367f9
       - 4Kian-345fae7ca4
+      - 4Sarina-cb16b46803
 rules:
   - MATCH,Proxy

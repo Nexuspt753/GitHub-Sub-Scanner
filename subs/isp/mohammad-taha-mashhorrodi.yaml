@@ -1,4 +1,25 @@
 proxies:
+  - type: ss
+    name: 🇮🇷196513
+    server: 58ba4a76765827d6.ch.php.rest
+    port: 443
+    cipher: 2022-blake3-aes-256-gcm
+    password: 080Mf+DSoo9vrfz+QIsF33zucG8QjJMUEo9d5K8N4KQ=:kMo/NLFRS9WnBaDS8qSUNinJakLbdxjNcyZJia1+D+Y=
+    udp: true
+  - type: ss
+    name: 🇮🇷196500
+    server: ir28482.jdjcr.3842.marzara.ir
+    port: 1111
+    cipher: chacha20-ietf-poly1305
+    password: GnAQGwBq6QpfM5VbvOSVuA
+    udp: true
+  - type: ss
+    name: 🇮🇷IR-🚀@VPNine1
+    server: ir28482.jdjcr.3842.marzara.ir
+    port: 1111
+    cipher: chacha20-ietf-poly1305
+    password: GnAQGwBq6QpfM5VbvOSVuA
+    udp: true
   - type: vless
     name: EPODONIOS
     server: turk.karmatel.ir
@@ -31,44 +52,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vs1.karmatel.ir
-  - type: vmess
-    name: 4Mohsen-9500596159
-    server: ir.yzcq.ir
-    port: 2040
-    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-9341521ee4
+    server: turk.karmatel.ir
+    port: 2087
+    uuid: cc880d02-4faf-4d22-bc87-2088256aa4e4
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: trt.karmatel.ir
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Sarina-cea075bc2c
-    server: ir.yzcq.ir
-    port: 2070
-    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vs1.karmatel.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇮🇷196513
+      - 🇮🇷196500
+      - 🇮🇷IR-🚀@VPNine1
       - EPODONIOS
       - Channel
-      - 4Mohsen-9500596159
-      - 4Sarina-cea075bc2c
+      - 4FreeIran-9341521ee4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇮🇷196513
+      - 🇮🇷196500
+      - 🇮🇷IR-🚀@VPNine1
       - EPODONIOS
       - Channel
-      - 4Mohsen-9500596159
-      - 4Sarina-cea075bc2c
+      - 4FreeIran-9341521ee4
 rules:
   - MATCH,Proxy

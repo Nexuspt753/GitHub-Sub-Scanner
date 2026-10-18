@@ -1,26 +1,27 @@
 proxies:
   - type: vless
-    name: 4Mohsen-d6b86f2d4b
-    server: 107.150.93.54
+    name: vless
+    server: fi.alpheratzz.org
     port: 443
-    uuid: 20ef7310-0b50-4943-98a6-3d0856b383b1
+    uuid: b3441cc7-1e5f-4eb6-8207-90788eeca21e
     udp: true
     tls: true
-    client-fingerprint: ios
-    servername: 20ef7310.ferrin.uk
+    client-fingerprint: chrome
+    alpn:
+      - h2
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d6b86f2d4b
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d6b86f2d4b
+      - vless
 rules:
   - MATCH,Proxy

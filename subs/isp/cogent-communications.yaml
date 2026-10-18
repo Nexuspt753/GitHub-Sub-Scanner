@@ -1,18 +1,11 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 149.104.30.138
-    port: 443
-    uuid: a33cfdfd-90af-4e5b-a42e-047293c528e6
+  - type: ss
+    name: 🇬🇧
+    server: 149.102.132.184
+    port: 80
+    cipher: aes-256-gcm
+    password: g5h5jleTRSyO3Rk4
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.bing.com
-    reality-opts:
-      public-key: za53zkNAm5tPgC6ZTU1oM90ofHaI9ODk-6msB-M3cWU
-      short-id: 0f65424c53d491e6
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: 4Jadi-618a24a1fb
     server: 149.102.132.184
@@ -28,28 +21,28 @@ proxies:
     password: g5h5jleTRSyO3Rk4
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 149.102.132.184
     port: 443
     cipher: aes-256-gcm
     password: g5h5jleTRSyO3Rk4
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 149.102.132.184
     port: 80
     cipher: aes-256-gcm
     password: g5h5jleTRSyO3Rk4
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-02
     server: 149.102.132.184
     port: 443
     cipher: aes-256-gcm
     password: g5h5jleTRSyO3Rk4
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-03
     server: 149.102.132.184
     port: 80
     cipher: aes-256-gcm
@@ -57,13 +50,6 @@ proxies:
     udp: true
   - type: ss
     name: EPODONIOS
-    server: 149.102.132.184
-    port: 443
-    cipher: aes-256-gcm
-    password: g5h5jleTRSyO3Rk4
-    udp: true
-  - type: ss
-    name: EPODONIOS-01
     server: 149.102.132.184
     port: 80
     cipher: aes-256-gcm
@@ -100,75 +86,57 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
   - type: vmess
-    name: 4Mohsen-8a9693e93e
-    server: 154.64.239.22
-    port: 26421
-    uuid: 9fa732d6-dcd6-47bb-c255-094bad71765d
+    name: 4Mohsen-41af7b7119
+    server: w12.luoli.de
+    port: 443
+    uuid: 42a99644-b90b-3627-8809-a2d6c4078b59
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-9e5ff0cbc8
-    server: 154.64.239.22
-    port: 26421
-    uuid: 9fa732d6-dcd6-47bb-c255-094bad71765d
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Mohsen-7e764aa7c5
-    server: 154.64.239.22
-    port: 26421
-    uuid: 9fa732d6-dcd6-47bb-c255-094bad71765d
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
+    tls: true
+    servername: w12.luoli.de
+    network: ws
+    ws-opts:
+      path: /v2ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: w12.luoli.de
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 🇬🇧
       - 4Jadi-618a24a1fb
       - 4Nika-db11533980
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - EPODONIOS
-      - EPODONIOS-01
       - 🇬🇧GB-149.102.132.184-0177
       - 🇬🇧GB-149.102.132.184-0184
       - 4FreeIran-62088780ff
-      - 4Mohsen-8a9693e93e
-      - 4Jadi-9e5ff0cbc8
-      - 4Mohsen-7e764aa7c5
+      - 4Mohsen-41af7b7119
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 🇬🇧
       - 4Jadi-618a24a1fb
       - 4Nika-db11533980
+      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
       - EPODONIOS
-      - EPODONIOS-01
       - 🇬🇧GB-149.102.132.184-0177
       - 🇬🇧GB-149.102.132.184-0184
       - 4FreeIran-62088780ff
-      - 4Mohsen-8a9693e93e
-      - 4Jadi-9e5ff0cbc8
-      - 4Mohsen-7e764aa7c5
+      - 4Mohsen-41af7b7119
 rules:
   - MATCH,Proxy
