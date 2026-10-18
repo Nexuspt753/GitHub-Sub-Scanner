@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4FreeIran-ab0ec4d2fb
+    server: 152.89.254.48
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Mohsen-9739e8c3bf
     server: 152.89.254.48
     port: 8443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-ab0ec4d2fb
       - 4Mohsen-9739e8c3bf
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-ab0ec4d2fb
       - 4Mohsen-9739e8c3bf
 rules:
   - MATCH,Proxy

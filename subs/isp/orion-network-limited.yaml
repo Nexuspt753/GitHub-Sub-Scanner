@@ -1,5 +1,29 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 196.198.111.138
+    port: 8443
+    uuid: b3441cc7-1e5f-4eb6-8207-90788eeca21e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api-6ad3c751.adhil.uk
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: es2.h1cloud.net
+    port: 25535
+    uuid: c379d8e4-c67d-42ec-a3ed-ca99d1ad0546
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: Jh7CocBJSA55VZcLfXwXwoQ_Hi5pV-L1vv1SY-IrSh4
+      short-id: 7642ce57308852e7
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 196.196.206.36
     port: 443
@@ -66,26 +90,46 @@ proxies:
       short-id: d110331f200987ae
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-e6d08f2135
+    server: 196.196.206.36
+    port: 443
+    uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: finaluty.loknietotop.digital
+    reality-opts:
+      public-key: III2StgFziJtisbaKDYlEF2qYwBHJZnzZH5DHdwuFQ8
+      short-id: d110331f200987ae
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - vless
       - VConfing
       - v2ray_phoenix
       - 4FreeIran-5c5eeef836
+      - 4Mohsen-e6d08f2135
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - vless
       - VConfing
       - v2ray_phoenix
       - 4FreeIran-5c5eeef836
+      - 4Mohsen-e6d08f2135
 rules:
   - MATCH,Proxy

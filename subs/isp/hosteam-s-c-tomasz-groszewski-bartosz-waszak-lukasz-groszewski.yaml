@@ -1,32 +1,27 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-e7161ef20c
-    server: 31.133.0.133
-    port: 2053
-    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: pl1.dedushka.top
+    port: 443
+    password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: forfreeuse.rtqa.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: forfreeuse.rtqa.ru
+    sni: pl1.dedushka.top
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-e7161ef20c
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-e7161ef20c
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

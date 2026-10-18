@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 131.143.180.110
+    port: 443
+    uuid: 0dfaf133-be36-436a-bdad-a7b53ae58b30
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: ABZFDD3Ne57Q0i7skCnEpyUVTKTdMhm3aqJ9mwLZ7lw
+      short-id: 62169cb853fb7503
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 131.143.180.87
+    port: 443
+    uuid: c7282af7-a52f-4a65-af60-ae5852f2bf36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.logitech.com
+    reality-opts:
+      public-key: ZxdYEReKF-M_vIMpZWVMHf7ixDZmzIg-6Xt7IzstgwE
+      short-id: 16e300b06a6a7413
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 131.143.180.87
     port: 443
@@ -28,6 +56,38 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Mohsen-687f502dbf
+    server: 179.253.239.46
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Kian-97c3790e9b
+    server: 179.255.125.93
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Mohsen-c42f867b6e
     server: 179.255.125.93
     port: 8443
@@ -43,22 +103,64 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4FreeIran-df7eb6e47a
+    server: 179.255.99.75
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Sarina-cca3ab8eda
+    server: 131.143.180.87
+    port: 443
+    uuid: c7282af7-a52f-4a65-af60-ae5852f2bf36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.logitech.com
+    reality-opts:
+      public-key: ZxdYEReKF-M_vIMpZWVMHf7ixDZmzIg-6Xt7IzstgwE
+      short-id: 16e300b06a6a7413
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - 🫑100@oneclickvpnkeys
+      - 4Mohsen-687f502dbf
+      - 4Kian-97c3790e9b
       - 4Mohsen-c42f867b6e
+      - 4FreeIran-df7eb6e47a
+      - 4Sarina-cca3ab8eda
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - 🫑100@oneclickvpnkeys
+      - 4Mohsen-687f502dbf
+      - 4Kian-97c3790e9b
       - 4Mohsen-c42f867b6e
+      - 4FreeIran-df7eb6e47a
+      - 4Sarina-cca3ab8eda
 rules:
   - MATCH,Proxy

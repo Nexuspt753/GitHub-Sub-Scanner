@@ -1,6 +1,23 @@
 proxies:
   - type: trojan
     name: EPODONIOS
+    server: 185.230.44.62
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
+  - type: trojan
+    name: EPODONIOS-01
     server: 92.42.99.143
     port: 443
     password: humanity
@@ -16,19 +33,38 @@ proxies:
         Host: www.volumeroot.com
   - type: trojan
     name: 🇳🇱
-    server: 92.42.99.143
+    server: 185.230.44.62
     port: 443
     password: humanity
     udp: true
     tls: true
-    sni: www.volumeroot.com
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
     client-fingerprint: unsafe
     network: ws
     ws-opts:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.volumeroot.com
+        Host: www.pleadcourt.org
+  - type: trojan
+    name: 4Jadi-2abbc9a749
+    server: 185.230.44.62
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
   - type: trojan
     name: 4Sarina-226c3280f9
     server: 92.42.99.143
@@ -37,7 +73,7 @@ proxies:
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: 4Mohsen-31decabd71
+    name: 4Kian-524445b2bc
     server: 92.42.99.143
     port: 443
     password: humanity
@@ -59,32 +95,18 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-4cef2711d7
-    server: 92.42.99.143
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.pleadcourt.org
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.pleadcourt.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - 🇳🇱
+      - 4Jadi-2abbc9a749
       - 4Sarina-226c3280f9
-      - 4Mohsen-31decabd71
+      - 4Kian-524445b2bc
       - 4Jadi-81a0d1cf5c
-      - 4Mohsen-4cef2711d7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -92,10 +114,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - 🇳🇱
+      - 4Jadi-2abbc9a749
       - 4Sarina-226c3280f9
-      - 4Mohsen-31decabd71
+      - 4Kian-524445b2bc
       - 4Jadi-81a0d1cf5c
-      - 4Mohsen-4cef2711d7
 rules:
   - MATCH,Proxy

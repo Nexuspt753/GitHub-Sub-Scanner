@@ -1,25 +1,26 @@
 proxies:
-  - type: vless
-    name: vless
-    server: l23.hubnetwatchdssub.ir
-    port: 8443
-    uuid: a3db7a52-1be9-474e-b6f7-f381141e2f0d
+  - type: vmess
+    name: 4Kian-bf5dc2a816
+    server: dashboard.rozinhost.top
+    port: 41501
+    uuid: 40bb1f02-e58b-455b-a29c-86d2983fb08b
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Kian-bf5dc2a816
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Kian-bf5dc2a816
 rules:
   - MATCH,Proxy

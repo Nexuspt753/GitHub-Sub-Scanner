@@ -1,32 +1,32 @@
 proxies:
   - type: vless
-    name: 4Nika-319d4d93e2
-    server: 193.111.125.145
-    port: 443
-    uuid: 506ebf50-ea48-4279-aefd-fedff24e169f
+    name: DeltaKroneckerGithub
+    server: tutua.azad0namah.ir
+    port: 8080
+    uuid: e3026ffb-cde6-4cfe-b4b7-f76d5264e969
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: cTlyduukc4sr4PIi28XuydlyZA1tt-fquJF2eTIzmkM
-      short-id: 04a72ee1672dd21a
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: tutua.azad0namah.ir
+    port: 8080
+    uuid: f079a440-e5f6-46cc-bcaf-273c8cf4417d
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-319d4d93e2
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-319d4d93e2
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
