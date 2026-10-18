@@ -1,23 +1,62 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-ef1af09d84
-    server: de-node.rumedia-cdn.com
-    port: 25443
-    password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
-    sni: cf6.rumedia-cdn.com
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 144.31.131.38
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: prod.pl-node-01.security-sbrf.ru
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 144.31.125.60
+    port: 443
+    uuid: 9015f0bc-2053-4ca1-9b9b-a018b97b32d2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: SVgtyuD9khylgHuB0treGekxVSHPOS-wPZTNHUf6zj8
+      short-id: 85c86a9863
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4766388035
+    server: 144.31.131.38
+    port: 443
+    uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: prod.pl-node-01.security-sbrf.ru
+    reality-opts:
+      public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+      short-id: db04ce8bdb8900f1
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-ef1af09d84
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4FreeIran-4766388035
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-ef1af09d84
+      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4FreeIran-4766388035
 rules:
   - MATCH,Proxy

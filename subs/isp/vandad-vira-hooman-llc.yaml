@@ -1,23 +1,38 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-7f410323ae
+  - type: vmess
+    name: 4Jadi-cbe721fd23
     server: 195.177.255.233
-    port: 23433
-    uuid: b6a76646-8f18-4c40-8748-3b54b8a7f15e
+    port: 41343
+    uuid: 1714bc08-e888-4c47-9bcd-5fd750c6df0e
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-b5f0b587cf
+    server: 195.177.255.233
+    port: 19981
+    uuid: 6a5867dd-d0e7-4529-9ab9-90f40f08b2ee
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-7f410323ae
+      - 4Jadi-cbe721fd23
+      - 4Mohsen-b5f0b587cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-7f410323ae
+      - 4Jadi-cbe721fd23
+      - 4Mohsen-b5f0b587cf
 rules:
   - MATCH,Proxy

@@ -1,23 +1,31 @@
 proxies:
-  - type: ss
-    name: 4Mohsen-ecdf5b9737
-    server: 90.156.203.62
-    port: 5112
-    cipher: chacha20-ietf-poly1305
-    password: VVlAff77CnAU43Aoc5j15Y
+  - type: vless
+    name: EPODONIOS
+    server: 87.242.117.59
+    port: 443
+    uuid: c19ecc7f-8312-4d9d-90c9-1a997d82d3c5
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: se1.my-cdn.org
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-ecdf5b9737
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-ecdf5b9737
+      - EPODONIOS
 rules:
   - MATCH,Proxy

@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sazgar.serveirc.com
+  - type: vmess
+    name: 4Jadi-785e88496a
+    server: 37.110.209.228
+    port: 80
+    uuid: ecba5b33-f768-4d8a-b004-b29e8e5c676f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sazgar.serveirc.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-309e05b6c9
+      - 4Jadi-785e88496a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-309e05b6c9
+      - 4Jadi-785e88496a
 rules:
   - MATCH,Proxy

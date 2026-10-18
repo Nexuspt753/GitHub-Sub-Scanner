@@ -1,4 +1,13 @@
 proxies:
+  - type: vless
+    name: vless
+    server: l22.hubnetwatchdssub.ir
+    port: 8880
+    uuid: a3db7a52-1be9-474e-b6f7-f381141e2f0d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
   - type: vmess
     name: 4Kian-eec96cb446
     server: 176.120.17.222
@@ -30,19 +39,6 @@ proxies:
     server: 176.120.17.222
     port: 8080
     uuid: 2afac806-6ce1-46a8-8458-95ce8ba8d1c8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
-    name: 4Kian-30fa415eb9
-    server: 176.120.17.222
-    port: 8080
-    uuid: 5672d048-b2d2-4fbe-ac14-0bf2be92d408
     alterId: 0
     cipher: auto
     udp: true
@@ -121,10 +117,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
       - 4Kian-eec96cb446
       - 4FreeIran-072ac434ce
       - 4Kian-7f616518c2
-      - 4Kian-30fa415eb9
       - 4Jadi-db5b5f4b6b
       - 4Nika-8ce1f755ff
       - 4Jadi-cdafa9577f
@@ -136,10 +132,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - 4Kian-eec96cb446
       - 4FreeIran-072ac434ce
       - 4Kian-7f616518c2
-      - 4Kian-30fa415eb9
       - 4Jadi-db5b5f4b6b
       - 4Nika-8ce1f755ff
       - 4Jadi-cdafa9577f

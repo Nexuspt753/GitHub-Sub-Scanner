@@ -15,6 +15,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vs1.karmatel.ir
+  - type: vmess
+    name: EPODONIOS-01
+    server: ir.yzcq.ir
+    port: 2080
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: vless
     server: turk.karmatel.ir
@@ -22,6 +32,22 @@ proxies:
     uuid: cc880d02-4faf-4d22-bc87-2088256aa4e4
     udp: true
     xudp: true
+  - type: vless
+    name: Channel
+    server: turk.karmatel.ir
+    port: 2087
+    uuid: cc880d02-4faf-4d22-bc87-2088256aa4e4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: trt.karmatel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vs1.karmatel.ir
   - type: vless
     name: 4FreeIran-9341521ee4
     server: turk.karmatel.ir
@@ -64,7 +90,9 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - vless
+      - Channel
       - 4FreeIran-9341521ee4
       - 4Sarina-d10082c874
       - 4FreeIran-041f25cc29
@@ -75,7 +103,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - vless
+      - Channel
       - 4FreeIran-9341521ee4
       - 4Sarina-d10082c874
       - 4FreeIran-041f25cc29
