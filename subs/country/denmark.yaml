@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: Copenhagen · vless
-    server: bb63221bd6c3.salzivo.ir
-    port: 80
-    uuid: 768f325b-38e8-443c-9761-1cfcb17c4410
-    udp: true
-    xudp: true
-  - type: vless
-    name: Copenhagen · vless-01
-    server: cda46e33140b.salzivo.ir
-    port: 80
-    uuid: 768f325b-38e8-443c-9761-1cfcb17c4410
-    udp: true
-    xudp: true
-  - type: vless
     name: Copenhagen · 4Kian-1d036b122c
     server: 5.249.255.116
     port: 443
@@ -26,6 +12,22 @@ proxies:
     network: ws
     ws-opts:
       path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 20664.pages.dev
+  - type: vless
+    name: Copenhagen · 4Mohsen-079d711fdd
+    server: 5.249.255.116
+    port: 443
+    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: 20664.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 20664.pages.dev
@@ -49,23 +51,6 @@ proxies:
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: Nørre Åby · 4Sarina-d46c33665c
-    server: 193.180.211.155
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: Nørre Åby · 4Nika-40800d0355
     server: 193.180.211.155
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -121,12 +106,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Copenhagen · vless
-      - Copenhagen · vless-01
       - Copenhagen · 4Kian-1d036b122c
+      - Copenhagen · 4Mohsen-079d711fdd
       - Nørre Åby · 4Kian-0de4dd2eb0
       - Nørre Åby · 4Sarina-d46c33665c
-      - Nørre Åby · 4Nika-40800d0355
       - Nørre Åby · 4Nika-6f238e972e
       - Nørre Åby · 4Kian-f3108ca699
   - name: Auto
@@ -135,12 +118,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Copenhagen · vless
-      - Copenhagen · vless-01
       - Copenhagen · 4Kian-1d036b122c
+      - Copenhagen · 4Mohsen-079d711fdd
       - Nørre Åby · 4Kian-0de4dd2eb0
       - Nørre Åby · 4Sarina-d46c33665c
-      - Nørre Åby · 4Nika-40800d0355
       - Nørre Åby · 4Nika-6f238e972e
       - Nørre Åby · 4Kian-f3108ca699
 rules:

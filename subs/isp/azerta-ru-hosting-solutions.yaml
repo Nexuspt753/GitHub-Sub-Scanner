@@ -1,8 +1,22 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 80.66.89.192
-    port: 15443
+    name: 4Nika-7fb3c349da
+    server: e1-cz.edgemedia.lol
+    port: 22443
+    uuid: 9ebf4fda-7395-4800-b42f-b2dda649880a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ya.ru
+    reality-opts:
+      public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
+      short-id: d2061bb1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-6f98bed503
+    server: e1-nl.edgemedia.lol
+    port: 20443
     uuid: 9ebf4fda-7395-4800-b42f-b2dda649880a
     udp: true
     tls: true
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - 4Nika-7fb3c349da
+      - 4Jadi-6f98bed503
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - 4Nika-7fb3c349da
+      - 4Jadi-6f98bed503
 rules:
   - MATCH,Proxy

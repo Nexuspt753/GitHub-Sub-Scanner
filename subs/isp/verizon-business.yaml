@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-4865357345
+    server: prgkofwtqy.liberty-nodes.online
+    port: 8443
+    uuid: e259d3be-0a66-4e80-8d2a-66a82b30c960
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: n7uh8w2ad6.mail.ru
+    reality-opts:
+      public-key: nYrWjkzhBoGSNusIv7c-32q9M3-CmUcZRQT7WKURL0Y
+      short-id: 99bc67ffe37b513c
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-4865357345
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-4865357345
+rules:
+  - MATCH,Proxy

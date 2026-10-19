@@ -1,23 +1,46 @@
 proxies:
-  - type: ss
-    name: 4Jadi-2c6b6abb20
-    server: 134.195.101.119
-    port: 2377
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
+  - type: vless
+    name: 4FreeIran-0015f7f864
+    server: pq.us05.yydjc.top
+    port: 443
+    uuid: 0cf7bb7c-cf49-4e1c-aa98-f33cbe3cb156
     udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.mi.com
+    reality-opts:
+      public-key: ptYLYuVba16lu-OtadiE8Wd-cGHHVZh0XkxVUqrhmDE
+      short-id: 2546d239
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-a9b7b0aa8d
+    server: pq.us06.yydjc.top
+    port: 443
+    uuid: 0cf7bb7c-cf49-4e1c-aa98-f33cbe3cb156
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: iosapps.itunes.apple.com
+    reality-opts:
+      public-key: GRpUsIrhrxRKshbSbWFs1YmTyWzhTQXjAyjpRIFo1zs
+      short-id: beadc711
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-2c6b6abb20
+      - 4FreeIran-0015f7f864
+      - 4Sarina-a9b7b0aa8d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-2c6b6abb20
+      - 4FreeIran-0015f7f864
+      - 4Sarina-a9b7b0aa8d
 rules:
   - MATCH,Proxy

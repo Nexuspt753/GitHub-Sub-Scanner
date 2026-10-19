@@ -1,30 +1,50 @@
 proxies:
   - type: vless
-    name: Zagreb · 4FreeIran-a1c89572cc
-    server: 5.181.2.168
-    port: 443
-    uuid: 9d981e91-ed04-41f9-b8f1-b993c1585d4d
+    name: Zagreb · EPODONIOS
+    server: 2.56.175.179
+    port: 9443
+    uuid: 8179d7cc-82bc-4eae-a97f-5d30c6c2a812
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: hr1-4v.zvcorp24.com
+    servername: itunes.apple.com
     reality-opts:
-      public-key: FSoosmyb1Odcc6yucO4B-0YC0fKytdBbvuwJKn7Wbkg
-      short-id: 86afa150bc3a48f6
-    flow: xtls-rprx-vision
+      public-key: 8bhS-nnIN67a292RpJsCPzXQy4CzpzOVLTPn5CiAFyg
+      short-id: 6ba7b810
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Zagreb · @tootffarangi🍓
+    server: 2.56.175.179
+    port: 9443
+    uuid: 8179d7cc-82bc-4eae-a97f-5d30c6c2a812
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: itunes.apple.com
+    reality-opts:
+      public-key: 8bhS-nnIN67a292RpJsCPzXQy4CzpzOVLTPn5CiAFyg
+      short-id: 6ba7b810
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Zagreb · 4FreeIran-a1c89572cc
+      - Zagreb · EPODONIOS
+      - Zagreb · @tootffarangi🍓
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Zagreb · 4FreeIran-a1c89572cc
+      - Zagreb · EPODONIOS
+      - Zagreb · @tootffarangi🍓
 rules:
   - MATCH,Proxy

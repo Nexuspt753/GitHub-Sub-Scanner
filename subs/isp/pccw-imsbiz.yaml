@@ -13,32 +13,27 @@ proxies:
       short-id: 1a
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: t2.qifei.app
-    port: 59623
-    password: ef23ddd0-14c5-39c2-9880-af55ce892363
-    udp: true
-    tls: true
-    sni: t2.qifei.app
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: kaizen-hk-11.gocmydns.com
+  - type: vless
+    name: EPODONIOS
+    server: t9.qifei.app
     port: 443
-    password: 29db38f0-e302-3768-8867-0b9bf00c77e4cmynw
+    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
     udp: true
     tls: true
-    sni: images.apple.com
     client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
+      short-id: 1a
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,7 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - EPODONIOS
 rules:
   - MATCH,Proxy
