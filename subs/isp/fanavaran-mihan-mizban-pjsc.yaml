@@ -1,32 +1,50 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: trial.irgemini.sbs
-    port: 11681
-    uuid: e784df77-dfb0-4e44-8ca7-073776596d98
+  - type: vmess
+    name: 4FreeIran-b5b4c34424
+    server: dl1.armd.fun
+    port: 443
+    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-  - type: vless
-    name: 4Jadi-b45ab7e1fb
-    server: trial.irgemini.sbs
-    port: 11681
-    uuid: e784df77-dfb0-4e44-8ca7-073776596d98
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-84674152fd
+    server: dl1.armd.fun
+    port: 443
+    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-ce9a599b3e
+    server: dl1.armd.fun
+    port: 443
+    uuid: 72ec8eaf-6a67-4026-aea6-963e3a9ca16a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Jadi-b45ab7e1fb
+      - 4FreeIran-b5b4c34424
+      - 4Kian-84674152fd
+      - 4Nika-ce9a599b3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Jadi-b45ab7e1fb
+      - 4FreeIran-b5b4c34424
+      - 4Kian-84674152fd
+      - 4Nika-ce9a599b3e
 rules:
   - MATCH,Proxy

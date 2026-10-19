@@ -1,0 +1,144 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+  - type: vless
+    name: EPODONIOS-01
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-02
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+  - type: vless
+    name: 4Jadi-dab8c5b55f
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+  - type: vless
+    name: 4Jadi-b06e16fdfd
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-ccf6005669
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+  - type: vless
+    name: 4Jadi-8399504d37
+    server: cdn.topingr.ir
+    port: 443
+    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - /--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/NLSus--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/NLSus--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/NLSus--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/--@VPNine1--@VPNine1/1.1
+    servername: cdn.topingr.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /gropcdnfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.topingr.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Jadi-dab8c5b55f
+      - 4Jadi-b06e16fdfd
+      - 4Sarina-ccf6005669
+      - 4Jadi-8399504d37
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - 4Jadi-dab8c5b55f
+      - 4Jadi-b06e16fdfd
+      - 4Sarina-ccf6005669
+      - 4Jadi-8399504d37
+rules:
+  - MATCH,Proxy

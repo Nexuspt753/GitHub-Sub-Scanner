@@ -1,35 +1,9 @@
 proxies:
   - type: vmess
-    name: 4Kian-eec96cb446
-    server: 176.120.17.222
-    port: 8080
-    uuid: 2afac806-6ce1-46a8-8458-95ce8ba8d1c8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
     name: 4FreeIran-072ac434ce
     server: 176.120.17.222
     port: 8080
     uuid: 3f6cdf7d-e4f4-4c11-8474-63c50ccba633
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
-    name: 4Kian-30fa415eb9
-    server: 176.120.17.222
-    port: 8080
-    uuid: 5672d048-b2d2-4fbe-ac14-0bf2be92d408
     alterId: 0
     cipher: auto
     udp: true
@@ -90,30 +64,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Kian-a8c554e0ff
+    server: Nls1.zelnora.ir
+    port: 64586
+    uuid: c9ffeaea-cf8e-4f37-9a40-7cd4ca042aeb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-eec96cb446
       - 4FreeIran-072ac434ce
-      - 4Kian-30fa415eb9
       - 4Jadi-db5b5f4b6b
       - 4Jadi-cdafa9577f
       - 4Mohsen-c8ffb9f188
       - 4FreeIran-e4db6e404e
+      - 4Kian-a8c554e0ff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-eec96cb446
       - 4FreeIran-072ac434ce
-      - 4Kian-30fa415eb9
       - 4Jadi-db5b5f4b6b
       - 4Jadi-cdafa9577f
       - 4Mohsen-c8ffb9f188
       - 4FreeIran-e4db6e404e
+      - 4Kian-a8c554e0ff
 rules:
   - MATCH,Proxy

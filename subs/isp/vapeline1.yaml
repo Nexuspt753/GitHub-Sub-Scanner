@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 111.92.240.90
+    port: 8443
+    uuid: ed0b0682-5734-4a50-8728-db68d44a1b94
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nvl-edge-dr-141026.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=ProxyIP.HK.CMLiussss.Net
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nvl-edge-dr-141026.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 195.26.26.148
+    port: 23630
+    uuid: d5d3b6bf-a31b-41db-af17-602aa850bcfc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: wOiCGeBUrh5RJ32-bf78duMQLJKCEXB4g9zHO-xE7UA
+      short-id: 776ef49ecba6b7
+    xudp: true
   - type: vmess
     name: 4Sarina-efb2c4047b
     server: 45.138.72.141
@@ -22,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 4Sarina-efb2c4047b
   - name: Auto
     type: url-test
@@ -29,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 4Sarina-efb2c4047b
 rules:
   - MATCH,Proxy

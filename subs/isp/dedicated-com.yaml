@@ -1,5 +1,26 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 216.105.168.18
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: hCCWOcIsK5wrFz4OX70rWf
+    udp: true
+  - type: ss
+    name: EPODONIOS-01
+    server: 64.74.163.67
+    port: 18764
+    cipher: aes-128-gcm
+    password: 4efe1af272e7292139b889f6a63ee071
+    udp: true
+  - type: ss
+    name: EPODONIOS-02
+    server: 64.74.163.69
+    port: 18766
+    cipher: aes-128-gcm
+    password: 4efe1af272e7292139b889f6a63ee071
+    udp: true
+  - type: ss
     name: V2ray_Alpha🌡️
     server: 64.74.163.67
     port: 18764
@@ -56,21 +77,14 @@ proxies:
     password: 4efe1af272e7292139b889f6a63ee071
     udp: true
   - type: ss
-    name: EPODONIOS
+    name: EPODONIOS-03
     server: 64.74.163.67
     port: 18764
     cipher: aes-128-gcm
     password: 4efe1af272e7292139b889f6a63ee071
     udp: true
   - type: ss
-    name: EPODONIOS-01
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
-    udp: true
-  - type: ss
-    name: EPODONIOS-02
+    name: EPODONIOS-04
     server: 64.74.163.69
     port: 18766
     cipher: aes-128-gcm
@@ -106,17 +120,20 @@ proxies:
     password: 4efe1af272e7292139b889f6a63ee071
     udp: true
   - type: ss
-    name: 🇺🇸US-216.105.168.18-0235
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: hCCWOcIsK5wrFz4OX70rWf
+    name: 🇺🇸US-64.74.163.69-0083
+    server: 64.74.163.69
+    port: 18766
+    cipher: aes-128-gcm
+    password: 4efe1af272e7292139b889f6a63ee071
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - V2ray_Alpha🌡️
       - vasl_bashim
       - 4Mohsen-6afa29ebda
@@ -125,20 +142,22 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
       - 4FreeIran-877bac3e73
       - 4Mohsen-04f8eb6d2d
       - 4FreeIran-6303714ca4
       - 🇺🇸US-64.74.163.67-0416
-      - 🇺🇸US-216.105.168.18-0235
+      - 🇺🇸US-64.74.163.69-0083
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - EPODONIOS-02
       - V2ray_Alpha🌡️
       - vasl_bashim
       - 4Mohsen-6afa29ebda
@@ -147,13 +166,12 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
+      - EPODONIOS-03
+      - EPODONIOS-04
       - 4FreeIran-877bac3e73
       - 4Mohsen-04f8eb6d2d
       - 4FreeIran-6303714ca4
       - 🇺🇸US-64.74.163.67-0416
-      - 🇺🇸US-216.105.168.18-0235
+      - 🇺🇸US-64.74.163.69-0083
 rules:
   - MATCH,Proxy
