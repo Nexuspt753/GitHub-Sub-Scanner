@@ -1,86 +1,28 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 2.144.28.28
-    port: 443
-    uuid: bc6c9172-07cc-47ff-91c7-e9e277539e77
+    name: vless
+    server: kaveh4.gofuc7f.ir
+    port: 8443
+    uuid: 647f3600-112a-406c-9d19-6d1da58ff041
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vip2.polnejat.ir
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-6757d8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip2.polnejat.ir
-  - type: vless
-    name: 🇮🇷196797
-    server: 2.144.28.28
-    port: 443
-    uuid: bc6c9172-07cc-47ff-91c7-e9e277539e77
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip2.polnejat.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-6757d8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip2.polnejat.ir
-  - type: vless
-    name: 🇮🇷IR-🚀@VPNine1
-    server: 2.144.28.28
-    port: 443
-    uuid: bc6c9172-07cc-47ff-91c7-e9e277539e77
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip2.polnejat.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-6757d8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip2.polnejat.ir
-  - type: vless
-    name: 4Nika-91289d4fc5
-    server: 2.144.28.28
-    port: 443
-    uuid: bc6c9172-07cc-47ff-91c7-e9e277539e77
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vip2.polnejat.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /nova-6757d8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vip2.polnejat.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇮🇷196797
-      - 🇮🇷IR-🚀@VPNine1
-      - 4Nika-91289d4fc5
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇮🇷196797
-      - 🇮🇷IR-🚀@VPNine1
-      - 4Nika-91289d4fc5
+      - vless
 rules:
   - MATCH,Proxy

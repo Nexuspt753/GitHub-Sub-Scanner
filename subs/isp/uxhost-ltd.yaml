@@ -1,16 +1,11 @@
 proxies:
   - type: hysteria2
-    name: 4Sarina-3fe6c6a250
+    name: 4Sarina-7461955a64
     server: 104.165.205.42
     port: 8443
     password: 990c8eb6-4c4e-4277-8602-79af8402cdd0
     sni: speedtestmark.com
-  - type: hysteria2
-    name: 4Nika-442a84830b
-    server: 104.165.205.42
-    port: 8443
-    password: 990c8eb6-4c4e-4277-8602-79af8402cdd0
-    sni: speedtestmark.com
+    skip-cert-verify: true
   - type: vless
     name: EPODONIOS
     server: 45.88.12.168
@@ -39,6 +34,23 @@ proxies:
     alpn:
       - http/1.1
     servername: crt.molniya.sbs
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Channel
+    server: 45.88.12.168
+    port: 2083
+    uuid: 5062e1a7-89aa-4bd0-be2a-4f4a88f6c325
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: va.stream-room.com
     xudp: true
     network: ws
     ws-opts:
@@ -203,10 +215,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-3fe6c6a250
-      - 4Nika-442a84830b
+      - 4Sarina-7461955a64
       - EPODONIOS
       - EPODONIOS-01
+      - Channel
       - tootffarangi🍓-5
       - ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️📶‎🛰️610🌐🆕
       - EPODONIOS-02
@@ -222,10 +234,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-3fe6c6a250
-      - 4Nika-442a84830b
+      - 4Sarina-7461955a64
       - EPODONIOS
       - EPODONIOS-01
+      - Channel
       - tootffarangi🍓-5
       - ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️📶‎🛰️610🌐🆕
       - EPODONIOS-02

@@ -1,37 +1,21 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: EPODONIOS
-    server: f36.tivexabot.ir
-    port: 8443
-    uuid: cf89fddb-e76b-430e-8952-61e33d4da4a6
+    server: 86.54.42.16
+    port: 27613
+    password: lzi0ooaq8vgy1536
     udp: true
     tls: true
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: stg-ru-images.shop.samsung.com
-    reality-opts:
-      public-key: QJ0hQw2eD-EVhhGSr28CN10dVFDNGKgaIZ8spSZFO3M
-      short-id: 19fad7d75677e2
-    xudp: true
-  - type: vless
-    name: 4Jadi-0f4bd5edef
-    server: f36.tivexabot.ir
-    port: 8443
-    uuid: cf89fddb-e76b-430e-8952-61e33d4da4a6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: stg-ru-images.shop.samsung.com
-    reality-opts:
-      public-key: QJ0hQw2eD-EVhhGSr28CN10dVFDNGKgaIZ8spSZFO3M
-      short-id: 19fad7d75677e2
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Jadi-0f4bd5edef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Jadi-0f4bd5edef
 rules:
   - MATCH,Proxy

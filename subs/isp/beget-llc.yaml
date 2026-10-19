@@ -1,4 +1,29 @@
 proxies:
+  - type: vless
+    name: 4Nika-4fcf243370
+    server: ru.msk.nurcloud.org
+    port: 443
+    uuid: 1ab9e166-5a54-48b9-a07f-79d1d840ae21
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru.msk.nurcloud.org
+    reality-opts:
+      public-key: j1p0hmghXQkpoamrREgYJMcK7D_y3I2gxqy9RzjOD2I
+      short-id: d2cf64ff98c7c4ca
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-d8ec184fec
+    server: ru.msk.nurcloud.org
+    port: 443
+    uuid: 1ab9e166-5a54-48b9-a07f-79d1d840ae21
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru.msk.nurcloud.org
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Nika-f4154fad58
     server: 45.144.179.138
@@ -19,6 +44,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-4fcf243370
+      - 4Jadi-d8ec184fec
       - 4Nika-f4154fad58
   - name: Auto
     type: url-test
@@ -26,6 +53,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-4fcf243370
+      - 4Jadi-d8ec184fec
       - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy
