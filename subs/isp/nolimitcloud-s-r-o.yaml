@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: 4Nika-c3111b0bfd
-    server: 82.39.212.230
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
     name: 4Mohsen-7d11e95399
     server: 82.39.212.230
     port: 443
@@ -36,7 +20,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-c3111b0bfd
       - 4Mohsen-7d11e95399
   - name: Auto
     type: url-test
@@ -44,7 +27,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-c3111b0bfd
       - 4Mohsen-7d11e95399
 rules:
   - MATCH,Proxy

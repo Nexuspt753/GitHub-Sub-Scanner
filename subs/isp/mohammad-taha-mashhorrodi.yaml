@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: tootffarangi🍓
-    server: ir28482.jdjcr.3842.marzara.ir
-    port: 1111
-    cipher: chacha20-ietf-poly1305
-    password: GnAQGwBq6QpfM5VbvOSVuA
-    udp: true
   - type: vless
     name: EPODONIOS
     server: turk.karmatel.ir
@@ -54,24 +47,58 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vs1.karmatel.ir
+  - type: vmess
+    name: 4Jadi-d8b182a1c5
+    server: eeetst.aparatratinfo.ir
+    port: 8443
+    uuid: 4b89551a-7b7c-442b-b790-207e48229045
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-48aa985d03
+    server: eeetst.aparatratinfo.ir
+    port: 8443
+    uuid: 8f2c5026-bfb0-414a-8600-d1660023bb08
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-cea075bc2c
+    server: ir.yzcq.ir
+    port: 2070
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - tootffarangi🍓
       - EPODONIOS
       - Channel
       - 4FreeIran-9341521ee4
+      - 4Jadi-d8b182a1c5
+      - 4Nika-48aa985d03
+      - 4Sarina-cea075bc2c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - tootffarangi🍓
       - EPODONIOS
       - Channel
       - 4FreeIran-9341521ee4
+      - 4Jadi-d8b182a1c5
+      - 4Nika-48aa985d03
+      - 4Sarina-cea075bc2c
 rules:
   - MATCH,Proxy

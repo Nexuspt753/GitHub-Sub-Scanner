@@ -1,50 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Kian-16258fd867
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: bmjuu30hbh.apppas.ir
+    port: 43234
+    uuid: c010cadf-c454-4df1-a857-fc123b446776
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
+      short-id: b7e45d3a65bfc319
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
-  - type: vmess
-    name: 4Mohsen-3e52590932
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-16258fd867
-      - 4Mohsen-3e52590932
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-16258fd867
-      - 4Mohsen-3e52590932
+      - EPODONIOS
 rules:
   - MATCH,Proxy

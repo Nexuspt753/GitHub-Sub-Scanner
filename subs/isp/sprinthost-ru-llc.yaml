@@ -13,12 +13,27 @@ proxies:
       short-id: d7c8227902c1d878
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 191.44.47.164
+    port: 25565
+    uuid: 38d97d6f-b640-4eb0-9891-bbaf2061d6db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kookas.fi
+    reality-opts:
+      public-key: qB_eMu3ZO_wGITnyIqJ7Kt39-h9oHFnHlQQEqA-r3VA
+      short-id: 43dcff53849b81e6
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
 rules:
   - MATCH,Proxy
