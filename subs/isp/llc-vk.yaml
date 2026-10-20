@@ -1,19 +1,4 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 217.16.17.127
-    port: 25565
-    password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
-    udp: true
-    tls: true
-    sni: vkc2.safesurf.cloud
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: firefox
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: EPODONIOS
     server: ru.sparxiecn.com
@@ -30,6 +15,20 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-01
+    server: 217.16.31.218
+    port: 443
+    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-02
     server: 217.16.31.218
     port: 443
     uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
@@ -131,9 +130,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
       - v2ray_configs_pools⚡
       - prrofile_purple
       - prrofile_purple-01
@@ -146,9 +145,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
+      - EPODONIOS-02
       - v2ray_configs_pools⚡
       - prrofile_purple
       - prrofile_purple-01

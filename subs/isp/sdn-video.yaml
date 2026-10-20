@@ -2,15 +2,9 @@ proxies:
   - type: vless
     name: vless
     server: 78.159.246.179
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+    port: 8443
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - ""
-    servername: randomquaint.net
     xudp: true
   - type: vless
     name: vless-01
@@ -20,17 +14,11 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: 4Kian-b74ad3b865
+    name: vless-02
     server: 78.159.246.179
-    port: 2053
+    port: 8443
     uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-      - h2
-    servername: randomquaint.net
     xudp: true
   - type: vless
     name: 4Mohsen-3ddb901fa2
@@ -52,7 +40,7 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
-      - 4Kian-b74ad3b865
+      - vless-02
       - 4Mohsen-3ddb901fa2
   - name: Auto
     type: url-test
@@ -62,7 +50,7 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
-      - 4Kian-b74ad3b865
+      - vless-02
       - 4Mohsen-3ddb901fa2
 rules:
   - MATCH,Proxy

@@ -1,0 +1,33 @@
+proxies:
+  - type: vmess
+    name: 4Jadi-55e30c939a
+    server: 2.58.104.11
+    port: 8443
+    uuid: 6006c9a2-c0a2-4cda-80f2-405b0d790fc8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /KualaLumpur1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: my.frnhk.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-55e30c939a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-55e30c939a
+rules:
+  - MATCH,Proxy

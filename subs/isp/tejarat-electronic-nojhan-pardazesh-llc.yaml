@@ -8,28 +8,25 @@ proxies:
     xudp: true
     network: ws
     ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS-01
-    server: dnld.chaqalli.com
-    port: 8180
-    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
       path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: vless
+    server: tun2.krizor.ir
+    port: 7018
+    uuid: 7bf337e7-5034-452a-86c4-fb14bf86815d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
+      - vless
 rules:
   - MATCH,Proxy

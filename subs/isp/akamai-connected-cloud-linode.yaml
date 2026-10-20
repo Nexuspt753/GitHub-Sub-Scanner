@@ -1,26 +1,12 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: free.nadun.store
-    port: 443
-    uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: DeltaKroneckerGithub-01
+    name: EPODONIOS
     server: 45.118.133.249
     port: 443
     uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: free.nadun.store
     xudp: true
     network: ws
@@ -28,20 +14,37 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free.nadun.store
+  - type: vless
+    name: "[75431]"
+    server: 45.118.133.249
+    port: 443
+    uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: free.nadun.store
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free.nadun.store
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - "[75431]"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - EPODONIOS
+      - "[75431]"
 rules:
   - MATCH,Proxy

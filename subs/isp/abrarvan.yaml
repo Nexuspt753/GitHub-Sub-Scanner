@@ -1,28 +1,26 @@
 proxies:
-  - type: vless
-    name: vless
-    server: 45.82.138.226
-    port: 8443
-    uuid: f9e47c0e-f2ce-46dc-aa01-7fb43181ca71
+  - type: vmess
+    name: 4FreeIran-b5b4c34424
+    server: dl1.armd.fun
+    port: 443
+    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4FreeIran-b5b4c34424
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4FreeIran-b5b4c34424
 rules:
   - MATCH,Proxy

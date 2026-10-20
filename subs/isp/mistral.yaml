@@ -1,21 +1,41 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: EPODONIOS
-    server: 86.54.42.16
-    port: 27613
-    password: lzi0ooaq8vgy1536
+    server: s10.redmbred.ir
+    port: 37857
+    uuid: d245babf-9c2c-4bde-bcbe-4b22612c4eec
     udp: true
-    tls: true
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: s10.redmbred.ir
+    port: 37857
+    uuid: d245babf-9c2c-4bde-bcbe-4b22612c4eec
+    udp: true
+    xudp: true
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: s10.redmbred.ir
+    port: 37857
+    uuid: d245babf-9c2c-4bde-bcbe-4b22612c4eec
+    udp: true
+    xudp: true
+  - type: vless
+    name: tootffarangi🍓
+    server: s10.redmbred.ir
+    port: 37857
+    uuid: d245babf-9c2c-4bde-bcbe-4b22612c4eec
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇷IR-🚀@VPNine1
+      - tootffarangi🍓
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +43,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇷IR-🚀@VPNine1
+      - tootffarangi🍓
 rules:
   - MATCH,Proxy
