@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: EPODONIOS
-    server: 146.70.147.91
-    port: 10815
-    cipher: aes-128-gcm
-    password: b98bf791703c12f897ae4576facc5a94
-    udp: true
-  - type: ss
     name: 🇺🇸197248
     server: 146.70.147.91
     port: 10815
@@ -28,6 +21,20 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: firefox
+    servername: www.datadoghq.com
+    reality-opts:
+      public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
+      short-id: fe24f8a0a560056e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
+    server: 146.70.124.85
+    port: 443
+    uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: www.datadoghq.com
     reality-opts:
       public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
@@ -62,20 +69,6 @@ proxies:
       short-id: fe24f8a0a560056e
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: EPODONIOS-03
-    server: 146.70.124.85
-    port: 443
-    uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.datadoghq.com
-    reality-opts:
-      public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
-      short-id: fe24f8a0a560056e
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: 4Sarina-7267b40ac2
     server: 146.70.147.91
@@ -83,20 +76,6 @@ proxies:
     cipher: aes-128-gcm
     password: b98bf791703c12f897ae4576facc5a94
     udp: true
-  - type: vless
-    name: 🇷🇴
-    server: 146.70.124.85
-    port: 443
-    uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.datadoghq.com
-    reality-opts:
-      public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
-      short-id: fe24f8a0a560056e
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: VConfing
     server: 146.70.124.85
@@ -210,20 +189,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-eef1207896
-    server: 146.70.124.85
-    port: 443
-    uuid: 40abbe13-f02e-4da2-9b19-966c2c3eb4ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.datadoghq.com
-    reality-opts:
-      public-key: byzvlw97wjAAAfHs5AZRV0P0H6_JKBEZ4yfLS0HNewE
-      short-id: fe24f8a0a560056e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-379acc89b1
     server: 146.70.124.85
     port: 443
@@ -234,52 +199,18 @@ proxies:
     servername: www.datadoghq.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-52ea9a3b6a
-    server: 146.70.233.51
-    port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
-  - type: vless
-    name: 4Kian-159730ae2c
-    server: 146.70.233.51
-    port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 🇺🇸197248
       - 🇺🇸US-🚀@VPNine1
       - DeltaKroneckerGithub
+      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - 4Sarina-7267b40ac2
-      - 🇷🇴
       - VConfing
       - meliproxyy
       - v2ray_phoenix
@@ -289,25 +220,20 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - 4FreeIran-14fa4f26aa
       - 4Sarina-979d694e51
-      - 4Kian-eef1207896
       - 4Nika-379acc89b1
-      - 4Nika-52ea9a3b6a
-      - 4Kian-159730ae2c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 🇺🇸197248
       - 🇺🇸US-🚀@VPNine1
       - DeltaKroneckerGithub
+      - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - 4Sarina-7267b40ac2
-      - 🇷🇴
       - VConfing
       - meliproxyy
       - v2ray_phoenix
@@ -317,9 +243,6 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - 4FreeIran-14fa4f26aa
       - 4Sarina-979d694e51
-      - 4Kian-eef1207896
       - 4Nika-379acc89b1
-      - 4Nika-52ea9a3b6a
-      - 4Kian-159730ae2c
 rules:
   - MATCH,Proxy

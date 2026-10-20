@@ -1,31 +1,32 @@
 proxies:
   - type: vless
-    name: 4FreeIran-52f051ce55
-    server: unitedstates.avara.fit
+    name: 4FreeIran-f9cf9f66b5
+    server: 172.93.219.9
     port: 443
-    uuid: 2f7d9a89-c3a1-4d25-9f83-380048bbb38a
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: unitedstates.avara.fit
-    reality-opts:
-      public-key: WxIRkeZp5fISvmcQL0ZZs-VbMoS0FDDadMKwatzwljk
+    servername: snip.edgeoneai.cc.cd
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-52f051ce55
+      - 4FreeIran-f9cf9f66b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-52f051ce55
+      - 4FreeIran-f9cf9f66b5
 rules:
   - MATCH,Proxy

@@ -16,12 +16,22 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: 4Mohsen-db84846537
+    name: DeltaKroneckerGithub
     server: 139.59.186.54
     port: 443
     password: humanity
     udp: true
-    client-fingerprint: chrome
+    tls: true
+    sni: www.volumeroot.com
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.volumeroot.com
   - type: trojan
     name: 4Jadi-c417a1e561
     server: 139.59.238.97
@@ -37,7 +47,7 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - 🇬🇧
-      - 4Mohsen-db84846537
+      - DeltaKroneckerGithub
       - 4Jadi-c417a1e561
   - name: Auto
     type: url-test
@@ -47,7 +57,7 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - 🇬🇧
-      - 4Mohsen-db84846537
+      - DeltaKroneckerGithub
       - 4Jadi-c417a1e561
 rules:
   - MATCH,Proxy

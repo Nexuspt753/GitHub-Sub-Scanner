@@ -1,4 +1,39 @@
 proxies:
+  - type: vless
+    name: Bishkek · 4Sarina-63ccee5e62
+    server: 188.240.213.98
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: Bishkek · 4Sarina-93e9423c96
+    server: 193.36.95.34
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vmess
     name: Bishkek · 4FreeIran-9ee98f962f
     server: 185.48.136.150
@@ -38,6 +73,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Bishkek · 4Sarina-63ccee5e62
+      - Bishkek · 4Sarina-93e9423c96
       - Bishkek · 4FreeIran-9ee98f962f
       - Bishkek · 4Mohsen-906fa6016c
   - name: Auto
@@ -46,6 +83,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Bishkek · 4Sarina-63ccee5e62
+      - Bishkek · 4Sarina-93e9423c96
       - Bishkek · 4FreeIran-9ee98f962f
       - Bishkek · 4Mohsen-906fa6016c
 rules:

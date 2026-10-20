@@ -16,37 +16,28 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Copenhagen · 4Kian-1d036b122c
-    server: 5.249.255.116
-    port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
+    name: Copenhagen · vless
+    server: cda46e33140b.salzivo.ir
+    port: 80
+    uuid: 0873316d-539b-498f-bba2-04d37dfb1cb5
     udp: true
-    tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
   - type: vless
-    name: Copenhagen · 4Mohsen-079d711fdd
-    server: 5.249.255.116
+    name: Nørre Åby · 4Nika-4a0881f902
+    server: 193.180.208.167
     port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
+        Host: snip.edgeoneai.cc.cd
   - type: vmess
     name: Nørre Åby · 4Kian-0de4dd2eb0
     server: 193.180.211.155
@@ -117,18 +108,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: Nørre Åby · 4Kian-dcb5d550f9
+    server: 193.181.212.81
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Rødding · @DeltaKroneckerGithub
-      - Copenhagen · 4Kian-1d036b122c
-      - Copenhagen · 4Mohsen-079d711fdd
+      - Copenhagen · vless
+      - Nørre Åby · 4Nika-4a0881f902
       - Nørre Åby · 4Kian-0de4dd2eb0
       - Nørre Åby · 4Sarina-d46c33665c
       - Nørre Åby · 4Nika-6f238e972e
       - Nørre Åby · 4Kian-f3108ca699
+      - Nørre Åby · 4Kian-dcb5d550f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -136,11 +145,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Rødding · @DeltaKroneckerGithub
-      - Copenhagen · 4Kian-1d036b122c
-      - Copenhagen · 4Mohsen-079d711fdd
+      - Copenhagen · vless
+      - Nørre Åby · 4Nika-4a0881f902
       - Nørre Åby · 4Kian-0de4dd2eb0
       - Nørre Åby · 4Sarina-d46c33665c
       - Nørre Åby · 4Nika-6f238e972e
       - Nørre Åby · 4Kian-f3108ca699
+      - Nørre Åby · 4Kian-dcb5d550f9
 rules:
   - MATCH,Proxy

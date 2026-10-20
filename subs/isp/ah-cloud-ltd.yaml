@@ -1,0 +1,43 @@
+proxies:
+  - type: vless
+    name: 4Sarina-f0d9e07ac3
+    server: 185.139.7.254
+    port: 8080
+    uuid: 2e2409a6-ed8d-4d6c-9765-73d0245f11f0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.parliament.uk
+    reality-opts:
+      public-key: JMK1eCWs3Lzw5O0OjisTlZo4WaSCpIvaG5AB2YYgjnE
+      short-id: a5252fb47a0e9c6f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-0671915969
+    server: 185.139.7.254
+    port: 8080
+    uuid: 2e2409a6-ed8d-4d6c-9765-73d0245f11f0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.parliament.uk
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-f0d9e07ac3
+      - 4Mohsen-0671915969
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-f0d9e07ac3
+      - 4Mohsen-0671915969
+rules:
+  - MATCH,Proxy

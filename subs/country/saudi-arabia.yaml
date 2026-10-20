@@ -1,5 +1,40 @@
 proxies:
   - type: vless
+    name: Riyadh · 4Jadi-5b0bd1914a
+    server: 130.94.58.215
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: Riyadh · 4FreeIran-a172c0b277
+    server: 130.94.58.215
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: Jeddah · 4Sarina-dce181d05e
     server: 81.208.170.142
     port: 1500
@@ -17,6 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Riyadh · 4Jadi-5b0bd1914a
+      - Riyadh · 4FreeIran-a172c0b277
       - Jeddah · 4Sarina-dce181d05e
   - name: Auto
     type: url-test
@@ -24,6 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Riyadh · 4Jadi-5b0bd1914a
+      - Riyadh · 4FreeIran-a172c0b277
       - Jeddah · 4Sarina-dce181d05e
 rules:
   - MATCH,Proxy

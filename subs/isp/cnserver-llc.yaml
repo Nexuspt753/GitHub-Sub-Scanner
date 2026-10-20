@@ -1,52 +1,50 @@
 proxies:
-  - type: vmess
-    name: 4Kian-883b045a13
-    server: 144.225.130.23
+  - type: vless
+    name: 4Kian-b5e3ffca57
+    server: 166.88.33.135
     port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
     network: ws
     ws-opts:
-      path: /api/v1/gpu-stream/socket
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Mohsen-ec1afb4768
-    server: 144.225.130.23
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Sarina-3ae2f018e1
+    server: 192.6.161.16
     port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
     network: ws
     ws-opts:
-      path: /api/v1/gpu-stream/socket
+      path: /fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-883b045a13
-      - 4Mohsen-ec1afb4768
+      - 4Kian-b5e3ffca57
+      - 4Sarina-3ae2f018e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-883b045a13
-      - 4Mohsen-ec1afb4768
+      - 4Kian-b5e3ffca57
+      - 4Sarina-3ae2f018e1
 rules:
   - MATCH,Proxy

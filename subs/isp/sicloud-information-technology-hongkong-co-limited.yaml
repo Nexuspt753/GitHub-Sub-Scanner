@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: 4Jadi-e6818ac187
+    server: 154.19.187.190
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Kian-956f829422
+    server: 38.47.52.252
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Sarina-64d63db6fb
     server: 154.19.187.190
     port: 443
@@ -20,6 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-e6818ac187
+      - 4Kian-956f829422
       - 4Sarina-64d63db6fb
   - name: Auto
     type: url-test
@@ -27,6 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-e6818ac187
+      - 4Kian-956f829422
       - 4Sarina-64d63db6fb
 rules:
   - MATCH,Proxy

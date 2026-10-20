@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Jadi-346b826bf0
+    server: 185.230.230.18
+    port: 19999
+    cipher: aes-256-gcm
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-346b826bf0
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-346b826bf0
+rules:
+  - MATCH,Proxy

@@ -1,34 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 94.20.154.22
+    name: 4Sarina-fabcf998c9
+    server: 94.20.154.66
     port: 443
-    uuid: a5194487-9b9a-462f-a047-ac7580d80201
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: kotakbla.b-cdn.net
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: kotakbla.b-cdn.net
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-fabcf998c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-fabcf998c9
 rules:
   - MATCH,Proxy
