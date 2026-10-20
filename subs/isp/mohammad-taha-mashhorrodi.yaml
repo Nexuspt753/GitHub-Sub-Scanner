@@ -1,30 +1,4 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-9341521ee4
-    server: turk.karmatel.ir
-    port: 2087
-    uuid: cc880d02-4faf-4d22-bc87-2088256aa4e4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: trt.karmatel.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vs1.karmatel.ir
-  - type: vmess
-    name: 4Jadi-d8b182a1c5
-    server: eeetst.aparatratinfo.ir
-    port: 8443
-    uuid: 4b89551a-7b7c-442b-b790-207e48229045
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vmess
     name: 4Nika-48aa985d03
     server: eeetst.aparatratinfo.ir
@@ -35,22 +9,30 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-041f25cc29
+    server: ir.yzcq.ir
+    port: 2030
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-9341521ee4
-      - 4Jadi-d8b182a1c5
       - 4Nika-48aa985d03
+      - 4FreeIran-041f25cc29
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-9341521ee4
-      - 4Jadi-d8b182a1c5
       - 4Nika-48aa985d03
+      - 4FreeIran-041f25cc29
 rules:
   - MATCH,Proxy

@@ -1,26 +1,59 @@
 proxies:
   - type: vless
-    name: 4Jadi-6d7cc97fbb
-    server: 193.223.106.13
-    port: 33742
-    uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+    name: DeltaKroneckerGithub
+    server: node3.yandexdns.ru
+    port: 443
+    uuid: 50c7eb08-96d2-47ef-92da-014a24b3350f
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 193.223.107.102
+    port: 443
+    uuid: 50c7eb08-96d2-47ef-92da-014a24b3350f
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: fi-966ffd3f4f.shamanapp.online
+    servername: www.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 193.223.107.91
+    port: 443
+    uuid: 50c7eb08-96d2-47ef-92da-014a24b3350f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6d7cc97fbb
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6d7cc97fbb
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

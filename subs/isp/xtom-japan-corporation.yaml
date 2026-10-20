@@ -1,18 +1,51 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 103.47.186.8
+    port: 443
+    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: u.srilankangrill.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: u.srilankangrill.online
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.153.246.5
+    port: 443
+    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: u.srilankangrill.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: u.srilankangrill.online
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: ty-4.rise-fuji.com
     port: 443
     password: PTTQuc24JKqW2hKVBf
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: ty-3.tr202605.com
+    name: DeltaKroneckerGithub-03
+    server: 185.184.223.47
     port: 443
-    password: owreRY1bmquS1WcYN2
+    password: Aimer
     udp: true
     tls: true
+    sni: epme.ambercc.filegear-sg.me
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -21,6 +54,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +64,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

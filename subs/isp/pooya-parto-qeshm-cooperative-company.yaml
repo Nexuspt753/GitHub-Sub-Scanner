@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: ICV2RAY
     server: cdn.topingr.ir
     port: 443
     uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
@@ -18,7 +18,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn.topingr.ir
   - type: vless
-    name: EPODONIOS-01
+    name: ICV2RAY-01
     server: cdn.topingr.ir
     port: 443
     uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
@@ -33,49 +33,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: EPODONIOS-02
+    name: ICV2RAY-02
     server: cdn.topingr.ir
     port: 443
     uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: cdn.topingr.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /gropcdn
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn.topingr.ir
-  - type: vless
-    name: EPODONIOS-03
-    server: goold.zovip2.ir
-    port: 443
-    uuid: b1247bbd-33c5-4e00-b1b2-58dc5d8b565a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: goold.zovip2.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v3/pulse
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: goold.zovip2.ir
-  - type: vless
-    name: 4Jadi-dab8c5b55f
-    server: cdn.topingr.ir
-    port: 443
-    uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
     servername: cdn.topingr.ir
     xudp: true
     network: ws
@@ -89,21 +53,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
-      - EPODONIOS-03
-      - 4Jadi-dab8c5b55f
+      - ICV2RAY
+      - ICV2RAY-01
+      - ICV2RAY-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
-      - EPODONIOS-03
-      - 4Jadi-dab8c5b55f
+      - ICV2RAY
+      - ICV2RAY-01
+      - ICV2RAY-02
 rules:
   - MATCH,Proxy

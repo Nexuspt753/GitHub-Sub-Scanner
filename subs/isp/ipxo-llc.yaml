@@ -1,6 +1,18 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 172.111.146.64
+    port: 80
+    uuid: 904f8ffa-4652-4076-8f2f-e586807840ec
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 104.129.164.30
     port: 8880
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -13,7 +25,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime40.workers.dev
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 157.254.38.210
     port: 20129
     password: 41c406e2-12b5-41f2-a329-d0621052d675
@@ -21,6 +33,21 @@ proxies:
     tls: true
     sni: hk.catxstar.com
     client-fingerprint: android
+  - type: vmess
+    name: DeltaKroneckerGithub-03
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Mohsen-eac6d067f0
     server: 104.129.164.30
@@ -34,21 +61,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime40.workers.dev
-  - type: vless
-    name: 4Kian-1e1c431400
-    server: 104.129.164.253
-    port: 2096
-    uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
+  - type: vmess
+    name: 4Sarina-dda805b2cd
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vless.muzheng.top
     xudp: true
+    skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /
+      path: /vmess/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-5500ec4ae5
+    server: 172.111.146.64
+    port: 80
+    uuid: 05b8c783-7f59-47f9-9923-06a465679f6a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: 172.111.146.64
+    network: ws
+    ws-opts:
+      path: /vmess/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 172.111.146.64
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,8 +100,11 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-eac6d067f0
-      - 4Kian-1e1c431400
+      - 4Sarina-dda805b2cd
+      - 4Sarina-5500ec4ae5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,7 +113,10 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-eac6d067f0
-      - 4Kian-1e1c431400
+      - 4Sarina-dda805b2cd
+      - 4Sarina-5500ec4ae5
 rules:
   - MATCH,Proxy

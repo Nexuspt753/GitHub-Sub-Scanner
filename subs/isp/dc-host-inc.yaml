@@ -1,74 +1,23 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
+  - type: ss
+    name: DeltaKroneckerGithub
     server: 216.9.225.189
-    port: 2083
-    uuid: 174e1146-e029-440f-8151-45d3bcb04a91
+    port: 443
+    cipher: 2022-blake3-aes-256-gcm
+    password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=:zT1SecPttPY/XPW6NwjK5Wql+/6zbcGSDJK21Jk8uLo=
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-dev.nova.nvidia.com
-    reality-opts:
-      public-key: ULXyDfv768NWEY4nLTrsQQaCujYhV1GvN1Kc6OO6mUo
-      short-id: 885fe9dd75c53f
-    xudp: true
-  - type: vless
-    name: 🇺🇸195620
-    server: 216.9.225.189
-    port: 2083
-    uuid: 174e1146-e029-440f-8151-45d3bcb04a91
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-dev.nova.nvidia.com
-    reality-opts:
-      public-key: ULXyDfv768NWEY4nLTrsQQaCujYhV1GvN1Kc6OO6mUo
-      short-id: 885fe9dd75c53f
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 216.9.225.189
-    port: 2083
-    uuid: b94c7786-808e-46e0-a093-f9a20069a38a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.pgicompilers.com
-    reality-opts:
-      public-key: ULXyDfv768NWEY4nLTrsQQaCujYhV1GvN1Kc6OO6mUo
-      short-id: 4b
-    xudp: true
-  - type: vless
-    name: 4Mohsen-f1f83a438f
-    server: 216.9.225.189
-    port: 2083
-    uuid: 174e1146-e029-440f-8151-45d3bcb04a91
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-dev.nova.nvidia.com
-    reality-opts:
-      public-key: ULXyDfv768NWEY4nLTrsQQaCujYhV1GvN1Kc6OO6mUo
-      short-id: 885fe9dd75c53f
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇺🇸195620
-      - EPODONIOS-01
-      - 4Mohsen-f1f83a438f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇺🇸195620
-      - EPODONIOS-01
-      - 4Mohsen-f1f83a438f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 179.254.71.20
-    port: 52006
-    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: pl.setlisting.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Net2ray
     server: 179.254.71.20
     port: 52006
@@ -25,19 +11,6 @@ proxies:
       - h2
       - http/1.1
     servername: pl.setlisting.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-bc797d279d
-    server: nl.applepie-recipe.ru
-    port: 443
-    uuid: ab35b0b6-deff-4e00-8d38-b99eb95ad943
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: kings.applepie-recipe.ru
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -59,9 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - Net2ray
-      - 4Mohsen-bc797d279d
       - 4Nika-53207fdd01
   - name: Auto
     type: url-test
@@ -69,9 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - Net2ray
-      - 4Mohsen-bc797d279d
       - 4Nika-53207fdd01
 rules:
   - MATCH,Proxy

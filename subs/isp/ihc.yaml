@@ -1,37 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 37.143.15.175
-    port: 443
-    uuid: aca886aa-9b51-4eb2-8d7a-12d6b89caf4d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: funvideos.video
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/53d53ac3/a7fa61/096357bebc62
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: funvideos.video
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: funvideos.video
-    port: 443
-    uuid: aca886aa-9b51-4eb2-8d7a-12d6b89caf4d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: funvideos.video
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/53d53ac3/a7fa61/096357bebc62
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: funvideos.video
-  - type: vless
     name: 4FreeIran-07180320a9
     server: 95.183.13.203
     port: 443
@@ -45,40 +13,18 @@ proxies:
       short-id: c93743d8
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-08902ef254
-    server: 37.143.15.175
-    port: 443
-    uuid: aca886aa-9b51-4eb2-8d7a-12d6b89caf4d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: funvideos.video
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/53d53ac3/a7fa61/096357bebc62
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: funvideos.video
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4FreeIran-07180320a9
-      - 4Sarina-08902ef254
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4FreeIran-07180320a9
-      - 4Sarina-08902ef254
 rules:
   - MATCH,Proxy

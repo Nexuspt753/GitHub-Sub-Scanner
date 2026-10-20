@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: Mexico City · @DeltaKroneckerGithub
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: Mexico City · @DeltaKroneckerGithub-01
     server: 154.205.152.109
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -8,25 +22,21 @@ proxies:
     tls: true
     sni: 154.205.152.109
     client-fingerprint: chrome
-  - type: ss
-    name: Querétaro City · @DeltaKroneckerGithub
-    server: 64.177.90.30
-    port: 8388
-    cipher: aes-256-gcm
-    password: BWyPPTusFKhGgzKh
+  - type: trojan
+    name: Mérida · @DeltaKroneckerGithub
+    server: 131.196.254.151
+    port: 443
+    password: humanity
     udp: true
-  - type: vless
-    name: Mexico City · 4Nika-bee236771f
-    server: ul-mexico1.09vpn.com
-    port: 8443
-    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
-    udp: true
-    xudp: true
+    tls: true
+    sni: www.volumeroot.com
+    client-fingerprint: unsafe
     network: ws
     ws-opts:
-      path: /vless/security=tls
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.volumeroot.com
   - type: vless
     name: Querétaro City · 4Kian-a55ec92ae4
     server: 216.238.79.164
@@ -65,8 +75,8 @@ proxy-groups:
     proxies:
       - Auto
       - Mexico City · @DeltaKroneckerGithub
-      - Querétaro City · @DeltaKroneckerGithub
-      - Mexico City · 4Nika-bee236771f
+      - Mexico City · @DeltaKroneckerGithub-01
+      - Mérida · @DeltaKroneckerGithub
       - Querétaro City · 4Kian-a55ec92ae4
       - Querétaro City · 4Jadi-cbaff20721
   - name: Auto
@@ -76,8 +86,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Mexico City · @DeltaKroneckerGithub
-      - Querétaro City · @DeltaKroneckerGithub
-      - Mexico City · 4Nika-bee236771f
+      - Mexico City · @DeltaKroneckerGithub-01
+      - Mérida · @DeltaKroneckerGithub
       - Querétaro City · 4Kian-a55ec92ae4
       - Querétaro City · 4Jadi-cbaff20721
 rules:
