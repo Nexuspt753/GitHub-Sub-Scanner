@@ -20,6 +20,26 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-1-832.mirra.now
   - type: vmess
+    name: 4FreeIran-c7d559a825
+    server: renderer-stream-2-114.mirra.now
+    port: 443
+    uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-114.mirra.now
+    alpn:
+      - h2
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-114.mirra.now
+  - type: vmess
     name: 4Nika-16e9b3e347
     server: renderer-stream-2-114.mirra.now
     port: 443
@@ -42,6 +62,7 @@ proxy-groups:
     proxies:
       - Auto
       - 4Mohsen-cc8fecf1f0
+      - 4FreeIran-c7d559a825
       - 4Nika-16e9b3e347
   - name: Auto
     type: url-test
@@ -50,6 +71,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-cc8fecf1f0
+      - 4FreeIran-c7d559a825
       - 4Nika-16e9b3e347
 rules:
   - MATCH,Proxy

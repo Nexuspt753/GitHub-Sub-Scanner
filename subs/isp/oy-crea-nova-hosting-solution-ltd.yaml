@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.128.60.127
+    port: 443
+    uuid: 1a11d3a8-f327-4f97-81b2-f776c138dec7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nokia.com
+    reality-opts:
+      public-key: kb93iSFmgqH_hIEAL15LZdrB9E-QfGFYG1mspAYJUzI
+      short-id: 557d83da1a36996f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 45.128.60.127
     port: 443
@@ -27,6 +41,16 @@ proxies:
       short-id: 557d83da1a36996f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: EPODONIOS-01
+    server: 185.212.149.7
+    port: 2053
+    uuid: aeb3c019-ae83-4677-af97-846baa787ad5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: تو کانال نتورلد نباشید قطع میشن@networld_vpn
     server: 185.212.149.7
@@ -72,8 +96,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇺🇸
+      - EPODONIOS-01
       - تو کانال نتورلد نباشید قطع میشن@networld_vpn
       - 4Jadi-42b3852d1d
       - 4FreeIran-cc4a0d6cad
@@ -84,8 +110,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - 🇺🇸
+      - EPODONIOS-01
       - تو کانال نتورلد نباشید قطع میشن@networld_vpn
       - 4Jadi-42b3852d1d
       - 4FreeIran-cc4a0d6cad

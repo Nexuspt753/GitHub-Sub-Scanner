@@ -1,4 +1,19 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 217.16.17.127
+    port: 25565
+    password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
+    udp: true
+    tls: true
+    sni: vkc2.safesurf.cloud
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: firefox
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: EPODONIOS
     server: ru.sparxiecn.com
@@ -15,20 +30,6 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-01
-    server: 217.16.31.218
-    port: 443
-    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: max.ru
-    reality-opts:
-      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
-      short-id: e7
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-02
     server: 217.16.31.218
     port: 443
     uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
@@ -84,34 +85,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-149ee6444a
-    server: vk1.sparxiecn.com
-    port: 18561
-    uuid: 04709e4a-9c95-4212-b89e-d43949eb5b25
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.oracle.com
-    reality-opts:
-      public-key: aFbCyrLOre-V3ORpBjqenGfDt62Ng_i1sSq-DmZHVgc
-      short-id: 89e0494514ec
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-45dd070155
-    server: vk1.sparxiecn.com
-    port: 7447
-    uuid: 04709e4a-9c95-4212-b89e-d43949eb5b25
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.oracle.com
-    reality-opts:
-      public-key: 6-REVWq51xr9OwJAE4VlW98QvZN9NCYe3BK5RKd7YBw
-      short-id: c643a34162d37587
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Jadi-0b63d9f38e
     server: ru.sparxiecn.com
     port: 34443
@@ -123,6 +96,20 @@ proxies:
     reality-opts:
       public-key: NBiCX_Tj3BeMAyG-GbLLKpGjW_qacm3A2Mz5mN8v3Xk
       short-id: ab532d3308daa67b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-46ffea079b
+    server: 217.16.31.218
+    port: 443
+    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: max.ru
+    reality-opts:
+      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
+      short-id: e7
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -144,15 +131,14 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - v2ray_configs_pools⚡
       - prrofile_purple
       - prrofile_purple-01
-      - 4Sarina-149ee6444a
-      - 4Nika-45dd070155
       - 4Jadi-0b63d9f38e
+      - 4Mohsen-46ffea079b
       - 4Kian-54ed5e001c
   - name: Auto
     type: url-test
@@ -160,15 +146,14 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - v2ray_configs_pools⚡
       - prrofile_purple
       - prrofile_purple-01
-      - 4Sarina-149ee6444a
-      - 4Nika-45dd070155
       - 4Jadi-0b63d9f38e
+      - 4Mohsen-46ffea079b
       - 4Kian-54ed5e001c
 rules:
   - MATCH,Proxy

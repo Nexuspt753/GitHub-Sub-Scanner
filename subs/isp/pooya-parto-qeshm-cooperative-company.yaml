@@ -18,7 +18,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn.topingr.ir
   - type: vless
-    name: ICV2RAY
+    name: EPODONIOS-01
     server: cdn.topingr.ir
     port: 443
     uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
@@ -33,7 +33,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: ICV2RAY-01
+    name: EPODONIOS-02
     server: cdn.topingr.ir
     port: 443
     uuid: 497f5381-3533-4c6a-939c-66eb3a7de108
@@ -48,6 +48,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn.topingr.ir
+  - type: vless
+    name: EPODONIOS-03
+    server: goold.zovip2.ir
+    port: 443
+    uuid: b1247bbd-33c5-4e00-b1b2-58dc5d8b565a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: goold.zovip2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/pulse
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: goold.zovip2.ir
   - type: vless
     name: 4Jadi-dab8c5b55f
     server: cdn.topingr.ir
@@ -72,8 +90,9 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
-      - ICV2RAY
-      - ICV2RAY-01
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
       - 4Jadi-dab8c5b55f
   - name: Auto
     type: url-test
@@ -82,8 +101,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - ICV2RAY
-      - ICV2RAY-01
+      - EPODONIOS-01
+      - EPODONIOS-02
+      - EPODONIOS-03
       - 4Jadi-dab8c5b55f
 rules:
   - MATCH,Proxy

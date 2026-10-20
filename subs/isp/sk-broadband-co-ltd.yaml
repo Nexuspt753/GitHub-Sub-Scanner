@@ -7,13 +7,6 @@ proxies:
     password: qwerREWQ@@
     udp: true
   - type: ss
-    name: EPODONIOS-01
-    server: p141.panda001.net
-    port: 4652
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
-    udp: true
-  - type: ss
     name: 🇰🇷KR-211.178.105.134-0215
     server: 211.178.105.134
     port: 6123
@@ -43,16 +36,49 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: vless
+    name: 4Mohsen-404abefd78
+    server: 123.111.169.70
+    port: 2053
+    uuid: ed0b0682-5734-4a50-8728-db68d44a1b94
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nvl-edge-dr-141026.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=ProxyIP.KR.CMLiussss.Netfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nvl-edge-dr-141026.pages.dev
+  - type: vless
+    name: 4Nika-0a8b748d22
+    server: 123.111.169.70
+    port: 8443
+    uuid: ed0b0682-5734-4a50-8728-db68d44a1b94
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nvl-edge-dr-141026.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=ProxyIP.KR.CMLiussss.Netfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nvl-edge-dr-141026.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - 🇰🇷KR-211.178.105.134-0215
       - 🇰🇷KR-218.237.185.234-0208
       - 4Kian-a1ea9b7818
+      - 4Mohsen-404abefd78
+      - 4Nika-0a8b748d22
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -60,9 +86,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - 🇰🇷KR-211.178.105.134-0215
       - 🇰🇷KR-218.237.185.234-0208
       - 4Kian-a1ea9b7818
+      - 4Mohsen-404abefd78
+      - 4Nika-0a8b748d22
 rules:
   - MATCH,Proxy

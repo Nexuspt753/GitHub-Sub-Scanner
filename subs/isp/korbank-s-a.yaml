@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 83.168.91.16
+    port: 443
+    uuid: 9cb8d71c-fe06-4402-a591-eaa1f173b890
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl-exit-02.10media.top
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 83.168.91.16
     port: 443
@@ -63,6 +76,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - MDvpnSEC
       - 📍@MDvpnSEC📍
@@ -74,6 +88,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - MDvpnSEC
       - 📍@MDvpnSEC📍

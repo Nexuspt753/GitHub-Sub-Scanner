@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4FreeIran-755ba5267c
+    server: sw.northvale.cloud
+    port: 443
+    password: 36cd82d2-50b1-400d-b520-2acc9a8a6b40
+    sni: sw.northvale.cloud
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-755ba5267c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-755ba5267c
+rules:
+  - MATCH,Proxy
