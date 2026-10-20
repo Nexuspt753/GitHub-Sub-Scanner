@@ -28,6 +28,40 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-cfbd5cdb5c
+    server: 185.230.44.140
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Sarina-e2e05bacd8
+    server: 185.230.44.200
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
@@ -35,6 +69,8 @@ proxy-groups:
       - Auto
       - 4Mohsen-752ac99b16
       - 4Jadi-9b9776b923
+      - 4Mohsen-cfbd5cdb5c
+      - 4Sarina-e2e05bacd8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,5 +79,7 @@ proxy-groups:
     proxies:
       - 4Mohsen-752ac99b16
       - 4Jadi-9b9776b923
+      - 4Mohsen-cfbd5cdb5c
+      - 4Sarina-e2e05bacd8
 rules:
   - MATCH,Proxy

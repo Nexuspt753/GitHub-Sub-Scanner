@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 158.160.160.21
+    port: 443
+    uuid: 06d05a0a-f298-0001-8fab-3de32e3fb770
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: matrix.stargazed.space
+    reality-opts:
+      public-key: RMjWKm3Jj09ytfHD-90J0c3qdpQtjqJ4muUSAuF2eXQ
+      short-id: 0e9e64843ec8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Selinc
     server: 158.160.160.21
     port: 443
@@ -28,6 +42,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vless
+    server: 3miq56.d5.nordtile.ru
+    port: 443
+    uuid: 66a27f60-3583-4d86-ab48-0f24d23bc8ca
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: u48030.d5.nordtile.ru
+    port: 443
+    uuid: 66a27f60-3583-4d86-ab48-0f24d23bc8ca
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Nika-ea6f00b5b4
     server: 158.160.160.21
     port: 443
@@ -46,8 +74,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Selinc
       - 🇨🇦
+      - vless
+      - vless-01
       - 4Nika-ea6f00b5b4
   - name: Auto
     type: url-test
@@ -55,8 +86,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Selinc
       - 🇨🇦
+      - vless
+      - vless-01
       - 4Nika-ea6f00b5b4
 rules:
   - MATCH,Proxy

@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-fc073c4f35
+    server: 212.134.252.249
+    port: 15407
+    uuid: b2332eff-b231-4c10-8552-5dfad84f5521
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-fc073c4f35
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-fc073c4f35
+rules:
+  - MATCH,Proxy

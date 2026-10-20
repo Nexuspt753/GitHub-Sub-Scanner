@@ -1,32 +1,43 @@
 proxies:
-  - type: vmess
-    name: 4Kian-af1e86a671
-    server: visa.cn
-    port: 80
-    uuid: 9814e858-69d5-4fff-95e7-6453437ad4c8
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Kian-54c0c0ac59
+    server: pccw01.fualta.org
+    port: 443
+    uuid: 285c4b67-5c15-3317-b2b1-d2ffac34d1e0
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    flow: xtls-rprx-vision-udp443
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /sba-vm?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: deee.horryan4.eu.org
+  - type: vless
+    name: 4Jadi-7d9ffe177f
+    server: pccw01.fualta.org
+    port: 443
+    uuid: 285c4b67-5c15-3317-b2b1-d2ffac34d1e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: Vc8ycAgKqfRvtXjvGP0ry_U91o5wgrQlqOhHq72HYRs
+      short-id: 1bc2c1ef1c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-af1e86a671
+      - 4Kian-54c0c0ac59
+      - 4Jadi-7d9ffe177f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-af1e86a671
+      - 4Kian-54c0c0ac59
+      - 4Jadi-7d9ffe177f
 rules:
   - MATCH,Proxy

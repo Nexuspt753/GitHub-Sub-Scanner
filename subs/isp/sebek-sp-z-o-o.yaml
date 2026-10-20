@@ -1,32 +1,33 @@
 proxies:
-  - type: vless
-    name: 4Nika-91fd54296e
-    server: 148.253.209.114
-    port: 2096
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+  - type: trojan
+    name: 🇳🇱
+    server: 148.253.212.42
+    port: 443
+    password: humanity
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
     network: ws
     ws-opts:
-      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+        Host: www.pleadcourt.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-91fd54296e
+      - 🇳🇱
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-91fd54296e
+      - 🇳🇱
 rules:
   - MATCH,Proxy

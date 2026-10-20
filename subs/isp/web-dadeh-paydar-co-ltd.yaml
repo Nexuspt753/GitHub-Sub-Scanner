@@ -1,9 +1,23 @@
 proxies:
+  - type: vless
+    name: telegram
+    server: sm.novexora.ir
+    port: 2096
+    uuid: 26f6aff4-6244-4c09-9c87-a5afddeb9554
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: O0i8MT5R__tGAOnvqJjRk4ygGV4EF2Yq4VMKG4Cj4V0
+      short-id: 2d5781f528d99a29
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: EPODONIOS
     server: 193.24.120.240
     port: 4412
-    uuid: 13554232-b7f1-4391-bb1c-9c3f114f3525
+    uuid: 0d54483d-9d0f-47c6-b8fa-7f36a7e616ac
     alterId: 0
     cipher: auto
     udp: true
@@ -14,10 +28,38 @@ proxies:
       - h2
       - http/1.1
   - type: vmess
-    name: 🇮🇷197195 | ⚡️Telegram = t.me/SOSkeyNET
+    name: EPODONIOS-01
     server: 193.24.120.240
     port: 4412
-    uuid: 13554232-b7f1-4391-bb1c-9c3f114f3525
+    uuid: 1e1c521d-0c54-44dc-adf3-251f880dad7a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 🇮🇷197526 | ⚡️Telegram = t.me/SOSkeyNET
+    server: 193.24.120.240
+    port: 4412
+    uuid: 1e1c521d-0c54-44dc-adf3-251f880dad7a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 4FreeIran-a95ecc34c1
+    server: 193.24.120.240
+    port: 4412
+    uuid: 0d54483d-9d0f-47c6-b8fa-7f36a7e616ac
     alterId: 0
     cipher: auto
     udp: true
@@ -41,22 +83,44 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Jadi-51d956ed0d
+    server: 193.24.120.240
+    port: 4412
+    uuid: 1e1c521d-0c54-44dc-adf3-251f880dad7a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - telegram
       - EPODONIOS
-      - 🇮🇷197195 | ⚡️Telegram = t.me/SOSkeyNET
+      - EPODONIOS-01
+      - 🇮🇷197526 | ⚡️Telegram = t.me/SOSkeyNET
+      - 4FreeIran-a95ecc34c1
       - 4Kian-2f85b746dc
+      - 4Jadi-51d956ed0d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - telegram
       - EPODONIOS
-      - 🇮🇷197195 | ⚡️Telegram = t.me/SOSkeyNET
+      - EPODONIOS-01
+      - 🇮🇷197526 | ⚡️Telegram = t.me/SOSkeyNET
+      - 4FreeIran-a95ecc34c1
       - 4Kian-2f85b746dc
+      - 4Jadi-51d956ed0d
 rules:
   - MATCH,Proxy
