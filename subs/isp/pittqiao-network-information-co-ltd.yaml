@@ -1,6 +1,34 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 103.180.20.100
+    port: 20006
+    uuid: baf7b3e9-4844-4925-b4f0-4f51b66c153f
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: EwpuwXSOb0jp7rsG7Gk_MBFc3bl8R5l9IJniRtmGgFE
+      short-id: d13ca00a58f42b85
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 103.180.20.100
+    port: 20004
+    uuid: 5e6cd021-d3ac-48fc-b2fd-203862ed9712
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: zVIESiLSczwOhE1qKC6yX-bIGMp5WrGGcKxE7X7_8TA
+      short-id: 686a51fda2f48e40
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 103.148.73.173
     port: 8443
     uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
@@ -16,23 +44,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ty986gfazs.cainiaohub.xyz
   - type: vless
-    name: 4Kian-27881656b2
-    server: 103.148.73.173
-    port: 8443
-    uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ty986gfazs.cainiaohub.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ty986gfazs.cainiaohub.xyz
-  - type: vless
-    name: 4Nika-5bcb40035f
+    name: 4Jadi-eb88a7c53d
     server: 103.180.20.108
     port: 8443
     uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
@@ -47,14 +59,32 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ty986gfazs.cainiaohub.xyz
+  - type: vless
+    name: 4Nika-4378fa83f4
+    server: 103.180.20.108
+    port: 8443
+    uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ty986gfazs.cainiaohub.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ty986gfazs.cainiaohub.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-27881656b2
-      - 4Nika-5bcb40035f
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Jadi-eb88a7c53d
+      - 4Nika-4378fa83f4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -62,7 +92,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-27881656b2
-      - 4Nika-5bcb40035f
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Jadi-eb88a7c53d
+      - 4Nika-4378fa83f4
 rules:
   - MATCH,Proxy

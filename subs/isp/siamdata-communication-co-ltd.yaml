@@ -1,25 +1,50 @@
 proxies:
-  - type: trojan
-    name: 4Kian-9a08846a1a
-    server: th1.zestapp778.com
+  - type: vless
+    name: 4Sarina-4ae43786ce
+    server: 103.114.201.154
     port: 443
-    password: Trojan@82164024
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    sni: th1.zestapp778.com
     client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Nika-b90fb09331
+    server: 103.114.201.154
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-9a08846a1a
+      - 4Sarina-4ae43786ce
+      - 4Nika-b90fb09331
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9a08846a1a
+      - 4Sarina-4ae43786ce
+      - 4Nika-b90fb09331
 rules:
   - MATCH,Proxy

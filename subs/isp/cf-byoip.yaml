@@ -1,6 +1,22 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 188.164.248.67
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp21.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp21.cc.cd
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 188.164.248.216
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -64,6 +80,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vp21.cc.cd
   - type: vless
+    name: 4Mohsen-de87693533
+    server: 188.164.248.72
+    port: 443
+    uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: d39333476.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /code/cp/classify
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: d39333476.pages.dev
+  - type: vless
     name: 4Mohsen-7bc909b3e9
     server: 188.164.248.48
     port: 2083
@@ -85,9 +117,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-608ad570f9
       - 4Kian-fba92fda9f
       - 4Kian-2227805e85
+      - 4Mohsen-de87693533
       - 4Mohsen-7bc909b3e9
   - name: Auto
     type: url-test
@@ -96,9 +130,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-608ad570f9
       - 4Kian-fba92fda9f
       - 4Kian-2227805e85
+      - 4Mohsen-de87693533
       - 4Mohsen-7bc909b3e9
 rules:
   - MATCH,Proxy

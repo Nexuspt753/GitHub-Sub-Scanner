@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: 4Jadi-6b3ca75908
+    server: 23.106.44.14
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: sj6.freeguard.org
+    client-fingerprint: chrome
   - type: vmess
     name: 4Sarina-eb907d44e0
     server: 192.96.204.250
@@ -15,18 +24,40 @@ proxies:
       path: /ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-e5809b7141
+    server: 192.96.204.250
+    port: 443
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: usa-washington.lvuft.com
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: usa-washington.lvuft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-6b3ca75908
       - 4Sarina-eb907d44e0
+      - 4Nika-e5809b7141
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-6b3ca75908
       - 4Sarina-eb907d44e0
+      - 4Nika-e5809b7141
 rules:
   - MATCH,Proxy

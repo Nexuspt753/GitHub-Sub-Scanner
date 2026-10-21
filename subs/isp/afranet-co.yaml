@@ -1,44 +1,36 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: irnamh.g44mozgh.ir
-    port: 2035
-    uuid: 65c91ab7-a503-4b73-9f8e-e1c0b6377dc2
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: play.google.com
-    reality-opts:
-      public-key: tjlpmcWwDiXnVu2Wc8v8wxwmiYWtnoUNeHmXPtL5vyk
-      short-id: 75faac3a588f5160
-    xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: irnamh.g44mozgh.ir
-    port: 2035
-    uuid: 65c91ab7-a503-4b73-9f8e-e1c0b6377dc2
+    name: 4Mohsen-c08556f5ae
+    server: dash.zeneco.ir
+    port: 2052
+    uuid: db7035e6-98f8-4dda-9853-a558c01728fa
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: tjlpmcWwDiXnVu2Wc8v8wxwmiYWtnoUNeHmXPtL5vyk
-      short-id: 75faac3a588f5160
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: dash.zeneco.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dash.zeneco.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - EPODONIOS
+      - 4Mohsen-c08556f5ae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - EPODONIOS
+      - 4Mohsen-c08556f5ae
 rules:
   - MATCH,Proxy

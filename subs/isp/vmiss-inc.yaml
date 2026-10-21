@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 103.247.28.203
+    port: 443
+    uuid: 64726966-0000-4000-8000-740000000000
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: parsa-panel-dy55x.railway1385-2a46.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: parsa-panel-dy55x.railway1385-2a46.workers.dev
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.207.172.42
     port: 443
     password: Aimer
@@ -46,6 +62,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-0743bab79f
       - 4Jadi-b85f7dd369
   - name: Auto
@@ -55,6 +72,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-0743bab79f
       - 4Jadi-b85f7dd369
 rules:

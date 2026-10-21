@@ -30,6 +30,21 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.volumeroot.com
+  - type: vmess
+    name: 4FreeIran-b875b4a476
+    server: 131.196.252.59
+    port: 20521
+    uuid: 5809911a-a16e-43d3-90b0-2c94cfc2035e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -37,6 +52,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4FreeIran-b875b4a476
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,5 +61,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4FreeIran-b875b4a476
 rules:
   - MATCH,Proxy

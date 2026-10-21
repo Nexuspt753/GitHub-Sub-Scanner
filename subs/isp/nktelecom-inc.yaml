@@ -2,20 +2,18 @@ proxies:
   - type: vless
     name: EPODONIOS
     server: 5.253.189.32
-    port: 9443
+    port: 443
     uuid: 17360870-9c2f-4bfc-9e0c-9aca386606a3
     udp: true
     tls: true
     client-fingerprint: chrome
     servername: ya.ru
     reality-opts:
-      public-key: 8Psrf1KEB56yBqaxcNhwcVWJ0_t6in3UP-QVkmVobVw
+      public-key: bkQ2euy5Ls1EELvms1JGr4Bwey673s5CAvSs6b3XzwA
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
-    name: irdusti(43)🇳🇱²
+    name: EPODONIOS-01
     server: 5.253.189.32
     port: 9443
     uuid: 17360870-9c2f-4bfc-9e0c-9aca386606a3
@@ -29,6 +27,21 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 5.253.189.238
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
   - type: vless
     name: 4Nika-2a1304e38a
     server: 5.253.189.32
@@ -65,7 +78,8 @@ proxy-groups:
     proxies:
       - Auto
       - EPODONIOS
-      - irdusti(43)🇳🇱²
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
       - 4Nika-2a1304e38a
       - 4Kian-aecec92699
   - name: Auto
@@ -75,7 +89,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - irdusti(43)🇳🇱²
+      - EPODONIOS-01
+      - DeltaKroneckerGithub
       - 4Nika-2a1304e38a
       - 4Kian-aecec92699
 rules:

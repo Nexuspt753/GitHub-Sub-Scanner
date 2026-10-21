@@ -1,26 +1,44 @@
 proxies:
-  - type: vmess
-    name: 4FreeIran-041f25cc29
-    server: ir.yzcq.ir
-    port: 2030
-    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: EPODONIOS
+    server: dl.hessabb.ir
+    port: 2051
+    uuid: 0ca340c0-5e43-46b0-8690-31f92a78a198
     udp: true
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /download
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl.hessabb.ir
+  - type: vless
+    name: tootffarangi🍓
+    server: dl.hessabb.ir
+    port: 2051
+    uuid: 0ca340c0-5e43-46b0-8690-31f92a78a198
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /download
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl.hessabb.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-041f25cc29
+      - EPODONIOS
+      - tootffarangi🍓
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-041f25cc29
+      - EPODONIOS
+      - tootffarangi🍓
 rules:
   - MATCH,Proxy

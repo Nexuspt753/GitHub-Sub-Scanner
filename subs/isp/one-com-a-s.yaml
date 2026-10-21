@@ -1,50 +1,32 @@
 proxies:
   - type: vless
-    name: 4Kian-1d036b122c
+    name: DeltaKroneckerGithub
     server: 5.249.255.116
     port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
+    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
-  - type: vless
-    name: 4Mohsen-079d711fdd
-    server: 5.249.255.116
-    port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
+    client-fingerprint: chrome
+    servername: u.srilankangrill.online
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
+        Host: u.srilankangrill.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-1d036b122c
-      - 4Mohsen-079d711fdd
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-1d036b122c
-      - 4Mohsen-079d711fdd
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
