@@ -1,0 +1,26 @@
+proxies:
+  - type: vmess
+    name: Selinc
+    server: parrsweb.site
+    port: 443
+    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Selinc
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Selinc
+rules:
+  - MATCH,Proxy
