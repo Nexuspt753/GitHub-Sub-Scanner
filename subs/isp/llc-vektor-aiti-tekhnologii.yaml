@@ -1,0 +1,159 @@
+proxies:
+  - type: vless
+    name: EPODONIOS
+    server: 147.45.219.149
+    port: 10443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: 147.45.219.149
+    port: 12443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: tootffarangi🍓
+    server: 147.45.219.149
+    port: 10443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+  - type: vless
+    name: 🇷🇺197923
+    server: 147.45.219.149
+    port: 10443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+  - type: vless
+    name: 🇷🇺RU-🚀@VPNine1
+    server: 147.45.219.149
+    port: 10443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+  - type: vless
+    name: tootffarangi🍓-01
+    server: 147.45.219.149
+    port: 12443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇷🇺197924
+    server: 147.45.219.149
+    port: 12443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇷🇺RU-🚀@VPNine1-01
+    server: 147.45.219.149
+    port: 12443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-175b69227f
+    server: 147.45.219.149
+    port: 10443
+    uuid: 1e278f5f-81e9-4a17-b0af-eafc51cf7042
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+  - type: vless
+    name: 4Nika-203cbb1986
+    server: 147.45.219.149
+    port: 12443
+    uuid: 1e278f5f-81e9-4a17-b0af-eafc51cf7042
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - tootffarangi🍓
+      - 🇷🇺197923
+      - 🇷🇺RU-🚀@VPNine1
+      - tootffarangi🍓-01
+      - 🇷🇺197924
+      - 🇷🇺RU-🚀@VPNine1-01
+      - 4Kian-175b69227f
+      - 4Nika-203cbb1986
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - tootffarangi🍓
+      - 🇷🇺197923
+      - 🇷🇺RU-🚀@VPNine1
+      - tootffarangi🍓-01
+      - 🇷🇺197924
+      - 🇷🇺RU-🚀@VPNine1-01
+      - 4Kian-175b69227f
+      - 4Nika-203cbb1986
+rules:
+  - MATCH,Proxy

@@ -1,31 +1,5 @@
 proxies:
   - type: vless
-    name: Brussels · EPODONIOS
-    server: 109.69.218.217
-    port: 443
-    uuid: 2a12bb81-f3a3-41bb-99ab-36febf676b4a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kind-wolf.cdn.cachefleet.com
-    reality-opts:
-      public-key: 8hse7wRRL-F66rQ-aAeetKTw0MSeJC7Rr6EaDeLzdCU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Brussels · EPODONIOS-01
-    server: 109.69.218.217
-    port: 443
-    uuid: 2a12bb81-f3a3-41bb-99ab-36febf676b4a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: kind-wolf.cdn.cachefleet.com
-    reality-opts:
-      public-key: 8hse7wRRL-F66rQ-aAeetKTw0MSeJC7Rr6EaDeLzdCU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Brussels · 🇧🇪139840
     server: 109.69.218.217
     port: 443
@@ -104,6 +78,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: Brussels · 4FreeIran-c35f836e17
+    server: 141.98.233.6
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: Brussels · 4FreeIran-3bb66faa70
     server: 141.98.233.6
     port: 443
@@ -135,22 +125,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: Brussels · 4FreeIran-aff0f12239
-    server: 141.227.137.177
-    port: 2053
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
   - type: vless
     name: Brussels · 4Nika-ed3fd0ed91
     server: 141.227.186.38
@@ -315,22 +289,37 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.42088326.xyz
+  - type: vmess
+    name: Saint-Gilles · 4Mohsen-b3008313c8
+    server: 37.120.236.251
+    port: 443
+    uuid: ed162daa-ee20-44ed-830f-b522c501387a
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/143013092425
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.42088326.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Brussels · EPODONIOS
-      - Brussels · EPODONIOS-01
       - Brussels · 🇧🇪139840
       - Brussels · 🇧🇪139839
       - Zaventem · EPODONIOS
       - Zaventem · 🇧🇪139755
       - Brussels · 4Nika-4eec64430a
       - Brussels · 4Kian-c38b64c831
+      - Brussels · 4FreeIran-c35f836e17
       - Brussels · 4FreeIran-3bb66faa70
       - Brussels · 4Mohsen-022529d50e
-      - Brussels · 4FreeIran-aff0f12239
       - Brussels · 4Nika-ed3fd0ed91
       - Brussels · 4Kian-5949c13cba
       - Brussels · 4Mohsen-ba383231bd
@@ -341,23 +330,22 @@ proxy-groups:
       - Brussels · 4Mohsen-a58b0aa509
       - Saint-Gilles · 4Nika-bbb9f3e54f
       - Saint-Gilles · 4Nika-6f07bd09da
+      - Saint-Gilles · 4Mohsen-b3008313c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Brussels · EPODONIOS
-      - Brussels · EPODONIOS-01
       - Brussels · 🇧🇪139840
       - Brussels · 🇧🇪139839
       - Zaventem · EPODONIOS
       - Zaventem · 🇧🇪139755
       - Brussels · 4Nika-4eec64430a
       - Brussels · 4Kian-c38b64c831
+      - Brussels · 4FreeIran-c35f836e17
       - Brussels · 4FreeIran-3bb66faa70
       - Brussels · 4Mohsen-022529d50e
-      - Brussels · 4FreeIran-aff0f12239
       - Brussels · 4Nika-ed3fd0ed91
       - Brussels · 4Kian-5949c13cba
       - Brussels · 4Mohsen-ba383231bd
@@ -368,5 +356,6 @@ proxy-groups:
       - Brussels · 4Mohsen-a58b0aa509
       - Saint-Gilles · 4Nika-bbb9f3e54f
       - Saint-Gilles · 4Nika-6f07bd09da
+      - Saint-Gilles · 4Mohsen-b3008313c8
 rules:
   - MATCH,Proxy

@@ -15,36 +15,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Mohsen-d7fa23155b
-    server: 39.108.113.127
-    port: 10086
-    uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Nika-b2cd6dc7db
-    server: 39.108.113.127
-    port: 10086
-    uuid: 4fc543d5-23ce-4556-ae2b-01685edd4397
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
     name: 4FreeIran-d42f66863d
     server: 39.108.113.127
     port: 10086
@@ -74,16 +44,30 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-a3e3b02c32
+    server: 39.108.113.127
+    port: 10086
+    uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-d7fa23155b
-      - 4Nika-b2cd6dc7db
       - 4FreeIran-d42f66863d
       - 4Kian-f43fc55284
+      - 4Kian-a3e3b02c32
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,9 +75,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-d7fa23155b
-      - 4Nika-b2cd6dc7db
       - 4FreeIran-d42f66863d
       - 4Kian-f43fc55284
+      - 4Kian-a3e3b02c32
 rules:
   - MATCH,Proxy

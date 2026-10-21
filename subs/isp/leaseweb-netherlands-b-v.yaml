@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 8f9d74ebbe3b.zelvian.ir
-    port: 37529
-    uuid: cffaa00b-1066-452b-ac63-b295866eb7e3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www3.bovmav.ir
-    reality-opts:
-      public-key: 5M8dZvtIjvmCHyXhJRtoZXzv7ofTQrsZUDKHfo6QByc
-      short-id: 78c6a5b4
-    flow: xtls-rprx-vision
-    xudp: true
   - type: trojan
     name: 4Jadi-ac9107b7b5
     server: 37.48.65.144
@@ -22,20 +8,26 @@ proxies:
     tls: true
     sni: tt6.tjvpn.top
     client-fingerprint: chrome
-  - type: vless
-    name: 🇳🇱197651
-    server: 8f9d74ebbe3b.zelvian.ir
-    port: 37529
-    uuid: cffaa00b-1066-452b-ac63-b295866eb7e3
+  - type: vmess
+    name: EPODONIOS
+    server: 185.19.33.150
+    port: 22636
+    uuid: 213a2396-f6aa-4acd-a929-c461919fdec2
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www3.bovmav.ir
-    reality-opts:
-      public-key: 5M8dZvtIjvmCHyXhJRtoZXzv7ofTQrsZUDKHfo6QByc
-      short-id: 78c6a5b4
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: tootffarangi
+    server: 185.19.33.150
+    port: 22636
+    uuid: f2204c81-51ca-4d3b-84c8-a625f7cdae06
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: 4Jadi-799a02b34e
     server: 8f9d74ebbe3b.zelvian.ir
@@ -55,9 +47,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - 4Jadi-ac9107b7b5
-      - 🇳🇱197651
+      - EPODONIOS
+      - tootffarangi
       - 4Jadi-799a02b34e
   - name: Auto
     type: url-test
@@ -65,9 +57,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - 4Jadi-ac9107b7b5
-      - 🇳🇱197651
+      - EPODONIOS
+      - tootffarangi
       - 4Jadi-799a02b34e
 rules:
   - MATCH,Proxy
