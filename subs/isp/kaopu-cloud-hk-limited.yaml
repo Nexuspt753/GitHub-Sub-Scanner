@@ -17,15 +17,22 @@ proxies:
     tls: true
     sni: 38.54.59.90
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 38.54.15.140
+  - type: vless
+    name: 4Kian-53f54806cc
+    server: 38.54.59.70
     port: 443
-    password: af4b064a9c39472fb34ad8b113acdc6b
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    sni: 38.54.15.140
     client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
@@ -33,7 +40,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Kian-53f54806cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +49,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Kian-53f54806cc
 rules:
   - MATCH,Proxy

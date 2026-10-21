@@ -1,53 +1,23 @@
 proxies:
-  - type: ss
-    name: 🇮🇷IR-🚀@VPNine1
-    server: nao.goldelya.icu
-    port: 2087
-    cipher: 2022-blake3-aes-256-gcm
-    password: Z7Gl1BnNG+sz5zNkLDAfMa/2JtpvW/clflC0Wbzc2ig=:pNY6CeXLcEHwd1kV51tc/rf4fhLLBSqC0F7pjoZu8YA=
-    udp: true
   - type: vless
     name: vless
-    server: s2.zynetraq.ir
-    port: 2087
-    uuid: 22c6684b-cd4f-4c8e-62e3-a17fc698471f
-    udp: true
-    xudp: true
-  - type: vless
-    name: vless-01
     server: s2.zynetraq.ir
     port: 2087
     uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
     udp: true
     xudp: true
-  - type: vmess
-    name: 4FreeIran-0fb5d2d44c
-    server: Iran-1.veraspeed.ir
-    port: 2001
-    uuid: 2f703879-a9de-4550-85f4-70470b284d82
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇮🇷IR-🚀@VPNine1
       - vless
-      - vless-01
-      - 4FreeIran-0fb5d2d44c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇷IR-🚀@VPNine1
       - vless
-      - vless-01
-      - 4FreeIran-0fb5d2d44c
 rules:
   - MATCH,Proxy
