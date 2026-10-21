@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: 2.27.109.179
+    port: 45464
+    password: XuMweB2PWs
+    udp: true
+    tls: true
+    sni: 2.27.109.179.sslip.io
+    client-fingerprint: chrome
+  - type: trojan
     name: 🇭🇰
     server: 2.27.109.179
     port: 45464
@@ -18,7 +27,7 @@ proxies:
     sni: 2.27.109.179.sslip.io
     client-fingerprint: chrome
   - type: trojan
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 2.27.109.179
     port: 45464
     password: XuMweB2PWs
@@ -44,26 +53,39 @@ proxies:
     tls: true
     sni: 2.27.109.179.sslip.io
     client-fingerprint: chrome
+  - type: trojan
+    name: 🇭🇰HK-2.27.109.179-0171
+    server: 2.27.109.179
+    port: 45464
+    password: XuMweB2PWs
+    udp: true
+    tls: true
+    sni: 2.27.109.179.sslip.io
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇭🇰
       - DeltaKroneckerGithub
-      - EPODONIOS
+      - EPODONIOS-01
       - 4Mohsen-36ce40e99b
       - 4FreeIran-991d22967a
+      - 🇭🇰HK-2.27.109.179-0171
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇭🇰
       - DeltaKroneckerGithub
-      - EPODONIOS
+      - EPODONIOS-01
       - 4Mohsen-36ce40e99b
       - 4FreeIran-991d22967a
+      - 🇭🇰HK-2.27.109.179-0171
 rules:
   - MATCH,Proxy

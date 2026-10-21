@@ -1,18 +1,14 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 45.89.223.16
-    port: 443
-    cipher: aes-256-gcm
-    password: 62mngrv6rcq8if8a
+  - type: vmess
+    name: 4Kian-7639e56840
+    server: tun.xelnivo.ir
+    port: 2044
+    uuid: 243bb526-ced4-4508-b0c3-e6442caadf57
+    alterId: 0
+    cipher: auto
     udp: true
-  - type: ss
-    name: 4Kian-19a716d272
-    server: 45.89.223.16
-    port: 443
-    cipher: aes-256-gcm
-    password: 62mngrv6rcq8if8a
-    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: 4Kian-74952d0637
     server: tun.xelnivo.ir
@@ -28,8 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Kian-19a716d272
+      - 4Kian-7639e56840
       - 4Kian-74952d0637
   - name: Auto
     type: url-test
@@ -37,8 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Kian-19a716d272
+      - 4Kian-7639e56840
       - 4Kian-74952d0637
 rules:
   - MATCH,Proxy

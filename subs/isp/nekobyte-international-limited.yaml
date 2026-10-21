@@ -28,19 +28,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: irdusti(43)🇩🇪²
-    server: 2.26.29.61
-    port: 443
-    uuid: 17360870-9c2f-4bfc-9e0c-9aca386606a3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ya.ru
-    reality-opts:
-      public-key: bkQ2euy5Ls1EELvms1JGr4Bwey673s5CAvSs6b3XzwA
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: irdusti(43)🇩🇪¹
     server: 2.27.121.10
     port: 9443
@@ -56,22 +43,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: EPODONIOS-02
-    server: 2.26.30.216
-    port: 443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
-  - type: vless
     name: 4Sarina-680447ba1d
     server: 2.26.29.61
     port: 443
@@ -79,19 +50,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ya.ru
-    reality-opts:
-      public-key: bkQ2euy5Ls1EELvms1JGr4Bwey673s5CAvSs6b3XzwA
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-afb942dc5b
-    server: 2.26.29.61
-    port: 443
-    uuid: 17360870-9c2f-4bfc-9e0c-9aca386606a3
-    udp: true
-    tls: true
-    client-fingerprint: randomized
     servername: ya.ru
     reality-opts:
       public-key: bkQ2euy5Ls1EELvms1JGr4Bwey673s5CAvSs6b3XzwA
@@ -177,6 +135,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Kian-94c1f32033
+    server: 2.27.16.177
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -184,16 +159,14 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - EPODONIOS-01
-      - irdusti(43)🇩🇪²
       - irdusti(43)🇩🇪¹
-      - EPODONIOS-02
       - 4Sarina-680447ba1d
-      - 4Kian-afb942dc5b
       - 4Mohsen-07a50cfdd0
       - 4Kian-aa6a6ad243
       - 4Sarina-cb3e07cc2c
       - 4Nika-fc19af8f25
       - 4Jadi-1d234c6142
+      - 4Kian-94c1f32033
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -202,15 +175,13 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - EPODONIOS-01
-      - irdusti(43)🇩🇪²
       - irdusti(43)🇩🇪¹
-      - EPODONIOS-02
       - 4Sarina-680447ba1d
-      - 4Kian-afb942dc5b
       - 4Mohsen-07a50cfdd0
       - 4Kian-aa6a6ad243
       - 4Sarina-cb3e07cc2c
       - 4Nika-fc19af8f25
       - 4Jadi-1d234c6142
+      - 4Kian-94c1f32033
 rules:
   - MATCH,Proxy

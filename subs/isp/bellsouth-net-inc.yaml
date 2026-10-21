@@ -1,23 +1,50 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-2a94fab12e
-    server: 108.130.238.169
-    port: 443
-    uuid: 7060231d-b9ba-495f-a218-bf427940cf3e
+  - type: vmess
+    name: 4FreeIran-149436844e
+    server: sylva53.ceoiii.com
+    port: 36824
+    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
+  - type: vmess
+    name: 4FreeIran-4ce6751e6f
+    server: sylva53.ceoiii.com
+    port: 36824
+    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ajax.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-2a94fab12e
+      - 4FreeIran-149436844e
+      - 4FreeIran-4ce6751e6f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-2a94fab12e
+      - 4FreeIran-149436844e
+      - 4FreeIran-4ce6751e6f
 rules:
   - MATCH,Proxy

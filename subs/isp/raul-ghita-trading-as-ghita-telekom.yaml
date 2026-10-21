@@ -14,6 +14,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: EPODONIOS-01
+    server: 179.254.71.20
+    port: 52006
+    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl.setlisting.ru
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Net2ray
     server: 179.254.71.20
     port: 52006
@@ -38,14 +49,27 @@ proxies:
     servername: pl.setlisting.ru
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-b246c6e660
+    server: 179.254.71.20
+    port: 52006
+    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl.setlisting.ru
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
       - Net2ray
       - Free
+      - 4Kian-b246c6e660
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,7 +77,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
       - Net2ray
       - Free
+      - 4Kian-b246c6e660
 rules:
   - MATCH,Proxy
