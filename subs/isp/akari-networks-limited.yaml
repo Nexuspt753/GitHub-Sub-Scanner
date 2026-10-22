@@ -1,62 +1,30 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: appsj4.87544899.xyz
-    port: 443
-    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.220.238.77
+    port: 11543
+    password: HutaoCloud
     udp: true
     tls: true
+    sni: 185.220.238.77
     client-fingerprint: chrome
-    servername: bod.changiairport.com
-    reality-opts:
-      public-key: k7hxoilujF3OuiyJpxpVbRJ-XdOxJ2giDeqDTvghgXw
-      short-id: c72dc3a7e1da
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇸🇬198218
-    server: appsj4.87544899.xyz
-    port: 443
-    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: bod.changiairport.com
-    reality-opts:
-      public-key: k7hxoilujF3OuiyJpxpVbRJ-XdOxJ2giDeqDTvghgXw
-      short-id: c72dc3a7e1da
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-e9594335e4
-    server: appsj4.87544899.xyz
-    port: 443
-    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: bod.changiairport.com
-    reality-opts:
-      public-key: k7hxoilujF3OuiyJpxpVbRJ-XdOxJ2giDeqDTvghgXw
-      short-id: c72dc3a7e1da
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇸🇬198218
-      - 4Nika-e9594335e4
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇸🇬198218
-      - 4Nika-e9594335e4
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

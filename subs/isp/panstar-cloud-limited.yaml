@@ -1,12 +1,15 @@
 proxies:
   - type: vless
-    name: 4Kian-9193e8b6f3
+    name: 4Nika-aece09a1aa
     server: 195.58.144.56
     port: 11907
     uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
     name: 4Mohsen-f3f00c177a
@@ -18,22 +21,6 @@ proxies:
     client-fingerprint: chrome
     servername: 195.58.144.56
     xudp: true
-  - type: vless
-    name: 4Mohsen-655cadc501
-    server: 216.195.195.205
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
   - type: vless
     name: 4Kian-bda700c840
     server: 216.195.195.205
@@ -51,7 +38,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
   - type: vless
-    name: 4Nika-557ad1dd40
+    name: 4Sarina-cc749c72a9
     server: 45.8.173.20
     port: 443
     uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
@@ -71,21 +58,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-9193e8b6f3
+      - 4Nika-aece09a1aa
       - 4Mohsen-f3f00c177a
-      - 4Mohsen-655cadc501
       - 4Kian-bda700c840
-      - 4Nika-557ad1dd40
+      - 4Sarina-cc749c72a9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9193e8b6f3
+      - 4Nika-aece09a1aa
       - 4Mohsen-f3f00c177a
-      - 4Mohsen-655cadc501
       - 4Kian-bda700c840
-      - 4Nika-557ad1dd40
+      - 4Sarina-cc749c72a9
 rules:
   - MATCH,Proxy

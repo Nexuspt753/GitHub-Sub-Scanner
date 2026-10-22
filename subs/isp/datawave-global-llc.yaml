@@ -1,27 +1,32 @@
 proxies:
   - type: vless
-    name: 4Mohsen-6ceda24795
-    server: 3w-jp03.xingvoy.cfd
+    name: 4Kian-d81e1462f5
+    server: 82.110.234.121
     port: 8443
-    uuid: bf11c479-6744-4bf5-b6ba-cf6a2098665c
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.cloudflare.com
-    flow: xtls-rprx-vision
+    servername: snip.edgeoneai.cc.cd
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-6ceda24795
+      - 4Kian-d81e1462f5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-6ceda24795
+      - 4Kian-d81e1462f5
 rules:
   - MATCH,Proxy

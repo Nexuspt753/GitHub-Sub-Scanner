@@ -1,25 +1,4 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 83.228.224.161
-    port: 443
-    password: SoftNetConnect
-    udp: true
-    client-fingerprint: chrome
-  - type: vless
-    name: EPODONIOS
-    server: finla.net-flowa.org
-    port: 10001
-    uuid: d4331e8b-2954-4c03-8df3-73ff7a2d73d5
-    udp: true
-    xudp: true
-  - type: vless
-    name: 🎯
-    server: finla.net-flowa.org
-    port: 10001
-    uuid: d4331e8b-2954-4c03-8df3-73ff7a2d73d5
-    udp: true
-    xudp: true
   - type: vless
     name: 4Sarina-ebde548217
     server: pro.turbooserver.com
@@ -33,33 +12,18 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: pro.turbooserver.com
-  - type: vless
-    name: 4Sarina-1ea6e41627
-    server: finla.net-flowa.org
-    port: 10001
-    uuid: d4331e8b-2954-4c03-8df3-73ff7a2d73d5
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🎯
       - 4Sarina-ebde548217
-      - 4Sarina-1ea6e41627
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - EPODONIOS
-      - 🎯
       - 4Sarina-ebde548217
-      - 4Sarina-1ea6e41627
 rules:
   - MATCH,Proxy

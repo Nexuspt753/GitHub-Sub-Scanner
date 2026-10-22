@@ -1,32 +1,41 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 37.153.171.7
-    port: 8443
-    uuid: 7967bf59-57e3-4cde-9898-527b0fe60022
+  - type: ss
+    name: 4Jadi-2fc4f95145
+    server: 109.201.152.181
+    port: 443
+    cipher: aes-128-cfb
+    password: shadowsocks
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: speed.dulacloud.store
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /dula?Telegram-WangCai2
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: speed.dulacloud.store
+  - type: ss
+    name: EPODONIOS
+    server: 109.201.152.181
+    port: 443
+    cipher: aes-128-cfb
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: 🇳🇱NL-109.201.152.181-0138
+    server: 109.201.152.181
+    port: 443
+    cipher: aes-128-cfb
+    password: shadowsocks
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-2fc4f95145
+      - EPODONIOS
+      - 🇳🇱NL-109.201.152.181-0138
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-2fc4f95145
+      - EPODONIOS
+      - 🇳🇱NL-109.201.152.181-0138
 rules:
   - MATCH,Proxy

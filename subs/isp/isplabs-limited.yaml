@@ -12,12 +12,26 @@ proxies:
       public-key: kL7mLf-Ozc18JAbJPXCCfcOkAwpcXZqgKP8DY7pNwS4
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 193.23.221.253
+    port: 443
+    uuid: 3f3c253c-2c6e-4f17-abbc-ddb308002ca0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru.tradingview.com
+    reality-opts:
+      public-key: lxr4MVJlo5M-S_dS-jfYjgcYKq29yi0DR39urpcylDI
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

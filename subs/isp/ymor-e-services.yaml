@@ -1,9 +1,16 @@
 proxies:
   - type: vless
-    name: 4Sarina-a224a00a00
-    server: dns5.m3hrzd.ir
+    name: 🇳🇱198485
+    server: 185.4.113.186
+    port: 8030
+    uuid: 3661f782-96ab-43f1-ba97-847195fc2ecb
+    udp: true
+    xudp: true
+  - type: vless
+    name: TEHRANARGO
+    server: dns4.m3hrzd.ir
     port: 8055
-    uuid: b4ce2452-5f71-4137-8cf9-0467ca5b07b0
+    uuid: 512e0d1a-3842-4c35-b7dd-8ecc77868f2e
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -13,18 +20,29 @@ proxies:
       short-id: 967a1145531e3868
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-06c4b8ee38
+    server: 185.4.113.186
+    port: 8030
+    uuid: 3661f782-96ab-43f1-ba97-847195fc2ecb
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-a224a00a00
+      - 🇳🇱198485
+      - TEHRANARGO
+      - 4FreeIran-06c4b8ee38
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-a224a00a00
+      - 🇳🇱198485
+      - TEHRANARGO
+      - 4FreeIran-06c4b8ee38
 rules:
   - MATCH,Proxy

@@ -1,24 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Kian-5d0a5f9a70
-    server: f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com
-    port: 13209
-    password: fac593ac-d6aa-4523-bea9-b3eb2a2b3da3
+  - type: vless
+    name: 4FreeIran-3934ab381a
+    server: 200.180.163.38
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-5d0a5f9a70
+      - 4FreeIran-3934ab381a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-5d0a5f9a70
+      - 4FreeIran-3934ab381a
 rules:
   - MATCH,Proxy

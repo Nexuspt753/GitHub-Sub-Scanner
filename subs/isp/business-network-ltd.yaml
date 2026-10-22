@@ -1,20 +1,36 @@
 proxies:
   - type: vless
-    name: 4Nika-4423427556
-    server: 185.179.82.201
+    name: 4Nika-98a2517ddf
+    server: 185.179.82.246
     port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: shuma.ccwu.cc
+    servername: snip.edgeoneai.cc.cd
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Kian-ead066de8b
+    server: 185.179.82.246
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vless
     name: 4Sarina-c3b987544b
     server: 185.179.82.201
@@ -36,7 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-4423427556
+      - 4Nika-98a2517ddf
+      - 4Kian-ead066de8b
       - 4Sarina-c3b987544b
   - name: Auto
     type: url-test
@@ -44,7 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-4423427556
+      - 4Nika-98a2517ddf
+      - 4Kian-ead066de8b
       - 4Sarina-c3b987544b
 rules:
   - MATCH,Proxy
