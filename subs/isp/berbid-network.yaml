@@ -1,19 +1,17 @@
 proxies:
-  - type: vmess
-    name: 4Kian-0533ad1e79
+  - type: vless
+    name: 4Jadi-c647b4852c
     server: ir2.fastraytel9880.ir
-    port: 26557
-    uuid: a3eccc08-c420-49d3-a825-f9b2fe75f7f5
-    alterId: 0
-    cipher: auto
+    port: 36193
+    uuid: 87720557-77bc-4205-9b1f-5836a6303fd1
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: panelm.fastraytel9880.ir
+    client-fingerprint: chrome
     alpn:
       - h2
       - http/1.1
+    servername: panelm.fastraytel9880.ir
+    xudp: true
   - type: vmess
     name: 4Kian-c24d80a07c
     server: ir2.fastraytel9880.ir
@@ -29,20 +27,34 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - type: vmess
+    name: 4Kian-3af0ee7a7b
+    server: ir2.fastraytel9880.ir
+    port: 26557
+    uuid: a3eccc08-c420-49d3-a825-f9b2fe75f7f5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: panelm.fastraytel9880.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-0533ad1e79
+      - 4Jadi-c647b4852c
       - 4Kian-c24d80a07c
+      - 4Kian-3af0ee7a7b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-0533ad1e79
+      - 4Jadi-c647b4852c
       - 4Kian-c24d80a07c
+      - 4Kian-3af0ee7a7b
 rules:
   - MATCH,Proxy

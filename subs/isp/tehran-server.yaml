@@ -1,29 +1,41 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 94.182.131.101
-    port: 443
-    uuid: 950ec237-e75f-4e99-9557-6545784d4202
+    name: vless
+    server: dash1.tsteam99.top
+    port: 5010
+    uuid: d9a6955c-12d8-4105-b55c-cc36df8d16c4
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: youtu.be
-    reality-opts:
-      public-key: fPjow17wDX8YJG89j9lraSqv54yvuS21lq3lJiAX_g0
-      short-id: 489861db
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: dash4.tsteam99.top
+    port: 50004
+    uuid: d9a6955c-12d8-4105-b55c-cc36df8d16c4
+    udp: true
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: dash8.tsteam99.top
+    port: 50008
+    uuid: d9a6955c-12d8-4105-b55c-cc36df8d16c4
+    udp: true
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - vless
+      - vless-01
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - vless
+      - vless-01
+      - vless-02
 rules:
   - MATCH,Proxy

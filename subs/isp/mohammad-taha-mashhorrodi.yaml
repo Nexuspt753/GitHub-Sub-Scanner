@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4FreeIran-48387edccb
+    name: 4Nika-150ddf0b8c
     server: dl.hessabb.ir
     port: 2051
     uuid: 0ca340c0-5e43-46b0-8690-31f92a78a198
@@ -12,29 +12,54 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dl.hessabb.ir
-  - type: vless
-    name: vless
-    server: np.gjjuuh.ir
-    port: 8080
-    uuid: a5de82cc-15cc-452d-ae4d-13bff8e225db
+  - type: vmess
+    name: 4FreeIran-a617b3284d
+    server: ir.yzcq.ir
+    port: 2070
+    uuid: 62be8969-c06d-459f-9c04-2acf23aa8322
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-76cbb71425
+    server: ir.yzcq.ir
+    port: 2030
+    uuid: 21cf69ba-9e09-4c1f-b40d-9e4fa24c6e05
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-9500596159
+    server: ir.yzcq.ir
+    port: 2040
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-48387edccb
-      - vless
+      - 4Nika-150ddf0b8c
+      - 4FreeIran-a617b3284d
+      - 4Sarina-76cbb71425
+      - 4Mohsen-9500596159
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-48387edccb
-      - vless
+      - 4Nika-150ddf0b8c
+      - 4FreeIran-a617b3284d
+      - 4Sarina-76cbb71425
+      - 4Mohsen-9500596159
 rules:
   - MATCH,Proxy

@@ -1,30 +1,25 @@
 proxies:
   - type: vless
-    name: 4Kian-fc415ae02b
-    server: 179.198.207.36
-    port: 443
-    uuid: dbe7df9a-c846-4305-9bbf-771c1b2f0520
+    name: vless
+    server: de.im-soon.com
+    port: 3443
+    uuid: SoonTeam
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: ai.sonnysleepbot.uk
-    reality-opts:
-      public-key: OsyavP0kjFE1iSMCLRMRfOK2qDIpB1iwxBqdmamsaC4
-      short-id: be9df5407e49841e
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-fc415ae02b
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-fc415ae02b
+      - vless
 rules:
   - MATCH,Proxy

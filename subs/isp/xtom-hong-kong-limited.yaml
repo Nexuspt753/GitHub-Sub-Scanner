@@ -1,13 +1,21 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: hk-2.tr202605.com
+    port: 465
+    password: 65fQmPHHbPcBCfvSHt
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.141.46.91
     port: 465
     password: 65fQmPHHbPcBCfvSHt
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: hk-2.tr202605.com
     port: 465
     password: owreRY1bmquS1WcYN2
@@ -15,12 +23,28 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-03
     server: 45.90.208.21
     port: 443
     password: qhVUwyWuPbYCYH5Dum
     udp: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-0d358206de
+    server: 172.93.188.25
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chromefp=chromefp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
@@ -29,6 +53,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Kian-0d358206de
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,5 +64,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Kian-0d358206de
 rules:
   - MATCH,Proxy

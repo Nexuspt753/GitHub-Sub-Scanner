@@ -1,5 +1,35 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: 92.42.99.143
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.volumeroot.com
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.volumeroot.com
+  - type: trojan
+    name: 🇳🇱
+    server: 92.42.99.143
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.volumeroot.com
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.volumeroot.com
+  - type: trojan
     name: DeltaKroneckerGithub
     server: 92.42.99.143
     port: 443
@@ -15,14 +45,14 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.volumeroot.com
   - type: trojan
-    name: 4Mohsen-752ac99b16
+    name: 4Nika-29044f0f8d
     server: 92.42.99.143
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.volumeroot.com
-    client-fingerprint: chrome
+    client-fingerprint: unsafe
     network: ws
     ws-opts:
       path: /assignment
@@ -44,19 +74,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: 4Mohsen-a4d0412d1b
+    name: 4Mohsen-4cef2711d7
     server: 92.42.99.143
     port: 443
     password: humanity
     udp: true
     tls: true
-    sni: www.volumeroot.com
+    sni: www.pleadcourt.org
     client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
+  - type: vless
+    name: 4Mohsen-cfbd5cdb5c
+    server: 185.230.44.140
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vless
     name: 4Kian-4a65347aad
     server: 185.230.44.200
@@ -78,10 +127,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇳🇱
       - DeltaKroneckerGithub
-      - 4Mohsen-752ac99b16
+      - 4Nika-29044f0f8d
       - 4Jadi-9b9776b923
-      - 4Mohsen-a4d0412d1b
+      - 4Mohsen-4cef2711d7
+      - 4Mohsen-cfbd5cdb5c
       - 4Kian-4a65347aad
   - name: Auto
     type: url-test
@@ -89,10 +141,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇳🇱
       - DeltaKroneckerGithub
-      - 4Mohsen-752ac99b16
+      - 4Nika-29044f0f8d
       - 4Jadi-9b9776b923
-      - 4Mohsen-a4d0412d1b
+      - 4Mohsen-4cef2711d7
+      - 4Mohsen-cfbd5cdb5c
       - 4Kian-4a65347aad
 rules:
   - MATCH,Proxy

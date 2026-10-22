@@ -1,7 +1,23 @@
 proxies:
   - type: vless
-    name: 🇮🇷198012
-    server: fun.zovip2.ir
+    name: Nexus_Panell
+    server: goold.zovip2.ir
+    port: 443
+    uuid: b1247bbd-33c5-4e00-b1b2-58dc5d8b565a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: goold.zovip2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/pulse
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: goold.zovip2.ir
+  - type: vless
+    name: 4Nika-2b3bfe0b2d
+    server: goold.zovip2.ir
     port: 443
     uuid: 415a1a3e-20da-4860-a15a-cf89c2ae5d80
     udp: true
@@ -9,26 +25,28 @@ proxies:
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: fun.zovip2.ir
+    servername: goold.zovip2.ir
     xudp: true
     network: ws
     ws-opts:
       path: /api/v3/pulse
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fun.zovip2.ir
+        Host: goold.zovip2.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇮🇷198012
+      - Nexus_Panell
+      - 4Nika-2b3bfe0b2d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇷198012
+      - Nexus_Panell
+      - 4Nika-2b3bfe0b2d
 rules:
   - MATCH,Proxy

@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.105.218.106
+    port: 2083
+    uuid: 58037ab8-a8e2-4927-a8b1-f909f9fdb64c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: 89.105.197.203
     port: 443
@@ -46,6 +61,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - v2rayng3
       - 4Sarina-9e6c090c81
@@ -55,6 +71,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - v2rayng3
       - 4Sarina-9e6c090c81
