@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 194.180.191.249
-    port: 443
-    uuid: 817b61c8-9bf0-4365-8a52-e43dfad274a6
-    udp: true
-    tls: true
-    client-fingerprint: unsafe
-    servername: shin-ra.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shin-ra.ccwu.cc
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 5.252.179.15
     port: 443
     uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
@@ -29,28 +13,12 @@ proxies:
       short-id: 296f27de82dad7ff
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-f8ef77f68b
-    server: 5.252.179.15
-    port: 443
-    uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: www.bing.com
-    reality-opts:
-      public-key: XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY
-      short-id: 296f27de82dad7ff
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-f8ef77f68b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,7 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4FreeIran-f8ef77f68b
 rules:
   - MATCH,Proxy

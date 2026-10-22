@@ -1,16 +1,28 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 193.23.221.253
-    port: 8466
-    uuid: 4cb9157c-cd6f-451f-b786-1c92edec32cb
+    server: 2.27.118.179
+    port: 443
+    uuid: 69c22017-b3e2-45ce-90b6-0505b21b5344
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: firefox
+    servername: www.vodafone.co.uk
+    reality-opts:
+      public-key: kL7mLf-Ozc18JAbJPXCCfcOkAwpcXZqgKP8DY7pNwS4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 193.23.221.253
+    port: 443
+    uuid: 3f3c253c-2c6e-4f17-abbc-ddb308002ca0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: ru.tradingview.com
     reality-opts:
-      public-key: n3BiVX_oDQXcqC0OmOm5o0RuOaXoHHhdiQ2s-xqkayA
-      short-id: d7c8227902c1d878
+      public-key: lxr4MVJlo5M-S_dS-jfYjgcYKq29yi0DR39urpcylDI
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -19,6 +31,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

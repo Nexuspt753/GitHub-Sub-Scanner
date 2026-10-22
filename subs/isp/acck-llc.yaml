@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 82.29.36.250
     port: 443
     uuid: 41a7af38-0bb1-4493-aa8d-634af0c2548b
@@ -14,7 +14,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vmess_ir
+    name: EPODONIOS
     server: 82.29.36.250
     port: 443
     uuid: 41a7af38-0bb1-4493-aa8d-634af0c2548b
@@ -52,42 +52,24 @@ proxies:
     servername: aws.amazon.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-0b73cf1683
-    server: 45.192.202.199
-    port: 443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - vmess_ir
       - 4FreeIran-e359807894
       - 4Sarina-3948b2e8d5
-      - 4Kian-0b73cf1683
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - vmess_ir
       - 4FreeIran-e359807894
       - 4Sarina-3948b2e8d5
-      - 4Kian-0b73cf1683
 rules:
   - MATCH,Proxy

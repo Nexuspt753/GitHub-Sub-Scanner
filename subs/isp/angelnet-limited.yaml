@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 196.247.163.9
+    port: 65012
+    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.icloud.com
+    reality-opts:
+      public-key: c7GoRlKYJrh9j0xSRrdmPq3HRkrR2YK9oy67YrC7Dk4
+      short-id: da9b3a6df9a99e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

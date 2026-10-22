@@ -1,4 +1,11 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hl-freedom-1.undef.network
+    port: 443
+    password: JaFKnqNcvnBT63t3rquidGsln
+    udp: true
+    client-fingerprint: chrome
   - type: vless
     name: EPODONIOS
     server: 89.125.100.59
@@ -14,26 +21,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: hl-freedom-1.undef.network
     port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
-    udp: true
-    client-fingerprint: chrome
-  - type: vless
-    name: v2ray313
-    server: 89.125.100.59
-    port: 443
-    uuid: 86096188-0ece-41af-922d-792c5f96c3ad
+    password: 7LBbob9IutFObLxLf9Svc1HaV
     udp: true
     tls: true
+    sni: hl-freedom-1.undef.network
     client-fingerprint: chrome
-    servername: anime.caloribro.uno
-    reality-opts:
-      public-key: BzXQPqKb1waqaBR4b2GGyE6VWX4LGd9iCOkyuMc8IGs
-      short-id: 14aa9b370c30c55d
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-1.undef.network
   - type: vless
     name: vmess_ir
     server: 89.125.100.59
@@ -67,9 +68,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - v2ray313
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - vmess_ir
       - 4Mohsen-cbfbcbb31e
   - name: Auto
@@ -78,9 +79,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - v2ray313
+      - EPODONIOS
+      - DeltaKroneckerGithub-01
       - vmess_ir
       - 4Mohsen-cbfbcbb31e
 rules:

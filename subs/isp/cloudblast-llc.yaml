@@ -1,17 +1,16 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: smart.avenone.ir
-    port: 1085
-    uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
+    server: 178.83.121.15
+    port: 443
+    uuid: 61b258c4-d246-40a1-8ee5-6ffbf9cfd3eb
     udp: true
-    xudp: true
-  - type: vless
-    name: 4Mohsen-64dfd15526
-    server: smart.avenone.ir
-    port: 1085
-    uuid: 0c1b7949-fe09-43d9-863f-2c031f66bfc1
-    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru.tradingview.com
+    reality-opts:
+      public-key: megh_wXh4-8dbwuTtQY7beR_jRiYOap5qt-jZ33Wbj0
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -19,7 +18,6 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-64dfd15526
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-64dfd15526
 rules:
   - MATCH,Proxy

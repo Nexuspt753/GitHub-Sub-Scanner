@@ -1,31 +1,29 @@
 proxies:
   - type: vless
-    name: 4FreeIran-45a2d3e0fa
-    server: 62.152.58.96
+    name: 4Kian-06ff8bccfc
+    server: 62.152.58.90
     port: 443
-    uuid: 23a64225-0119-44ce-a24e-114eae8648a9
+    uuid: 1bb2af63-4472-44ed-9c70-8f316258b68b
     udp: true
     tls: true
-    client-fingerprint: safari
-    servername: adm.ichveter.click
+    client-fingerprint: random
+    servername: 360.yandex.ru
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/events
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-45a2d3e0fa
+      - 4Kian-06ff8bccfc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-45a2d3e0fa
+      - 4Kian-06ff8bccfc
 rules:
   - MATCH,Proxy

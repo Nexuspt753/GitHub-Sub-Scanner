@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: 4Jadi-3e41199d5e
-    server: 103.97.200.42
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=unsafe
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
     name: 4Kian-83ef8a18b1
     server: 216.23.82.107
     port: 7222
@@ -99,48 +83,28 @@ proxies:
       short-id: 1b1e8a3dccc86ccd
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-93b56c45d0
-    server: 216.23.122.125
-    port: 443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3e41199d5e
       - 4Kian-83ef8a18b1
       - 4FreeIran-1f6abb36da
       - 4FreeIran-fb77b45691
       - 4Kian-b3949fca1f
       - 4Sarina-efa2a2ae6a
       - 4Sarina-6888e1c880
-      - 4Nika-93b56c45d0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3e41199d5e
       - 4Kian-83ef8a18b1
       - 4FreeIran-1f6abb36da
       - 4FreeIran-fb77b45691
       - 4Kian-b3949fca1f
       - 4Sarina-efa2a2ae6a
       - 4Sarina-6888e1c880
-      - 4Nika-93b56c45d0
 rules:
   - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 198.202.146.51.sslip.io
+    port: 443
+    uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 198.202.146.51.sslip.io
+    reality-opts:
+      public-key: B5DMtKe8wjH_WeM8M8IEuKwPqJ6-Ku98JH_LifwehEY
+      short-id: 6fe2994a0e208408
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

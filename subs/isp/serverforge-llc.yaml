@@ -1,6 +1,21 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: sampleshipping.cleanfoodshop.org
+    port: 443
+    uuid: 983b70ea-dabc-481a-a7cd-bd6603e0a624
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sampleshipping.cleanfoodshop.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 130.12.242.106
     port: 443
     uuid: bc058e69-0444-4c7b-98da-bd67f0b143da
@@ -19,6 +34,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
