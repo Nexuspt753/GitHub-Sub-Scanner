@@ -11,23 +11,18 @@ proxies:
     reality-opts:
       public-key: 7ftU0SggASCqf9TsUminHpucXB1LEQ1dPrcYFV7Dny4
     xudp: true
-  - type: vmess
-    name: EPODONIOS
-    server: spain2.net-flowa.org
-    port: 80
-    uuid: cd96479e-9c39-4a7f-ba0c-806a83af19ca
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vless
-    name: 4FreeIran-04b85f0845
-    server: 94.237.46.104
-    port: 443
-    uuid: dac47070-c136-49f3-8ed2-32b68e710ea3
+    name: DeltaKroneckerGithub-01
+    server: 5.22.212.81
+    port: 8080
+    uuid: 7f36e606-3eb9-4b60-b783-8d8806818286
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Nika-4eb84b6904
     server: 94.237.46.104
@@ -35,26 +30,14 @@ proxies:
     uuid: dac47070-c136-49f3-8ed2-32b68e710ea3
     udp: true
     xudp: true
-  - type: vmess
-    name: 4Jadi-d8bf1c81c9
-    server: spain2.net-flowa.org
-    port: 80
-    uuid: cd96479e-9c39-4a7f-ba0c-806a83af19ca
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4FreeIran-04b85f0845
+      - DeltaKroneckerGithub-01
       - 4Nika-4eb84b6904
-      - 4Jadi-d8bf1c81c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -62,9 +45,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - EPODONIOS
-      - 4FreeIran-04b85f0845
+      - DeltaKroneckerGithub-01
       - 4Nika-4eb84b6904
-      - 4Jadi-d8bf1c81c9
 rules:
   - MATCH,Proxy

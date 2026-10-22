@@ -1,5 +1,32 @@
 proxies:
   - type: vless
+    name: Bol’shoye Stiklevo · @DeltaKroneckerGithub
+    server: 178.172.227.228
+    port: 10444
+    uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+      short-id: 8debcf36f1cc69ff
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
+    server: 178.172.227.228
+    port: 14430
+    uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 178.172.227.228
+  - type: vless
     name: Minsk · @DeltaKroneckerGithub
     server: 95.128.71.79
     port: 14430
@@ -45,6 +72,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
   - type: vless
+    name: Minsk · 4Nika-4423427556
+    server: 185.179.82.201
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
     name: Minsk · 4Sarina-c3b987544b
     server: 185.179.82.201
     port: 443
@@ -65,9 +108,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
       - Minsk · @DeltaKroneckerGithub
       - Minsk · 4Nika-98a2517ddf
       - Minsk · 4Kian-ead066de8b
+      - Minsk · 4Nika-4423427556
       - Minsk · 4Sarina-c3b987544b
   - name: Auto
     type: url-test
@@ -75,9 +121,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub
+      - Bol’shoye Stiklevo · @DeltaKroneckerGithub-01
       - Minsk · @DeltaKroneckerGithub
       - Minsk · 4Nika-98a2517ddf
       - Minsk · 4Kian-ead066de8b
+      - Minsk · 4Nika-4423427556
       - Minsk · 4Sarina-c3b987544b
 rules:
   - MATCH,Proxy

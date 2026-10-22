@@ -1,28 +1,26 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-0d62d58470
-    server: s2.tehranionliine.ir
-    port: 80
-    uuid: b1ac23fb-b336-4d37-a3c0-64b29c4ef3a4
+  - type: vmess
+    name: 4Jadi-c6b2dc6dda
+    server: free.ertebatgoostar.ir
+    port: 443
+    uuid: c9eab439-53bf-46e4-ba58-fc368ae1ee8c
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-0d62d58470
+      - 4Jadi-c6b2dc6dda
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-0d62d58470
+      - 4Jadi-c6b2dc6dda
 rules:
   - MATCH,Proxy

@@ -1,13 +1,34 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: dns5.m3hrzd.ir
+    port: 8055
+    uuid: 656a11ef-c5e0-4b0d-9e2a-b72a00731195
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: race.egistration.ir
+    reality-opts:
+      public-key: 4ExW95eL_lG7-vBq744NvIrYYm9tQyl33xf5mqNvEho
+      short-id: 967a1145531e3868
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 🇳🇱198485
     server: 185.4.113.186
     port: 8030
     uuid: 3661f782-96ab-43f1-ba97-847195fc2ecb
     udp: true
     xudp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: dns5.m3hrzd.ir
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: 5ox2e7xif1rCKOiffOPvibGk-KVXCk8v
+    udp: true
   - type: vless
-    name: TEHRANARGO
+    name: 4Sarina-d3fe7cb833
     server: dns4.m3hrzd.ir
     port: 8055
     uuid: 512e0d1a-3842-4c35-b7dd-8ecc77868f2e
@@ -20,29 +41,24 @@ proxies:
       short-id: 967a1145531e3868
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-06c4b8ee38
-    server: 185.4.113.186
-    port: 8030
-    uuid: 3661f782-96ab-43f1-ba97-847195fc2ecb
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - 🇳🇱198485
-      - TEHRANARGO
-      - 4FreeIran-06c4b8ee38
+      - DeltaKroneckerGithub
+      - 4Sarina-d3fe7cb833
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - 🇳🇱198485
-      - TEHRANARGO
-      - 4FreeIran-06c4b8ee38
+      - DeltaKroneckerGithub
+      - 4Sarina-d3fe7cb833
 rules:
   - MATCH,Proxy

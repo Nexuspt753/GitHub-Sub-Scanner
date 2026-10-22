@@ -31,6 +31,21 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vmess
+    name: 4Nika-f4154fad58
+    server: 45.144.179.138
+    port: 443
+    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
@@ -38,6 +53,7 @@ proxy-groups:
       - Auto
       - 4FreeIran-fadc1bf43d
       - 4Kian-af37d1063c
+      - 4Nika-f4154fad58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,5 +62,6 @@ proxy-groups:
     proxies:
       - 4FreeIran-fadc1bf43d
       - 4Kian-af37d1063c
+      - 4Nika-f4154fad58
 rules:
   - MATCH,Proxy

@@ -12,12 +12,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dl.hessabb.ir
+  - type: vmess
+    name: 4Jadi-d8b182a1c5
+    server: eeetst.aparatratinfo.ir
+    port: 8443
+    uuid: 4b89551a-7b7c-442b-b790-207e48229045
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-48aa985d03
+    server: eeetst.aparatratinfo.ir
+    port: 8443
+    uuid: 8f2c5026-bfb0-414a-8600-d1660023bb08
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-150ddf0b8c
+      - 4Jadi-d8b182a1c5
+      - 4Nika-48aa985d03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +47,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-150ddf0b8c
+      - 4Jadi-d8b182a1c5
+      - 4Nika-48aa985d03
 rules:
   - MATCH,Proxy
