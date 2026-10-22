@@ -1,0 +1,32 @@
+proxies:
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 36.38.117.86
+    port: 11965
+    cipher: bm9uZTpodHRwczovL3QubWUvV2FuZ0NhaTLwn4eo8J-Hsw
+    password: ""
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 36.38.117.86
+    port: 11965
+    cipher: none
+    password: https://t.me/WangCai2🇨🇳
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+rules:
+  - MATCH,Proxy

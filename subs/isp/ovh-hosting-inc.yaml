@@ -1,17 +1,87 @@
 proxies:
-  - type: ss
+  - type: vless
     name: DeltaKroneckerGithub
-    server: ca225.vpnbook.com
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: e5c65ph
+    server: 148.113.196.75
+    port: 8443
+    uuid: 08f96221-9b7b-4e6f-8ffe-aee8b9c9b504
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ov-canada1.09vpn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: ov-canada1.09vpn.com
+    port: 8443
+    uuid: 66265232-e176-4c29-b133-8260c9dcb0a3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Mohsen-909fc4f78e
+    server: 149.56.132.41
+    port: 80
+    password: 89d81c5f-3d75-42f7-8a23-1be9ac89f3fb
+    udp: true
+    tls: true
+    sni: ca1.trojanvh.xyz
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-ba08b18081
+    server: 149.56.141.11
+    port: 443
+    password: 8b6daf15-8342-482d-b894-1239fd98ce7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-3accc12043
+    server: 148.113.141.99
+    port: 443
+    password: HdsUZmsHQW
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-1a2312f0ec
+    server: 148.113.141.99
+    port: 443
+    password: HdsUZmsHQW
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-feca97cb7f
+    server: 149.56.132.41
+    port: 80
+    password: fafb4232-9659-4867-886d-e47f4bda283e
+    udp: true
+    tls: true
+    sni: ca1.trojanvh.xyz
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-909fc4f78e
+      - 4Kian-ba08b18081
+      - 4Kian-3accc12043
+      - 4Kian-1a2312f0ec
+      - 4Jadi-feca97cb7f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +89,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-909fc4f78e
+      - 4Kian-ba08b18081
+      - 4Kian-3accc12043
+      - 4Kian-1a2312f0ec
+      - 4Jadi-feca97cb7f
 rules:
   - MATCH,Proxy

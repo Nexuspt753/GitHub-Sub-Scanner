@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 89.117.158.245
-    port: 443
-    password: "745654"
+  - type: vless
+    name: 4Kian-e6b3afda9c
+    server: 93.127.223.238
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    sni: esla.cestbon.work
     client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-e6b3afda9c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-e6b3afda9c
 rules:
   - MATCH,Proxy

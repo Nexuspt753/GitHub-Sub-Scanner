@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 94.103.2.232
+    port: 8444
+    uuid: a346c521-7a7f-452b-9356-a4893feb5982
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 94.103.2.23
+    port: 8451
+    uuid: a346c521-7a7f-452b-9356-a4893feb5982
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 1f0c1c7297521d51.wgse.info
     port: 443
@@ -16,35 +46,37 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 1f0c1c7297521d51.wgse.info
   - type: vless
-    name: 4Sarina-fc44799e6d
-    server: 1f0c1c7297521d51.wgse.info
+    name: 4Kian-054ec44c07
+    server: 92.118.112.249
     port: 443
-    uuid: d78d6815-5f00-4fe3-8aae-3344aeb7783f
+    uuid: e4b8df56-b680-4a34-ab47-5bf5738ed718
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 1f0c1c7297521d51.wgse.info
+    servername: www.google.com
+    reality-opts:
+      public-key: eEEraNK24HvLNi7BMiwukELj8zSIPfUCEgXL2C4fbHw
+      short-id: 85225c27630d023f
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 1f0c1c7297521d51.wgse.info
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - 4Sarina-fc44799e6d
+      - 4Kian-054ec44c07
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
-      - 4Sarina-fc44799e6d
+      - 4Kian-054ec44c07
 rules:
   - MATCH,Proxy

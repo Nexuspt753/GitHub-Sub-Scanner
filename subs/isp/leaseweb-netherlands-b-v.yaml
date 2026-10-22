@@ -8,12 +8,45 @@ proxies:
     tls: true
     sni: tt6.tjvpn.top
     client-fingerprint: chrome
+  - type: vmess
+    name: EPODONIOS
+    server: 185.19.33.15
+    port: 53842
+    uuid: 26b563e4-8f49-404c-9fb3-59b0c313e14c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-01
+    server: 185.19.33.15
+    port: 58818
+    uuid: 26b563e4-8f49-404c-9fb3-59b0c313e14c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-cc2655db39
+    server: 185.19.33.15
+    port: 53842
+    uuid: 26b563e4-8f49-404c-9fb3-59b0c313e14c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-ac9107b7b5
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Jadi-cc2655db39
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +54,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-ac9107b7b5
+      - EPODONIOS
+      - EPODONIOS-01
+      - 4Jadi-cc2655db39
 rules:
   - MATCH,Proxy

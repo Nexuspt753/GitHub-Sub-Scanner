@@ -1,30 +1,32 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.18.222.128
-    port: 443
-    uuid: fe0138b5-ca60-4a67-91aa-b5a49266eeb5
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: jp.chick-team.ru
-    reality-opts:
-      public-key: 6-REVWq51xr9OwJAE4VlW98QvZN9NCYe3BK5RKd7YBw
-      short-id: c643a34162d37587
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: 4FreeIran-4b6e377e18
+    server: jp1.frnhk.xyz
+    port: 9443
+    password: 3c5f522d-6695-474f-abcf-2b1a65d503fa
+    sni: jp1.frnhk.xyz
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-5dfb1381aa
+    server: jp1.frnhk.xyz
+    port: 9443
+    password: f5f0babe-aea2-4f07-a1fc-3c9820253f49
+    sni: jp1.frnhk.xyz
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4FreeIran-4b6e377e18
+      - 4Jadi-5dfb1381aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4FreeIran-4b6e377e18
+      - 4Jadi-5dfb1381aa
 rules:
   - MATCH,Proxy
