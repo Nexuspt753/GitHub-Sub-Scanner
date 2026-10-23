@@ -1,6 +1,34 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 31.59.216.141
+    port: 443
+    uuid: c6cfcc53-9271-4ef7-88c5-5141621c8db1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 193.23.216.239.cdn-one.org
+    reality-opts:
+      public-key: 7zsU1U-30jh-qqfmqZukMfoqHB75ksKFA5aQFi8LGW4
+      short-id: 70b4ca
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: tlokexcm.himoy.space
+    port: 443
+    uuid: 5131b5e9-2c3c-44a0-8f18-0641f3f21cac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tlokexcm.himoy.space
+    reality-opts:
+      public-key: Pb37t99NiJqm-lsTi4tucPFqRXIsek-5G5dqjIqVfxE
+      short-id: 15c87d0b99c0d132
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
     server: 31.59.217.164
     port: 443
     uuid: 4b09d40d-e36a-47c3-baa4-e6bf551b3183
@@ -53,15 +81,32 @@ proxies:
       short-id: 266337e69bb1f189
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-bdfe683978
+    server: 31.59.216.141
+    port: 443
+    uuid: c6cfcc53-9271-4ef7-88c5-5141621c8db1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 193.23.216.239.cdn-one.org
+    reality-opts:
+      public-key: 7zsU1U-30jh-qqfmqZukMfoqHB75ksKFA5aQFi8LGW4
+      short-id: 70b4ca
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
       - 4Kian-f0d44bce16
+      - 4Nika-bdfe683978
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -69,8 +114,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-a706818c2a
       - 4Mohsen-ebafbb11ad
       - 4Kian-f0d44bce16
+      - 4Nika-bdfe683978
 rules:
   - MATCH,Proxy

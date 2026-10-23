@@ -1,32 +1,52 @@
 proxies:
-  - type: vless
-    name: 4Kian-f6a96edc04
-    server: 212.135.212.211
+  - type: vmess
+    name: 4Sarina-c6565acc59
+    server: 212.135.211.242
     port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    uuid: 1c3fb1c0-1204-49db-b842-f72d50f014c1
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
     xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chromefp=chrome
+      path: /Sydney3
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+        Host: aus.lovehk.xyz
+  - type: vmess
+    name: 4Kian-3fd2d3c0fb
+    server: 212.135.211.242
+    port: 443
+    uuid: 235e318a-8bcb-4480-b256-7b65cc5d0b0a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /Sydney3
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: aus.lovehk.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f6a96edc04
+      - 4Sarina-c6565acc59
+      - 4Kian-3fd2d3c0fb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f6a96edc04
+      - 4Sarina-c6565acc59
+      - 4Kian-3fd2d3c0fb
 rules:
   - MATCH,Proxy

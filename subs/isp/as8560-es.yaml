@@ -1,0 +1,32 @@
+proxies:
+  - type: vmess
+    name: EPODONIOS
+    server: 212.227.228.91
+    port: 10000
+    uuid: 21790ffe-4f82-11ed-bec7-03f211755ed3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vpnjantit
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 212.227.228.91
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - EPODONIOS
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - EPODONIOS
+rules:
+  - MATCH,Proxy

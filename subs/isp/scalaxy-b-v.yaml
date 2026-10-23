@@ -1,22 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 38.180.38.137
-    port: 443
-    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vlso5.1d.mom
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /socks5=888:888@hkip.1d.mom:1080
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vlso5.1d.mom
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 38.180.173.150
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
@@ -24,43 +8,12 @@ proxies:
     tls: true
     sni: 38.180.173.150
     client-fingerprint: chrome
-  - type: vless
-    name: 4Nika-0f7024f958
-    server: 38.180.243.134
-    port: 9443
-    uuid: 82eb8419-59f4-4d3e-9106-d05d22af615c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: 0hIFPaEn4RdFib8_eP8HYxMywR5izEwM3JA2W1Zo8U4
-      short-id: b390142456517acc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-f8c48e5604
-    server: 38.180.243.134
-    port: 9443
-    uuid: 82eb8419-59f4-4d3e-9106-d05d22af615c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: 0hIFPaEn4RdFib8_eP8HYxMywR5izEwM3JA2W1Zo8U4
-      short-id: b390142456517acc
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-0f7024f958
-      - 4FreeIran-f8c48e5604
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,8 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-0f7024f958
-      - 4FreeIran-f8c48e5604
 rules:
   - MATCH,Proxy
