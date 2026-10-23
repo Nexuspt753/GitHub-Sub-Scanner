@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 85.155.225.63
+    port: 8443
+    uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cf3.schzyc.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=ProxyIP.CMLiussss.net
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf3.schzyc.cc.cd
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.180.141.48
     port: 443
     password: d30ab83dbde4480082048fb315bedebd
@@ -14,6 +30,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

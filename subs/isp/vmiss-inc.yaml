@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.247.28.203
+    port: 443
+    uuid: 64726966-0000-4000-8000-740000000000
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: parsa-panel-dy55x.railway1385-2a46.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: parsa-panel-dy55x.railway1385-2a46.workers.dev
+  - type: vless
     name: 4Mohsen-0743bab79f
     server: 38.47.96.220
     port: 11424
@@ -36,6 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-0743bab79f
       - 4Jadi-b85f7dd369
   - name: Auto
@@ -44,6 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-0743bab79f
       - 4Jadi-b85f7dd369
 rules:

@@ -1,15 +1,13 @@
 proxies:
-  - type: vless
-    name: 4Jadi-31f6847d78
-    server: 149.33.47.172
-    port: 9443
-    uuid: 82eb8419-59f4-4d3e-9106-d05d22af615c
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.180.173.150
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
     udp: true
     tls: true
+    sni: 38.180.173.150
     client-fingerprint: chrome
-    servername: www.amazon.com
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: 4Mohsen-deca285149
     server: 149.33.47.172
@@ -20,6 +18,20 @@ proxies:
     client-fingerprint: chrome
     servername: www.amazon.com
     flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Nika-0f7024f958
+    server: 38.180.243.134
+    port: 9443
+    uuid: 82eb8419-59f4-4d3e-9106-d05d22af615c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: 0hIFPaEn4RdFib8_eP8HYxMywR5izEwM3JA2W1Zo8U4
+      short-id: b390142456517acc
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Nika-8c047ea966
@@ -37,8 +49,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-31f6847d78
+      - DeltaKroneckerGithub
       - 4Mohsen-deca285149
+      - 4Nika-0f7024f958
       - 4Nika-8c047ea966
   - name: Auto
     type: url-test
@@ -46,8 +59,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-31f6847d78
+      - DeltaKroneckerGithub
       - 4Mohsen-deca285149
+      - 4Nika-0f7024f958
       - 4Nika-8c047ea966
 rules:
   - MATCH,Proxy

@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: Lisbon · @DeltaKroneckerGithub
+    server: 185.231.233.91
+    port: 17167
+    cipher: aes-128-gcm
+    password: ca438054771821250089399a2f33275e
+    udp: true
   - type: vless
     name: Porto · 4Nika-c752ca25dc
     server: 195.133.92.228
@@ -28,22 +35,6 @@ proxies:
     network: ws
     ws-opts:
       path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: Porto · 4Mohsen-6192aa698a
-    server: 195.133.92.228
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
@@ -80,36 +71,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
   - type: vless
-    name: Lisbon · 4Nika-5548e9bb2a
-    server: 50.7.43.117
-    port: 443
-    uuid: b24ad12f-f6ce-4f0b-a264-d58a76104026
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pt3.magazinnarubeva.ru
-    reality-opts:
-      public-key: trN5x0amt2YuVzF2vZnK294YBAuh_zl5QkZjPyWz-TI
-      short-id: 8718c58d3d51db59
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Porto · 4Mohsen-b4641bc1b7
-    server: 195.133.92.20
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shuma.ccwu.cc
-  - type: vless
     name: Porto · 4Jadi-1531bf3f44
     server: 195.133.92.20
     port: 443
@@ -130,13 +91,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Lisbon · @DeltaKroneckerGithub
       - Porto · 4Nika-c752ca25dc
       - Porto · 4Sarina-d453966448
-      - Porto · 4Mohsen-6192aa698a
       - Porto · 4Sarina-2e014abe10
       - Porto · 4Nika-e173d7f72e
-      - Lisbon · 4Nika-5548e9bb2a
-      - Porto · 4Mohsen-b4641bc1b7
       - Porto · 4Jadi-1531bf3f44
   - name: Auto
     type: url-test
@@ -144,13 +103,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Lisbon · @DeltaKroneckerGithub
       - Porto · 4Nika-c752ca25dc
       - Porto · 4Sarina-d453966448
-      - Porto · 4Mohsen-6192aa698a
       - Porto · 4Sarina-2e014abe10
       - Porto · 4Nika-e173d7f72e
-      - Lisbon · 4Nika-5548e9bb2a
-      - Porto · 4Mohsen-b4641bc1b7
       - Porto · 4Jadi-1531bf3f44
 rules:
   - MATCH,Proxy

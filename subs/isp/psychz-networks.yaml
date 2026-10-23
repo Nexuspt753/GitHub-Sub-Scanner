@@ -6,12 +6,28 @@ proxies:
     password: dongtaiwang.com
     sni: www.bing.com
     skip-cert-verify: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 108.181.71.5
+    port: 15995
+    cipher: aes-128-gcm
+    password: 882dd5b0e0f2cf05bb5de75f59bbe953
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 108.181.71.156
+    port: 15998
+    cipher: aes-128-gcm
+    password: 882dd5b0e0f2cf05bb5de75f59bbe953
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-800a170f51
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +35,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-800a170f51
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

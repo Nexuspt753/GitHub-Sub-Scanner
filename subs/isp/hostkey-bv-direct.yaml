@@ -1,22 +1,31 @@
 proxies:
-  - type: hysteria2
-    name: 4Kian-b925aeca6d
-    server: nl2.frkn.org
-    port: 8443
-    password: 3b8c82ed-fe66-472d-915e-034ccb57103f
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.130.227.19
+    port: 8444
+    uuid: a346c521-7a7f-452b-9356-a4893feb5982
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-b925aeca6d
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-b925aeca6d
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

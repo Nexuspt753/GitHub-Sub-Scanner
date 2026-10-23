@@ -1,23 +1,50 @@
 proxies:
-  - type: ss
-    name: 4FreeIran-9dee9d1200
-    server: cloub.zedmobile.org
-    port: 8443
-    cipher: chacha20-ietf-poly1305
-    password: cyb3kQbYCbqBWS3XSIiRA8X_tXcT1VrV
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.4.112.226
+    port: 443
+    uuid: 9c54d883-97a8-4b49-af23-fe052eff2c3a
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.python.org
+    reality-opts:
+      public-key: pQFWeFFgW52ADvjMauzOrv-1v-grz-7IP2tC5cudOEw
+      short-id: 53c57020
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.4.112.226
+    port: 443
+    uuid: 41c8a7a2-298d-4edb-ab8d-4e8d8018536a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.python.org
+    reality-opts:
+      public-key: pQFWeFFgW52ADvjMauzOrv-1v-grz-7IP2tC5cudOEw
+      short-id: 53c57020
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-9dee9d1200
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-9dee9d1200
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,6 +1,22 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 203.202.232.110
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vlso5.1d.mom
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /socks5=888:888
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 194.116.236.113
     port: 443
     uuid: 9c794bb7-54fe-4acd-844a-a26209af36c3
@@ -13,12 +29,40 @@ proxies:
       short-id: 7271129440ade8fa
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-6c77587696
+    server: 194.116.236.113
+    port: 443
+    uuid: 9c794bb7-54fe-4acd-844a-a26209af36c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.mskvibe.fyi
+    reality-opts:
+      public-key: 13nLTYkdBEFR-A4CfK2beOx-5LKEsXh1QHPq8Kt52BQ
+      short-id: 7271129440ade8fa
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-ea3ab472ba
+    server: 194.116.236.113
+    port: 443
+    uuid: 9c794bb7-54fe-4acd-844a-a26209af36c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.mskvibe.fyi
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-6c77587696
+      - 4Kian-ea3ab472ba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-6c77587696
+      - 4Kian-ea3ab472ba
 rules:
   - MATCH,Proxy

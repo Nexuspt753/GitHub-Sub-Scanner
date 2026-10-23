@@ -2,6 +2,18 @@ proxies:
   - type: vless
     name: DeltaKroneckerGithub
     server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 208.84.100.209
     port: 2112
     uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
     udp: true
@@ -12,23 +24,13 @@ proxies:
       public-key: p8pUe3hwND5rhAti-yRQ5qMaIkNdhxOV1K1jpbtJlEQ
       short-id: 125ba3
     xudp: true
-  - type: vless
-    name: 4Jadi-4b3691d1ee
-    server: 208.84.100.209
-    port: 2112
-    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-4b3691d1ee
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -36,6 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-4b3691d1ee
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
