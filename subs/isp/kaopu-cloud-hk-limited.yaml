@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 38.54.27.117
+  - type: ss
+    name: EPODONIOS
+    server: 38.54.59.102
     port: 443
-    password: af4b064a9c39472fb34ad8b113acdc6b
+    cipher: aes-256-gcm
+    password: pKEW8JPByTVTLtM
     udp: true
-    tls: true
-    sni: 38.54.27.117
-    client-fingerprint: chrome
+  - type: ss
+    name: 🇪🇬
+    server: 38.54.59.102
+    port: 443
+    cipher: aes-256-gcm
+    password: pKEW8JPByTVTLtM
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇪🇬
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 🇪🇬
 rules:
   - MATCH,Proxy

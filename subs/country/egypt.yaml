@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: Cairo · @DeltaKroneckerGithub
-    server: 38.54.59.90
+  - type: ss
+    name: Cairo · EPODONIOS
+    server: 38.54.59.102
     port: 443
-    password: af4b064a9c39472fb34ad8b113acdc6b
+    cipher: aes-256-gcm
+    password: pKEW8JPByTVTLtM
     udp: true
-    tls: true
-    sni: 38.54.59.90
-    client-fingerprint: chrome
+  - type: ss
+    name: Cairo · 🇪🇬
+    server: 38.54.59.102
+    port: 443
+    cipher: aes-256-gcm
+    password: pKEW8JPByTVTLtM
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Cairo · @DeltaKroneckerGithub
+      - Cairo · EPODONIOS
+      - Cairo · 🇪🇬
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Cairo · @DeltaKroneckerGithub
+      - Cairo · EPODONIOS
+      - Cairo · 🇪🇬
 rules:
   - MATCH,Proxy

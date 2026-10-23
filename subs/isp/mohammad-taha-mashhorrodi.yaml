@@ -1,4 +1,51 @@
 proxies:
+  - type: ss
+    name: EPODONIOS
+    server: tunn.pasmazy1.ir
+    port: 7366
+    cipher: chacha20-ietf-poly1305
+    password: qlZe_zoee3Ns3czHEy95ZOj9RRwVS6Fj
+    udp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: turk.karmatel.ir
+    port: 2087
+    uuid: dffbe84e-a9b4-46f5-a2cd-757526a09f88
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: trt.karmatel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vs1.karmatel.ir
+  - type: vless
+    name: 🇮🇷IR-🚀@VPNine1
+    server: turk.karmatel.ir
+    port: 2087
+    uuid: dffbe84e-a9b4-46f5-a2cd-757526a09f88
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: trt.karmatel.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vs1.karmatel.ir
   - type: vless
     name: 4Nika-150ddf0b8c
     server: dl.hessabb.ir
@@ -12,42 +59,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dl.hessabb.ir
-  - type: vmess
-    name: 4Jadi-d8b182a1c5
-    server: eeetst.aparatratinfo.ir
-    port: 8443
-    uuid: 4b89551a-7b7c-442b-b790-207e48229045
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Nika-48aa985d03
-    server: eeetst.aparatratinfo.ir
-    port: 8443
-    uuid: 8f2c5026-bfb0-414a-8600-d1660023bb08
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇷IR-🚀@VPNine1
       - 4Nika-150ddf0b8c
-      - 4Jadi-d8b182a1c5
-      - 4Nika-48aa985d03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - 🇮🇷IR-🚀@VPNine1
       - 4Nika-150ddf0b8c
-      - 4Jadi-d8b182a1c5
-      - 4Nika-48aa985d03
 rules:
   - MATCH,Proxy
