@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: Qara_atayi
-    server: ca.zanzelo.ir
-    port: 3022
-    uuid: 7bf337e7-5034-452a-86c4-fb14bf86815d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: KVrKzcMWnFc8-s2Cre3PUS3ojMvugd1BxS9on54vBW0
-      short-id: f2e1c0296f7f5a8a
-    xudp: true
-  - type: vless
     name: 4FreeIran-ef4fcaf810
     server: 13.158.39.80
     port: 443
@@ -44,19 +31,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Nika-e86b460ffe
-    server: ca.zanzelo.ir
-    port: 3022
-    uuid: 7bf337e7-5034-452a-86c4-fb14bf86815d
+  - type: vmess
+    name: 4Jadi-1cfb458da7
+    server: gtm1.ktmwan.net
+    port: 12899
+    uuid: 4941aa8d-07d2-408c-be2c-117debecba30
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: KVrKzcMWnFc8-s2Cre3PUS3ojMvugd1BxS9on54vBW0
-      short-id: f2e1c0296f7f5a8a
     xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: baidu.com
+  - type: vmess
+    name: 4Kian-dcda25dedb
+    server: gtm1.ktmwan.net
+    port: 12889
+    uuid: 4941aa8d-07d2-408c-be2c-117debecba30
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: gtm1.ktmwan.net
   - type: vmess
     name: 4Mohsen-28510f9160
     server: za-a-zzy.glnyhlgc.com
@@ -74,7 +80,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Nika-635f916d98
+    name: 4Kian-0216669a42
     server: za-a-zzy.glnyhlgc.com
     port: 443
     uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
@@ -84,13 +90,14 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
+    servername: za-a-zzy.glnyhlgc.com
     network: ws
     ws-opts:
       path: /about/7678
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
-    name: 4Jadi-900265d7aa
+    name: 4Kian-c3131fb6e4
     server: za-a-zzy.glnyhlgc.com
     port: 443
     uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
@@ -105,31 +112,30 @@ proxies:
       path: /about/7678
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: za-a-zzy.glnyhlgc.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Qara_atayi
       - 4FreeIran-ef4fcaf810
       - 4FreeIran-cbf3dea04c
-      - 4Nika-e86b460ffe
+      - 4Jadi-1cfb458da7
+      - 4Kian-dcda25dedb
       - 4Mohsen-28510f9160
-      - 4Nika-635f916d98
-      - 4Jadi-900265d7aa
+      - 4Kian-0216669a42
+      - 4Kian-c3131fb6e4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Qara_atayi
       - 4FreeIran-ef4fcaf810
       - 4FreeIran-cbf3dea04c
-      - 4Nika-e86b460ffe
+      - 4Jadi-1cfb458da7
+      - 4Kian-dcda25dedb
       - 4Mohsen-28510f9160
-      - 4Nika-635f916d98
-      - 4Jadi-900265d7aa
+      - 4Kian-0216669a42
+      - 4Kian-c3131fb6e4
 rules:
   - MATCH,Proxy

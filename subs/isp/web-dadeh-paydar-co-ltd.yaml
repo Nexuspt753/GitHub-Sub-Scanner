@@ -13,12 +13,23 @@ proxies:
       short-id: 2d5781f528d99a29
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Sarina-8f70421a39
+    server: 194.32.213.2
+    port: 49951
+    uuid: a68a9f14-4075-4b50-8ee0-3820442d789a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-5e04bc7ff6
+      - 4Sarina-8f70421a39
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-5e04bc7ff6
+      - 4Sarina-8f70421a39
 rules:
   - MATCH,Proxy

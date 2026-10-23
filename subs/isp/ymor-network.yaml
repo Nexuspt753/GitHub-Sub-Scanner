@@ -15,29 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 185.4.114.96
-    port: 443
-    uuid: 41c8a7a2-298d-4edb-ab8d-4e8d8018536a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.twitch.tv
-    reality-opts:
-      public-key: 9W1WFl2qiFQ1-ylXEZ5dMKLT-ZfoNhFHL1-v8yyotCg
-      short-id: e8a07ddc
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

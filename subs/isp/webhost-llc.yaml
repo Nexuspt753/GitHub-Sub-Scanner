@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.179.190.170
-    port: 59222
-    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
+    name: EPODONIOS
+    server: 77.91.69.169
+    port: 19226
+    uuid: f0b144bd-4c44-440d-b630-d79ec82cad3a
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: tbank.ru
+    client-fingerprint: chrome
+    servername: yahoo.com
     reality-opts:
-      public-key: riOqDvO6CI06_GP7aJEtDH27zPWu6BiFwGrUESatk1I
-      short-id: e03d3096bebd
+      public-key: PQjgf7GxBd2tDXf0zl9Z5rTZo7LdsWj0hGZLH-lJ-Uk
+      short-id: 7c
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: 4Kian-8e5853849c
+    server: 77.91.69.169
+    port: 19226
+    uuid: f0b144bd-4c44-440d-b630-d79ec82cad3a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: PQjgf7GxBd2tDXf0zl9Z5rTZo7LdsWj0hGZLH-lJ-Uk
+      short-id: 7c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-8e5853849c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-8e5853849c
 rules:
   - MATCH,Proxy

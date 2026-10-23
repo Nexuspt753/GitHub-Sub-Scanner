@@ -1,0 +1,25 @@
+proxies:
+  - type: vless
+    name: vless
+    server: t41.piponline.ir
+    port: 2024
+    uuid: 1206a28d-d20b-4741-a40b-97cf6e58cdc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+rules:
+  - MATCH,Proxy
