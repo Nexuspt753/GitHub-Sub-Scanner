@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: 4Mohsen-b9279879dc
+    server: my2.oh-node.com
+    port: 443
+    uuid: 8c88c56d-5efb-4218-8753-0c2365dfe96a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.setel.com
+    reality-opts:
+      public-key: R6q8qhMxgq3ynJPUgudaRkcDXj0qgoc_UU1N0SWGLwM
+      short-id: ed77ac35a310
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Nika-73fe828df7
     server: 51.132.38.134
@@ -14,6 +28,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-b9279879dc
       - 4Nika-73fe828df7
   - name: Auto
     type: url-test
@@ -21,6 +36,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-b9279879dc
       - 4Nika-73fe828df7
 rules:
   - MATCH,Proxy

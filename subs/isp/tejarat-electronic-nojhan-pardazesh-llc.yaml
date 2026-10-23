@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: sp.metod-ai.ir
+    port: 8080
+    uuid: 2d7b82e2-71f1-4bfb-942e-6260ed0ceda7
+    udp: true
+    flow: xtls-rprx-vision
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mci.ir
+  - type: vless
     name: TurboConfigs🇳🇱
     server: sp.metod-ai.ir
     port: 8080
@@ -32,6 +46,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - TurboConfigs🇳🇱
       - 4Jadi-a0faa60310
   - name: Auto
@@ -40,6 +55,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - TurboConfigs🇳🇱
       - 4Jadi-a0faa60310
 rules:

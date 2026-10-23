@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 34.3.101.206
+    name: 4Sarina-d2f8ae00b6
+    server: 35.212.207.185
     port: 443
-    uuid: c64a5cfa-0fd6-4978-b062-6e89da013260
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: gateway.icloud.com
-    reality-opts:
-      public-key: C4ky4RduL1cfjZ3okHXDkpD2Ns4DViMkB-mDlisBrzc
-      short-id: 8a17287288cf25e5
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-d2f8ae00b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-d2f8ae00b6
 rules:
   - MATCH,Proxy

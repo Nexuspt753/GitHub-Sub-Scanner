@@ -1,36 +1,32 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: radiance.occupy.hefty.aliyunglsb.com
+  - type: vless
+    name: 4Nika-1a7231a9b6
+    server: 45.95.212.186
     port: 443
-    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    sni: www.microsoft365.com
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 152.175.65.24
-    port: 443
-    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
-    udp: true
-    tls: true
-    sni: www.microsoft365.com
-    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-1a7231a9b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-1a7231a9b6
 rules:
   - MATCH,Proxy

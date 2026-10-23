@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 31.77.18.220
+    port: 443
+    uuid: 4f51ca84-43ea-4087-b8a2-938e0ccbe27a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: mDDDyruO33nuqcTS7pZOjd9oOpDHUf0aEv2TQ1DFGV4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Net2ray
     server: 31.77.18.220
     port: 443
@@ -25,32 +38,22 @@ proxies:
       public-key: mDDDyruO33nuqcTS7pZOjd9oOpDHUf0aEv2TQ1DFGV4
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-8cada7b1c8
-    server: se-2.pythonsetupbib.online
-    port: 61374
-    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: se-2.pythonsetupbib.online
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - Net2ray
       - 4FreeIran-0c078828bd
-      - 4Jadi-8cada7b1c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - Net2ray
       - 4FreeIran-0c078828bd
-      - 4Jadi-8cada7b1c8
 rules:
   - MATCH,Proxy

@@ -1,32 +1,32 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: dns2.m3hrzd.ir
-    port: 8044
-    cipher: chacha20-ietf-poly1305
-    password: m4sc5EnK5mKG5iesVtmRiTgjDLJWabey
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 213.189.8.72
+    port: 443
+    uuid: 9c54d883-97a8-4b49-af23-fe052eff2c3a
     udp: true
-  - type: ss
-    name: 🇳🇱198440
-    server: dns2.m3hrzd.ir
-    port: 8044
-    cipher: chacha20-ietf-poly1305
-    password: m4sc5EnK5mKG5iesVtmRiTgjDLJWabey
-    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.python.org
+    reality-opts:
+      public-key: Lc5Gz_UfUAx9iN84xyNy2gzU5vT3ejUJ3m-QqzVHwVU
+      short-id: 3b65a18e
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇳🇱198440
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇳🇱198440
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

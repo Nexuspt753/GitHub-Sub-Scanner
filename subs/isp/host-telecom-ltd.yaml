@@ -1,31 +1,50 @@
 proxies:
   - type: vless
-    name: 4FreeIran-86f072d6f0
-    server: 170.168.4.59
-    port: 17170
-    uuid: 3eec23c1-2a0d-4d53-afa5-62745a1f5ffe
+    name: 4Nika-36c1ccabb5
+    server: 179.255.190.21
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: northerntrail.gazette.help
+    servername: snip.edgeoneai.cc.cd
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Jadi-a071281128
+    server: 179.255.190.21
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-86f072d6f0
+      - 4Nika-36c1ccabb5
+      - 4Jadi-a071281128
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-86f072d6f0
+      - 4Nika-36c1ccabb5
+      - 4Jadi-a071281128
 rules:
   - MATCH,Proxy
