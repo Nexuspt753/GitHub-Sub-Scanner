@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Mohsen-a8c13ecb13
-    server: 37.221.92.139
-    port: 443
-    uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
+    name: DeltaKroneckerGithub
+    server: nl3.mycloud1.org
+    port: 2053
+    uuid: 605dea9b-b485-45c9-af9b-cc2b0195023c
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: azxcc.kovsh.lol
+    client-fingerprint: edge
+    servername: nl3.mycloud1.org
     reality-opts:
-      public-key: "-ADm-o6yFYNcLgLQgHguNWDWrH9xcRwQyqLMoVuajgo"
-      short-id: 8944e69f4aadde1e
-    flow: xtls-rprx-vision
+      public-key: Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E
+      short-id: afee962d
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-a8c13ecb13
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-a8c13ecb13
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

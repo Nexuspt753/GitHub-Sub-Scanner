@@ -1,47 +1,29 @@
 proxies:
-  - type: trojan
-    name: EPODONIOS
-    server: pol2.fytpn.com
-    port: 2097
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 79.98.37.106
+    port: 443
+    uuid: 846cedee-2a52-0001-a0b9-11850ead6a8b
     udp: true
     tls: true
-    sni: pol2.fytpn.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: v2ray313
-    server: pol2.fytpn.com
-    port: 2097
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-    udp: true
-    tls: true
-    sni: pol2.fytpn.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Mohsen-bdc70fc10d
-    server: pol2.fytpn.com
-    port: 2097
-    password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-    udp: true
-    tls: true
-    sni: pol2.fytpn.com
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: ee-central.v8x2b.lol
+    reality-opts:
+      public-key: USSepsAbvP9LpByHLV2xD2H8dq8GAJ6G0fINEqD4PAw
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - v2ray313
-      - 4Mohsen-bdc70fc10d
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - v2ray313
-      - 4Mohsen-bdc70fc10d
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

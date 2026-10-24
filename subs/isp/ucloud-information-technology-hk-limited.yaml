@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 165.154.63.139
-    port: 443
-    uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: AE81BrwMc8-kwGEIA1LhzaL03er0Qwt2V-fFy76F5jQ
-      short-id: ca4aedd4
-    flow: xtls-rprx-vision
-    xudp: true
   - type: hysteria2
     name: EPODONIOS
     server: nas.aizhzo.com
@@ -76,12 +62,25 @@ proxies:
     skip-cert-verify: false
     obfs: salamander
     obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 165.154.63.139
+    port: 443
+    uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: AE81BrwMc8-kwGEIA1LhzaL03er0Qwt2V-fFy76F5jQ
+      short-id: ca4aedd4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - Selinc
       - vmess_ir
@@ -89,13 +88,13 @@ proxy-groups:
       - 4Nika-2237f64770
       - 4Kian-b0dc2ea2cc
       - 4Jadi-a0b27dd7bc
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - Selinc
       - vmess_ir
@@ -103,5 +102,6 @@ proxy-groups:
       - 4Nika-2237f64770
       - 4Kian-b0dc2ea2cc
       - 4Jadi-a0b27dd7bc
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

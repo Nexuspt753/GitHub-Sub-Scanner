@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 9.247.34.134
+    port: 2053
+    uuid: 381f7080-8f2c-49db-8321-dae85bee2115
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.rutube.ru
+    reality-opts:
+      public-key: q4jQTGI_WMzs_JD6zTjB9VBclYla6TEvRHiHmqbXx0w
+      short-id: 7233902763f97bd1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 9.247.34.134
+    port: 8443
+    uuid: 381f7080-8f2c-49db-8321-dae85bee2115
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.rutube.ru
+    reality-opts:
+      public-key: KXrPtOUvDVBzcpniQ5Q9hLbuo99B0g5pz97oVJn0LGk
+      short-id: 50c503221adcb931
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: EPODONIOS
     server: 9.247.34.134
     port: 2053
@@ -57,6 +87,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - V2ray_confiig
       - 4Jadi-66b8de7791
@@ -67,6 +99,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - V2ray_confiig
       - 4Jadi-66b8de7791

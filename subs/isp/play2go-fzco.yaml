@@ -1,16 +1,45 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 177.3.212.215
+    server: 177.3.208.65
     port: 443
-    password: j8HSz13mcSpcbzQD-jxhNt3T99NLzgMB
+    uuid: 4f34bc04-479c-49ba-91a8-6bb9ed15031c
     udp: true
     tls: true
-    sni: nl4.275.axolab.org
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: tgmansion.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-tr
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: finlandlanzarotte.live
+    port: 443
+    uuid: 50a87e21-f0e2-4b53-a787-91adfe748f63
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: finlandlanzarotte.live
+    reality-opts:
+      public-key: 6lZ5dkQN2sH9tYca374W4N1n9eCanD_F2FfghcksKSo
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 177.3.214.156
+    port: 443
+    uuid: 50a87e21-f0e2-4b53-a787-91adfe748f63
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: finlandlanzarotte.live
+    reality-opts:
+      public-key: 6lZ5dkQN2sH9tYca374W4N1n9eCanD_F2FfghcksKSo
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: EPODONIOS
     server: rpc.bixcar.online
@@ -26,6 +55,18 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 177.3.212.215
+    port: 443
+    password: j8HSz13mcSpcbzQD-jxhNt3T99NLzgMB
+    udp: true
+    tls: true
+    sni: nl4.275.axolab.org
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: Telegram
     server: rpc.bixcar.online
@@ -57,15 +98,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mhzedir.qzz.io
-  - type: vless
-    name: vless
-    server: c.mhzedir.qzz.io
-    port: 8080
-    uuid: 3d331dfb-28e4-40fb-b3d9-f4538915aa23
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
   - type: vless
     name: EPODONIOS-02
     server: c.mhzedir.qzz.io
@@ -116,6 +148,20 @@ proxies:
         Host: mhzedir.qzz.io
   - type: vless
     name: EPODONIOS-04
+    server: 177.3.213.112
+    port: 443
+    uuid: f495298f-2bdb-4fd8-9ac9-5dd33d1b482a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: germanz.ruletka.study
+    reality-opts:
+      public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
+      short-id: ff776ff77be48b88
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS-05
     server: 31.77.10.167
     port: 24503
     uuid: fafc7c16-f890-45ee-a856-02df225172dd
@@ -126,20 +172,6 @@ proxies:
     reality-opts:
       public-key: iiApJD_tVRzp1t8EfIpG7T4dnx-O0ai5nkzD9GUV9Fc
       short-id: 02ea11017a1c951f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: ange1Vpn⬅️
-    server: c.mhzedir.qzz.io
-    port: 5515
-    uuid: 9833b506-f257-4003-b4c6-dbd87ddc63ff
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: raz.ir
-    reality-opts:
-      public-key: EO9fp0qjUoVP2ogAsQZOHF_1cvLIo30ndyw_vYAjcj4
-      short-id: c0398837
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -374,15 +406,17 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
+      - DeltaKroneckerGithub-03
       - Telegram
       - EPODONIOS-01
-      - vless
       - EPODONIOS-02
       - EPODONIOS-03
       - ange1Vpn
       - EPODONIOS-04
-      - ange1Vpn⬅️
+      - EPODONIOS-05
       - V-Teest
       - leviconfigs🪐-7
       - Shh_Proxy-New³
@@ -405,15 +439,17 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
+      - DeltaKroneckerGithub-03
       - Telegram
       - EPODONIOS-01
-      - vless
       - EPODONIOS-02
       - EPODONIOS-03
       - ange1Vpn
       - EPODONIOS-04
-      - ange1Vpn⬅️
+      - EPODONIOS-05
       - V-Teest
       - leviconfigs🪐-7
       - Shh_Proxy-New³

@@ -1,5 +1,22 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: finp2g.yandex-api.store
+    port: 8443
+    uuid: 78559873-84ef-4cab-a0b2-46d4cd20de4a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: finp2g.yandex-api.store
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /assets
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: EPODONIOS
     server: 31.77.18.220
     port: 443
@@ -43,6 +60,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - Net2ray
       - 4FreeIran-0c078828bd
@@ -52,6 +70,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - Net2ray
       - 4FreeIran-0c078828bd

@@ -1,6 +1,27 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: hk1.accessboy.com
+    port: 443
+    uuid: caf3d607-95c9-4ea0-98b5-864027056ba0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hk1.accessboy.com
+    reality-opts:
+      public-key: 1TtWNQhTJr_3H7-ypMw4EiLzVxy22AzUtMiE5JmQMl4
+      short-id: 1c5869a95671bcb0
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
-    name: V2raySaman
+    name: 🇺🇸US-🚀@VPNine1
+    server: dns3.m3hrzd.ir
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: W8wg-Pb6xj9NOOwriOXIBLulDFNNt5Jt
+    udp: true
+  - type: ss
+    name: FarazV2ray
     server: dns3.m3hrzd.ir
     port: 8044
     cipher: chacha20-ietf-poly1305
@@ -11,13 +32,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - V2raySaman
+      - DeltaKroneckerGithub
+      - 🇺🇸US-🚀@VPNine1
+      - FarazV2ray
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - V2raySaman
+      - DeltaKroneckerGithub
+      - 🇺🇸US-🚀@VPNine1
+      - FarazV2ray
 rules:
   - MATCH,Proxy

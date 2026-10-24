@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 179.255.190.43
+    port: 8443
+    uuid: 78559873-84ef-4cab-a0b2-46d4cd20de4a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: itly.yandex-api.store
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /assets
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: itly.yandex-api.store
+    port: 8443
+    uuid: 78559873-84ef-4cab-a0b2-46d4cd20de4a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: itly.yandex-api.store
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /assets
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Nika-36c1ccabb5
     server: 179.255.190.21
     port: 443
@@ -36,6 +68,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-36c1ccabb5
       - 4Jadi-a071281128
   - name: Auto
@@ -44,6 +78,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Nika-36c1ccabb5
       - 4Jadi-a071281128
 rules:

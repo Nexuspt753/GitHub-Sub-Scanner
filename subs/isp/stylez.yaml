@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.77.126.2
+    port: 443
+    uuid: d342d11e-d224-4463-b982-532309285094
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
   - type: trojan
     name: EPODONIOS
     server: 31.77.126.2
@@ -18,22 +34,25 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.volumeroot.com
-  - type: vless
-    name: DeltaKroneckerGithub
+  - type: trojan
+    name: v2ray313
     server: 31.77.126.2
     port: 443
-    uuid: d342d11e-d224-4463-b982-532309285094
+    password: humanity
     udp: true
     tls: true
+    sni: www.volumeroot.com
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: ccc.010304.xyz
-    xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ccc.010304.xyz
+        Host: www.volumeroot.com
   - type: vless
     name: vless
     server: 31.77.126.2
@@ -47,29 +66,6 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-01
-    server: 31.77.126.2
-    port: 443
-    uuid: d342d11e-d224-4463-b982-532309285094
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ccc.010304.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ccc.010304.xyz
-  - type: vless
-    name: TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&type=ws&allowInsecure=0&sni=ccc.010304.xyz#EPODONIOS
-    server: 31.77.126.2
-    port: 443
-    uuid: d342d11e-d224-4463-b982-532309285094
-    udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS-02
     server: 31.77.126.2
     port: 443
     uuid: e6df2095-a73c-4043-8693-8d5a03686870
@@ -87,7 +83,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: lucasjow.us.ci
   - type: vless
-    name: v2ray313
+    name: v2ray313-01
     server: 31.77.126.2
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -192,31 +188,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
   - type: vless
-    name: 4Mohsen-2271e633b0
-    server: 31.77.126.2
-    port: 443
-    uuid: d342d11e-d224-4463-b982-532309285094
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-4cdb05df49
-    server: 31.77.126.2
-    port: 443
-    uuid: e6df2095-a73c-4043-8693-8d5a03686870
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: lucasjow.us.ci
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lucasjow.us.ci
-  - type: vless
     name: 4Mohsen-a4cbd44758
     server: 31.77.126.2
     port: 443
@@ -239,20 +210,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - v2ray313
       - vless
       - EPODONIOS-01
-      - TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&type=ws&allowInsecure=0&sni=ccc.010304.xyz#EPODONIOS
-      - EPODONIOS-02
-      - v2ray313
+      - v2ray313-01
       - 4Nika-e06a6c2518
       - 🇨🇿
       - 🇩🇪
       - 4Nika-fc031a2f2c
       - 4Kian-3045445c7a
-      - 4Mohsen-2271e633b0
-      - 4Nika-4cdb05df49
       - 4Mohsen-a4cbd44758
   - name: Auto
     type: url-test
@@ -260,20 +228,17 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - v2ray313
       - vless
       - EPODONIOS-01
-      - TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&type=ws&allowInsecure=0&sni=ccc.010304.xyz#EPODONIOS
-      - EPODONIOS-02
-      - v2ray313
+      - v2ray313-01
       - 4Nika-e06a6c2518
       - 🇨🇿
       - 🇩🇪
       - 4Nika-fc031a2f2c
       - 4Kian-3045445c7a
-      - 4Mohsen-2271e633b0
-      - 4Nika-4cdb05df49
       - 4Mohsen-a4cbd44758
 rules:
   - MATCH,Proxy
