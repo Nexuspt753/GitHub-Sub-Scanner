@@ -1,19 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: sg4.6n6.net
     port: 443
     password: 16132fb0-4945-11f0-a95e-1239d0255272
@@ -21,13 +8,21 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 91.192.81.167
+    name: DeltaKroneckerGithub-01
+    server: sg4.6n6.net
     port: 443
-    password: 16132fb0-4945-11f0-a95e-1239d0255272
+    password: c623a730-48a2-11f0-b6c7-1239d0255272
     udp: true
     tls: true
-    sni: sg4.6n6.net
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 103.97.91.17
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: la.freeguard.org
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-03
@@ -107,6 +102,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Mohsen-21bc6eebf8
+    server: 95.174.68.188
+    port: 14430
+    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 95.174.68.188
 proxy-groups:
   - name: Proxy
     type: select
@@ -122,6 +130,7 @@ proxy-groups:
       - 🇪🇸ES-5.188.181.201-0172
       - 4FreeIran-e1bb3a529d
       - 4Mohsen-bc86f1752f
+      - 4Mohsen-21bc6eebf8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -138,5 +147,6 @@ proxy-groups:
       - 🇪🇸ES-5.188.181.201-0172
       - 4FreeIran-e1bb3a529d
       - 4Mohsen-bc86f1752f
+      - 4Mohsen-21bc6eebf8
 rules:
   - MATCH,Proxy

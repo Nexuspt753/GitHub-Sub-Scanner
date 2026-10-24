@@ -1,122 +1,26 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: fr.emergency-service.org
-    port: 8443
-    uuid: e90bd171-6e3c-43ca-8e8a-41c78f4e780f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fr.emergency-service.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fr.emergency-service.org
-  - type: vless
-    name: EPODONIOS-01
-    server: poland.emergency-service.org
-    port: 443
-    uuid: e90bd171-6e3c-43ca-8e8a-41c78f4e780f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: poland.emergency-service.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: poland.emergency-service.org
-  - type: vless
-    name: EPODONIOS-02
-    server: uk-emergency-service.boryaq.ir
-    port: 443
-    uuid: e90bd171-6e3c-43ca-8e8a-41c78f4e780f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: uk-emergency-service.boryaq.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: uk-emergency-service.boryaq.ir
-  - type: vless
+  - type: vmess
     name: 🇮🇷IR-🚀@VPNine1
-    server: fr.emergency-service.org
-    port: 8443
-    uuid: e90bd171-6e3c-43ca-8e8a-41c78f4e780f
+    server: jolyot.kimjo.ir
+    port: 1718
+    uuid: 65c3d100-782f-4828-ba57-c03e1929f2d2
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fr.emergency-service.org
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fr.emergency-service.org
-  - type: vless
-    name: 🇮🇷IR-🚀@VPNine1-01
-    server: poland.emergency-service.org
-    port: 443
-    uuid: e90bd171-6e3c-43ca-8e8a-41c78f4e780f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: poland.emergency-service.org
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: poland.emergency-service.org
-  - type: vless
-    name: 🇮🇷IR-🚀@VPNine1-02
-    server: uk-emergency-service.boryaq.ir
-    port: 443
-    uuid: e90bd171-6e3c-43ca-8e8a-41c78f4e780f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: uk-emergency-service.boryaq.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: uk-emergency-service.boryaq.ir
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
       - 🇮🇷IR-🚀@VPNine1
-      - 🇮🇷IR-🚀@VPNine1-01
-      - 🇮🇷IR-🚀@VPNine1-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
-      - EPODONIOS-02
       - 🇮🇷IR-🚀@VPNine1
-      - 🇮🇷IR-🚀@VPNine1-01
-      - 🇮🇷IR-🚀@VPNine1-02
 rules:
   - MATCH,Proxy

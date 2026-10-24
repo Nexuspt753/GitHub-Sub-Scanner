@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: apifunx.mate-fox.com
+    port: 27916
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: cdn-dynmedia-1.microsoft.com
+    reality-opts:
+      public-key: ztQ8VYq_dVDc3x-QM8LXjup2161CirYrIBE1F7loVzQ
+      short-id: 6772eb2b7a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-348df75295
     server: 103.39.78.118
     port: 8443
@@ -48,9 +62,9 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
   - type: vless
-    name: 4Jadi-267190712b
-    server: 103.39.78.118
-    port: 8443
+    name: 4Jadi-c04f52df05
+    server: 193.200.130.20
+    port: 443
     uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
@@ -59,7 +73,7 @@ proxies:
     xudp: true
     network: ws
     ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      path: /fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
@@ -68,19 +82,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-348df75295
       - 4FreeIran-79017582bc
       - 4Nika-5c190ed74f
-      - 4Jadi-267190712b
+      - 4Jadi-c04f52df05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-348df75295
       - 4FreeIran-79017582bc
       - 4Nika-5c190ed74f
-      - 4Jadi-267190712b
+      - 4Jadi-c04f52df05
 rules:
   - MATCH,Proxy

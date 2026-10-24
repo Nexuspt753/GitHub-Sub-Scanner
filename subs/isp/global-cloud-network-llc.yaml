@@ -1,6 +1,35 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 217.19.122.156
+    port: 443
+    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: z1q3pv4g78.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /useraction/events/b892639b7195/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: z1q3pv4g78.rucdncomp.pro
+  - type: vless
     name: EPODONIOS
+    server: 81.94.148.232
+    port: 8443
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: windytrout.net
+    xudp: true
+  - type: vless
+    name: EPODONIOS-01
     server: frankenshtein.whitenw.net
     port: 8445
     uuid: 92e135b9-4c04-4e7e-8b28-d8074a202cf8
@@ -13,7 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-02
     server: fbsv6.guardora.pro
     port: 443
     uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
@@ -31,7 +60,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fbsv6.guardora.pro
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: 217.19.122.139
     port: 443
     uuid: c443e9c3-5a40-4b7e-b23c-ebcfc33ec8df
@@ -103,24 +132,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-ceb74a3654
-    server: 217.19.122.156
-    port: 443
-    uuid: a443d7bf-f506-46ce-b64d-cf8891c0a9f7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: z1q3pv4g78.rucdncomp.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /useraction/events/b892639b7195/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: z1q3pv4g78.rucdncomp.pro
-  - type: vless
     name: 4FreeIran-ea7416fc32
     server: fbsv6.guardora.pro
     port: 443
@@ -152,54 +163,38 @@ proxies:
       short-id: fcc38b131039c8a9
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-e214c8ecab
-    server: 217.19.122.156
-    port: 443
-    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: z1q3pv4g78.rucdncomp.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /useraction/events/b892639b7195/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: z1q3pv4g78.rucdncomp.pro
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇷🇺197884
       - Shh_Proxy-New⁴
       - tootffarangi🍓-11
       - 4FreeIran-c47d1c20ef
-      - 4Kian-ceb74a3654
       - 4FreeIran-ea7416fc32
       - 4Jadi-b3ad388d1c
-      - 4Kian-e214c8ecab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇷🇺197884
       - Shh_Proxy-New⁴
       - tootffarangi🍓-11
       - 4FreeIran-c47d1c20ef
-      - 4Kian-ceb74a3654
       - 4FreeIran-ea7416fc32
       - 4Jadi-b3ad388d1c
-      - 4Kian-e214c8ecab
 rules:
   - MATCH,Proxy

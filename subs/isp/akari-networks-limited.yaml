@@ -13,12 +13,42 @@ proxies:
       path: /api
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS
+    server: appsj4.87544899.xyz
+    port: 443
+    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bod.changiairport.com
+    reality-opts:
+      public-key: k7hxoilujF3OuiyJpxpVbRJ-XdOxJ2giDeqDTvghgXw
+      short-id: c72dc3a7e1da
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 11012@proxy_online_net
+    server: appsj4.87544899.xyz
+    port: 443
+    uuid: fb26530b-c9ca-4bb2-b726-6cddfa3afe66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bod.changiairport.com
+    reality-opts:
+      public-key: k7hxoilujF3OuiyJpxpVbRJ-XdOxJ2giDeqDTvghgXw
+      short-id: c72dc3a7e1da
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 11012@proxy_online_net
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - EPODONIOS
+      - 11012@proxy_online_net
 rules:
   - MATCH,Proxy
