@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Sarina-b74783d6e0
+    server: 144.31.181.177
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Nika-4f12c3abda
     server: 144.31.181.177
     port: 8443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-b74783d6e0
       - 4Nika-4f12c3abda
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-b74783d6e0
       - 4Nika-4f12c3abda
 rules:
   - MATCH,Proxy
