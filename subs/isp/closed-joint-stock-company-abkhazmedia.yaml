@@ -1,29 +1,44 @@
 proxies:
   - type: vless
-    name: 4Nika-ec8d0749e2
-    server: edge-lab-b.10media.top
+    name: EPODONIOS
+    server: 45.12.63.81
     port: 443
-    uuid: 9cb8d71c-fe06-4402-a591-eaa1f173b890
+    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: edge-lab-b.10media.top
+    servername: www.vk.ru
+    reality-opts:
+      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: 11063@proxy_online_net
+    server: 45.12.63.81
+    port: 443
+    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.ru
+    reality-opts:
+      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-ec8d0749e2
+      - EPODONIOS
+      - 11063@proxy_online_net
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-ec8d0749e2
+      - EPODONIOS
+      - 11063@proxy_online_net
 rules:
   - MATCH,Proxy

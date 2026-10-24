@@ -1,30 +1,48 @@
 proxies:
   - type: vless
-    name: 4Jadi-941c3b3570
-    server: 176.123.162.203
-    port: 443
-    uuid: e9bf0b99-4b31-4a39-974c-f17c3e19aeb4
+    name: EPODONIOS
+    server: 82.202.157.123
+    port: 5002
+    uuid: 34851fc1-c4bb-4b17-a815-bc17c09e11a0
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: auto.ru
-    reality-opts:
-      public-key: fzkCJVUSaHZsWyS_vGaQ2jXBIbOhE16R_eUyYFsCIjc
-      short-id: 9d3f
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: br1.centermass.net
     xudp: true
+    network: ws
+    ws-opts:
+      path: media.playback.v1.SessionGateway
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 11064@proxy_online_net
+    server: 82.202.157.123
+    port: 5002
+    uuid: 34851fc1-c4bb-4b17-a815-bc17c09e11a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: br1.centermass.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: media.playback.v1.SessionGateway
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-941c3b3570
+      - EPODONIOS
+      - 11064@proxy_online_net
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-941c3b3570
+      - EPODONIOS
+      - 11064@proxy_online_net
 rules:
   - MATCH,Proxy

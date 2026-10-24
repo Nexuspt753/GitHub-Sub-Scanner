@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: Jakarta · 4Kian-28fa92f6c0
+    server: 202.155.14.134
+    port: 55555
+    password: 78585441-c8b3-40fb-9b94-15edd312fdcf
+    sni: www.bing.com
+    skip-cert-verify: true
   - type: vless
     name: Jakarta · @DeltaKroneckerGithub
     server: 43.173.1.153
@@ -42,24 +49,81 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vmess
+    name: Jakarta · 4Nika-761b1a6d96
+    server: az-1.linkaa.xyz
+    port: 53437
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Jakarta · 4Kian-2fb618c639
+    server: az-1.linkaa.xyz
+    port: 53437
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
+  - type: vmess
+    name: Jakarta · 4FreeIran-0d86b1c674
+    server: az-1.linkaa.xyz
+    port: 55386
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Jakarta · 4Kian-28fa92f6c0
       - Jakarta · @DeltaKroneckerGithub
       - Cileunyi · @DeltaKroneckerGithub
       - Jakarta · @DeltaKroneckerGithub-01
       - Cicurug · 4Nika-4a4e0a73bd
+      - Jakarta · 4Nika-761b1a6d96
+      - Jakarta · 4Kian-2fb618c639
+      - Jakarta · 4FreeIran-0d86b1c674
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Jakarta · 4Kian-28fa92f6c0
       - Jakarta · @DeltaKroneckerGithub
       - Cileunyi · @DeltaKroneckerGithub
       - Jakarta · @DeltaKroneckerGithub-01
       - Cicurug · 4Nika-4a4e0a73bd
+      - Jakarta · 4Nika-761b1a6d96
+      - Jakarta · 4Kian-2fb618c639
+      - Jakarta · 4FreeIran-0d86b1c674
 rules:
   - MATCH,Proxy

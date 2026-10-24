@@ -1,50 +1,27 @@
 proxies:
   - type: vless
-    name: vmesskhodam
-    server: 003342c6746b9754.tunvi.w-ert.org
-    port: 56841
-    uuid: 61747651-8a4c-40de-becd-174dc32e7495
+    name: V2raySaman
+    server: ff294d1700881853.tunvi.w-ert.org
+    port: 40288
+    uuid: 9d356fd5-cf3f-4e73-b424-414e78c911bf
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: Jps_lXkq4doz-qvvikPlMevcR1CG3ZFRPHyAadj3Fhc
-      short-id: ca358c46a3e9d52a
-    xudp: true
-  - type: vless
-    name: filembad
-    server: 2acbb93545de216c.tunvi.w-ert.org
-    port: 56841
-    uuid: 61747651-8a4c-40de-becd-174dc32e7495
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: Jps_lXkq4doz-qvvikPlMevcR1CG3ZFRPHyAadj3Fhc
-      short-id: ca358c46a3e9d52a
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vmesskhodam
-      - filembad
+      - V2raySaman
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vmesskhodam
-      - filembad
+      - V2raySaman
 rules:
   - MATCH,Proxy

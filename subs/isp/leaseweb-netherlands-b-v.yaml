@@ -23,21 +23,16 @@ proxies:
     tls: true
     sni: tt6.tjvpn.top
     client-fingerprint: chrome
-  - type: vless
-    name: 4FreeIran-0f269862c1
-    server: ndd1.white-aist.com
-    port: 8443
-    uuid: 3a4c521f-ac6d-4f82-ace9-2c630b8f0b9d
+  - type: vmess
+    name: EPODONIOS
+    server: 185.19.33.102
+    port: 21898
+    uuid: cb316949-07c2-4c49-b03c-4d4011b96c74
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ndd1.white-aist.com
-    reality-opts:
-      public-key: fc8U8_QuCA87tFWyjD0QoP0Asbtsm6slPwmiDUExNTU
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -45,7 +40,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 4Jadi-ac9107b7b5
-      - 4FreeIran-0f269862c1
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -54,6 +49,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 4Jadi-ac9107b7b5
-      - 4FreeIran-0f269862c1
+      - EPODONIOS
 rules:
   - MATCH,Proxy
