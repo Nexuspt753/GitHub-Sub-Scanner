@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: 4Nika-99506f4da7
-    server: 167.88.61.50
-    port: 3389
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
-    udp: true
   - type: vmess
     name: DeltaKroneckerGithub
     server: 134.195.196.211
@@ -40,13 +33,26 @@ proxies:
     cipher: aes-256-gcm
     password: pKEW8JPByTVTLtM
     udp: true
-  - type: ss
+  - type: vmess
     name: EPODONIOS
-    server: 167.88.61.14
-    port: 9102
-    cipher: aes-256-gcm
-    password: e4FCWrgpkji3QY
+    server: 134.195.196.211
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: EPODONIOS-01
+    server: 134.195.196.211
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: vpnbaz🦄
     server: 134.195.196.211
@@ -58,18 +64,8 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: tootffarangi
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
     name: 🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦
-    server: 23.162.200.198
+    server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
     alterId: 0
@@ -86,6 +82,16 @@ proxies:
     udp: true
   - type: vmess
     name: 4FreeIran-6748437c1b
+    server: 134.195.196.211
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-a240a3ad0f
     server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -180,22 +186,40 @@ proxies:
     xudp: true
     skip-cert-verify: false
     servername: 23.162.200.198
+  - type: vmess
+    name: 4Jadi-caa6bec9f4
+    server: vspeedfast.org
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: vspeedfast.org
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vspeedfast.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-99506f4da7
       - DeltaKroneckerGithub
       - 4Sarina-cf894e185b
       - DeltaKroneckerGithub-01
       - 4Kian-b3464f066b
       - EPODONIOS
+      - EPODONIOS-01
       - vpnbaz🦄
-      - tootffarangi
       - 🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦
       - 🇺🇸US-167.88.61.14-0203
       - 4FreeIran-6748437c1b
+      - 4Nika-a240a3ad0f
       - 4Mohsen-4dd2cd77cf
       - 4Jadi-79a8c70de9
       - 4Mohsen-22a565952e
@@ -204,23 +228,24 @@ proxy-groups:
       - 4Jadi-f9804a7763
       - 4Kian-f03d00ba19
       - 4Jadi-dca17431f2
+      - 4Jadi-caa6bec9f4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-99506f4da7
       - DeltaKroneckerGithub
       - 4Sarina-cf894e185b
       - DeltaKroneckerGithub-01
       - 4Kian-b3464f066b
       - EPODONIOS
+      - EPODONIOS-01
       - vpnbaz🦄
-      - tootffarangi
       - 🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦
       - 🇺🇸US-167.88.61.14-0203
       - 4FreeIran-6748437c1b
+      - 4Nika-a240a3ad0f
       - 4Mohsen-4dd2cd77cf
       - 4Jadi-79a8c70de9
       - 4Mohsen-22a565952e
@@ -229,5 +254,6 @@ proxy-groups:
       - 4Jadi-f9804a7763
       - 4Kian-f03d00ba19
       - 4Jadi-dca17431f2
+      - 4Jadi-caa6bec9f4
 rules:
   - MATCH,Proxy

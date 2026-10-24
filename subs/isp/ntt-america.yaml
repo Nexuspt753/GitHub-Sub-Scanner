@@ -1,7 +1,7 @@
 proxies:
   - type: vless
-    name: 4Nika-83dbe7112f
-    server: 207.57.122.65
+    name: 4Sarina-ef671838c9
+    server: 207.57.123.77
     port: 443
     uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
@@ -11,7 +11,23 @@ proxies:
     xudp: true
     network: ws
     ws-opts:
-      path: /fp=chrome
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4FreeIran-086df8e23c
+    server: 207.57.123.77
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
@@ -20,13 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-83dbe7112f
+      - 4Sarina-ef671838c9
+      - 4FreeIran-086df8e23c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-83dbe7112f
+      - 4Sarina-ef671838c9
+      - 4FreeIran-086df8e23c
 rules:
   - MATCH,Proxy

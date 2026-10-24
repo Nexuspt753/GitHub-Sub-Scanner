@@ -1,9 +1,29 @@
 proxies:
   - type: vless
-    name: tootffarangi🍓-12
-    server: 104.143.219.94
+    name: EPODONIOS
+    server: 104.143.219.97
     port: 3090
-    uuid: b89c2d37-1c91-4ef1-a89d-b5dc48f3cc5f
+    uuid: d3750c54-a9e6-4e66-a391-d86461329f63
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: filembad
+    server: 104.143.219.97
+    port: 3090
+    uuid: d3750c54-a9e6-4e66-a391-d86461329f63
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: tootffarangi🍓
+    server: 104.143.219.97
+    port: 3090
+    uuid: d3750c54-a9e6-4e66-a391-d86461329f63
     udp: true
     xudp: true
     network: grpc
@@ -14,13 +34,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - tootffarangi🍓-12
+      - EPODONIOS
+      - filembad
+      - tootffarangi🍓
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - tootffarangi🍓-12
+      - EPODONIOS
+      - filembad
+      - tootffarangi🍓
 rules:
   - MATCH,Proxy

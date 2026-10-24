@@ -1,7 +1,37 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 149.104.30.138
+    port: 443
+    uuid: a33cfdfd-90af-4e5b-a42e-047293c528e6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    reality-opts:
+      public-key: za53zkNAm5tPgC6ZTU1oM90ofHaI9ODk-6msB-M3cWU
+      short-id: 0f65424c53d491e6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-1825fd3965
     server: 149.104.5.126
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Jadi-461c645183
+    server: 38.55.192.169
     port: 443
     uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
@@ -20,13 +50,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-1825fd3965
+      - 4Jadi-461c645183
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-1825fd3965
+      - 4Jadi-461c645183
 rules:
   - MATCH,Proxy

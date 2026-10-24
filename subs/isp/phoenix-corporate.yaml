@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: pl1.himoy.space
+    port: 443
+    uuid: 5131b5e9-2c3c-44a0-8f18-0641f3f21cac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl1.himoy.space
+    reality-opts:
+      public-key: 1D_oMYRytcccH8J2SiM9o0bjmWlDND9CXWLL8LwDvE8
+      short-id: e2201d4d8b942ccc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 151.241.138.22
     port: 443
     uuid: 5131b5e9-2c3c-44a0-8f18-0641f3f21cac
@@ -13,12 +27,25 @@ proxies:
       short-id: e2201d4d8b942ccc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-967eb69105
+    server: 151.241.138.22
+    port: 443
+    uuid: 5131b5e9-2c3c-44a0-8f18-0641f3f21cac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl1.himoy.space
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-967eb69105
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-967eb69105
 rules:
   - MATCH,Proxy

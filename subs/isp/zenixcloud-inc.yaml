@@ -1,77 +1,24 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
-    udp: true
-  - type: ss
-    name: v2raybaaz
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
-    udp: true
-  - type: ss
-    name: configprxy
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
-    udp: true
-  - type: ss
-    name: 4FreeIran-4cba25c4ae
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
-    udp: true
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
+    server: uis175.pacemakere.com
+    port: 20005
+    password: 7343dd3d00b74cd2
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
-    udp: true
-  - type: ss
-    name: ">>@configV2rayNG::XX"
-    server: 45.207.207.25
-    port: 443
-    cipher: aes-256-gcm
-    password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
-    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - v2raybaaz
-      - configprxy
-      - 4FreeIran-4cba25c4ae
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - ">>@configV2rayNG::XX"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - v2raybaaz
-      - configprxy
-      - 4FreeIran-4cba25c4ae
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - ">>@configV2rayNG::XX"
 rules:
   - MATCH,Proxy
