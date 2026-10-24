@@ -1,51 +1,37 @@
 proxies:
-  - type: ss
+  - type: vless
     name: EPODONIOS
-    server: p2tun3.greewebservices.ir
-    port: 1030
-    cipher: chacha20-ietf-poly1305
-    password: f4Z-ikyuWC0D926rZwbThg
+    server: mdfht7qmfk.systemcont.ir
+    port: 24443
+    uuid: 51ed22f1-90fd-4e79-bd74-ff48033294e0
     udp: true
-  - type: vmess
-    name: 4Sarina-d8a3ddaa28
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
+      short-id: b7e45d3a65bfc319
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
-  - type: vmess
-    name: 4Mohsen-3e52590932
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: "[77098]"
+    server: mdfht7qmfk.systemcont.ir
+    port: 24443
+    uuid: 51ed22f1-90fd-4e79-bd74-ff48033294e0
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
+      short-id: b7e45d3a65bfc319
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - 4Sarina-d8a3ddaa28
-      - 4Mohsen-3e52590932
+      - "[77098]"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,7 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - 4Sarina-d8a3ddaa28
-      - 4Mohsen-3e52590932
+      - "[77098]"
 rules:
   - MATCH,Proxy
