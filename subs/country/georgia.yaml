@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: Tbilisi · 4Jadi-3e9ab2d79d
-    server: pubsub.m2ip-video.cloud
-    port: 8443
-    uuid: 3ed41dfc-0d38-4379-a470-c815673dc504
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: peplow-labs.info
-    reality-opts:
-      public-key: cynncQk7kKzEQaExg-FN7pMqFaZPSXEi_Ggy7AXXmVg
-      short-id: 44103f58
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Tbilisi · 4Jadi-309f5313d4
     server: 194.135.119.82
     port: 2053
@@ -61,36 +47,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: Tbilisi · 4Kian-56fd071e9e
-    server: 93.190.9.9
-    port: 3090
-    uuid: c4a36c29-39db-4782-b7cb-6e391461a999
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Tbilisi · 4Jadi-3e9ab2d79d
       - Tbilisi · 4Jadi-309f5313d4
       - Tbilisi · 4Sarina-63086cba43
       - Tbilisi · 4FreeIran-846967d4ba
-      - Tbilisi · 4Kian-56fd071e9e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Tbilisi · 4Jadi-3e9ab2d79d
       - Tbilisi · 4Jadi-309f5313d4
       - Tbilisi · 4Sarina-63086cba43
       - Tbilisi · 4FreeIran-846967d4ba
-      - Tbilisi · 4Kian-56fd071e9e
 rules:
   - MATCH,Proxy

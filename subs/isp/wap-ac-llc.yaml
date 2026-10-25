@@ -48,15 +48,24 @@ proxies:
     cipher: aes-128-gcm
     password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
     udp: true
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub
+    server: 185.151.146.211
+    port: 443
+    password: 7522e2c27233459aab8d0f1d715828d0
+    udp: true
+    tls: true
+    sni: www.gpt123.one
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-01
     server: 154.16.183.190
     port: 443
     cipher: none
     password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 154.16.183.190
     port: 443
     cipher: none
@@ -75,22 +84,6 @@ proxies:
     network: ws
     ws-opts:
       path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Nika-b623d269bd
-    server: 62.72.163.108
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
@@ -124,8 +117,8 @@ proxy-groups:
       - 4Kian-8c9ac3d6be
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4FreeIran-1ce3ae8a64
-      - 4Nika-b623d269bd
       - 4Mohsen-17c4c6656f
   - name: Auto
     type: url-test
@@ -142,8 +135,8 @@ proxy-groups:
       - 4Kian-8c9ac3d6be
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4FreeIran-1ce3ae8a64
-      - 4Nika-b623d269bd
       - 4Mohsen-17c4c6656f
 rules:
   - MATCH,Proxy

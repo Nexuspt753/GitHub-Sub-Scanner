@@ -12,12 +12,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: azsv1.drpingservice.com
+  - type: vless
+    name: hopev2ray🤍
+    server: 185.226.140.140
+    port: 8880
+    uuid: 30fcec7f-164b-465c-87f4-b93784a6056b
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: azsv1.drpingservice.com
+  - type: vless
+    name: Telegram:@v2rayng3
+    server: 185.226.140.140
+    port: 8880
+    uuid: 30fcec7f-164b-465c-87f4-b93784a6056b
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: azsv1.drpingservice.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - hopev2ray🤍
+      - Telegram:@v2rayng3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - hopev2ray🤍
+      - Telegram:@v2rayng3
 rules:
   - MATCH,Proxy

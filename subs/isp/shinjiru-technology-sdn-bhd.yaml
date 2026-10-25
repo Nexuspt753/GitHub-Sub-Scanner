@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Nika-baee5d1575
+    name: DeltaKroneckerGithub
     server: 111.90.143.184
     port: 61111
     uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
@@ -15,18 +15,27 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-9e14172e3c
+    server: 111.90.143.184
+    port: 61111
+    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-baee5d1575
+      - DeltaKroneckerGithub
+      - 4Kian-9e14172e3c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-baee5d1575
+      - DeltaKroneckerGithub
+      - 4Kian-9e14172e3c
 rules:
   - MATCH,Proxy

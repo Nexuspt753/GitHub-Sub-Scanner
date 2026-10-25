@@ -13,12 +13,27 @@ proxies:
       short-id: 693e339ad3613446
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: EPODONIOS-01
+    server: cape.flowzari.info
+    port: 443
+    uuid: 6c21cf57-a9a9-4075-ad9f-631152bd911e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cape.flowzari.info
+    reality-opts:
+      public-key: 5DdSLIpnYjqYTI4-yC-ulr8PGMA8YML_EWdKvOjdinc
+      short-id: 693e339ad3613446
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
+      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
+      - EPODONIOS-01
 rules:
   - MATCH,Proxy

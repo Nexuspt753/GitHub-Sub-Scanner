@@ -1,26 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-cea075bc2c
-    server: ir.yzcq.ir
-    port: 2070
-    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
-    alterId: 0
-    cipher: auto
+  - type: ss
+    name: 🇮🇷⇄🇳🇱
+    server: tunn.pasmazy1.ir
+    port: 7366
+    cipher: chacha20-ietf-poly1305
+    password: qlZe_zoee3Ns3czHEy95ZOj9RRwVS6Fj
+    udp: true
+  - type: vless
+    name: EPODONIOS
+    server: ir.infoway.ir
+    port: 1120
+    uuid: 0c82e827-c966-4f0d-b76f-d86ad939fef9
     udp: true
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-cea075bc2c
+      - 🇮🇷⇄🇳🇱
+      - EPODONIOS
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-cea075bc2c
+      - 🇮🇷⇄🇳🇱
+      - EPODONIOS
 rules:
   - MATCH,Proxy
