@@ -17,6 +17,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: a.cwvps.eu.org
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 38.180.163.250
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
   - type: vless
     name: 4Sarina-c96187b23b
     server: 114.129.9.132
@@ -39,6 +56,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-c96187b23b
   - name: Auto
     type: url-test
@@ -47,6 +65,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-c96187b23b
 rules:
   - MATCH,Proxy

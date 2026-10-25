@@ -13,12 +13,24 @@ proxies:
       short-id: 91af08b1ce1f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-c1576f93b3
+    server: lists.soloramtin.cyou
+    port: 443
+    uuid: 67eb6b17-7797-4ded-bf52-423c4c5f6cbd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.foxsports.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-1d17d92903
+      - 4Nika-c1576f93b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-1d17d92903
+      - 4Nika-c1576f93b3
 rules:
   - MATCH,Proxy
