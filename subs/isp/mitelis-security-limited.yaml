@@ -1,32 +1,26 @@
 proxies:
   - type: vless
-    name: 4Kian-efbf45a820
-    server: 2.26.5.200
-    port: 443
-    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
+    name: DeltaKroneckerGithub
+    server: 2.26.6.1
+    port: 2087
+    uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: u.srilankangrill.online
+    client-fingerprint: firefox
+    servername: 2.26.6.1
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: u.srilankangrill.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-efbf45a820
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-efbf45a820
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

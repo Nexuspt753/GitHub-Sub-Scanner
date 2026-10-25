@@ -17,32 +17,6 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: EPODONIOS
-    server: 31.76.75.218
-    port: 443
-    uuid: 3d0a1a17-a0a4-41d5-8b6c-37f76ba3ed41
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ya.ru
-    reality-opts:
-      public-key: bkQ2euy5Ls1EELvms1JGr4Bwey673s5CAvSs6b3XzwA
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: tootffarangi🍓-8
-    server: 31.76.75.218
-    port: 443
-    uuid: 3d0a1a17-a0a4-41d5-8b6c-37f76ba3ed41
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ya.ru
-    reality-opts:
-      public-key: bkQ2euy5Ls1EELvms1JGr4Bwey673s5CAvSs6b3XzwA
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
     server: 2.26.30.216
     port: 443
     uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
@@ -142,6 +116,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Sarina-210456e069
+    server: 2.27.16.177
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -149,13 +141,12 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - EPODONIOS
-      - tootffarangi🍓-8
-      - EPODONIOS-01
       - 🇩🇪
       - 4Nika-fc19af8f25
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
       - 4Sarina-04ac81f014
+      - 4Sarina-210456e069
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -164,12 +155,11 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - EPODONIOS
-      - tootffarangi🍓-8
-      - EPODONIOS-01
       - 🇩🇪
       - 4Nika-fc19af8f25
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
       - 4Sarina-04ac81f014
+      - 4Sarina-210456e069
 rules:
   - MATCH,Proxy

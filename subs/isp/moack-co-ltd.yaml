@@ -1,5 +1,23 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: ktc1k.xmrthnode.com
+    port: 41014
+    password: 5bafc1f1-43bc-301c-bf57-53abbf20dabc
+    udp: true
+    tls: true
+    sni: mpvideo.qpic.cn
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: ktc1k.xmrthnode.com
+    port: 24509
+    password: 5bafc1f1-43bc-301c-bf57-53abbf20dabc
+    udp: true
+    tls: true
+    sni: mpvideo.qpic.cn
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Sarina-edba826aff
     server: tjhg.m2k699.com
     port: 24999
@@ -13,6 +31,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-edba826aff
   - name: Auto
     type: url-test
@@ -20,6 +40,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-edba826aff
 rules:
   - MATCH,Proxy

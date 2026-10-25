@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: vless
+    server: panel.cloud-net-new.ru
+    port: 41969
+    uuid: 2b0572a8-56a2-445d-9978-818e301fcda7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: assets.halyvanedorogo.ru
     port: 11515
@@ -24,6 +36,34 @@ proxies:
     servername: www.nokia.com
     reality-opts:
       public-key: ho99K9SlOhJxolr4nVfw8SV4Z1yI22KaKaxUfk2o8jE
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ICV2RAY
+    server: assets.halyvanedorogo.ru
+    port: 11515
+    uuid: cb8fbad5-4f14-55bc-a24a-3510f47f4b1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.com
+    reality-opts:
+      public-key: A826RSu-yeVM_t6v7kwHKasHSdfI9KOzUw3WaIa9SWc
+      short-id: 65149fc5ba
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: IRAN_V2RAY1
+    server: assets.halyvanedorogo.ru
+    port: 11515
+    uuid: cb8fbad5-4f14-55bc-a24a-3510f47f4b1b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.com
+    reality-opts:
+      public-key: A826RSu-yeVM_t6v7kwHKasHSdfI9KOzUw3WaIa9SWc
+      short-id: 65149fc5ba
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -113,8 +153,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
       - EPODONIOS
       - EPODONIOS-01
+      - ICV2RAY
+      - IRAN_V2RAY1
       - bisto4_service
       - Tel-@ProxyMtAlpha🍜
       - ">>@configV2rayNG::FI"
@@ -127,8 +170,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - EPODONIOS
       - EPODONIOS-01
+      - ICV2RAY
+      - IRAN_V2RAY1
       - bisto4_service
       - Tel-@ProxyMtAlpha🍜
       - ">>@configV2rayNG::FI"
