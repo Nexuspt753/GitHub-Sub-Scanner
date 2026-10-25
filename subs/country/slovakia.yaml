@@ -1,6 +1,16 @@
 proxies:
   - type: vless
-    name: Bratislava · 4Nika-196e9007b3
+    name: Bratislava · @VPsave
+    server: 80.243.228.130
+    port: 2085
+    uuid: 39a62048-aa1a-442c-8b38-a87f0df17098
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Bratislava · 4Nika-bea1fe83cf
     server: 89.46.42.141
     port: 2053
     uuid: c18b978e-1c4e-415c-8bea-07942b563a64
@@ -16,8 +26,8 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
   - type: vless
-    name: Bratislava · 4Sarina-110a33bcfc
-    server: 89.46.42.92
+    name: Bratislava · 4Nika-196e9007b3
+    server: 89.46.42.141
     port: 2053
     uuid: c18b978e-1c4e-415c-8bea-07942b563a64
     udp: true
@@ -52,8 +62,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Bratislava · @VPsave
+      - Bratislava · 4Nika-bea1fe83cf
       - Bratislava · 4Nika-196e9007b3
-      - Bratislava · 4Sarina-110a33bcfc
       - Bratislava · 4FreeIran-abc1ca70a7
   - name: Auto
     type: url-test
@@ -61,8 +72,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Bratislava · @VPsave
+      - Bratislava · 4Nika-bea1fe83cf
       - Bratislava · 4Nika-196e9007b3
-      - Bratislava · 4Sarina-110a33bcfc
       - Bratislava · 4FreeIran-abc1ca70a7
 rules:
   - MATCH,Proxy

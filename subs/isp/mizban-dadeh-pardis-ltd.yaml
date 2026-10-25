@@ -1,29 +1,73 @@
 proxies:
   - type: vless
-    name: 4Mohsen-4007fdbf54
-    server: 193.228.169.77
-    port: 31443
-    uuid: d4331e8b-2954-4c03-8df3-73ff7a2d73d5
+    name: EPODONIOS
+    server: frank20.zarghamweb.ir
+    port: 31915
+    uuid: 54692ec9-fd24-41c8-9677-6db0e345c2b0
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: gtv1.com
-    reality-opts:
-      public-key: XIA1VUWGFvaXW6V7i3Va9WzEuqnfCkbGTF2GEvWDFDE
-      short-id: 25897668e9b96209
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: pasar.zarghamweb.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: pasar.zarghamweb.ir
+  - type: vless
+    name: vless
+    server: frank20.zarghamweb.ir
+    port: 31915
+    uuid: 54692ec9-fd24-41c8-9677-6db0e345c2b0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - ""
+    servername: pasar.zarghamweb.ir
+    xudp: true
+  - type: vless
+    name: 🇮🇷199976
+    server: frank20.zarghamweb.ir
+    port: 31915
+    uuid: 54692ec9-fd24-41c8-9677-6db0e345c2b0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: pasar.zarghamweb.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: pasar.zarghamweb.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-4007fdbf54
+      - EPODONIOS
+      - vless
+      - 🇮🇷199976
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-4007fdbf54
+      - EPODONIOS
+      - vless
+      - 🇮🇷199976
 rules:
   - MATCH,Proxy

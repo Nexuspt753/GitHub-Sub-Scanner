@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 194.36.37.59
+    port: 10004
+    uuid: f7376394-cd54-11f1-bb6a-bff6d0326f6a
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vpnjantit
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 🇦🇲
     server: 194.36.37.59
     port: 10004
@@ -29,6 +41,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 🇦🇲
       - 4Nika-9895b1e10d
   - name: Auto
@@ -37,6 +50,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 🇦🇲
       - 4Nika-9895b1e10d
 rules:

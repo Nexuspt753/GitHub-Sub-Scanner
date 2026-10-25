@@ -6,28 +6,12 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: 28789988-887e-4e41-83cd-27bbfb7999ad
     udp: true
-  - type: vless
-    name: EPODONIOS
-    server: 64.118.156.138
-    port: 14081
-    uuid: 531ce91b-f477-4c15-b68f-948a3eea2f70
-    udp: true
-    xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 64.118.156.138
-    port: 14081
-    uuid: 531ce91b-f477-4c15-b68f-948a3eea2f70
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-53450d0803
-      - EPODONIOS
-      - EPODONIOS-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,7 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-53450d0803
-      - EPODONIOS
-      - EPODONIOS-01
 rules:
   - MATCH,Proxy
