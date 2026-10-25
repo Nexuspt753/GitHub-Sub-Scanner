@@ -1,19 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: ses2.white-aist.com
-    port: 8443
-    uuid: 3a4c521f-ac6d-4f82-ace9-2c630b8f0b9d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ses2.white-aist.com
-    reality-opts:
-      public-key: UMuc8dmRgpNGn0p3u4hvt6FNEAjZHtcd08eI528wbwU
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: ss
     name: 4Sarina-e66b380816
     server: 113.30.149.199
@@ -22,7 +7,7 @@ proxies:
     password: JIJhc9gJ9Y7i
     udp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 45.91.171.116
     port: 443
     password: 2ee85121-31de-4581-a492-eb00f606e392
@@ -30,39 +15,20 @@ proxies:
     tls: true
     sni: sto.freeguard.org
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-970a58145d
-    server: 79.108.164.40
-    port: 8443
-    uuid: 3a4c521f-ac6d-4f82-ace9-2c630b8f0b9d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ses2.white-aist.com
-    reality-opts:
-      public-key: UMuc8dmRgpNGn0p3u4hvt6FNEAjZHtcd08eI528wbwU
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Sarina-e66b380816
-      - DeltaKroneckerGithub-01
-      - 4Sarina-970a58145d
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Sarina-e66b380816
-      - DeltaKroneckerGithub-01
-      - 4Sarina-970a58145d
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

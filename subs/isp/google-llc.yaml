@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: la.20066002.xyz
-    port: 443
-    uuid: 9866e390-c95d-409f-bb0d-5618e5c10978
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: gateway.icloud.com
-    reality-opts:
-      public-key: Otc1A9KX3_itArtCHz4N5O33kONWoRdyWUyeZPF9rl8
-      short-id: 57156f2a944d2034
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
     server: a.r-o-o-t3.ir
     port: 443
@@ -142,28 +128,11 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Jadi-36e27d8749
-    server: cn2.soow.win
-    port: 50027
-    uuid: c1d0ae9e-f08a-3f81-962d-ca19b52c760d
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /video
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cn2.soow.win
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
       - TEL:Father_vpn
       - 4Kian-048baa8ac2
@@ -172,14 +141,12 @@ proxy-groups:
       - 4Sarina-eef62536b1
       - 4Jadi-c0afcfcbfa
       - 4Nika-582eeeebf6
-      - 4Jadi-36e27d8749
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
       - TEL:Father_vpn
       - 4Kian-048baa8ac2
@@ -188,6 +155,5 @@ proxy-groups:
       - 4Sarina-eef62536b1
       - 4Jadi-c0afcfcbfa
       - 4Nika-582eeeebf6
-      - 4Jadi-36e27d8749
 rules:
   - MATCH,Proxy

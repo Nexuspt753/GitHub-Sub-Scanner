@@ -80,6 +80,20 @@ proxies:
     sni: 127.0.0.1
   - type: vless
     name: DeltaKroneckerGithub
+    server: sw.golangwikito.cfd
+    port: 443
+    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sw.golangwikito.cfd
+    reality-opts:
+      public-key: Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg
+      short-id: a1037b25dcef6aa7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 217.60.35.146
     port: 443
     uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
@@ -93,22 +107,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: checkout.vistula.lalibobi.online
     port: 443
     password: qjQdBgnCuhLVLxYKyBrEWHYtWJYtBjpS
     udp: true
     tls: true
     sni: checkout.vistula.lalibobi.online
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: checkout.nova.lalibobi.online
-    port: 443
-    password: qjQdBgnCuhLVLxYKyBrEWHYtWJYtBjpS
-    udp: true
-    tls: true
-    sni: checkout.nova.lalibobi.online
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-03
@@ -294,6 +299,22 @@ proxies:
       path: /vmess-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-8416366671
+    server: nl-2a972c8052.shamanapp.online
+    port: 33736
+    uuid: 1281acca-f21d-475c-bf04-eccbee7f8df2
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /vmess-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl-2a972c8052.shamanapp.online
 proxy-groups:
   - name: Proxy
     type: select
@@ -327,6 +348,7 @@ proxy-groups:
       - 4Jadi-53cc08e300
       - 4Nika-cbc619d360
       - 4Jadi-67124d2d12
+      - 4Kian-8416366671
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -361,5 +383,6 @@ proxy-groups:
       - 4Jadi-53cc08e300
       - 4Nika-cbc619d360
       - 4Jadi-67124d2d12
+      - 4Kian-8416366671
 rules:
   - MATCH,Proxy

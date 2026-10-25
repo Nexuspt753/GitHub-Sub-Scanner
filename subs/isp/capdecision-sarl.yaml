@@ -14,24 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: 45.82.56.176
-    port: 8443
-    uuid: 4fafb72a-4cab-4b6a-9169-b09bc0b55eab
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: eh-ger1.country-tools.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /images
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: eh-ger1.country-tools.net
-  - type: vless
     name: Tel@MARAMBASHI
     server: 185.114.49.51
     port: 8443
@@ -77,35 +59,15 @@ proxies:
     servername: scumbria.river-goods.org
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-e5b1cccdb1
-    server: 45.82.56.176
-    port: 8443
-    uuid: 4fafb72a-4cab-4b6a-9169-b09bc0b55eab
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: eh-ger1.country-tools.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /images
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: eh-ger1.country-tools.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
       - Tel@MARAMBASHI
       - 💎
       - 4Jadi-6e859ba963
-      - 4Mohsen-e5b1cccdb1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -113,10 +75,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
       - Tel@MARAMBASHI
       - 💎
       - 4Jadi-6e859ba963
-      - 4Mohsen-e5b1cccdb1
 rules:
   - MATCH,Proxy
