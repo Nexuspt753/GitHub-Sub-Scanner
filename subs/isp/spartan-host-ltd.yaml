@@ -1,5 +1,23 @@
 proxies:
   - type: vmess
+    name: 4Mohsen-41af7b7119
+    server: w12.luoli.de
+    port: 443
+    uuid: 42a99644-b90b-3627-8809-a2d6c4078b59
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: w12.luoli.de
+    network: ws
+    ws-opts:
+      path: /v2ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: w12.luoli.de
+  - type: vmess
     name: 4Nika-a920c091ac
     server: w12.luoli.de
     port: 443
@@ -22,6 +40,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-41af7b7119
       - 4Nika-a920c091ac
   - name: Auto
     type: url-test
@@ -29,6 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-41af7b7119
       - 4Nika-a920c091ac
 rules:
   - MATCH,Proxy

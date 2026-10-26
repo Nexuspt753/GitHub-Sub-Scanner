@@ -1,6 +1,16 @@
 proxies:
   - type: vless
-    name: 4Sarina-32cbe8fc29
+    name: EPODONIOS
+    server: 80.243.228.84
+    port: 2085
+    uuid: a7c66f66-76b7-42ea-8d2b-890a37239368
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: VPsave
     server: 80.243.228.84
     port: 2085
     uuid: a7c66f66-76b7-42ea-8d2b-890a37239368
@@ -14,13 +24,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-32cbe8fc29
+      - EPODONIOS
+      - VPsave
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-32cbe8fc29
+      - EPODONIOS
+      - VPsave
 rules:
   - MATCH,Proxy

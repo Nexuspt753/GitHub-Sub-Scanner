@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 103.253.42.37
+    name: EPODONIOS
+    server: 93.152.223.151
     port: 8443
-    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    uuid: a39ef2cc-1fda-4be0-b1b4-4271c77a242b
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vlso5.1d.mom
+    servername: densoclub.fast-brooklyn.ru
+    reality-opts:
+      public-key: oK0Wi-HsivEUGb4rehXFKlCUPKyfG3thu3K6wJOhRR0
+      short-id: ba86eee322fe3e12
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /socks5=888:888@hkip.1d.mom:1080
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vlso5.1d.mom
+  - type: vless
+    name: 4Kian-a5048436e0
+    server: 93.152.223.151
+    port: 8443
+    uuid: a39ef2cc-1fda-4be0-b1b4-4271c77a242b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: densoclub.fast-brooklyn.ru
+    reality-opts:
+      public-key: oK0Wi-HsivEUGb4rehXFKlCUPKyfG3thu3K6wJOhRR0
+      short-id: ba86eee322fe3e12
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-a5048436e0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Kian-a5048436e0
 rules:
   - MATCH,Proxy

@@ -1,5 +1,26 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 167.160.90.106
+    port: 10689
+    cipher: aes-128-gcm
+    password: 56806e1f518b161950dd19f5960aafbe
+    udp: true
+  - type: ss
+    name: Shh_Proxy-New⁸
+    server: 64.74.161.148
+    port: 17201
+    cipher: aes-128-gcm
+    password: 1cbb3e347ee86e1980a7c731e9dd00a0
+    udp: true
+  - type: ss
+    name: Shh_Proxy-New⁸-01
+    server: 167.160.90.106
+    port: 10689
+    cipher: aes-128-gcm
+    password: 56806e1f518b161950dd19f5960aafbe
+    udp: true
+  - type: ss
     name: 4Mohsen-6afa29ebda
     server: 216.105.168.18
     port: 443
@@ -22,14 +43,23 @@ proxies:
     password: bQZl7HDxSabr1FurTYQHFU
     udp: true
   - type: ss
-    name: EPODONIOS
+    name: EPODONIOS-01
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
     password: hCCWOcIsK5wrFz4OX70rWf
     udp: true
+  - type: trojan
+    name: 4Mohsen-cd2e5a0953
+    server: 66.23.203.21
+    port: 59689
+    password: ae7eb4dwyaz25pxwgq59
+    udp: true
+    tls: true
+    sni: 66.23.203.21
+    client-fingerprint: chrome
   - type: ss
-    name: 🇺🇸US-216.105.168.18-0194
+    name: 🇺🇸US-216.105.168.18-0200
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
@@ -40,21 +70,29 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - Shh_Proxy-New⁸
+      - Shh_Proxy-New⁸-01
       - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - 🇺🇸US-216.105.168.18-0194
+      - EPODONIOS-01
+      - 4Mohsen-cd2e5a0953
+      - 🇺🇸US-216.105.168.18-0200
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - Shh_Proxy-New⁸
+      - Shh_Proxy-New⁸-01
       - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - 🇺🇸US-216.105.168.18-0194
+      - EPODONIOS-01
+      - 4Mohsen-cd2e5a0953
+      - 🇺🇸US-216.105.168.18-0200
 rules:
   - MATCH,Proxy

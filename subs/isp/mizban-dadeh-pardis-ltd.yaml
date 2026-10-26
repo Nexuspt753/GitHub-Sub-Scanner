@@ -12,12 +12,26 @@ proxies:
       - ""
     servername: pasar.zarghamweb.ir
     xudp: true
+  - type: vless
+    name: 4Kian-017dd9c01e
+    server: frank20.zarghamweb.ir
+    port: 31915
+    uuid: 54692ec9-fd24-41c8-9677-6db0e345c2b0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - ""
+    servername: pasar.zarghamweb.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - 4Kian-017dd9c01e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - 4Kian-017dd9c01e
 rules:
   - MATCH,Proxy
