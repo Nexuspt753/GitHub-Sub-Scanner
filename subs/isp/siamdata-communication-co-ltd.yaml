@@ -1,50 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Sarina-4ae43786ce
-    server: 103.114.201.154
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: pphfree1.mvpnpvpn.de5.net
+    port: 52351
+    cipher: aes-256-gcm
+    password: prDjNd1ILAuMYRhgRL+xcBWXcfH9d89ogZTxayqomLA=
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Nika-b90fb09331
-    server: 103.114.201.154
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-4ae43786ce
-      - 4Nika-b90fb09331
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-4ae43786ce
-      - 4Nika-b90fb09331
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

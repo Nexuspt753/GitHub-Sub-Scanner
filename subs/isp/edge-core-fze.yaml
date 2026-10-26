@@ -1,25 +1,117 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 132.243.186.2
-    port: 8444
-    uuid: a346c521-7a7f-452b-9356-a4893feb5982
+    server: tr2.pad-sservice.lat
+    port: 8443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: github.com
-    reality-opts:
-      public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
+    alpn:
+      - http/1.1
+    servername: tr2.pad-sservice.lat
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /tr1-2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr2.pad-service.com
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 132.243.173.212
+    port: 8443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr2.pad-sservice.lat
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tr1-2
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr2.pad-service.com
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 132.243.173.195
+    port: 8443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr.pad-sservice.lat
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /TR1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr.pad-service.com
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 132.243.173.192
+    port: 8443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr3.pad-sservice.lat
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t1r
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr3.pad-service.com
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: tr3.pad-sservice.lat
+    port: 8443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: tr3.pad-sservice.lat
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t1r
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr3.pad-service.com
+  - type: vless
+    name: DeltaKroneckerGithub-05
+    server: tr.pad-sservice.lat
+    port: 8443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: tr.pad-sservice.lat
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /TR1
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tr.pad-service.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +119,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
 rules:
   - MATCH,Proxy

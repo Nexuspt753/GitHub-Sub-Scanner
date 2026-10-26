@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 89.125.11.57
+    port: 443
+    uuid: 19722042-d2e0-4c5e-aac6-f74d1ea9a970
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-room10.filesnap.tech
+    reality-opts:
+      public-key: ikLQ5dfCqs8QkJM7HJBhO9II6blBL9etrPx8-jD1MRc
+      short-id: 6684cb92eab730e6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 89.125.11.26
     port: 443
     uuid: d1b33bcd-88e8-428f-87da-cc8bfb2d426c
@@ -13,34 +27,6 @@ proxies:
       short-id: 3cb2d38fbac380fa
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 89.125.11.26
-    port: 443
-    uuid: 5d5e54d1-3b2a-4a21-8896-f2141aa6beb6
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: room8.filesnap.tech
-    reality-opts:
-      public-key: BTRF6cX_1ul5lAN31QmqrPNl9yMNo8JrsUJOhi9K71U
-      short-id: 3cb2d38fbac380fa
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 89.125.11.27
-    port: 443
-    uuid: d7c0f3bf-794e-4c94-8256-57ee4ab96a36
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: room9.filesnap.tech
-    reality-opts:
-      public-key: gIjwLcWt07QU1ULfyJe_qf4b0ADxO1IuA93l0S032CQ
-      short-id: 6a2d867cd70d0a89
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -48,7 +34,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -57,6 +42,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: trdatair.egekaradecojistik.net.tr
+    port: 35577
+    uuid: b7d3a581-74d6-4ead-9235-ce9dedf08152
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
+  - type: vless
     name: EPODONIOS
     server: trdatair.egekaradecojistik.net.tr
     port: 35577
@@ -13,7 +26,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
   - type: vless
-    name: EPODONIOS-01
+    name: filembad
     server: trdatair.egekaradecojistik.net.tr
     port: 35577
     uuid: b7d3a581-74d6-4ead-9235-ce9dedf08152
@@ -25,28 +38,8 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
-  - type: vless
-    name: vless
-    server: trdatair.egekaradecojistik.net.tr
-    port: 31811
-    uuid: b7d3a581-74d6-4ead-9235-ce9dedf08152
-    udp: true
-    xudp: true
   - type: vless
     name: 🇹🇷200117
-    server: trdatair.egekaradecojistik.net.tr
-    port: 35577
-    uuid: b7d3a581-74d6-4ead-9235-ce9dedf08152
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
-  - type: vless
-    name: 🇹🇷TR-🚀@VPNine1
     server: trdatair.egekaradecojistik.net.tr
     port: 35577
     uuid: b7d3a581-74d6-4ead-9235-ce9dedf08152
@@ -84,30 +77,43 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
+  - type: vless
+    name: 4Sarina-d81047b0ec
+    server: trdatair.egekaradecojistik.net.tr
+    port: 35577
+    uuid: b7d3a581-74d6-4ead-9235-ce9dedf08152
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - EPODONIOS-01
-      - vless
+      - filembad
       - 🇹🇷200117
-      - 🇹🇷TR-🚀@VPNine1
       - 🔵@chillguy_vpn
       - tootffarangi🍓-14
+      - 4Sarina-d81047b0ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
-      - EPODONIOS-01
-      - vless
+      - filembad
       - 🇹🇷200117
-      - 🇹🇷TR-🚀@VPNine1
       - 🔵@chillguy_vpn
       - tootffarangi🍓-14
+      - 4Sarina-d81047b0ec
 rules:
   - MATCH,Proxy

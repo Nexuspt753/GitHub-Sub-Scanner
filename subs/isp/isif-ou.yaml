@@ -1,5 +1,34 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 152.175.97.115
+    port: 33069
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: us6.zestapp778.com
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: us6.zestapp778.com
+    port: 33069
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us6.zestapp778.com
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: cranberry.timing.singer.aliyunglsb.com
+    port: 443
+    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    udp: true
+    tls: true
+    sni: steampipe.akamaized.net
+    client-fingerprint: chrome
+  - type: vless
     name: 4Nika-1a7231a9b6
     server: 45.95.212.186
     port: 443
@@ -20,6 +49,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-1a7231a9b6
   - name: Auto
     type: url-test
@@ -27,6 +59,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-1a7231a9b6
 rules:
   - MATCH,Proxy

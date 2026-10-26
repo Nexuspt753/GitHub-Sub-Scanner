@@ -1,29 +1,19 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 93.190.9.232
+    port: 3090
+    uuid: dde8219d-a988-4944-b220-0444f8dde681
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 🇬🇪200062
     server: 93.190.9.232
     port: 3090
     uuid: dde8219d-a988-4944-b220-0444f8dde681
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇹🇷TR-🚀@VPNine1
-    server: 93.190.9.232
-    port: 3090
-    uuid: dde8219d-a988-4944-b220-0444f8dde681
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Kian-56fd071e9e
-    server: 93.190.9.9
-    port: 3090
-    uuid: c4a36c29-39db-4782-b7cb-6e391461a999
     udp: true
     xudp: true
     network: grpc
@@ -34,17 +24,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 🇬🇪200062
-      - 🇹🇷TR-🚀@VPNine1
-      - 4Kian-56fd071e9e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 🇬🇪200062
-      - 🇹🇷TR-🚀@VPNine1
-      - 4Kian-56fd071e9e
 rules:
   - MATCH,Proxy
