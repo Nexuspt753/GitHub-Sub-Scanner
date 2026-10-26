@@ -1,6 +1,70 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 217.19.122.156
+    port: 443
+    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: z1q3pv4g78.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /useraction/events/b892639b7195/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: z1q3pv4g78.rucdncomp.pro
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: bgye0.guardora.pro
+    port: 443
+    uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: bgye0.guardora.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: z1q3pv4g78.rucdncomp.pro
+    port: 443
+    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    servername: z1q3pv4g78.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /useraction/events/b892639b7195/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: z1q3pv4g78.rucdncomp.pro
+  - type: vless
     name: EPODONIOS
+    server: 81.94.148.232
+    port: 8443
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: windytrout.net
+    xudp: true
+  - type: vless
+    name: Qara_atayi
     server: 81.94.148.232
     port: 8443
     uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
@@ -26,32 +90,6 @@ proxies:
     servername: windytrout.net
     xudp: true
   - type: vless
-    name: EPODONIOS-01
-    server: frankenshtein.whitenw.net
-    port: 8445
-    uuid: 92e135b9-4c04-4e7e-8b28-d8074a202cf8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: SPok5V2FC3pM6iTP7j2gpPQRqreGx73qvlWG1F2Efy0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 🇷🇺197884
-    server: frankenshtein.whitenw.net
-    port: 8445
-    uuid: 92e135b9-4c04-4e7e-8b28-d8074a202cf8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: SPok5V2FC3pM6iTP7j2gpPQRqreGx73qvlWG1F2Efy0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-09d0b2fcd5
     server: 81.94.148.232
     port: 8443
@@ -64,41 +102,30 @@ proxies:
       - http/1.1
     servername: windytrout.net
     xudp: true
-  - type: vless
-    name: 4FreeIran-c47d1c20ef
-    server: frankenshtein.whitenw.net
-    port: 8445
-    uuid: 92e135b9-4c04-4e7e-8b28-d8074a202cf8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: SPok5V2FC3pM6iTP7j2gpPQRqreGx73qvlWG1F2Efy0
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
+      - Qara_atayi
       - Tel@V2rayng_Fast
-      - EPODONIOS-01
-      - 🇷🇺197884
       - 4Sarina-09d0b2fcd5
-      - 4FreeIran-c47d1c20ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
+      - Qara_atayi
       - Tel@V2rayng_Fast
-      - EPODONIOS-01
-      - 🇷🇺197884
       - 4Sarina-09d0b2fcd5
-      - 4FreeIran-c47d1c20ef
 rules:
   - MATCH,Proxy

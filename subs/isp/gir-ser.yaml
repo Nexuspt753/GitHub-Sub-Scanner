@@ -1,30 +1,48 @@
 proxies:
   - type: vless
-    name: 11051@proxy_online_net
-    server: 213.165.60.202
-    port: 443
-    uuid: c5cf36f5-50e9-405b-adb4-b40fdf0d4619
+    name: DeltaKroneckerGithub
+    server: ss.90909.club
+    port: 2096
+    uuid: eeb96fef-4476-4ab0-915e-32e8f014c3b2
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: ru-in-lv-4vp.fast-cdn24.com
+    client-fingerprint: firefox
+    servername: id.vk.com
     reality-opts:
-      public-key: wEq2tZjBf-K4874ErnlupCaI24wDTB5elHB-ZXwjBio
-      short-id: b629457828a7d4bf
-    flow: xtls-rprx-vision
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: ss.ll0ll.vip
+    port: 2096
+    uuid: e436321f-24a9-4c38-b935-7d7dee0c3f68
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 11051@proxy_online_net
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 11051@proxy_online_net
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

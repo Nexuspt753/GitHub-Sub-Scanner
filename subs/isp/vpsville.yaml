@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: de15.h1cloud.net
+    port: 25362
+    uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.chip.de
+    reality-opts:
+      public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
+      short-id: 23732d14a527990d
+    xudp: true
+  - type: vless
+    name: 4Sarina-d8e04464ea
+    server: pl1.h1cloud.net
+    port: 27591
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: LY0H47MWx87_L_JBzxFAuTzKZB53U7MrZQK8-dNnMxM
+      short-id: 6c5c7900406a1ae7
+    xudp: true
+  - type: vless
     name: 4Jadi-520e779764
     server: pl1.h1cloud.net
     port: 27591
@@ -8,6 +34,16 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: www.samsung.com
+    xudp: true
+  - type: vless
+    name: 4Sarina-bcee3c0251
+    server: de12b.h1cloud.net
+    port: 25172
+    uuid: 5a519754-a673-4462-83f6-5eb25d2af141
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
     xudp: true
   - type: vless
     name: 4Jadi-dc64e1191e
@@ -24,7 +60,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - 4Sarina-d8e04464ea
       - 4Jadi-520e779764
+      - 4Sarina-bcee3c0251
       - 4Jadi-dc64e1191e
   - name: Auto
     type: url-test
@@ -32,7 +71,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - 4Sarina-d8e04464ea
       - 4Jadi-520e779764
+      - 4Sarina-bcee3c0251
       - 4Jadi-dc64e1191e
 rules:
   - MATCH,Proxy

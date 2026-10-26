@@ -1,11 +1,4 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 31.56.177.95
-    port: 8445
-    uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
-    udp: true
-    xudp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 31.57.108.242
@@ -15,13 +8,6 @@ proxies:
     tls: true
     sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
-  - type: vless
-    name: v2ray_configs_pools
-    server: 31.56.177.95
-    port: 8445
-    uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
-    udp: true
-    xudp: true
   - type: vless
     name: vless
     server: 31.57.24.177
@@ -35,12 +21,23 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: 4Mohsen-fe5dca4d0b
-    server: 31.56.177.95
-    port: 8445
-    uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
+    name: 4FreeIran-fc1f3482aa
+    server: 94.183.184.239
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: snip.edgeoneai.cc.cd
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vless
     name: 4Mohsen-fdb3643134
     server: 31.58.76.68
@@ -89,44 +86,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
-  - type: vmess
-    name: 4FreeIran-d7a97be493
-    server: alman.asasin6.ir
-    port: 110
-    uuid: 4fcdbb54-17bf-41e2-8879-1d708a02cfdd
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - v2ray_configs_pools
       - vless
-      - 4Mohsen-fe5dca4d0b
+      - 4FreeIran-fc1f3482aa
       - 4Mohsen-fdb3643134
       - 4Nika-f4d4e8ab98
       - 4Kian-8e63a23619
-      - 4FreeIran-d7a97be493
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
-      - v2ray_configs_pools
       - vless
-      - 4Mohsen-fe5dca4d0b
+      - 4FreeIran-fc1f3482aa
       - 4Mohsen-fdb3643134
       - 4Nika-f4d4e8ab98
       - 4Kian-8e63a23619
-      - 4FreeIran-d7a97be493
 rules:
   - MATCH,Proxy

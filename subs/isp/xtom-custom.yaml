@@ -1,36 +1,29 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: ee-1.kamediorg.com
+    server: ee-1.tr202604.com
     port: 443
-    password: wQz5G4ybA9eC3BQDkd
+    password: AG4yPUSazj57DBFnKG
     udp: true
     tls: true
-    sni: ee-1.kamediorg.com
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: ee-1.tr202604.com
     port: 443
-    password: AG4yPUSazj57DBFnKG
+    password: pjqRC5wfEFhYTyiaKF
     udp: true
     tls: true
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
-    server: 45.139.194.66
+    server: 45.139.194.80
     port: 443
-    password: AG4yPUSazj57DBFnKG
+    password: GUGm7DHtpSx7SuPyUD
     udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-03
-    server: ee-1.tr202604.com
-    port: 443
-    password: pjqRC5wfEFhYTyiaKF
-    udp: true
-    tls: true
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -40,7 +33,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -50,6 +42,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

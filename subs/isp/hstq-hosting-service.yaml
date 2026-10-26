@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 13.143.172.34
+    port: 2083
+    uuid: fafc7c16-f890-45ee-a856-02df225172dd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ya.ru
+    reality-opts:
+      public-key: cHJfClQkyUnSxMCi9kmfC8j5OpMrUpyvrjVboO50YXM
+      short-id: f5152b45697a2b58
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: app-sh-185.spbstudentlife.com
     port: 443
@@ -11,6 +25,36 @@ proxies:
     reality-opts:
       public-key: rM3p4mL72kcpvnxVRYxl5J0zPbxE2U3iZua0F29SHTQ
       short-id: 8d942904d3e87323
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 13.143.172.34
+    port: 2087
+    uuid: fafc7c16-f890-45ee-a856-02df225172dd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ya.ru
+    reality-opts:
+      public-key: cHJfClQkyUnSxMCi9kmfC8j5OpMrUpyvrjVboO50YXM
+      short-id: 27abb0897222ef3a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 13.143.172.34
+    port: 4443
+    uuid: fafc7c16-f890-45ee-a856-02df225172dd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.kinopoisk.ru
+    reality-opts:
+      public-key: cHJfClQkyUnSxMCi9kmfC8j5OpMrUpyvrjVboO50YXM
+      short-id: a4529b9ea7ac5cbc
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -43,16 +87,6 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-02
-    server: 104.143.223.236
-    port: 2085
-    uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: EPODONIOS-03
     server: 104.143.223.66
     port: 2085
     uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
@@ -76,10 +110,10 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-04
-    server: 104.143.223.120
+    name: VPsave
+    server: 104.143.223.66
     port: 2085
-    uuid: dde8219d-a988-4944-b220-0444f8dde681
+    uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
     udp: true
     xudp: true
     network: grpc
@@ -128,29 +162,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-72f8aee518
-    server: 104.143.223.66
-    port: 2085
-    uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Nika-461baf8384
-    server: 13.143.186.63
-    port: 443
-    uuid: 7f6adf9d-42f1-4fec-ab22-fb7f66bf3adc
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: k1qqse81xfbu.hat.onl
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-4390fbde0d
     server: 13.143.186.63
     port: 443
@@ -168,18 +179,18 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 🇷🇺
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - Telegram:@v2rayng3
-      - EPODONIOS-04
+      - VPsave
       - 4Kian-f31052b09b
       - 4Mohsen-49b31a6f74
       - 4Sarina-490baa7e81
-      - 4Jadi-72f8aee518
-      - 4Nika-461baf8384
       - 4FreeIran-4390fbde0d
   - name: Auto
     type: url-test
@@ -187,18 +198,18 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 🇷🇺
       - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - Telegram:@v2rayng3
-      - EPODONIOS-04
+      - VPsave
       - 4Kian-f31052b09b
       - 4Mohsen-49b31a6f74
       - 4Sarina-490baa7e81
-      - 4Jadi-72f8aee518
-      - 4Nika-461baf8384
       - 4FreeIran-4390fbde0d
 rules:
   - MATCH,Proxy
