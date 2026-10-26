@@ -17,6 +17,13 @@ proxies:
     tls: true
     sni: 38.54.59.90
     client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 38.54.59.102
+    port: 443
+    cipher: aes-256-gcm
+    password: pKEW8JPByTVTLtM
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -24,6 +31,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,5 +40,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy

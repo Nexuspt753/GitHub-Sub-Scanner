@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.26.6.1
+    port: 2087
+    uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 2.26.6.1
+    xudp: true
+  - type: vless
     name: EPODONIOS
     server: 2.26.6.1
     port: 2087
@@ -20,7 +30,26 @@ proxies:
     servername: 2.26.6.1
     xudp: true
   - type: vless
+    name: 4Sarina-5939f21659
+    server: 2.26.6.1
+    port: 2087
+    uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: 4Kian-2735a8080c
+    server: 2.26.6.1
+    port: 2087
+    uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2.26.6.1
+    xudp: true
+  - type: vless
+    name: 4Nika-47b49c1dbc
     server: 2.26.6.1
     port: 2087
     uuid: b9fdc03f-389b-4cda-9be4-155b623bee15
@@ -34,17 +63,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - EPODONIOS
       - VPsave
+      - 4Sarina-5939f21659
       - 4Kian-2735a8080c
+      - 4Nika-47b49c1dbc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - EPODONIOS
       - VPsave
+      - 4Sarina-5939f21659
       - 4Kian-2735a8080c
+      - 4Nika-47b49c1dbc
 rules:
   - MATCH,Proxy

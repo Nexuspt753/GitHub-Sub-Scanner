@@ -1,6 +1,24 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 185.86.145.142
+    port: 443
+    uuid: c8b3c1d7-4294-4f30-9e5b-e4693b64d518
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    alpn:
+      - http/1.1
+    servername: deliverya.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /adrws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: deliverya.online
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -146,6 +164,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
@@ -162,6 +181,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02

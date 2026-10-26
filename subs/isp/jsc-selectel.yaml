@@ -10,6 +10,21 @@ proxies:
     obfs-password: 588c76723192f87cfe6d6786816177cd2bd9773acdc545928d7d1d5e8338d4ce
   - type: vless
     name: EPODONIOS
+    server: 37.9.4.97
+    port: 443
+    uuid: 51b7a352-9547-4e1d-bea1-62ac69bafead
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: id.pervye.ru
+    reality-opts:
+      public-key: QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: EPODONIOS-01
     server: ru02.transitb2bsytems.com
     port: 443
     uuid: 56ff50da-a238-0002-95ab-dd159634bd87
@@ -23,7 +38,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-01
+    name: EPODONIOS-02
     server: 37.9.15.129
     port: 443
     uuid: 56ff50da-a238-0003-95ab-dd159634bd87
@@ -37,7 +52,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-02
+    name: EPODONIOS-03
     server: ru07.transitb2bsytems.com
     port: 443
     uuid: 56ff50da-a238-0003-95ab-dd159634bd87
@@ -251,34 +266,6 @@ proxies:
       short-id: c1069a934648869a
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-f57c1aee15
-    server: ru07.transitb2bsytems.com
-    port: 443
-    uuid: 56ff50da-a238-0003-95ab-dd159634bd87
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ru01.arpanet-cdn.com
-    reality-opts:
-      public-key: 9NcV9b86R2Cje-HiChBt8D-2vWWqg1pEvS26aXtMgCk
-      short-id: c1069a934648869a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-0b85961436
-    server: 87.228.92.114
-    port: 443
-    uuid: 9dfeafe4-c3cb-4fc5-a58a-67d61441763c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: c767c1t.es4.h1clayd.click
-    reality-opts:
-      public-key: GN4AEVtNr9F6ch-QWphclIEUfvc-mefe74-6PREP_AM
-      short-id: b3fd8b071e1399bb
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -288,6 +275,7 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇷🇺195318
       - VPsave
       - VPsave-01
@@ -302,8 +290,6 @@ proxy-groups:
       - 4Sarina-a9b7551e50
       - 4Nika-ddb5d20138
       - 4Nika-92d3f3a38e
-      - 4FreeIran-f57c1aee15
-      - 4Sarina-0b85961436
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -314,6 +300,7 @@ proxy-groups:
       - EPODONIOS
       - EPODONIOS-01
       - EPODONIOS-02
+      - EPODONIOS-03
       - 🇷🇺195318
       - VPsave
       - VPsave-01
@@ -328,7 +315,5 @@ proxy-groups:
       - 4Sarina-a9b7551e50
       - 4Nika-ddb5d20138
       - 4Nika-92d3f3a38e
-      - 4FreeIran-f57c1aee15
-      - 4Sarina-0b85961436
 rules:
   - MATCH,Proxy
