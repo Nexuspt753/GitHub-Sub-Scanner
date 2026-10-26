@@ -25,6 +25,13 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
+    name: vless-02
+    server: 78.159.246.179
+    port: 8443
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Mohsen-3ddb901fa2
     server: 78.159.246.179
     port: 2053
@@ -37,18 +44,6 @@ proxies:
       - ""
     servername: randomquaint.net
     xudp: true
-  - type: vless
-    name: vless-02
-    server: randomquaint.net
-    port: 2053
-    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,8 +51,8 @@ proxy-groups:
       - Auto
       - vless
       - vless-01
-      - 4Mohsen-3ddb901fa2
       - vless-02
+      - 4Mohsen-3ddb901fa2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -66,7 +61,7 @@ proxy-groups:
     proxies:
       - vless
       - vless-01
-      - 4Mohsen-3ddb901fa2
       - vless-02
+      - 4Mohsen-3ddb901fa2
 rules:
   - MATCH,Proxy

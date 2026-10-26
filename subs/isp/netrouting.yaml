@@ -5,12 +5,18 @@ proxies:
     port: 443
     password: 529f1911-04d5-4427-94b9-c851fd459a27
     sni: tcp-reset-club.net
+  - type: hysteria2
+    name: 4Jadi-50af6cc33d
+    server: nl-hy-test.tcp-reset-club.net
+    port: 443
+    password: dd50a499-7e43-4589-8490-f3b9c2451473
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-34949fa10b
+      - 4Jadi-50af6cc33d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +24,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-34949fa10b
+      - 4Jadi-50af6cc33d
 rules:
   - MATCH,Proxy

@@ -1,9 +1,29 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 80.243.228.130
+    name: EPODONIOS
+    server: 80.243.228.84
     port: 2085
-    uuid: 39a62048-aa1a-442c-8b38-a87f0df17098
+    uuid: a7c66f66-76b7-42ea-8d2b-890a37239368
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: VPsave
+    server: 80.243.228.84
+    port: 2085
+    uuid: a7c66f66-76b7-42ea-8d2b-890a37239368
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇸🇰200064
+    server: 80.243.228.84
+    port: 2085
+    uuid: a7c66f66-76b7-42ea-8d2b-890a37239368
     udp: true
     xudp: true
     network: grpc
@@ -14,13 +34,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - VPsave
+      - 🇸🇰200064
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - VPsave
+      - 🇸🇰200064
 rules:
   - MATCH,Proxy

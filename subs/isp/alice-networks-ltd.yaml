@@ -9,6 +9,15 @@ proxies:
     sni: www.itunes.com
     client-fingerprint: chrome
   - type: trojan
+    name: 4Sarina-f125ce6440
+    server: tjrb.m2k699.com
+    port: 24999
+    password: 29086912-33e4-4e06-ba2b-60f1a195864f
+    udp: true
+    tls: true
+    sni: www.itunes.com
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Nika-08d4abdb91
     server: tjrb.m2k699.com
     port: 24999
@@ -17,30 +26,14 @@ proxies:
     tls: true
     sni: www.itunes.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4Mohsen-c4341cb991
-    server: 161.248.62.26
-    port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-f125ce6440
       - 4Nika-08d4abdb91
-      - 4Mohsen-c4341cb991
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -48,7 +41,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-f125ce6440
       - 4Nika-08d4abdb91
-      - 4Mohsen-c4341cb991
 rules:
   - MATCH,Proxy

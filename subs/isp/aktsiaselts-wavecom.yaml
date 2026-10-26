@@ -1,6 +1,24 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 38.180.163.250
+    port: 443
+    uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    alpn:
+      - http/1.1
+    servername: a.cwvps.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: a.cwvps.eu.org
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.180.163.250
     port: 443
     password: humanity
@@ -16,29 +34,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
-  - type: vless
-    name: 4Sarina-c96187b23b
-    server: 114.129.9.132
-    port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-c96187b23b
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,6 +48,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-c96187b23b
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

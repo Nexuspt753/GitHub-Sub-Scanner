@@ -14,20 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: meliproxyy
-    server: 45.9.14.15
-    port: 443
-    uuid: 2ed71363-5fd3-4859-9254-0003e395848c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ru.filesconvert.org
-    reality-opts:
-      public-key: uRkXxWMtTOSo8dfWho1D9-M6um6xSjXp0y6MgpWy8yc
-      short-id: aedba77e595128a6
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Channel
     server: 45.9.14.15
     port: 443
@@ -55,15 +41,22 @@ proxies:
       short-id: aedba77e595128a6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-56001e6373
+    server: 45.144.30.86
+    port: 443
+    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - meliproxyy
       - Channel
       - 4Mohsen-e6cbfe1df0
+      - 4Mohsen-56001e6373
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,8 +64,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - meliproxyy
       - Channel
       - 4Mohsen-e6cbfe1df0
+      - 4Mohsen-56001e6373
 rules:
   - MATCH,Proxy

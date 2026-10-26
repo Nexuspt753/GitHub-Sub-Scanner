@@ -1,19 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: pl1.h1cloud.net
-    port: 27591
-    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: LY0H47MWx87_L_JBzxFAuTzKZB53U7MrZQK8-dNnMxM
-      short-id: 6c5c7900406a1ae7
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 8fc752g.fi3.h1clayd.click
     port: 443
     uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
@@ -28,13 +15,37 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: ICV2RAY
+    server: pl1.h1cloud.net
+    port: 27591
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: LY0H47MWx87_L_JBzxFAuTzKZB53U7MrZQK8-dNnMxM
+      short-id: 6c5c7900406a1ae7
+    xudp: true
+  - type: vless
+    name: 4Jadi-520e779764
+    server: pl1.h1cloud.net
+    port: 27591
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - ICV2RAY
+      - 4Jadi-520e779764
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - ICV2RAY
+      - 4Jadi-520e779764
 rules:
   - MATCH,Proxy
