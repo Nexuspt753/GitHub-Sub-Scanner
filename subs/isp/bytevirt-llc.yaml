@@ -1,22 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 151.242.189.40
-    port: 443
-    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vlso5.1d.mom
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vlso5.1d.mom
-  - type: vless
-    name: DeltaKroneckerGithub-01
     server: 141.11.139.215
     port: 443
     uuid: d342d11e-d224-4463-b982-532309285094
@@ -31,22 +15,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
-  - type: vless
-    name: DeltaKroneckerGithub-02
-    server: 141.11.138.167
-    port: 443
-    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vlso5.1d.mom
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /socks5=888:888@hkip.1d.mom:1080
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vlso5.1d.mom
   - type: vless
     name: 4Sarina-b27c0e22a2
     server: 208.68.180.147
@@ -63,15 +31,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Mohsen-c049377b4e
+    server: 216.238.54.114
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Sarina-b27c0e22a2
+      - 4Mohsen-c049377b4e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -79,8 +62,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Sarina-b27c0e22a2
+      - 4Mohsen-c049377b4e
 rules:
   - MATCH,Proxy

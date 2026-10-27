@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: de15.h1cloud.net
+    port: 25362
+    uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.chip.de
+    reality-opts:
+      public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
+      short-id: 23732d14a527990d
+    xudp: true
+  - type: vless
     name: vless
     server: 5.35.3.115
     port: 443
@@ -8,22 +21,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vless
-    name: 4Kian-4106b7a43e
-    server: 139.100.226.187
-    port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
   - type: vless
     name: 4Nika-6c879b9b70
     server: 135.106.168.250
@@ -43,8 +40,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vless
-      - 4Kian-4106b7a43e
       - 4Nika-6c879b9b70
   - name: Auto
     type: url-test
@@ -52,8 +49,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vless
-      - 4Kian-4106b7a43e
       - 4Nika-6c879b9b70
 rules:
   - MATCH,Proxy

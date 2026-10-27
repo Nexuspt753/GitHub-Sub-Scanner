@@ -29,6 +29,39 @@ proxies:
       path: /api/v2/camera/events/8f4c2d
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: hex_proxy
+    server: dropstyle.lol
+    port: 443
+    uuid: d49f7cc7-0c15-4a49-9644-ef72e00d8e56
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dropstyle.lol
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/metrics/51dec2df3071/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dropstyle.lol
+  - type: vless
+    name: 4Mohsen-b66a7367f9
+    server: 95.129.236.252
+    port: 443
+    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: azs.benz.ink
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/camera/events/8f4c2d
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -36,6 +69,8 @@ proxy-groups:
       - Auto
       - EPODONIOS
       - 🇷🇺139881
+      - hex_proxy
+      - 4Mohsen-b66a7367f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,5 +79,7 @@ proxy-groups:
     proxies:
       - EPODONIOS
       - 🇷🇺139881
+      - hex_proxy
+      - 4Mohsen-b66a7367f9
 rules:
   - MATCH,Proxy

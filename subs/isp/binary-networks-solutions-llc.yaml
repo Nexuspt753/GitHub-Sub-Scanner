@@ -1,5 +1,20 @@
 proxies:
   - type: vmess
+    name: DeltaKroneckerGithub
+    server: 156.239.224.107
+    port: 57278
+    uuid: 1270bed5-f908-4ecc-f1c8-de246033b186
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
     name: 4Mohsen-9658084789
     server: 156.239.224.107
     port: 57278
@@ -19,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-9658084789
   - name: Auto
     type: url-test
@@ -26,6 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-9658084789
 rules:
   - MATCH,Proxy

@@ -1,16 +1,16 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 88.218.248.89
+    name: DeltaKroneckerGithub
+    server: 194.135.34.223
     port: 443
-    uuid: a56a3bda-e89a-4182-a671-a1858bb0f47c
+    uuid: 4deb9957-e037-4ae2-8892-da357cc6f99f
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
+    client-fingerprint: qq
+    servername: baltic.cendora.ru
     reality-opts:
-      public-key: xFEvOfCpuJIJzWv27x9BZ0npZAemtKctvbE3EnAAX3E
-      short-id: 59eee550a1014198
+      public-key: t_qv0VOfWhKZJV_giGC55-ipgHYWo44Yfvik_B8T8ik
+      short-id: 4a46213c935e2ee4
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -27,6 +27,20 @@ proxies:
       short-id: 59eee550a1014198
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: 4Mohsen-92f82875ea
+    server: 91.245.225.79
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Kian-197f342ee6
     server: 88.218.248.89
@@ -46,8 +60,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - Tarkahodeh
+      - 4Mohsen-92f82875ea
       - 4Kian-197f342ee6
   - name: Auto
     type: url-test
@@ -55,8 +70,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
       - Tarkahodeh
+      - 4Mohsen-92f82875ea
       - 4Kian-197f342ee6
 rules:
   - MATCH,Proxy

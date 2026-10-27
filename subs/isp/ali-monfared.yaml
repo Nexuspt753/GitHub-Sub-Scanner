@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: filembad-11
+    server: nl-server-1.wexpuk.ir
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: vvjCXLC6hy8-ESp82WYpj_MCNYpyItaE
+    udp: true
   - type: vless
     name: EPODONIOS
     server: ir1.irankatooni.ir
@@ -8,22 +15,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: usa.irankatooni.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: filimo.com
-  - type: vless
-    name: EPODONIOS-01
-    server: ir1.irankatooni.ir
-    port: 2087
-    uuid: 2e758f28-7bfe-4719-ab09-45002c84084f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ger2.irankatooni.ir
     xudp: true
     network: ws
     ws-opts:
@@ -64,23 +55,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: filimo.com
   - type: vless
-    name: EPODONIOS-02
-    server: ir1.irankatooni.ir
-    port: 2083
-    uuid: bff5f908-8000-4924-b673-d41b546244ea
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: usa.irankatooni.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: filimo.com
-  - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-01
     server: ir1.irankatooni.ir
     port: 2087
     uuid: bff5f908-8000-4924-b673-d41b546244ea
@@ -95,6 +70,16 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: filimo.com
+  - type: vmess
+    name: EPODONIOS-02
+    server: NlS3.zelnora.ir
+    port: 55306
+    uuid: 6be99634-b5dc-4e49-9f6d-fb1813d0643a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: 🇺🇸🇮🇷-01
     server: ir1.irankatooni.ir
@@ -127,16 +112,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: filimo.com
-  - type: vmess
-    name: 🇮🇷IR-🚀@VPNine1
-    server: NlS3.zelnora.ir
-    port: 55306
-    uuid: 6be99634-b5dc-4e49-9f6d-fb1813d0643a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vless
     name: 4Sarina-1e68ed3cea
     server: ir1.irankatooni.ir
@@ -162,6 +137,22 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: ger2.irankatooni.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: filimo.com
+  - type: vless
+    name: 4FreeIran-ebe3286e83
+    server: ir1.irankatooni.ir
+    port: 2083
+    uuid: bff5f908-8000-4924-b673-d41b546244ea
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: usa.irankatooni.ir
     xudp: true
     network: ws
     ws-opts:
@@ -296,22 +287,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Nika-6a43dcf1c6
+    server: NlS3.zelnora.ir
+    port: 55306
+    uuid: 6855d026-d96e-4cf3-8bc7-b76ed5cbbce9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - filembad-11
       - EPODONIOS
-      - EPODONIOS-01
       - 🇺🇸🇮🇷
       - 🇩🇪🇮🇷
+      - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - 🇺🇸🇮🇷-01
       - 🇩🇪🇮🇷-01
-      - 🇮🇷IR-🚀@VPNine1
       - 4Sarina-1e68ed3cea
       - 4FreeIran-f6834666f5
+      - 4FreeIran-ebe3286e83
       - 4FreeIran-700b146a8f
       - 4Sarina-a3b3aef8e6
       - 4Kian-eec96cb446
@@ -322,23 +323,24 @@ proxy-groups:
       - 4Jadi-cdafa9577f
       - 4Mohsen-c8ffb9f188
       - 4FreeIran-e4db6e404e
+      - 4Nika-6a43dcf1c6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - filembad-11
       - EPODONIOS
-      - EPODONIOS-01
       - 🇺🇸🇮🇷
       - 🇩🇪🇮🇷
+      - EPODONIOS-01
       - EPODONIOS-02
-      - EPODONIOS-03
       - 🇺🇸🇮🇷-01
       - 🇩🇪🇮🇷-01
-      - 🇮🇷IR-🚀@VPNine1
       - 4Sarina-1e68ed3cea
       - 4FreeIran-f6834666f5
+      - 4FreeIran-ebe3286e83
       - 4FreeIran-700b146a8f
       - 4Sarina-a3b3aef8e6
       - 4Kian-eec96cb446
@@ -349,5 +351,6 @@ proxy-groups:
       - 4Jadi-cdafa9577f
       - 4Mohsen-c8ffb9f188
       - 4FreeIran-e4db6e404e
+      - 4Nika-6a43dcf1c6
 rules:
   - MATCH,Proxy

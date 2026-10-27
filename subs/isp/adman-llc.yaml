@@ -1,32 +1,30 @@
 proxies:
   - type: vless
-    name: 4Nika-2b2368efcd
-    server: 46.8.200.91
+    name: DeltaKroneckerGithub
+    server: 185.135.82.166
     port: 443
-    uuid: b8201bab-fa6c-4f6e-b289-b5da660c6f69
+    uuid: c9c219dc-50da-4135-8e5b-67020291f0ec
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: cf3.rumedia-cdn.com
+    client-fingerprint: firefox
+    servername: aujn2bb6rg.cdnvertex.store
+    reality-opts:
+      public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /cdn/v3/live
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf3.rumedia-cdn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-2b2368efcd
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2b2368efcd
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,27 +1,32 @@
 proxies:
   - type: vless
-    name: 4Kian-debd75dc8e
-    server: se3.h1cloud.net
-    port: 25119
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    name: DeltaKroneckerGithub
+    server: se1-cl3.vless-fiberstasis.top
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: se1-cl3.vless-fiberstasis.top
+    reality-opts:
+      public-key: qJja_3vaCxm3As6alnqjpIIThwGm4e4m_MOluQBNFgo
+      short-id: 11d37dd92940329e
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-debd75dc8e
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-debd75dc8e
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,22 +1,39 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 92.119.164.196
+    name: DeltaKroneckerGithub
+    server: 45.133.73.115
     port: 443
-    uuid: 28a4a8fc-15ab-418b-9aaf-655a84edf521
+    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: le.zadonat.net
+    client-fingerprint: firefox
+    servername: loudarch.net
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /realtime/stock/ticker
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 92.119.164.196
   - type: vless
-    name: tootffarangi🍓
+    name: DeltaKroneckerGithub-01
+    server: 45.133.73.112
+    port: 443
+    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: loudarch.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: loudarch.net
+    port: 443
+    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: loudarch.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: EPODONIOS
     server: 92.119.164.196
     port: 443
     uuid: 28a4a8fc-15ab-418b-9aaf-655a84edf521
@@ -47,58 +64,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 92.119.164.196
-  - type: vless
-    name: 🇳🇱NL-🚀@VPNine1
-    server: 92.119.164.196
-    port: 443
-    uuid: 28a4a8fc-15ab-418b-9aaf-655a84edf521
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: le.zadonat.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /realtime/stock/ticker
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 92.119.164.196
-  - type: vless
-    name: 4Kian-5f943cb846
-    server: 92.119.164.196
-    port: 443
-    uuid: 28a4a8fc-15ab-418b-9aaf-655a84edf521
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: le.zadonat.net
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /realtime/stock/ticker
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 92.119.164.196
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
-      - tootffarangi🍓
       - 🇳🇱200858
-      - 🇳🇱NL-🚀@VPNine1
-      - 4Kian-5f943cb846
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - EPODONIOS
-      - tootffarangi🍓
       - 🇳🇱200858
-      - 🇳🇱NL-🚀@VPNine1
-      - 4Kian-5f943cb846
 rules:
   - MATCH,Proxy

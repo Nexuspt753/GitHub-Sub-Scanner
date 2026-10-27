@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Kian-22892638b7
+    server: 146.70.146.222
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: Vr06rU_v1vFPYeXq9zbsAA
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-22892638b7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-22892638b7
+rules:
+  - MATCH,Proxy
