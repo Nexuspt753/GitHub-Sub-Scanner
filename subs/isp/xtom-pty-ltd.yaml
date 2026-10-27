@@ -1,7 +1,7 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: au-3.tr202604.com
+    server: au-2.tr202604.com
     port: 443
     password: q6UYkw9nUn6MYZz8Sp
     udp: true
@@ -15,6 +15,20 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-875dd7a69a
+    server: 45.128.222.55
+    port: 443
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
+    udp: true
+    tls: true
+    sni: hhcm.hhxaf.cc.cd
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -22,6 +36,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4FreeIran-875dd7a69a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -30,5 +45,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4FreeIran-875dd7a69a
 rules:
   - MATCH,Proxy

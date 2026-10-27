@@ -1,59 +1,33 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: 38.244.186.167
-    port: 8445
-    uuid: f3b8d5f8-cbe9-4aca-ab34-005c51262d5e
+  - type: vmess
+    name: 4Mohsen-a721b4e196
+    server: 194.15.196.172
+    port: 443
+    uuid: 4d0247e0-d1da-444c-9cda-8cc20e4e4435
+    alterId: 64
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: "-s2SHiKfXMJRYizNuu8URrx6MgyoQtBJ0QAj33qMog0"
-      short-id: f04c762307c0ba04
     xudp: true
-  - type: vless
-    name: Qara_atayi
-    server: 38.244.186.167
-    port: 8445
-    uuid: f3b8d5f8-cbe9-4aca-ab34-005c51262d5e
-    udp: true
+    skip-cert-verify: false
     tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: "-s2SHiKfXMJRYizNuu8URrx6MgyoQtBJ0QAj33qMog0"
-      short-id: f04c762307c0ba04
-    xudp: true
-  - type: vless
-    name: 4Jadi-e93541f9f9
-    server: 38.244.186.167
-    port: 8445
-    uuid: f3b8d5f8-cbe9-4aca-ab34-005c51262d5e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: "-s2SHiKfXMJRYizNuu8URrx6MgyoQtBJ0QAj33qMog0"
-      short-id: f04c762307c0ba04
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /path/191019072927
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.87416132.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - Qara_atayi
-      - 4Jadi-e93541f9f9
+      - 4Mohsen-a721b4e196
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - Qara_atayi
-      - 4Jadi-e93541f9f9
+      - 4Mohsen-a721b4e196
 rules:
   - MATCH,Proxy

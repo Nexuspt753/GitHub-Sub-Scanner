@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-3b26d81316
+    server: hallo.crackerbinam.org
+    port: 18694
+    uuid: 1e5ea6b0-a2cf-4363-98c1-0bdecac54195
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.technolife.com
+    reality-opts:
+      public-key: kzb3qkKdLDFnGHMFRxfim3Sg1JSPIow1SEG253gH9HM
+      short-id: 899787cc
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-3b26d81316
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-3b26d81316
+rules:
+  - MATCH,Proxy

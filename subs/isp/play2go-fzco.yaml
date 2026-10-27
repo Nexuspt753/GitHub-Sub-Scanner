@@ -1,25 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-f2897f1350
-    server: 31.77.8.55
-    port: 4443
-    password: c0242d1b-db7a-4dcf-95ff-e10a3ef1c1a3
-    sni: de5.shvpn.ru
-    skip-cert-verify: true
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 177.3.209.20
-    port: 443
-    uuid: 1b7ee703-fa08-4305-8469-ae3e30e61e44
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: swself2.yandex-api.com
-    reality-opts:
-      public-key: HXFe_cPryw01zqXchAFjZciDAS4UJg1-xScx6vjgjjY
-      short-id: 7f2e9c4b1a8d6e25
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: EPODONIOS
     server: 2.27.203.251
@@ -49,7 +28,7 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 177.3.212.215
     port: 443
     password: j8HSz13mcSpcbzQD-jxhNt3T99NLzgMB
@@ -73,6 +52,21 @@ proxies:
       public-key: QYdQmsVvUj4jwo9gH20nJA5x015gaAL0nGipORe6ZmY
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Telegram
+    server: rpc.bixcar.online
+    port: 443
+    uuid: 31cd24da-8f54-4c0d-bc4a-11c975b7a7a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rpc.bixcar.online
+    reality-opts:
+      public-key: IyUx2jYDP6_leRt4dvxgmK2QCWZ1m3r3jceFqFU13Fc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: EPODONIOS-02
     server: de3.voronvpn.com
@@ -120,6 +114,14 @@ proxies:
     reality-opts:
       public-key: UR-ELTbCCTAAvg_y8vIznWFkGkCKFFaEAVgTtPYNCCk
       short-id: 54861d36
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: h.pasmazy1.ir
+    port: 1015
+    uuid: afe6937a-bee4-47b7-aca1-fed52b358e7a
+    udp: true
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -227,21 +229,34 @@ proxies:
     udp: true
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-2bbff6e69b
+    server: se1.hys.braidx.tech
+    port: 443
+    uuid: e7a4decb-631e-422b-9749-7e8f54618308
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.jsdelivr.net
+    reality-opts:
+      public-key: 9mJq2cP3srX_6K1YfMDp1yndvo5CtgL6TEVQ8tm4fVc
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-f2897f1350
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
       - meliproxyy
+      - Telegram
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
       - leviconfigs🪐-7
+      - VPsave
       - IRAN_V2RAY1
       - 4FreeIran-c4230af258
       - 4FreeIran-3ca96a0a8f
@@ -250,22 +265,23 @@ proxy-groups:
       - 4Kian-addac684fd
       - 4Jadi-d124241f1b
       - 4Mohsen-cb3d860fbb
+      - 4Sarina-2bbff6e69b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-f2897f1350
-      - DeltaKroneckerGithub
       - EPODONIOS
       - EPODONIOS-01
-      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub
       - meliproxyy
+      - Telegram
       - EPODONIOS-02
       - EPODONIOS-03
       - EPODONIOS-04
       - leviconfigs🪐-7
+      - VPsave
       - IRAN_V2RAY1
       - 4FreeIran-c4230af258
       - 4FreeIran-3ca96a0a8f
@@ -274,5 +290,6 @@ proxy-groups:
       - 4Kian-addac684fd
       - 4Jadi-d124241f1b
       - 4Mohsen-cb3d860fbb
+      - 4Sarina-2bbff6e69b
 rules:
   - MATCH,Proxy

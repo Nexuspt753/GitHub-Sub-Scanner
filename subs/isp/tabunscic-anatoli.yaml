@@ -29,6 +29,20 @@ proxies:
       grpc-service-name: /
   - type: trojan
     name: DeltaKroneckerGithub-02
+    server: 45-149-147-213.sslip.io
+    port: 4444
+    password: 9b347a9b-d7a6-4b51-9890-eff62b832834
+    udp: true
+    tls: true
+    sni: 45-149-147-213.sslip.io
+    alpn:
+      - h2
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-03
     server: 45.149.147.213
     port: 4444
     password: 9b347a9b-d7a6-4b51-9890-eff62b832834
@@ -41,6 +55,60 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: EPODONIOS
+    server: 185.126.67.6
+    port: 443
+    uuid: aaa9aa95-0251-4239-bad5-f5f4460e9914
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: 185.126.67.6
+    port: 443
+    uuid: aaa9aa95-0251-4239-bad5-f5f4460e9914
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-67e991af34
+    server: 45-149-147-213.sslip.io
+    port: 4443
+    uuid: 9b347a9b-d7a6-4b51-9890-eff62b832834
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: 45-149-147-213.sslip.io
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-675b2d4374
+    server: 185.126.67.6
+    port: 443
+    uuid: aaa9aa95-0251-4239-bad5-f5f4460e9914
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -49,6 +117,11 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - EPODONIOS
+      - VPsave
+      - 4Mohsen-67e991af34
+      - 4Jadi-675b2d4374
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,5 +131,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - EPODONIOS
+      - VPsave
+      - 4Mohsen-67e991af34
+      - 4Jadi-675b2d4374
 rules:
   - MATCH,Proxy

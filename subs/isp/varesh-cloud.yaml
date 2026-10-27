@@ -1,5 +1,15 @@
 proxies:
   - type: vmess
+    name: 4Sarina-417a92ecce
+    server: cloud.jahanserver.sbs
+    port: 443
+    uuid: 36b1b604-4181-41a1-83f9-198c7ec003e0
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Sarina-f014ba968d
     server: evan.jahanvenus.top
     port: 80
@@ -19,32 +29,22 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Nika-6d72df6533
-    server: evan.jahanvenus.top
-    port: 80
-    uuid: 284a56d8-cfe5-4130-bd15-9917e657079b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-417a92ecce
       - 4Sarina-f014ba968d
       - 4Sarina-1260a32879
-      - 4Nika-6d72df6533
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-417a92ecce
       - 4Sarina-f014ba968d
       - 4Sarina-1260a32879
-      - 4Nika-6d72df6533
 rules:
   - MATCH,Proxy

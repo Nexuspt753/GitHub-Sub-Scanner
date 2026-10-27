@@ -1,6 +1,17 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: initialcase.net
+    port: 443
+    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: initialcase.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 176.125.254.9
     port: 443
     uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
@@ -16,6 +27,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

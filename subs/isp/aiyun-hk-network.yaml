@@ -1,14 +1,5 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: tjmg2.m2k699.com
-    port: 24999
-    password: 29086912-33e4-4e06-ba2b-60f1a195864f
-    udp: true
-    tls: true
-    sni: www.itunes.com
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Mohsen-657a78732e
     server: tjmg2.m2k699.com
     port: 24999
@@ -17,20 +8,38 @@ proxies:
     tls: true
     sni: www.itunes.com
     client-fingerprint: chrome
+  - type: vmess
+    name: 4Mohsen-7a1ddf5776
+    server: xc115-1.meiziba5566.com
+    port: 443
+    uuid: f40a8d65-a9ac-42ce-ebcc-9e6447a9866d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: xc115-1.meiziba5566.com
+    network: ws
+    ws-opts:
+      path: /f40a8d65
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xc115-1.meiziba5566.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Mohsen-657a78732e
+      - 4Mohsen-7a1ddf5776
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Mohsen-657a78732e
+      - 4Mohsen-7a1ddf5776
 rules:
   - MATCH,Proxy

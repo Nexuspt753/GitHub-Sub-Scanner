@@ -1,29 +1,28 @@
 proxies:
   - type: vless
-    name: 4Nika-9895b1e10d
-    server: 88.218.95.88
-    port: 443
-    uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
+    name: DeltaKroneckerGithub
+    server: 194.36.37.59
+    port: 10004
+    uuid: f7376394-cd54-11f1-bb6a-bff6d0326f6a
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.google.com
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /vpnjantit
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-9895b1e10d
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9895b1e10d
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
