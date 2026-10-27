@@ -1,15 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 80.243.228.84
-    port: 2085
-    uuid: a7c66f66-76b7-42ea-8d2b-890a37239368
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: VPsave
     server: 80.243.228.84
     port: 2085
@@ -24,7 +14,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - VPsave
   - name: Auto
     type: url-test
@@ -32,7 +21,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - VPsave
 rules:
   - MATCH,Proxy

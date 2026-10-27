@@ -1,50 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Kian-438601f05b
-    server: 74.82.221.84
+  - type: trojan
+    name: 4Nika-5d896b4bff
+    server: 199.193.125.72
     port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
-  - type: vless
-    name: 4Jadi-178a5725a0
-    server: 74.82.221.84
-    port: 443
-    uuid: 9784bb19-3833-43ad-83b0-27ef8fc04ef2
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: 20664.pages.dev
-    xudp: true
+    sni: hhcm.hhxaf.cc.cd
+    client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 20664.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-438601f05b
-      - 4Jadi-178a5725a0
+      - 4Nika-5d896b4bff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-438601f05b
-      - 4Jadi-178a5725a0
+      - 4Nika-5d896b4bff
 rules:
   - MATCH,Proxy

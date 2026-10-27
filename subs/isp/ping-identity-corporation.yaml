@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: VPsave
+    server: 130.250.137.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime05.workers.dev
   - type: trojan
     name: 4Sarina-57c53da434
     server: 130.250.137.171
@@ -47,6 +60,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Sarina-57c53da434
       - 4Sarina-a9ef3e00e2
       - 4Kian-1f31a69461
@@ -56,6 +70,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Sarina-57c53da434
       - 4Sarina-a9ef3e00e2
       - 4Kian-1f31a69461

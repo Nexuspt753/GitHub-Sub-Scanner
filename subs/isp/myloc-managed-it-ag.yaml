@@ -1,5 +1,19 @@
 proxies:
   - type: ss
+    name: EPODONIOS
+    server: 213.202.208.199
+    port: 7001
+    cipher: aes-256-gcm
+    password: RexnBgU7EV5ADxG
+    udp: true
+  - type: ss
+    name: 🇩🇪
+    server: 213.202.208.199
+    port: 7001
+    cipher: aes-256-gcm
+    password: RexnBgU7EV5ADxG
+    udp: true
+  - type: ss
     name: DeltaKroneckerGithub
     server: 213.202.208.199
     port: 5000
@@ -8,6 +22,13 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-01
+    server: 213.202.208.199
+    port: 7001
+    cipher: aes-256-gcm
+    password: RexnBgU7EV5ADxG
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
     server: 213.202.208.199
     port: 5000
     cipher: aes-256-gcm
@@ -25,8 +46,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - 🇩🇪
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-0cd4c72585
   - name: Auto
     type: url-test
@@ -34,8 +58,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - 🇩🇪
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-0cd4c72585
 rules:
   - MATCH,Proxy

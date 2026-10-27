@@ -1,30 +1,75 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 117.55.194.76
-    port: 443
-    uuid: e5544327-834c-455a-9db5-2454c788fa17
+    name: EPODONIOS
+    server: 103.27.133.17
+    port: 41438
+    uuid: f12d0220-e1de-4232-bcef-7e5a12f05062
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: d1-au.cloud-cdn.xyz
+    client-fingerprint: chrome
+    servername: jp15.static-s3.org
     reality-opts:
-      public-key: V-6tk21giXjug4ZXwpAhT4aXHjsXYwkgznT4dQEc9Aw
-      short-id: 48d6ed723454f6db
+      public-key: w_X-vOLSkQ0Cv4sMRU7j9lq-WVX_rZqYkTcgDkIgUF8
+      short-id: 1fbda82b6856a6d3
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-e5fcd7b1cc
+    server: 103.27.133.17
+    port: 41438
+    uuid: f12d0220-e1de-4232-bcef-7e5a12f05062
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp15.static-s3.org
+    reality-opts:
+      public-key: w_X-vOLSkQ0Cv4sMRU7j9lq-WVX_rZqYkTcgDkIgUF8
+      short-id: 1fbda82b6856a6d3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-170cd283d3
+    server: 103.27.133.17
+    port: 41438
+    uuid: f12d0220-e1de-4232-bcef-7e5a12f05062
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp15.static-s3.org
+    reality-opts:
+      public-key: w_X-vOLSkQ0Cv4sMRU7j9lq-WVX_rZqYkTcgDkIgUF8
+      short-id: 1fbda82b6856a6d3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-575d78581a
+    server: 103.27.133.17
+    port: 41438
+    uuid: f12d0220-e1de-4232-bcef-7e5a12f05062
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp15.static-s3.org
+    flow: xtls-rprx-vision-udp443
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Jadi-e5fcd7b1cc
+      - 4Nika-170cd283d3
+      - 4Kian-575d78581a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - EPODONIOS
+      - 4Jadi-e5fcd7b1cc
+      - 4Nika-170cd283d3
+      - 4Kian-575d78581a
 rules:
   - MATCH,Proxy

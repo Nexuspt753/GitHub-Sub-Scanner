@@ -1,41 +1,29 @@
 proxies:
   - type: vless
-    name: 4Mohsen-0ca86419f7
+    name: DeltaKroneckerGithub
     server: 163.61.182.194
     port: 34646
     uuid: 608af979-75ff-4480-b1fd-9c4a36962835
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: api.receptivity.io
     reality-opts:
       public-key: UuXUXzPnZM8IY-D5bQPy4iBIzEpK4PJFEOJzeObISRA
       short-id: 4710d669
-    xudp: true
-  - type: vless
-    name: 4FreeIran-098dc25812
-    server: 163.61.182.194
-    port: 34646
-    uuid: 608af979-75ff-4480-b1fd-9c4a36962835
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api.receptivity.io
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-0ca86419f7
-      - 4FreeIran-098dc25812
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-0ca86419f7
-      - 4FreeIran-098dc25812
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

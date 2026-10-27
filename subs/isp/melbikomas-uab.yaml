@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: sora1co
+    server: 213.183.63.60
+    port: 9054
+    cipher: aes-256-cfb
+    password: VcFuyXvND2yQWSFY
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: sg4.6n6.net
@@ -28,18 +35,11 @@ proxies:
     name: DeltaKroneckerGithub-03
     server: 91.192.81.167
     port: 443
-    password: c25c4610-489e-11f0-bd10-1239d0255272
+    password: 16132fb0-4945-11f0-a95e-1239d0255272
     udp: true
     tls: true
     sni: sg4.6n6.net
     client-fingerprint: chrome
-  - type: ss
-    name: 4FreeIran-2a2864e204
-    server: 91.201.65.122
-    port: 9059
-    cipher: aes-256-cfb
-    password: 9XwYyZsK8SNzQDtY
-    udp: true
   - type: trojan
     name: DeltaKroneckerGithub-04
     server: 91.192.81.167
@@ -51,6 +51,14 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-05
+    server: sg4.6n6.net
+    port: 443
+    password: c623a730-48a2-11f0-b6c7-1239d0255272
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-06
     server: 103.97.91.17
     port: 443
     password: 600421cf-11d7-429f-a65b-c30397f1bc03
@@ -58,94 +66,69 @@ proxies:
     tls: true
     sni: la.freeguard.org
     client-fingerprint: chrome
+  - type: ss
+    name: 4Kian-391a6c4497
+    server: 195.238.126.20
+    port: 9011
+    cipher: aes-256-cfb
+    password: M3t2ZEQcMGRWBjRa
+    udp: true
   - type: trojan
-    name: DeltaKroneckerGithub-06
+    name: DeltaKroneckerGithub-07
     server: sg4.6n6.net
     port: 443
     password: c25c4610-489e-11f0-bd10-1239d0255272
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: 4FreeIran-2dd5fdc80d
-    server: 195.238.126.20
-    port: 9068
-    cipher: aes-256-cfb
-    password: mwgRg9hRq3b4Qnwb
-    udp: true
   - type: vless
-    name: EPODONIOS
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
+    name: 4FreeIran-e1bb3a529d
+    server: 185.135.86.41
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
     xudp: true
     network: ws
     ws-opts:
-      path: /vless
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
-  - type: vless
-    name: 🇦🇪
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
-  - type: vless
-    name: 4Kian-f0d79b06d8
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - sora1co
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 4FreeIran-2a2864e204
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
-      - 4FreeIran-2dd5fdc80d
-      - EPODONIOS
-      - 🇦🇪
-      - 4Kian-f0d79b06d8
+      - 4Kian-391a6c4497
+      - DeltaKroneckerGithub-07
+      - 4FreeIran-e1bb3a529d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - sora1co
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - 4FreeIran-2a2864e204
       - DeltaKroneckerGithub-04
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
-      - 4FreeIran-2dd5fdc80d
-      - EPODONIOS
-      - 🇦🇪
-      - 4Kian-f0d79b06d8
+      - 4Kian-391a6c4497
+      - DeltaKroneckerGithub-07
+      - 4FreeIran-e1bb3a529d
 rules:
   - MATCH,Proxy

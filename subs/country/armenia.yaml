@@ -1,5 +1,30 @@
 proxies:
   - type: vless
+    name: Yerevan · @DeltaKroneckerGithub
+    server: 77.91.68.70
+    port: 55983
+    uuid: f667a096-5231-4cfb-8759-92bb32473139
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
+      short-id: 0e
+    xudp: true
+  - type: vless
+    name: Yerevan · @DeltaKroneckerGithub-01
+    server: 194.36.37.59
+    port: 10004
+    uuid: f7376394-cd54-11f1-bb6a-bff6d0326f6a
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vpnjantit
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: Yerevan · 4Nika-9895b1e10d
     server: 88.218.95.88
     port: 443
@@ -112,11 +137,25 @@ proxies:
     client-fingerprint: chrome
     servername: yahoo.com
     xudp: true
+  - type: vless
+    name: Yerevan · 4Nika-521be91f04
+    server: 194.36.37.59
+    port: 10004
+    uuid: f7376394-cd54-11f1-bb6a-bff6d0326f6a
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vpnjantit
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Yerevan · @DeltaKroneckerGithub
+      - Yerevan · @DeltaKroneckerGithub-01
       - Yerevan · 4Nika-9895b1e10d
       - Arinj · 4Mohsen-df271ab937
       - Arinj · 4Nika-b351df73b6
@@ -125,12 +164,15 @@ proxy-groups:
       - Yerevan · 4FreeIran-ba9149a06f
       - Yerevan · 4Kian-690af282f0
       - Yerevan · 4Sarina-c62b0e38df
+      - Yerevan · 4Nika-521be91f04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Yerevan · @DeltaKroneckerGithub
+      - Yerevan · @DeltaKroneckerGithub-01
       - Yerevan · 4Nika-9895b1e10d
       - Arinj · 4Mohsen-df271ab937
       - Arinj · 4Nika-b351df73b6
@@ -139,5 +181,6 @@ proxy-groups:
       - Yerevan · 4FreeIran-ba9149a06f
       - Yerevan · 4Kian-690af282f0
       - Yerevan · 4Sarina-c62b0e38df
+      - Yerevan · 4Nika-521be91f04
 rules:
   - MATCH,Proxy
