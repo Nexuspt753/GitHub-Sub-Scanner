@@ -1,0 +1,54 @@
+proxies:
+  - type: vless
+    name: tootffarangi🍓
+    server: 103.150.192.28
+    port: 443
+    uuid: 7d9dbe01-f192-436e-b6d5-533fc3c998e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nova-relay-d9g973.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=103.150.192.28:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nova-relay-d9g973.pages.dev
+  - type: vless
+    name: 4Kian-dc89501a33
+    server: 103.150.192.28
+    port: 443
+    uuid: 7d9dbe01-f192-436e-b6d5-533fc3c998e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nova-relay-d9g973.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=103.150.192.28:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nova-relay-d9g973.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - tootffarangi🍓
+      - 4Kian-dc89501a33
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - tootffarangi🍓
+      - 4Kian-dc89501a33
+rules:
+  - MATCH,Proxy

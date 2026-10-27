@@ -29,7 +29,7 @@ proxies:
       grpc-service-name: /
   - type: trojan
     name: DeltaKroneckerGithub-02
-    server: 45-149-147-213.sslip.io
+    server: 45.149.147.213
     port: 4444
     password: 9b347a9b-d7a6-4b51-9890-eff62b832834
     udp: true
@@ -41,21 +41,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-67e991af34
-    server: 45-149-147-213.sslip.io
-    port: 4443
-    uuid: 9b347a9b-d7a6-4b51-9890-eff62b832834
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: 45-149-147-213.sslip.io
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -64,7 +49,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Mohsen-67e991af34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,6 +58,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 4Mohsen-67e991af34
 rules:
   - MATCH,Proxy

@@ -1,6 +1,36 @@
 proxies:
   - type: trojan
+    name: EPODONIOS
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
     name: DeltaKroneckerGithub
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
+  - type: trojan
+    name: 4Mohsen-244c7f5762
     server: 185.220.100.168
     port: 443
     password: humanity
@@ -57,24 +87,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
+  - type: trojan
+    name: 4Nika-6ed7e4c9b2
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
       - DeltaKroneckerGithub
+      - 4Mohsen-244c7f5762
       - 4FreeIran-6b183bc271
       - 4Kian-190d82f475
       - 4FreeIran-29c45d48bf
+      - 4Nika-6ed7e4c9b2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
       - DeltaKroneckerGithub
+      - 4Mohsen-244c7f5762
       - 4FreeIran-6b183bc271
       - 4Kian-190d82f475
       - 4FreeIran-29c45d48bf
+      - 4Nika-6ed7e4c9b2
 rules:
   - MATCH,Proxy

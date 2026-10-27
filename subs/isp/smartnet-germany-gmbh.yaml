@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-da71320a02
+    server: 45.131.65.244
+    port: 30396
+    password: 9qFAF3s4R7wkGxcI0fonColtap41RUTsWdW
+    sni: pisulka.jsbox.top
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-da71320a02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-da71320a02
+rules:
+  - MATCH,Proxy

@@ -63,20 +63,6 @@ proxies:
     xudp: true
   - type: vless
     name: EPODONIOS-01
-    server: de2.balancer.vbuste-bot.com
-    port: 443
-    uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: de2.balancer.vbuste-bot.com
-    reality-opts:
-      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-      short-id: 4be4110078ebed4a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: EPODONIOS-02
     server: fl1.balancer.vbuste-bot.com
     port: 443
     uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
@@ -119,7 +105,21 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇩🇪All¹⁰
+    name: Telegram
+    server: de2.balancer.vbuste-bot.com
+    port: 443
+    uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: de2.balancer.vbuste-bot.com
+    reality-opts:
+      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+      short-id: 4be4110078ebed4a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇩🇪All³
     server: fl1.balancer.vbuste-bot.com
     port: 443
     uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
@@ -133,7 +133,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: EPODONIOS-03
+    name: EPODONIOS-02
     server: 177.1.187.139
     port: 1984
     uuid: d9eb02da-a469-44a7-a393-ba1c5fbbc8c4
@@ -297,6 +297,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-a8dd8c996b
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -307,11 +325,11 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - DeltaKroneckerGithub-03
       - appsooner
-      - 🇩🇪All¹⁰
-      - EPODONIOS-03
+      - Telegram
+      - 🇩🇪All³
+      - EPODONIOS-02
       - vmesc
       - 4Nika-5b98bf77d4
       - 4Nika-bec5bd2599
@@ -322,6 +340,7 @@ proxy-groups:
       - 4Kian-fd217af4e8
       - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
+      - 4Nika-a8dd8c996b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -333,11 +352,11 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - EPODONIOS
       - EPODONIOS-01
-      - EPODONIOS-02
       - DeltaKroneckerGithub-03
       - appsooner
-      - 🇩🇪All¹⁰
-      - EPODONIOS-03
+      - Telegram
+      - 🇩🇪All³
+      - EPODONIOS-02
       - vmesc
       - 4Nika-5b98bf77d4
       - 4Nika-bec5bd2599
@@ -348,5 +367,6 @@ proxy-groups:
       - 4Kian-fd217af4e8
       - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
+      - 4Nika-a8dd8c996b
 rules:
   - MATCH,Proxy

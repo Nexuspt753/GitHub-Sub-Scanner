@@ -1,17 +1,13 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: de15.h1cloud.net
-    port: 25362
-    uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
+    server: de-bots4.h1cloud.net
+    port: 25267
+    password: happybirthdaydaniel
     udp: true
     tls: true
+    sni: t.me/FuckTheWall
     client-fingerprint: chrome
-    servername: www.chip.de
-    reality-opts:
-      public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
-      short-id: 23732d14a527990d
-    xudp: true
   - type: vless
     name: vless
     server: 5.35.3.115
@@ -21,6 +17,31 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: trojan
+    name: 4Kian-8b557a2a18
+    server: de-bots4.h1cloud.net
+    port: 25267
+    password: happybirthdaydaniel
+    udp: true
+    tls: true
+    sni: t.me/FuckTheWall
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-4106b7a43e
+    server: 139.100.226.187
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vless
     name: 4Nika-6c879b9b70
     server: 135.106.168.250
@@ -35,6 +56,17 @@ proxies:
       short-id: c1069a934648869a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-8e35b2c6ed
+    server: 31.131.251.17
+    port: 443
+    uuid: 9ea8b000-58ce-005a-b108-989dd4f248f1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: quatro.lmstream.org
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -42,7 +74,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - vless
+      - 4Kian-8b557a2a18
+      - 4Kian-4106b7a43e
       - 4Nika-6c879b9b70
+      - 4Kian-8e35b2c6ed
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -51,6 +86,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - vless
+      - 4Kian-8b557a2a18
+      - 4Kian-4106b7a43e
       - 4Nika-6c879b9b70
+      - 4Kian-8e35b2c6ed
 rules:
   - MATCH,Proxy
