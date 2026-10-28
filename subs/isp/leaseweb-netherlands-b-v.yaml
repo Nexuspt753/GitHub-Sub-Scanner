@@ -8,12 +8,56 @@ proxies:
     tls: true
     sni: tt6.tjvpn.top
     client-fingerprint: chrome
+  - type: vmess
+    name: MTMVPN
+    server: 185.19.33.155
+    port: 19402
+    uuid: d082a117-303b-44a7-b69a-4962bc1e4e1b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: meliproxy
+    server: 185.19.33.155
+    port: 19402
+    uuid: d082a117-303b-44a7-b69a-4962bc1e4e1b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: ICV2RAY@
+    server: 185.19.33.155
+    port: 19402
+    uuid: d082a117-303b-44a7-b69a-4962bc1e4e1b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: tootffarangi
+    server: 185.19.33.155
+    port: 19402
+    uuid: d082a117-303b-44a7-b69a-4962bc1e4e1b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-ac9107b7b5
+      - MTMVPN
+      - meliproxy
+      - ICV2RAY@
+      - tootffarangi
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +65,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-ac9107b7b5
+      - MTMVPN
+      - meliproxy
+      - ICV2RAY@
+      - tootffarangi
 rules:
   - MATCH,Proxy

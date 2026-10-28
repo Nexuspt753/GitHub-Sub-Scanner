@@ -1,26 +1,6 @@
 proxies:
-  - type: ss
+  - type: vless
     name: EPODONIOS
-    server: mojif.fusetea.ir
-    port: 2089
-    cipher: chacha20-ietf-poly1305
-    password: 0mL0gbgQoGb6zgBBdoBU21EijVaCQ1us
-    udp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: bt.wufpel.ir
-    port: 8443
-    uuid: cf3b9920-2314-4571-b77e-6d142f78878c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: addons.mozilla.org
-    reality-opts:
-      public-key: mdEF9IP_UQ5qCsuQsjNcbd9CdrpcGNgrZjnZu0vQYzc
-      short-id: ee5e9d3399c05735
-    xudp: true
-  - type: vless
-    name: filembad-317
     server: bt.wufpel.ir
     port: 8443
     uuid: cf3b9920-2314-4571-b77e-6d142f78878c
@@ -58,16 +38,39 @@ proxies:
       public-key: mdEF9IP_UQ5qCsuQsjNcbd9CdrpcGNgrZjnZu0vQYzc
       short-id: ee5e9d3399c05735
     xudp: true
+  - type: vless
+    name: 4Jadi-c2f28d4132
+    server: bt.wufpel.ir
+    port: 8443
+    uuid: cf3b9920-2314-4571-b77e-6d142f78878c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: mdEF9IP_UQ5qCsuQsjNcbd9CdrpcGNgrZjnZu0vQYzc
+      short-id: ee5e9d3399c05735
+    xudp: true
+  - type: vmess
+    name: 4Jadi-b082450f5d
+    server: de1.trb2v.blog
+    port: 8880
+    uuid: 2559f36a-9e7a-41d4-84f2-0f60e0e7ae27
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - EPODONIOS
-      - EPODONIOS-01
-      - filembad-317
       - 🇮🇷201533
       - 🇮🇷IR-🚀@VPNine1
+      - 4Jadi-c2f28d4132
+      - 4Jadi-b082450f5d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,9 +78,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - EPODONIOS
-      - EPODONIOS-01
-      - filembad-317
       - 🇮🇷201533
       - 🇮🇷IR-🚀@VPNine1
+      - 4Jadi-c2f28d4132
+      - 4Jadi-b082450f5d
 rules:
   - MATCH,Proxy

@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: Viamão · @DeltaKroneckerGithub
+    server: 177.7.51.29
+    port: 8443
+    uuid: c6b1b2d0-ed5e-48ce-99e6-112ff330030d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: laG5BxoSbdRozpauATNFBPPTwhuDuu0JFl_SCP2ZQlU
+      short-id: 14fbf992
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
     name: Osasco · @DeltaKroneckerGithub
     server: 216.238.104.154
@@ -35,22 +49,36 @@ proxies:
     servername: br1.accessboy.com
     flow: xtls-rprx-vision-udp443
     xudp: true
+  - type: vless
+    name: Osasco · 4Kian-90c7444699
+    server: br001.zestapp778.com
+    port: 15040
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: br.zestapp778.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Viamão · @DeltaKroneckerGithub
       - Osasco · @DeltaKroneckerGithub
       - Vinhedo · 4FreeIran-c529468201
       - São Paulo · 4Jadi-d9c7159d77
+      - Osasco · 4Kian-90c7444699
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Viamão · @DeltaKroneckerGithub
       - Osasco · @DeltaKroneckerGithub
       - Vinhedo · 4FreeIran-c529468201
       - São Paulo · 4Jadi-d9c7159d77
+      - Osasco · 4Kian-90c7444699
 rules:
   - MATCH,Proxy

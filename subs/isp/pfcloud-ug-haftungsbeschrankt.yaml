@@ -1,5 +1,36 @@
 proxies:
   - type: vless
+    name: EPODONIOS
+    server: 31.57.185.220
+    port: 443
+    uuid: 2e2e204a-7e61-48fb-8182-5955821e8da0
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: EPODONIOS-01
+    server: 31.57.185.220
+    port: 443
+    uuid: 2e2e204a-7e61-48fb-8182-5955821e8da0
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: "[115117]"
+    server: ilya.itissia.shop
+    port: 443
+    uuid: 04ea3a6e-7703-4549-90c1-c51c8faa4d40
+    udp: true
+    xudp: true
+  - type: vless
     name: Napsternetvirani
     server: 31.57.185.220
     port: 443
@@ -24,28 +55,39 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Mohsen-8147ecd981
-    server: ilya.itissia.shop
+    name: 4Jadi-820b8493d4
+    server: 31.57.185.220
     port: 443
-    uuid: 04ea3a6e-7703-4549-90c1-c51c8faa4d40
+    uuid: 2e2e204a-7e61-48fb-8182-5955821e8da0
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - EPODONIOS
+      - EPODONIOS-01
+      - "[115117]"
       - Napsternetvirani
       - Napsternetvirani-01
-      - 4Mohsen-8147ecd981
+      - 4Jadi-820b8493d4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - EPODONIOS
+      - EPODONIOS-01
+      - "[115117]"
       - Napsternetvirani
       - Napsternetvirani-01
-      - 4Mohsen-8147ecd981
+      - 4Jadi-820b8493d4
 rules:
   - MATCH,Proxy

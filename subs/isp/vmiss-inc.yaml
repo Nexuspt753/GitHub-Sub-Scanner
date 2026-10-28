@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: notls.lukongtou.eu.org
+  - type: vless
+    name: 4Jadi-b85f7dd369
+    server: 45.221.115.3
+    port: 443
+    uuid: c92e12ca-ea66-4785-8675-652b35134117
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: thus-k.netnode.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me/daily_free_vpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: thus-k.netnode.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-0743bab79f
+      - 4Jadi-b85f7dd369
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-0743bab79f
+      - 4Jadi-b85f7dd369
 rules:
   - MATCH,Proxy

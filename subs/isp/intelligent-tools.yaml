@@ -7,12 +7,21 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-cfe8bd4a77
+    server: 103.168.56.77
+    port: 443
+    password: 4f2c305b-9a03-4493-b3e4-2dff2f1af8c9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-cfe8bd4a77
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -20,5 +29,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-cfe8bd4a77
 rules:
   - MATCH,Proxy
