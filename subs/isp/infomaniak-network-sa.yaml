@@ -1,52 +1,29 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 83.228.224.161
-    port: 443
-    password: SoftNetConnect
-    udp: true
-    client-fingerprint: chrome
   - type: vless
-    name: 4Sarina-405c52a6c2
-    server: 179.237.109.135
-    port: 443
-    uuid: bfd81b63-a43d-4c27-b71d-2c948cfc4ab2
+    name: 4Sarina-ebde548217
+    server: pro.turbooserver.com
+    port: 80
+    uuid: 8dcbc92f-5c77-42a8-8d35-064e14c55f6e
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: seznam.cz
-    reality-opts:
-      public-key: D3LM6JIYP6kL--jSCj-BPj-qy-J7rzX0Jp9Z4ygNeV4
-      short-id: 7791e189a518d69e
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-ba221542b8
-    server: 179.237.69.47
-    port: 443
-    uuid: c9c219dc-50da-4135-8e5b-67020291f0ec
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ptwnxhnkg.edgestack.best
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: pro.turbooserver.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Sarina-405c52a6c2
-      - 4Kian-ba221542b8
+      - 4Sarina-ebde548217
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Sarina-405c52a6c2
-      - 4Kian-ba221542b8
+      - 4Sarina-ebde548217
 rules:
   - MATCH,Proxy

@@ -1,19 +1,30 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 195.133.93.234
+    server: 195.133.93.221
     port: 443
     password: "3723507166611775488"
     udp: true
     tls: true
-    sni: wise-cowbird.boa152.lol
+    sni: fitting-ox.boa152.lol
     client-fingerprint: chrome
+  - type: vmess
+    name: 4FreeIran-8f0a49e03b
+    server: gm.sportone.cyou
+    port: 5011
+    uuid: 9f1a6999-4407-425c-aec1-7a4cd3d06923
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-8f0a49e03b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +32,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-8f0a49e03b
 rules:
   - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.180.21.86
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: kazakhstan.letsconnectpoint.com
+    reality-opts:
+      public-key: v36yrZJ-5Zikx9eh_SXaoDS2GuobOA4_WLagBVO0vxk
+      short-id: a9c3f7e2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-9ee60628ec
     server: edge-kz1.lovely.my
     port: 443
@@ -13,18 +27,36 @@ proxies:
       short-id: 24fc325b440818ce
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-2b6e55a257
+    server: kazakhstan.letsconnectpoint.com
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: kazakhstan.letsconnectpoint.com
+    reality-opts:
+      public-key: v36yrZJ-5Zikx9eh_SXaoDS2GuobOA4_WLagBVO0vxk
+      short-id: a9c3f7e2
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-9ee60628ec
+      - 4Kian-2b6e55a257
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-9ee60628ec
+      - 4Kian-2b6e55a257
 rules:
   - MATCH,Proxy

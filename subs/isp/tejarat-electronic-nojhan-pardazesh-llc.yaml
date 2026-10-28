@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Jadi-56bf2f3913
+    name: 4Mohsen-5bb9e7e932
     server: dnld.chaqalli.com
     port: 8180
     uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
@@ -11,18 +11,48 @@ proxies:
       path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dnld.chaqalli.com
+  - type: vless
+    name: 4Nika-044af31fd9
+    server: dnld.chaqalli.com
+    port: 8180
+    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-d5d257ebee
+    server: dnld.chaqalli.com
+    port: 8180
+    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dnld.chaqalli.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-56bf2f3913
+      - 4Mohsen-5bb9e7e932
+      - 4Nika-044af31fd9
+      - 4Nika-d5d257ebee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-56bf2f3913
+      - 4Mohsen-5bb9e7e932
+      - 4Nika-044af31fd9
+      - 4Nika-d5d257ebee
 rules:
   - MATCH,Proxy

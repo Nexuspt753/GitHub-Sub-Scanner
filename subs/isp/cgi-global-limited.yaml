@@ -1,38 +1,40 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 31.56.177.95
-    port: 8445
-    uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
-    udp: true
-    xudp: true
-  - type: trojan
     name: DeltaKroneckerGithub
-    server: 31.57.108.242
-    port: 8443
-    password: 8r<[9'l6hAO#8ZQi
+    server: 45.38.143.210
+    port: 30584
+    uuid: cebc5f19-18d9-48e6-9029-fb4b04caf393
     udp: true
     tls: true
-    sni: Koma-YT.PAGeS.Dev
     client-fingerprint: chrome
+    servername: m.vk.com
+    reality-opts:
+      public-key: 2hV4TY2ygvQ7ISa5o4u_FUKXzlIhLgbsScE8M1h0m3Y
+      short-id: 67ece882d65d0f1a
+    xudp: true
+  - type: trojan
+    name: 🇳🇱
+    server: 46.8.228.165
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
   - type: vless
     name: v2ray_configs_pools
     server: 31.56.177.95
     port: 8445
     uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
     udp: true
-    xudp: true
-  - type: vless
-    name: vless
-    server: 31.57.24.177
-    port: 443
-    uuid: c934b37d-f794-4b7d-a590-13f736ea5cab
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
     xudp: true
   - type: vless
     name: 4Mohsen-fe5dca4d0b
@@ -57,64 +59,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
-  - type: vless
-    name: 4Nika-f4d4e8ab98
-    server: 31.59.46.140
-    port: 8443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /travel/intro?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
-  - type: vless
-    name: 4Kian-8e63a23619
-    server: 45.38.139.23
-    port: 8443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /jumping/class/bt?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - 🇳🇱
       - v2ray_configs_pools
-      - vless
       - 4Mohsen-fe5dca4d0b
       - 4Mohsen-fdb3643134
-      - 4Nika-f4d4e8ab98
-      - 4Kian-8e63a23619
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
       - DeltaKroneckerGithub
+      - 🇳🇱
       - v2ray_configs_pools
-      - vless
       - 4Mohsen-fe5dca4d0b
       - 4Mohsen-fdb3643134
-      - 4Nika-f4d4e8ab98
-      - 4Kian-8e63a23619
 rules:
   - MATCH,Proxy

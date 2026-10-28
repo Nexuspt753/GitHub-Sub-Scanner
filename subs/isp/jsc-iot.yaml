@@ -24,8 +24,23 @@ proxies:
     port: 24443
     password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
     sni: hy.quattro-tech.ru
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: ss.ll0ll.vip
+    port: 2096
+    uuid: e436321f-24a9-4c38-b935-7d7dee0c3f68
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: id.vk.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 91.240.87.108
     port: 443
     password: pR320Cwdj7mJ9HKc_UVz-VJyuecT4qdh
@@ -33,20 +48,6 @@ proxies:
     tls: true
     sni: z40.tgnn.live
     client-fingerprint: firefox
-  - type: vless
-    name: VPsave
-    server: ru11.oshost.network
-    port: 443
-    uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ru11.oshost.network
-    reality-opts:
-      public-key: 52fsWySqEpUvCt-jbEy2rYjVIZBYwoqsGfmSef8_UgI
-      short-id: 97a15f5af85c4a30
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: 4Kian-fafb7a5663
     server: 157.22.193.73
@@ -59,6 +60,20 @@ proxies:
     reality-opts:
       public-key: OTuJX9K_E2nHhg0mXT2uFMNIO7746G6c5rlT6OscQGk
       short-id: 9698d67e63bc8ee0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-4155542f3b
+    server: 213.159.209.66
+    port: 443
+    uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru11.oshost.network
+    reality-opts:
+      public-key: 52fsWySqEpUvCt-jbEy2rYjVIZBYwoqsGfmSef8_UgI
+      short-id: 97a15f5af85c4a30
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -85,8 +100,9 @@ proxy-groups:
       - 4Mohsen-6ab0fda937
       - 4Jadi-97e84ebb8f
       - DeltaKroneckerGithub
-      - VPsave
+      - DeltaKroneckerGithub-01
       - 4Kian-fafb7a5663
+      - 4Mohsen-4155542f3b
       - 4Jadi-abad56f52d
   - name: Auto
     type: url-test
@@ -99,8 +115,9 @@ proxy-groups:
       - 4Mohsen-6ab0fda937
       - 4Jadi-97e84ebb8f
       - DeltaKroneckerGithub
-      - VPsave
+      - DeltaKroneckerGithub-01
       - 4Kian-fafb7a5663
+      - 4Mohsen-4155542f3b
       - 4Jadi-abad56f52d
 rules:
   - MATCH,Proxy

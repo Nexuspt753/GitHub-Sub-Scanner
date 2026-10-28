@@ -12,24 +12,6 @@ proxies:
     port: 4444
     password: 10be1dad-9952-4c5e-aa30-db435f69b727
     skip-cert-verify: true
-  - type: vless
-    name: 4Jadi-bdda8d437a
-    server: finp2g.yandex-api.store
-    port: 8443
-    uuid: 78559873-84ef-4cab-a0b2-46d4cd20de4a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: finp2g.yandex-api.store
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /assetsfp=firefox
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: finp2g.yandex-api.store
 proxy-groups:
   - name: Proxy
     type: select
@@ -37,7 +19,6 @@ proxy-groups:
       - Auto
       - 4Mohsen-659dfe6f3d
       - 4Jadi-cae9e65562
-      - 4Jadi-bdda8d437a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,6 +27,5 @@ proxy-groups:
     proxies:
       - 4Mohsen-659dfe6f3d
       - 4Jadi-cae9e65562
-      - 4Jadi-bdda8d437a
 rules:
   - MATCH,Proxy

@@ -1,20 +1,24 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 31.129.111.60
-    port: 443
-    uuid: 5d233135-d747-42cf-9d3a-64529b18549f
+    name: DeltaKroneckerGithub
+    server: 85.198.85.55
+    port: 8443
+    uuid: 7e1dc732-1691-4699-8517-e3ca53887978
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: ru.sosun4ik.top
+    client-fingerprint: firefox
+    servername: api.max.ru
     reality-opts:
-      public-key: ySyX4Mm_BgyhABKADbeP9EW9-CyNGBL_QkTfMWqrlSo
-      short-id: 36481eb5da1aa49b
+      public-key: J5j_EwGWM1vgrApg31dnnu5cwMP-OgfJYYwl3kn9zFg
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: msk2.rvpn.app
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: MODziWLa9qMuW-4yPa0rfw
+    udp: true
   - type: vless
     name: Tel@V2rayng_Fast
     server: 31.129.111.60
@@ -47,39 +51,37 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vmess
-    name: 4Nika-f4154fad58
-    server: 45.144.179.138
-    port: 443
-    uuid: 96cbe4a6-5728-42df-dc7a-ceb9b51a3db5
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-fa6eb1de19
+    server: vd2.outlinevpn.cc
+    port: 12213
+    uuid: 7c464358-6c89-4623-bd20-7c7bcd51bc55
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: music.yandex.ru
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - Tel@V2rayng_Fast
       - 4Sarina-ff7deaa89f
-      - 4Nika-f4154fad58
+      - 4FreeIran-fa6eb1de19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - Tel@V2rayng_Fast
       - 4Sarina-ff7deaa89f
-      - 4Nika-f4154fad58
+      - 4FreeIran-fa6eb1de19
 rules:
   - MATCH,Proxy

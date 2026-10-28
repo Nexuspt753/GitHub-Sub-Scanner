@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: VPsave
+    server: 185.153.55.159
+    port: 443
+    uuid: 47171e1c-ee62-4f39-99bb-b77fe876095b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: se1.refprov.online
+    reality-opts:
+      public-key: pEtJviwCErc3Ztwnev1p4m9ZhWgdVV9a6rpa0Hujvj0
+      short-id: b91fe4e1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-3a2fc60be7
+    server: 185.153.55.159
+    port: 443
+    uuid: 47171e1c-ee62-4f39-99bb-b77fe876095b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: se1.refprov.online
+    reality-opts:
+      public-key: pEtJviwCErc3Ztwnev1p4m9ZhWgdVV9a6rpa0Hujvj0
+      short-id: b91fe4e1
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - VPsave
+      - 4Mohsen-3a2fc60be7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - VPsave
+      - 4Mohsen-3a2fc60be7
+rules:
+  - MATCH,Proxy

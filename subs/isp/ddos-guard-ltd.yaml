@@ -1,38 +1,5 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 95.129.236.252
-    port: 443
-    uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: azs.benz.ink
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/camera/events/8f4c2d
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: EPODONIOS-01
-    server: dropstyle.lol
-    port: 443
-    uuid: d49f7cc7-0c15-4a49-9644-ef72e00d8e56
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: dropstyle.lol
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /service/metrics/51dec2df3071/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: dropstyle.lol
-  - type: vless
     name: 🇷🇺139881
     server: 95.129.236.252
     port: 443
@@ -98,28 +65,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dropstyle.lol
+  - type: vless
+    name: 4Sarina-7f75a0d2c6
+    server: 185.178.208.140
+    port: 443
+    uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.bakarova-top.ru
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
       - 🇷🇺139881
       - hex_proxy
       - 4Mohsen-b66a7367f9
       - 4Jadi-df5db9edb3
+      - 4Sarina-7f75a0d2c6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
       - 🇷🇺139881
       - hex_proxy
       - 4Mohsen-b66a7367f9
       - 4Jadi-df5db9edb3
+      - 4Sarina-7f75a0d2c6
 rules:
   - MATCH,Proxy

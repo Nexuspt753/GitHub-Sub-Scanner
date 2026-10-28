@@ -1,34 +1,32 @@
 proxies:
   - type: vless
-    name: probabblynot-mci4
-    server: 155.212.240.147
-    port: 2087
-    uuid: probabblynot-ch
+    name: DeltaKroneckerGithub
+    server: 155.212.240.10
+    port: 443
+    uuid: f27b6f65-6e59-4f89-b929-afa397ca587f
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: probabblynot.fazelextremeisreal.com
+    client-fingerprint: firefox
+    servername: n.bitpulse.me
     xudp: true
     network: ws
     ws-opts:
-      path: /@probabblynot
+      path: /019bcbad-3813-7cce-8786-3ac0e418f128?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: probabblynot.fazelextremeisreal.com
+        Host: n.bitpulse.me
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - probabblynot-mci4
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - probabblynot-mci4
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

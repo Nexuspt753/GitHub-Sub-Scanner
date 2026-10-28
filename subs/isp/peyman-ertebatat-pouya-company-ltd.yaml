@@ -1,13 +1,4 @@
 proxies:
-  - type: vless
-    name: vless
-    server: fast1.mo-chephosting.ir
-    port: 2083
-    uuid: 66c09dd7-5bab-4044-915f-cd1fe9f6d0fe
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
   - type: vmess
     name: 4Jadi-f5bbf8b537
     server: markovps.iransazentworkteh.top
@@ -52,41 +43,22 @@ proxies:
     servername: s3.megaping.casa
     alpn:
       - http/1.1
-  - type: vmess
-    name: 4FreeIran-6429036ce1
-    server: s7.tiiizshop.com
-    port: 8880
-    uuid: bc7c3ef8-e853-469c-8feb-6b2d88576957
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
       - 4Jadi-f5bbf8b537
       - 4Sarina-406ef6f8c8
       - 4Nika-9dff8d2dd2
-      - 4FreeIran-6429036ce1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - 4Jadi-f5bbf8b537
       - 4Sarina-406ef6f8c8
       - 4Nika-9dff8d2dd2
-      - 4FreeIran-6429036ce1
 rules:
   - MATCH,Proxy

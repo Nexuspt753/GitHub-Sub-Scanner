@@ -1,19 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: v2.drsachi.com
-    port: 443
-    uuid: 270c3fa5-0293-4d68-875c-6cdc3bdc5b84
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tiktok.com
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 85.9.204.140
     port: 443
     password: hS6V52dkSy
@@ -21,40 +8,12 @@ proxies:
     tls: true
     sni: www.icloud.com
     client-fingerprint: firefox
-  - type: vless
-    name: 4Jadi-afc3543b9e
-    server: v2.drsachi.com
-    port: 443
-    uuid: 270c3fa5-0293-4d68-875c-6cdc3bdc5b84
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: v2.drsachi.com
-  - type: vless
-    name: 4Mohsen-1b3e37fb74
-    server: v2.drsachi.com
-    port: 443
-    uuid: 270c3fa5-0293-4d68-875c-6cdc3bdc5b84
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Jadi-afc3543b9e
-      - 4Mohsen-1b3e37fb74
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -62,8 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Jadi-afc3543b9e
-      - 4Mohsen-1b3e37fb74
 rules:
   - MATCH,Proxy

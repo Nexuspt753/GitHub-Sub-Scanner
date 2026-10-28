@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 162.35.224.113
+    port: 443
+    uuid: 095ed44e-b2f9-4f61-ba77-2142583578d8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: mk-de6.silalink.sbs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-d1dd9abcb3
     server: 162.35.224.113
     port: 443
@@ -12,18 +25,36 @@ proxies:
     servername: mk-de6.silalink.sbs
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-9ba422da47
+    server: 78.17.178.125
+    port: 443
+    uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.tbank.ru
+    reality-opts:
+      public-key: jcp4Lj_qYzxtkalm_XFjrmvqEMGRG7sb19yMwLe16WE
+      short-id: e0215064d8d1fd7c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Kian-d1dd9abcb3
+      - 4Kian-9ba422da47
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Kian-d1dd9abcb3
+      - 4Kian-9ba422da47
 rules:
   - MATCH,Proxy

@@ -1,38 +1,32 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 38.60.254.50
-    port: 22222
-    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    server: 38.54.27.117
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: th001.zestapp778.com
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: th001.zestapp778.com
-    port: 22222
-    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
-    udp: true
-    tls: true
+    sni: 38.54.27.117
     client-fingerprint: chrome
-    servername: th001.zestapp778.com
-    xudp: true
-  - type: vless
-    name: EPODONIOS
-    server: supmci.deev-guard.ir
-    port: 33390
-    uuid: a79e1125-bb50-4f11-b1bb-02149f776f58
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 38.54.15.140
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 38.54.15.140
+    client-fingerprint: chrome
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: 38.60.224.173
+    port: 32153
+    uuid: 5cf1f470-3f70-4589-a2a4-4657ea3a1edf
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: supmci.deev-guard.ir
-    port: 42002
-    uuid: a79e1125-bb50-4f11-b1bb-02149f776f58
-    udp: true
-    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: ICV2RAY
     server: supmci.deev-guard.ir
@@ -51,20 +45,6 @@ proxies:
     name: tootffarangi🍓
     server: supmci.deev-guard.ir
     port: 33390
-    uuid: a79e1125-bb50-4f11-b1bb-02149f776f58
-    udp: true
-    xudp: true
-  - type: vless
-    name: meliproxyy-01
-    server: supmci.deev-guard.ir
-    port: 42002
-    uuid: a79e1125-bb50-4f11-b1bb-02149f776f58
-    udp: true
-    xudp: true
-  - type: vless
-    name: meliproxyy-02
-    server: supmci.deev-guard.ir
-    port: 44200
     uuid: a79e1125-bb50-4f11-b1bb-02149f776f58
     udp: true
     xudp: true
@@ -89,16 +69,6 @@ proxies:
     uuid: a79e1125-bb50-4f11-b1bb-02149f776f58
     udp: true
     xudp: true
-  - type: vmess
-    name: 4Kian-2fbb7456d8
-    server: 38.60.224.173
-    port: 32153
-    uuid: 5cf1f470-3f70-4589-a2a4-4657ea3a1edf
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -106,17 +76,13 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - EPODONIOS-01
+      - DeltaKroneckerGithub-02
       - ICV2RAY
       - meliproxyy
       - tootffarangi🍓
-      - meliproxyy-01
-      - meliproxyy-02
       - 4Mohsen-3d82a599a5
       - 4FreeIran-ec26b05409
       - 4FreeIran-f5b588bc4e
-      - 4Kian-2fbb7456d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -125,16 +91,12 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - EPODONIOS
-      - EPODONIOS-01
+      - DeltaKroneckerGithub-02
       - ICV2RAY
       - meliproxyy
       - tootffarangi🍓
-      - meliproxyy-01
-      - meliproxyy-02
       - 4Mohsen-3d82a599a5
       - 4FreeIran-ec26b05409
       - 4FreeIran-f5b588bc4e
-      - 4Kian-2fbb7456d8
 rules:
   - MATCH,Proxy
