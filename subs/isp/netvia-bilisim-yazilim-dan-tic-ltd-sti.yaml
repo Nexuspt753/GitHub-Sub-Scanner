@@ -1,29 +1,46 @@
 proxies:
   - type: vless
-    name: 4Kian-de72a1bcf5
-    server: istan19.zavqeron.ir
-    port: 8444
-    uuid: 84e71dfb-1fd8-417c-b2da-e42777b8a7a0
+    name: EPODONIOS
+    server: tr.zanzelo.ir
+    port: 3022
+    uuid: ce334334-3ab8-45a2-8af7-f151f413e402
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: www.zavqeron.ir
+    client-fingerprint: chrome
+    servername: play.google.com
     reality-opts:
-      public-key: FYerWo6isgLPwqzR9uooN913dY50ygfoTmlvjZ7hBnY
-      short-id: 974cc1c518af51c9
+      public-key: KVrKzcMWnFc8-s2Cre3PUS3ojMvugd1BxS9on54vBW0
+      short-id: f2e1c0296f7f5a8a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: tr.zanzelo.ir
+    port: 3022
+    uuid: ce334334-3ab8-45a2-8af7-f151f413e402
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: KVrKzcMWnFc8-s2Cre3PUS3ojMvugd1BxS9on54vBW0
+      short-id: f2e1c0296f7f5a8a
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-de72a1bcf5
+      - EPODONIOS
+      - VPsave
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-de72a1bcf5
+      - EPODONIOS
+      - VPsave
 rules:
   - MATCH,Proxy

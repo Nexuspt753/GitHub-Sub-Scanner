@@ -1,13 +1,30 @@
 proxies:
   - type: vless
-    name: 4Jadi-9ef4feaf32
+    name: 4Mohsen-069c3c65ea
     server: 195.72.166.251
     port: 443
     uuid: 64c05afc-ce81-4ba0-b697-afa04da1427e
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: www.lloydsbankinggroup.com
+    reality-opts:
+      public-key: RKDT6fVgcZS8Qfzhv5rbeHRIflA3UTKD_HNLJyOoUwk
+      short-id: 25349b36802f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-cb2ec17bf4
+    server: 195.72.166.251
+    port: 443
+    uuid: 64c05afc-ce81-4ba0-b697-afa04da1427e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.lloydsbankinggroup.com
+    reality-opts:
+      public-key: RKDT6fVgcZS8Qfzhv5rbeHRIflA3UTKD_HNLJyOoUwk
+      short-id: 25349b36802f
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -15,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-9ef4feaf32
+      - 4Mohsen-069c3c65ea
+      - 4Nika-cb2ec17bf4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-9ef4feaf32
+      - 4Mohsen-069c3c65ea
+      - 4Nika-cb2ec17bf4
 rules:
   - MATCH,Proxy

@@ -1,89 +1,65 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 45.12.63.81
-    port: 443
-    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: www.vk.ru
-    reality-opts:
-      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: EPODONIOS
-    server: 45.12.63.81
-    port: 443
-    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
+    server: 45.12.63.42
+    port: 448
+    uuid: a5ca9144-f3a5-404f-ae19-e1060b120328
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.vk.ru
+    servername: eh.vk.ru
     reality-opts:
-      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
-    flow: xtls-rprx-vision
+      public-key: wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: 11063@proxy_online_net
-    server: 45.12.63.81
-    port: 443
-    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
+    name: VPsave
+    server: 45.12.63.42
+    port: 448
+    uuid: a5ca9144-f3a5-404f-ae19-e1060b120328
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.vk.ru
+    servername: eh.vk.ru
     reality-opts:
-      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
-    flow: xtls-rprx-vision
+      public-key: wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
-    name: meliproxyy
-    server: 45.12.63.81
-    port: 443
-    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
+    name: 4Jadi-28fb22b9c3
+    server: 45.12.63.42
+    port: 448
+    uuid: a5ca9144-f3a5-404f-ae19-e1060b120328
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.vk.ru
+    servername: eh.vk.ru
     reality-opts:
-      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
-    flow: xtls-rprx-vision
+      public-key: wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE
     xudp: true
-  - type: vless
-    name: 4FreeIran-93424a7c6f
-    server: 45.12.63.81
-    port: 443
-    uuid: 32daf25d-9ffa-4f43-b6a3-2ebc21014681
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.vk.ru
-    reality-opts:
-      public-key: MN2XIVlIusdWaGwyyrGZ7Ti3jzqjDlpMmc12WcrV1nU
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - 11063@proxy_online_net
-      - meliproxyy
-      - 4FreeIran-93424a7c6f
+      - VPsave
+      - 4Jadi-28fb22b9c3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - EPODONIOS
-      - 11063@proxy_online_net
-      - meliproxyy
-      - 4FreeIran-93424a7c6f
+      - VPsave
+      - 4Jadi-28fb22b9c3
 rules:
   - MATCH,Proxy

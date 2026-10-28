@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: v2ray_configs_pools
+    server: 31.56.177.95
+    port: 8445
+    uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
+    udp: true
+    xudp: true
+  - type: vless
     name: vless
     server: 31.57.24.177
     port: 443
@@ -12,10 +19,10 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: 4Sarina-2a6a523004
-    server: n4.mobiza.ir
-    port: 44297
-    uuid: 4e24252c-21c2-4ff8-bad7-c3e13c138083
+    name: 4Mohsen-fe5dca4d0b
+    server: 31.56.177.95
+    port: 8445
+    uuid: 17acda85-dada-41dd-8add-ad0ad179fc91
     udp: true
     xudp: true
   - type: vless
@@ -66,26 +73,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cdn8848.776676.xyz
+  - type: vmess
+    name: 4FreeIran-b0b2123624
+    server: alman.asasin6.ir
+    port: 110
+    uuid: 4fcdbb54-17bf-41e2-8879-1d708a02cfdd
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - v2ray_configs_pools
       - vless
-      - 4Sarina-2a6a523004
+      - 4Mohsen-fe5dca4d0b
       - 4Mohsen-fdb3643134
       - 4Nika-f4d4e8ab98
       - 4Kian-8e63a23619
+      - 4FreeIran-b0b2123624
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray_configs_pools
       - vless
-      - 4Sarina-2a6a523004
+      - 4Mohsen-fe5dca4d0b
       - 4Mohsen-fdb3643134
       - 4Nika-f4d4e8ab98
       - 4Kian-8e63a23619
+      - 4FreeIran-b0b2123624
 rules:
   - MATCH,Proxy
