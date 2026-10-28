@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 194.135.32.226
+    port: 443
+    uuid: 8ea3bd2d-bfc4-4f91-a5bc-740bf433163c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: checkout1-68d19b81f2565a.gismeteo.ru
+    reality-opts:
+      public-key: CMkW1axrhEXoiJ6anMz9XEjlfqlAtEZya7L0b5ZPMyw
+      short-id: 3be8339923410338
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-972b139bcf
     server: 194.135.32.226
     port: 443
@@ -13,18 +27,36 @@ proxies:
       short-id: 3be8339923410338
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-70c0ee7c91
+    server: 194.135.32.226
+    port: 443
+    uuid: 8ea3bd2d-bfc4-4f91-a5bc-740bf433163c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: checkout1-68d19b81f2565a.gismeteo.ru
+    reality-opts:
+      public-key: CMkW1axrhEXoiJ6anMz9XEjlfqlAtEZya7L0b5ZPMyw
+      short-id: 3be8339923410338
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Mohsen-972b139bcf
+      - 4FreeIran-70c0ee7c91
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Mohsen-972b139bcf
+      - 4FreeIran-70c0ee7c91
 rules:
   - MATCH,Proxy

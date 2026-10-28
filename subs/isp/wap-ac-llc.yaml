@@ -1,47 +1,5 @@
 proxies:
   - type: ss
-    name: 4Jadi-67ae4e8337
-    server: mn.qwer-cn.org
-    port: 10910
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: 4Sarina-0fa9372a00
-    server: mn.qwer-cn.org
-    port: 10913
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: 4Kian-ac00823e9a
-    server: mn.qwer-cn.org
-    port: 10925
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: 4Nika-17ebc57114
-    server: mn.qwer-cn.org
-    port: 10929
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: 4Mohsen-9f95212127
-    server: mn.qwer-cn.org
-    port: 10931
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
-    name: 4Kian-8c9ac3d6be
-    server: mn.qwer-cn.org
-    port: 10936
-    cipher: aes-128-gcm
-    password: adbc1e8c-184e-4d02-b0e0-f0cb70b377df
-    udp: true
-  - type: ss
     name: DeltaKroneckerGithub
     server: 154.16.183.190
     port: 443
@@ -55,32 +13,38 @@ proxies:
     cipher: none
     password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
     udp: true
+  - type: vless
+    name: 4Mohsen-5cc5124902
+    server: 85.237.207.101
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-67ae4e8337
-      - 4Sarina-0fa9372a00
-      - 4Kian-ac00823e9a
-      - 4Nika-17ebc57114
-      - 4Mohsen-9f95212127
-      - 4Kian-8c9ac3d6be
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-5cc5124902
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-67ae4e8337
-      - 4Sarina-0fa9372a00
-      - 4Kian-ac00823e9a
-      - 4Nika-17ebc57114
-      - 4Mohsen-9f95212127
-      - 4Kian-8c9ac3d6be
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-5cc5124902
 rules:
   - MATCH,Proxy

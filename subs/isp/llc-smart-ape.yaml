@@ -1,33 +1,47 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-989c890da6
-    server: 31.177.111.121
+  - type: hysteria2
+    name: 4Kian-2bf5d9305f
+    server: 94.198.54.132
     port: 443
-    uuid: f42f0e16-57fd-442f-bc16-f2a2470bca91
+    password: f317b5d6-d399-4d3d-a051-89d674ae953c
+    sni: msk.frkn.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-047626952d
+    server: 94.198.54.132
+    port: 443
+    password: f317b5d6-d399-4d3d-a051-89d674ae953c
+    sni: msk.frkn.org
+    skip-cert-verify: true
+  - type: vless
+    name: 4FreeIran-ffcb34a20e
+    server: 31.177.111.133
+    port: 443
+    uuid: 08e66c58-27a5-4b78-a976-b2ed05f0c6bb
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: edge
     alpn:
-      - http/1.1
-    servername: api.cdnrt.net
+      - h2
+    servername: geexit.atlanta-games.com
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /client/telemetry/0fc51861c60c/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-989c890da6
+      - 4Kian-2bf5d9305f
+      - 4Jadi-047626952d
+      - 4FreeIran-ffcb34a20e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-989c890da6
+      - 4Kian-2bf5d9305f
+      - 4Jadi-047626952d
+      - 4FreeIran-ffcb34a20e
 rules:
   - MATCH,Proxy

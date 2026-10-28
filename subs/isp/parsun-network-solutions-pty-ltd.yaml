@@ -1,14 +1,36 @@
 proxies:
-  - type: vmess
-    name: 4Kian-9bb4c36845
-    server: jolyot.kimjo.ir
-    port: 1718
-    uuid: 65c3d100-782f-4828-ba57-c03e1929f2d2
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Nika-146681d14f
+    server: 217.216.217.70
+    port: 2060
+    uuid: 4718b360-7f15-42d3-9b82-ebc20c427c93
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: 1gruamAiEez-LJDBVveJS3ftHfEQFUuqWXCG3NVdmHY
+      short-id: 3058ec56c7628685
     xudp: true
-    skip-cert-verify: false
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-d3169ae727
+    server: 217.216.217.70
+    port: 2060
+    uuid: 4718b360-7f15-42d3-9b82-ebc20c427c93
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: 1gruamAiEez-LJDBVveJS3ftHfEQFUuqWXCG3NVdmHY
+      short-id: 3058ec56c7628685
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vmess
     name: 4Sarina-f9c8d13a61
     server: jolyot.kimjo.ir
@@ -19,32 +41,22 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-c6e87d51dc
-    server: jolyot.kimjo.ir
-    port: 1718
-    uuid: e9734993-36ba-4930-b24e-28c770307a3a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-9bb4c36845
+      - 4Nika-146681d14f
+      - 4Jadi-d3169ae727
       - 4Sarina-f9c8d13a61
-      - 4Jadi-c6e87d51dc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9bb4c36845
+      - 4Nika-146681d14f
+      - 4Jadi-d3169ae727
       - 4Sarina-f9c8d13a61
-      - 4Jadi-c6e87d51dc
 rules:
   - MATCH,Proxy

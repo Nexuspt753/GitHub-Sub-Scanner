@@ -1,32 +1,29 @@
 proxies:
   - type: vless
-    name: 4Sarina-d2f8ae00b6
-    server: 35.212.207.185
+    name: 4Nika-a1f12191cf
+    server: 34.3.107.0
     port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    uuid: ac3a403e-f7f1-4804-8a25-23b0ffe458f9
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: IdpEClCPDYsXitgvDe5WedR1-BIryffkpjyZyAsQCUk
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d2f8ae00b6
+      - 4Nika-a1f12191cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d2f8ae00b6
+      - 4Nika-a1f12191cf
 rules:
   - MATCH,Proxy

@@ -1,0 +1,31 @@
+proxies:
+  - type: trojan
+    name: 4Kian-3eed97a6de
+    server: iranpoems.ir
+    port: 443
+    password: Mitivpn
+    udp: true
+    tls: true
+    sni: cdn.gamingdll.ir
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /de=mitivpn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.gamingdll.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-3eed97a6de
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-3eed97a6de
+rules:
+  - MATCH,Proxy

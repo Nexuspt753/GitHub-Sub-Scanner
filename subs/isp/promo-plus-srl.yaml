@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: 4Sarina-9694f7d881
-    server: t-rom1.fpradius.com
+    name: 4FreeIran-41ca39c684
+    server: 88.80.135.80
     port: 443
-    uuid: 7078e8e7-94d0-4736-97cd-b981419a41ef
+    uuid: c2a96312-2f83-40e2-8178-e65c3789ba05
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lumen014.filebeam.website
+    reality-opts:
+      public-key: xcTXD3of3Yt5hHdIwYGZ1LjMBgiL6sqj5J33J4U4ozM
+      short-id: a7c31f92
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-4d38fad4ce
+    server: 88.80.135.80
+    port: 443
+    uuid: c2a96312-2f83-40e2-8178-e65c3789ba05
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: t-rom1.fpradius.com
+    servername: lumen014.filebeam.website
     reality-opts:
-      public-key: HJ1xGv4tHeCG9WwbarahLZj_dvRDPwVQYcnxMgIWqBs
-      short-id: 9c24902143cfd2bf
+      public-key: xcTXD3of3Yt5hHdIwYGZ1LjMBgiL6sqj5J33J4U4ozM
+      short-id: a7c31f92
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-9694f7d881
+      - 4FreeIran-41ca39c684
+      - 4Kian-4d38fad4ce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-9694f7d881
+      - 4FreeIran-41ca39c684
+      - 4Kian-4d38fad4ce
 rules:
   - MATCH,Proxy

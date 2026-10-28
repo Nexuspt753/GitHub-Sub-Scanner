@@ -1,9 +1,21 @@
 proxies:
   - type: vless
-    name: 4Kian-0ec011b475
+    name: 4Mohsen-8e8e70e3ea
+    server: 188.213.198.25
+    port: 1311
+    uuid: 6b5d6852-0b29-4fb7-afa3-8904638bc1b5
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-ace2b6e1c0
     server: 188.213.198.25
     port: 5456
-    uuid: c1fe46b0-d966-4f02-a554-9cb2dbb8f2a9
+    uuid: 6b5d6852-0b29-4fb7-afa3-8904638bc1b5
     udp: true
     xudp: true
     network: ws
@@ -16,13 +28,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-0ec011b475
+      - 4Mohsen-8e8e70e3ea
+      - 4Nika-ace2b6e1c0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-0ec011b475
+      - 4Mohsen-8e8e70e3ea
+      - 4Nika-ace2b6e1c0
 rules:
   - MATCH,Proxy

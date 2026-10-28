@@ -1,10 +1,10 @@
 proxies:
   - type: ss
-    name: 🇺🇸US-🚀@VPNine1
+    name: V2ray_confiig
     server: dns3.m3hrzd.ir
     port: 8044
     cipher: chacha20-ietf-poly1305
-    password: U5Jk0BhRNKjb5wQBBOXx2wwkWZ_yWU0N
+    password: lsfqeE40-oVoM595C8S6QC-ZVdkxcKld
     udp: true
   - type: ss
     name: 4Kian-5e7bea1219
@@ -13,20 +13,34 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: U5Jk0BhRNKjb5wQBBOXx2wwkWZ_yWU0N
     udp: true
+  - type: vless
+    name: 4Kian-330fbd2eb0
+    server: 27.0.232.36
+    port: 443
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hk.monkora.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇺🇸US-🚀@VPNine1
+      - V2ray_confiig
       - 4Kian-5e7bea1219
+      - 4Kian-330fbd2eb0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇺🇸US-🚀@VPNine1
+      - V2ray_confiig
       - 4Kian-5e7bea1219
+      - 4Kian-330fbd2eb0
 rules:
   - MATCH,Proxy

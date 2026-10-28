@@ -1,26 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Sarina-8f70421a39
-    server: 194.32.213.2
-    port: 49951
-    uuid: a68a9f14-4075-4b50-8ee0-3820442d789a
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Kian-0f6d55863b
+    server: 194.32.213.52
+    port: 4096
+    uuid: 8a79ebe5-31ae-447f-9388-6bf37a218332
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aparat.com
+    reality-opts:
+      public-key: J4ummf7VbKhdHYqO3FXuw0vm3gsjr-ALHzSIJrEd9ko
+      short-id: 526e12ac76c44e41
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-8f70421a39
+      - 4Kian-0f6d55863b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-8f70421a39
+      - 4Kian-0f6d55863b
 rules:
   - MATCH,Proxy

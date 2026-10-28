@@ -1,0 +1,41 @@
+proxies:
+  - type: vless
+    name: 4Jadi-17df08cd92
+    server: na.maxili.ir
+    port: 3000
+    uuid: 89176823-e8ee-436a-be21-0b2ebfdd8582
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-b8813d5be0
+    server: na.maxili.ir
+    port: 8080
+    uuid: 89176823-e8ee-436a-be21-0b2ebfdd8582
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-acca1b55fb
+    server: wg.maxili.ir
+    port: 2083
+    uuid: 89176823-e8ee-436a-be21-0b2ebfdd8582
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-17df08cd92
+      - 4Jadi-b8813d5be0
+      - 4Jadi-acca1b55fb
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-17df08cd92
+      - 4Jadi-b8813d5be0
+      - 4Jadi-acca1b55fb
+rules:
+  - MATCH,Proxy

@@ -14,6 +14,34 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Jadi-49224f394b
+    server: 194.93.61.70
+    port: 443
+    uuid: 1b627e4d-4ea4-4dce-8bd8-fc2d3ffbeaba
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: cdnjs.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-7c3942ffb4
+    server: 194.93.61.91
+    port: 443
+    uuid: 1b627e4d-4ea4-4dce-8bd8-fc2d3ffbeaba
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdnjs.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-7e5e21dcc8
     server: nl2.balancer.vbuste-bot.com
     port: 443
@@ -27,13 +55,29 @@ proxies:
       short-id: 4be4110078ebed4a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-11038cc41a
+    server: 2.dzen-nl-1.com
+    port: 8443
+    uuid: ae091bed-c397-49c9-aa28-c4a250f757c6
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: 2.dzen-nl-1.com
+    reality-opts:
+      public-key: gNIk9M0_JAgXNkEoWxPFBkZYyLBSbXEyRgpTg63W8xE
+      short-id: 19aa25f681923dc8
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - appsooner
+      - 4Jadi-49224f394b
+      - 4Nika-7c3942ffb4
       - 4Sarina-7e5e21dcc8
+      - 4Sarina-11038cc41a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +85,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - appsooner
+      - 4Jadi-49224f394b
+      - 4Nika-7c3942ffb4
       - 4Sarina-7e5e21dcc8
+      - 4Sarina-11038cc41a
 rules:
   - MATCH,Proxy

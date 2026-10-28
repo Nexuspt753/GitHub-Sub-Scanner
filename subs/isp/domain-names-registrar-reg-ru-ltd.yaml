@@ -1,12 +1,40 @@
 proxies:
   - type: vless
-    name: 4Sarina-71f80bb0ec
+    name: 4Jadi-b0fc95b363
+    server: 91.197.98.94
+    port: 8443
+    uuid: 5940086d-3158-464a-9abd-95ade1482140
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: uEAZ8LNf1nlIhGncag8NmLxbxmJamQx2eiX3SKTnxWs
+      short-id: 12934b0bcd48eee6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-ecfc5471ac
     server: 168.222.193.184
     port: 443
     uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: 168.222.193.184.sslip.io
+    reality-opts:
+      public-key: lvq2jh6X7yT88vvcV9GUriwtWL0HeqaLHr773Vgb5ks
+      short-id: b8307998cdaf0d55
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-5122128775
+    server: 168.222.193.184
+    port: 443
+    uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: 168.222.193.184.sslip.io
     reality-opts:
       public-key: lvq2jh6X7yT88vvcV9GUriwtWL0HeqaLHr773Vgb5ks
@@ -83,26 +111,49 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-bd5483fb57
+    server: 195.19.20.80
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-71f80bb0ec
+      - 4Jadi-b0fc95b363
+      - 4Nika-ecfc5471ac
+      - 4Nika-5122128775
       - 4Kian-60faed0634
       - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707
       - 4Mohsen-3af373e116
+      - 4Nika-bd5483fb57
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-71f80bb0ec
+      - 4Jadi-b0fc95b363
+      - 4Nika-ecfc5471ac
+      - 4Nika-5122128775
       - 4Kian-60faed0634
       - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707
       - 4Mohsen-3af373e116
+      - 4Nika-bd5483fb57
 rules:
   - MATCH,Proxy

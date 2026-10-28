@@ -12,12 +12,40 @@ proxies:
       short-id: 68d2eb23
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-ed293501f6
+    server: 83.217.9.254
+    port: 443
+    uuid: 0011d187-d066-48f6-957c-a6983dd63a77
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: tr.netvora.space
+    reality-opts:
+      public-key: c-LdrrjWXggAWcOkfbwawezHTcw7Bx0kzs973IDFBmM
+      short-id: 93980c41b30b2d60
+    xudp: true
+  - type: vless
+    name: 4Sarina-27091cbeb6
+    server: 83.217.9.230
+    port: 43000
+    uuid: 4f8493b1-9876-46c4-8ded-01cafb22cee0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: ptE_QnAka3pXNEf8BYKpA9CHdgj4U4xXTixjYWOji0U
+      short-id: 68d2eb23
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-ed293501f6
+      - 4Sarina-27091cbeb6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-ed293501f6
+      - 4Sarina-27091cbeb6
 rules:
   - MATCH,Proxy

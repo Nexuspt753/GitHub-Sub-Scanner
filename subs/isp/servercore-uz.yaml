@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 11219@proxy_online_net
+    server: 185.76.14.21
+    port: 443
+    uuid: 3cd95e58-9f0a-47e1-9937-64a58e949aa5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: stats.vk-portal.net
+    reality-opts:
+      public-key: 6eN2NciEaZis5J4muRRqpfLQ1OglI3A8lNSTmAGo6Do
+      short-id: 3c6fc84d
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 11219@proxy_online_net
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 11219@proxy_online_net
+rules:
+  - MATCH,Proxy

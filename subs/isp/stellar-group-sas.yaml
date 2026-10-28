@@ -1,23 +1,40 @@
 proxies:
   - type: hysteria2
+    name: 4Sarina-62f8d5c41c
+    server: 195.177.94.166
+    port: 443
+    password: 4b1be712-774c-4b65-8491-a3339e124a70
+    sni: fr2-cl3.happy-glonaris.top
+    skip-cert-verify: true
+  - type: hysteria2
     name: 4Jadi-49aa6a5364
     server: fr2-cl3.happy-glonaris.top
     port: 443
     password: 4b1be712-774c-4b65-8491-a3339e124a70
     sni: fr2-cl3.happy-glonaris.top
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-d613db198e
+    server: fr2-cl3.happy-glonaris.top
+    port: 443
+    password: 4b1be712-774c-4b65-8491-a3339e124a70
+    sni: fr2-cl3.happy-glonaris.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-62f8d5c41c
       - 4Jadi-49aa6a5364
+      - 4Jadi-d613db198e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-62f8d5c41c
       - 4Jadi-49aa6a5364
+      - 4Jadi-d613db198e
 rules:
   - MATCH,Proxy

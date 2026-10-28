@@ -1,63 +1,105 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-529a922f02
-    server: 167.68.5.183
-    port: 443
-    password: d2698cf9-c47e-455c-8384-12e642cbba15
+  - type: vless
+    name: 4Jadi-c60ffc3fd6
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
     udp: true
     tls: true
-    sni: 6us3.pqjc.buzz
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /pq/us3
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 6us3.pqjc.buzz
-  - type: vless
-    name: 4Kian-c65130be71
-    server: 167.68.11.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    udp: true
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: proxy-34l.pages.dev
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime28.workers.dev
+        Host: proxy-34l.pages.dev
   - type: vless
-    name: 4Nika-4994df13f3
-    server: 167.68.4.253
-    port: 2096
-    uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
+    name: 4Kian-81ff76cc28
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: vless.muzheng.top
+    client-fingerprint: safari
+    alpn:
+      - http/1.1
+    servername: proxy-34l.pages.dev
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
+  - type: vless
+    name: 4Sarina-f4240d54c9
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
+  - type: vless
+    name: 4Sarina-43a65b86f6
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
+  - type: vless
+    name: 4Kian-51e760e845
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-529a922f02
-      - 4Kian-c65130be71
-      - 4Nika-4994df13f3
+      - 4Jadi-c60ffc3fd6
+      - 4Kian-81ff76cc28
+      - 4Sarina-f4240d54c9
+      - 4Sarina-43a65b86f6
+      - 4Kian-51e760e845
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-529a922f02
-      - 4Kian-c65130be71
-      - 4Nika-4994df13f3
+      - 4Jadi-c60ffc3fd6
+      - 4Kian-81ff76cc28
+      - 4Sarina-f4240d54c9
+      - 4Sarina-43a65b86f6
+      - 4Kian-51e760e845
 rules:
   - MATCH,Proxy

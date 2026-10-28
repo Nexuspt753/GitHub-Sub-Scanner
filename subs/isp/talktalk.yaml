@@ -1,31 +1,46 @@
 proxies:
-  - type: vmess
-    name: 4FreeIran-4620a0c279
-    server: fr-nin.neninet.ir
-    port: 18875
-    uuid: 13a8c5dc-6ec6-459d-a89e-d3a664e255ea
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Kian-d20f300aa3
+    server: free.familysharing.ir
+    port: 443
+    uuid: 6f79d21b-1c7a-ba5f-3e1b-4dc69c364948
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    servername: fr-nin.neninet.ir
-    alpn:
-      - h2
-      - http/1.1
+    client-fingerprint: ios
+    servername: amp-api-search-edge.apps.apple.com
+    reality-opts:
+      public-key: ZrdPHtBvi7yMRj17SohKaGQEXuDptmCJWCi8gk5HlD8
+      short-id: 35938c4e546cd459
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-46ea24e14c
+    server: free.familysharing.ir
+    port: 443
+    uuid: f91ba212-423e-8598-a3b0-844ffde4e054
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: amp-api-search-edge.apps.apple.com
+    reality-opts:
+      public-key: ZrdPHtBvi7yMRj17SohKaGQEXuDptmCJWCi8gk5HlD8
+      short-id: 35938c4e546cd459
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-4620a0c279
+      - 4Kian-d20f300aa3
+      - 4Nika-46ea24e14c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-4620a0c279
+      - 4Kian-d20f300aa3
+      - 4Nika-46ea24e14c
 rules:
   - MATCH,Proxy

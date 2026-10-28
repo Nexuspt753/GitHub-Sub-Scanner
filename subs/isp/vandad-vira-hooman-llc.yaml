@@ -1,23 +1,52 @@
 proxies:
-  - type: ss
-    name: 4Kian-f88743d6ba
-    server: trtn.fusetea.ir
-    port: 4050
-    cipher: chacha20-ietf-poly1305
-    password: 1uO5Gama6AGTEDU4kEKFX5RIcPVlr9Au
+  - type: vless
+    name: 4Nika-01cb2407b2
+    server: n1.fidgits.ir
+    port: 25456
+    uuid: 5b5e85a1-1392-4599-ad73-34fc9b6ae1f3
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: r.msftstatic.com
+    reality-opts:
+      public-key: 2_l_AeThgEkkPEN4_jQm83_oGgx_e9nsvYc2VHXk93w
+      short-id: 226f09e4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-2bfc327ab8
+    server: t5.mikiserver.com
+    port: 2083
+    uuid: 6c33da09-d298-4860-ade8-a2287ead47ec
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: admin.mcimikbeiserver.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /wp-admin.php?ed=2083
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: admin.mcimikbeiserver.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f88743d6ba
+      - 4Nika-01cb2407b2
+      - 4Sarina-2bfc327ab8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f88743d6ba
+      - 4Nika-01cb2407b2
+      - 4Sarina-2bfc327ab8
 rules:
   - MATCH,Proxy

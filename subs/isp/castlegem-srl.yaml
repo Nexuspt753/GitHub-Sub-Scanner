@@ -1,54 +1,35 @@
 proxies:
   - type: trojan
-    name: trojan
-    server: 185.75.243.102
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    alpn:
-      - h3
-      - " h2"
-      - " http/1.1"
-    client-fingerprint: chrome
-  - type: trojan
-    name: trojan-01
-    server: 185.75.243.102
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-e9f7ba6331
+    name: 4Sarina-a85d209083
     server: 185.75.243.102
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.ignitelimit.com
-    client-fingerprint: android
+    alpn:
+      - h3
+      - " h2"
+      - " http/1.1"
+    client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.ignitelimit.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - trojan
-      - trojan-01
-      - 4Jadi-e9f7ba6331
+      - 4Sarina-a85d209083
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - trojan
-      - trojan-01
-      - 4Jadi-e9f7ba6331
+      - 4Sarina-a85d209083
 rules:
   - MATCH,Proxy

@@ -1,23 +1,20 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
+    name: DeltaKroneckerGithub
     server: 148.253.212.42
     port: 443
     password: humanity
     udp: true
     tls: true
     sni: www.pleadcourt.org
-    alpn:
-      - http/1.1
-    client-fingerprint: unsafe
+    client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.pleadcourt.org
   - type: trojan
-    name: 🇳🇱
+    name: 4Jadi-482e7bd13b
     server: 148.253.212.42
     port: 443
     password: humanity
@@ -50,22 +47,57 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
+  - type: trojan
+    name: 4Nika-c1485ec55f
+    server: 148.253.212.42
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    alpn:
+      - http/1.1
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.pleadcourt.org
+  - type: trojan
+    name: 4Mohsen-08d3d84116
+    server: 148.253.212.42
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇳🇱
+      - DeltaKroneckerGithub
+      - 4Jadi-482e7bd13b
       - 4Kian-d5e32ca866
+      - 4Nika-c1485ec55f
+      - 4Mohsen-08d3d84116
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇳🇱
+      - DeltaKroneckerGithub
+      - 4Jadi-482e7bd13b
       - 4Kian-d5e32ca866
+      - 4Nika-c1485ec55f
+      - 4Mohsen-08d3d84116
 rules:
   - MATCH,Proxy

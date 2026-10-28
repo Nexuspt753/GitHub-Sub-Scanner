@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Sarina-76b7e482ed
+    server: lizard.forum
+    port: 9562
+    uuid: b90ba714-48b4-42f4-bcc0-7637bd75a87d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: app.lizard.forum
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-76b7e482ed
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-76b7e482ed
+rules:
+  - MATCH,Proxy

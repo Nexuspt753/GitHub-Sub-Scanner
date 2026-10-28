@@ -1,24 +1,44 @@
 proxies:
   - type: hysteria2
-    name: 4Sarina-b7ac0aaefd
-    server: ee1.sferavpn.pro
+    name: 4Mohsen-e63fd407b1
+    server: ee2.sferavpn.pro
     port: 443
     password: cd74c0a406664a5bc0bac098220a2468
-    sni: ee1.sferavpn.pro
+    sni: ee2.sferavpn.pro
     obfs: salamander
     obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
+  - type: hysteria2
+    name: 4Jadi-de9dac25e7
+    server: ee2.sferavpn.pro
+    port: 443
+    password: cd74c0a406664a5bc0bac098220a2468
+    sni: ee2.sferavpn.pro
+    obfs: salamander
+    obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
+  - type: hysteria2
+    name: 4Mohsen-4dca046d1c
+    server: 94.183.170.65
+    port: 443
+    password: e60bc99b-6630-4799-af84-f90ebdc643b6
+    sni: hys2.arkonsoft.top
+    alpn:
+      - h3
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b7ac0aaefd
+      - 4Mohsen-e63fd407b1
+      - 4Jadi-de9dac25e7
+      - 4Mohsen-4dca046d1c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b7ac0aaefd
+      - 4Mohsen-e63fd407b1
+      - 4Jadi-de9dac25e7
+      - 4Mohsen-4dca046d1c
 rules:
   - MATCH,Proxy

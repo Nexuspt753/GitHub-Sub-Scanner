@@ -1,23 +1,82 @@
 proxies:
   - type: hysteria2
+    name: 4Mohsen-eb8d2e996c
+    server: 217.60.72.225
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+    sni: forshynewh.duckdns.org
+  - type: hysteria2
+    name: 4Mohsen-497294db6b
+    server: forshynewh.duckdns.org
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+  - type: hysteria2
+    name: 4Kian-a2a6de72a1
+    server: forshynewh.duckdns.org
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+    sni: forshynewh.duckdns.org
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Kian-c4a30f68b4
+    server: forshynewh.duckdns.org
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+    sni: forshynewh.duckdns.org
+  - type: hysteria2
+    name: 4Nika-03bb3a837f
+    server: 217.60.72.225
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+    sni: forshynewh.duckdns.org
+  - type: hysteria2
+    name: 4Sarina-623bf9a0fa
+    server: 217.60.72.225
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+    sni: forshynewh.duckdns.org
+    skip-cert-verify: false
+  - type: hysteria2
     name: 4FreeIran-77b4f820ce
     server: forshynewh.duckdns.org
     port: 443
     password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
     sni: forshynewh.duckdns.org
     skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-347502c04b
+    server: forshynewh.duckdns.org
+    port: 443
+    password: 329e13e4-ee7c-4802-ac72-5fcab79c2402
+    sni: forshynewh.duckdns.org
+    alpn:
+      - h3
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-eb8d2e996c
+      - 4Mohsen-497294db6b
+      - 4Kian-a2a6de72a1
+      - 4Kian-c4a30f68b4
+      - 4Nika-03bb3a837f
+      - 4Sarina-623bf9a0fa
       - 4FreeIran-77b4f820ce
+      - 4FreeIran-347502c04b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-eb8d2e996c
+      - 4Mohsen-497294db6b
+      - 4Kian-a2a6de72a1
+      - 4Kian-c4a30f68b4
+      - 4Nika-03bb3a837f
+      - 4Sarina-623bf9a0fa
       - 4FreeIran-77b4f820ce
+      - 4FreeIran-347502c04b
 rules:
   - MATCH,Proxy

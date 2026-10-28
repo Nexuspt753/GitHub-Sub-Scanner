@@ -1,48 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: ss.90909.club
-    port: 2096
-    uuid: eeb96fef-4476-4ab0-915e-32e8f014c3b2
+    name: 4FreeIran-46ffd25c8b
+    server: 185.76.241.20
+    port: 8443
+    uuid: cbe986af-d8f1-48b1-9889-42a367bf7c6e
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: id.vk.com
+    client-fingerprint: chrome
+    servername: msk1.nexfile.net
     reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+      public-key: e6RrKgiMRFZEKHn7bcpQHV_skmM-45eX6-G92U0tykY
+      short-id: edc4c30c
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: ss.ll0ll.vip
-    port: 2096
-    uuid: e436321f-24a9-4c38-b935-7d7dee0c3f68
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: id.vk.com
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-46ffd25c8b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-46ffd25c8b
 rules:
   - MATCH,Proxy

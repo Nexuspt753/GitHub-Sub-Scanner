@@ -1,62 +1,39 @@
 proxies:
-  - type: vless
-    name: 4Jadi-0a53276fa1
-    server: fr3.fishing-tackle.net
-    port: 8443
-    uuid: a1f00f09-80b8-415f-8258-801590975ca5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: fr3.fishing-tackle.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-7c97184ee9
-    server: fr4.fishing-tackle.net
+  - type: hysteria2
+    name: 4FreeIran-9a4b0a343a
+    server: 194.76.147.34
     port: 443
-    uuid: a1f00f09-80b8-415f-8258-801590975ca5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: fr4.fishing-tackle.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-c507107a2c
-    server: fr5.fishing-tackle.net
+    password: 4b1be712-774c-4b65-8491-a3339e124a70
+    sni: hys-eu.letsconnectpoint.com
+  - type: hysteria2
+    name: 4Jadi-bb176ecd96
+    server: 194.76.147.34
     port: 443
-    uuid: a1f00f09-80b8-415f-8258-801590975ca5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: fr5.fishing-tackle.net
-    flow: xtls-rprx-vision
-    xudp: true
+    password: 4b1be712-774c-4b65-8491-a3339e124a70
+    sni: hys-eu.letsconnectpoint.com
+  - type: hysteria2
+    name: 4Kian-5a7bf3ca8f
+    server: 194.76.147.34
+    port: 443
+    password: 4b1be712-774c-4b65-8491-a3339e124a70
+    sni: hys-eu.letsconnectpoint.com
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-0a53276fa1
-      - 4Sarina-7c97184ee9
-      - 4FreeIran-c507107a2c
+      - 4FreeIran-9a4b0a343a
+      - 4Jadi-bb176ecd96
+      - 4Kian-5a7bf3ca8f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-0a53276fa1
-      - 4Sarina-7c97184ee9
-      - 4FreeIran-c507107a2c
+      - 4FreeIran-9a4b0a343a
+      - 4Jadi-bb176ecd96
+      - 4Kian-5a7bf3ca8f
 rules:
   - MATCH,Proxy

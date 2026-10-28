@@ -1,33 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 31.59.179.110
-    port: 443
-    uuid: 4a02614f-c461-4675-9017-bb5a757c8edd
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: grr.milas.click
-    reality-opts:
-      public-key: pJpaRasoceUeRDJTXEZNnKT3yW5IocPXudB_B7_rBR0
-      short-id: 4fa44664f6a566d3
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 31.59.179.90
-    port: 443
-    uuid: 4a02614f-c461-4675-9017-bb5a757c8edd
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: grr.milas.click
-    reality-opts:
-      public-key: pJpaRasoceUeRDJTXEZNnKT3yW5IocPXudB_B7_rBR0
-      short-id: 4fa44664f6a566d3
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: VPsave
     server: 31.59.179.90
     port: 443
@@ -41,6 +13,20 @@ proxies:
       short-id: 4fa44664f6a566d3
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: 4FreeIran-06a76856a7
+    server: kaliningrad.gosgenarchive.com
+    port: 448
+    password: GGLKnjEZrgwcV477UfgP6PMqjeZNAGfR
+    udp: true
+    tls: true
+    sni: kaliningrad.gosgenarchive.com
+    alpn:
+      - h2
+    client-fingerprint: firefox
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: 4Kian-68100964d5
     server: 31.59.179.110
@@ -49,6 +35,20 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: grr.milas.click
+    reality-opts:
+      public-key: pJpaRasoceUeRDJTXEZNnKT3yW5IocPXudB_B7_rBR0
+      short-id: 4fa44664f6a566d3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-a15c536574
+    server: 31.59.179.110
+    port: 443
+    uuid: 4a02614f-c461-4675-9017-bb5a757c8edd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: grr.milas.click
     reality-opts:
       public-key: pJpaRasoceUeRDJTXEZNnKT3yW5IocPXudB_B7_rBR0
@@ -70,7 +70,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-cbf2da68e8
+    name: 4Sarina-c1864cace8
     server: 31.59.179.90
     port: 443
     uuid: 4a02614f-c461-4675-9017-bb5a757c8edd
@@ -84,14 +84,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-110f57e040
+    name: 4Sarina-e3dbea2a27
     server: 31.59.179.90
     port: 443
     uuid: 4a02614f-c461-4675-9017-bb5a757c8edd
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: grr.milas.click
+    reality-opts:
+      public-key: pJpaRasoceUeRDJTXEZNnKT3yW5IocPXudB_B7_rBR0
+      short-id: 4fa44664f6a566d3
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -99,25 +102,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - VPsave
+      - 4FreeIran-06a76856a7
       - 4Kian-68100964d5
+      - 4Mohsen-a15c536574
       - 4FreeIran-2cd9e0a693
-      - 4Sarina-cbf2da68e8
-      - 4Kian-110f57e040
+      - 4Sarina-c1864cace8
+      - 4Sarina-e3dbea2a27
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - VPsave
+      - 4FreeIran-06a76856a7
       - 4Kian-68100964d5
+      - 4Mohsen-a15c536574
       - 4FreeIran-2cd9e0a693
-      - 4Sarina-cbf2da68e8
-      - 4Kian-110f57e040
+      - 4Sarina-c1864cace8
+      - 4Sarina-e3dbea2a27
 rules:
   - MATCH,Proxy
