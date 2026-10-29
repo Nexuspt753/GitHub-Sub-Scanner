@@ -1,0 +1,34 @@
+proxies:
+  - type: vless
+    name: 4Kian-b92169c253
+    server: mixed.pop.smth.ink
+    port: 443
+    uuid: e28c0164-5bbf-53c4-94a4-8eaa836f53ed
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: full-node.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/ws-s8-a3a96ce9
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ton.full-node.online
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-b92169c253
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-b92169c253
+rules:
+  - MATCH,Proxy

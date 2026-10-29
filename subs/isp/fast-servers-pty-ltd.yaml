@@ -101,19 +101,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-79e190ff02
-    server: 5.181.171.2
-    port: 443
-    uuid: a87bf8a2-17a4-3054-b51e-876b5f1d0f24
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: speed.cloudflare.com
-    reality-opts:
-      public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-7b23a95905
     server: 5.181.171.2
     port: 443
@@ -126,6 +113,21 @@ proxies:
       public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-a16b462dce
+    server: 88.218.44.5
+    port: 8443
+    uuid: adf1fac3-cf57-ff40-574c-cf514457eb3f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.kaspersky.com
+    reality-opts:
+      public-key: Nnpwm8dqFl9dlMJmg0M9G11vmgCKzNagFTn4tH4sWy4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -138,8 +140,8 @@ proxy-groups:
       - 4Sarina-90af308e68
       - 4Sarina-b88486ecee
       - 4Sarina-e271e0fc7d
-      - 4Nika-79e190ff02
       - 4Mohsen-7b23a95905
+      - 4Mohsen-a16b462dce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -153,7 +155,7 @@ proxy-groups:
       - 4Sarina-90af308e68
       - 4Sarina-b88486ecee
       - 4Sarina-e271e0fc7d
-      - 4Nika-79e190ff02
       - 4Mohsen-7b23a95905
+      - 4Mohsen-a16b462dce
 rules:
   - MATCH,Proxy

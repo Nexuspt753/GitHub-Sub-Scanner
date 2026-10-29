@@ -1,26 +1,90 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-db412ba1b9
-    server: 106.75.137.66
-    port: 20003
-    uuid: efbd22e5-1fd7-4c50-a41d-279915d89b66
+  - type: vmess
+    name: 🇨🇳CN-113.31.124.147-0084
+    server: 113.31.124.147
+    port: 443
+    uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cache.video.iqiyi.com
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lg30.cfcdn3.xyz
+  - type: vmess
+    name: 🇨🇳CN-106.75.104.152-0083
+    server: 106.75.104.152
+    port: 443
+    uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lg30.cfcdn3.xyz
+  - type: vmess
+    name: 4Mohsen-bd80e70f3d
+    server: 106.75.104.152
+    port: 443
+    uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lg30.cfcdn3.xyz
+  - type: vmess
+    name: 4Mohsen-494b9145b8
+    server: 113.31.124.147
+    port: 443
+    uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lg30.cfcdn3.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-db412ba1b9
+      - 🇨🇳CN-113.31.124.147-0084
+      - 🇨🇳CN-106.75.104.152-0083
+      - 4Mohsen-bd80e70f3d
+      - 4Mohsen-494b9145b8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-db412ba1b9
+      - 🇨🇳CN-113.31.124.147-0084
+      - 🇨🇳CN-106.75.104.152-0083
+      - 4Mohsen-bd80e70f3d
+      - 4Mohsen-494b9145b8
 rules:
   - MATCH,Proxy

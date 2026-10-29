@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: 11208@proxy_online_net
+    server: 149.33.15.213
+    port: 443
+    uuid: 054362fb-e485-4a3f-9568-4c5b0f60e074
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: swz.proxyplankton.ru
+    xudp: true
+  - type: vless
     name: vpnsal
     server: 179.43.170.84
     port: 443
@@ -51,16 +61,6 @@ proxies:
     servername: swz.proxyplankton.ru
     xudp: true
   - type: vless
-    name: 4Kian-b5279d6275
-    server: 149.33.15.213
-    port: 443
-    uuid: 054362fb-e485-4a3f-9568-4c5b0f60e074
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: swz.proxyplankton.ru
-    xudp: true
-  - type: vless
     name: 4Jadi-3372ab5dc5
     server: 149.33.15.213
     port: 443
@@ -98,32 +98,47 @@ proxies:
       short-id: 8718c58d3d51db59
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-a4734a4f34
+    server: 179.43.138.70
+    port: 443
+    uuid: e69fd81c-c6f4-4998-afb8-42e771f2d978
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ethz.ch
+    reality-opts:
+      public-key: U682Pn1N94W72DLrimGwWyePnEeeceKC7LojBtvFgSs
+      short-id: 82ae
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 11208@proxy_online_net
       - vpnsal
       - vpnsal-01
       - 4Kian-3701d01cb0
       - 4Nika-34ccab458f
-      - 4Kian-b5279d6275
       - 4Jadi-3372ab5dc5
       - 4Mohsen-3df6ced142
       - 4Nika-fd1d802399
+      - 4Jadi-a4734a4f34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 11208@proxy_online_net
       - vpnsal
       - vpnsal-01
       - 4Kian-3701d01cb0
       - 4Nika-34ccab458f
-      - 4Kian-b5279d6275
       - 4Jadi-3372ab5dc5
       - 4Mohsen-3df6ced142
       - 4Nika-fd1d802399
+      - 4Jadi-a4734a4f34
 rules:
   - MATCH,Proxy

@@ -1,30 +1,15 @@
 proxies:
   - type: vless
-    name: 4Mohsen-d61fb7f309
-    server: 178.107.60.251
-    port: 443
-    uuid: 2ed71363-5fd3-4859-9254-0003e395848c
+    name: 4Jadi-08dcd5f968
+    server: 178.107.58.80
+    port: 8443
+    uuid: d0b32482-67aa-426d-8735-ab6c7ceb65bd
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: filesconvert.org
-    reality-opts:
-      public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
-      short-id: 10debbdf94767541
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-fbe29a81b8
-    server: 178.107.60.251
-    port: 443
-    uuid: 2ed71363-5fd3-4859-9254-0003e395848c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: filesconvert.org
-    reality-opts:
-      public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
-      short-id: 10debbdf94767541
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: cdn.intercom-home.online
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -32,15 +17,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d61fb7f309
-      - 4Nika-fbe29a81b8
+      - 4Jadi-08dcd5f968
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d61fb7f309
-      - 4Nika-fbe29a81b8
+      - 4Jadi-08dcd5f968
 rules:
   - MATCH,Proxy

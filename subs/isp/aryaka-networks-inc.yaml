@@ -1,0 +1,52 @@
+proxies:
+  - type: vmess
+    name: 🇭🇰HK-159.100.206.88-0119
+    server: 159.100.206.88
+    port: 443
+    uuid: 0764a598-82c4-4b41-ba10-551a625beed5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /sshocean
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uk2.v2rayserv.com
+  - type: vmess
+    name: 4Jadi-4cd3859311
+    server: 159.100.206.88
+    port: 443
+    uuid: 0764a598-82c4-4b41-ba10-551a625beed5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /sshocean
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uk2.v2rayserv.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇭🇰HK-159.100.206.88-0119
+      - 4Jadi-4cd3859311
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇭🇰HK-159.100.206.88-0119
+      - 4Jadi-4cd3859311
+rules:
+  - MATCH,Proxy

@@ -12,12 +12,20 @@ proxies:
       public-key: A-WcezAbYc6GrL7gqM9Kg89OAgLBp2nxC_wrpenGlDg
       short-id: b7e45d3a65bfc319
     xudp: true
+  - type: vless
+    name: vless
+    server: 89.42.196.116
+    port: 443
+    uuid: a1c667a3-a0d4-4269-9487-cd18ab4aec65
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-30e0337da4
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-30e0337da4
+      - vless
 rules:
   - MATCH,Proxy

@@ -1,50 +1,30 @@
 proxies:
-  - type: vless
-    name: v2ray313
-    server: 80.211.27.249
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  - type: trojan
+    name: 4Kian-7f73627249
+    server: 80.211.238.61
+    port: 8443
+    password: humanity
     udp: true
     tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
-    servername: fzo5i.ir46.90k.hh.ov0.kdns.fr
-    xudp: true
     network: ws
     ws-opts:
-      path: /glasspanel/guest000_0_5de14443985f/
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fzo5i.ir46.90k.hh.ov0.kdns.fr
-  - type: vless
-    name: 4Mohsen-c9d924df3c
-    server: 80.211.27.249
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fzo5i.ir46.90k.hh.ov0.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /glasspanel/guest000_0_5de14443985f/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fzo5i.ir46.90k.hh.ov0.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - v2ray313
-      - 4Mohsen-c9d924df3c
+      - 4Kian-7f73627249
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - v2ray313
-      - 4Mohsen-c9d924df3c
+      - 4Kian-7f73627249
 rules:
   - MATCH,Proxy

@@ -1,32 +1,62 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-aae7f0db30
-    server: s9nr8nad1b.claqera.ir
-    port: 5500
-    uuid: 6af3f2a8-6b20-4b01-95c6-43c5ce1d2c3f
+  - type: vmess
+    name: 4Nika-d9d40733a1
+    server: 62.220.121.35
+    port: 443
+    uuid: be1ae321-b91b-426e-8e4e-a2fb008e88b4
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tr.sanprime.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tr.sanprime.ir
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-11436cc9e7
+    server: 62.220.121.35
+    port: 443
+    uuid: be1ae321-b91b-426e-8e4e-a2fb008e88b4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-627e0f9560
+    server: 62.220.121.35
+    port: 443
+    uuid: be1ae321-b91b-426e-8e4e-a2fb008e88b4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-83bd9b2af4
+    server: parrsweb.site
+    port: 443
+    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-aae7f0db30
+      - 4Nika-d9d40733a1
+      - 4Jadi-11436cc9e7
+      - 4Nika-627e0f9560
+      - 4Kian-83bd9b2af4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-aae7f0db30
+      - 4Nika-d9d40733a1
+      - 4Jadi-11436cc9e7
+      - 4Nika-627e0f9560
+      - 4Kian-83bd9b2af4
 rules:
   - MATCH,Proxy

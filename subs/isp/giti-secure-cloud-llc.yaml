@@ -23,6 +23,18 @@ proxies:
     xudp: true
   - type: vless
     name: All-02
+    server: fi-1.tiptop-1.top
+    port: 8443
+    uuid: 3a88f885-9c20-4ab8-b328-3583dfe5188b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fi-1.tiptop-1.top
+    xudp: true
+  - type: vless
+    name: All-03
     server: us-tun.tiptop-1.top
     port: 8443
     uuid: 3a88f885-9c20-4ab8-b328-3583dfe5188b
@@ -49,20 +61,25 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: ss
+    name: 4FreeIran-0a578e4023
+    server: 87.107.114.36
+    port: 8445
+    cipher: xchacha20-ietf-poly1305
+    password: 6na0t24ln2b14v7w
+    udp: true
   - type: vless
-    name: All-03
-    server: fi-1.tiptop-1.top
+    name: All-04
+    server: us-tun.tiptop-1.top
     port: 8443
     uuid: dbb91d75-3581-4117-9e4a-25cd3cc988a0
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fi-1.tiptop-1.top
+    servername: us-tun.tiptop-1.top
     xudp: true
   - type: vless
-    name: All-04
+    name: All-05
     server: fi-1.tiptop-1.top
     port: 8443
     uuid: ea1fb226-a033-4999-9f86-49ec57629c0d
@@ -73,39 +90,25 @@ proxies:
       - http/1.1
     servername: fi-1.tiptop-1.top
     xudp: true
-  - type: vmess
-    name: "telegram: @pirozi_ArGaP"
-    server: 212.80.8.184
-    port: 443
-    uuid: 8ed21777-4390-483e-b51e-55eb272636ec
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vless
-    name: 4FreeIran-bfbad78ce9
-    server: fi-1.tiptop-1.top
+    name: All-06
+    server: us-tun.tiptop-1.top
+    port: 8443
+    uuid: ea1fb226-a033-4999-9f86-49ec57629c0d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us-tun.tiptop-1.top
+    xudp: true
+  - type: vless
+    name: 4FreeIran-478be472af
+    server: us-tun.tiptop-1.top
     port: 8443
     uuid: 2b701acc-0587-42f9-98db-dd8af385d351
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fi-1.tiptop-1.top
-    xudp: true
-  - type: vless
-    name: 4Jadi-b4e7dfddf2
-    server: fi-1.tiptop-1.top
-    port: 8443
-    uuid: 3a88f885-9c20-4ab8-b328-3583dfe5188b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fi-1.tiptop-1.top
+    servername: us-tun.tiptop-1.top
     xudp: true
   - type: vless
     name: 4Mohsen-ebd0858f93
@@ -118,10 +121,10 @@ proxies:
     servername: us-tun.tiptop-1.top
     xudp: true
   - type: vless
-    name: 4Jadi-cdcc3d4336
-    server: s4.hemvixa.ir
+    name: 4FreeIran-2af0620460
+    server: s3.lemvuno.ir
     port: 2087
-    uuid: 61ae6923-17ac-4877-ed96-b92ecdeb5cc8
+    uuid: 50b69a47-452d-40a4-c13c-4d82218ce889
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -170,13 +173,16 @@ proxies:
     client-fingerprint: chrome
     servername: us-tun.tiptop-1.top
     xudp: true
-  - type: vless
-    name: 4Sarina-a92ac13047
-    server: s2.zynetraq.ir
-    port: 2087
-    uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
+  - type: vmess
+    name: 4Jadi-60a15d6dee
+    server: 212.80.8.184
+    port: 443
+    uuid: 8ed21777-4390-483e-b51e-55eb272636ec
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -185,20 +191,21 @@ proxy-groups:
       - All
       - All-01
       - All-02
+      - All-03
       - vless
       - vless-01
-      - All-03
+      - 4FreeIran-0a578e4023
       - All-04
-      - "telegram: @pirozi_ArGaP"
-      - 4FreeIran-bfbad78ce9
-      - 4Jadi-b4e7dfddf2
+      - All-05
+      - All-06
+      - 4FreeIran-478be472af
       - 4Mohsen-ebd0858f93
-      - 4Jadi-cdcc3d4336
+      - 4FreeIran-2af0620460
       - 4FreeIran-e2b049a46f
       - 4Sarina-b1dc59b60a
       - 4Jadi-02fe60a745
       - 4Sarina-52fdb832f1
-      - 4Sarina-a92ac13047
+      - 4Jadi-60a15d6dee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -208,19 +215,20 @@ proxy-groups:
       - All
       - All-01
       - All-02
+      - All-03
       - vless
       - vless-01
-      - All-03
+      - 4FreeIran-0a578e4023
       - All-04
-      - "telegram: @pirozi_ArGaP"
-      - 4FreeIran-bfbad78ce9
-      - 4Jadi-b4e7dfddf2
+      - All-05
+      - All-06
+      - 4FreeIran-478be472af
       - 4Mohsen-ebd0858f93
-      - 4Jadi-cdcc3d4336
+      - 4FreeIran-2af0620460
       - 4FreeIran-e2b049a46f
       - 4Sarina-b1dc59b60a
       - 4Jadi-02fe60a745
       - 4Sarina-52fdb832f1
-      - 4Sarina-a92ac13047
+      - 4Jadi-60a15d6dee
 rules:
   - MATCH,Proxy

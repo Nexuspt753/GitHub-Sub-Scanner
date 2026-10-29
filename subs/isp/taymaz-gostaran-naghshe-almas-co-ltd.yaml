@@ -1,18 +1,41 @@
 proxies:
   - type: ss
-    name: tootffarangi🍓
-    server: mojif.fusetea.ir
-    port: 2089
-    cipher: chacha20-ietf-poly1305
-    password: 0mL0gbgQoGb6zgBBdoBU21EijVaCQ1us
-    udp: true
-  - type: ss
-    name: prrofile_purple
+    name: Channel
     server: p1tun2.greewebservices.ir
     port: 2060
     cipher: chacha20-ietf-poly1305
-    password: aW4KvGdoS8ldtmRCS58iHg
+    password: lKas7axN_5UwIlEgGh3V3Q
     udp: true
+  - type: ss
+    name: 4FreeIran-b71918aafc
+    server: p2tun3.greewebservices.ir
+    port: 1030
+    cipher: chacha20-ietf-poly1305
+    password: nhGbKkUizCamHW-KsqXoqw
+    udp: true
+  - type: vless
+    name: 4Mohsen-1569f73d27
+    server: bt.wufpel.ir
+    port: 8443
+    uuid: cf3b9920-2314-4571-b77e-6d142f78878c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: mdEF9IP_UQ5qCsuQsjNcbd9CdrpcGNgrZjnZu0vQYzc
+      short-id: ee5e9d3399c05735
+    xudp: true
+  - type: vmess
+    name: 4FreeIran-b5b4c34424
+    server: dl1.armd.fun
+    port: 443
+    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: 4Jadi-0a9975d7f6
     server: dl1.armd.fun
@@ -23,22 +46,38 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-ce9a599b3e
+    server: dl1.armd.fun
+    port: 443
+    uuid: 72ec8eaf-6a67-4026-aea6-963e3a9ca16a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - tootffarangi🍓
-      - prrofile_purple
+      - Channel
+      - 4FreeIran-b71918aafc
+      - 4Mohsen-1569f73d27
+      - 4FreeIran-b5b4c34424
       - 4Jadi-0a9975d7f6
+      - 4Nika-ce9a599b3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - tootffarangi🍓
-      - prrofile_purple
+      - Channel
+      - 4FreeIran-b71918aafc
+      - 4Mohsen-1569f73d27
+      - 4FreeIran-b5b4c34424
       - 4Jadi-0a9975d7f6
+      - 4Nika-ce9a599b3e
 rules:
   - MATCH,Proxy

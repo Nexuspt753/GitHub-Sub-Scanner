@@ -1,43 +1,16 @@
 proxies:
   - type: vless
-    name: 4Jadi-425c8a5579
-    server: 198.202.24.142
-    port: 2083
-    uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vipfree.dr-ping.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-ee61adf695
-    server: 198.202.24.142
-    port: 2083
-    uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vipfree.dr-ping.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vipfree.dr-ping.ir
-  - type: vless
-    name: 4Mohsen-bfa329f376
+    name: DeltaKroneckerGithub
     server: 198.202.24.214
     port: 2083
     uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
     servername: vipfree.dr-ping.ir
     xudp: true
     network: ws
@@ -45,22 +18,36 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-6e22a6dd42
+    server: 198.202.24.142
+    port: 2083
+    uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: vipfree.dr-ping.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vipfree.dr-ping.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-425c8a5579
-      - 4Kian-ee61adf695
-      - 4Mohsen-bfa329f376
+      - DeltaKroneckerGithub
+      - 4Jadi-6e22a6dd42
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-425c8a5579
-      - 4Kian-ee61adf695
-      - 4Mohsen-bfa329f376
+      - DeltaKroneckerGithub
+      - 4Jadi-6e22a6dd42
 rules:
   - MATCH,Proxy

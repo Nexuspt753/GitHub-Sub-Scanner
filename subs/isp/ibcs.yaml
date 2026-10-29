@@ -1,23 +1,30 @@
 proxies:
   - type: vless
-    name: 4Nika-329f830990
-    server: 5.181.21.9
-    port: 1079
-    uuid: c14cad69-10c2-41bc-b116-d865ad2c52c6
+    name: 4Kian-ddca7d9ebb
+    server: 5.181.21.84
+    port: 8443
+    uuid: 2858e07e-d1e6-4d41-b487-a742df5e8ee1
     udp: true
+    tls: true
+    client-fingerprint: random
+    servername: fin.nardi03.ru
+    reality-opts:
+      public-key: OI1pmaFA5AJKzzis68tgmeIf_JmcX3FoJH2OZRXPv04
+      short-id: "12345678"
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-329f830990
+      - 4Kian-ddca7d9ebb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-329f830990
+      - 4Kian-ddca7d9ebb
 rules:
   - MATCH,Proxy

@@ -15,12 +15,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: Tbilisi · 4Sarina-096eb220c5
+    server: 93.190.9.232
+    port: 3090
+    uuid: dde8219d-a988-4944-b220-0444f8dde681
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Tbilisi · 4Jadi-309f5313d4
+      - Tbilisi · 4Sarina-096eb220c5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Tbilisi · 4Jadi-309f5313d4
+      - Tbilisi · 4Sarina-096eb220c5
 rules:
   - MATCH,Proxy
