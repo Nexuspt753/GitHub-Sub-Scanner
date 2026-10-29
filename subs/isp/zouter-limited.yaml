@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 193.168.200.67
-    port: 443
-    uuid: 64c05afc-ce81-4ba0-b697-afa04da1427e
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: yunohost.org
-    reality-opts:
-      public-key: ba3xYhPfXzT1HOHrbCka-pGaBIJGDouCg1MbdlRzklE
-      short-id: 5a7c3dab8d267f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-77570318ac
     server: 103.97.200.42
     port: 443
@@ -29,90 +15,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vmess
-    name: 4Sarina-2a2a1b7a3c
-    server: jp.6807251.xyz
-    port: 47431
-    uuid: 7aa3a024-e333-4b63-99a2-3db9d3b2054e
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Sarina-af6c39f43f
+    server: 193.168.200.67
+    port: 443
+    uuid: 64c05afc-ce81-4ba0-b697-afa04da1427e
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: yunohost.org
+    reality-opts:
+      public-key: ba3xYhPfXzT1HOHrbCka-pGaBIJGDouCg1MbdlRzklE
+      short-id: 5a7c3dab8d267f
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4FreeIran-f59a805257
-    server: jp.6807251.xyz
-    port: 47431
-    uuid: 7aa3a024-e333-4b63-99a2-3db9d3b2054e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Sarina-0dc167a43f
-    server: jp.6807251.xyz
-    port: 62283
-    uuid: 7aa3a024-e333-4b63-99a2-3db9d3b2054e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a.189.cn
-  - type: vmess
-    name: 4FreeIran-df6c225eb8
-    server: jp.6807251.xyz
-    port: 34228
-    uuid: 7aa3a024-e333-4b63-99a2-3db9d3b2054e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: a.189.cn
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Sarina-77570318ac
-      - 4Sarina-2a2a1b7a3c
-      - 4FreeIran-f59a805257
-      - 4Sarina-0dc167a43f
-      - 4FreeIran-df6c225eb8
+      - 4Sarina-af6c39f43f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Sarina-77570318ac
-      - 4Sarina-2a2a1b7a3c
-      - 4FreeIran-f59a805257
-      - 4Sarina-0dc167a43f
-      - 4FreeIran-df6c225eb8
+      - 4Sarina-af6c39f43f
 rules:
   - MATCH,Proxy

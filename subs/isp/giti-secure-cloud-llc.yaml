@@ -1,5 +1,25 @@
 proxies:
   - type: vless
+    name: vless
+    server: s9.femqera.ir
+    port: 2087
+    uuid: 0ea7341e-7c72-410c-0f63-dc2ca976a5da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: 22c6684b-cd4f-4c8e-62e3-a17fc698471f
+    udp: true
+    xudp: true
+  - type: vless
     name: All
     server: fi-1.tiptop-1.top
     port: 8443
@@ -13,16 +33,6 @@ proxies:
     xudp: true
   - type: vless
     name: All-01
-    server: us-tun.tiptop-1.top
-    port: 8443
-    uuid: 2b701acc-0587-42f9-98db-dd8af385d351
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us-tun.tiptop-1.top
-    xudp: true
-  - type: vless
-    name: All-02
     server: fi-1.tiptop-1.top
     port: 8443
     uuid: 3a88f885-9c20-4ab8-b328-3583dfe5188b
@@ -34,7 +44,7 @@ proxies:
     servername: fi-1.tiptop-1.top
     xudp: true
   - type: vless
-    name: All-03
+    name: All-02
     server: us-tun.tiptop-1.top
     port: 8443
     uuid: 3a88f885-9c20-4ab8-b328-3583dfe5188b
@@ -44,7 +54,7 @@ proxies:
     servername: us-tun.tiptop-1.top
     xudp: true
   - type: vless
-    name: vless
+    name: vless-02
     server: s3.lemvuno.ir
     port: 2087
     uuid: 50b69a47-452d-40a4-c13c-4d82218ce889
@@ -53,31 +63,21 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
+    name: All-03
+    server: fi-1.tiptop-1.top
+    port: 8443
+    uuid: dbb91d75-3581-4117-9e4a-25cd3cc988a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: fi-1.tiptop-1.top
+    xudp: true
+  - type: vless
     name: All-04
     server: fi-1.tiptop-1.top
     port: 8443
-    uuid: dbb91d75-3581-4117-9e4a-25cd3cc988a0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fi-1.tiptop-1.top
-    xudp: true
-  - type: vless
-    name: All-05
-    server: us-tun.tiptop-1.top
-    port: 8443
-    uuid: dbb91d75-3581-4117-9e4a-25cd3cc988a0
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us-tun.tiptop-1.top
-    xudp: true
-  - type: vless
-    name: All-06
-    server: fi-1.tiptop-1.top
-    port: 8443
     uuid: ea1fb226-a033-4999-9f86-49ec57629c0d
     udp: true
     tls: true
@@ -85,16 +85,6 @@ proxies:
     alpn:
       - http/1.1
     servername: fi-1.tiptop-1.top
-    xudp: true
-  - type: vless
-    name: All-07
-    server: us-tun.tiptop-1.top
-    port: 8443
-    uuid: ea1fb226-a033-4999-9f86-49ec57629c0d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us-tun.tiptop-1.top
     xudp: true
   - type: vless
     name: 4FreeIran-bfbad78ce9
@@ -150,7 +140,7 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: vless-01
+    name: vless-03
     server: s4.hemvixa.ir
     port: 2087
     uuid: 61ae6923-17ac-4877-ed96-b92ecdeb5cc8
@@ -168,16 +158,14 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: 4FreeIran-e2b049a46f
-    server: fi-1.tiptop-1.top
+    name: 4Sarina-b1dc59b60a
+    server: us-tun.tiptop-1.top
     port: 8443
     uuid: dbb91d75-3581-4117-9e4a-25cd3cc988a0
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fi-1.tiptop-1.top
+    servername: us-tun.tiptop-1.top
     xudp: true
   - type: vless
     name: 4Jadi-02fe60a745
@@ -206,23 +194,22 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
+      - vless-01
       - All
       - All-01
       - All-02
+      - vless-02
       - All-03
-      - vless
       - All-04
-      - All-05
-      - All-06
-      - All-07
       - 4FreeIran-bfbad78ce9
       - 4FreeIran-478be472af
       - 4Jadi-b4e7dfddf2
       - 4Mohsen-ebd0858f93
       - 4FreeIran-2af0620460
-      - vless-01
+      - vless-03
       - 4Jadi-cdcc3d4336
-      - 4FreeIran-e2b049a46f
+      - 4Sarina-b1dc59b60a
       - 4Jadi-02fe60a745
       - 4Sarina-52fdb832f1
   - name: Auto
@@ -231,23 +218,22 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vless
+      - vless-01
       - All
       - All-01
       - All-02
+      - vless-02
       - All-03
-      - vless
       - All-04
-      - All-05
-      - All-06
-      - All-07
       - 4FreeIran-bfbad78ce9
       - 4FreeIran-478be472af
       - 4Jadi-b4e7dfddf2
       - 4Mohsen-ebd0858f93
       - 4FreeIran-2af0620460
-      - vless-01
+      - vless-03
       - 4Jadi-cdcc3d4336
-      - 4FreeIran-e2b049a46f
+      - 4Sarina-b1dc59b60a
       - 4Jadi-02fe60a745
       - 4Sarina-52fdb832f1
 rules:

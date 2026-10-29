@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Jadi-461c645183
+    server: 38.55.192.169
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Sarina-fac27a960e
     server: 38.190.210.250
     port: 443
@@ -57,24 +73,94 @@ proxies:
       short-id: b440a145
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Mohsen-43a748478f
+    server: 206.237.11.17
+    port: 44441
+    uuid: de4e0335-2a3b-4006-d746-c939fa85fdc3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+  - type: vmess
+    name: 4Nika-c49187cbf5
+    server: 206.237.11.17
+    port: 8080
+    uuid: edcf3108-da2b-45c8-a852-a7e58dd55a43
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+  - type: vmess
+    name: 4Kian-e283182eef
+    server: 206.237.11.17
+    port: 44441
+    uuid: de4e0335-2a3b-4006-d746-c939fa85fdc3
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+  - type: vmess
+    name: 4Mohsen-35dd82bd5b
+    server: 206.237.11.17
+    port: 8080
+    uuid: edcf3108-da2b-45c8-a852-a7e58dd55a43
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-461c645183
       - 4Sarina-fac27a960e
       - 4Nika-b5d4057d34
       - 4Kian-800ceae6aa
       - 4Nika-ce001e3b23
+      - 4Mohsen-43a748478f
+      - 4Nika-c49187cbf5
+      - 4Kian-e283182eef
+      - 4Mohsen-35dd82bd5b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-461c645183
       - 4Sarina-fac27a960e
       - 4Nika-b5d4057d34
       - 4Kian-800ceae6aa
       - 4Nika-ce001e3b23
+      - 4Mohsen-43a748478f
+      - 4Nika-c49187cbf5
+      - 4Kian-e283182eef
+      - 4Mohsen-35dd82bd5b
 rules:
   - MATCH,Proxy

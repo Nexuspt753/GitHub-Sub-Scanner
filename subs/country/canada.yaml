@@ -15,36 +15,45 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: Montreal · @DeltaKroneckerGithub
-    server: 66.163.113.238
-    port: 443
-    uuid: d4001352-dc64-48b8-b786-5860b284ad3d
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: steamcommunity.com
-    reality-opts:
-      public-key: DNCphTaL7BtXj1HybzMFir0ki_IiM62kr6ddIZYxagw
-      short-id: 5c56a4cfea5866c0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Toronto · @DeltaKroneckerGithub
-    server: ca001.zestapp778.com
-    port: 32355
-    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    server: 135.84.79.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime35.workers.dev
+  - type: vless
+    name: Beauharnois · @DeltaKroneckerGithub-01
+    server: ov-canada1.09vpn.com
+    port: 8443
+    uuid: 66265232-e176-4c29-b133-8260c9dcb0a3
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ca001.zestapp778.com
     xudp: true
-  - type: ss
-    name: Vancouver · @tootffarangi🍓
-    server: 149.22.95.183
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: Montreal · @DeltaKroneckerGithub
+    server: 66.70.179.198
+    port: 2053
+    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+      short-id: 83f8317a948bb769
+    xudp: true
   - type: ss
     name: Vancouver · 🇨🇦
     server: 149.22.95.183
@@ -59,15 +68,18 @@ proxies:
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
-  - type: ss
-    name: Beauharnois · 🇨🇦
-    server: 51.222.155.113
-    port: 5601
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
-    udp: true
   - type: vless
     name: Toronto · @DeltaKroneckerGithub-01
+    server: ca001.zestapp778.com
+    port: 32355
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ca001.zestapp778.com
+    xudp: true
+  - type: vless
+    name: Toronto · @DeltaKroneckerGithub-02
     server: 149.248.50.252
     port: 32355
     uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
@@ -76,17 +88,24 @@ proxies:
     client-fingerprint: firefox
     servername: ca001.zestapp778.com
     xudp: true
+  - type: vless
+    name: Montreal · @DeltaKroneckerGithub-01
+    server: 66.163.113.238
+    port: 443
+    uuid: 13bf9403-22d1-4221-939b-f6606c423139
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: steamcommunity.com
+    reality-opts:
+      public-key: DNCphTaL7BtXj1HybzMFir0ki_IiM62kr6ddIZYxagw
+      short-id: 5c56a4cfea5866c0
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: Montreal · vpnsal
     server: 51.79.64.198
     port: 8119
-    cipher: aes-256-gcm
-    password: cdBIDV42DCwnfIN
-    udp: true
-  - type: ss
-    name: Beauharnois · @ghand_sheken
-    server: 51.79.85.185
-    port: 8118
     cipher: aes-256-gcm
     password: cdBIDV42DCwnfIN
     udp: true
@@ -97,6 +116,17 @@ proxies:
     cipher: aes-256-gcm
     password: kDWvXYZoTBcGkC4
     udp: true
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-03
+    server: 137.184.172.228
+    port: 443
+    password: 5392c4d3-b13e-456f-a0e5-8eaf52b7fc1d
+    udp: true
+    tls: true
+    sni: termux.com
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
   - type: ss
     name: Montreal · @Tarkshodeh
     server: 51.222.141.125
@@ -118,6 +148,13 @@ proxies:
     cipher: aes-256-gcm
     password: zDNVedRFPQexG9v
     udp: true
+  - type: ss
+    name: Montreal · 🇨🇦-01
+    server: 51.222.141.125
+    port: 445
+    cipher: aes-256-gcm
+    password: zDNVedRFPQexG9v
+    udp: true
   - type: hysteria2
     name: Montreal · 4FreeIran-5e54729274
     server: 15.223.183.81
@@ -132,19 +169,6 @@ proxies:
     password: H7mP2xY9kJ4nQ8wR5tF6vB3z
     sni: t.me
     skip-cert-verify: true
-  - type: vless
-    name: Montreal · @DeltaKroneckerGithub-01
-    server: 66.70.179.198
-    port: 2053
-    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
-      short-id: 83f8317a948bb769
-    xudp: true
   - type: hysteria2
     name: Montreal · 4Nika-0b5dc03535
     server: vpn-ca-001.fastervpn.world
@@ -160,27 +184,77 @@ proxies:
     sni: t.me
     skip-cert-verify: true
   - type: trojan
-    name: Beauharnois · @DeltaKroneckerGithub-01
-    server: 51.222.15.68
+    name: Toronto · @DeltaKroneckerGithub-04
+    server: 216.152.147.74
     port: 443
-    password: f4dc01c0-6376-11ee-8ca8-1239d0255272
+    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
     udp: true
     tls: true
-    sni: www.ewane.krd
+    sni: api.connectingpeoplewithgreatjobs.com
     client-fingerprint: chrome
-  - type: vless
-    name: Montreal · @KAFING_2
-    server: speedtest.net
-    port: 80
-    uuid: 056d10f1-4ebd-40e1-9f78-c7e11fce5258
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-05
+    server: 216.128.184.4
+    port: 443
+    password: qr5nXh3P7K6T
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /download
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sabzb2.global.ssl.fastly.net
+    tls: true
+    sni: ash.d22e0961-e0a7-49b8-8259-eac71e24d27b.kailib.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-06
+    server: 216.152.147.79
+    port: 443
+    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+    udp: true
+    tls: true
+    sni: blog.connectingpeoplewithgreatjobs.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-07
+    server: 216.152.147.152
+    port: 443
+    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+    udp: true
+    tls: true
+    sni: learn.connectingpeoplewithgreatjobs.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-08
+    server: 159.203.22.227
+    port: 443
+    password: acfef609-b3c7-4e52-b292-8921d5fca90d
+    udp: true
+    tls: true
+    sni: ca-full.privateip.net
+    client-fingerprint: chrome
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-09
+    server: ca001.zestapp778.com
+    port: 46977
+    password: 5t6i121em5lkmsmk
+    udp: true
+    tls: true
+    sni: ca001.zestapp778.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-10
+    server: 216.152.147.85
+    port: 443
+    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+    udp: true
+    tls: true
+    sni: cdn.connectingpeoplewithgreatjobs.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-11
+    server: 216.152.147.93
+    port: 443
+    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+    udp: true
+    tls: true
+    sni: connectingpeoplewithgreatjobs.com
+    client-fingerprint: chrome
   - type: vless
     name: Montreal · @irdusti(52)🇨🇦
     server: 66.163.113.238
@@ -195,6 +269,64 @@ proxies:
       short-id: 5c56a4cfea5866c0
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: Toronto · @DeltaKroneckerGithub-12
+    server: 216.152.147.48
+    port: 443
+    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+    udp: true
+    tls: true
+    sni: courses.connectingpeoplewithgreatjobs.com
+    client-fingerprint: chrome
+  - type: ss
+    name: Vancouver · @DeltaKroneckerGithub
+    server: 149.22.95.183
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: Montreal · @DeltaKroneckerGithub-02
+    server: 51.222.136.236
+    port: 8882
+    cipher: aes-256-gcm
+    password: kDWvXYZoTBcGkC4
+    udp: true
+  - type: ss
+    name: Montreal · @DeltaKroneckerGithub-03
+    server: 51.79.64.198
+    port: 8119
+    cipher: aes-256-gcm
+    password: cdBIDV42DCwnfIN
+    udp: true
+  - type: ss
+    name: Montreal · @DeltaKroneckerGithub-04
+    server: 51.79.49.116
+    port: 8882
+    cipher: aes-256-gcm
+    password: kDWvXYZoTBcGkC4
+    udp: true
+  - type: ss
+    name: Vancouver · @DeltaKroneckerGithub-01
+    server: 149.22.95.183
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: Beauharnois · @DeltaKroneckerGithub-02
+    server: 51.222.12.127
+    port: 445
+    cipher: aes-256-gcm
+    password: zDNVedRFPQexG9v
+    udp: true
+  - type: ss
+    name: Beauharnois · @DeltaKroneckerGithub-03
+    server: 51.222.200.165
+    port: 5000
+    cipher: aes-256-gcm
+    password: Y6R9pAtvxxzmGC
+    udp: true
   - type: vless
     name: Beauharnois · @Shh_Proxy-New⁶
     server: 54.39.96.233
@@ -209,15 +341,6 @@ proxies:
       short-id: 2b30
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: Toronto · @DeltaKroneckerGithub-02
-    server: 159.203.22.227
-    port: 443
-    password: acfef609-b3c7-4e52-b292-8921d5fca90d
-    udp: true
-    tls: true
-    sni: ca-full.privateip.net
-    client-fingerprint: chrome
   - type: vless
     name: Beauharnois · Channel
     server: 54.39.96.233
@@ -246,65 +369,26 @@ proxies:
       short-id: 2b30
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: Toronto · @DeltaKroneckerGithub-03
-    server: 137.184.172.228
-    port: 443
-    password: 5392c4d3-b13e-456f-a0e5-8eaf52b7fc1d
-    udp: true
-    tls: true
-    sni: termux.com
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
   - type: ss
-    name: Montreal · @DeltaKroneckerGithub-02
-    server: 51.222.136.236
-    port: 8882
-    cipher: aes-256-gcm
-    password: kDWvXYZoTBcGkC4
-    udp: true
-  - type: ss
-    name: Montreal · @DeltaKroneckerGithub-03
-    server: 51.79.49.116
-    port: 8882
-    cipher: aes-256-gcm
-    password: kDWvXYZoTBcGkC4
-    udp: true
-  - type: ss
-    name: Beauharnois · @DeltaKroneckerGithub-02
-    server: 51.222.155.32
-    port: 5003
-    cipher: aes-256-gcm
-    password: g5MeD6Ft3CWlJId
-    udp: true
-  - type: ss
-    name: Vancouver · @DeltaKroneckerGithub
-    server: 149.22.95.183
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
-  - type: ss
-    name: Beauharnois · @DeltaKroneckerGithub-03
+    name: Beauharnois · @DeltaKroneckerGithub-04
     server: 51.222.155.113
     port: 5601
     cipher: aes-256-gcm
     password: Y6R9pAtvxxzmGC
     udp: true
   - type: ss
-    name: Beauharnois · @DeltaKroneckerGithub-04
+    name: Montreal · @DeltaKroneckerGithub-05
+    server: 51.79.49.116
+    port: 8882
+    cipher: aes-256-gcm
+    password: kDWvXYZoTBcGkC4
+    udp: true
+  - type: ss
+    name: Beauharnois · @DeltaKroneckerGithub-05
     server: 51.79.85.185
     port: 8118
     cipher: aes-256-gcm
     password: cdBIDV42DCwnfIN
-    udp: true
-  - type: ss
-    name: Beauharnois · @DeltaKroneckerGithub-05
-    server: 51.222.200.165
-    port: 5000
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
     udp: true
   - type: ss
     name: Beauharnois · @DeltaKroneckerGithub-06
@@ -314,6 +398,13 @@ proxies:
     password: Y6R9pAtvxxzmGC
     udp: true
   - type: ss
+    name: Montreal · @DeltaKroneckerGithub-06
+    server: 51.222.141.125
+    port: 445
+    cipher: aes-256-gcm
+    password: zDNVedRFPQexG9v
+    udp: true
+  - type: ss
     name: Beauharnois · @DeltaKroneckerGithub-07
     server: 51.222.200.165
     port: 5000
@@ -321,45 +412,14 @@ proxies:
     password: Y6R9pAtvxxzmGC
     udp: true
   - type: ss
-    name: Montreal · @DeltaKroneckerGithub-04
-    server: 51.79.49.116
-    port: 8882
-    cipher: aes-256-gcm
-    password: kDWvXYZoTBcGkC4
-    udp: true
-  - type: ss
-    name: Vancouver · @DeltaKroneckerGithub-01
-    server: 149.22.95.183
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
-  - type: ss
-    name: Beauharnois · @DeltaKroneckerGithub-08
-    server: 51.222.155.113
-    port: 5601
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
-    udp: true
-  - type: ss
-    name: Vancouver · @DeltaKroneckerGithub-02
+    name: Vancouver · 4Nika-f1f0b40350
     server: 149.22.95.183
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
   - type: vmess
-    name: Toronto · @DeltaKroneckerGithub-04
-    server: 23.162.200.198
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Toronto · @DeltaKroneckerGithub-05
+    name: Toronto · @DeltaKroneckerGithub-13
     server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -396,48 +456,6 @@ proxies:
     cipher: aes-256-gcm
     password: cdBIDV42DCwnfIN
     udp: true
-  - type: vless
-    name: Vancouver · @VPsave
-    server: 45.81.154.16
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Vancouver · 11264@proxy_online_net
-    server: 45.81.154.16
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Vancouver · 11254@proxy_online_net
-    server: can.kramiliantha.sbs
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: Beauharnois · 4Nika-d49b3fdb27
     server: 51.222.155.32
@@ -503,12 +521,18 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: vless
-    name: Montreal · @ASinTech
-    server: ssl.hostirann.xyz
-    port: 443
-    uuid: cf2f7b94-f5a8-4782-8ad7-e70097e12d1c
+    name: Montreal · TEL;Father_vpn
+    server: 151.101.2.219
+    port: 80
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: max-gb1.global.ssl.fastly.net
   - type: trojan
     name: Montreal · 4Kian-3accc12043
     server: 148.113.141.99
@@ -534,6 +558,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.f6r.ir
+  - type: vless
+    name: Montreal · @ASinTech
+    server: ssl.hostirann.xyz
+    port: 443
+    uuid: cf2f7b94-f5a8-4782-8ad7-e70097e12d1c
+    udp: true
+    xudp: true
   - type: trojan
     name: Beauharnois · 4Mohsen-bc73b075f9
     server: ca-trojan.bonds.id
@@ -544,6 +575,32 @@ proxies:
     client-fingerprint: chrome
   - type: vless
     name: Montreal · 11212@proxy_online_net
+    server: 66.70.179.198
+    port: 2053
+    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+      short-id: 83f8317a948bb769
+    xudp: true
+  - type: vless
+    name: Montreal · 11250@proxy_online_net
+    server: 66.70.179.198
+    port: 2053
+    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+      short-id: 83f8317a948bb769
+    xudp: true
+  - type: vless
+    name: Montreal · 11299@proxy_online_net
     server: 66.70.179.198
     port: 2053
     uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
@@ -583,9 +640,60 @@ proxies:
       short-id: 4b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Toronto · @VPsave
+    server: ca001.zestapp778.com
+    port: 32355
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ca001.zestapp778.com
+    xudp: true
+  - type: vless
+    name: Toronto · 🇨🇦
+    server: ca001.zestapp778.com
+    port: 32355
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ca001.zestapp778.com
+    xudp: true
+  - type: vless
+    name: Toronto · 🇨🇦202534
+    server: ca001.zestapp778.com
+    port: 32355
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ca001.zestapp778.com
+    xudp: true
   - type: vmess
-    name: Toronto · 🇨🇦202293 | ⚡️Telegram = t.me/SOSkeyNET
+    name: Toronto · 🇨🇦CA-🚀@VPNine1
     server: 134.195.196.211
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: 134.195.196.211
+  - type: vmess
+    name: Toronto · 🇨🇦CA-🚀@VPNine1-01
+    server: 23.162.200.198
+    port: 18000
+    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: Toronto · 🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦
+    server: 23.162.200.198
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
     alterId: 0
@@ -724,6 +832,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: Beauharnois · 4FreeIran-fa8c5256db
+    server: 54.39.96.233
+    port: 8080
+    uuid: 20b98028-53c9-4f76-9bc9-b6b16b8a9152
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: icloud.com
+    reality-opts:
+      public-key: sQ_YHzotqhVJoUDAZl5kTzUqVN6ksh-MTikz_ixsZWc
+      short-id: 2b30
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Beauharnois · 4Mohsen-1d441b0d08
     server: 54.39.96.233
     port: 8080
@@ -738,7 +860,35 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: Beauharnois · 4FreeIran-bc1d5fe410
+    server: 54.39.96.233
+    port: 8080
+    uuid: 20b98028-53c9-4f76-9bc9-b6b16b8a9152
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: icloud.com
+    reality-opts:
+      public-key: sQ_YHzotqhVJoUDAZl5kTzUqVN6ksh-MTikz_ixsZWc
+      short-id: 2b30
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Beauharnois · 4Mohsen-b206501de3
+    server: 54.39.96.233
+    port: 8080
+    uuid: 20b98028-53c9-4f76-9bc9-b6b16b8a9152
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: icloud.com
+    reality-opts:
+      public-key: sQ_YHzotqhVJoUDAZl5kTzUqVN6ksh-MTikz_ixsZWc
+      short-id: 2b30
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Beauharnois · 4Mohsen-7bc930e3b3
     server: 54.39.96.233
     port: 8080
     uuid: 20b98028-53c9-4f76-9bc9-b6b16b8a9152
@@ -776,76 +926,6 @@ proxies:
       public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
     xudp: true
   - type: vless
-    name: Vancouver · 4Nika-8fe1bbe57e
-    server: 45.81.154.16
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Vancouver · 4Sarina-25434e66e1
-    server: 45.81.154.16
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Vancouver · 4Nika-ae7fe95546
-    server: 45.81.154.16
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Vancouver · 4FreeIran-701ae106fe
-    server: 45.81.154.16
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Vancouver · 4FreeIran-2dbf5d2e84
-    server: can.kramiliantha.sbs
-    port: 443
-    uuid: 684bf9c1-c40a-42cb-b982-623982fc2732
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: can.kramiliantha.sbs
-    reality-opts:
-      public-key: y69l6zReCOjJrqYoDjSiBYAWP1VmFPBgS7PP5sqSaW8
-      short-id: b6798bbbfb18587e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Montreal · 4FreeIran-92dce574be
     server: 151.101.1.194
     port: 80
@@ -859,11 +939,32 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: simorghfr.global.ssl.fastly.net
   - type: vless
-    name: Montreal · 4Kian-c608a112b3
-    server: 23.235.33.98
-    port: 80
-    uuid: b742d8e7-ed7d-4f7d-bb16-bf49bdb4cb44
+    name: Montreal · 4Sarina-f6bb453436
+    server: time.salphetka.ru
+    port: 443
+    uuid: 92295a0d-b610-4075-85e9-bfab09ec6f3a
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.unb.ca
+    reality-opts:
+      public-key: 5qe0MF8LdxPLFyPkyPkUdQs58rK9J7B0Q5TUj7tSnn4
+      short-id: 654119f9d6f01dba
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Montreal · 4Kian-99d3657079
+    server: time.salphetka.ru
+    port: 443
+    uuid: 92295a0d-b610-4075-85e9-bfab09ec6f3a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.unb.ca
+    reality-opts:
+      public-key: 5qe0MF8LdxPLFyPkyPkUdQs58rK9J7B0Q5TUj7tSnn4
+      short-id: 654119f9d6f01dba
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: Montreal · 4Jadi-382d073fb1
@@ -1035,6 +1136,46 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: Toronto · 4Sarina-7dde562853
+    server: 209.200.246.148
+    port: 443
+    uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
+      short-id: f98843107912e782
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Montreal · 4Jadi-b4e6e44f69
+    server: 151.101.2.219
+    port: 80
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: max-gb1.global.ssl.fastly.net
+  - type: vless
+    name: Montreal · 4Sarina-4850e98290
+    server: speedtest.net
+    port: 80
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: max-gb1.global.ssl.fastly.net
+  - type: vless
     name: Montreal · 4Mohsen-f72fcf65af
     server: 66.163.113.238
     port: 443
@@ -1056,19 +1197,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
-      short-id: 83f8317a948bb769
-    xudp: true
-  - type: vless
-    name: Montreal · 4Sarina-1c4dee94f6
-    server: 66.70.179.198
-    port: 2053
-    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
-    udp: true
-    tls: true
-    client-fingerprint: firefox
     servername: www.cloudflare.com
     reality-opts:
       public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
@@ -1231,6 +1359,32 @@ proxies:
       short-id: 83f8317a948bb769
     xudp: true
   - type: vless
+    name: Montreal · 4Jadi-c012c80767
+    server: 66.70.179.198
+    port: 2053
+    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+      short-id: 83f8317a948bb769
+    xudp: true
+  - type: vless
+    name: Montreal · 4Nika-054efeb171
+    server: 66.70.179.198
+    port: 2053
+    uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+      short-id: 83f8317a948bb769
+    xudp: true
+  - type: vless
     name: Montreal · 4FreeIran-ddce5c5a5f
     server: 66.70.179.198
     port: 2053
@@ -1252,76 +1406,6 @@ proxies:
     reality-opts:
       public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
       short-id: 83f8317a948bb769
-    xudp: true
-  - type: vless
-    name: Montreal · 4Sarina-48bac4a670
-    server: 198.100.154.175
-    port: 8080
-    uuid: e17150a9-f949-467b-94ea-4d50e4c84186
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: icloud.com
-    reality-opts:
-      public-key: 2PYoIhSKvVE-DgFzPYGo4cD2b7_8Ul2Vm8QKGWH1sAo
-      short-id: 4b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Montreal · 4Nika-9896a7c355
-    server: 198.100.154.175
-    port: 8080
-    uuid: e17150a9-f949-467b-94ea-4d50e4c84186
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: icloud.com
-    reality-opts:
-      public-key: 2PYoIhSKvVE-DgFzPYGo4cD2b7_8Ul2Vm8QKGWH1sAo
-      short-id: 4b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Montreal · 4Kian-0f49ae728e
-    server: 198.100.154.175
-    port: 8080
-    uuid: e17150a9-f949-467b-94ea-4d50e4c84186
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: icloud.com
-    reality-opts:
-      public-key: 2PYoIhSKvVE-DgFzPYGo4cD2b7_8Ul2Vm8QKGWH1sAo
-      short-id: 4b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Montreal · 4Sarina-37b5964e64
-    server: 198.100.154.175
-    port: 8080
-    uuid: e17150a9-f949-467b-94ea-4d50e4c84186
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: icloud.com
-    reality-opts:
-      public-key: 2PYoIhSKvVE-DgFzPYGo4cD2b7_8Ul2Vm8QKGWH1sAo
-      short-id: 4b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Montreal · 4FreeIran-4f82f70c76
-    server: 198.100.154.175
-    port: 8080
-    uuid: e17150a9-f949-467b-94ea-4d50e4c84186
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: icloud.com
-    reality-opts:
-      public-key: 2PYoIhSKvVE-DgFzPYGo4cD2b7_8Ul2Vm8QKGWH1sAo
-      short-id: 4b
-    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: Toronto · 4Sarina-986a7f94cf
@@ -1492,27 +1576,7 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Toronto · 4Sarina-4ca2b48e5a
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
     name: Toronto · 4FreeIran-90adfa7efc
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: Toronto · 4Jadi-e960d4713a
     server: 134.195.196.211
     port: 18000
     uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
@@ -1552,16 +1616,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Toronto · 4Jadi-be299069c3
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
     name: Toronto · 4Sarina-8fe5064a6c
     server: 134.195.196.211
     port: 18000
@@ -1592,17 +1646,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     servername: 134.195.196.211
-  - type: vmess
-    name: Toronto · 4Kian-60d1b00036
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    servername: "@vpnine1"
   - type: vmess
     name: Toronto · 4Nika-696bdc854e
     server: 134.195.196.211
@@ -1679,16 +1722,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     servername: "@vpnine1"
-  - type: vmess
-    name: Toronto · 4Nika-0f029eb7f6
-    server: 134.195.196.211
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vmess
     name: Toronto · 4Nika-3ae1d1439b
     server: 134.195.196.211
@@ -1956,16 +1989,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: Toronto · 4FreeIran-6a4bb91293
-    server: 23.162.200.198
-    port: 18000
-    uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
     name: Toronto · 4Nika-816f7603c0
     server: 23.162.200.198
     port: 18000
@@ -2082,6 +2105,23 @@ proxies:
     skip-cert-verify: false
     servername: learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com
   - type: vmess
+    name: Montreal · 4Mohsen-42c4059bcb
+    server: 426hk.fans8.xyz
+    port: 443
+    uuid: 93bdaed5-13c5-3927-93d7-a6877c5ac8d2
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 426hk.fans8.xyz
+  - type: vmess
     name: Montreal · 4Nika-49582fe1bb
     server: 527hk1.fans8.xyz
     port: 80
@@ -2195,60 +2235,80 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: pulau.org
+  - type: vmess
+    name: Montreal · 4Kian-4e245d64ba
+    server: xr-1.herokuapp.com
+    port: 443
+    uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xr-1.herokuapp.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Beauharnois · @DeltaKroneckerGithub
-      - Montreal · @DeltaKroneckerGithub
       - Toronto · @DeltaKroneckerGithub
-      - Vancouver · @tootffarangi🍓
+      - Beauharnois · @DeltaKroneckerGithub-01
+      - Montreal · @DeltaKroneckerGithub
       - Vancouver · 🇨🇦
       - Vancouver · Channel
-      - Beauharnois · 🇨🇦
       - Toronto · @DeltaKroneckerGithub-01
+      - Toronto · @DeltaKroneckerGithub-02
+      - Montreal · @DeltaKroneckerGithub-01
       - Montreal · vpnsal
-      - Beauharnois · @ghand_sheken
       - Montreal · 🇨🇦
+      - Toronto · @DeltaKroneckerGithub-03
       - Montreal · @Tarkshodeh
       - Montreal · @VPsave
       - Montreal · YFZ
+      - Montreal · 🇨🇦-01
       - Montreal · 4FreeIran-5e54729274
       - Montreal · 4Nika-0a185cc115
-      - Montreal · @DeltaKroneckerGithub-01
       - Montreal · 4Nika-0b5dc03535
       - Montreal · 4Jadi-53ec823d4b
-      - Beauharnois · @DeltaKroneckerGithub-01
-      - Montreal · @KAFING_2
-      - Montreal · @irdusti(52)🇨🇦
-      - Beauharnois · @Shh_Proxy-New⁶
-      - Toronto · @DeltaKroneckerGithub-02
-      - Beauharnois · Channel
-      - Beauharnois · @ConfigV2RayNG
-      - Toronto · @DeltaKroneckerGithub-03
-      - Montreal · @DeltaKroneckerGithub-02
-      - Montreal · @DeltaKroneckerGithub-03
-      - Beauharnois · @DeltaKroneckerGithub-02
-      - Vancouver · @DeltaKroneckerGithub
-      - Beauharnois · @DeltaKroneckerGithub-03
-      - Beauharnois · @DeltaKroneckerGithub-04
-      - Beauharnois · @DeltaKroneckerGithub-05
-      - Beauharnois · @DeltaKroneckerGithub-06
-      - Beauharnois · @DeltaKroneckerGithub-07
-      - Montreal · @DeltaKroneckerGithub-04
-      - Vancouver · @DeltaKroneckerGithub-01
-      - Beauharnois · @DeltaKroneckerGithub-08
-      - Vancouver · @DeltaKroneckerGithub-02
       - Toronto · @DeltaKroneckerGithub-04
       - Toronto · @DeltaKroneckerGithub-05
+      - Toronto · @DeltaKroneckerGithub-06
+      - Toronto · @DeltaKroneckerGithub-07
+      - Toronto · @DeltaKroneckerGithub-08
+      - Toronto · @DeltaKroneckerGithub-09
+      - Toronto · @DeltaKroneckerGithub-10
+      - Toronto · @DeltaKroneckerGithub-11
+      - Montreal · @irdusti(52)🇨🇦
+      - Toronto · @DeltaKroneckerGithub-12
+      - Vancouver · @DeltaKroneckerGithub
+      - Montreal · @DeltaKroneckerGithub-02
+      - Montreal · @DeltaKroneckerGithub-03
+      - Montreal · @DeltaKroneckerGithub-04
+      - Vancouver · @DeltaKroneckerGithub-01
+      - Beauharnois · @DeltaKroneckerGithub-02
+      - Beauharnois · @DeltaKroneckerGithub-03
+      - Beauharnois · @Shh_Proxy-New⁶
+      - Beauharnois · Channel
+      - Beauharnois · @ConfigV2RayNG
+      - Beauharnois · @DeltaKroneckerGithub-04
+      - Montreal · @DeltaKroneckerGithub-05
+      - Beauharnois · @DeltaKroneckerGithub-05
+      - Beauharnois · @DeltaKroneckerGithub-06
+      - Montreal · @DeltaKroneckerGithub-06
+      - Beauharnois · @DeltaKroneckerGithub-07
+      - Vancouver · 4Nika-f1f0b40350
+      - Toronto · @DeltaKroneckerGithub-13
       - Beauharnois · 4Jadi-82178721d0
       - Beauharnois · 4Sarina-67cf50b62d
       - Montreal · 4FreeIran-dc373dd2ba
       - Beauharnois · 4Mohsen-843b359db0
-      - Vancouver · @VPsave
-      - Vancouver · 11264@proxy_online_net
-      - Vancouver · 11254@proxy_online_net
       - Beauharnois · 4Nika-d49b3fdb27
       - Montreal · 4FreeIran-0d5f3f482b
       - Montreal · 4Kian-07e7801601
@@ -2257,14 +2317,22 @@ proxy-groups:
       - Toronto · 4Sarina-0d3974bcdd
       - Montreal · [
       - Montreal · 4Kian-ba08b18081
-      - Montreal · @ASinTech
+      - Montreal · TEL;Father_vpn
       - Montreal · 4Kian-3accc12043
       - Montreal · 4Nika-aea69537b7
+      - Montreal · @ASinTech
       - Beauharnois · 4Mohsen-bc73b075f9
       - Montreal · 11212@proxy_online_net
+      - Montreal · 11250@proxy_online_net
+      - Montreal · 11299@proxy_online_net
       - Montreal · Channel
       - Montreal · YFZ-01
-      - Toronto · 🇨🇦202293 | ⚡️Telegram = t.me/SOSkeyNET
+      - Toronto · @VPsave
+      - Toronto · 🇨🇦
+      - Toronto · 🇨🇦202534
+      - Toronto · 🇨🇦CA-🚀@VPNine1
+      - Toronto · 🇨🇦CA-🚀@VPNine1-01
+      - Toronto · 🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦
       - Beauharnois · >>@v2rayNG_Matsuri::CA
       - Montreal · >>@outline_vpn::CA
       - Vancouver · 🇨🇦CA-149.22.95.183-0179
@@ -2277,17 +2345,16 @@ proxy-groups:
       - Ottawa · 4Nika-3d8e9daf47
       - Ottawa · 4Kian-d328e6a2c6
       - Beauharnois · 4Jadi-b6446db559
+      - Beauharnois · 4FreeIran-fa8c5256db
       - Beauharnois · 4Mohsen-1d441b0d08
+      - Beauharnois · 4FreeIran-bc1d5fe410
       - Beauharnois · 4Mohsen-b206501de3
+      - Beauharnois · 4Mohsen-7bc930e3b3
       - Montreal · 4Kian-c7bd0768e1
       - Montreal · 4Kian-4ea397b614
-      - Vancouver · 4Nika-8fe1bbe57e
-      - Vancouver · 4Sarina-25434e66e1
-      - Vancouver · 4Nika-ae7fe95546
-      - Vancouver · 4FreeIran-701ae106fe
-      - Vancouver · 4FreeIran-2dbf5d2e84
       - Montreal · 4FreeIran-92dce574be
-      - Montreal · 4Kian-c608a112b3
+      - Montreal · 4Sarina-f6bb453436
+      - Montreal · 4Kian-99d3657079
       - Montreal · 4Jadi-382d073fb1
       - Montreal · 4FreeIran-e2769f76dc
       - Toronto · 4FreeIran-bd84e1a8a7
@@ -2300,9 +2367,11 @@ proxy-groups:
       - Toronto · 4Mohsen-b04c76fdbc
       - Toronto · 4Jadi-2951fa57f1
       - Toronto · 4Jadi-cb01b07910
+      - Toronto · 4Sarina-7dde562853
+      - Montreal · 4Jadi-b4e6e44f69
+      - Montreal · 4Sarina-4850e98290
       - Montreal · 4Mohsen-f72fcf65af
       - Montreal · 4Kian-2a04d5187c
-      - Montreal · 4Sarina-1c4dee94f6
       - Montreal · 4Jadi-beaec0a12c
       - Montreal · 4Sarina-b992e02021
       - Montreal · 4FreeIran-71e26468f6
@@ -2315,13 +2384,10 @@ proxy-groups:
       - Montreal · 4Sarina-4e4d1380fd
       - Montreal · 4Jadi-3e7750ab73
       - Montreal · 4Kian-cbfe91744d
+      - Montreal · 4Jadi-c012c80767
+      - Montreal · 4Nika-054efeb171
       - Montreal · 4FreeIran-ddce5c5a5f
       - Montreal · 4Jadi-4c7c3b9b0f
-      - Montreal · 4Sarina-48bac4a670
-      - Montreal · 4Nika-9896a7c355
-      - Montreal · 4Kian-0f49ae728e
-      - Montreal · 4Sarina-37b5964e64
-      - Montreal · 4FreeIran-4f82f70c76
       - Toronto · 4Sarina-986a7f94cf
       - Toronto · 4Kian-5600c434cc
       - Toronto · 4Sarina-8161918a84
@@ -2337,17 +2403,13 @@ proxy-groups:
       - Toronto · 4Sarina-9bae05fad3
       - Toronto · 4Kian-19d9c5f625
       - Toronto · 4Mohsen-4dd2cd77cf
-      - Toronto · 4Sarina-4ca2b48e5a
       - Toronto · 4FreeIran-90adfa7efc
-      - Toronto · 4Jadi-e960d4713a
       - Toronto · 4Nika-0103cc4559
       - Toronto · 4Jadi-098f7a6b52
       - Toronto · 4FreeIran-634748b8f8
-      - Toronto · 4Jadi-be299069c3
       - Toronto · 4Sarina-8fe5064a6c
       - Toronto · 4Sarina-3629137ace
       - Toronto · 4Jadi-79a8c70de9
-      - Toronto · 4Kian-60d1b00036
       - Toronto · 4Nika-696bdc854e
       - Toronto · 4FreeIran-cc893aa8e8
       - Toronto · 4Mohsen-22a565952e
@@ -2355,7 +2417,6 @@ proxy-groups:
       - Toronto · 4Nika-30b47a47d8
       - Toronto · 4Jadi-6c3456f997
       - Toronto · 4Nika-1f9497136b
-      - Toronto · 4Nika-0f029eb7f6
       - Toronto · 4Nika-3ae1d1439b
       - Toronto · 4Jadi-7feb122580
       - Toronto · 4Jadi-28ded87760
@@ -2377,7 +2438,6 @@ proxy-groups:
       - Toronto · 4Jadi-f9804a7763
       - Toronto · 4FreeIran-8b842e3a2e
       - Toronto · 4Nika-43a859dfa0
-      - Toronto · 4FreeIran-6a4bb91293
       - Toronto · 4Nika-816f7603c0
       - Toronto · 4Sarina-2a1611f8e1
       - Toronto · 4Kian-46b3353e7b
@@ -2389,6 +2449,7 @@ proxy-groups:
       - Toronto · 4Jadi-dca17431f2
       - Toronto · 4Nika-6b3b1635bd
       - Toronto · 4Kian-2c25892c05
+      - Montreal · 4Mohsen-42c4059bcb
       - Montreal · 4Nika-49582fe1bb
       - Montreal · 4Kian-9210a23ac9
       - Montreal · 4Kian-cc3f67007e
@@ -2396,6 +2457,7 @@ proxy-groups:
       - Montreal · 4Kian-714fe03243
       - Montreal · 4Jadi-bc4eff797a
       - Montreal · 4FreeIran-79b4c056c8
+      - Montreal · 4Kian-4e245d64ba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -2403,54 +2465,57 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Beauharnois · @DeltaKroneckerGithub
-      - Montreal · @DeltaKroneckerGithub
       - Toronto · @DeltaKroneckerGithub
-      - Vancouver · @tootffarangi🍓
+      - Beauharnois · @DeltaKroneckerGithub-01
+      - Montreal · @DeltaKroneckerGithub
       - Vancouver · 🇨🇦
       - Vancouver · Channel
-      - Beauharnois · 🇨🇦
       - Toronto · @DeltaKroneckerGithub-01
+      - Toronto · @DeltaKroneckerGithub-02
+      - Montreal · @DeltaKroneckerGithub-01
       - Montreal · vpnsal
-      - Beauharnois · @ghand_sheken
       - Montreal · 🇨🇦
+      - Toronto · @DeltaKroneckerGithub-03
       - Montreal · @Tarkshodeh
       - Montreal · @VPsave
       - Montreal · YFZ
+      - Montreal · 🇨🇦-01
       - Montreal · 4FreeIran-5e54729274
       - Montreal · 4Nika-0a185cc115
-      - Montreal · @DeltaKroneckerGithub-01
       - Montreal · 4Nika-0b5dc03535
       - Montreal · 4Jadi-53ec823d4b
-      - Beauharnois · @DeltaKroneckerGithub-01
-      - Montreal · @KAFING_2
-      - Montreal · @irdusti(52)🇨🇦
-      - Beauharnois · @Shh_Proxy-New⁶
-      - Toronto · @DeltaKroneckerGithub-02
-      - Beauharnois · Channel
-      - Beauharnois · @ConfigV2RayNG
-      - Toronto · @DeltaKroneckerGithub-03
-      - Montreal · @DeltaKroneckerGithub-02
-      - Montreal · @DeltaKroneckerGithub-03
-      - Beauharnois · @DeltaKroneckerGithub-02
-      - Vancouver · @DeltaKroneckerGithub
-      - Beauharnois · @DeltaKroneckerGithub-03
-      - Beauharnois · @DeltaKroneckerGithub-04
-      - Beauharnois · @DeltaKroneckerGithub-05
-      - Beauharnois · @DeltaKroneckerGithub-06
-      - Beauharnois · @DeltaKroneckerGithub-07
-      - Montreal · @DeltaKroneckerGithub-04
-      - Vancouver · @DeltaKroneckerGithub-01
-      - Beauharnois · @DeltaKroneckerGithub-08
-      - Vancouver · @DeltaKroneckerGithub-02
       - Toronto · @DeltaKroneckerGithub-04
       - Toronto · @DeltaKroneckerGithub-05
+      - Toronto · @DeltaKroneckerGithub-06
+      - Toronto · @DeltaKroneckerGithub-07
+      - Toronto · @DeltaKroneckerGithub-08
+      - Toronto · @DeltaKroneckerGithub-09
+      - Toronto · @DeltaKroneckerGithub-10
+      - Toronto · @DeltaKroneckerGithub-11
+      - Montreal · @irdusti(52)🇨🇦
+      - Toronto · @DeltaKroneckerGithub-12
+      - Vancouver · @DeltaKroneckerGithub
+      - Montreal · @DeltaKroneckerGithub-02
+      - Montreal · @DeltaKroneckerGithub-03
+      - Montreal · @DeltaKroneckerGithub-04
+      - Vancouver · @DeltaKroneckerGithub-01
+      - Beauharnois · @DeltaKroneckerGithub-02
+      - Beauharnois · @DeltaKroneckerGithub-03
+      - Beauharnois · @Shh_Proxy-New⁶
+      - Beauharnois · Channel
+      - Beauharnois · @ConfigV2RayNG
+      - Beauharnois · @DeltaKroneckerGithub-04
+      - Montreal · @DeltaKroneckerGithub-05
+      - Beauharnois · @DeltaKroneckerGithub-05
+      - Beauharnois · @DeltaKroneckerGithub-06
+      - Montreal · @DeltaKroneckerGithub-06
+      - Beauharnois · @DeltaKroneckerGithub-07
+      - Vancouver · 4Nika-f1f0b40350
+      - Toronto · @DeltaKroneckerGithub-13
       - Beauharnois · 4Jadi-82178721d0
       - Beauharnois · 4Sarina-67cf50b62d
       - Montreal · 4FreeIran-dc373dd2ba
       - Beauharnois · 4Mohsen-843b359db0
-      - Vancouver · @VPsave
-      - Vancouver · 11264@proxy_online_net
-      - Vancouver · 11254@proxy_online_net
       - Beauharnois · 4Nika-d49b3fdb27
       - Montreal · 4FreeIran-0d5f3f482b
       - Montreal · 4Kian-07e7801601
@@ -2459,14 +2524,22 @@ proxy-groups:
       - Toronto · 4Sarina-0d3974bcdd
       - Montreal · [
       - Montreal · 4Kian-ba08b18081
-      - Montreal · @ASinTech
+      - Montreal · TEL;Father_vpn
       - Montreal · 4Kian-3accc12043
       - Montreal · 4Nika-aea69537b7
+      - Montreal · @ASinTech
       - Beauharnois · 4Mohsen-bc73b075f9
       - Montreal · 11212@proxy_online_net
+      - Montreal · 11250@proxy_online_net
+      - Montreal · 11299@proxy_online_net
       - Montreal · Channel
       - Montreal · YFZ-01
-      - Toronto · 🇨🇦202293 | ⚡️Telegram = t.me/SOSkeyNET
+      - Toronto · @VPsave
+      - Toronto · 🇨🇦
+      - Toronto · 🇨🇦202534
+      - Toronto · 🇨🇦CA-🚀@VPNine1
+      - Toronto · 🇨🇦CA-🚀@VPNine1-01
+      - Toronto · 🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦
       - Beauharnois · >>@v2rayNG_Matsuri::CA
       - Montreal · >>@outline_vpn::CA
       - Vancouver · 🇨🇦CA-149.22.95.183-0179
@@ -2479,17 +2552,16 @@ proxy-groups:
       - Ottawa · 4Nika-3d8e9daf47
       - Ottawa · 4Kian-d328e6a2c6
       - Beauharnois · 4Jadi-b6446db559
+      - Beauharnois · 4FreeIran-fa8c5256db
       - Beauharnois · 4Mohsen-1d441b0d08
+      - Beauharnois · 4FreeIran-bc1d5fe410
       - Beauharnois · 4Mohsen-b206501de3
+      - Beauharnois · 4Mohsen-7bc930e3b3
       - Montreal · 4Kian-c7bd0768e1
       - Montreal · 4Kian-4ea397b614
-      - Vancouver · 4Nika-8fe1bbe57e
-      - Vancouver · 4Sarina-25434e66e1
-      - Vancouver · 4Nika-ae7fe95546
-      - Vancouver · 4FreeIran-701ae106fe
-      - Vancouver · 4FreeIran-2dbf5d2e84
       - Montreal · 4FreeIran-92dce574be
-      - Montreal · 4Kian-c608a112b3
+      - Montreal · 4Sarina-f6bb453436
+      - Montreal · 4Kian-99d3657079
       - Montreal · 4Jadi-382d073fb1
       - Montreal · 4FreeIran-e2769f76dc
       - Toronto · 4FreeIran-bd84e1a8a7
@@ -2502,9 +2574,11 @@ proxy-groups:
       - Toronto · 4Mohsen-b04c76fdbc
       - Toronto · 4Jadi-2951fa57f1
       - Toronto · 4Jadi-cb01b07910
+      - Toronto · 4Sarina-7dde562853
+      - Montreal · 4Jadi-b4e6e44f69
+      - Montreal · 4Sarina-4850e98290
       - Montreal · 4Mohsen-f72fcf65af
       - Montreal · 4Kian-2a04d5187c
-      - Montreal · 4Sarina-1c4dee94f6
       - Montreal · 4Jadi-beaec0a12c
       - Montreal · 4Sarina-b992e02021
       - Montreal · 4FreeIran-71e26468f6
@@ -2517,13 +2591,10 @@ proxy-groups:
       - Montreal · 4Sarina-4e4d1380fd
       - Montreal · 4Jadi-3e7750ab73
       - Montreal · 4Kian-cbfe91744d
+      - Montreal · 4Jadi-c012c80767
+      - Montreal · 4Nika-054efeb171
       - Montreal · 4FreeIran-ddce5c5a5f
       - Montreal · 4Jadi-4c7c3b9b0f
-      - Montreal · 4Sarina-48bac4a670
-      - Montreal · 4Nika-9896a7c355
-      - Montreal · 4Kian-0f49ae728e
-      - Montreal · 4Sarina-37b5964e64
-      - Montreal · 4FreeIran-4f82f70c76
       - Toronto · 4Sarina-986a7f94cf
       - Toronto · 4Kian-5600c434cc
       - Toronto · 4Sarina-8161918a84
@@ -2539,17 +2610,13 @@ proxy-groups:
       - Toronto · 4Sarina-9bae05fad3
       - Toronto · 4Kian-19d9c5f625
       - Toronto · 4Mohsen-4dd2cd77cf
-      - Toronto · 4Sarina-4ca2b48e5a
       - Toronto · 4FreeIran-90adfa7efc
-      - Toronto · 4Jadi-e960d4713a
       - Toronto · 4Nika-0103cc4559
       - Toronto · 4Jadi-098f7a6b52
       - Toronto · 4FreeIran-634748b8f8
-      - Toronto · 4Jadi-be299069c3
       - Toronto · 4Sarina-8fe5064a6c
       - Toronto · 4Sarina-3629137ace
       - Toronto · 4Jadi-79a8c70de9
-      - Toronto · 4Kian-60d1b00036
       - Toronto · 4Nika-696bdc854e
       - Toronto · 4FreeIran-cc893aa8e8
       - Toronto · 4Mohsen-22a565952e
@@ -2557,7 +2624,6 @@ proxy-groups:
       - Toronto · 4Nika-30b47a47d8
       - Toronto · 4Jadi-6c3456f997
       - Toronto · 4Nika-1f9497136b
-      - Toronto · 4Nika-0f029eb7f6
       - Toronto · 4Nika-3ae1d1439b
       - Toronto · 4Jadi-7feb122580
       - Toronto · 4Jadi-28ded87760
@@ -2579,7 +2645,6 @@ proxy-groups:
       - Toronto · 4Jadi-f9804a7763
       - Toronto · 4FreeIran-8b842e3a2e
       - Toronto · 4Nika-43a859dfa0
-      - Toronto · 4FreeIran-6a4bb91293
       - Toronto · 4Nika-816f7603c0
       - Toronto · 4Sarina-2a1611f8e1
       - Toronto · 4Kian-46b3353e7b
@@ -2591,6 +2656,7 @@ proxy-groups:
       - Toronto · 4Jadi-dca17431f2
       - Toronto · 4Nika-6b3b1635bd
       - Toronto · 4Kian-2c25892c05
+      - Montreal · 4Mohsen-42c4059bcb
       - Montreal · 4Nika-49582fe1bb
       - Montreal · 4Kian-9210a23ac9
       - Montreal · 4Kian-cc3f67007e
@@ -2598,5 +2664,6 @@ proxy-groups:
       - Montreal · 4Kian-714fe03243
       - Montreal · 4Jadi-bc4eff797a
       - Montreal · 4FreeIran-79b4c056c8
+      - Montreal · 4Kian-4e245d64ba
 rules:
   - MATCH,Proxy

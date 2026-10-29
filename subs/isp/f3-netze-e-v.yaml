@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4Nika-064021c98b
+    name: DeltaKroneckerGithub
     server: 185.220.100.168
     port: 443
     password: humanity
@@ -10,7 +10,7 @@ proxies:
     client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: "%2Fassignment"
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.calmlunch.com
@@ -86,44 +86,28 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Sarina-647e42acf5
-    server: 185.220.100.168
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-064021c98b
+      - DeltaKroneckerGithub
       - 4Mohsen-b6f0afa763
       - 4Mohsen-244c7f5762
       - 4Kian-97aa2b8a93
       - 4FreeIran-6b183bc271
       - 4Kian-190d82f475
-      - 4Sarina-647e42acf5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-064021c98b
+      - DeltaKroneckerGithub
       - 4Mohsen-b6f0afa763
       - 4Mohsen-244c7f5762
       - 4Kian-97aa2b8a93
       - 4FreeIran-6b183bc271
       - 4Kian-190d82f475
-      - 4Sarina-647e42acf5
 rules:
   - MATCH,Proxy

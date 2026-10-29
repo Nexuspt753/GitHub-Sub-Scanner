@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: VEGAAS_VPN
+    server: 83.136.253.129
+    port: 443
+    uuid: 63b1aea9-30b4-3dd0-2819-0b4e04390cb6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amp-api-search-edge.apps.apple.com
+    reality-opts:
+      public-key: ZrdPHtBvi7yMRj17SohKaGQEXuDptmCJWCi8gk5HlD8
+      short-id: 35938c4e546cd459
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-5fb7599f17
     server: 83.136.253.129
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VEGAAS_VPN
       - 4Nika-5fb7599f17
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VEGAAS_VPN
       - 4Nika-5fb7599f17
 rules:
   - MATCH,Proxy

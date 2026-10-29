@@ -16,12 +16,27 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
+  - type: trojan
+    name: 4FreeIran-d147581093
+    server: 38.180.163.250
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-d147581093
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +44,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-d147581093
 rules:
   - MATCH,Proxy

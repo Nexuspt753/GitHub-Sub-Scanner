@@ -1,32 +1,29 @@
 proxies:
   - type: vless
-    name: 4Sarina-a805ceac90
-    server: 103.242.15.87
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    name: DeltaKroneckerGithub
+    server: 38.76.180.144
+    port: 1443
+    uuid: d98b67d4-024a-4bba-91e2-e6ebece6df11
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
     xudp: true
     network: ws
     ws-opts:
-      path: /fp=chrome
+      path: /vless-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+        Host: 38.76.180.144
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-a805ceac90
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-a805ceac90
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
