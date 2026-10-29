@@ -1,23 +1,46 @@
 proxies:
-  - type: ss
-    name: EPODONIOS
-    server: 216.244.76.141
-    port: 16956
-    cipher: aes-128-gcm
-    password: b23cc2418b734f8206d18b0b3d91f270
+  - type: vless
+    name: VPsave
+    server: 3f5489t.de13.h1clayd.click
+    port: 443
+    uuid: fafc7c16-f890-45ee-a856-02df225172dd
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3f5489t.de13.h1clayd.click
+    reality-opts:
+      public-key: _Vw-HdALBCxvA4lQOax6Ukaitg4nuL-jYVUY5aQ5YwU
+      short-id: a8d266cb97b4ac9f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-b55a97a047
+    server: 3f5489t.de13.h1clayd.click
+    port: 443
+    uuid: fafc7c16-f890-45ee-a856-02df225172dd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3f5489t.de13.h1clayd.click
+    reality-opts:
+      public-key: _Vw-HdALBCxvA4lQOax6Ukaitg4nuL-jYVUY5aQ5YwU
+      short-id: a8d266cb97b4ac9f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
+      - VPsave
+      - 4FreeIran-b55a97a047
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
+      - VPsave
+      - 4FreeIran-b55a97a047
 rules:
   - MATCH,Proxy

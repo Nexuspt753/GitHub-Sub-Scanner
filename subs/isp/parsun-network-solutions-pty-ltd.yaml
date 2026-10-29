@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: 4Mohsen-c403b05f77
+    server: 217.216.217.70
+    port: 2060
+    uuid: 85656e50-ee8d-4266-8b48-b99833c090dd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: 1gruamAiEez-LJDBVveJS3ftHfEQFUuqWXCG3NVdmHY
+      short-id: 3058ec56c7628685
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vmess
     name: 4Sarina-f9c8d13a61
     server: jolyot.kimjo.ir
@@ -19,20 +35,46 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-807764c421
+    server: jolyot.kimjo.ir
+    port: 1718
+    uuid: e3680e31-f97d-4760-b15e-bf08cbbd4836
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-c15aec53c2
+    server: jolyot.kimjo.ir
+    port: 1718
+    uuid: e3680e31-f97d-4760-b15e-bf08cbbd4836
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-c403b05f77
       - 4Sarina-f9c8d13a61
       - 4Jadi-c6e87d51dc
+      - 4FreeIran-807764c421
+      - 4Mohsen-c15aec53c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-c403b05f77
       - 4Sarina-f9c8d13a61
       - 4Jadi-c6e87d51dc
+      - 4FreeIran-807764c421
+      - 4Mohsen-c15aec53c2
 rules:
   - MATCH,Proxy

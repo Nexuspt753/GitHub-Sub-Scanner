@@ -1,34 +1,26 @@
 proxies:
   - type: vless
-    name: 4Mohsen-abc1151f76
-    server: 142.91.109.211
+    name: 4Jadi-8547ea63cf
+    server: jp.vpber.info
     port: 443
-    uuid: 7d9dbe01-f192-436e-b6d5-533fc3c998e0
+    uuid: b85b119a-b8c8-43ea-8a35-7f2140366e39
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: nova-relay-d9g973.pages.dev
+    client-fingerprint: firefox
+    servername: jp.vpber.info
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ws?ip=142.91.109.211:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nova-relay-d9g973.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-abc1151f76
+      - 4Jadi-8547ea63cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-abc1151f76
+      - 4Jadi-8547ea63cf
 rules:
   - MATCH,Proxy

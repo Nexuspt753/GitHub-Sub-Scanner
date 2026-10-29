@@ -1,23 +1,86 @@
 proxies:
-  - type: ss
-    name: 4Mohsen-445a8ad50d
-    server: 188.119.149.27
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: Vr06rU_v1vFPYeXq9zbsAA
+  - type: vless
+    name: 4Mohsen-1ddc59e775
+    server: 5.149.249.94
+    port: 443
+    uuid: 4a140c2f-5b0c-4524-950c-026de74fcf69
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nlb.kosmosapp.net
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-04a1e00a41
+    server: 5.149.248.151
+    port: 443
+    uuid: 502d54dd-3eda-49fc-b7d5-292a96042829
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nla.kosmosapp.net
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-33c943fbdb
+    server: 5.149.248.151
+    port: 443
+    uuid: 502d54dd-3eda-49fc-b7d5-292a96042829
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nla.kosmosapp.net
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-8999efbd0b
+    server: 5.149.249.94
+    port: 443
+    uuid: f06afde8-bd57-4c20-a3e2-4a088bceee9e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nlb.kosmosapp.net
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-445a8ad50d
+      - 4Mohsen-1ddc59e775
+      - 4FreeIran-04a1e00a41
+      - 4Jadi-33c943fbdb
+      - 4Nika-8999efbd0b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-445a8ad50d
+      - 4Mohsen-1ddc59e775
+      - 4FreeIran-04a1e00a41
+      - 4Jadi-33c943fbdb
+      - 4Nika-8999efbd0b
 rules:
   - MATCH,Proxy

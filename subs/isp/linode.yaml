@@ -1,5 +1,51 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 139.162.27.96
+    port: 2096
+    uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: free-server.techsonic.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /free-server.techsonic.dev
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free-server.techsonic.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 139.162.27.96
+    port: 443
+    uuid: f1178fbe-1420-4eef-b087-4f33b32b4a19
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aka.ms
+    xudp: true
+  - type: vless
+    name: 4Jadi-b196634b50
+    server: asia.csmaster.store
+    port: 443
+    uuid: 4a05c22a-78b4-4021-8f63-4d81fb51d8ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: telegram.us
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cs
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: asia.csmaster.store
+  - type: vless
     name: 4FreeIran-1805f39489
     server: 139.162.27.96
     port: 2096
@@ -191,31 +237,45 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: free-server.techsonic.dev
   - type: vless
-    name: 4Jadi-97448b5fc2
-    server: 139.162.27.96
-    port: 2096
-    uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+    name: 4FreeIran-371fb3ce1d
+    server: asia.csmaster.store
+    port: 443
+    uuid: aa05efe5-c34f-4880-b6e5-6b437ccffec5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: free-server.techsonic.dev
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: aka.ms
     xudp: true
     network: ws
     ws-opts:
-      path: /free-server.techsonic.devfp=chrome
+      path: /cs
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: free-server.techsonic.dev
+        Host: asia.csmaster.store
   - type: vless
-    name: 4Sarina-3ed3ec5a57
-    server: 139.162.27.96
+    name: 4Kian-bf9aad9edf
+    server: asia.csmaster.store
     port: 443
-    uuid: f1178fbe-1420-4eef-b087-4f33b32b4a19
+    uuid: e7e5990e-fa29-4d68-8931-76913299d42f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: aka.ms
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: www.googleapis.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /cs
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: asia.csmaster.store
   - type: vless
     name: 4Kian-3c1deac25e
     server: 139.162.27.96
@@ -231,6 +291,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-b196634b50
       - 4FreeIran-1805f39489
       - 4FreeIran-2c97100eb2
       - 4Nika-fe375419c1
@@ -243,8 +306,8 @@ proxy-groups:
       - 4FreeIran-fb13dd2eec
       - 4Sarina-2a377a508e
       - 4Mohsen-a296d349f5
-      - 4Jadi-97448b5fc2
-      - 4Sarina-3ed3ec5a57
+      - 4FreeIran-371fb3ce1d
+      - 4Kian-bf9aad9edf
       - 4Kian-3c1deac25e
   - name: Auto
     type: url-test
@@ -252,6 +315,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-b196634b50
       - 4FreeIran-1805f39489
       - 4FreeIran-2c97100eb2
       - 4Nika-fe375419c1
@@ -264,8 +330,8 @@ proxy-groups:
       - 4FreeIran-fb13dd2eec
       - 4Sarina-2a377a508e
       - 4Mohsen-a296d349f5
-      - 4Jadi-97448b5fc2
-      - 4Sarina-3ed3ec5a57
+      - 4FreeIran-371fb3ce1d
+      - 4Kian-bf9aad9edf
       - 4Kian-3c1deac25e
 rules:
   - MATCH,Proxy

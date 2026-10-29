@@ -1,5 +1,45 @@
 proxies:
   - type: vless
+    name: Tarkshodeh
+    server: w7tjfftjdt.vk-maps.net
+    port: 52006
+    uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api5.vk-maps.net
+    reality-opts:
+      public-key: o_ZQuEx_ealt_YkqgtYRqFhee0pzFkg9ObUhODLTAB8
+      short-id: "08"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-ec95a981e2
+    server: 94.249.189.87
+    port: 43000
+    uuid: 9a1acad0-081d-4a40-9541-f544865225bb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: FX23FdMBb-cdr29rzlCrh4tAWgqwhjaV3zXm3kW3fX0
+      short-id: 561eb502
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-a5a5be2e96
+    server: 94.249.189.87
+    port: 43000
+    uuid: 9a1acad0-081d-4a40-9541-f544865225bb
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    reality-opts:
+      public-key: FX23FdMBb-cdr29rzlCrh4tAWgqwhjaV3zXm3kW3fX0
+      short-id: 561eb502
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-4c29024ba1
     server: w7tjfftjdt.vk-maps.net
     port: 52006
@@ -13,18 +53,33 @@ proxies:
       short-id: "08"
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-986361b9aa
+    server: 94.249.172.2
+    port: 1112
+    uuid: b3628ed3-667a-49df-a42e-6887b19100bc
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Tarkshodeh
+      - 4Mohsen-ec95a981e2
+      - 4Sarina-a5a5be2e96
       - 4Mohsen-4c29024ba1
+      - 4Mohsen-986361b9aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Tarkshodeh
+      - 4Mohsen-ec95a981e2
+      - 4Sarina-a5a5be2e96
       - 4Mohsen-4c29024ba1
+      - 4Mohsen-986361b9aa
 rules:
   - MATCH,Proxy

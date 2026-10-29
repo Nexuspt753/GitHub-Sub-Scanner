@@ -1,31 +1,47 @@
 proxies:
+  - type: trojan
+    name: 4Mohsen-3df473056a
+    server: 5.253.189.238
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.calmlunch.com
   - type: vless
-    name: 4Nika-2a1304e38a
-    server: 5.253.189.32
-    port: 9443
-    uuid: 17360870-9c2f-4bfc-9e0c-9aca386606a3
+    name: 4Mohsen-64f96e358d
+    server: 213.108.198.158
+    port: 8442
+    uuid: 35352039-3820-4532-a031-303120313030
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ya.ru
+    servername: creativecommons.org
     reality-opts:
-      public-key: 8Psrf1KEB56yBqaxcNhwcVWJ0_t6in3UP-QVkmVobVw
+      public-key: pFRfJJDY6TYJq-OVgAqFXhdaeur7gJWJM-RZT8g8yAA
+      short-id: 59b75803
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-2a1304e38a
+      - 4Mohsen-3df473056a
+      - 4Mohsen-64f96e358d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2a1304e38a
+      - 4Mohsen-3df473056a
+      - 4Mohsen-64f96e358d
 rules:
   - MATCH,Proxy

@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-789aa3c3db
-    server: 45.148.30.11
-    port: 443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /season/classify?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
   - type: vmess
     name: 4Kian-0de4dd2eb0
     server: 193.180.211.155
@@ -85,45 +69,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4FreeIran-80c73a4a86
-    server: 193.181.212.81
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-789aa3c3db
       - 4Kian-0de4dd2eb0
       - 4Sarina-d46c33665c
       - 4Nika-6f238e972e
       - 4Kian-f3108ca699
-      - 4FreeIran-80c73a4a86
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-789aa3c3db
       - 4Kian-0de4dd2eb0
       - 4Sarina-d46c33665c
       - 4Nika-6f238e972e
       - 4Kian-f3108ca699
-      - 4FreeIran-80c73a4a86
 rules:
   - MATCH,Proxy

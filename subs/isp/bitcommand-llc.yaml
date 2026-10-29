@@ -1,29 +1,32 @@
 proxies:
-  - type: vless
-    name: 4Kian-b0eacb0cea
-    server: 185.202.113.108
-    port: 443
-    uuid: b2bf3e70-e99f-47ed-9802-5c8d264ecc0c
+  - type: ss
+    name: V2ray_confiig
+    server: 87.236.166.166
+    port: 56137
+    cipher: chacha20-ietf-poly1305
+    password: uvKNudV-N8AUCrykPiyznA
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.microsoft.com
-    reality-opts:
-      public-key: SfZ0hMKMM1KUDFQnnrDLRGru6d4tlWdOBjCtC9R9V3s
-      short-id: b6
-    xudp: true
+  - type: ss
+    name: 4Mohsen-13b505a95e
+    server: 87.236.166.88
+    port: 56134
+    cipher: chacha20-ietf-poly1305
+    password: uvKNudV-N8AUCrykPiyznA
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-b0eacb0cea
+      - V2ray_confiig
+      - 4Mohsen-13b505a95e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-b0eacb0cea
+      - V2ray_confiig
+      - 4Mohsen-13b505a95e
 rules:
   - MATCH,Proxy
