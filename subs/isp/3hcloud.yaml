@@ -1,20 +1,5 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 45.144.50.212
-    port: 443
-    uuid: 86a8c2dd-1d47-4006-a397-72b76f2d67c8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: MlXt3-f7eUcUBoZgCOEKCO0vi0idFZ_0XTlzpF0TIzI
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-e89ddea003
     server: 45.144.50.212
     port: 443
@@ -34,7 +19,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - VPsave
       - 4FreeIran-e89ddea003
   - name: Auto
     type: url-test
@@ -42,7 +26,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
       - 4FreeIran-e89ddea003
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4FreeIran-4c43dcba57
+    server: 46.8.29.17
+    port: 443
+    uuid: b2d5eabe-b95b-41ac-950c-79e7a5535416
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: deti-online.com
+    reality-opts:
+      public-key: y8tdYYF4byfHuyhCUb0x8SLK2gjmhKLK_wr-QVb3Dko
+      short-id: 2fd2739b0851f9e4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-adec553117
     server: 46.8.29.17
     port: 443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-4c43dcba57
       - 4Jadi-adec553117
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-4c43dcba57
       - 4Jadi-adec553117
 rules:
   - MATCH,Proxy

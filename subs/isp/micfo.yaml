@@ -1,19 +1,9 @@
 proxies:
   - type: vless
-    name: VPsave
+    name: 4Jadi-7ff2a7f1ef
     server: 104.143.219.97
     port: 3090
     uuid: 2bbae163-25a5-46fb-9c98-9c97a5b9904b
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Jadi-3424e18398
-    server: 104.143.219.97
-    port: 3090
-    uuid: d3750c54-a9e6-4e66-a391-d86461329f63
     udp: true
     xudp: true
     network: grpc
@@ -24,15 +14,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - VPsave
-      - 4Jadi-3424e18398
+      - 4Jadi-7ff2a7f1ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
-      - 4Jadi-3424e18398
+      - 4Jadi-7ff2a7f1ef
 rules:
   - MATCH,Proxy

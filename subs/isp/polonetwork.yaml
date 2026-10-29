@@ -34,6 +34,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Mohsen-41af7b7119
+    server: w12.luoli.de
+    port: 443
+    uuid: 42a99644-b90b-3627-8809-a2d6c4078b59
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: w12.luoli.de
+    network: ws
+    ws-opts:
+      path: /v2ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: w12.luoli.de
 proxy-groups:
   - name: Proxy
     type: select
@@ -41,6 +59,7 @@ proxy-groups:
       - Auto
       - 4Mohsen-85333631a4
       - 4Nika-5ee5bb37f0
+      - 4Mohsen-41af7b7119
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,5 +68,6 @@ proxy-groups:
     proxies:
       - 4Mohsen-85333631a4
       - 4Nika-5ee5bb37f0
+      - 4Mohsen-41af7b7119
 rules:
   - MATCH,Proxy

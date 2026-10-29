@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: 4Mohsen-dac093bd52
+    server: 93.190.9.63
+    port: 3090
+    uuid: 37fc3a9f-72e0-4b15-84ab-1455f028147a
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Sarina-096eb220c5
     server: 93.190.9.232
     port: 3090
@@ -14,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-dac093bd52
       - 4Sarina-096eb220c5
   - name: Auto
     type: url-test
@@ -21,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-dac093bd52
       - 4Sarina-096eb220c5
 rules:
   - MATCH,Proxy

@@ -1,4 +1,19 @@
 proxies:
+  - type: trojan
+    name: ">>@oneclickvpnkeys::US"
+    server: 167.68.4.199
+    port: 2053
+    password: Aimer
+    udp: true
+    tls: true
+    sni: epge.muarua.filegear-sg.me
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /?proxyip=ts.hpc.tw
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: epge.muarua.filegear-sg.me
   - type: vless
     name: 4Kian-c65130be71
     server: 167.68.11.30
@@ -17,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - ">>@oneclickvpnkeys::US"
       - 4Kian-c65130be71
   - name: Auto
     type: url-test
@@ -24,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - ">>@oneclickvpnkeys::US"
       - 4Kian-c65130be71
 rules:
   - MATCH,Proxy

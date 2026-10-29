@@ -1,39 +1,5 @@
 proxies:
   - type: vless
-    name: 4Jadi-461c645183
-    server: 38.55.192.169
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Mohsen-e46483b344
-    server: uiuxtestsdcv-development-r6dg9.lucity.app
-    port: 443
-    uuid: 58b06206-cd53-23d6-279a-0f0dd259cb0a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: uiuxtestsdcv-development-r6dg9.lucity.app
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/58b06206-cd53-23d6-279a-0f0dd259cb0a
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: uiuxtestsdcv-development-r6dg9.lucity.app
-  - type: vless
     name: 4Sarina-fac27a960e
     server: 38.190.210.250
     port: 443
@@ -91,44 +57,24 @@ proxies:
       short-id: b440a145
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-66fb2e9191
-    server: 38.207.187.61
-    port: 443
-    uuid: e9ef29c0-9f7e-4adc-92ce-8cdaab9078b3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: aws-us-east-1.amazon.com
-    reality-opts:
-      public-key: A-CbXPG1YW77K_KIOVC4oFrp4lQ8ZNM3C_lZvPsqsiU
-      short-id: 5d7317d88ecfb187
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-461c645183
-      - 4Mohsen-e46483b344
       - 4Sarina-fac27a960e
       - 4Nika-b5d4057d34
       - 4Kian-800ceae6aa
       - 4Nika-ce001e3b23
-      - 4Nika-66fb2e9191
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-461c645183
-      - 4Mohsen-e46483b344
       - 4Sarina-fac27a960e
       - 4Nika-b5d4057d34
       - 4Kian-800ceae6aa
       - 4Nika-ce001e3b23
-      - 4Nika-66fb2e9191
 rules:
   - MATCH,Proxy

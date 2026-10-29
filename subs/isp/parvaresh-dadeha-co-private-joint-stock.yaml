@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: VPsave
+    server: ddehop.sarzaminshadi13.ir
+    port: 1990
+    cipher: chacha20-ietf-poly1305
+    password: zMTJa-rGFe8QU3QpfXabvvSUpohAxLz0
+    udp: true
   - type: vless
     name: 4Kian-dac056e4cb
     server: dl5.herewegoo.com
@@ -9,18 +16,33 @@ proxies:
     client-fingerprint: chrome
     servername: dl5.herewegoo.com
     xudp: true
+  - type: vmess
+    name: 4FreeIran-1cbf985e16
+    server: s1.connect.bloroxy.net
+    port: 1027
+    uuid: a8db1a30-f66a-428e-ad1d-4f17c76b57e3
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: none
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Kian-dac056e4cb
+      - 4FreeIran-1cbf985e16
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Kian-dac056e4cb
+      - 4FreeIran-1cbf985e16
 rules:
   - MATCH,Proxy

@@ -18,13 +18,31 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: app-6ada5023.deploy.meerasolution.com
   - type: vless
-    name: 4Jadi-6782c0df3c
+    name: Channel
     server: 122.176.216.52
     port: 443
     uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
     udp: true
     tls: true
-    client-fingerprint: android
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: app-6ada5023.deploy.meerasolution.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: app-6ada5023.deploy.meerasolution.com
+  - type: vless
+    name: Channel-01
+    server: 122.176.216.52
+    port: 443
+    uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: app-6ada5023.deploy.meerasolution.com
     xudp: true
     network: ws
@@ -66,40 +84,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: app-6ada5023.deploy.meerasolution.com
   - type: vless
-    name: 4Jadi-f253d4d5a1
-    server: 122.176.216.52
-    port: 443
-    uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: app-6ada5023.deploy.meerasolution.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: app-6ada5023.deploy.meerasolution.com
-  - type: vless
-    name: 4Nika-5f790eadd2
-    server: 122.176.216.52
-    port: 443
-    uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: app-6ada5023.deploy.meerasolution.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: app-6ada5023.deploy.meerasolution.com
-  - type: vless
     name: 4Nika-a531e8a1cd
     server: 122.176.216.52
     port: 443
@@ -109,22 +93,6 @@ proxies:
     client-fingerprint: chrome
     alpn:
       - h2
-    servername: app-6ada5023.deploy.meerasolution.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: app-6ada5023.deploy.meerasolution.com
-  - type: vless
-    name: 4Nika-aa70dcf9d8
-    server: 122.176.216.52
-    port: 443
-    uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
-    udp: true
-    tls: true
-    client-fingerprint: chrome
     servername: app-6ada5023.deploy.meerasolution.com
     xudp: true
     network: ws
@@ -157,13 +125,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-6782c0df3c
+      - Channel
+      - Channel-01
       - 4Nika-f902b8dfd8
       - 4Mohsen-c50acd070b
-      - 4Jadi-f253d4d5a1
-      - 4Nika-5f790eadd2
       - 4Nika-a531e8a1cd
-      - 4Nika-aa70dcf9d8
       - 4Kian-2ee62d70e2
   - name: Auto
     type: url-test
@@ -172,13 +138,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-6782c0df3c
+      - Channel
+      - Channel-01
       - 4Nika-f902b8dfd8
       - 4Mohsen-c50acd070b
-      - 4Jadi-f253d4d5a1
-      - 4Nika-5f790eadd2
       - 4Nika-a531e8a1cd
-      - 4Nika-aa70dcf9d8
       - 4Kian-2ee62d70e2
 rules:
   - MATCH,Proxy

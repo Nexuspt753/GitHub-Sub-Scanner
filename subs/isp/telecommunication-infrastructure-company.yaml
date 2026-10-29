@@ -1,60 +1,24 @@
 proxies:
   - type: vless
-    name: 🇮🇷202188
-    server: workshopnew.subpannel.ir
-    port: 6003
-    uuid: 3e2cec1d-8272-4940-ab16-948364b6d88e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fastgoodshop.persiansubpannel.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fastgoodshop.persiansubpannel.ir
-  - type: vless
-    name: 4Mohsen-db747c95e7
-    server: workshopnew.subpannel.ir
-    port: 6003
-    uuid: 3e2cec1d-8272-4940-ab16-948364b6d88e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fastgoodshop.persiansubpannel.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fastgoodshop.persiansubpannel.ir
-  - type: vless
-    name: 4Nika-67cc92d9c1
-    server: workshopnew.subpannel.ir
-    port: 6003
-    uuid: 3e2cec1d-8272-4940-ab16-948364b6d88e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: fastgoodshop.persiansubpannel.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fastgoodshop.persiansubpannel.ir
-  - type: vless
     name: vless
+    server: Workshopnew.subpannel.ir
+    port: 6000
+    uuid: e24ccc07-a6f3-4270-8363-7b49dd31e14f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: Workshopnew.subpannel.ir
+    port: 6002
+    uuid: 83b13368-7d1b-48c3-9ff3-816c1e786f76
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-02
     server: Workshopnew.subpannel.ir
     port: 6001
     uuid: e24ccc07-a6f3-4270-8363-7b49dd31e14f
@@ -70,19 +34,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 🇮🇷202188
-      - 4Mohsen-db747c95e7
-      - 4Nika-67cc92d9c1
       - vless
+      - vless-01
+      - vless-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇮🇷202188
-      - 4Mohsen-db747c95e7
-      - 4Nika-67cc92d9c1
       - vless
+      - vless-01
+      - vless-02
 rules:
   - MATCH,Proxy
