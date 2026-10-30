@@ -13,12 +13,46 @@ proxies:
       short-id: 5a7c3dab8d267f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 🇯🇵
+    server: 216.23.122.125
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
+  - type: vless
+    name: 🇺🇸
+    server: 216.23.122.125
+    port: 443
+    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edgetunnel-4uw.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-a4d4bc0a50
+      - 🇯🇵
+      - 🇺🇸
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +60,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-a4d4bc0a50
+      - 🇯🇵
+      - 🇺🇸
 rules:
   - MATCH,Proxy

@@ -28,21 +28,39 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-ec95134531
-    server: 153.75.86.200
+    name: 4FreeIran-fb2d1decae
+    server: 45.61.149.205
     port: 8443
-    uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
-    client-fingerprint: edge
-    servername: www.apple.com
-    reality-opts:
-      public-key: JNp0hUDwHZQw9kbwd-D1WfIOdqCtdJeBv1WTNp37V0M
-      short-id: 7e7434c068cbef5a
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
     xudp: true
+    network: ws
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
   - type: vless
-    name: 4Kian-365995c61b
+    name: 4FreeIran-dbd2ab3c11
+    server: 45.61.149.205
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Mohsen-ec95134531
     server: 153.75.86.200
     port: 8443
     uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
@@ -69,20 +87,6 @@ proxies:
       short-id: 05f5d227c525b840
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-787e6d99fd
-    server: 153.75.86.200
-    port: 8444
-    uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: www.apple.com
-    reality-opts:
-      public-key: Pf6ncFuG_HpLNZQKNre-mfklU6fdLORyftfw3UAa6xc
-      short-id: 05f5d227c525b840
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -90,10 +94,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4FreeIran-fb2d1decae
+      - 4FreeIran-dbd2ab3c11
       - 4Mohsen-ec95134531
-      - 4Kian-365995c61b
       - 4Nika-f5c3197fab
-      - 4Nika-787e6d99fd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -102,9 +106,9 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4FreeIran-fb2d1decae
+      - 4FreeIran-dbd2ab3c11
       - 4Mohsen-ec95134531
-      - 4Kian-365995c61b
       - 4Nika-f5c3197fab
-      - 4Nika-787e6d99fd
 rules:
   - MATCH,Proxy

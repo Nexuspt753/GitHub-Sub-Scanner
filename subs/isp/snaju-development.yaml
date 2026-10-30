@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: 4Nika-c45112ab55
+    server: stunglacier.net
+    port: 443
+    uuid: ba43a391-b294-4657-8e97-8f59feb4c6ed
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: stunglacier.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-f4c7a2fbe3
     server: stunglacier.net
     port: 443
@@ -13,44 +24,20 @@ proxies:
     servername: stunglacier.net
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-b7aa1662f9
-    server: stunglacier.net
-    port: 443
-    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: stunglacier.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-c0ac2eab95
-    server: stunglacier.net
-    port: 443
-    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: stunglacier.net
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-c45112ab55
       - 4Nika-f4c7a2fbe3
-      - 4Sarina-b7aa1662f9
-      - 4Mohsen-c0ac2eab95
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-c45112ab55
       - 4Nika-f4c7a2fbe3
-      - 4Sarina-b7aa1662f9
-      - 4Mohsen-c0ac2eab95
 rules:
   - MATCH,Proxy

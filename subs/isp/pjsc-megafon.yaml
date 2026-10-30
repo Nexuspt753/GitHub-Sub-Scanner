@@ -14,12 +14,44 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-62bbb30e49
+    server: 212.69.109.123
+    port: 8503
+    uuid: 7a0348d6-55d3-4c23-b22f-6277fcb2264c
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: 3okkzyeh5p.j.cloudfront.hls.ttvnw.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-6facc28533
+    server: 212.69.109.123
+    port: 8526
+    uuid: 7a0348d6-55d3-4c23-b22f-6277fcb2264c
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: y7uv4htfaz.j.cloudfront.hls.ttvnw.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-b1e74b58f4
+      - 4Kian-62bbb30e49
+      - 4Nika-6facc28533
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +59,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-b1e74b58f4
+      - 4Kian-62bbb30e49
+      - 4Nika-6facc28533
 rules:
   - MATCH,Proxy

@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-247a6a42e3
+    server: 169.128.83.4
+    port: 57259
+    uuid: a1962f23-f8f8-412d-f2ce-3361e7b72889
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-247a6a42e3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-247a6a42e3
+rules:
+  - MATCH,Proxy

@@ -1,46 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.105.108.176
+    name: 4Nika-09c868218c
+    server: 178.208.86.182
     port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    uuid: b782eda8-7846-437c-ab93-07c3476c2887
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.google.co.uk
-    reality-opts:
-      public-key: U9O1sbuPwoTowF3Ka7CIgUZlRjokulxSwsYohEGCLA8
-      short-id: 0d87fec579
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: jp-osa.862400.xyz
     xudp: true
-  - type: vless
-    name: 4Kian-147ceafafb
-    server: 185.105.108.176
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.google.co.uk
-    reality-opts:
-      public-key: U9O1sbuPwoTowF3Ka7CIgUZlRjokulxSwsYohEGCLA8
-      short-id: 0d87fec579
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp-osa.862400.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Kian-147ceafafb
+      - 4Nika-09c868218c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Kian-147ceafafb
+      - 4Nika-09c868218c
 rules:
   - MATCH,Proxy

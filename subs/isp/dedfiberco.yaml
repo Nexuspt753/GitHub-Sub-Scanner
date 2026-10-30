@@ -1,28 +1,29 @@
 proxies:
   - type: vless
-    name: "[72977]"
-    server: 104.237.250.27
-    port: 20315
-    uuid: 58539380-4442-4f30-9b15-c1bc61c53b1c
+    name: 4Mohsen-ff535fa3aa
+    server: 104.237.250.124
+    port: 8443
+    uuid: 82c93c4c-f349-4e72-b893-10c9c3894f53
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 4guz-VgKZNKEfqRTpIUQLjzFZWTqwO-oThwbZ4mIMDA
+      short-id: 209cca9d
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "[72977]"
+      - 4Mohsen-ff535fa3aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "[72977]"
+      - 4Mohsen-ff535fa3aa
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Jadi-841c0fef8a
+    server: 91.239.6.47
+    port: 443
+    uuid: b782eda8-7846-437c-ab93-07c3476c2887
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp-osa.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp-osa.862400.xyz
+  - type: vless
     name: 4Nika-9daa8cef72
     server: 91.239.6.47
     port: 443
@@ -22,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-841c0fef8a
       - 4Nika-9daa8cef72
   - name: Auto
     type: url-test
@@ -29,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-841c0fef8a
       - 4Nika-9daa8cef72
 rules:
   - MATCH,Proxy

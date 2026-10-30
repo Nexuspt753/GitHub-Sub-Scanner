@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Nika-1610eaa7fa
+    server: 192.71.27.237
+    port: 443
+    uuid: b782eda8-7846-437c-ab93-07c3476c2887
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: eu-central.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eu-central.862400.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-1610eaa7fa
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-1610eaa7fa
+rules:
+  - MATCH,Proxy

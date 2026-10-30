@@ -1,9 +1,19 @@
 proxies:
   - type: vless
-    name: 4FreeIran-625060da2c
-    server: 80.243.228.61
+    name: DeltaKroneckerGithub
+    server: 80.243.228.98
     port: 2085
-    uuid: 8f6f8a4a-b30b-4061-bf5f-646997a6bcc9
+    uuid: 1b60e6e9-65ef-4f7c-8c9c-758f42d4c531
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-24a7ba30c9
+    server: 80.243.228.98
+    port: 2085
+    uuid: 1b60e6e9-65ef-4f7c-8c9c-758f42d4c531
     udp: true
     xudp: true
     network: grpc
@@ -14,13 +24,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-625060da2c
+      - DeltaKroneckerGithub
+      - 4Sarina-24a7ba30c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-625060da2c
+      - DeltaKroneckerGithub
+      - 4Sarina-24a7ba30c9
 rules:
   - MATCH,Proxy

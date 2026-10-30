@@ -1,30 +1,62 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-702379d429
-    server: 46.8.210.129
-    port: 22443
-    password: 2a3b101d-d8f9-40e7-9373-b0ef487c0035
-    sni: disk.api-yandex.net
-  - type: hysteria2
-    name: 4Nika-b5901c1d84
-    server: 46.8.210.152
-    port: 23443
-    password: 2a3b101d-d8f9-40e7-9373-b0ef487c0035
-    sni: disk.api-yandex.net
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 46.8.255.252
+    port: 443
+    uuid: eb8af077-a580-4f67-8042-9572a39e699d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: msk-01.file-rkat.online
+    reality-opts:
+      public-key: "-ec5ai1FYGZSDDbOQaR6aDuTklZzKsnrtQUUgykn-mI"
+      short-id: 9bb9409c0ec4c7a1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: 46.8.255.252
+    port: 443
+    uuid: eb8af077-a580-4f67-8042-9572a39e699d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-01.file-rkat.online
+    reality-opts:
+      public-key: "-ec5ai1FYGZSDDbOQaR6aDuTklZzKsnrtQUUgykn-mI"
+      short-id: 9bb9409c0ec4c7a1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-1e5734ac8a
+    server: 46.8.255.252
+    port: 443
+    uuid: eb8af077-a580-4f67-8042-9572a39e699d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msk-01.file-rkat.online
+    reality-opts:
+      public-key: "-ec5ai1FYGZSDDbOQaR6aDuTklZzKsnrtQUUgykn-mI"
+      short-id: 9bb9409c0ec4c7a1
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-702379d429
-      - 4Nika-b5901c1d84
+      - DeltaKroneckerGithub
+      - VPsave
+      - 4Sarina-1e5734ac8a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-702379d429
-      - 4Nika-b5901c1d84
+      - DeltaKroneckerGithub
+      - VPsave
+      - 4Sarina-1e5734ac8a
 rules:
   - MATCH,Proxy
