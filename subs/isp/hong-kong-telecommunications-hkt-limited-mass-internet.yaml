@@ -19,15 +19,21 @@ proxies:
     password: 989aa406-ea9b-11ef-97da-f23c91cfbbc9
     sni: 12e4d2e3-tmm5c0-tnhx9s-1rnrp.hk3.hyhuawei.com
     skip-cert-verify: true
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 58.152.18.71
-    port: 443
-    password: 76d630f2af6619c4a5de0ef953df3c6a
+  - type: vmess
+    name: 4Kian-6a0178b62b
+    server: hkgb707.ifastcdncache.com
+    port: 60852
+    uuid: f8eca8df-a1a5-4918-a194-d34112a3673f
+    alterId: 2
+    cipher: auto
     udp: true
-    tls: true
-    sni: www.nintendogames.net
-    client-fingerprint: chrome
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -36,7 +42,7 @@ proxy-groups:
       - 4Kian-6cc4f08459
       - 4FreeIran-13e408c01f
       - 4Mohsen-3f372989df
-      - DeltaKroneckerGithub
+      - 4Kian-6a0178b62b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,6 +52,6 @@ proxy-groups:
       - 4Kian-6cc4f08459
       - 4FreeIran-13e408c01f
       - 4Mohsen-3f372989df
-      - DeltaKroneckerGithub
+      - 4Kian-6a0178b62b
 rules:
   - MATCH,Proxy

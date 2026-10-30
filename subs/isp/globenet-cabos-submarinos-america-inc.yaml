@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: 4Sarina-a0febad4b3
+    server: 187.52.44.20
+    port: 47443
+    uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl4.waspnest.space
+    reality-opts:
+      public-key: g5am2VhZkx_xH2TSKfUU8OYLxAzFrmcszNQg8AbOenE
+      short-id: ae97223a8f799872
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-5c18f34139
+    server: 187.52.44.20
+    port: 47443
+    uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl4.waspnest.space
+    reality-opts:
+      public-key: g5am2VhZkx_xH2TSKfUU8OYLxAzFrmcszNQg8AbOenE
+      short-id: ae97223a8f799872
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-c06c5ac8e0
     server: 187.52.44.20
     port: 47443
@@ -27,20 +55,37 @@ proxies:
       short-id: ae97223a8f799872
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-bed6aac20f
+    server: 187.52.44.20
+    port: 47443
+    uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl4.waspnest.space
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-a0febad4b3
+      - 4Nika-5c18f34139
       - 4Sarina-c06c5ac8e0
       - 4Jadi-597d9bcfb2
+      - 4FreeIran-bed6aac20f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-a0febad4b3
+      - 4Nika-5c18f34139
       - 4Sarina-c06c5ac8e0
       - 4Jadi-597d9bcfb2
+      - 4FreeIran-bed6aac20f
 rules:
   - MATCH,Proxy

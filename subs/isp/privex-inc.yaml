@@ -1,32 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Kian-9c86ba5cd0
-    server: 202.181.177.8
-    port: 8443
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  - type: trojan
+    name: 4FreeIran-97f10ea4f6
+    server: 121.127.33.130
+    port: 443
+    password: f426d3c9-fb43-43c0-868b-898dfa451a74
     udp: true
     tls: true
+    sni: likejennie.pages.dev
     client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
-    xudp: true
     network: ws
     ws-opts:
-      path: /channels/act
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-9c86ba5cd0
+      - 4FreeIran-97f10ea4f6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9c86ba5cd0
+      - 4FreeIran-97f10ea4f6
 rules:
   - MATCH,Proxy

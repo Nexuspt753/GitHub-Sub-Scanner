@@ -1,62 +1,45 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 179.254.71.20
-    port: 52006
-    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
+    name: 4Mohsen-26f04f05b5
+    server: 94.249.148.20
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: pl.setlisting.ru
+    client-fingerprint: firefox
+    servername: de-3.bnc-gt.co.uk
+    reality-opts:
+      public-key: CegqLjzOImUmYD9ZdpOOG65UgNTGeQfRmpIni8iraB0
+      short-id: 7be1e9c243451b14
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Net2ray
-    server: 179.254.71.20
-    port: 52006
-    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
+    name: 4Kian-89d962b088
+    server: 94.249.148.20
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: pl.setlisting.ru
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: a.de-3.bnc-gt.co.uk
     xudp: true
-  - type: vless
-    name: 4Nika-53207fdd01
-    server: 179.254.71.20
-    port: 52006
-    uuid: bc659d88-a1e0-4c65-a49a-7b51b26a7a7f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: pl.setlisting.ru
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - Net2ray
-      - 4Nika-53207fdd01
+      - 4Mohsen-26f04f05b5
+      - 4Kian-89d962b088
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - Net2ray
-      - 4Nika-53207fdd01
+      - 4Mohsen-26f04f05b5
+      - 4Kian-89d962b088
 rules:
   - MATCH,Proxy

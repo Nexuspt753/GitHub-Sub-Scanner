@@ -7,6 +7,13 @@ proxies:
     password: NzJlOTQ5NWYtM2ZkYi00Cg==
     udp: true
   - type: ss
+    name: 🇺🇸
+    server: 103.11.76.248
+    port: 28679
+    cipher: 2022-blake3-aes-128-gcm
+    password: NzJlOTQ5NWYtM2ZkYi00Cg==
+    udp: true
+  - type: ss
     name: 4Kian-5a090cd087
     server: 103.11.76.248
     port: 28679
@@ -20,22 +27,30 @@ proxies:
     cipher: 2022-blake3-aes-128-gcm
     password: NzJlOTQ5NWYtM2ZkYi00Cg==
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 103.11.76.248
-    port: 28679
-    cipher: 2022-blake3-aes-128-gcm
-    password: NzJlOTQ5NWYtM2ZkYi00Cg%3D%3D
+  - type: trojan
+    name: 4FreeIran-760cba446c
+    server: 103.11.76.183
+    port: 443
+    password: f426d3c9-fb43-43c0-868b-898dfa451a74
     udp: true
+    tls: true
+    sni: likejennie.pages.dev
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Channel
+      - 🇺🇸
       - 4Kian-5a090cd087
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-760cba446c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,8 +58,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Channel
+      - 🇺🇸
       - 4Kian-5a090cd087
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-760cba446c
 rules:
   - MATCH,Proxy

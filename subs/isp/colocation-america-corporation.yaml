@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 206.206.78.36
-    port: 443
-    uuid: e3f0c894-0f76-4683-a751-6a93da8fd14d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: UOLfRKeEoVxkp-APTF2OlvFkKSoiR2mWzUuhSWxcVmQ
-      short-id: 133a3f10a1581047
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-2ee1bcd64c
     server: 206.206.76.75
     port: 443
@@ -108,26 +94,11 @@ proxies:
       short-id: a775360a48ef5cfb
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-b9a48f8f51
-    server: 206.206.78.36
-    port: 443
-    uuid: e3f0c894-0f76-4683-a751-6a93da8fd14d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: UOLfRKeEoVxkp-APTF2OlvFkKSoiR2mWzUuhSWxcVmQ
-      short-id: 133a3f10a1581047
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Kian-2ee1bcd64c
       - 4Jadi-ebee1ef78c
       - 4Jadi-71d6adf7e6
@@ -135,14 +106,12 @@ proxy-groups:
       - 4Nika-218c710f8a
       - 4Mohsen-1954c865c8
       - 4FreeIran-9bcec53ce3
-      - 4Mohsen-b9a48f8f51
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Kian-2ee1bcd64c
       - 4Jadi-ebee1ef78c
       - 4Jadi-71d6adf7e6
@@ -150,6 +119,5 @@ proxy-groups:
       - 4Nika-218c710f8a
       - 4Mohsen-1954c865c8
       - 4FreeIran-9bcec53ce3
-      - 4Mohsen-b9a48f8f51
 rules:
   - MATCH,Proxy

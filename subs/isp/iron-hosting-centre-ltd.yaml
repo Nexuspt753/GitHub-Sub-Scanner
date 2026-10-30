@@ -1,62 +1,34 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 178.208.80.70
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    name: 4Mohsen-39f0f25771
+    server: 46.30.45.254
+    port: 8444
+    uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.google.co.uk
-    reality-opts:
-      public-key: LeUrd_GQtz8W6BKaL4R5R16UYRhfzyQ3G9AKBEHOLGg
-      short-id: "02"
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: nl12.meshbeat.online
     xudp: true
-  - type: vless
-    name: 11125@proxy_online_net
-    server: 178.208.80.70
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.google.co.uk
-    reality-opts:
-      public-key: LeUrd_GQtz8W6BKaL4R5R16UYRhfzyQ3G9AKBEHOLGg
-      short-id: "02"
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-1d3b1d7481
-    server: 178.208.80.70
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.google.co.uk
-    reality-opts:
-      public-key: LeUrd_GQtz8W6BKaL4R5R16UYRhfzyQ3G9AKBEHOLGg
-      short-id: "02"
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/7495606fef/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl12.meshbeat.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 11125@proxy_online_net
-      - 4Sarina-1d3b1d7481
+      - 4Mohsen-39f0f25771
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 11125@proxy_online_net
-      - 4Sarina-1d3b1d7481
+      - 4Mohsen-39f0f25771
 rules:
   - MATCH,Proxy

@@ -1,39 +1,19 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: t9.qifei.app
+    server: kaizen-hk-11.gocmydns.com
     port: 443
-    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
+    password: 29db38f0-e302-3768-8867-0b9bf00c77e4cmynw
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: www.amazon.com
-    reality-opts:
-      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-      short-id: 1a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-7e5fc5a6b7
-    server: t9.qifei.app
-    port: 443
-    uuid: b98d4c6e-6770-4a31-8256-a4750cdea0e7
-    udp: true
-    tls: true
+    sni: images.apple.com
     client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: 0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo
-      short-id: 1a
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-7e5fc5a6b7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-7e5fc5a6b7
 rules:
   - MATCH,Proxy

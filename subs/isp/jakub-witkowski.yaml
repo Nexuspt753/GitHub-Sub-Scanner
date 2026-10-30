@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-4c4abb92e4
+    server: tr2.tv-quoralyx.top
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tr2.tv-quoralyx.top
+    reality-opts:
+      public-key: w0yEuw7sPMCEwk9_vDVoqjBhJsGoPvR7TsxIZVJy3iw
+      short-id: f4b2a12c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-1ef13c1860
+    server: tr2.tv-quoralyx.top
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr2.tv-quoralyx.top
+    reality-opts:
+      public-key: w0yEuw7sPMCEwk9_vDVoqjBhJsGoPvR7TsxIZVJy3iw
+      short-id: f4b2a12c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-a24d353329
+    server: tr2.tv-quoralyx.top
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr2.tv-quoralyx.top
+    reality-opts:
+      public-key: w0yEuw7sPMCEwk9_vDVoqjBhJsGoPvR7TsxIZVJy3iw
+      short-id: f4b2a12c
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-4c4abb92e4
+      - 4Kian-1ef13c1860
+      - 4Nika-a24d353329
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-4c4abb92e4
+      - 4Kian-1ef13c1860
+      - 4Nika-a24d353329
+rules:
+  - MATCH,Proxy
