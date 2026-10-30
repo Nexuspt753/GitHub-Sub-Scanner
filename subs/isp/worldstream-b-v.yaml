@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: Nexus_Panell
+    server: dns22.m3hrzd.ir
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: 3aieh2NJta-1dD1OPmr8pvJ4j1B8wnYM
+    udp: true
+  - type: ss
+    name: تلگرام
+    server: dns22.m3hrzd.ir
+    port: 1354
+    cipher: chacha20-ietf-poly1305
+    password: LzEeLj2OP0DQmpPDtVTazdGC0cHcT0Kn
+    udp: true
   - type: vless
     name: 4FreeIran-9adc19e422
     server: cdn.recepist.com
@@ -17,6 +31,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Nexus_Panell
+      - تلگرام
       - 4FreeIran-9adc19e422
   - name: Auto
     type: url-test
@@ -24,6 +40,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Nexus_Panell
+      - تلگرام
       - 4FreeIran-9adc19e422
 rules:
   - MATCH,Proxy

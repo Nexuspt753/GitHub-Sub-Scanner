@@ -1,15 +1,5 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 178.83.111.53
-    port: 2085
-    uuid: 93aa53ba-92a9-41ef-942d-7e8762e3ab5e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-2965aa3075
     server: 178.83.111.53
     port: 2085
@@ -24,7 +14,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - VPsave
       - 4FreeIran-2965aa3075
   - name: Auto
     type: url-test
@@ -32,7 +21,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
       - 4FreeIran-2965aa3075
 rules:
   - MATCH,Proxy

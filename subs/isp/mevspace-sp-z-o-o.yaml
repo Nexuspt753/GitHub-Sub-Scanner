@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: vpnsal
+    server: 185.16.38.132
+    port: 443
+    uuid: 8007dda2-aed2-4514-8299-6e3edbdb015b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl1.magazinnarubeva.ru
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Nexus_Panell
     server: 5.181.188.197
     port: 8443
@@ -41,38 +55,24 @@ proxies:
       short-id: 2a32eee322ae3e12
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-f41d36fec1
-    server: 5.181.188.197
-    port: 8443
-    uuid: a39ef2cc-1fda-4be0-b1b4-4271c77a242b
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: rsturbo.fast-brooklyn.ru
-    reality-opts:
-      public-key: yo4kPjhMBwa0XCQ8ZljNReOl06r28BDKXSAz7HGFW2E
-      short-id: 2a32eee322ae3e12
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - vpnsal
       - Nexus_Panell
       - 4FreeIran-4986aeccc0
       - 4Jadi-3f531b1f8b
-      - 4Sarina-f41d36fec1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vpnsal
       - Nexus_Panell
       - 4FreeIran-4986aeccc0
       - 4Jadi-3f531b1f8b
-      - 4Sarina-f41d36fec1
 rules:
   - MATCH,Proxy

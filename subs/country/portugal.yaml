@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: Viana do Castelo · @VEGAAS_VPN
-    server: 185.138.89.162
-    port: 443
-    uuid: 7K8ckQ9Odjv5ya
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.heise.de
-    reality-opts:
-      public-key: I_PJRjRaDOYVO33p3dyMruZwyMAnvt1rG74NCZ2iXUY
-      short-id: 8a2a4eb0
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Porto · 4Nika-c752ca25dc
     server: 195.133.92.228
     port: 443
@@ -29,6 +15,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: Viana do Castelo · 4FreeIran-7b03bdc603
+    server: 185.138.89.162
+    port: 443
+    uuid: 7K8ckQ9Odjv5ya
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.heise.de
+    reality-opts:
+      public-key: I_PJRjRaDOYVO33p3dyMruZwyMAnvt1rG74NCZ2iXUY
+      short-id: 8a2a4eb0
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: Lisbon · 4FreeIran-a0504ddc58
     server: 50.7.43.117
@@ -48,8 +48,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Viana do Castelo · @VEGAAS_VPN
       - Porto · 4Nika-c752ca25dc
+      - Viana do Castelo · 4FreeIran-7b03bdc603
       - Lisbon · 4FreeIran-a0504ddc58
   - name: Auto
     type: url-test
@@ -57,8 +57,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Viana do Castelo · @VEGAAS_VPN
       - Porto · 4Nika-c752ca25dc
+      - Viana do Castelo · 4FreeIran-7b03bdc603
       - Lisbon · 4FreeIran-a0504ddc58
 rules:
   - MATCH,Proxy

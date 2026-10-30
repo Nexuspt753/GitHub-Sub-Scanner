@@ -1,5 +1,74 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: de-3.bnc-gt.co.uk
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-3.bnc-gt.co.uk
+    reality-opts:
+      public-key: CegqLjzOImUmYD9ZdpOOG65UgNTGeQfRmpIni8iraB0
+      short-id: 7be1e9c243451b14
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 13.143.176.83
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: a.es-1.bnc-gt-r1.co.uk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 94.249.148.20
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-3.bnc-gt.co.uk
+    reality-opts:
+      public-key: CegqLjzOImUmYD9ZdpOOG65UgNTGeQfRmpIni8iraB0
+      short-id: 7be1e9c243451b14
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-cae54fb1bc
+    server: 13.143.176.83
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: a.es-1.bnc-gt-r1.co.uk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-d0d40d3c71
+    server: 13.143.176.83
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: a.es-1.bnc-gt-r1.co.uk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Mohsen-26f04f05b5
     server: 94.249.148.20
     port: 443
@@ -14,32 +83,75 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-89d962b088
+    name: 4Mohsen-011f6a7d9b
     server: 94.249.148.20
     port: 443
     uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: a.de-3.bnc-gt.co.uk
     xudp: true
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-61f02c6514
+    server: 94.249.148.20
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: a.de-3.bnc-gt.co.uk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-5d6aa30f0f
+    server: de-3.bnc-gt.co.uk
+    port: 443
+    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de-3.bnc-gt.co.uk
+    reality-opts:
+      public-key: CegqLjzOImUmYD9ZdpOOG65UgNTGeQfRmpIni8iraB0
+      short-id: 7be1e9c243451b14
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Jadi-cae54fb1bc
+      - 4Kian-d0d40d3c71
       - 4Mohsen-26f04f05b5
-      - 4Kian-89d962b088
+      - 4Mohsen-011f6a7d9b
+      - 4Mohsen-61f02c6514
+      - 4Mohsen-5d6aa30f0f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Jadi-cae54fb1bc
+      - 4Kian-d0d40d3c71
       - 4Mohsen-26f04f05b5
-      - 4Kian-89d962b088
+      - 4Mohsen-011f6a7d9b
+      - 4Mohsen-61f02c6514
+      - 4Mohsen-5d6aa30f0f
 rules:
   - MATCH,Proxy

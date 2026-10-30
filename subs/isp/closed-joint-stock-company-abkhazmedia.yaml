@@ -12,12 +12,28 @@ proxies:
       public-key: fJnm6-PhJGSwHaAdJOzXkYOfCPPCWSlaZrtfm1XsqhA
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-3989c05b9b
+    server: 45.12.63.42
+    port: 448
+    uuid: a5ca9144-f3a5-404f-ae19-e1060b120328
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eh.vk.ru
+    reality-opts:
+      public-key: wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-00efd72e7b
+      - 4Jadi-3989c05b9b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-00efd72e7b
+      - 4Jadi-3989c05b9b
 rules:
   - MATCH,Proxy

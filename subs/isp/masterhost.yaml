@@ -1,31 +1,22 @@
 proxies:
-  - type: vless
-    name: 4Kian-3de2ff2c0f
-    server: 87.242.117.59
+  - type: hysteria2
+    name: 4Kian-75ad37ca98
+    server: 87.242.119.253
     port: 443
-    uuid: c19ecc7f-8312-4d9d-90c9-1a997d82d3c5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: se1.my-cdn.org
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    password: 39b9f02c-a53d-0001-a535-8e779923d48b
+    sni: hvtlr-ru-47sb.fade.mom
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-3de2ff2c0f
+      - 4Kian-75ad37ca98
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-3de2ff2c0f
+      - 4Kian-75ad37ca98
 rules:
   - MATCH,Proxy

@@ -1,22 +1,24 @@
 proxies:
-  - type: vless
-    name: 4Sarina-76b7e482ed
-    server: lizard.forum
-    port: 9562
-    uuid: b90ba714-48b4-42f4-bcc0-7637bd75a87d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: app.lizard.forum
-    xudp: true
   - type: vmess
     name: 4Jadi-f5bbf8b537
     server: markovps.iransazentworkteh.top
     port: 2082
     uuid: 20f3d76e-5ecd-4dd0-8039-cbf690184cf8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-406ef6f8c8
+    server: s10.tiiizshop.com
+    port: 2082
+    uuid: 5aa3424e-b5c5-460c-bbf1-d6f6169d30f5
     alterId: 0
     cipher: auto
     udp: true
@@ -41,22 +43,39 @@ proxies:
     servername: s3.megaping.casa
     alpn:
       - http/1.1
+  - type: vmess
+    name: 4Jadi-30cf080784
+    server: s7.tiiizshop.com
+    port: 8880
+    uuid: bc7c3ef8-e853-469c-8feb-6b2d88576957
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-76b7e482ed
       - 4Jadi-f5bbf8b537
+      - 4Sarina-406ef6f8c8
       - 4Nika-9dff8d2dd2
+      - 4Jadi-30cf080784
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-76b7e482ed
       - 4Jadi-f5bbf8b537
+      - 4Sarina-406ef6f8c8
       - 4Nika-9dff8d2dd2
+      - 4Jadi-30cf080784
 rules:
   - MATCH,Proxy

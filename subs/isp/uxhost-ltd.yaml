@@ -1,4 +1,35 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 140.225.208.140
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 140.225.208.50
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: speedtestmark.com
   - type: hysteria2
     name: 4Jadi-8b6300d74e
     server: 104.165.205.142
@@ -11,6 +42,23 @@ proxies:
     port: 8443
     password: 52e3dd44-ed23-4030-b0cc-5b5a953f2d4d
     sni: speedtestmark.com
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 140.225.208.60
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: hysteria2
     name: 4FreeIran-f37a845ea9
     server: 104.165.205.42
@@ -18,11 +66,46 @@ proxies:
     password: 990c8eb6-4c4e-4277-8602-79af8402cdd0
     sni: speedtestmark.com
   - type: hysteria2
+    name: 4Kian-8a45c8b07c
+    server: 104.165.205.142
+    port: 9443
+    password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    sni: onecloudstream.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4FreeIran-f62c00d0b5
+    server: 104.165.205.21
+    port: 9443
+    password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    sni: onecloudstream.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-b70d9f47bd
+    server: 104.165.205.22
+    port: 9443
+    password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    sni: onecloudstream.com
+  - type: hysteria2
     name: 4FreeIran-f2c8714e9b
     server: 104.165.205.23
     port: 9443
     password: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
     sni: onecloudstream.com
+  - type: vless
+    name: 4Kian-48a183664b
+    server: 140.225.208.140
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Jadi-664093cb78
     server: 140.225.208.50
@@ -57,6 +140,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: 4Mohsen-527a01c783
+    server: 140.225.208.60
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Nika-a4cd5d01bf
     server: 45.88.12.36
     port: 2083
@@ -76,12 +176,20 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-8b6300d74e
       - 4Jadi-9d6a883fb8
+      - DeltaKroneckerGithub-02
       - 4FreeIran-f37a845ea9
+      - 4Kian-8a45c8b07c
+      - 4FreeIran-f62c00d0b5
+      - 4Jadi-b70d9f47bd
       - 4FreeIran-f2c8714e9b
+      - 4Kian-48a183664b
       - 4Jadi-664093cb78
       - 4Jadi-cd6ccc77ab
+      - 4Mohsen-527a01c783
       - 4Nika-a4cd5d01bf
   - name: Auto
     type: url-test
@@ -89,12 +197,20 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-8b6300d74e
       - 4Jadi-9d6a883fb8
+      - DeltaKroneckerGithub-02
       - 4FreeIran-f37a845ea9
+      - 4Kian-8a45c8b07c
+      - 4FreeIran-f62c00d0b5
+      - 4Jadi-b70d9f47bd
       - 4FreeIran-f2c8714e9b
+      - 4Kian-48a183664b
       - 4Jadi-664093cb78
       - 4Jadi-cd6ccc77ab
+      - 4Mohsen-527a01c783
       - 4Nika-a4cd5d01bf
 rules:
   - MATCH,Proxy

@@ -12,12 +12,26 @@ proxies:
       public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-ba0efc9a1a
+    server: 179.255.186.102
+    port: 443
+    uuid: ed9277bd-bd89-49e0-8294-1bf845363d5d
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: decf01.sonicservice.digital
+    reality-opts:
+      public-key: z-TKWOWgZLfzQ-wNdwXQqVwaUgCmbchM2Xtrk1NGynU
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-0cb1780aed
+      - 4FreeIran-ba0efc9a1a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-0cb1780aed
+      - 4FreeIran-ba0efc9a1a
 rules:
   - MATCH,Proxy

@@ -1,46 +1,29 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 193.239.160.134
+  - type: vless
+    name: 4Jadi-b2f5ce97c8
+    server: 157.228.182.225
     port: 443
-    password: humanity
+    uuid: 55ad002b-6cdf-4d76-81bb-91f3f605afc5
     udp: true
     tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Sarina-d025244895
-    server: 193.239.160.134
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.calmlunch.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    client-fingerprint: firefox
+    servername: www.zabbix.com
+    reality-opts:
+      public-key: KeICkezIir1GYyiS5bpRLLQqfRWBy4JXHRO-XLzWdFw
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Sarina-d025244895
+      - 4Jadi-b2f5ce97c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Sarina-d025244895
+      - 4Jadi-b2f5ce97c8
 rules:
   - MATCH,Proxy
