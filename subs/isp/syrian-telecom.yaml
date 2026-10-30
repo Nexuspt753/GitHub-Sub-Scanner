@@ -1,0 +1,34 @@
+proxies:
+  - type: vless
+    name: 4Sarina-6068825cb9
+    server: 185.235.16.12
+    port: 443
+    uuid: d7801e5a-254d-4dff-a7dd-ef5eb0b30374
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nova-relay-d9g973.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=185.235.16.12:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nova-relay-d9g973.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-6068825cb9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-6068825cb9
+rules:
+  - MATCH,Proxy

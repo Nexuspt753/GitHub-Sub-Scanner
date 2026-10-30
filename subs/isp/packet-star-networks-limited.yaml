@@ -6,12 +6,27 @@ proxies:
     uuid: 872fb1d1-763c-4dc5-8fc4-0227576384bf
     udp: true
     xudp: true
+  - type: vless
+    name: 4Mohsen-aaa41e610f
+    server: 164.37.111.77
+    port: 443
+    uuid: eab53369-a78a-4130-866a-5a797c17933d
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: play.google.com
+    reality-opts:
+      public-key: dMBDL7ry94pavIxYmzimeyaCqor6fUNb0v3dzHif9xY
+      short-id: e64e9f5eefbffc15
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-5b14f151fe
+      - 4Mohsen-aaa41e610f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-5b14f151fe
+      - 4Mohsen-aaa41e610f
 rules:
   - MATCH,Proxy

@@ -1,46 +1,34 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: alban2.freeinternat.com
+    name: 4Nika-9daa8cef72
+    server: 91.239.6.47
     port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
+    uuid: d7801e5a-254d-4dff-a7dd-ef5eb0b30374
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: alban2.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: nova-relay-d9g973.pages.dev
     xudp: true
-  - type: vless
-    name: 4Nika-08459905ad
-    server: alban2.freeinternat.com
-    port: 443
-    uuid: fbb74aa8-b89a-4f20-9504-6b25aadf6681
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: alban2.freeinternat.com
-    reality-opts:
-      public-key: bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk
-      short-id: ff776ff77be48b88
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=91.239.6.47:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nova-relay-d9g973.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 4Nika-08459905ad
+      - 4Nika-9daa8cef72
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 4Nika-08459905ad
+      - 4Nika-9daa8cef72
 rules:
   - MATCH,Proxy

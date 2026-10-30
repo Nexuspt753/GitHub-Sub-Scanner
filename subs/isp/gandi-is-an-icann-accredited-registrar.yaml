@@ -1,0 +1,54 @@
+proxies:
+  - type: vless
+    name: 4Jadi-a9c9388d57
+    server: 92.243.25.219
+    port: 443
+    uuid: 05c66efe-4f1e-4df9-99e6-2b1b624fa7ae
+    udp: true
+    tls: true
+    client-fingerprint: android
+    alpn:
+      - http/1.1
+    servername: sg.jinggai.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /connect/01
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sg.jinggai.online
+  - type: vless
+    name: 4Mohsen-8e218ef3f2
+    server: 92.243.25.219
+    port: 443
+    uuid: 05c66efe-4f1e-4df9-99e6-2b1b624fa7ae
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: sg.jinggai.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /connect/01
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sg.jinggai.online
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-a9c9388d57
+      - 4Mohsen-8e218ef3f2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-a9c9388d57
+      - 4Mohsen-8e218ef3f2
+rules:
+  - MATCH,Proxy

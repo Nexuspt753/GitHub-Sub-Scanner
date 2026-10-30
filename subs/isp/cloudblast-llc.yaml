@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: 4Jadi-2caad931f7
-    server: 89.34.230.66
-    port: 60023
-    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: starlink.com
-    reality-opts:
-      public-key: PFL3AoMNTu9-VrM2WIrvQl2l-ibVgR5vIE1Vh-txKVg
-      short-id: 6070d424a64f75
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-2dc30e9a91
     server: 89.34.230.66
     port: 60023
@@ -111,30 +95,45 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Sarina-c220bbf0c6
+    server: 178.83.121.85
+    port: 443
+    uuid: 74d736fe-8ba6-42be-8a43-2973a18ef2ca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: MhOa-Fkr656VVRcxXd27gam263cdXF_uyGiHZZEISUA
+      short-id: ce741cbe468babc7
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-2caad931f7
       - 4FreeIran-2dc30e9a91
       - 4Mohsen-a47c2f395a
       - 4FreeIran-0c450a02cd
       - 4Mohsen-e75c4a9dce
       - 4Mohsen-88f80eb701
       - 4Sarina-cecca64a69
+      - 4Sarina-c220bbf0c6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-2caad931f7
       - 4FreeIran-2dc30e9a91
       - 4Mohsen-a47c2f395a
       - 4FreeIran-0c450a02cd
       - 4Mohsen-e75c4a9dce
       - 4Mohsen-88f80eb701
       - 4Sarina-cecca64a69
+      - 4Sarina-c220bbf0c6
 rules:
   - MATCH,Proxy

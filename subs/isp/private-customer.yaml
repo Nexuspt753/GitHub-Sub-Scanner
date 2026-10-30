@@ -1,29 +1,38 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 79.182.70.34
-    port: 25172
-    uuid: 5a519754-a673-4462-83f6-5eb25d2af141
+    name: VPsave
+    server: 178.83.111.53
+    port: 2085
+    uuid: 93aa53ba-92a9-41ef-942d-7e8762e3ab5e
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: Xr55Hig_JTeUluiGfSnma6zMHG2Uv5Xu30ZODGF5xGA
-      short-id: f09ac427e1abd14b
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-2965aa3075
+    server: 178.83.111.53
+    port: 2085
+    uuid: 93aa53ba-92a9-41ef-942d-7e8762e3ab5e
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - VPsave
+      - 4FreeIran-2965aa3075
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - VPsave
+      - 4FreeIran-2965aa3075
 rules:
   - MATCH,Proxy

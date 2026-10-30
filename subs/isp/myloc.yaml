@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Nika-03d89d9f2d
-    server: 217.79.184.18
-    port: 443
-    password: 0dd0ae16-4081-4530-a925-c3c34ca07d57
+  - type: vless
+    name: 4Jadi-f01546773e
+    server: 5.104.107.80
+    port: 2053
+    uuid: f0c9ebf7-76cc-44b7-8b30-b33ee0ffc898
     udp: true
     tls: true
-    sni: download.xn--mes358a9urctx.com
     client-fingerprint: chrome
+    servername: coding.grok2.indevs.in
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /proxyip=ProxyIP.SG.CMLiussss.Net
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: coding.grok2.indevs.in
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-03d89d9f2d
+      - 4Jadi-f01546773e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-03d89d9f2d
+      - 4Jadi-f01546773e
 rules:
   - MATCH,Proxy

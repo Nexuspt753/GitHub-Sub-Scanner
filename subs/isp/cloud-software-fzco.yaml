@@ -13,6 +13,38 @@ proxies:
       short-id: d0cc2a7ae589c819
     xudp: true
   - type: vless
+    name: 4Kian-1b0893d428
+    server: 95.182.94.128
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4FreeIran-d5fe745044
+    server: 95.182.95.237
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4Kian-68640160cd
     server: 95.182.82.14
     port: 443
@@ -51,15 +83,30 @@ proxies:
     uuid: 72820b3c-b6a0-4e7c-8608-c37881f9a7d2
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-f22e58aabe
+    server: mira.sheikhiedu.ir
+    port: 8096
+    uuid: d5d0b16f-fc05-4596-b0cb-58be9856c526
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cfd
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-d1741f09df
+      - 4Kian-1b0893d428
+      - 4FreeIran-d5fe745044
       - 4Kian-68640160cd
       - 4Sarina-6f206a6eeb
       - 4Mohsen-19be2f4ff3
+      - 4FreeIran-f22e58aabe
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,8 +114,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-d1741f09df
+      - 4Kian-1b0893d428
+      - 4FreeIran-d5fe745044
       - 4Kian-68640160cd
       - 4Sarina-6f206a6eeb
       - 4Mohsen-19be2f4ff3
+      - 4FreeIran-f22e58aabe
 rules:
   - MATCH,Proxy

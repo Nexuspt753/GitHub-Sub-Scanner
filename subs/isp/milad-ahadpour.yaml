@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Nika-5acfaf2db7
+    server: iran.powerpanel.space
+    port: 2053
+    uuid: 720aee7f-8b7e-477a-84c2-d066316ab35a
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-5acfaf2db7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-5acfaf2db7
+rules:
+  - MATCH,Proxy

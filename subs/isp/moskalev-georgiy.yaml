@@ -1,11 +1,4 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: hl-freedom-1.undef.network
-    port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
-    udp: true
-    client-fingerprint: chrome
   - type: vless
     name: vmess_ir
     server: 89.125.100.59
@@ -35,6 +28,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Mohsen-aff520db5b
+    server: 89.125.100.35
+    port: 443
+    uuid: d906f691-f736-444c-92d2-5637d02330ef
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: files.appstatic.ru
+    reality-opts:
+      public-key: amoE2JyGxhZ3GQP_kDn7Yw3_0JaZCPe0b_4s0ZM1YH4
+      short-id: 4ea97814d62329ea
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-09af5ecd2a
     server: files.appstatic.ru
     port: 443
@@ -53,9 +60,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - vmess_ir
       - 4Mohsen-cbfbcbb31e
+      - 4Mohsen-aff520db5b
       - 4Jadi-09af5ecd2a
   - name: Auto
     type: url-test
@@ -63,9 +70,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - vmess_ir
       - 4Mohsen-cbfbcbb31e
+      - 4Mohsen-aff520db5b
       - 4Jadi-09af5ecd2a
 rules:
   - MATCH,Proxy
