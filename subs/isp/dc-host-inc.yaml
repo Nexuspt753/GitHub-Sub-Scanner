@@ -25,14 +25,14 @@ proxies:
     server: 216.9.225.189
     port: 443
     cipher: 2022-blake3-aes-256-gcm
-    password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=:zT1SecPttPY/XPW6NwjK5Wql+/6zbcGSDJK21Jk8uLo=
+    password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=%3AzT1SecPttPY%2FXPW6NwjK5Wql+%2F6zbcGSDJK21Jk8uLo=
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-01
     server: 216.9.225.189
     port: 443
     cipher: 2022-blake3-aes-256-gcm
-    password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=%3AzT1SecPttPY%2FXPW6NwjK5Wql+%2F6zbcGSDJK21Jk8uLo=
+    password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=:zT1SecPttPY/XPW6NwjK5Wql+/6zbcGSDJK21Jk8uLo=
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-02
@@ -41,6 +41,26 @@ proxies:
     cipher: 2022-blake3-aes-256-gcm
     password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=:zT1SecPttPY/XPW6NwjK5Wql+/6zbcGSDJK21Jk8uLo=
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 216.9.225.189
+    port: 443
+    cipher: 2022-blake3-aes-256-gcm
+    password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4%2BJbsk%3D%3AzT1SecPttPY%2FXPW6NwjK5Wql%2B%2F6zbcGSDJK21Jk8uLo%3D
+    udp: true
+  - type: vless
+    name: 4Kian-a5a3e81add
+    server: usa2.dunnexa.ir
+    port: 7006
+    uuid: 4dc19f39-c28a-4cd1-b5e9-969e77ea2d09
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: play.googleapis.com
+    reality-opts:
+      public-key: Z4jyvsRTqkXzZl79oWVd51iMbc5KdwIf2nujjjE4Dhw
+      short-id: 9754f7853fa7a056
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -52,6 +72,8 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Kian-a5a3e81add
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -64,5 +86,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Kian-a5a3e81add
 rules:
   - MATCH,Proxy

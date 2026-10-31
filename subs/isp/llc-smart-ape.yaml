@@ -6,12 +6,26 @@ proxies:
     password: f317b5d6-d399-4d3d-a051-89d674ae953c
     sni: msk.frkn.org
     skip-cert-verify: true
+  - type: vless
+    name: 4FreeIran-ffcb34a20e
+    server: 31.177.111.133
+    port: 443
+    uuid: 08e66c58-27a5-4b78-a976-b2ed05f0c6bb
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: geexit.atlanta-games.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-2bf5d9305f
+      - 4FreeIran-ffcb34a20e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-2bf5d9305f
+      - 4FreeIran-ffcb34a20e
 rules:
   - MATCH,Proxy

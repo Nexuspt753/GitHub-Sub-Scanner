@@ -1,32 +1,48 @@
 proxies:
-  - type: vless
-    name: 4Jadi-461c645183
-    server: 38.55.192.169
+  - type: trojan
+    name: 4Sarina-95bdd7dc9f
+    server: 38.244.25.17
     port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
+    udp: true
+    tls: true
+    sni: hhcm.hhxaf.cc.cd
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-fac27a960e
+    server: 38.190.210.250
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
+    servername: vp10.pages.dev
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-461c645183
+      - 4Sarina-95bdd7dc9f
+      - 4Sarina-fac27a960e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-461c645183
+      - 4Sarina-95bdd7dc9f
+      - 4Sarina-fac27a960e
 rules:
   - MATCH,Proxy

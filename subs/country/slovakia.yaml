@@ -1,39 +1,18 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: Bratislava · @DeltaKroneckerGithub
-    server: 80.243.228.98
-    port: 2085
-    uuid: 1b60e6e9-65ef-4f7c-8c9c-758f42d4c531
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: Bratislava · 4Jadi-6dd14dfd55
-    server: 130.49.162.137
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    server: 185.112.249.201
+    port: 8443
+    password: humanity
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: sk3.speedtestinternet.link
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Bratislava · 4Sarina-7d39fbbe19
-    server: 130.49.162.137
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: sk3.speedtestinternet.link
-    flow: xtls-rprx-vision-udp443
-    xudp: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: Bratislava · 4Nika-81e5e4ed9e
     server: 89.46.42.141
@@ -72,8 +51,6 @@ proxy-groups:
     proxies:
       - Auto
       - Bratislava · @DeltaKroneckerGithub
-      - Bratislava · 4Jadi-6dd14dfd55
-      - Bratislava · 4Sarina-7d39fbbe19
       - Bratislava · 4Nika-81e5e4ed9e
       - Bratislava · 4Jadi-0a623e31fa
   - name: Auto
@@ -83,8 +60,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Bratislava · @DeltaKroneckerGithub
-      - Bratislava · 4Jadi-6dd14dfd55
-      - Bratislava · 4Sarina-7d39fbbe19
       - Bratislava · 4Nika-81e5e4ed9e
       - Bratislava · 4Jadi-0a623e31fa
 rules:

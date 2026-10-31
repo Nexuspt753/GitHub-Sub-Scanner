@@ -1,22 +1,6 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.86.145.37
-    port: 443
-    uuid: 04b7c62b-762e-4a8c-ba37-8328d25c8d74
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: ararat.rtkdvbr.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /amws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ararat.rtkdvbr.cc
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -30,22 +14,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Jadi-efbf8723ab
-    server: 185.86.145.37
-    port: 443
-    uuid: 04b7c62b-762e-4a8c-ba37-8328d25c8d74
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: ararat.rtkdvbr.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /amws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ararat.rtkdvbr.cc
   - type: vless
     name: v2ray_configs_pools⚡
     server: ru.sparxiecn.com
@@ -74,16 +42,33 @@ proxies:
       short-id: ab532d3308daa67b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-50bb362dc4
+    server: vivozim.vyvoz-musora.cc
+    port: 443
+    uuid: a0052f4f-4c63-485a-a16f-ab2d5d718cd3
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    alpn:
+      - http/1.1
+    servername: vivozim.vyvoz-musora.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /e8ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vivozim.vyvoz-musora.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Jadi-efbf8723ab
       - v2ray_configs_pools⚡
       - 4Jadi-0b63d9f38e
+      - 4Jadi-50bb362dc4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,9 +76,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Jadi-efbf8723ab
       - v2ray_configs_pools⚡
       - 4Jadi-0b63d9f38e
+      - 4Jadi-50bb362dc4
 rules:
   - MATCH,Proxy

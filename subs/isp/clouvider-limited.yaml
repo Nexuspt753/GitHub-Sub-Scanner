@@ -1,38 +1,6 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 62.233.33.44
-    port: 443
-    uuid: d6b6461a-59b1-4aaf-89a0-6e051e7f215c
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: uk-room08.filesnap.tech
-    reality-opts:
-      public-key: Jlu3ZYGtXSuj-Q-RhwifmGmRajmdcxSmX5qoS9U3AFA
-      short-id: d1bf27e64c82aad2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 62.233.33.51
-    port: 443
-    uuid: 19722042-d2e0-4c5e-aac6-f74d1ea9a970
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: uk-room10.filesnap.tech
-    reality-opts:
-      public-key: NjXCPoaWC2AYZ1RAq3JbwW6g-U66lrZcOprle3pzTFk
-      short-id: 730dea3e1119b825
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-02
     server: 82.39.171.12
     port: 443
     uuid: d65cc14c-f53f-4fe2-b262-97856601319c
@@ -45,22 +13,15 @@ proxies:
       short-id: c39cc7310a
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-0ba6fbb4aa
-    server: 62.233.33.51
-    port: 443
-    uuid: 19722042-d2e0-4c5e-aac6-f74d1ea9a970
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 195.54.161.249
+    port: 9443
+    password: d1a4cbb2943e4d27addae29bd449907a
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: uk-room10.filesnap.tech
-    reality-opts:
-      public-key: NjXCPoaWC2AYZ1RAq3JbwW6g-U66lrZcOprle3pzTFk
-      short-id: 730dea3e1119b825
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    sni: apple.com
+    client-fingerprint: random
   - type: vless
     name: V2ray_Alpha🦣
     server: 82.39.171.12
@@ -255,22 +216,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-652afe9705
-    server: 62.233.33.44
-    port: 443
-    uuid: d6b6461a-59b1-4aaf-89a0-6e051e7f215c
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: uk-room08.filesnap.tech
-    reality-opts:
-      public-key: Jlu3ZYGtXSuj-Q-RhwifmGmRajmdcxSmX5qoS9U3AFA
-      short-id: d1bf27e64c82aad2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -278,8 +223,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Sarina-0ba6fbb4aa
       - V2ray_Alpha🦣
       - meliproxyy
       - v2ray_configs_pools🦣
@@ -293,7 +236,6 @@ proxy-groups:
       - 4Sarina-d4921786b2
       - 4Kian-29f2ffae77
       - 4Mohsen-72514bb3f4
-      - 4Mohsen-652afe9705
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -302,8 +244,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Sarina-0ba6fbb4aa
       - V2ray_Alpha🦣
       - meliproxyy
       - v2ray_configs_pools🦣
@@ -317,6 +257,5 @@ proxy-groups:
       - 4Sarina-d4921786b2
       - 4Kian-29f2ffae77
       - 4Mohsen-72514bb3f4
-      - 4Mohsen-652afe9705
 rules:
   - MATCH,Proxy

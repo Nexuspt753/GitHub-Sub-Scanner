@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4FreeIran-0a20edf62d
+    name: VPsave
     server: 45.87.41.18
     port: 443
     password: humanity
@@ -10,10 +10,23 @@ proxies:
     client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /assignment
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.calmlunch.com
+  - type: trojan
+    name: 4Nika-2d1eb28de1
+    server: 45.87.41.18
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: 4Jadi-d5124e0fa9
     server: 45.87.41.18
@@ -33,7 +46,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-0a20edf62d
+      - VPsave
+      - 4Nika-2d1eb28de1
       - 4Jadi-d5124e0fa9
   - name: Auto
     type: url-test
@@ -41,7 +55,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-0a20edf62d
+      - VPsave
+      - 4Nika-2d1eb28de1
       - 4Jadi-d5124e0fa9
 rules:
   - MATCH,Proxy

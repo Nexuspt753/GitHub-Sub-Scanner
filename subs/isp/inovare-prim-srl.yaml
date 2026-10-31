@@ -1,32 +1,46 @@
 proxies:
-  - type: vless
-    name: 4Jadi-3966615f61
+  - type: trojan
+    name: DeltaKroneckerGithub
     server: 130.78.185.4
     port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    password: humanity
     udp: true
     tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+  - type: trojan
+    name: 4Nika-f4be0fad2a
+    server: 130.78.185.4
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3966615f61
+      - DeltaKroneckerGithub
+      - 4Nika-f4be0fad2a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3966615f61
+      - DeltaKroneckerGithub
+      - 4Nika-f4be0fad2a
 rules:
   - MATCH,Proxy

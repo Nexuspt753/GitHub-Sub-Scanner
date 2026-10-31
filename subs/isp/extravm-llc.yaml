@@ -1,32 +1,46 @@
 proxies:
-  - type: vless
-    name: EPODONIOS
-    server: varzesh.com.tiket.paxaro.ir
-    port: 443
-    uuid: ea611ed3-29b1-4d8c-bad6-27fa3cbbe0be
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 199.119.137.32
+    port: 8443
+    password: humanity
     udp: true
-    xudp: true
-  - type: vless
-    name: Channel
-    server: varzesh.com.tiket.paxaro.ir
-    port: 443
-    uuid: ea611ed3-29b1-4d8c-bad6-27fa3cbbe0be
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4FreeIran-94c8d70428
+    server: 199.119.137.32
+    port: 8443
+    password: humanity
     udp: true
-    xudp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "%2Fassignment"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - Channel
+      - DeltaKroneckerGithub
+      - 4FreeIran-94c8d70428
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - Channel
+      - DeltaKroneckerGithub
+      - 4FreeIran-94c8d70428
 rules:
   - MATCH,Proxy

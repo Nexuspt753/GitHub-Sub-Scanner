@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 177.7.51.29
-    port: 8443
-    uuid: c6b1b2d0-ed5e-48ce-99e6-112ff330030d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: laG5BxoSbdRozpauATNFBPPTwhuDuu0JFl_SCP2ZQlU
-      short-id: 14fbf992
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: VPsave
     server: 177.7.51.29
     port: 8443
@@ -69,39 +55,24 @@ proxies:
       short-id: 14fbf992
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-8bcd1e5abb
-    server: 177.7.51.29
-    port: 8443
-    uuid: c6b1b2d0-ed5e-48ce-99e6-112ff330030d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - VPsave
       - 4FreeIran-6ecc33e879
       - 4FreeIran-1cf1f5d4c9
       - 4FreeIran-b1e56116e0
-      - 4Sarina-8bcd1e5abb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - VPsave
       - 4FreeIran-6ecc33e879
       - 4FreeIran-1cf1f5d4c9
       - 4FreeIran-b1e56116e0
-      - 4Sarina-8bcd1e5abb
 rules:
   - MATCH,Proxy

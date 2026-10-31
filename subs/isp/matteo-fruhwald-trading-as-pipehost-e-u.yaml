@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-ab4892270b
-    server: 188.137.158.159
-    port: 443
-    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: softice.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-7186a3bfce
     server: 188.137.158.169
     port: 443
@@ -33,17 +22,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-901ee9516c
-    server: 188.137.158.189
-    port: 443
-    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: softice.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-93316c7477
     server: 188.137.158.199
     port: 443
@@ -55,13 +33,16 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-baed386986
+    name: 4Kian-35db3caa82
     server: softice.net
     port: 443
     uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
     servername: softice.net
     flow: xtls-rprx-vision
     xudp: true
@@ -79,46 +60,26 @@ proxies:
     servername: softice.net
     flow: xtls-rprx-vision-udp443
     xudp: true
-  - type: vless
-    name: 4Kian-c442e07caf
-    server: softice.net
-    port: 443
-    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: softice.net
-    flow: xtls-rprx-vision-udp443-udp443
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-ab4892270b
       - 4Nika-7186a3bfce
       - 4FreeIran-323bd04c47
-      - 4Mohsen-901ee9516c
       - 4FreeIran-93316c7477
-      - 4Mohsen-baed386986
+      - 4Kian-35db3caa82
       - 4FreeIran-114cfb76e1
-      - 4Kian-c442e07caf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-ab4892270b
       - 4Nika-7186a3bfce
       - 4FreeIran-323bd04c47
-      - 4Mohsen-901ee9516c
       - 4FreeIran-93316c7477
-      - 4Mohsen-baed386986
+      - 4Kian-35db3caa82
       - 4FreeIran-114cfb76e1
-      - 4Kian-c442e07caf
 rules:
   - MATCH,Proxy

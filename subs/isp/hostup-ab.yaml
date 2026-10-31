@@ -12,26 +12,12 @@ proxies:
       public-key: _nrnGiJUdyeLv2afSwe6P4j02AMayY34WFMjUJp5Kwc
       short-id: 9608a9c65d315d52
     xudp: true
-  - type: vless
-    name: hex_proxy
-    server: se3.h1cloud.net
-    port: 25387
-    uuid: 5a519754-a673-4462-83f6-5eb25d2af141
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: _nrnGiJUdyeLv2afSwe6P4j02AMayY34WFMjUJp5Kwc
-      short-id: 9608a9c65d315d52
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - ICV2RAY
-      - hex_proxy
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +25,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - ICV2RAY
-      - hex_proxy
 rules:
   - MATCH,Proxy

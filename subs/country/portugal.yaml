@@ -1,4 +1,18 @@
 proxies:
+  - type: trojan
+    name: Porto · @DeltaKroneckerGithub
+    server: 195.133.92.71
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: Viana do Castelo · @VEGAAS_VPN
     server: 185.138.89.162
@@ -43,22 +57,40 @@ proxies:
       short-id: 8a2a4eb0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Lisbon · 4FreeIran-a0504ddc58
+    server: 50.7.43.117
+    port: 443
+    uuid: b24ad12f-f6ce-4f0b-a264-d58a76104026
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pt3.magazinnarubeva.ru
+    reality-opts:
+      public-key: trN5x0amt2YuVzF2vZnK294YBAuh_zl5QkZjPyWz-TI
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Porto · @DeltaKroneckerGithub
       - Viana do Castelo · @VEGAAS_VPN
       - Porto · 4Nika-c752ca25dc
       - Viana do Castelo · 4FreeIran-7b03bdc603
+      - Lisbon · 4FreeIran-a0504ddc58
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Porto · @DeltaKroneckerGithub
       - Viana do Castelo · @VEGAAS_VPN
       - Porto · 4Nika-c752ca25dc
       - Viana do Castelo · 4FreeIran-7b03bdc603
+      - Lisbon · 4FreeIran-a0504ddc58
 rules:
   - MATCH,Proxy

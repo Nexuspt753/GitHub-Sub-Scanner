@@ -1,25 +1,26 @@
 proxies:
-  - type: trojan
-    name: 4FreeIran-c7d1c5d60c
-    server: jp17.vatilon.cc
-    port: 10003
-    password: aec8e5e3-bb81-4b22-8802-0b88c54997b3
+  - type: vless
+    name: 4FreeIran-e1e0863865
+    server: 141.193.154.234
+    port: 443
+    uuid: 80fdddb8-3eb8-41ad-9916-fbb42c442e6e
     udp: true
     tls: true
-    sni: jp17.vatilon.cc
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: cloudflare.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-c7d1c5d60c
+      - 4FreeIran-e1e0863865
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-c7d1c5d60c
+      - 4FreeIran-e1e0863865
 rules:
   - MATCH,Proxy

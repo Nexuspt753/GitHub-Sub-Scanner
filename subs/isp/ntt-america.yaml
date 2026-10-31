@@ -1,32 +1,63 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-0493fc9dec
-    server: 207.57.131.117
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 207.57.123.112
     port: 443
-    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Kian-a5a99744db
+    server: 207.57.123.112
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-4b2b29fb31
+    server: 207.57.132.189
+    port: 8443
+    uuid: dbda40e2-25b5-416c-8d35-56d07e8dcdbc
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vlso5.1d.mom
+    servername: indigostar.click
     xudp: true
     network: ws
     ws-opts:
-      path: /socks5=888:888@hkip.1d.mom:1080
+      path: "%2Fws"
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vlso5.1d.mom
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-0493fc9dec
+      - DeltaKroneckerGithub
+      - 4Kian-a5a99744db
+      - 4Mohsen-4b2b29fb31
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-0493fc9dec
+      - DeltaKroneckerGithub
+      - 4Kian-a5a99744db
+      - 4Mohsen-4b2b29fb31
 rules:
   - MATCH,Proxy

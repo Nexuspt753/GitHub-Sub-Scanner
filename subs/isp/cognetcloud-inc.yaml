@@ -1,43 +1,48 @@
 proxies:
   - type: vless
-    name: 4Nika-b6565f07fd
-    server: 38.76.180.144
-    port: 1443
-    uuid: d98b67d4-024a-4bba-91e2-e6ebece6df11
+    name: DeltaKroneckerGithub
+    server: 156.238.224.182
+    port: 21899
+    uuid: fb69a6b9-980c-48c2-a94f-5f95868a2d2a
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: yahoo.com
+    reality-opts:
+      public-key: kvLUYW6fwHXutu8Z4On6mi61kjslCyCc8ErFffUM1D0
+      short-id: dedce016e3671418
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 38.76.180.144
   - type: vless
-    name: 4Mohsen-deb44487af
+    name: 4FreeIran-917f365895
     server: 38.76.180.144
-    port: 1443
-    uuid: d98b67d4-024a-4bba-91e2-e6ebece6df11
+    port: 443
+    uuid: 3e3396ce-d6ec-42ee-b854-1dca9fcb2749
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
     xudp: true
     network: ws
     ws-opts:
-      path: /vless-ws
+      path: /d4f1a9b2-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-b6565f07fd
-      - 4Mohsen-deb44487af
+      - DeltaKroneckerGithub
+      - 4FreeIran-917f365895
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-b6565f07fd
-      - 4Mohsen-deb44487af
+      - DeltaKroneckerGithub
+      - 4FreeIran-917f365895
 rules:
   - MATCH,Proxy

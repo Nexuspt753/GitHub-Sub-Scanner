@@ -1,4 +1,18 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.112.249.201
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Nika-81e5e4ed9e
     server: 89.46.42.141
@@ -36,6 +50,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-81e5e4ed9e
       - 4Jadi-0a623e31fa
   - name: Auto
@@ -44,6 +59,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-81e5e4ed9e
       - 4Jadi-0a623e31fa
 rules:
