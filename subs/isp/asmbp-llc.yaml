@@ -1,5 +1,29 @@
 proxies:
   - type: trojan
+    name: 4Mohsen-e80665bf3a
+    server: 87.76.190.244
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-52bed11dbf
+    server: 87.76.190.244
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: trojan
     name: 4Sarina-3a83d87adc
     server: 87.76.190.244
     port: 443
@@ -13,6 +37,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-e80665bf3a
+      - 4Jadi-52bed11dbf
       - 4Sarina-3a83d87adc
   - name: Auto
     type: url-test
@@ -20,6 +46,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-e80665bf3a
+      - 4Jadi-52bed11dbf
       - 4Sarina-3a83d87adc
 rules:
   - MATCH,Proxy

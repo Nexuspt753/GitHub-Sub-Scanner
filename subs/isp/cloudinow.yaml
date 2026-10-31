@@ -1,6 +1,26 @@
 proxies:
   - type: vless
-    name: VPsave
+    name: 4FreeIran-d8195aa4af
+    server: tun1.applly.ir
+    port: 8700
+    uuid: 54065f18-8686-4fe6-8c2f-17f520a09695
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: arvancloud.ir
+  - type: vless
+    name: 4FreeIran-a8af6c02b9
+    server: 94.184.23.97
+    port: 2050
+    uuid: c69a6591-b34b-4dad-a234-ce5b4c3725b2
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-d14c74adfc
     server: 94.184.23.97
     port: 2098
     uuid: c69a6591-b34b-4dad-a234-ce5b4c3725b2
@@ -11,13 +31,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - VPsave
+      - 4FreeIran-d8195aa4af
+      - 4FreeIran-a8af6c02b9
+      - 4Nika-d14c74adfc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
+      - 4FreeIran-d8195aa4af
+      - 4FreeIran-a8af6c02b9
+      - 4Nika-d14c74adfc
 rules:
   - MATCH,Proxy

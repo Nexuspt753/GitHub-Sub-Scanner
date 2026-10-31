@@ -1,30 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-2161041b62
-    server: 199.189.254.242
+  - type: trojan
+    name: 4Sarina-0f98096068
+    server: 176.12.77.235
     port: 443
-    uuid: f804a3c6-1776-4d81-8563-3a5e78e9f074
+    password: humanity
     udp: true
     tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
-    servername: www.kz.forge-relay.com
-    reality-opts:
-      public-key: tW28ur4PP6lSr5XeKLu1njwm_W2Cv83EOoBaMn7ivVg
-      short-id: a1b2c3d4
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-2161041b62
+      - 4Sarina-0f98096068
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-2161041b62
+      - 4Sarina-0f98096068
 rules:
   - MATCH,Proxy

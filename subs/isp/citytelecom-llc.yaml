@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Nika-2b8939eb21
+    name: DeltaKroneckerGithub
     server: 185.229.9.135
     port: 443
     uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
@@ -15,18 +15,53 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: business.lesotorg-kirov.ru
+  - type: vless
+    name: 4Nika-8c0eff2dbb
+    server: 185.229.9.135
+    port: 443
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: business.lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: business.lesotorg-kirov.ru
+  - type: vless
+    name: 4Jadi-96c6972f38
+    server: 185.229.9.135
+    port: 443
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: business.lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-2b8939eb21
+      - DeltaKroneckerGithub
+      - 4Nika-8c0eff2dbb
+      - 4Jadi-96c6972f38
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2b8939eb21
+      - DeltaKroneckerGithub
+      - 4Nika-8c0eff2dbb
+      - 4Jadi-96c6972f38
 rules:
   - MATCH,Proxy

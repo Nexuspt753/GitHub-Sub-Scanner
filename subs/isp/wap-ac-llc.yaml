@@ -1,19 +1,25 @@
 proxies:
-  - type: trojan
+  - type: ss
     name: DeltaKroneckerGithub
-    server: 185.151.146.211
+    server: 154.16.183.190
     port: 443
-    password: 7522e2c27233459aab8d0f1d715828d0
+    cipher: none
+    password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
     udp: true
-    tls: true
-    sni: www.gpt123.one
-    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 154.16.183.190
+    port: 443
+    cipher: none
+    password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

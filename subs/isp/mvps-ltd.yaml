@@ -1,32 +1,53 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-5e21e12046
-    server: 185.170.215.228
+  - type: trojan
+    name: 4FreeIran-a42669fe8b
+    server: 91.250.248.151
     port: 443
-    uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    password: humanity
     udp: true
     tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
-    servername: rnxq-1lpi3m.linmeisoft.com
-    xudp: true
+  - type: trojan
+    name: 4Sarina-5eedb40aa5
+    server: 91.250.248.151
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rnxq-1lpi3m.linmeisoft.com
+        Host: www.cordweave.com
+  - type: trojan
+    name: 4Mohsen-92aa2daf3e
+    server: 91.250.248.151
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5e21e12046
+      - 4FreeIran-a42669fe8b
+      - 4Sarina-5eedb40aa5
+      - 4Mohsen-92aa2daf3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5e21e12046
+      - 4FreeIran-a42669fe8b
+      - 4Sarina-5eedb40aa5
+      - 4Mohsen-92aa2daf3e
 rules:
   - MATCH,Proxy

@@ -1,38 +1,23 @@
 proxies:
-  - type: vless
-    name: VPsave
-    server: 178.83.111.53
-    port: 2085
-    uuid: 93aa53ba-92a9-41ef-942d-7e8762e3ab5e
+  - type: ss
+    name: 4Sarina-35f99ae02e
+    server: 77.216.2.178
+    port: 30
+    cipher: chacha20-ietf-poly1305
+    password: BHxDn8Z67zuaoQsjHqSAMQQs8Dz1CGqJ
     udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-2965aa3075
-    server: 178.83.111.53
-    port: 2085
-    uuid: 93aa53ba-92a9-41ef-942d-7e8762e3ab5e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
-      - 4FreeIran-2965aa3075
+      - 4Sarina-35f99ae02e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
-      - 4FreeIran-2965aa3075
+      - 4Sarina-35f99ae02e
 rules:
   - MATCH,Proxy

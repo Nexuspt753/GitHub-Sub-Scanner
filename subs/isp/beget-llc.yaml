@@ -1,39 +1,41 @@
 proxies:
-  - type: ss
-    name: 🇸🇪
-    server: msk2.rvpn.app
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: MODziWLa9qMuW-4yPa0rfw
-    udp: true
-  - type: ss
-    name: 4FreeIran-ba71be42b8
-    server: 159.194.251.76
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: MODziWLa9qMuW-4yPa0rfw
-    udp: true
-  - type: ss
-    name: 4Nika-a607aab12b
-    server: msk2.rvpn.app
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: MODziWLa9qMuW-4yPa0rfw
-    udp: true
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: msk2.rvpn.app
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: MODziWLa9qMuW-4yPa0rfw
+    server: 217.26.26.14
+    port: 443
+    password: humanity
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 159.194.251.76
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: MODziWLa9qMuW-4yPa0rfw
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-1171a38f2d
+    server: 45.12.75.242
+    port: 26424
+    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ya.ru
+    reality-opts:
+      public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+      short-id: 23103e1e
+    xudp: true
+  - type: vless
+    name: 4Sarina-dd2814ccce
+    server: 45.12.75.242
+    port: 26424
+    uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ya.ru
+    xudp: true
   - type: vless
     name: 4FreeIran-89637f72b0
     server: vd2.outlinevpn.cc
@@ -53,11 +55,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 🇸🇪
-      - 4FreeIran-ba71be42b8
-      - 4Nika-a607aab12b
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-1171a38f2d
+      - 4Sarina-dd2814ccce
       - 4FreeIran-89637f72b0
   - name: Auto
     type: url-test
@@ -65,11 +65,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 🇸🇪
-      - 4FreeIran-ba71be42b8
-      - 4Nika-a607aab12b
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-1171a38f2d
+      - 4Sarina-dd2814ccce
       - 4FreeIran-89637f72b0
 rules:
   - MATCH,Proxy

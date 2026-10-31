@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: 4Kian-aa6674ae66
     server: 38.102.234.153
     port: 18603
     password: lk59gDrTm2
@@ -8,29 +8,38 @@ proxies:
     tls: true
     sni: www.777061.xyz
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: www.777061.xyz
-    port: 18603
-    password: lk59gDrTm2
+  - type: vmess
+    name: 4Mohsen-c109120107
+    server: xcf037.facai2024.com
+    port: 443
+    uuid: d9863037-0463-4615-e972-36ba9662d1e9
+    alterId: 0
+    cipher: auto
     udp: true
+    xudp: true
+    skip-cert-verify: false
     tls: true
-    sni: www.777061.xyz
-    client-fingerprint: chrome
+    servername: xcf037.facai2024.com
+    network: ws
+    ws-opts:
+      path: /d9863037
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xcf037.facai2024.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Kian-aa6674ae66
+      - 4Mohsen-c109120107
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Kian-aa6674ae66
+      - 4Mohsen-c109120107
 rules:
   - MATCH,Proxy

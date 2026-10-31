@@ -1,6 +1,19 @@
 proxies:
   - type: vless
-    name: filembad-301
+    name: filembad
+    server: 141.193.154.234
+    port: 443
+    uuid: 80fdddb8-3eb8-41ad-9916-fbb42c442e6e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudflare.com
+    reality-opts:
+      public-key: dN2EhTLZsQ1RsO4rCdoIBIi7mFtmqsC2iekPft3MPnY
+      short-id: "1835"
+    xudp: true
+  - type: vless
+    name: 🔵@chillguy_vpn
     server: 141.193.154.234
     port: 443
     uuid: 80fdddb8-3eb8-41ad-9916-fbb42c442e6e
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - filembad-301
+      - filembad
+      - 🔵@chillguy_vpn
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - filembad-301
+      - filembad
+      - 🔵@chillguy_vpn
 rules:
   - MATCH,Proxy
