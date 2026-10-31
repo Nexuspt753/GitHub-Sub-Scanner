@@ -13,12 +13,27 @@ proxies:
       short-id: ecb6f8fb31668176
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-619fbbabef
+    server: 171.25.158.163
+    port: 443
+    uuid: 706bce83-91db-4260-b175-cba29145cd56
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: s9se1.newagetechnologies.live
+    reality-opts:
+      public-key: Dt6OmhEDOi-Y204u5jWdQsHIgof7g8i52NUnTGc-yjM
+      short-id: ecb6f8fb31668176
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-619fbbabef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-619fbbabef
 rules:
   - MATCH,Proxy

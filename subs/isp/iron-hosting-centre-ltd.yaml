@@ -18,7 +18,39 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nl12.meshbeat.online
   - type: vless
+    name: 4Nika-c8e187ef3e
+    server: 178.208.80.62
+    port: 443
+    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.google.co.uk
+    reality-opts:
+      public-key: giiwQrxIa46OC_KvKgK61k4e_E0DoffuYSBEzik_bmc
+      short-id: a38c67
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-39f0f25771
+    server: 46.30.45.254
+    port: 8444
+    uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: nl12.meshbeat.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/7495606fef/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl12.meshbeat.online
+  - type: vless
+    name: 4Jadi-676a2ca1ae
     server: 46.30.45.254
     port: 8444
     uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
@@ -41,7 +73,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-c8e187ef3e
       - 4Mohsen-39f0f25771
+      - 4Jadi-676a2ca1ae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -49,6 +83,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-c8e187ef3e
       - 4Mohsen-39f0f25771
+      - 4Jadi-676a2ca1ae
 rules:
   - MATCH,Proxy

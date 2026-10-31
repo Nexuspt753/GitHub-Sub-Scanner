@@ -1,11 +1,20 @@
 proxies:
-  - type: ss
-    name: 4Sarina-84c1051a1f
-    server: mm.good2026.com
-    port: 12961
-    cipher: aes-128-gcm
-    password: 2f0c7e37-2534-48dc-9615-d85ae800c41f
+  - type: vless
+    name: 4FreeIran-e32c3c9eae
+    server: msma-hfgetway.hf.space
+    port: 443
+    uuid: 0ad9eed9-ea49-4c97-9ac4-fe0ec7e6f97b
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: msma-hfgetway.hf.space
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/vless
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: msma-hfgetway.hf.space
   - type: vless
     name: 4Nika-279657378f
     server: 54.46.72.234
@@ -22,22 +31,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: spjd.cbc.qzz.io
-  - type: vmess
-    name: 4Nika-635f916d98
-    server: za-a-zzy.glnyhlgc.com
+  - type: vless
+    name: hollowcon
+    server: rezeroooo3-hollowcon2.hf.space
     port: 443
-    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
-    alterId: 0
-    cipher: auto
+    uuid: c8bc9e80-b5f3-4794-9b52-7be14118cbd8
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: rezeroooo3-hollowcon2.hf.space
+    xudp: true
     network: ws
     ws-opts:
-      path: /about/7678
+      path: /ws/c8bc9e80-b5f3-4794-9b52-7be14118cbd8
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rezeroooo3-hollowcon2.hf.space
+  - type: vless
+    name: 4Mohsen-a9c63ded36
+    server: rezeroooo3-hollowcon2.hf.space
+    port: 443
+    uuid: c8bc9e80-b5f3-4794-9b52-7be14118cbd8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: rezeroooo3-hollowcon2.hf.space
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/c8bc9e80-b5f3-4794-9b52-7be14118cbd8
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rezeroooo3-hollowcon2.hf.space
   - type: vmess
     name: 4Kian-75981334a1
     server: za-a-zzy.glnyhlgc.com
@@ -61,9 +90,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-84c1051a1f
+      - 4FreeIran-e32c3c9eae
       - 4Nika-279657378f
-      - 4Nika-635f916d98
+      - hollowcon
+      - 4Mohsen-a9c63ded36
       - 4Kian-75981334a1
   - name: Auto
     type: url-test
@@ -71,9 +101,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-84c1051a1f
+      - 4FreeIran-e32c3c9eae
       - 4Nika-279657378f
-      - 4Nika-635f916d98
+      - hollowcon
+      - 4Mohsen-a9c63ded36
       - 4Kian-75981334a1
 rules:
   - MATCH,Proxy

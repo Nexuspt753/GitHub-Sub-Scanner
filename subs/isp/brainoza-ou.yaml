@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: 4Nika-ea5f4253f1
     server: 185.36.141.81
     port: 443
     password: humanity
@@ -14,13 +14,27 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4FreeIran-8dc32a3656
+    name: filembad
     server: 185.225.205.53
     port: 443
     uuid: 7a0348d6-55d3-4c23-b22f-6277fcb2264c
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: 2XyUS3_ONl5REQ7NiwikdJphAe7oJ61-21zuqnN67y8
+      short-id: 2e82d7ac
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-6edc8ff46f
+    server: 185.225.205.53
+    port: 443
+    uuid: 7a0348d6-55d3-4c23-b22f-6277fcb2264c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: addons.mozilla.org
     reality-opts:
       public-key: 2XyUS3_ONl5REQ7NiwikdJphAe7oJ61-21zuqnN67y8
@@ -41,6 +55,23 @@ proxies:
       short-id: 088faf47
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Sarina-41da2db273
+    server: 185.36.143.71
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Mohsen-c2593cd9c0
     server: 185.36.143.71
@@ -64,9 +95,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4FreeIran-8dc32a3656
+      - 4Nika-ea5f4253f1
+      - filembad
+      - 4FreeIran-6edc8ff46f
       - 4Kian-6590a95258
+      - 4Sarina-41da2db273
       - 4Mohsen-c2593cd9c0
   - name: Auto
     type: url-test
@@ -74,9 +107,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4FreeIran-8dc32a3656
+      - 4Nika-ea5f4253f1
+      - filembad
+      - 4FreeIran-6edc8ff46f
       - 4Kian-6590a95258
+      - 4Sarina-41da2db273
       - 4Mohsen-c2593cd9c0
 rules:
   - MATCH,Proxy
