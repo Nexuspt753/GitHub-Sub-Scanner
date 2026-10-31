@@ -9,12 +9,23 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-d9d40733a1
+    server: 62.220.121.35
+    port: 443
+    uuid: be1ae321-b91b-426e-8e4e-a2fb008e88b4
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - v2ray_phoenix
+      - 4Nika-d9d40733a1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -22,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - v2ray_phoenix
+      - 4Nika-d9d40733a1
 rules:
   - MATCH,Proxy

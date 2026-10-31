@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4FreeIran-d709dbd02b
+    server: 178.208.86.182
+    port: 443
+    uuid: b782eda8-7846-437c-ab93-07c3476c2887
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: jp-osa.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp-osa.862400.xyz
+  - type: vless
     name: 4Nika-09c868218c
     server: 178.208.86.182
     port: 443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-d709dbd02b
       - 4Nika-09c868218c
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-d709dbd02b
       - 4Nika-09c868218c
 rules:
   - MATCH,Proxy

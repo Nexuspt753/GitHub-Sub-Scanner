@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: sora1co
+    server: 213.183.63.60
+    port: 9054
+    cipher: aes-256-cfb
+    password: VcFuyXvND2yQWSFY
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 103.97.91.17
@@ -9,25 +16,18 @@ proxies:
     sni: la.freeguard.org
     client-fingerprint: chrome
   - type: ss
-    name: 4Jadi-df43217fdf
-    server: 195.238.126.20
-    port: 9086
-    cipher: aes-256-cfb
-    password: 37Z4TFCYhfxcpc9Q
-    udp: true
-  - type: ss
-    name: 4Jadi-101ca53dfb
-    server: 217.30.10.44
-    port: 9099
-    cipher: aes-256-cfb
-    password: 7heRqkPG3hg4UnRm
-    udp: true
-  - type: ss
     name: 4FreeIran-d0cb59b84d
     server: 213.183.63.60
     port: 9028
     cipher: aes-256-cfb
     password: 9eeJ2fwnZA5Fxgz8
+    udp: true
+  - type: ss
+    name: 4FreeIran-ab29a7f2f8
+    server: 213.183.63.60
+    port: 9049
+    cipher: aes-256-cfb
+    password: PRBf4BS2HvJqtWxY
     udp: true
   - type: trojan
     name: DeltaKroneckerGithub-01
@@ -64,15 +64,6 @@ proxies:
     sni: sg4.6n6.net
     client-fingerprint: chrome
   - type: trojan
-    name: 4Mohsen-e9cfb42d96
-    server: 103.97.91.17
-    port: 443
-    password: 600421cf-11d7-429f-a65b-c30397f1bc03
-    udp: true
-    tls: true
-    sni: la.freeguard.org
-    client-fingerprint: chrome
-  - type: trojan
     name: DeltaKroneckerGithub-05
     server: 91.192.81.167
     port: 443
@@ -105,99 +96,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Jadi-abbd402f16
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
-  - type: vless
-    name: 4Sarina-69fa01c624
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
-  - type: vless
-    name: 4Mohsen-5f5facbdaa
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-039131803d
-    server: 95.174.68.188
-    port: 14430
-    uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 95.174.68.188
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - sora1co
       - DeltaKroneckerGithub
-      - 4Jadi-df43217fdf
-      - 4Jadi-101ca53dfb
       - 4FreeIran-d0cb59b84d
+      - 4FreeIran-ab29a7f2f8
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - 4Mohsen-e9cfb42d96
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
       - 4FreeIran-e1bb3a529d
-      - 4Jadi-abbd402f16
-      - 4Sarina-69fa01c624
-      - 4Mohsen-5f5facbdaa
-      - 4Kian-039131803d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - sora1co
       - DeltaKroneckerGithub
-      - 4Jadi-df43217fdf
-      - 4Jadi-101ca53dfb
       - 4FreeIran-d0cb59b84d
+      - 4FreeIran-ab29a7f2f8
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - 4Mohsen-e9cfb42d96
       - DeltaKroneckerGithub-05
       - DeltaKroneckerGithub-06
       - 4FreeIran-e1bb3a529d
-      - 4Jadi-abbd402f16
-      - 4Sarina-69fa01c624
-      - 4Mohsen-5f5facbdaa
-      - 4Kian-039131803d
 rules:
   - MATCH,Proxy

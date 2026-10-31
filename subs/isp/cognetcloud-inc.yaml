@@ -1,32 +1,43 @@
 proxies:
   - type: vless
-    name: 4FreeIran-917f365895
+    name: 4Nika-b6565f07fd
     server: 38.76.180.144
-    port: 443
-    uuid: 3e3396ce-d6ec-42ee-b854-1dca9fcb2749
+    port: 1443
+    uuid: d98b67d4-024a-4bba-91e2-e6ebece6df11
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.microsoft.com
     xudp: true
     network: ws
     ws-opts:
-      path: /d4f1a9b2-ws
+      path: /vless-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.microsoft.com
+        Host: 38.76.180.144
+  - type: vless
+    name: 4Mohsen-deb44487af
+    server: 38.76.180.144
+    port: 1443
+    uuid: d98b67d4-024a-4bba-91e2-e6ebece6df11
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-917f365895
+      - 4Nika-b6565f07fd
+      - 4Mohsen-deb44487af
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-917f365895
+      - 4Nika-b6565f07fd
+      - 4Mohsen-deb44487af
 rules:
   - MATCH,Proxy

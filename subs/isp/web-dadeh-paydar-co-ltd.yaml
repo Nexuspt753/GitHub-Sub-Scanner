@@ -17,23 +17,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: "[82433]"
-    server: tus.hemad.qzz.io
-    port: 2053
-    uuid: 16423c7c-2c18-435b-8bbd-2bd3d5700628
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: tus.tun257xr.cfd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /speed
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: ICV2RAY
     server: tus.hemad.qzz.io
     port: 2053
@@ -118,18 +101,28 @@ proxies:
       path: /speed
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Jadi-5cc6ff19d1
+    server: ir.yones13.ir
+    port: 2085
+    uuid: af16609c-7280-4ece-b92e-dab73889ba98
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - VPsave
-      - "[82433]"
       - ICV2RAY
       - MigMigVPNSHOP
       - VPsave-01
       - 4Kian-664f685e9e
       - 4Kian-e1b0f18ea0
+      - 4Jadi-5cc6ff19d1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -137,11 +130,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
-      - "[82433]"
       - ICV2RAY
       - MigMigVPNSHOP
       - VPsave-01
       - 4Kian-664f685e9e
       - 4Kian-e1b0f18ea0
+      - 4Jadi-5cc6ff19d1
 rules:
   - MATCH,Proxy

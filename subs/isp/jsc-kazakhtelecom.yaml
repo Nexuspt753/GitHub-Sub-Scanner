@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: ConfigV2RayNG
+    server: 95.56.251.12
+    port: 47443
+    uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: kz1.waspnest.space
+    reality-opts:
+      public-key: z1GSwCEACvO9RLcMVpcURiT8er4oeIdeSJhraw_0cGU
+      short-id: ae97223a8f799877
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-c54fae7bbd
     server: 95.56.251.12
     port: 47443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - ConfigV2RayNG
       - 4Jadi-c54fae7bbd
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - ConfigV2RayNG
       - 4Jadi-c54fae7bbd
 rules:
   - MATCH,Proxy

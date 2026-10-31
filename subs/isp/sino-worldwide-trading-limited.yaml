@@ -11,12 +11,25 @@ proxies:
     reality-opts:
       public-key: EltWI8AOqkN8lMjRycweRRoFRah5hu6xiKtgBmQOdE8
     xudp: true
+  - type: vless
+    name: 4Nika-8664f79ff6
+    server: 85.11.187.68
+    port: 8443
+    uuid: f439e4fe-139b-4882-ad8b-a16176d09c88
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 85.11.187.68
+    reality-opts:
+      public-key: EltWI8AOqkN8lMjRycweRRoFRah5hu6xiKtgBmQOdE8
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-b6468f3511
+      - 4Nika-8664f79ff6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -24,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-b6468f3511
+      - 4Nika-8664f79ff6
 rules:
   - MATCH,Proxy

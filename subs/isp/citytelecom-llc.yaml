@@ -10,27 +10,28 @@ proxies:
     servername: master-proxy.lighthouselabs.online
     xudp: true
   - type: vless
-    name: 4Jadi-0db1fe0fff
-    server: 212.119.42.120
-    port: 8445
-    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    name: 4Sarina-3565ed22ee
+    server: business.lesotorg-kirov.ru
+    port: 443
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: master-proxy.lighthouselabs.online
+    servername: business.lesotorg-kirov.ru
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /chws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: business.lesotorg-kirov.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-8a32a1c660
-      - 4Jadi-0db1fe0fff
+      - 4Sarina-3565ed22ee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-8a32a1c660
-      - 4Jadi-0db1fe0fff
+      - 4Sarina-3565ed22ee
 rules:
   - MATCH,Proxy

@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: Tbilisi · 4Jadi-b2958ffd84
+    server: 93.190.9.138
+    port: 3090
+    uuid: 37fc3a9f-72e0-4b15-84ab-1455f028147a
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: Tbilisi · 4Jadi-309f5313d4
     server: 194.135.119.82
     port: 2053
@@ -20,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Tbilisi · 4Jadi-b2958ffd84
       - Tbilisi · 4Jadi-309f5313d4
   - name: Auto
     type: url-test
@@ -27,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Tbilisi · 4Jadi-b2958ffd84
       - Tbilisi · 4Jadi-309f5313d4
 rules:
   - MATCH,Proxy

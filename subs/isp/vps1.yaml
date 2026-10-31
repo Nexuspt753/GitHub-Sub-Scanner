@@ -13,12 +13,24 @@ proxies:
     servername: sk3.speedtestinternet.link
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-7d39fbbe19
+    server: 130.49.162.137
+    port: 443
+    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sk3.speedtestinternet.link
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-6dd14dfd55
+      - 4Sarina-7d39fbbe19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-6dd14dfd55
+      - 4Sarina-7d39fbbe19
 rules:
   - MATCH,Proxy

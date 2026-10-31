@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: 4Nika-ba1c71919c
+    server: 49.254.204.133
+    port: 1774
+    cipher: aes-256-cfb
+    password: 1234!@#$
+    udp: true
+  - type: ss
+    name: 4Sarina-5e8704c092
+    server: 49.254.204.134
+    port: 1774
+    cipher: aes-256-cfb
+    password: 1234!@#$
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 02a.seoulcitygovernment.com.ua
@@ -56,25 +70,13 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-04
-    server: 125.138.18.69
-    port: 11300
-    cipher: bm9uZTpodHRwczovL3QubWUvV2FuZ0NhaTLwn4eo8J-Hsw
-    password: ""
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-05
-    server: 125.138.18.69
-    port: 11300
-    cipher: none
-    password: https://t.me/WangCai2🇨🇳
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-ba1c71919c
+      - 4Sarina-5e8704c092
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-53146af5e0
@@ -82,14 +84,14 @@ proxy-groups:
       - 4Jadi-17aaaf7f7f
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-ba1c71919c
+      - 4Sarina-5e8704c092
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-53146af5e0
@@ -97,7 +99,5 @@ proxy-groups:
       - 4Jadi-17aaaf7f7f
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
-      - DeltaKroneckerGithub-05
 rules:
   - MATCH,Proxy
