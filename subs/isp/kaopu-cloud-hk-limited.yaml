@@ -1,21 +1,49 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 38.54.59.90
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 38.54.59.90
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 38.54.64.247
     port: 443
     password: ks3og6wZ9kH8UJv1bmpvwXbfgDNNaTd1Lk
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 38.54.27.117
+  - type: vless
+    name: 4Nika-7e07d239ca
+    server: 38.54.59.70
     port: 443
-    password: af4b064a9c39472fb34ad8b113acdc6b
+    uuid: d7801e5a-254d-4dff-a7dd-ef5eb0b30374
     udp: true
     tls: true
-    sni: 38.54.27.117
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: nova-relay-d9g973.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=38.54.59.70:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nova-relay-d9g973.pages.dev
+  - type: vmess
+    name: 4Nika-062aa68738
+    server: 119.46.51.45
+    port: 37515
+    uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -23,6 +51,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Nika-7e07d239ca
+      - 4Nika-062aa68738
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,5 +61,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Nika-7e07d239ca
+      - 4Nika-062aa68738
 rules:
   - MATCH,Proxy

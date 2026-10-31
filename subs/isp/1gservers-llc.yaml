@@ -13,12 +13,27 @@ proxies:
       short-id: c33807f76b689c9a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-46ccd90078
+    server: 179.254.92.134
+    port: 443
+    uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-70.topp-con.xyz
+    reality-opts:
+      public-key: OQu-e59wDwOSwiBBawquNAPhg8Li1hmioWU2Up1TGDw
+      short-id: c33807f76b689c9a
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - VPsave
+      - 4Sarina-46ccd90078
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
+      - 4Sarina-46ccd90078
 rules:
   - MATCH,Proxy

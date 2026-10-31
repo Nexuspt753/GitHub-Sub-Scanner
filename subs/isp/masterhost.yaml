@@ -5,12 +5,20 @@ proxies:
     port: 443
     password: 39b9f02c-a53d-0001-a535-8e779923d48b
     sni: hvtlr-ru-47sb.fade.mom
+  - type: ss
+    name: 4Mohsen-ecdf5b9737
+    server: 90.156.203.62
+    port: 5112
+    cipher: chacha20-ietf-poly1305
+    password: VVlAff77CnAU43Aoc5j15Y
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-75ad37ca98
+      - 4Mohsen-ecdf5b9737
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +26,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-75ad37ca98
+      - 4Mohsen-ecdf5b9737
 rules:
   - MATCH,Proxy

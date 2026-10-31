@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 31.77.68.36
-    port: 443
-    uuid: 7a0348d6-55d3-4c23-b22f-6277fcb2264c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: addons.mozilla.org
-    reality-opts:
-      public-key: Daj7jHuHFEC_LV-Fv1fBSaTSQRM9vfgf_DtjMn9svl0
-      short-id: 64e4efa1
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-193480395c
     server: 31.77.68.36
     port: 443
@@ -27,20 +13,31 @@ proxies:
       short-id: 64e4efa1
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-6e670a9687
+    server: 31.77.68.36
+    port: 443
+    uuid: 7a0348d6-55d3-4c23-b22f-6277fcb2264c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
       - 4Nika-193480395c
+      - 4Kian-6e670a9687
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
       - 4Nika-193480395c
+      - 4Kian-6e670a9687
 rules:
   - MATCH,Proxy

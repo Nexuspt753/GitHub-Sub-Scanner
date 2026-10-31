@@ -1,4 +1,21 @@
 proxies:
+  - type: trojan
+    name: 4Jadi-f7c4842b5f
+    server: 154.218.15.0
+    port: 443
+    password: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
+    udp: true
+    tls: true
+    sni: vexpanel-dcd001fcab.pages.dev
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /tj
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vexpanel-dcd001fcab.pages.dev
   - type: vless
     name: 🇨🇦
     server: 154.218.15.250
@@ -16,35 +33,59 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: proxy-1cu.pages.dev
   - type: vless
-    name: 4Jadi-709185ffeb
-    server: 154.218.15.250
-    port: 2083
-    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    name: 4FreeIran-575f41741b
+    server: 154.218.15.0
+    port: 2053
+    uuid: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: proxy-1cu.pages.dev
+    alpn:
+      - http/1.1
+    servername: vexpanel-dcd001fcab.pages.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /ws/716e8dc0859b4a2e
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proxy-1cu.pages.dev
+        Host: vexpanel-dcd001fcab.pages.dev
+  - type: vless
+    name: 4Mohsen-9527b39d16
+    server: 154.218.15.0
+    port: 443
+    uuid: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: vexpanel-dcd001fcab.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/716e8dc0859b4a2e
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vexpanel-dcd001fcab.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-f7c4842b5f
       - 🇨🇦
-      - 4Jadi-709185ffeb
+      - 4FreeIran-575f41741b
+      - 4Mohsen-9527b39d16
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-f7c4842b5f
       - 🇨🇦
-      - 4Jadi-709185ffeb
+      - 4FreeIran-575f41741b
+      - 4Mohsen-9527b39d16
 rules:
   - MATCH,Proxy

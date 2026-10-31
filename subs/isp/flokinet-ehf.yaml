@@ -1,32 +1,36 @@
 proxies:
-  - type: vless
-    name: 4Jadi-73d5e8676f
+  - type: trojan
+    name: 4Nika-f91654ffa3
     server: 185.146.234.242
     port: 443
-    uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+    password: humanity
     udp: true
     tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
-    servername: www.nihaoyun.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.nihaoyun.top
+  - type: trojan
+    name: 4Jadi-0614e5e725
+    server: 185.146.234.242
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-73d5e8676f
+      - 4Nika-f91654ffa3
+      - 4Jadi-0614e5e725
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-73d5e8676f
+      - 4Nika-f91654ffa3
+      - 4Jadi-0614e5e725
 rules:
   - MATCH,Proxy

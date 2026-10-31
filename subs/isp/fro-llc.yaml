@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: Channel
-    server: 208.84.100.209
-    port: 2112
-    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: p8pUe3hwND5rhAti-yRQ5qMaIkNdhxOV1K1jpbtJlEQ
-      short-id: 125ba3
-    xudp: true
-  - type: vless
     name: 🇺🇸US_76|373KB/s|A004-260618
     server: 208.84.100.209
     port: 2112
@@ -26,7 +13,7 @@ proxies:
       short-id: 125ba3
     xudp: true
   - type: vless
-    name: 4Nika-fdf33a7759
+    name: 🇺🇸204106
     server: 208.84.100.209
     port: 8080
     uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
@@ -37,22 +24,49 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-0954bb50da
+    server: 208.84.100.209
+    port: 2112
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: p8pUe3hwND5rhAti-yRQ5qMaIkNdhxOV1K1jpbtJlEQ
+      short-id: 125ba3
+    xudp: true
+  - type: vless
+    name: 4Nika-eb6b64e7b3
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Channel
       - 🇺🇸US_76|373KB/s|A004-260618
-      - 4Nika-fdf33a7759
+      - 🇺🇸204106
+      - 4FreeIran-0954bb50da
+      - 4Nika-eb6b64e7b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Channel
       - 🇺🇸US_76|373KB/s|A004-260618
-      - 4Nika-fdf33a7759
+      - 🇺🇸204106
+      - 4FreeIran-0954bb50da
+      - 4Nika-eb6b64e7b3
 rules:
   - MATCH,Proxy

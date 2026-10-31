@@ -1,29 +1,53 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.91.126.213
+  - type: trojan
+    name: 4Sarina-d836bf12be
+    server: 185.234.114.165
     port: 443
-    uuid: ad9f922d-1881-474d-94a8-4b06851f6039
+    password: humanity
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: qB_eMu3ZO_wGITnyIqJ7Kt39-h9oHFnHlQQEqA-r3VA
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-d6b18892f2
+    server: 185.234.114.165
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: trojan
+    name: 4Sarina-ce0e5a1c62
+    server: 185.234.114.165
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-d836bf12be
+      - 4Kian-d6b18892f2
+      - 4Sarina-ce0e5a1c62
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-d836bf12be
+      - 4Kian-d6b18892f2
+      - 4Sarina-ce0e5a1c62
 rules:
   - MATCH,Proxy

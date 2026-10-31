@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: 4Kian-075440ec3c
     server: 109.248.148.140
     port: 443
     uuid: 28e7f9e1-006c-4c38-822d-2d2903477444
@@ -25,20 +25,33 @@ proxies:
       public-key: RFZXfsd3WfxOKRcdO4Q7RoElfE8JbMpR6bG3jYLV_Uc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-669d68f5b3
+    server: 109.248.148.140
+    port: 443
+    uuid: 28e7f9e1-006c-4c38-822d-2d2903477444
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-075440ec3c
       - 4Kian-e09e4f92c9
+      - 4Mohsen-669d68f5b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-075440ec3c
       - 4Kian-e09e4f92c9
+      - 4Mohsen-669d68f5b3
 rules:
   - MATCH,Proxy

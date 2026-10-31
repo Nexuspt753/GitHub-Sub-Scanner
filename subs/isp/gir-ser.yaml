@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: 4Kian-f19ec8509b
-    server: 94.103.2.55
-    port: 443
-    uuid: 76ef5ab3-7075-4e23-b445-f3b1bd05d431
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: rus.play-cat.uk
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Nika-a054e901e3
     server: rus.play-cat.uk
     port: 443
@@ -38,22 +25,36 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-fffe154065
+    server: 213.165.60.100
+    port: 443
+    uuid: c5cf36f5-50e9-405b-adb4-b40fdf0d4619
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru-in-est-4vp.fast-cdn24.com
+    reality-opts:
+      public-key: "-vbYsY2UQcGl7Z6eTc5KDhxOfo_OhsqFlI_SyeL4TSE"
+      short-id: b927c029ece94e02
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f19ec8509b
       - 4Nika-a054e901e3
       - 4Mohsen-dd2cd41738
+      - 4FreeIran-fffe154065
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f19ec8509b
       - 4Nika-a054e901e3
       - 4Mohsen-dd2cd41738
+      - 4FreeIran-fffe154065
 rules:
   - MATCH,Proxy

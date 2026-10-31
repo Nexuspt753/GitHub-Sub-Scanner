@@ -1,32 +1,44 @@
 proxies:
   - type: vless
-    name: 4Jadi-4e7060d7a3
-    server: cpxarzw1.azangooo.ir
-    port: 2053
-    uuid: 8d6b6cf7-b713-45b0-a2a6-1fba7dcd73bd
+    name: vless
+    server: XCDN.DarinaService.IR
+    port: 8443
+    uuid: a6f263ad-2d3e-42c6-9584-ed80a5b1134d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: cpt5.digitstocks.ir
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     xudp: true
-    network: ws
-    ws-opts:
-      path: /cpt1?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cpt5.digitstocks.ir
+  - type: vless
+    name: 4Jadi-b060fdbdc3
+    server: XCDN.DarinaService.IR
+    port: 8443
+    uuid: a6f263ad-2d3e-42c6-9584-ed80a5b1134d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - ""
+    servername: Iran.irandarina.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-4e7060d7a3
+      - vless
+      - 4Jadi-b060fdbdc3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-4e7060d7a3
+      - vless
+      - 4Jadi-b060fdbdc3
 rules:
   - MATCH,Proxy

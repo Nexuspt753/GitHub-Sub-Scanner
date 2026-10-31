@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4FreeIran-78943e0031
+    server: 213.111.177.107
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snip.edgeoneai.cc.cd
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
+  - type: vless
     name: 4FreeIran-89697ca885
     server: 213.111.177.107
     port: 443
@@ -16,7 +32,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vlso5.1d.mom
   - type: vless
-    name: 4Kian-450f610665
+    name: 4FreeIran-dcf8903035
     server: 213.111.177.107
     port: 443
     uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
@@ -36,15 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-78943e0031
       - 4FreeIran-89697ca885
-      - 4Kian-450f610665
+      - 4FreeIran-dcf8903035
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-78943e0031
       - 4FreeIran-89697ca885
-      - 4Kian-450f610665
+      - 4FreeIran-dcf8903035
 rules:
   - MATCH,Proxy

@@ -1,0 +1,92 @@
+proxies:
+  - type: trojan
+    name: 4Nika-09a9ec01cf
+    server: 156.252.3.202
+    port: 2053
+    password: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
+    udp: true
+    tls: true
+    sni: vexpanel-dcd001fcab.pages.dev
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /tj
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vexpanel-dcd001fcab.pages.dev
+  - type: trojan
+    name: 4Sarina-762f000ee0
+    server: 156.252.3.202
+    port: 443
+    password: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
+    udp: true
+    tls: true
+    sni: vexpanel-dcd001fcab.pages.dev
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /tj
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vexpanel-dcd001fcab.pages.dev
+  - type: vless
+    name: 4Sarina-e9877b54c7
+    server: 156.252.3.202
+    port: 2053
+    uuid: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: vexpanel-dcd001fcab.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/716e8dc0859b4a2e
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vexpanel-dcd001fcab.pages.dev
+  - type: vless
+    name: 4Kian-3798ccb27b
+    server: 156.252.3.202
+    port: 443
+    uuid: 716e8dc0-859b-4a2e-b8cb-e180b7b302d0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: vexpanel-dcd001fcab.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/716e8dc0859b4a2e
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vexpanel-dcd001fcab.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-09a9ec01cf
+      - 4Sarina-762f000ee0
+      - 4Sarina-e9877b54c7
+      - 4Kian-3798ccb27b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-09a9ec01cf
+      - 4Sarina-762f000ee0
+      - 4Sarina-e9877b54c7
+      - 4Kian-3798ccb27b
+rules:
+  - MATCH,Proxy

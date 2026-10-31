@@ -17,12 +17,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 148-253-210-191.sslip.io
+  - type: vless
+    name: 4FreeIran-c193aafc76
+    server: 195.141.65.98
+    port: 443
+    uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 148-253-210-191.sslip.io
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /test-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 148-253-210-191.sslip.io
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-c193aafc76
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -30,5 +49,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-c193aafc76
 rules:
   - MATCH,Proxy
