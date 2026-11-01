@@ -1,6 +1,56 @@
 proxies:
   - type: vless
-    name: 4Nika-2b8939eb21
+    name: DeltaKroneckerGithub
+    server: 185.229.9.135
+    port: 443
+    uuid: d8a47403-5dbf-4450-8640-0134719b1d86
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: business.lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: business.lesotorg-kirov.ru
+  - type: vless
+    name: 4Mohsen-6901eebda8
+    server: 185.229.9.135
+    port: 443
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: business.lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: business.lesotorg-kirov.ru
+  - type: vless
+    name: 4Mohsen-8a3a9abdf3
+    server: 185.229.9.135
+    port: 443
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: business.lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chwsfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: business.lesotorg-kirov.ru
+  - type: vless
+    name: 4Jadi-96c6972f38
     server: 185.229.9.135
     port: 443
     uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
@@ -14,9 +64,8 @@ proxies:
       path: /chws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: business.lesotorg-kirov.ru
   - type: vless
-    name: 4Nika-47e2b28db6
+    name: 4Kian-bf64a70842
     server: 185.229.9.135
     port: 443
     uuid: d8a47403-5dbf-4450-8640-0134719b1d86
@@ -38,15 +87,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-2b8939eb21
-      - 4Nika-47e2b28db6
+      - DeltaKroneckerGithub
+      - 4Mohsen-6901eebda8
+      - 4Mohsen-8a3a9abdf3
+      - 4Jadi-96c6972f38
+      - 4Kian-bf64a70842
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2b8939eb21
-      - 4Nika-47e2b28db6
+      - DeltaKroneckerGithub
+      - 4Mohsen-6901eebda8
+      - 4Mohsen-8a3a9abdf3
+      - 4Jadi-96c6972f38
+      - 4Kian-bf64a70842
 rules:
   - MATCH,Proxy

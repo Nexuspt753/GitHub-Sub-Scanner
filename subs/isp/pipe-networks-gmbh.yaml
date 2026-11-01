@@ -1,0 +1,107 @@
+proxies:
+  - type: vless
+    name: V2ray_confiig
+    server: 92.42.201.102
+    port: 443
+    uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: node-slo01.rkitman.ru
+    reality-opts:
+      public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
+      short-id: 88d9dc52ef39c8bd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vpnsal
+    server: 92.42.201.102
+    port: 443
+    uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: node-slo01.rkitman.ru
+    reality-opts:
+      public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
+      short-id: 88d9dc52ef39c8bd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-5cc13bb671
+    server: 157.173.7.17
+    port: 443
+    uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: node-fra03.rkitman.ru
+    reality-opts:
+      public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
+      short-id: 88d9dc52ef39c8bd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-71f35fee9b
+    server: 92.42.201.102
+    port: 443
+    uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: node-slo01.rkitman.ru
+    reality-opts:
+      public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
+      short-id: 88d9dc52ef39c8bd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-29f0d02bfc
+    server: 92.42.201.107
+    port: 443
+    uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: node-slo02.rkitman.ru
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Sarina-f33033b660
+    server: 92.42.201.160
+    port: 443
+    uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: node-slo05.rkitman.ru
+    reality-opts:
+      public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
+      short-id: 88d9dc52ef39c8bd
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - V2ray_confiig
+      - vpnsal
+      - 4Kian-5cc13bb671
+      - 4Sarina-71f35fee9b
+      - 4Nika-29f0d02bfc
+      - 4Sarina-f33033b660
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - V2ray_confiig
+      - vpnsal
+      - 4Kian-5cc13bb671
+      - 4Sarina-71f35fee9b
+      - 4Nika-29f0d02bfc
+      - 4Sarina-f33033b660
+rules:
+  - MATCH,Proxy

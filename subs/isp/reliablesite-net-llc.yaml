@@ -13,12 +13,27 @@ proxies:
       short-id: 8718c58d3d51db59
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-5747ff662b
+    server: 104.243.44.241
+    port: 443
+    uuid: b24ad12f-f6ce-4f0b-a264-d58a76104026
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: us2.freehiliters.com
+    reality-opts:
+      public-key: jIq_COD-tIXTvgDn-TslFGtB_a8HVgUOOIlUByv8fkg
+      short-id: 8718c58d3d51db59
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Sarina-5747ff662b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Sarina-5747ff662b
 rules:
   - MATCH,Proxy

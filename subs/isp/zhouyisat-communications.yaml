@@ -1,4 +1,32 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 185.232.205.200
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Jadi-ef9c5e6f65
+    server: 193.17.183.48
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Sarina-93665ccc41
     server: 147.45.125.231
@@ -39,6 +67,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - 4Jadi-ef9c5e6f65
       - 4Sarina-93665ccc41
       - 4Nika-23a4b79f1d
   - name: Auto
@@ -47,6 +77,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - 4Jadi-ef9c5e6f65
       - 4Sarina-93665ccc41
       - 4Nika-23a4b79f1d
 rules:

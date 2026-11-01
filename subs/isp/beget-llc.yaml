@@ -1,11 +1,18 @@
 proxies:
-  - type: ss
-    name: 4Nika-a607aab12b
-    server: msk2.rvpn.app
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: MODziWLa9qMuW-4yPa0rfw
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 217.26.26.14
+    port: 443
+    password: humanity
     udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Nika-92a361093a
     server: 85.198.97.155
@@ -24,7 +31,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-a607aab12b
+      - DeltaKroneckerGithub
       - 4Nika-92a361093a
   - name: Auto
     type: url-test
@@ -32,7 +39,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-a607aab12b
+      - DeltaKroneckerGithub
       - 4Nika-92a361093a
 rules:
   - MATCH,Proxy

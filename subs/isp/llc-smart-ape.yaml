@@ -6,12 +6,27 @@ proxies:
     password: f317b5d6-d399-4d3d-a051-89d674ae953c
     sni: msk.frkn.org
     skip-cert-verify: true
+  - type: vless
+    name: 4Kian-8352555ad3
+    server: 188.127.251.227
+    port: 443
+    uuid: 9bbf927b-f950-4c67-ac8a-c6ff779ce8a2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: yabro-wbplugin.edadeal.yandex.ru
+    reality-opts:
+      public-key: jcjL7-bGaMS2naBCF6zrqW7-ISUw6LpUHQ56JuuD9w8
+      short-id: 154ebe1fc9956268
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-2bf5d9305f
+      - 4Kian-8352555ad3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-2bf5d9305f
+      - 4Kian-8352555ad3
 rules:
   - MATCH,Proxy

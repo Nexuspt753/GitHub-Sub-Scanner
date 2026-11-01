@@ -1,0 +1,66 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-a1c0f2d3c1
+    server: de2d75516666caf4.tunvi.w-ert.org
+    port: 40287
+    uuid: 03c4ee1a-5e51-4f59-84bc-0d6804c69880
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-830234ee41
+    server: tun2.w-ert.org
+    port: 40289
+    uuid: 03c4ee1a-5e51-4f59-84bc-0d6804c69880
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-bfe3dbdd38
+    server: 820fa60d74ec17d7.tunvi.w-ert.org
+    port: 38780
+    uuid: 38184696-21c9-41ab-9a62-2a1da5e0df53
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-5848166965
+    server: f0c3e8501ac0fab6.tunvi.w-ert.org
+    port: 50332
+    uuid: 38184696-21c9-41ab-9a62-2a1da5e0df53
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-a1c0f2d3c1
+      - 4FreeIran-830234ee41
+      - 4Jadi-bfe3dbdd38
+      - 4Mohsen-5848166965
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-a1c0f2d3c1
+      - 4FreeIran-830234ee41
+      - 4Jadi-bfe3dbdd38
+      - 4Mohsen-5848166965
+rules:
+  - MATCH,Proxy

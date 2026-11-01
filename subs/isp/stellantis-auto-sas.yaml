@@ -1,6 +1,24 @@
 proxies:
   - type: vless
-    name: 4Kian-a7664bd40d
+    name: DeltaKroneckerGithub
+    server: 151.91.39.191
+    port: 443
+    uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 148-253-210-191.sslip.io
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /test-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 148-253-210-191.sslip.io
+  - type: vless
+    name: 4Jadi-d02f919b8d
     server: 151.91.39.191
     port: 443
     uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
@@ -22,13 +40,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-a7664bd40d
+      - DeltaKroneckerGithub
+      - 4Jadi-d02f919b8d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-a7664bd40d
+      - DeltaKroneckerGithub
+      - 4Jadi-d02f919b8d
 rules:
   - MATCH,Proxy

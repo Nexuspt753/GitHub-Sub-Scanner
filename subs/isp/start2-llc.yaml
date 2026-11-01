@@ -11,13 +11,6 @@ proxies:
       - h2
     xudp: true
   - type: vless
-    name: 4Kian-c548d9d047
-    server: 185.126.93.227
-    port: 443
-    uuid: f04cc810-aaf2-4a7b-8cad-356cdd30d394
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Kian-eff37e269b
     server: tg1.cdnphotos.org
     port: 443
@@ -28,14 +21,21 @@ proxies:
     alpn:
       - h2
     xudp: true
+  - type: vless
+    name: 4Jadi-92324ce5eb
+    server: tg1.cdnphotos.org
+    port: 443
+    uuid: f04cc810-aaf2-4a7b-8cad-356cdd30d394
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - 4Kian-c548d9d047
       - 4Kian-eff37e269b
+      - 4Jadi-92324ce5eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,7 +43,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Kian-c548d9d047
       - 4Kian-eff37e269b
+      - 4Jadi-92324ce5eb
 rules:
   - MATCH,Proxy

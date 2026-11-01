@@ -1,23 +1,32 @@
 proxies:
-  - type: vless
-    name: vless
-    server: p.maxiko.ir
-    port: 2086
-    uuid: 45016458-a8c5-4e3f-814a-437145e4dd4f
+  - type: ss
+    name: کانال
+    server: dns3.m3hrzd.ir
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: t0P5KEByP-ClDQVHbRKClgw-zv3H0T6m
     udp: true
-    xudp: true
+  - type: ss
+    name: filembad
+    server: dns3.m3hrzd.ir
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: coKtYFyvh87E_g4u2-2jfVO597NtA4XW
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - کانال
+      - filembad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - کانال
+      - filembad
 rules:
   - MATCH,Proxy

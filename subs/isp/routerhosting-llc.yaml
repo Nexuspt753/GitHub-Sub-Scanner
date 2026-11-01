@@ -1,20 +1,27 @@
 proxies:
   - type: vless
-    name: 4Jadi-e073236d71
+    name: 4Nika-84412ff32a
+    server: 153.75.87.192
+    port: 443
+    uuid: 101b5fea-8201-4ff9-84b3-12bf49ce6645
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-787e6d99fd
     server: 153.75.86.200
-    port: 8443
+    port: 8444
     uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
     udp: true
     tls: true
     client-fingerprint: edge
     servername: www.apple.com
     reality-opts:
-      public-key: JNp0hUDwHZQw9kbwd-D1WfIOdqCtdJeBv1WTNp37V0M
-      short-id: 7e7434c068cbef5a
+      public-key: Pf6ncFuG_HpLNZQKNre-mfklU6fdLORyftfw3UAa6xc
+      short-id: 05f5d227c525b840
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-787e6d99fd
+    name: 4Nika-dbf809fbd3
     server: 153.75.86.200
     port: 8444
     uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
@@ -32,15 +39,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-e073236d71
+      - 4Nika-84412ff32a
       - 4Nika-787e6d99fd
+      - 4Nika-dbf809fbd3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-e073236d71
+      - 4Nika-84412ff32a
       - 4Nika-787e6d99fd
+      - 4Nika-dbf809fbd3
 rules:
   - MATCH,Proxy
