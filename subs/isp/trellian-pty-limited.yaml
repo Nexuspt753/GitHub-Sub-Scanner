@@ -1,5 +1,19 @@
 proxies:
   - type: ss
+    name: 4Sarina-8141f8b83c
+    server: ak1656.www.outline.network.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 4Hub2f9JyhECyAq2Opm0NS
+    udp: true
+  - type: ss
+    name: 4Jadi-fc4160bb1d
+    server: ak1724.www.outline.network.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 4Hub2f9JyhECyAq2Opm0NS
+    udp: true
+  - type: ss
     name: 4FreeIran-208b4bae10
     server: ak1803.www.outline.network.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou
     port: 443
@@ -13,6 +27,13 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: YUWX6COLZYmaHlUGiKwDaN
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 103.224.182.214
+    port: 443
+    password: 7b561e94-42f3-4f92-979c-4cf97c328025
+    udp: true
+    client-fingerprint: chrome
   - type: ss
     name: 4Nika-1c43075560
     server: ak1784.www.outline.network.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou
@@ -21,14 +42,14 @@ proxies:
     password: shadowsocks
     udp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: swejs.lydurlclub.top
     port: 443
     password: b06d7f06-51ba-402d-991a-3fe1e432247c
     udp: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 103.224.182.210
     port: 443
     password: da88864b-6aa5-4d18-8e36-ac809a24c571
@@ -50,28 +71,53 @@ proxies:
       path: /422Kdfwzf49IxeZJa
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 🇺🇸US-103.224.182.210-0043
+    server: db01.paopaocloud.cyou
+    port: 443
+    uuid: d8c5b486-84bb-3887-a1d9-07455ea608f2
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /v2ray
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: db01.paopaocloud.cyou
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-8141f8b83c
+      - 4Jadi-fc4160bb1d
       - 4FreeIran-208b4bae10
       - 4Sarina-398ab8a6bd
-      - 4Nika-1c43075560
       - DeltaKroneckerGithub
+      - 4Nika-1c43075560
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Mohsen-490523c3c8
+      - 🇺🇸US-103.224.182.210-0043
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-8141f8b83c
+      - 4Jadi-fc4160bb1d
       - 4FreeIran-208b4bae10
       - 4Sarina-398ab8a6bd
-      - 4Nika-1c43075560
       - DeltaKroneckerGithub
+      - 4Nika-1c43075560
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Mohsen-490523c3c8
+      - 🇺🇸US-103.224.182.210-0043
 rules:
   - MATCH,Proxy

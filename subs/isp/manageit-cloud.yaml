@@ -6,20 +6,12 @@ proxies:
     uuid: 28efb350-2939-4688-be44-a09cfa507d3c
     udp: true
     xudp: true
-  - type: vless
-    name: 4Sarina-f5bd1f1405
-    server: trial.irgemini.sbs
-    port: 11681
-    uuid: 63c12a5d-d5b7-49a3-86a6-6377388ace94
-    udp: true
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - VPsave
-      - 4Sarina-f5bd1f1405
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +19,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
-      - 4Sarina-f5bd1f1405
 rules:
   - MATCH,Proxy

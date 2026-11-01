@@ -13,12 +13,27 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-3949b77f78
+    server: hk2.huahua.wiki
+    port: 443
+    uuid: 07fff28d-1ae9-493e-926e-8bf941c53782
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 81vXBnunsk7q3T5oHv7iuCiUibGLj9GS4jjJL00zRUE
+      short-id: 83f8ac7c565fac80
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-a0b67b5468
+      - 4Mohsen-3949b77f78
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-a0b67b5468
+      - 4Mohsen-3949b77f78
 rules:
   - MATCH,Proxy

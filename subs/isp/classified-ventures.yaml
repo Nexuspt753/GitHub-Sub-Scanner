@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Sarina-81d43c42c5
+    server: 74.119.99.176
+    port: 443
+    uuid: 0f0b7f69-78e1-4e9e-8b35-0986444613e4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: chatgpt.arpa.q2.wikipedia.org.xn--m39h.www.cdn.speedtest.net.h.google.ru.zula.ir.1.1.1.xn--6bi8548mabeaana921b9b830dbbb0nn92a.tls.xn--mn8haaaaa252bbabbbb.xn--mn8haaaaa252bbabbbb.fake.xn--j9h1028mqmaoytii00aha21d.aparat.com.zula.ir.rrtyntaxbtr.dpdns.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: chatgpt.arpa.q2.wikipedia.org.xn--m39h.www.cdn.speedtest.net.h.google.ru.zula.ir.1.1.1.xn--6bi8548mabeaana921b9b830dbbb0nn92a.tls.xn--mn8haaaaa252bbabbbb.xn--mn8haaaaa252bbabbbb.fake.xn--j9h1028mqmaoytii00aha21d.aparat.com.zula.ir.rrtyntaxbtr.dpdns.org
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-81d43c42c5
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-81d43c42c5
+rules:
+  - MATCH,Proxy

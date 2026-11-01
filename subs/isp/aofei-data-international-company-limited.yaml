@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 🇪🇸139848
+    server: 45.196.208.84
+    port: 443
+    uuid: d2042070-c247-4226-a3ac-15337923e00d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandex.net
+    reality-opts:
+      public-key: zr8_rtHm86s_G1gfRwNtunStGngYZSdYkA3PyBFXpDg
+      short-id: 28047c78b3f5ee2c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-1c38f8336b
+    server: 45.196.208.84
+    port: 443
+    uuid: d2042070-c247-4226-a3ac-15337923e00d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: storage.yandex.net
+    reality-opts:
+      public-key: zr8_rtHm86s_G1gfRwNtunStGngYZSdYkA3PyBFXpDg
+      short-id: 28047c78b3f5ee2c
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇪🇸139848
+      - 4Mohsen-1c38f8336b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇪🇸139848
+      - 4Mohsen-1c38f8336b
+rules:
+  - MATCH,Proxy
