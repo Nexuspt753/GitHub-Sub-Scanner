@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 🇱🇻
+    server: 195.123.208.32
+    port: 443
+    uuid: 1ebcb694-875c-4be7-b6a2-d53c8208991b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: ICrsmE5hqN7IsDIyHPG2WkDUUFK_VEj9yobLv8zuDwk
+      short-id: 757b9e1ef18e60f0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-b4268ada23
     server: 195.123.213.28
     port: 443
@@ -66,16 +80,34 @@ proxies:
     servername: gateway.icloud.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-f74aea0067
+    server: 195.123.208.57
+    port: 8443
+    uuid: 3305c285-8d55-4f52-a3b0-2a582f5ffd59
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sdwf-amq.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sdwf-amq.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 🇱🇻
       - 4Kian-b4268ada23
       - 4Mohsen-61245daf71
       - 4FreeIran-f87957debf
       - 4Jadi-7a963ffd7a
+      - 4FreeIran-f74aea0067
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -83,9 +115,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 🇱🇻
       - 4Kian-b4268ada23
       - 4Mohsen-61245daf71
       - 4FreeIran-f87957debf
       - 4Jadi-7a963ffd7a
+      - 4FreeIran-f74aea0067
 rules:
   - MATCH,Proxy

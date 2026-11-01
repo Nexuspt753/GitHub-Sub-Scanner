@@ -7,20 +7,26 @@ proxies:
     sni: hvtlr-ru-47sb.fade.mom
     alpn:
       - h3
-  - type: ss
-    name: 4Mohsen-ecdf5b9737
-    server: 90.156.203.62
-    port: 5112
-    cipher: chacha20-ietf-poly1305
-    password: VVlAff77CnAU43Aoc5j15Y
+  - type: vless
+    name: 🇵🇱
+    server: 87.242.119.253
+    port: 443
+    uuid: aba9cdd4-026c-0001-87a9-9b3e5f24dd82
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+      - h2
+    servername: hvtlr-ru-47sb.fade.mom
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-9cfcc716a1
-      - 4Mohsen-ecdf5b9737
+      - 🇵🇱
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,6 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-9cfcc716a1
-      - 4Mohsen-ecdf5b9737
+      - 🇵🇱
 rules:
   - MATCH,Proxy

@@ -1,11 +1,5 @@
 proxies:
   - type: hysteria2
-    name: 4Jadi-3f76775104
-    server: fl1.nexfile.net
-    port: 4444
-    password: 10be1dad-9952-4c5e-aa30-db435f69b727
-    sni: fl1.nexfile.net
-  - type: hysteria2
     name: 4Nika-7c8ea79353
     server: fl2.nexfile.net
     port: 4444
@@ -20,34 +14,20 @@ proxies:
     skip-cert-verify: false
     alpn:
       - h3
-  - type: vless
-    name: 4Nika-25b680174c
-    server: fl3.nexfile.net
-    port: 4443
-    uuid: a35c508f-4d5d-4531-842e-6e9d43c762c0
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: fl3.nexfile.net
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3f76775104
       - 4Nika-7c8ea79353
       - 4Sarina-0792be8853
-      - 4Nika-25b680174c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3f76775104
       - 4Nika-7c8ea79353
       - 4Sarina-0792be8853
-      - 4Nika-25b680174c
 rules:
   - MATCH,Proxy

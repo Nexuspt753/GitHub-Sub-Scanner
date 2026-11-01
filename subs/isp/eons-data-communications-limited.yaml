@@ -14,19 +14,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: MTMVPN
-    server: iran2.panelsaz.com
-    port: 2087
-    uuid: 1b71cb74-16f8-4ea0-9acf-d03a3d66dff6
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /upl
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: trnewpnltun.mamadhpbot.ir
-  - type: vless
     name: 4FreeIran-b0b7a6ae14
     server: iran2.panelsaz.com
     port: 2087
@@ -39,14 +26,43 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: trnewpnltun.mamadhpbot.ir
+  - type: vless
+    name: Telegram
+    server: vippnlger.mamadhpbot.ir
+    port: 443
+    uuid: f1e8f854-f79b-4f60-bd6a-5f9edb2ac870
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: tT00Dzsxp9Abw1Iv0YFTcrmjXZm2Z1oEO-UX8Y0Noyo
+      short-id: 53a3a94ab9224f5d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-4313984e16
+    server: vippnlger.mamadhpbot.ir
+    port: 443
+    uuid: f1e8f854-f79b-4f60-bd6a-5f9edb2ac870
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: tT00Dzsxp9Abw1Iv0YFTcrmjXZm2Z1oEO-UX8Y0Noyo
+      short-id: 53a3a94ab9224f5d
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-1870a0569b
-      - MTMVPN
       - 4FreeIran-b0b7a6ae14
+      - Telegram
+      - 4Kian-4313984e16
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -54,7 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-1870a0569b
-      - MTMVPN
       - 4FreeIran-b0b7a6ae14
+      - Telegram
+      - 4Kian-4313984e16
 rules:
   - MATCH,Proxy

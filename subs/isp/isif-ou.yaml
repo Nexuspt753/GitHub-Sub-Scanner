@@ -1,24 +1,6 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: radiance.occupy.hefty.aliyunglsb.com
-    port: 12240
-    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
-    udp: true
-    tls: true
-    sni: www.microsoft365.com
-    client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-3b9e42eadf
-    server: 152.175.6.229
-    port: 31884
-    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: 4Sarina-25c26164e2
     server: hk010.zestapp778.com
     port: 31884
     uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
@@ -27,14 +9,22 @@ proxies:
     client-fingerprint: chrome
     servername: hk010.zestapp778.com
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: radiance.occupy.hefty.aliyunglsb.com
+    port: 12240
+    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    udp: true
+    tls: true
+    sni: www.microsoft365.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-3b9e42eadf
-      - 4Sarina-25c26164e2
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,7 +32,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-3b9e42eadf
-      - 4Sarina-25c26164e2
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
