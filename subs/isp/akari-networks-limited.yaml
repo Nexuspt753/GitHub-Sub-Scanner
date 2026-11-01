@@ -1,25 +1,87 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 188.253.6.249
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vlso5.1d.mom
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /socks5=888:888@hkip.1d.mom:1080
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
   - type: trojan
-    name: 4Sarina-b51e4ae63d
-    server: 188.253.12.91
-    port: 47909
+    name: 4Jadi-6ff5a1ddb5
+    server: 188.253.12.90
+    port: 45553
     password: 4f4d1167-ef14-4304-9bce-0740472503ef
     udp: true
     tls: true
-    sni: is.01.naiun.bilibili.com
+    sni: ch.01.naiun.bilibili.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Kian-01222c601c
+    server: 188.253.12.92
+    port: 46424
+    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    udp: true
+    tls: true
+    sni: de.01.naiun.bilibili.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-94f4a9c5ee
+    server: 188.253.12.93
+    port: 41943
+    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    udp: true
+    tls: true
+    sni: az.01.naiun.bilibili.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-be12cc0ed2
+    server: 188.253.12.93
+    port: 48697
+    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    udp: true
+    tls: true
+    sni: gh.01.naiun.bilibili.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-9b16f6d440
+    server: 188.253.12.94
+    port: 45553
+    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    udp: true
+    tls: true
+    sni: ch.01.naiun.bilibili.com
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b51e4ae63d
+      - DeltaKroneckerGithub
+      - 4Jadi-6ff5a1ddb5
+      - 4Kian-01222c601c
+      - 4Mohsen-94f4a9c5ee
+      - 4FreeIran-be12cc0ed2
+      - 4Sarina-9b16f6d440
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b51e4ae63d
+      - DeltaKroneckerGithub
+      - 4Jadi-6ff5a1ddb5
+      - 4Kian-01222c601c
+      - 4Mohsen-94f4a9c5ee
+      - 4FreeIran-be12cc0ed2
+      - 4Sarina-9b16f6d440
 rules:
   - MATCH,Proxy

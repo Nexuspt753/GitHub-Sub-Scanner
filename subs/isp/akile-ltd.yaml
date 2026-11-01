@@ -18,8 +18,36 @@ proxies:
       short-id: 00b0389a
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub-01
+    server: hk3n.wxgqlfx.vip
+    port: 35193
+    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: VPsave
+    server: 45.196.235.64
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: 45.196.235.64
     port: 443
     password: humanity
@@ -104,31 +132,6 @@ proxies:
       short-id: 00b0389a
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-c6669bf14e
-    server: 156.246.88.125
-    port: 26518
-    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: github.com
-    reality-opts:
-      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
-      short-id: 6caead99
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-86b69835c1
-    server: 156.246.88.125
-    port: 26518
-    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: github.com
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -137,13 +140,13 @@ proxy-groups:
       - 4Jadi-f3caa937ec
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - VPsave
+      - DeltaKroneckerGithub-02
       - 4Kian-378ef8aefe
       - 4Jadi-943316df97
       - 4Jadi-683f546702
       - 4Jadi-e8af760934
       - 4Jadi-0102015f0c
-      - 4Jadi-c6669bf14e
-      - 4Mohsen-86b69835c1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -153,12 +156,12 @@ proxy-groups:
       - 4Jadi-f3caa937ec
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - VPsave
+      - DeltaKroneckerGithub-02
       - 4Kian-378ef8aefe
       - 4Jadi-943316df97
       - 4Jadi-683f546702
       - 4Jadi-e8af760934
       - 4Jadi-0102015f0c
-      - 4Jadi-c6669bf14e
-      - 4Mohsen-86b69835c1
 rules:
   - MATCH,Proxy

@@ -1,32 +1,31 @@
 proxies:
-  - type: vless
-    name: Tbilisi · 4Jadi-309f5313d4
+  - type: trojan
+    name: Tbilisi · @DeltaKroneckerGithub
     server: 194.135.119.82
     port: 2053
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    password: humanity
     udp: true
     tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+        Host: www.cordweave.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Tbilisi · 4Jadi-309f5313d4
+      - Tbilisi · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Tbilisi · 4Jadi-309f5313d4
+      - Tbilisi · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

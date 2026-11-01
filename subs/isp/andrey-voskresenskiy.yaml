@@ -1,9 +1,29 @@
 proxies:
   - type: vless
-    name: 4Kian-f338e7b671
-    server: 213.182.201.81
+    name: 4Nika-68543ca15a
+    server: 213.182.201.96
     port: 3090
-    uuid: 93aa53ba-92a9-41ef-942d-7e8762e3ab5e
+    uuid: 2099158e-9d5d-4f10-918c-678f485647fa
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-b9fb1eced5
+    server: 213.182.201.147
+    port: 3090
+    uuid: 5386cd46-5736-4451-b9ab-81cecf23c85c
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-fe40b15fb4
+    server: 213.182.201.52
+    port: 3090
+    uuid: 5386cd46-5736-4451-b9ab-81cecf23c85c
     udp: true
     xudp: true
     network: grpc
@@ -14,13 +34,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-f338e7b671
+      - 4Nika-68543ca15a
+      - 4FreeIran-b9fb1eced5
+      - 4Mohsen-fe40b15fb4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f338e7b671
+      - 4Nika-68543ca15a
+      - 4FreeIran-b9fb1eced5
+      - 4Mohsen-fe40b15fb4
 rules:
   - MATCH,Proxy

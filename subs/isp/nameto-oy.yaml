@@ -1,22 +1,50 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-b76658bee5
-    server: 92.242.165.40
-    port: 8443
-    password: 2f0fccb6-4a86-4d9f-9e03-a2dfee6ed7f5
-    sni: speedtestmark.com
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 92.242.165.10
+    port: 2083
+    uuid: 75b517db-1f97-4bda-a479-863d988c31a0
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-c6bed18ac2
+    server: 92.242.165.20
+    port: 2083
+    uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b76658bee5
+      - DeltaKroneckerGithub
+      - 4FreeIran-c6bed18ac2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b76658bee5
+      - DeltaKroneckerGithub
+      - 4FreeIran-c6bed18ac2
 rules:
   - MATCH,Proxy

@@ -1,15 +1,6 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 103.219.192.33
-    port: 443
-    password: 469c8135-8aea-4c7f-8ec2-c5fdfa980b48
-    udp: true
-    tls: true
-    sni: hkip5.686911.xyz
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: VPsave
     server: 103.219.195.65
     port: 443
     password: humanity
@@ -23,7 +14,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: 4Mohsen-714c277dba
+    name: 4Jadi-8aaa7a6540
     server: 103.219.195.65
     port: 443
     password: humanity
@@ -33,9 +24,19 @@ proxies:
     client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: "%2Fassignment"
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 103.219.192.33
+    port: 443
+    password: 469c8135-8aea-4c7f-8ec2-c5fdfa980b48
+    udp: true
+    tls: true
+    sni: hkip5.686911.xyz
+    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-8c1d1763f2
     server: 209.33.161.104
@@ -52,42 +53,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Jadi-c680659b3d
-    server: proxyip.hk.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
+      - 4Jadi-8aaa7a6540
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Mohsen-714c277dba
       - 4Jadi-8c1d1763f2
-      - 4Jadi-c680659b3d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
+      - 4Jadi-8aaa7a6540
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Mohsen-714c277dba
       - 4Jadi-8c1d1763f2
-      - 4Jadi-c680659b3d
 rules:
   - MATCH,Proxy

@@ -1,44 +1,30 @@
 proxies:
   - type: trojan
-    name: EPODONIOS
-    server: 139.59.238.97
-    port: 50573
-    password: pvZE3UfT0ziK1omVLlsjINBqeqqwab1M
+    name: DeltaKroneckerGithub
+    server: 139.59.186.54
+    port: 443
+    password: humanity
     udp: true
     tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 🇬🇧
-    server: 139.59.238.97
-    port: 50573
-    password: pvZE3UfT0ziK1omVLlsjINBqeqqwab1M
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-c417a1e561
-    server: 139.59.238.97
-    port: 50573
-    password: pvZE3UfT0ziK1omVLlsjINBqeqqwab1M
-    udp: true
-    tls: true
-    client-fingerprint: chrome
+    sni: www.volumeroot.com
+    client-fingerprint: unsafe
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - 🇬🇧
-      - 4Jadi-c417a1e561
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - 🇬🇧
-      - 4Jadi-c417a1e561
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

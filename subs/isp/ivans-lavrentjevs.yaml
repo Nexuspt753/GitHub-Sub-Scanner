@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Kian-0b2e7084ef
+    server: 94.183.245.2
+    port: 443
+    uuid: e71f3fe4-ccfb-464a-895d-41831efe13a9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl-1-t.124515.xyz
+    reality-opts:
+      public-key: 3EuP8uX9rTJ-qw6O1hg2KWgD1fbY73-ZfT1Q8I_Srkw
+      short-id: 693ee677b7bc4ad1
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-0b2e7084ef
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-0b2e7084ef
+rules:
+  - MATCH,Proxy

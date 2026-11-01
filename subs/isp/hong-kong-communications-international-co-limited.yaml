@@ -1,18 +1,28 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 38.181.42.136
-    port: 9443
-    password: trj-qWC4DKUemeUYWSKA1xx7okumSKKw0QSX
+    name: VPsave
+    server: hik160.pacemakere.com
+    port: 20014
+    password: 778f5385b4254495
     udp: true
     tls: true
-    sni: www.jqyverse.com
+    sni: hik160.pacemakere.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: hik160.pacemakere.com
+    port: 20014
+    password: 778f5385b4254495
+    udp: true
+    tls: true
+    sni: hik160.pacemakere.com
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
       - DeltaKroneckerGithub
   - name: Auto
     type: url-test
@@ -20,6 +30,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

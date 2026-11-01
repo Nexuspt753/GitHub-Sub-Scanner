@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Nika-5aee9d7d45
+    server: snowy-peak.vercel.app
+    port: 443
+    uuid: 48c944c2-b61d-4644-811a-5921d59b90dd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snowy-peak.vercel.app
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-5aee9d7d45
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-5aee9d7d45
+rules:
+  - MATCH,Proxy

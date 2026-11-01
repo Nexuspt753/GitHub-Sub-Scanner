@@ -1,32 +1,48 @@
 proxies:
-  - type: vless
-    name: 4Sarina-7dde09b457
-    server: 194.156.163.191
-    port: 8462
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 194.114.138.162
+    port: 443
+    password: humanity
     udp: true
     tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
-    servername: qcswhj2.edge-cache.danfeng4.xyz
-    xudp: true
     network: ws
     ws-opts:
-      path: /danfeng-pw8lj2-nzliwt-h23l-978coeve
+      path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: qcswhj2.edge-cache.danfeng4.xyz
+        Host: www.cordweave.com
+  - type: trojan
+    name: 4FreeIran-14479cda73
+    server: 194.114.138.162
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-7dde09b457
+      - DeltaKroneckerGithub
+      - 4FreeIran-14479cda73
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-7dde09b457
+      - DeltaKroneckerGithub
+      - 4FreeIran-14479cda73
 rules:
   - MATCH,Proxy

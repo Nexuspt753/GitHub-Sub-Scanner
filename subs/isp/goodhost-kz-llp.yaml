@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4Sarina-d836bf12be
+    name: DeltaKroneckerGithub
     server: 185.234.114.165
     port: 443
     password: humanity
@@ -8,18 +8,24 @@ proxies:
     tls: true
     sni: www.cordweave.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d836bf12be
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d836bf12be
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

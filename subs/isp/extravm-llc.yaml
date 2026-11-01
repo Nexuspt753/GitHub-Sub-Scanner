@@ -1,6 +1,15 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: 4FreeIran-4135fa222e
+    server: 199.119.137.32
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-94c8d70428
     server: 199.119.137.32
     port: 8443
     password: humanity
@@ -10,32 +19,23 @@ proxies:
     client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /assignment
+      path: "%2Fassignment"
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Kian-4555f00c26
-    server: 199.119.137.32
-    port: 8443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.cordweave.com
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Kian-4555f00c26
+      - 4FreeIran-4135fa222e
+      - 4FreeIran-94c8d70428
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Kian-4555f00c26
+      - 4FreeIran-4135fa222e
+      - 4FreeIran-94c8d70428
 rules:
   - MATCH,Proxy

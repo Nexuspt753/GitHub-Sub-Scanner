@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: Channel
     server: 208.84.100.209
     port: 2112
@@ -39,7 +51,7 @@ proxies:
       short-id: 125ba3
     xudp: true
   - type: vless
-    name: 4Nika-5c74168393
+    name: 4Nika-fdf33a7759
     server: 208.84.100.209
     port: 8080
     uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
@@ -51,7 +63,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Mohsen-5536f27dbc
+    name: 4Kian-a780c28891
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-c4bc8c4f9a
     server: 208.84.100.209
     port: 8080
     uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
@@ -67,21 +91,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - Channel
       - 🇺🇸US_76|373KB/s|A004-260618
       - 4Jadi-bd21653135
-      - 4Nika-5c74168393
-      - 4Mohsen-5536f27dbc
+      - 4Nika-fdf33a7759
+      - 4Kian-a780c28891
+      - 4Jadi-c4bc8c4f9a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - Channel
       - 🇺🇸US_76|373KB/s|A004-260618
       - 4Jadi-bd21653135
-      - 4Nika-5c74168393
-      - 4Mohsen-5536f27dbc
+      - 4Nika-fdf33a7759
+      - 4Kian-a780c28891
+      - 4Jadi-c4bc8c4f9a
 rules:
   - MATCH,Proxy

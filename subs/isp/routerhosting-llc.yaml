@@ -1,32 +1,46 @@
 proxies:
   - type: vless
-    name: 4FreeIran-fb2d1decae
-    server: 45.61.149.205
+    name: 4Jadi-e073236d71
+    server: 153.75.86.200
     port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
+    client-fingerprint: edge
+    servername: www.apple.com
+    reality-opts:
+      public-key: JNp0hUDwHZQw9kbwd-D1WfIOdqCtdJeBv1WTNp37V0M
+      short-id: 7e7434c068cbef5a
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
+  - type: vless
+    name: 4Nika-787e6d99fd
+    server: 153.75.86.200
+    port: 8444
+    uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: www.apple.com
+    reality-opts:
+      public-key: Pf6ncFuG_HpLNZQKNre-mfklU6fdLORyftfw3UAa6xc
+      short-id: 05f5d227c525b840
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-fb2d1decae
+      - 4Jadi-e073236d71
+      - 4Nika-787e6d99fd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-fb2d1decae
+      - 4Jadi-e073236d71
+      - 4Nika-787e6d99fd
 rules:
   - MATCH,Proxy
