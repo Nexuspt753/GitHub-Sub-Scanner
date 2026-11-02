@@ -6,34 +6,6 @@ proxies:
     password: 06e88dd6-e264-4981-8c26-d7ab17348ab2
     sni: fi01.clgate.network
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 193.23.218.107
-    port: 443
-    uuid: 6f433cf6-4221-48b2-ad29-01121952ef8a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yandex.ru
-    reality-opts:
-      public-key: cBTZdCBwrYTTarw6B_lu2TN1M6_Lku68FfWCQT9svhc
-      short-id: cb620aa2f04bce33
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: appsooner
-    server: de1.balancer.vbuste-bot.com
-    port: 443
-    uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: de1.balancer.vbuste-bot.com
-    reality-opts:
-      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-      short-id: 4be4110078ebed4a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Telegram
     server: de2.balancer.vbuste-bot.com
     port: 443
@@ -199,20 +171,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-942763356b
-    server: 193.23.218.107
-    port: 443
-    uuid: 6f433cf6-4221-48b2-ad29-01121952ef8a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: yandex.ru
-    reality-opts:
-      public-key: cBTZdCBwrYTTarw6B_lu2TN1M6_Lku68FfWCQT9svhc
-      short-id: cb620aa2f04bce33
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-f6055ee8be
     server: ragnarok-vpn.ru
     port: 8443
@@ -241,7 +199,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
-    name: 4Kian-fd217af4e8
+    name: 4Sarina-133c730ca5
     server: 64.188.106.254
     port: 443
     uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
@@ -257,6 +215,7 @@ proxies:
       path: /api/v1/gpu-stream/socket
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
   - type: vmess
     name: 4Jadi-fbd085f590
     server: 64.188.106.254
@@ -274,14 +233,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-eee658f318
+    server: 64.188.106.254
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-6f9d53f147
-      - DeltaKroneckerGithub
-      - appsooner
       - Telegram
       - 🇩🇪All³
       - 🎃
@@ -294,11 +269,11 @@ proxy-groups:
       - 4Mohsen-351af65b3b
       - vmesc
       - 4Mohsen-de9621adb4
-      - 4Jadi-942763356b
       - 4Kian-f6055ee8be
       - 4Jadi-e7a030e359
-      - 4Kian-fd217af4e8
+      - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
+      - 4Nika-eee658f318
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -306,8 +281,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-6f9d53f147
-      - DeltaKroneckerGithub
-      - appsooner
       - Telegram
       - 🇩🇪All³
       - 🎃
@@ -320,10 +293,10 @@ proxy-groups:
       - 4Mohsen-351af65b3b
       - vmesc
       - 4Mohsen-de9621adb4
-      - 4Jadi-942763356b
       - 4Kian-f6055ee8be
       - 4Jadi-e7a030e359
-      - 4Kian-fd217af4e8
+      - 4Sarina-133c730ca5
       - 4Jadi-fbd085f590
+      - 4Nika-eee658f318
 rules:
   - MATCH,Proxy

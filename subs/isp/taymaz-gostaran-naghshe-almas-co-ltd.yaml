@@ -1,24 +1,4 @@
 proxies:
-  - type: ss
-    name: prrofile_purple
-    server: p1tun2.greewebservices.ir
-    port: 2060
-    cipher: chacha20-ietf-poly1305
-    password: aW4KvGdoS8ldtmRCS58iHg
-    udp: true
-  - type: vless
-    name: 4Kian-c2030f5c43
-    server: p2tun02.greewebservices.ir
-    port: 28840
-    uuid: 196ff55f-7f8f-4ab0-869f-72fc208cdcf6
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: play.google.com
-    reality-opts:
-      public-key: xQnXh5EfPDhcEBB7rRiLca33GYrMEeUa35domLL_yA8
-      short-id: e3085d4fc679ba12
-    xudp: true
   - type: vless
     name: 4Nika-3a7b1473d4
     server: faka28.parsfa123.com
@@ -47,39 +27,32 @@ proxies:
       public-key: mdEF9IP_UQ5qCsuQsjNcbd9CdrpcGNgrZjnZu0vQYzc
       short-id: ee5e9d3399c05735
     xudp: true
-  - type: vless
-    name: 4Jadi-ef384d8707
-    server: p1tun22.greewebservices.ir
-    port: 5505
-    uuid: f234330e-f9df-46e3-8f60-b2af5173c147
+  - type: vmess
+    name: 4Jadi-0a9975d7f6
+    server: dl1.armd.fun
+    port: 443
+    uuid: f6f54cb7-6a60-49cd-a871-f7b26064dce9
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: play.google.com
-    reality-opts:
-      public-key: xQnXh5EfPDhcEBB7rRiLca33GYrMEeUa35domLL_yA8
-      short-id: e3085d4fc679ba12
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - prrofile_purple
-      - 4Kian-c2030f5c43
       - 4Nika-3a7b1473d4
       - 4Mohsen-1569f73d27
-      - 4Jadi-ef384d8707
+      - 4Jadi-0a9975d7f6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - prrofile_purple
-      - 4Kian-c2030f5c43
       - 4Nika-3a7b1473d4
       - 4Mohsen-1569f73d27
-      - 4Jadi-ef384d8707
+      - 4Jadi-0a9975d7f6
 rules:
   - MATCH,Proxy

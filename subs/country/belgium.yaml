@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: Brussels · 4Jadi-3212f3a93b
+    server: 141.98.233.6
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
   - type: vless
     name: Brussels · 🇧🇪139840
     server: 109.69.218.217
@@ -116,11 +125,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.42088326.xyz
+  - type: vmess
+    name: Aalst · 4Jadi-859d738114
+    server: 37.120.236.252
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/191019072927
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.83571945.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Brussels · 4Jadi-3212f3a93b
       - Brussels · 🇧🇪139840
       - Brussels · 🇧🇪139839
       - Brussels · 4Nika-4eec64430a
@@ -129,12 +156,14 @@ proxy-groups:
       - Brussels · 4Sarina-eef62536b1
       - Brussels · 4Jadi-c0afcfcbfa
       - Aalst · 4Mohsen-b3008313c8
+      - Aalst · 4Jadi-859d738114
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Brussels · 4Jadi-3212f3a93b
       - Brussels · 🇧🇪139840
       - Brussels · 🇧🇪139839
       - Brussels · 4Nika-4eec64430a
@@ -143,5 +172,6 @@ proxy-groups:
       - Brussels · 4Sarina-eef62536b1
       - Brussels · 4Jadi-c0afcfcbfa
       - Aalst · 4Mohsen-b3008313c8
+      - Aalst · 4Jadi-859d738114
 rules:
   - MATCH,Proxy

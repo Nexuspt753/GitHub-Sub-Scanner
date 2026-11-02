@@ -1,44 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-e2365c5df5
-    server: 91.185.83.113
-    port: 2743
-    uuid: 0b25cbd7-30e3-4659-92be-05b33b53c9d1
+    name: 4Mohsen-3c287eaf8a
+    server: 91.185.83.44
+    port: 443
+    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: de.core-multiplayer.com
-    flow: xtls-rprx-vision
+    servername: nguyxejonb.rucdncomp.pro
     xudp: true
-  - type: vless
-    name: 4FreeIran-9c329a6ce6
-    server: 91.185.83.113
-    port: 8443
-    uuid: 0b25cbd7-30e3-4659-92be-05b33b53c9d1
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: de.core-multiplayer.com
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/telemetry/0294da469190/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nguyxejonb.rucdncomp.pro
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-e2365c5df5
-      - 4FreeIran-9c329a6ce6
+      - 4Mohsen-3c287eaf8a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-e2365c5df5
-      - 4FreeIran-9c329a6ce6
+      - 4Mohsen-3c287eaf8a
 rules:
   - MATCH,Proxy

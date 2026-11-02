@@ -28,6 +28,15 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vless
+    server: 93.123.46.44
+    port: 13443
+    uuid: e9235cad-962d-43fc-a1f1-36bec35d2dc4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
     name: 4Jadi-d8179d3f7d
     server: 103.167.234.179
     port: 443
@@ -72,21 +81,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
   - type: vless
-    name: 4Kian-c7f383f4a5
-    server: 103.167.234.26
-    port: 443
-    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: shuma.ccwu.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Nika-6f7701bba1
     server: deu196.unboundaccess.org
     port: 443
@@ -106,10 +100,10 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - vless
       - 4Jadi-d8179d3f7d
       - 4Sarina-3331152ebe
       - 4Mohsen-7f0b2e9717
-      - 4Kian-c7f383f4a5
       - 4Nika-6f7701bba1
   - name: Auto
     type: url-test
@@ -119,10 +113,10 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - vless
       - 4Jadi-d8179d3f7d
       - 4Sarina-3331152ebe
       - 4Mohsen-7f0b2e9717
-      - 4Kian-c7f383f4a5
       - 4Nika-6f7701bba1
 rules:
   - MATCH,Proxy
