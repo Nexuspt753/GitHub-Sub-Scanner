@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: 4Mohsen-1bb5c037d5
+    server: 159.60.146.82
+    port: 443
+    uuid: 74df8abe-b176-4256-87be-e25a88aaee7e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: link-vista-mua55s.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=159.60.146.82:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: link-vista-mua55s.pages.dev
+  - type: vless
     name: 4Kian-f7e8a33a03
     server: 159.60.146.82
     port: 443
@@ -22,6 +40,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-1bb5c037d5
       - 4Kian-f7e8a33a03
   - name: Auto
     type: url-test
@@ -29,6 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-1bb5c037d5
       - 4Kian-f7e8a33a03
 rules:
   - MATCH,Proxy

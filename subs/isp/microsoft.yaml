@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4FreeIran-4f3734c0bc
+    server: azjnac1.uksouth.cloudapp.azure.com
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: b2EJuconC460KllN
+    udp: true
   - type: vless
     name: 4FreeIran-3d873e309e
     server: 128.203.252.97
@@ -15,30 +22,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf-1rm.pages.dev
-  - type: vmess
-    name: 4Nika-73fe828df7
-    server: 51.132.38.134
-    port: 47832
-    uuid: 859cb52d-0a26-4b2f-a9b1-0eb83115c9d1
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-4f3734c0bc
       - 4FreeIran-3d873e309e
-      - 4Nika-73fe828df7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-4f3734c0bc
       - 4FreeIran-3d873e309e
-      - 4Nika-73fe828df7
 rules:
   - MATCH,Proxy

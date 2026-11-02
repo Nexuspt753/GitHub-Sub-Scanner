@@ -1,5 +1,45 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.198.55.200
+    port: 25152
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.samsung.com
+    reality-opts:
+      public-key: ZIZIfEd-cs4jAgYIav5ZAkfWaqvpG8DQP-SH6xhGDmc
+      short-id: 08c379434f36cdbe
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.198.55.200
+    port: 25150
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.samsung.com
+    reality-opts:
+      public-key: Qvn7tV54mdqxJ40LmmoI1PRM1QKXEbfFOZS-omPKhGY
+      short-id: 4301a484cc762aa6
+    xudp: true
+  - type: vless
+    name: 4Nika-b68146791f
+    server: 45.198.55.200
+    port: 25150
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.samsung.com
+    reality-opts:
+      public-key: Qvn7tV54mdqxJ40LmmoI1PRM1QKXEbfFOZS-omPKhGY
+      short-id: 4301a484cc762aa6
+    xudp: true
+  - type: vless
     name: 4Sarina-6e75559228
     server: 45.198.55.200
     port: 25150
@@ -26,20 +66,42 @@ proxies:
       short-id: 08c379434f36cdbe
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-2ed8ef198f
+    server: 45.198.55.200
+    port: 25152
+    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.samsung.com
+    reality-opts:
+      public-key: ZIZIfEd-cs4jAgYIav5ZAkfWaqvpG8DQP-SH6xhGDmc
+      short-id: 08c379434f36cdbe
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Nika-b68146791f
       - 4Sarina-6e75559228
       - 4Mohsen-332e00372b
+      - 4Nika-2ed8ef198f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Nika-b68146791f
       - 4Sarina-6e75559228
       - 4Mohsen-332e00372b
+      - 4Nika-2ed8ef198f
 rules:
   - MATCH,Proxy

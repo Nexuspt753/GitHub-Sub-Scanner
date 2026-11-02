@@ -1,32 +1,32 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 221.125.10.8
-    port: 57537
-    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  - type: vmess
+    name: 4Kian-dcda25dedb
+    server: gtm1.ktmwan.net
+    port: 12889
+    uuid: 4941aa8d-07d2-408c-be2c-117debecba30
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn8848.776676.xyz
     xudp: true
+    skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /stock?ed=2560
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn8848.776676.xyz
+        Host: gtm1.ktmwan.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-dcda25dedb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-dcda25dedb
 rules:
   - MATCH,Proxy

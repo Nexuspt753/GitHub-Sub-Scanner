@@ -1,6 +1,26 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: Tbilisi · @DeltaKroneckerGithub
+    server: 93.190.9.227
+    port: 3090
+    uuid: 9004110f-bb2e-429d-beb6-051e7babfb64
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Tbilisi · @DeltaKroneckerGithub-01
+    server: 93.190.9.160
+    port: 3090
+    uuid: 0deac3ec-a11a-4b24-a332-19c93e7e2182
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: Tbilisi · @DeltaKroneckerGithub-02
     server: 194.135.119.82
     port: 2053
     password: humanity
@@ -14,6 +34,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.cordweave.com
+  - type: trojan
+    name: Tbilisi · 4Mohsen-08eb987bc7
+    server: 194.135.119.82
+    port: 2053
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: vless
+    name: Tbilisi · 4Sarina-3d232c5453
+    server: 93.190.9.160
+    port: 3090
+    uuid: 0deac3ec-a11a-4b24-a332-19c93e7e2182
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Tbilisi · 4Jadi-b2958ffd84
+    server: 93.190.9.138
+    port: 3090
+    uuid: 37fc3a9f-72e0-4b15-84ab-1455f028147a
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: Tbilisi · 4Nika-cde428c5ad
     server: 94.43.238.112
@@ -31,23 +86,37 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: jp-osa.862400.xyz
   - type: vless
-    name: Tbilisi · 4Sarina-b2195412bb
-    server: 93.190.8.153
+    name: Tbilisi · 4Jadi-634b9cab16
+    server: 94.43.238.112
+    port: 2053
+    uuid: 9c55c7eb-d53e-40fa-a0c9-e25d2a345073
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp-osa.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp-osa.862400.xyz
+  - type: vless
+    name: Tbilisi · 4Nika-4cc2543d05
+    server: 93.190.9.160
     port: 3090
-    uuid: e5ec2701-f2d6-42ee-b125-1e17fce8daff
+    uuid: c4dc2569-f444-4a48-aba9-b1886e36a5e2
     udp: true
     xudp: true
     network: grpc
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: Tbilisi · 4Jadi-300532d7f2
+    name: Tbilisi · 4Kian-24c3d48c00
     server: 93.190.8.153
     port: 3090
     uuid: e5ec2701-f2d6-42ee-b125-1e17fce8daff
     udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
     network: grpc
     grpc-opts:
@@ -58,9 +127,15 @@ proxy-groups:
     proxies:
       - Auto
       - Tbilisi · @DeltaKroneckerGithub
+      - Tbilisi · @DeltaKroneckerGithub-01
+      - Tbilisi · @DeltaKroneckerGithub-02
+      - Tbilisi · 4Mohsen-08eb987bc7
+      - Tbilisi · 4Sarina-3d232c5453
+      - Tbilisi · 4Jadi-b2958ffd84
       - Tbilisi · 4Nika-cde428c5ad
-      - Tbilisi · 4Sarina-b2195412bb
-      - Tbilisi · 4Jadi-300532d7f2
+      - Tbilisi · 4Jadi-634b9cab16
+      - Tbilisi · 4Nika-4cc2543d05
+      - Tbilisi · 4Kian-24c3d48c00
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,8 +143,14 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Tbilisi · @DeltaKroneckerGithub
+      - Tbilisi · @DeltaKroneckerGithub-01
+      - Tbilisi · @DeltaKroneckerGithub-02
+      - Tbilisi · 4Mohsen-08eb987bc7
+      - Tbilisi · 4Sarina-3d232c5453
+      - Tbilisi · 4Jadi-b2958ffd84
       - Tbilisi · 4Nika-cde428c5ad
-      - Tbilisi · 4Sarina-b2195412bb
-      - Tbilisi · 4Jadi-300532d7f2
+      - Tbilisi · 4Jadi-634b9cab16
+      - Tbilisi · 4Nika-4cc2543d05
+      - Tbilisi · 4Kian-24c3d48c00
 rules:
   - MATCH,Proxy

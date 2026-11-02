@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: 🇳🇱204795
+    server: 188.116.27.6
+    port: 443
+    uuid: 3b9189fd-9d29-465e-8c1f-5651af043fe4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.co.uk
+    reality-opts:
+      public-key: mprwTEsQ9nJ78qG7BJskAWXaVfDxeMHBkQHbReVfMnc
+      short-id: "1174"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 🇳🇱204796
+    server: 188.116.27.6
+    port: 443
+    uuid: 441caaf2-aae6-4883-8af9-1e5770395ae8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.co.uk
+    reality-opts:
+      public-key: mprwTEsQ9nJ78qG7BJskAWXaVfDxeMHBkQHbReVfMnc
+      short-id: "1174"
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-849d06937c
+    server: 188.116.27.6
+    port: 443
+    uuid: 3b9189fd-9d29-465e-8c1f-5651af043fe4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.co.uk
+    reality-opts:
+      public-key: mprwTEsQ9nJ78qG7BJskAWXaVfDxeMHBkQHbReVfMnc
+      short-id: "1174"
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇳🇱204795
+      - 🇳🇱204796
+      - 4Nika-849d06937c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇳🇱204795
+      - 🇳🇱204796
+      - 4Nika-849d06937c
+rules:
+  - MATCH,Proxy
