@@ -15,21 +15,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: aa.v2jey.fun
   - type: trojan
-    name: 4Jadi-6fca2e374b
-    server: 188.42.88.144
-    port: 2053
-    password: Go5e2nKM8T
-    udp: true
-    tls: true
-    sni: aa.v2jey.fun
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: aa.v2jey.fun
-  - type: trojan
     name: 4Mohsen-402498f572
     server: 188.42.88.252
     port: 2087
@@ -79,16 +64,49 @@ proxies:
       path: /wss51068
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-b1400237ed
+    server: 188.42.89.174
+    port: 443
+    uuid: b3a21def-5fcc-47a8-a6a0-a34e29d5288a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /wss51068
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Jadi-3e68d3492d
+    server: 188.42.89.115
+    port: 2052
+    uuid: 6066abf1-cdb1-4818-d35a-7c8e0ee90320
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cc.v2jey.fun
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-97cd188aae
-      - 4Jadi-6fca2e374b
       - 4Mohsen-402498f572
       - 4Sarina-1f611ede10
       - 4Kian-983985acc0
+      - 4Nika-b1400237ed
+      - 4Jadi-3e68d3492d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -96,9 +114,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-97cd188aae
-      - 4Jadi-6fca2e374b
       - 4Mohsen-402498f572
       - 4Sarina-1f611ede10
       - 4Kian-983985acc0
+      - 4Nika-b1400237ed
+      - 4Jadi-3e68d3492d
 rules:
   - MATCH,Proxy

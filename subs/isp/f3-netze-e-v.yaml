@@ -1,5 +1,19 @@
 proxies:
   - type: trojan
+    name: 4Nika-613d20dbd1
+    server: 185.220.100.168
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
     name: 4Mohsen-b6f0afa763
     server: 185.220.100.168
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-613d20dbd1
       - 4Mohsen-b6f0afa763
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-613d20dbd1
       - 4Mohsen-b6f0afa763
 rules:
   - MATCH,Proxy

@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 94.183.209.182
+    port: 443
+    uuid: d4001352-dc64-48b8-b786-5860b284ad3d
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: steamcommunity.com
+    reality-opts:
+      public-key: HyVJj9KuPfDV5lOLEkMeVmYFZoFMQid6eiLC_6Yf1mQ
+      short-id: 5c56a4cfea5866c0
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4FreeIran-09dc718a62
     server: 2.27.59.206
@@ -16,6 +30,19 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: firefox
+    servername: music.3apes.online
+    reality-opts:
+      public-key: q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-afe659b65f
+    server: music.3apes.online
+    port: 443
+    uuid: 12776e55-6230-48b9-b069-1bb8a04b4237
+    udp: true
+    tls: true
+    client-fingerprint: qq
     servername: music.3apes.online
     reality-opts:
       public-key: q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ
@@ -60,26 +87,46 @@ proxies:
     servername: steamcommunity.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-faa99db670
+    server: 94.183.209.182
+    port: 443
+    uuid: d4001352-dc64-48b8-b786-5860b284ad3d
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: steamcommunity.com
+    reality-opts:
+      public-key: HyVJj9KuPfDV5lOLEkMeVmYFZoFMQid6eiLC_6Yf1mQ
+      short-id: 5c56a4cfea5866c0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-09dc718a62
       - 4Sarina-4de6908208
+      - 4Kian-afe659b65f
       - 4Mohsen-a402d2af0c
       - 4Jadi-db412233c4
       - 4Sarina-d9d769cee3
+      - 4Sarina-faa99db670
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-09dc718a62
       - 4Sarina-4de6908208
+      - 4Kian-afe659b65f
       - 4Mohsen-a402d2af0c
       - 4Jadi-db412233c4
       - 4Sarina-d9d769cee3
+      - 4Sarina-faa99db670
 rules:
   - MATCH,Proxy

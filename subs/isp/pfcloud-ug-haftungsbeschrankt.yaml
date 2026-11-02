@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: "[115117]"
+    server: ilya.itissia.shop
+    port: 443
+    uuid: 04ea3a6e-7703-4549-90c1-c51c8faa4d40
+    udp: true
+    xudp: true
+  - type: vless
     name: irdusti(52)🇳🇱
     server: 176.65.149.194
     port: 8443
@@ -27,20 +34,34 @@ proxies:
       short-id: c31f187b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-35857a9b64
+    server: 176.65.151.175
+    port: 26047
+    uuid: 1b5dd3f4-34b6-4e43-8265-c64d7858ac79
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - "[115117]"
       - irdusti(52)🇳🇱
       - 4Kian-b05c278460
+      - 4Nika-35857a9b64
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - "[115117]"
       - irdusti(52)🇳🇱
       - 4Kian-b05c278460
+      - 4Nika-35857a9b64
 rules:
   - MATCH,Proxy

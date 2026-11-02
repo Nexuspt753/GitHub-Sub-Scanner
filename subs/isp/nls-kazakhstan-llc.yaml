@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 5.180.21.83
-    port: 443
-    uuid: 902e7be9-d0a8-42a6-994f-8320916a9d9e
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: steppe.gaznw.my
-    reality-opts:
-      public-key: oKG1EhkfIvBM6xLEk7ck51ZbjvUKDR22RNjTJR_7sTU
-      short-id: 46da9a2868751b85
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-ca90d9264b
     server: 5.180.21.83
     port: 443
@@ -27,20 +13,34 @@ proxies:
       short-id: 46da9a2868751b85
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-6ab784ec37
+    server: kz.alertyagency.com
+    port: 443
+    uuid: a704443d-655e-4d9f-8ce6-12eeb17a9a08
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: vsDwubDjDjfLpWAHRNFGVfmC8hLiXDablO1iOOXdUhQ
+      short-id: 01e4de88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Kian-ca90d9264b
+      - 4FreeIran-6ab784ec37
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Kian-ca90d9264b
+      - 4FreeIran-6ab784ec37
 rules:
   - MATCH,Proxy

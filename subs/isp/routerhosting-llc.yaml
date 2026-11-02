@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Kian-365995c61b
+    server: 153.75.86.200
+    port: 8443
+    uuid: 95fe46c3-6cfb-5116-beb7-459d4c7db0ad
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: www.apple.com
+    reality-opts:
+      public-key: JNp0hUDwHZQw9kbwd-D1WfIOdqCtdJeBv1WTNp37V0M
+      short-id: 7e7434c068cbef5a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-787e6d99fd
     server: 153.75.86.200
     port: 8444
@@ -27,20 +41,40 @@ proxies:
       short-id: 05f5d227c525b840
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-ccedb6c5e3
+    server: 172.86.108.79
+    port: 42906
+    uuid: 9bcfd3b5-5f71-4938-b1d2-f8fdd895095d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /9bcfd3b5-5f71-4938-b1d2-f8fdd895095d-vm
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.bing.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-365995c61b
       - 4Nika-787e6d99fd
       - 4Nika-dbf809fbd3
+      - 4Nika-ccedb6c5e3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-365995c61b
       - 4Nika-787e6d99fd
       - 4Nika-dbf809fbd3
+      - 4Nika-ccedb6c5e3
 rules:
   - MATCH,Proxy

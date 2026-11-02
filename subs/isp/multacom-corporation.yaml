@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 113.20.12.98
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: ca.freeguard.org
+    client-fingerprint: chrome
   - type: vmess
     name: 4Nika-6f29d57d49
     server: 148.135.33.140
@@ -21,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-6f29d57d49
   - name: Auto
     type: url-test
@@ -28,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-6f29d57d49
 rules:
   - MATCH,Proxy

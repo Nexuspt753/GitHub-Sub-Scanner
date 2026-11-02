@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Jadi-8151f22578
+    server: 185.75.241.170
+    port: 8443
+    uuid: 3305c285-8d55-4f52-a3b0-2a582f5ffd59
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sdwf-amq.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sdwf-amq.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-8151f22578
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-8151f22578
+rules:
+  - MATCH,Proxy
