@@ -1,10 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-6f6b6beedb
-    server: 141.0.187.15
-    port: 443
-    password: 70043bfa-d6fb-4980-b27e-773e9e8b2004
-    sni: crt.onecloudstream.com
   - type: vless
     name: DeltaKroneckerGithub
     server: 153.76.190.31
@@ -21,13 +15,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: hysteria2
+    name: 4Sarina-6f6b6beedb
+    server: 141.0.187.15
+    port: 443
+    password: 70043bfa-d6fb-4980-b27e-773e9e8b2004
+    sni: crt.onecloudstream.com
+  - type: hysteria2
     name: 4Kian-49fc901e51
     server: 141.0.187.50
     port: 443
     password: e5ec2586-59b3-40fa-91b7-bb37a2f7744e
     sni: crt.onecloudstream.com
   - type: vless
-    name: 4Nika-1a1f8977c7
+    name: DeltaKroneckerGithub-01
     server: 153.76.190.31
     port: 2083
     uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
@@ -42,7 +42,56 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Sarina-23abd2c656
+    name: 4Mohsen-e7fcd9d37c
+    server: 153.76.190.31
+    port: 2083
+    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-2c4606a728
+    server: 153.76.190.31
+    port: 2083
+    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-73aa363f66
+    server: 153.76.190.31
+    port: 2083
+    uuid: d6eb8a46-e6a4-4891-b22e-dfaa609c6afd
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-6b5a85859a
     server: 153.76.190.31
     port: 2083
     uuid: d6eb8a46-e6a4-4891-b22e-dfaa609c6afd
@@ -61,21 +110,27 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-6f6b6beedb
       - DeltaKroneckerGithub
+      - 4Sarina-6f6b6beedb
       - 4Kian-49fc901e51
-      - 4Nika-1a1f8977c7
-      - 4Sarina-23abd2c656
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-e7fcd9d37c
+      - 4Mohsen-2c4606a728
+      - 4Jadi-73aa363f66
+      - 4Nika-6b5a85859a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-6f6b6beedb
       - DeltaKroneckerGithub
+      - 4Sarina-6f6b6beedb
       - 4Kian-49fc901e51
-      - 4Nika-1a1f8977c7
-      - 4Sarina-23abd2c656
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-e7fcd9d37c
+      - 4Mohsen-2c4606a728
+      - 4Jadi-73aa363f66
+      - 4Nika-6b5a85859a
 rules:
   - MATCH,Proxy

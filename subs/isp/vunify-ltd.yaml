@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Kian-f212ff2c1c
+    server: Prat.athforce.ir
+    port: 37688
+    uuid: 87845788-6eac-4c77-ba43-20e8dab597a6
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-f212ff2c1c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-f212ff2c1c
+rules:
+  - MATCH,Proxy

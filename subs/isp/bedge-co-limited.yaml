@@ -1,17 +1,22 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 149.104.121.174
+    port: 8443
+    uuid: 1506f2e0-ae12-4718-b5ab-c5609161300e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: as10.cdn77.icu
+    reality-opts:
+      public-key: EltWI8AOqkN8lMjRycweRRoFRah5hu6xiKtgBmQOdE8
+    xudp: true
   - type: ss
     name: 🇵🇭
     server: 149.104.109.252
     port: 8882
     cipher: aes-256-gcm
     password: kDWvXYZoTBcGkC4
-    udp: true
-  - type: ss
-    name: 4Mohsen-35dd29cbd3
-    server: 149.104.107.41
-    port: 8090
-    cipher: aes-256-gcm
-    password: PCnnH6SQSnfoS27
     udp: true
   - type: ss
     name: 4Jadi-6e6bf80927
@@ -29,14 +34,14 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: ss
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 149.104.107.41
     port: 8090
     cipher: aes-256-gcm
     password: PCnnH6SQSnfoS27
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: 149.104.109.252
     port: 8882
     cipher: aes-256-gcm
@@ -55,14 +60,14 @@ proxies:
       public-key: EltWI8AOqkN8lMjRycweRRoFRah5hu6xiKtgBmQOdE8
     xudp: true
   - type: ss
-    name: 🇵🇭PH-149.104.109.252-0269
+    name: 🇵🇭PH-149.104.109.252-0262
     server: 149.104.109.252
     port: 8882
     cipher: aes-256-gcm
     password: kDWvXYZoTBcGkC4
     udp: true
   - type: ss
-    name: 🇨🇴CO-149.104.107.41-0261
+    name: 🇨🇴CO-149.104.107.41-0266
     server: 149.104.107.41
     port: 8090
     cipher: aes-256-gcm
@@ -73,29 +78,29 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 🇵🇭
-      - 4Mohsen-35dd29cbd3
       - 4Jadi-6e6bf80927
       - 4FreeIran-c90b42e89a
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-3b2644a696
-      - 🇵🇭PH-149.104.109.252-0269
-      - 🇨🇴CO-149.104.107.41-0261
+      - 🇵🇭PH-149.104.109.252-0262
+      - 🇨🇴CO-149.104.107.41-0266
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 🇵🇭
-      - 4Mohsen-35dd29cbd3
       - 4Jadi-6e6bf80927
       - 4FreeIran-c90b42e89a
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-3b2644a696
-      - 🇵🇭PH-149.104.109.252-0269
-      - 🇨🇴CO-149.104.107.41-0261
+      - 🇵🇭PH-149.104.109.252-0262
+      - 🇨🇴CO-149.104.107.41-0266
 rules:
   - MATCH,Proxy

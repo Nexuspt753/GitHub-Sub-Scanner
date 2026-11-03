@@ -1,32 +1,50 @@
 proxies:
   - type: vless
-    name: Tbilisi · 4Jadi-634b9cab16
-    server: 94.43.238.112
-    port: 2053
-    uuid: 9c55c7eb-d53e-40fa-a0c9-e25d2a345073
+    name: Tbilisi · @DeltaKroneckerGithub
+    server: 93.190.9.2
+    port: 3090
+    uuid: 9992be65-f201-44ca-a177-2ca95aaa7ad4
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: jp-osa.862400.xyz
     xudp: true
-    network: ws
-    ws-opts:
-      path: /announcement?ed=2048fp=random
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp-osa.862400.xyz
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Tbilisi · 4Sarina-3d232c5453
+    server: 93.190.9.160
+    port: 3090
+    uuid: 0deac3ec-a11a-4b24-a332-19c93e7e2182
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Tbilisi · 4Jadi-b2958ffd84
+    server: 93.190.9.138
+    port: 3090
+    uuid: 37fc3a9f-72e0-4b15-84ab-1455f028147a
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Tbilisi · 4Jadi-634b9cab16
+      - Tbilisi · @DeltaKroneckerGithub
+      - Tbilisi · 4Sarina-3d232c5453
+      - Tbilisi · 4Jadi-b2958ffd84
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Tbilisi · 4Jadi-634b9cab16
+      - Tbilisi · @DeltaKroneckerGithub
+      - Tbilisi · 4Sarina-3d232c5453
+      - Tbilisi · 4Jadi-b2958ffd84
 rules:
   - MATCH,Proxy

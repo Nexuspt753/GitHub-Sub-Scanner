@@ -1,6 +1,57 @@
 proxies:
+  - type: trojan
+    name: vpnsal
+    server: dns5.mizdomaingame.ir
+    port: 443
+    password: os7uqitayib0z9oc
+    udp: true
+    tls: true
+    sni: dns5.mizdomaingame.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /c1t729uwm
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns5.mizdomaingame.ir
+  - type: trojan
+    name: 4Sarina-e64a57b298
+    server: dns5.mizdomaingame.ir
+    port: 443
+    password: os7uqitayib0z9oc
+    udp: true
+    tls: true
+    sni: dns5.mizdomaingame.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /c1t729uwm
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns5.mizdomaingame.ir
   - type: vless
-    name: 4Jadi-b11a5887b8
+    name: vpnsal-01
+    server: dns1.mizdomaingame.ir
+    port: 443
+    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dns1.mizdomaingame.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /j5qklki8k
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: meliproxyy
     server: dns2.mizdomaingame.ir
     port: 443
     uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
@@ -17,32 +68,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Jadi-7918fb8d60
-    server: TUN3.zyyvora.ir
-    port: 2015
-    uuid: c07145bf-49c7-4378-a771-956f264856f0
+    name: vpnsal-02
+    server: dns2.mizdomaingame.ir
+    port: 443
+    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: play.google.com
-    reality-opts:
-      public-key: 2ZDcHYGfa4K8_EcUWbAJHAPp7KjMUKjAMkCKSuJaxGE
-      short-id: 2d530eb0927d527d
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dns2.mizdomaingame.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /j5qklki8k
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-b11a5887b8
-      - 4Jadi-7918fb8d60
+      - vpnsal
+      - 4Sarina-e64a57b298
+      - vpnsal-01
+      - meliproxyy
+      - vpnsal-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b11a5887b8
-      - 4Jadi-7918fb8d60
+      - vpnsal
+      - 4Sarina-e64a57b298
+      - vpnsal-01
+      - meliproxyy
+      - vpnsal-02
 rules:
   - MATCH,Proxy

@@ -1,46 +1,32 @@
 proxies:
-  - type: vless
-    name: Tashkent · 4Nika-0392122fa9
-    server: 185.76.14.21
-    port: 443
-    uuid: 3cd95e58-9f0a-47e1-9937-64a58e949aa5
+  - type: vmess
+    name: Tashkent · 🇺🇿UZ-37.110.209.228-1338
+    server: 37.110.209.228
+    port: 80
+    uuid: ecba5b33-f768-4d8a-b004-b29e8e5c676f
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: stats.vk-portal.net
-    reality-opts:
-      public-key: 6eN2NciEaZis5J4muRRqpfLQ1OglI3A8lNSTmAGo6Do
-      short-id: 3c6fc84d
-    flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Tashkent · 4Mohsen-a7307d5b8e
-    server: 82.148.6.146
-    port: 443
-    uuid: 3cd95e58-9f0a-47e1-9937-64a58e949aa5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: stats.vk-portal.net
-    reality-opts:
-      public-key: 6eN2NciEaZis5J4muRRqpfLQ1OglI3A8lNSTmAGo6Do
-      short-id: 3c6fc84d
-    flow: xtls-rprx-vision
-    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sazgar.serveirc.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Tashkent · 4Nika-0392122fa9
-      - Tashkent · 4Mohsen-a7307d5b8e
+      - Tashkent · 🇺🇿UZ-37.110.209.228-1338
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Tashkent · 4Nika-0392122fa9
-      - Tashkent · 4Mohsen-a7307d5b8e
+      - Tashkent · 🇺🇿UZ-37.110.209.228-1338
 rules:
   - MATCH,Proxy

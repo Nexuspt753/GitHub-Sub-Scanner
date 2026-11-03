@@ -1,4 +1,16 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ru2.x8lab.org
+    port: 9443
+    password: bVhfAPS7f_tagBb-G79z0zWB6L1yK84H
+    udp: true
+    tls: true
+    sni: ru2.x8lab.org
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: 4FreeIran-6c1a26da73
     server: 185.186.143.76
@@ -20,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-6c1a26da73
   - name: Auto
     type: url-test
@@ -27,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-6c1a26da73
 rules:
   - MATCH,Proxy

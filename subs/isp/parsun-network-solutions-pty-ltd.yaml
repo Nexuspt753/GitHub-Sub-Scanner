@@ -34,6 +34,24 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: odin3.newasgard.ir
   - type: vless
+    name: 4Sarina-65ae773a3d
+    server: odin4.newasgard.ir
+    port: 2087
+    uuid: a78af511-5386-e3dc-14b2-2f4b2a5457cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: odin4.newasgard.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: odin4.newasgard.ir
+  - type: vless
     name: 4Jadi-65975541f1
     server: finio.pedramhost.ir
     port: 27195
@@ -47,6 +65,16 @@ proxies:
       short-id: cd9a75b7
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Sarina-f9c8d13a61
+    server: jolyot.kimjo.ir
+    port: 1718
+    uuid: 65c3d100-782f-4828-ba57-c03e1929f2d2
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -54,7 +82,9 @@ proxy-groups:
       - Auto
       - 4Jadi-522fba6975
       - 4FreeIran-d2e897c4e1
+      - 4Sarina-65ae773a3d
       - 4Jadi-65975541f1
+      - 4Sarina-f9c8d13a61
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -63,6 +93,8 @@ proxy-groups:
     proxies:
       - 4Jadi-522fba6975
       - 4FreeIran-d2e897c4e1
+      - 4Sarina-65ae773a3d
       - 4Jadi-65975541f1
+      - 4Sarina-f9c8d13a61
 rules:
   - MATCH,Proxy

@@ -1,4 +1,11 @@
 proxies:
+  - type: trojan
+    name: 4Kian-5df72d2ac2
+    server: de-bots4.h1cloud.net
+    port: 25267
+    password: happybirthdaydaniel
+    udp: true
+    client-fingerprint: chrome
   - type: vless
     name: 4Jadi-520e779764
     server: pl1.h1cloud.net
@@ -35,22 +42,60 @@ proxies:
       public-key: Xr55Hig_JTeUluiGfSnma6zMHG2Uv5Xu30ZODGF5xGA
       short-id: f09ac427e1abd14b
     xudp: true
+  - type: vless
+    name: 4Jadi-bd1fc0d72f
+    server: 45.139.184.183
+    port: 2053
+    uuid: c7e9c591-2764-423a-afca-efbd010fd396
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: forfreeuse.rtqa.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: forfreeuse.rtqa.ru
+  - type: vless
+    name: 4Sarina-16ae208cef
+    server: 83.171.241.199
+    port: 443
+    uuid: fafc7c16-f890-45ee-a856-02df225172dd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: c3f630g.es4.h1clayd.click
+    reality-opts:
+      public-key: BzM-6A4DGbjpquuwUmotiamNZlamur11IXX5Xyh_wBg
+      short-id: 2d2d5faf568b584d
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-5df72d2ac2
       - 4Jadi-520e779764
       - v2ray_configs_pools🦣
       - 4Nika-958d27b91e
+      - 4Jadi-bd1fc0d72f
+      - 4Sarina-16ae208cef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-5df72d2ac2
       - 4Jadi-520e779764
       - v2ray_configs_pools🦣
       - 4Nika-958d27b91e
+      - 4Jadi-bd1fc0d72f
+      - 4Sarina-16ae208cef
 rules:
   - MATCH,Proxy

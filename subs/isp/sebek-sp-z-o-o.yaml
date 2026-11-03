@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 148.253.210.191
-    port: 443
-    uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 148-253-210-191.sslip.io
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /test-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 148-253-210-191.sslip.io
   - type: trojan
     name: 4Jadi-482e7bd13b
     server: 148.253.212.42
@@ -49,6 +33,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
+  - type: trojan
+    name: 4Mohsen-08d3d84116
+    server: 148.253.212.42
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Sarina-a6cf2c08ca
     server: 148-253-210-191.sslip.io
@@ -101,24 +99,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 148-253-210-191.sslip.io
   - type: vless
-    name: 4Jadi-5520a58136
-    server: 148.253.210.191
-    port: 443
-    uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: 148-253-210-191.sslip.io
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /test-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 148-253-210-191.sslip.io
-  - type: vless
     name: 4Sarina-ec671d4efc
     server: 148.253.210.191
     port: 443
@@ -154,13 +134,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Jadi-482e7bd13b
       - 4Nika-c1485ec55f
+      - 4Mohsen-08d3d84116
       - 4Sarina-a6cf2c08ca
       - 4Kian-1482409c9a
       - 4Sarina-cd1ba90c56
-      - 4Jadi-5520a58136
       - 4Sarina-ec671d4efc
       - 4Kian-6f8b6ff0b3
   - name: Auto
@@ -169,13 +148,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Jadi-482e7bd13b
       - 4Nika-c1485ec55f
+      - 4Mohsen-08d3d84116
       - 4Sarina-a6cf2c08ca
       - 4Kian-1482409c9a
       - 4Sarina-cd1ba90c56
-      - 4Jadi-5520a58136
       - 4Sarina-ec671d4efc
       - 4Kian-6f8b6ff0b3
 rules:
