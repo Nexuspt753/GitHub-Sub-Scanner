@@ -13,19 +13,6 @@ proxies:
     servername: se3.shtil.io
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: se3.shtil.io
-    port: 443
-    uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: se3.shtil.io
-    xudp: true
-  - type: vless
     name: VPsave
     server: se3.shtil.io
     port: 443
@@ -61,16 +48,29 @@ proxies:
       - http/1.1
     servername: se3.shtil.io
     xudp: true
+  - type: vless
+    name: 4Sarina-e580bf2401
+    server: se3.shtil.io
+    port: 443
+    uuid: 6ba4ed2e-b42b-4880-8b3b-c7e2df2d02f6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: se3.shtil.io
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - VPsave
       - 4FreeIran-2aa83978c8
       - 4Kian-d2bbd2ba45
+      - 4Sarina-e580bf2401
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -78,9 +78,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - VPsave
       - 4FreeIran-2aa83978c8
       - 4Kian-d2bbd2ba45
+      - 4Sarina-e580bf2401
 rules:
   - MATCH,Proxy

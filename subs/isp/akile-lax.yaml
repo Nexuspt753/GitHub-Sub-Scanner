@@ -1,27 +1,35 @@
 proxies:
   - type: vless
-    name: 4FreeIran-6383672a12
-    server: 143.246.61.211
-    port: 9443
-    uuid: 2751c1f3-0bb6-446e-ab26-e2384980705f
+    name: 4Nika-41d909615b
+    server: 143.246.62.134
+    port: 443
+    uuid: 26524cce-d514-4014-a426-365fb266a14d
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    flow: xtls-rprx-vision
+    client-fingerprint: android
+    alpn:
+      - "http/1.1
+"
+    servername: xy1ej.stream-node-us.danfeng.qzz.io
     xudp: true
+    network: ws
+    ws-opts:
+      path: /danfeng?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xy1ej.stream-node-us.danfeng.qzz.io
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-6383672a12
+      - 4Nika-41d909615b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-6383672a12
+      - 4Nika-41d909615b
 rules:
   - MATCH,Proxy

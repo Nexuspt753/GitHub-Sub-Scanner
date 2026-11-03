@@ -1,0 +1,114 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-97a0b8e446
+    server: apiipt-15.www-fifaweb.com
+    port: 443
+    uuid: a78af511-5386-e3dc-14b2-2f4b2a5457cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 4mk8pl2wz9vn6bc5hj3df1gt7yr4pk2mx1sq0fh8552.zibadelport.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /odin-ssl/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 4mk8pl2wz9vn6bc5hj3df1gt7yr4pk2mx1sq0fh8552.zibadelport.com
+  - type: vless
+    name: 4FreeIran-0589c7caeb
+    server: apiipt-17.www-fifaweb.com
+    port: 443
+    uuid: a78af511-5386-e3dc-14b2-2f4b2a5457cf
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: 3vn6bc5hj9df1gt8wz2sq0fh4mk8pl7yr4pk2mx1fr.zibadelport.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /odin-ssl/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 3vn6bc5hj9df1gt8wz2sq0fh4mk8pl7yr4pk2mx1fr.zibadelport.com
+  - type: vless
+    name: 4Sarina-dee0ccf0b7
+    server: apiipt-20.www-fifaweb.com
+    port: 443
+    uuid: a78af511-5386-e3dc-14b2-2f4b2a5457cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 1gt7yr4pk8mp3xl9wz1sq0fh4mk2vz6bc5hj2df9bh.zibadelport.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /odin-ssl/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 1gt7yr4pk8mp3xl9wz1sq0fh4mk2vz6bc5hj2df9bh.zibadelport.com
+  - type: vless
+    name: 4Mohsen-fc06d319ee
+    server: apiipt-25.www-fifaweb.com
+    port: 443
+    uuid: a78af511-5386-e3dc-14b2-2f4b2a5457cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 5hj9df1gt8wz2sq0fh4mk8pl7yr4pk2mx3vn6bc1au.zibadelport.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /odin-ssl/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 5hj9df1gt8wz2sq0fh4mk8pl7yr4pk2mx3vn6bc1au.zibadelport.com
+  - type: vless
+    name: 4Sarina-c29910020b
+    server: apiipt-5.www-fifaweb.com
+    port: 443
+    uuid: a78af511-5386-e3dc-14b2-2f4b2a5457cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: 4pk8mp3xl9wz1sq0fh4mk2vz6bc5hj2df1gt7yrt10.zibadelport.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /odin-ssl/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 4pk8mp3xl9wz1sq0fh4mk2vz6bc5hj2df1gt7yrt10.zibadelport.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-97a0b8e446
+      - 4FreeIran-0589c7caeb
+      - 4Sarina-dee0ccf0b7
+      - 4Mohsen-fc06d319ee
+      - 4Sarina-c29910020b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-97a0b8e446
+      - 4FreeIran-0589c7caeb
+      - 4Sarina-dee0ccf0b7
+      - 4Mohsen-fc06d319ee
+      - 4Sarina-c29910020b
+rules:
+  - MATCH,Proxy

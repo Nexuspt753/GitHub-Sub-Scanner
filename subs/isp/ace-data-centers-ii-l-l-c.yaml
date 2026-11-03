@@ -1,33 +1,47 @@
 proxies:
   - type: hysteria2
+    name: 4Sarina-b89407260e
+    server: 179.253.82.19
+    port: 4444
+    password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+    sni: fl3.nexfile.net
+  - type: hysteria2
     name: 4Mohsen-d2cc894558
     server: 179.253.82.33
     port: 4444
     password: a35c508f-4d5d-4531-842e-6e9d43c762c0
     sni: fl3.nexfile.net
   - type: hysteria2
-    name: 4Sarina-0792be8853
+    name: 4Jadi-d86ae71d39
+    server: 179.253.82.47
+    port: 4444
+    password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+    sni: fl3.nexfile.net
+  - type: hysteria2
+    name: 4Nika-eda6f1771b
     server: fl3.nexfile.net
     port: 4444
     password: a35c508f-4d5d-4531-842e-6e9d43c762c0
     sni: fl3.nexfile.net
-    skip-cert-verify: false
-    alpn:
-      - h3
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-b89407260e
       - 4Mohsen-d2cc894558
-      - 4Sarina-0792be8853
+      - 4Jadi-d86ae71d39
+      - 4Nika-eda6f1771b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-b89407260e
       - 4Mohsen-d2cc894558
-      - 4Sarina-0792be8853
+      - 4Jadi-d86ae71d39
+      - 4Nika-eda6f1771b
 rules:
   - MATCH,Proxy

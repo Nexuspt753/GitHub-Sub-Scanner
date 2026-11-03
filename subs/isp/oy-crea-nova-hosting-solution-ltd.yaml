@@ -20,6 +20,22 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
+    name: 4Kian-a20f41c830
+    server: 185.212.149.7
+    port: 2053
+    uuid: aeb3c019-ae83-4677-af97-846baa787ad5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /3x
+      headers:
+        Host: down-cdn.dingtalk.com
+  - type: vmess
     name: 4Nika-1b53a2ef2b
     server: 185.212.149.7
     port: 52080
@@ -29,23 +45,6 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-2708679fa9
-    server: 91.132.197.5
-    port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /path/191019072927
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.29794192.xyz
 proxy-groups:
   - name: Proxy
     type: select
@@ -53,8 +52,8 @@ proxy-groups:
       - Auto
       - 4FreeIran-cc4a0d6cad
       - 4Sarina-79c651a650
+      - 4Kian-a20f41c830
       - 4Nika-1b53a2ef2b
-      - 4Jadi-2708679fa9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -63,7 +62,7 @@ proxy-groups:
     proxies:
       - 4FreeIran-cc4a0d6cad
       - 4Sarina-79c651a650
+      - 4Kian-a20f41c830
       - 4Nika-1b53a2ef2b
-      - 4Jadi-2708679fa9
 rules:
   - MATCH,Proxy

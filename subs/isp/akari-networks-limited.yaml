@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-6ff5a1ddb5
-    server: 188.253.12.90
-    port: 45553
-    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  - type: vless
+    name: 4Mohsen-a0ffb1d3f9
+    server: 188.253.6.249
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
     udp: true
     tls: true
-    sni: ch.01.naiun.bilibili.com
     client-fingerprint: chrome
+    servername: vlso5.1d.mom
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2Fsocks5%3D888%3A888%40hkip.1d.mom%3A1080"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6ff5a1ddb5
+      - 4Mohsen-a0ffb1d3f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6ff5a1ddb5
+      - 4Mohsen-a0ffb1d3f9
 rules:
   - MATCH,Proxy
