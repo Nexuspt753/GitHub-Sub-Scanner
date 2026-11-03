@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: 4Nika-a607aab12b
+    server: msk2.rvpn.app
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: MODziWLa9qMuW-4yPa0rfw
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-a607aab12b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-a607aab12b
+rules:
+  - MATCH,Proxy

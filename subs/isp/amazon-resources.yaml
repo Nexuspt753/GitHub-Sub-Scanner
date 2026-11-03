@@ -1,24 +1,31 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: v2jp.k1.ssnss.live
-    port: 44184
-    password: d050aca3-9df2-4461-90ec-92373c1d7636
+    name: 4Jadi-8a31934776
+    server: 175.41.232.194
+    port: 443
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
     udp: true
     tls: true
+    sni: api.85s.me
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: api.85s.me
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-8a31934776
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-8a31934776
 rules:
   - MATCH,Proxy

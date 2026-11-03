@@ -1,14 +1,5 @@
 proxies:
   - type: trojan
-    name: Bratislava · 4Sarina-9884bf4055
-    server: 185.112.249.201
-    port: 8443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.cordweave.com
-    client-fingerprint: chrome
-  - type: trojan
     name: Bratislava · 4Mohsen-13f00595c8
     server: 185.112.249.201
     port: 8443
@@ -38,22 +29,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shuma.ccwu.cc
+  - type: vless
+    name: Bratislava · 4Jadi-0a623e31fa
+    server: 89.46.42.92
+    port: 2053
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Bratislava · 4Sarina-9884bf4055
       - Bratislava · 4Mohsen-13f00595c8
       - Bratislava · 4Nika-81e5e4ed9e
+      - Bratislava · 4Jadi-0a623e31fa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Bratislava · 4Sarina-9884bf4055
       - Bratislava · 4Mohsen-13f00595c8
       - Bratislava · 4Nika-81e5e4ed9e
+      - Bratislava · 4Jadi-0a623e31fa
 rules:
   - MATCH,Proxy

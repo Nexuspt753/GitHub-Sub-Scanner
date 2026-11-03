@@ -1,5 +1,22 @@
 proxies:
   - type: trojan
+    name: meliproxyy
+    server: dns5.mizdomaingame.ir
+    port: 443
+    password: os7uqitayib0z9oc
+    udp: true
+    tls: true
+    sni: dns5.mizdomaingame.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /c1t729uwm
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns5.mizdomaingame.ir
+  - type: trojan
     name: vpnsal
     server: dns5.mizdomaingame.ir
     port: 443
@@ -34,6 +51,23 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dns5.mizdomaingame.ir
   - type: vless
+    name: meliproxyy-01
+    server: dns1.mizdomaingame.ir
+    port: 443
+    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dns1.mizdomaingame.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /j5qklki8k
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: vpnsal-01
     server: dns1.mizdomaingame.ir
     port: 443
@@ -51,7 +85,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: meliproxyy
+    name: meliproxyy-02
     server: dns2.mizdomaingame.ir
     port: 443
     uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
@@ -89,10 +123,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - meliproxyy
       - vpnsal
       - 4Sarina-e64a57b298
+      - meliproxyy-01
       - vpnsal-01
-      - meliproxyy
+      - meliproxyy-02
       - vpnsal-02
   - name: Auto
     type: url-test
@@ -100,10 +136,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - meliproxyy
       - vpnsal
       - 4Sarina-e64a57b298
+      - meliproxyy-01
       - vpnsal-01
-      - meliproxyy
+      - meliproxyy-02
       - vpnsal-02
 rules:
   - MATCH,Proxy

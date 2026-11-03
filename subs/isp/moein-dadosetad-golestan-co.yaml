@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Jadi-ab126c39c2
+    server: srv3.segara.ir
+    port: 8443
+    uuid: 21c51a85-c125-4440-b690-113c9d7b2b87
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: bpqWvZAEHPgZ-kGrJDu6INWZ6InPJxXdJei3VxcAJR8
+      short-id: ae4931ddfcb70677
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-ab126c39c2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-ab126c39c2
+rules:
+  - MATCH,Proxy

@@ -1,40 +1,34 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 178.208.89.190
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    name: 4Mohsen-e635572b10
+    server: 95.142.32.42
+    port: 8444
+    uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: prod-eu-east-cz6.api-gateway.service-mesh.ingress-observability.speedtestinternet.link
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: nl18.meshbeat.online
     xudp: true
-  - type: vless
-    name: 4Jadi-765e10b14c
-    server: 178.208.89.190
-    port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: prod-eu-east-cz6.api-gateway.service-mesh.ingress-observability.speedtestinternet.link
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/devices/86f81c4330/telemetry
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl18.meshbeat.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Jadi-765e10b14c
+      - 4Mohsen-e635572b10
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Jadi-765e10b14c
+      - 4Mohsen-e635572b10
 rules:
   - MATCH,Proxy

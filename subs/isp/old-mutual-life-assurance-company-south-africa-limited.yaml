@@ -1,20 +1,5 @@
 proxies:
   - type: trojan
-    name: VPsave
-    server: 160.123.255.18
-    port: 443
-    password: 6884d714-d3c4-4b49-aa20-767ea92837d6
-    udp: true
-    tls: true
-    sni: icecream.955850.xyz
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: icecream.955850.xyz
-  - type: trojan
     name: 4FreeIran-cd006e8ac1
     server: 160.123.255.18
     port: 443
@@ -29,20 +14,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: icecream.955850.xyz
+  - type: vless
+    name: 4Kian-0c4bc17282
+    server: cpxarzw1.azangooo.ir
+    port: 2053
+    uuid: 8d6b6cf7-b713-45b0-a2a6-1fba7dcd73bd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cpt5.digitstocks.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cpt1?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cpt5.digitstocks.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
       - 4FreeIran-cd006e8ac1
+      - 4Kian-0c4bc17282
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
       - 4FreeIran-cd006e8ac1
+      - 4Kian-0c4bc17282
 rules:
   - MATCH,Proxy

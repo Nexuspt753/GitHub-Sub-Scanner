@@ -1,24 +1,19 @@
 proxies:
-  - type: vless
-    name: Tbilisi · @DeltaKroneckerGithub
-    server: 93.190.9.2
-    port: 3090
-    uuid: 9992be65-f201-44ca-a177-2ca95aaa7ad4
+  - type: trojan
+    name: Tbilisi · 4Mohsen-08eb987bc7
+    server: 194.135.119.82
+    port: 2053
+    password: humanity
     udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: Tbilisi · 4Sarina-3d232c5453
-    server: 93.190.9.160
-    port: 3090
-    uuid: 0deac3ec-a11a-4b24-a332-19c93e7e2182
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
   - type: vless
     name: Tbilisi · 4Jadi-b2958ffd84
     server: 93.190.9.138
@@ -34,8 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Tbilisi · @DeltaKroneckerGithub
-      - Tbilisi · 4Sarina-3d232c5453
+      - Tbilisi · 4Mohsen-08eb987bc7
       - Tbilisi · 4Jadi-b2958ffd84
   - name: Auto
     type: url-test
@@ -43,8 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Tbilisi · @DeltaKroneckerGithub
-      - Tbilisi · 4Sarina-3d232c5453
+      - Tbilisi · 4Mohsen-08eb987bc7
       - Tbilisi · 4Jadi-b2958ffd84
 rules:
   - MATCH,Proxy

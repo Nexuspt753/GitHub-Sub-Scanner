@@ -1,4 +1,37 @@
 proxies:
+  - type: trojan
+    name: 4Sarina-444f68f65e
+    server: 154.19.187.190
+    port: 443
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
+    udp: true
+    tls: true
+    sni: api.85s.me
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-1942e4c3e5
+    server: 154.19.187.190
+    port: 443
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
+    udp: true
+    tls: true
+    sni: api.85s.me
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: api.85s.me
+  - type: trojan
+    name: 4Kian-a4ca2368e9
+    server: 154.19.187.190
+    port: 443
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
+    udp: true
+    tls: true
+    sni: api.85s.me
+    client-fingerprint: chrome
   - type: vless
     name: 4FreeIran-2ef1363a5b
     server: 154.19.187.190
@@ -20,6 +53,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-444f68f65e
+      - 4Nika-1942e4c3e5
+      - 4Kian-a4ca2368e9
       - 4FreeIran-2ef1363a5b
   - name: Auto
     type: url-test
@@ -27,6 +63,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-444f68f65e
+      - 4Nika-1942e4c3e5
+      - 4Kian-a4ca2368e9
       - 4FreeIran-2ef1363a5b
 rules:
   - MATCH,Proxy

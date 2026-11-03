@@ -16,12 +16,45 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.pleadcourt.org
+  - type: trojan
+    name: 4Jadi-7d363dabef
+    server: 219.76.13.177
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-a30668e626
+    server: 219.76.13.181
+    port: 443
+    uuid: 9dc0c6aa-39a1-46be-9938-85999e3c3498
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sg1.31vpn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-0c7c6e6fcf
+      - 4Jadi-7d363dabef
+      - 4Sarina-a30668e626
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +62,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-0c7c6e6fcf
+      - 4Jadi-7d363dabef
+      - 4Sarina-a30668e626
 rules:
   - MATCH,Proxy
