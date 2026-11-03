@@ -1,4 +1,19 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 217.16.17.127
+    port: 25565
+    password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
+    udp: true
+    tls: true
+    sni: vkc2.safesurf.cloud
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: firefox
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: 4Jadi-efbf8723ab
     server: 185.86.145.37
@@ -16,20 +31,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ararat.rtkdvbr.cc
   - type: vless
-    name: v2ray_configs_pools⚡
-    server: ru.sparxiecn.com
-    port: 34443
-    uuid: 71c8d2c6-a7f1-4c74-b37d-d7f06fef9c04
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: chik-chirikvpn.com
-    reality-opts:
-      public-key: NBiCX_Tj3BeMAyG-GbLLKpGjW_qacm3A2Mz5mN8v3Xk
-      short-id: ab532d3308daa67b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-8e0e64de22
     server: 185.86.145.37
     port: 443
@@ -45,20 +46,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: pulse-resume.pro
-  - type: vless
-    name: 4Jadi-0b63d9f38e
-    server: ru.sparxiecn.com
-    port: 34443
-    uuid: 71c8d2c6-a7f1-4c74-b37d-d7f06fef9c04
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: chik-chirikvpn.com
-    reality-opts:
-      public-key: NBiCX_Tj3BeMAyG-GbLLKpGjW_qacm3A2Mz5mN8v3Xk
-      short-id: ab532d3308daa67b
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: 4Nika-e31b3dd3f6
     server: 185.86.145.37
@@ -114,20 +101,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vivozim.vyvoz-musora.cc
   - type: vless
-    name: 4Mohsen-46ffea079b
-    server: 217.16.31.218
-    port: 443
-    uuid: af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: max.ru
-    reality-opts:
-      public-key: SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw
-      short-id: e7
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-e2c037dc35
     server: 217.16.31.218
     port: 5003
@@ -140,34 +113,68 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-20e51bffd3
+    server: 185.86.145.37
+    port: 443
+    uuid: e37ebf3b-ac32-48a8-8f56-d113967eaf29
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ara.rtkdvbr.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /amws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ara.rtkdvbr.cc
+  - type: vless
+    name: 4Nika-ea0650fb02
+    server: 185.86.145.37
+    port: 443
+    uuid: fd8b05d0-0a98-4fba-9b48-5c0367abfcf5
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - http/1.1
+    servername: ara.rtkdvbr.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /amws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ara.rtkdvbr.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Jadi-efbf8723ab
-      - v2ray_configs_pools⚡
       - 4Kian-8e0e64de22
-      - 4Jadi-0b63d9f38e
       - 4Nika-e31b3dd3f6
       - 4Mohsen-d0c47a4f68
       - 4Kian-85b87910ab
-      - 4Mohsen-46ffea079b
       - 4FreeIran-e2c037dc35
+      - 4Jadi-20e51bffd3
+      - 4Nika-ea0650fb02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Jadi-efbf8723ab
-      - v2ray_configs_pools⚡
       - 4Kian-8e0e64de22
-      - 4Jadi-0b63d9f38e
       - 4Nika-e31b3dd3f6
       - 4Mohsen-d0c47a4f68
       - 4Kian-85b87910ab
-      - 4Mohsen-46ffea079b
       - 4FreeIran-e2c037dc35
+      - 4Jadi-20e51bffd3
+      - 4Nika-ea0650fb02
 rules:
   - MATCH,Proxy

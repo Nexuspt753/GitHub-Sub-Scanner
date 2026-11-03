@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: Oslo · 🇳🇴
-    server: 185.213.23.63
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-    udp: true
-  - type: ss
     name: Oslo · 4Mohsen-423c87dd24
     server: 185.213.23.63
     port: 990
@@ -27,24 +20,38 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
+  - type: vless
+    name: Oslo · 4Kian-5bb1f3e484
+    server: dl6.6at.ir
+    port: 2157
+    uuid: f07b2e36-b533-4cdd-9a70-58d5e0e6eeee
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: in.tradingview.com
+    reality-opts:
+      public-key: pzcfnv7AdzlRSwJFlo4JHhNNVVIjKiYBlwvR9QumLHo
+      short-id: a88e66a27d5a9921
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Oslo · 🇳🇴
       - Oslo · 4Mohsen-423c87dd24
       - Oslo · @DeltaKroneckerGithub
       - Oslo · 🇳🇴NO-185.213.23.63-0474
+      - Oslo · 4Kian-5bb1f3e484
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Oslo · 🇳🇴
       - Oslo · 4Mohsen-423c87dd24
       - Oslo · @DeltaKroneckerGithub
       - Oslo · 🇳🇴NO-185.213.23.63-0474
+      - Oslo · 4Kian-5bb1f3e484
 rules:
   - MATCH,Proxy

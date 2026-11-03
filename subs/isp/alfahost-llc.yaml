@@ -1,4 +1,10 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-6f6b6beedb
+    server: 141.0.187.15
+    port: 443
+    password: 70043bfa-d6fb-4980-b27e-773e9e8b2004
+    sni: crt.onecloudstream.com
   - type: vless
     name: DeltaKroneckerGithub
     server: 153.76.190.31
@@ -21,6 +27,21 @@ proxies:
     password: e5ec2586-59b3-40fa-91b7-bb37a2f7744e
     sni: crt.onecloudstream.com
   - type: vless
+    name: 4Nika-1a1f8977c7
+    server: 153.76.190.31
+    port: 2083
+    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Sarina-23abd2c656
     server: 153.76.190.31
     port: 2083
@@ -40,8 +61,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-6f6b6beedb
       - DeltaKroneckerGithub
       - 4Kian-49fc901e51
+      - 4Nika-1a1f8977c7
       - 4Sarina-23abd2c656
   - name: Auto
     type: url-test
@@ -49,8 +72,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-6f6b6beedb
       - DeltaKroneckerGithub
       - 4Kian-49fc901e51
+      - 4Nika-1a1f8977c7
       - 4Sarina-23abd2c656
 rules:
   - MATCH,Proxy

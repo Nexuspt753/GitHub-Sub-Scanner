@@ -27,6 +27,31 @@ proxies:
       short-id: 81d36ba71dddfc3e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-c611341d46
+    server: 179.254.92.134
+    port: 443
+    uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: assets-70.topp-con.xyz
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4FreeIran-8c6ca1bc4d
+    server: 179.254.92.190
+    port: 443
+    uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-32.topp-con.xyz
+    reality-opts:
+      public-key: 66-TFe0f5ub9A27G6hLPLm-KRZ4LGixHi8IA_Nv7jVM
+      short-id: 81d36ba71dddfc3e
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,6 +59,8 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-c611341d46
+      - 4FreeIran-8c6ca1bc4d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,5 +69,7 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - 4Mohsen-c611341d46
+      - 4FreeIran-8c6ca1bc4d
 rules:
   - MATCH,Proxy

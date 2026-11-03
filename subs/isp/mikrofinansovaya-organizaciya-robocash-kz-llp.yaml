@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: vless
+    server: XCDN.DarinaService.IR
+    port: 8443
+    uuid: a6f263ad-2d3e-42c6-9584-ed80a5b1134d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - ""
+    servername: Iran.irandarina.ir
+    xudp: true
+  - type: vless
     name: Rayan_Config 3.33
     server: 194.76.18.25
     port: 443
@@ -32,21 +45,18 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg
   - type: vless
-    name: 4FreeIran-d7024ea4a3
-    server: 194.76.18.25
-    port: 443
-    uuid: e65a5cbc-5663-4f7d-ad7d-800e86ba487d
+    name: 4Jadi-b060fdbdc3
+    server: XCDN.DarinaService.IR
+    port: 8443
+    uuid: a6f263ad-2d3e-42c6-9584-ed80a5b1134d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg
+    alpn:
+      - h3
+      - ""
+    servername: Iran.irandarina.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg
   - type: vless
     name: 4Mohsen-631fe20307
     server: 194.76.18.25
@@ -68,9 +78,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vless
       - Rayan_Config 3.33
       - Rayan_Config 3.3
-      - 4FreeIran-d7024ea4a3
+      - 4Jadi-b060fdbdc3
       - 4Mohsen-631fe20307
   - name: Auto
     type: url-test
@@ -78,9 +89,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vless
       - Rayan_Config 3.33
       - Rayan_Config 3.3
-      - 4FreeIran-d7024ea4a3
+      - 4Jadi-b060fdbdc3
       - 4Mohsen-631fe20307
 rules:
   - MATCH,Proxy
