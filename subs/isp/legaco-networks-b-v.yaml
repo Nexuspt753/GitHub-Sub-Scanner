@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Jadi-f9aafc61f7
+    server: 195.58.46.17
+    port: 443
+    uuid: bbb2fa0f-30b1-4fb7-b007-79c563ff544b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: t93q8h39r8h183hr.ru
+    reality-opts:
+      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
+      short-id: ec9e3ca77d302766
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-f9aafc61f7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-f9aafc61f7
+rules:
+  - MATCH,Proxy

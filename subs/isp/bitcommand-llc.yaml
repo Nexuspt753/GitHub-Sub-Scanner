@@ -16,12 +16,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: jyfrj1cims.dev.onappjet.com
+  - type: vless
+    name: 4Mohsen-cfbe908b14
+    server: netsecureteam5.ir
+    port: 4444
+    uuid: d9ce62fc-851b-49db-b52a-d015357a2f3a
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-8357ae0f69
+      - 4Mohsen-cfbe908b14
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-8357ae0f69
+      - 4Mohsen-cfbe908b14
 rules:
   - MATCH,Proxy

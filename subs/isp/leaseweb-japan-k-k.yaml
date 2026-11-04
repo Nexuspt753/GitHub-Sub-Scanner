@@ -13,12 +13,54 @@ proxies:
       short-id: ea36c03d86f91287
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-4deff6b132
+    server: 142.91.109.211
+    port: 443
+    uuid: 7df9c44c-6363-4246-982c-6f7dedbed392
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: link-vista-mua55s.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=142.91.109.211:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: link-vista-mua55s.pages.dev
+  - type: vless
+    name: 4Sarina-e967f1d043
+    server: 142.91.108.25
+    port: 443
+    uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-d2a47fb68f
+    server: 142.91.108.25
+    port: 443
+    uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: jp3.nztvpn.com
+    reality-opts:
+      public-key: 9ZCYjybxMQ7JpE39B8u_Bo-alI1LIbt5ER0E-4yMjiM
+      short-id: ea36c03d86f91287
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - outline_ir
+      - 4Nika-4deff6b132
+      - 4Sarina-e967f1d043
+      - 4Sarina-d2a47fb68f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +68,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - outline_ir
+      - 4Nika-4deff6b132
+      - 4Sarina-e967f1d043
+      - 4Sarina-d2a47fb68f
 rules:
   - MATCH,Proxy

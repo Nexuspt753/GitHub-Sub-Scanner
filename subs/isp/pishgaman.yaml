@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: 4FreeIran-1d270bd468
+    server: irankabir-1.rezvan.site
+    port: 2083
+    uuid: 33a67669-8171-41ac-8231-83a59ca01cb8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: irankabir-1.rezvan.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: irankabir-1.rezvan.site
+  - type: vless
     name: 4Sarina-7c51ebb44a
     server: rapid.extraservices.ir
     port: 2050
@@ -17,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-1d270bd468
       - 4Sarina-7c51ebb44a
   - name: Auto
     type: url-test
@@ -24,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-1d270bd468
       - 4Sarina-7c51ebb44a
 rules:
   - MATCH,Proxy

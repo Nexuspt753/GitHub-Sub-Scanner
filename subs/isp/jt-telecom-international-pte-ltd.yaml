@@ -1,5 +1,20 @@
 proxies:
   - type: vmess
+    name: 4Mohsen-bd3966239b
+    server: 103.127.243.66
+    port: 54291
+    uuid: c5856e0b-5ca6-49bf-8525-d02af9c37cf5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /ABCDE
+      headers: "{}"
+  - type: vmess
     name: 4Sarina-2cf5eae2e0
     server: 103.127.243.66
     port: 54291
@@ -14,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-bd3966239b
       - 4Sarina-2cf5eae2e0
   - name: Auto
     type: url-test
@@ -21,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-bd3966239b
       - 4Sarina-2cf5eae2e0
 rules:
   - MATCH,Proxy

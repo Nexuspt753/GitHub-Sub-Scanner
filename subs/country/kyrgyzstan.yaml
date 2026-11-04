@@ -1,4 +1,33 @@
 proxies:
+  - type: trojan
+    name: Bishkek · 4FreeIran-10655ea47e
+    server: 212.2.227.187
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: trojan
+    name: Bishkek · 4Mohsen-1bb98cdf61
+    server: 212.2.227.187
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "%2Fassignment"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: Bishkek · 4Mohsen-906fa6016c
     server: 185.48.136.150
@@ -21,6 +50,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Bishkek · 4FreeIran-10655ea47e
+      - Bishkek · 4Mohsen-1bb98cdf61
       - Bishkek · 4Mohsen-906fa6016c
   - name: Auto
     type: url-test
@@ -28,6 +59,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Bishkek · 4FreeIran-10655ea47e
+      - Bishkek · 4Mohsen-1bb98cdf61
       - Bishkek · 4Mohsen-906fa6016c
 rules:
   - MATCH,Proxy

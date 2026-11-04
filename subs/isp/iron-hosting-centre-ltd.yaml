@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: 4FreeIran-516d164cd9
+    server: 178.208.89.21
+    port: 443
+    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: prod-eu-east-cz6.api-gateway.service-mesh.ingress-observability.speedtestinternet.link
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-e635572b10
     server: 95.142.32.42
     port: 8444
@@ -22,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-516d164cd9
       - 4Mohsen-e635572b10
   - name: Auto
     type: url-test
@@ -29,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-516d164cd9
       - 4Mohsen-e635572b10
 rules:
   - MATCH,Proxy
