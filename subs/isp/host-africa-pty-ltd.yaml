@@ -1,0 +1,24 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-4ab788dab0
+    server: 102.208.216.88
+    port: 8443
+    password: 1793747701:04cbffa7-bd2c-4a51-bf32-2253f4fbc1ab:cv_QNzenE8BtqjxU5H4mzZ7ki0M4jLW2DCs01wdD78Y
+    sni: za2.lumacache.com
+    alpn:
+      - h3
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-4ab788dab0
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-4ab788dab0
+rules:
+  - MATCH,Proxy

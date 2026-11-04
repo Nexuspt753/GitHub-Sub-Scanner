@@ -18,10 +18,27 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
-    server: 45.90.208.21
-    port: 443
-    password: qhVUwyWuPbYCYH5Dum
+    server: hk-2.tr202605.com
+    port: 465
+    password: 65fQmPHHbPcBCfvSHt
     udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 45.141.46.91
+    port: 465
+    password: 65fQmPHHbPcBCfvSHt
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-d52a3a9750
+    server: 172.93.188.25
+    port: 443
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
+    udp: true
+    tls: true
+    sni: api.85s.me
     client-fingerprint: chrome
   - type: trojan
     name: 4FreeIran-89c4830426
@@ -38,6 +55,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: api.85s.me
+  - type: trojan
+    name: 4Kian-e7b05ffcc7
+    server: 172.93.188.25
+    port: 443
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
+    udp: true
+    tls: true
+    sni: api.85s.me
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -46,7 +72,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Mohsen-d52a3a9750
       - 4FreeIran-89c4830426
+      - 4Kian-e7b05ffcc7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,6 +85,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 4Mohsen-d52a3a9750
       - 4FreeIran-89c4830426
+      - 4Kian-e7b05ffcc7
 rules:
   - MATCH,Proxy

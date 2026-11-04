@@ -1,31 +1,43 @@
 proxies:
   - type: vless
-    name: 4FreeIran-e89ddea003
-    server: 45.144.50.212
+    name: 4Jadi-95a9a995d7
+    server: 45.144.48.35
     port: 443
-    uuid: 86a8c2dd-1d47-4006-a397-72b76f2d67c8
+    uuid: 5fb552a8-9c41-4031-86f5-ca10fc802da5
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: MlXt3-f7eUcUBoZgCOEKCO0vi0idFZ_0XTlzpF0TIzI
+    client-fingerprint: firefox
+    servername: pont2.vethilis.ru
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: 4Nika-656e76470a
+    server: pont2.vethilis.ru
+    port: 443
+    uuid: 5fb552a8-9c41-4031-86f5-ca10fc802da5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: pont2.vethilis.ru
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-e89ddea003
+      - 4Jadi-95a9a995d7
+      - 4Nika-656e76470a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-e89ddea003
+      - 4Jadi-95a9a995d7
+      - 4Nika-656e76470a
 rules:
   - MATCH,Proxy

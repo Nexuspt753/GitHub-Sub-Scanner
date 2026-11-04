@@ -1,23 +1,29 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-1bdf777181
-    server: 45.131.65.244
-    port: 30396
-    password: 9qFAF3s4R7wkGxcI0fonColtap41RUTsWdW
-    sni: pisulka.jsbox.top
-    skip-cert-verify: false
+  - type: vless
+    name: 4FreeIran-dd9d42b444
+    server: 45.131.65.116
+    port: 443
+    uuid: 3bb97d46-789b-4229-88f6-9beb222a4137
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: modx-au.bachidze.com
+    reality-opts:
+      public-key: EVmZyqEbtEI8d93h1MkFjNVj-DVZRATr9C1Dh1OODmE
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1bdf777181
+      - 4FreeIran-dd9d42b444
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1bdf777181
+      - 4FreeIran-dd9d42b444
 rules:
   - MATCH,Proxy

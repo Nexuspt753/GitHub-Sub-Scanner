@@ -1,14 +1,12 @@
 proxies:
   - type: vless
-    name: 4Nika-f7348c3ff7
+    name: 4Mohsen-d8cab7d90d
     server: 185.229.9.135
     port: 443
-    uuid: d8a47403-5dbf-4450-8640-0134719b1d86
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
     udp: true
     tls: true
-    client-fingerprint: qq
-    alpn:
-      - http/1.1
+    client-fingerprint: chrome
     servername: business.lesotorg-kirov.ru
     xudp: true
     network: ws
@@ -17,18 +15,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: business.lesotorg-kirov.ru
+  - type: vless
+    name: 4Mohsen-8a3a9abdf3
+    server: 185.229.9.135
+    port: 443
+    uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: business.lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chwsfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: business.lesotorg-kirov.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-f7348c3ff7
+      - 4Mohsen-d8cab7d90d
+      - 4Mohsen-8a3a9abdf3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-f7348c3ff7
+      - 4Mohsen-d8cab7d90d
+      - 4Mohsen-8a3a9abdf3
 rules:
   - MATCH,Proxy

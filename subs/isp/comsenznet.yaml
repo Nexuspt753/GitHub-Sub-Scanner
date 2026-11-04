@@ -1,32 +1,31 @@
 proxies:
-  - type: vless
-    name: 4Jadi-390c584717
-    server: 119.28.150.233
+  - type: trojan
+    name: 4Kian-494eec7083
+    server: 119.28.150.58
     port: 443
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
+    password: 8deb189a-3aed-4865-843b-b72dae954c46
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: t5pmr.mail-node.gfw.kdns.fr
-    xudp: true
+    sni: api.85s.me
+    client-fingerprint: chrome
     network: ws
     ws-opts:
-      path: /danfeng?ed=2560
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: t5pmr.mail-node.gfw.kdns.fr
+        Host: api.85s.me
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-390c584717
+      - 4Kian-494eec7083
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-390c584717
+      - 4Kian-494eec7083
 rules:
   - MATCH,Proxy

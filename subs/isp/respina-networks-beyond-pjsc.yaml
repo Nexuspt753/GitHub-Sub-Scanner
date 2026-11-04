@@ -12,6 +12,30 @@ proxies:
     servername: tun1.plasmoon.ir
     xudp: true
   - type: vless
+    name: 4Sarina-52bfad3c63
+    server: mail.loyalsmile.net
+    port: 2095
+    uuid: 66315d7f-ebf4-43f6-a475-c578c382409f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /wp-content
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-8c9241d2c0
+    server: mail.loyalsmile.net
+    port: 8080
+    uuid: 66315d7f-ebf4-43f6-a475-c578c382409f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /wp-content3
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Sarina-a0a7f9d484
     server: ser2.plasmoon.ir
     port: 2026
@@ -57,28 +81,17 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-289cb0ef48
-    server: ser2.plasmoon.ir
-    port: 2026
-    uuid: fa5be8ca-4201-4490-ac69-0df80ea27d91
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: tun1.plasmoon.ir
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-2d97ec658f
+      - 4Sarina-52bfad3c63
+      - 4FreeIran-8c9241d2c0
       - 4Sarina-a0a7f9d484
       - 4Kian-d3ef4e7003
       - 4Mohsen-e63bc10f19
-      - 4Mohsen-289cb0ef48
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,9 +99,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-2d97ec658f
+      - 4Sarina-52bfad3c63
+      - 4FreeIran-8c9241d2c0
       - 4Sarina-a0a7f9d484
       - 4Kian-d3ef4e7003
       - 4Mohsen-e63bc10f19
-      - 4Mohsen-289cb0ef48
 rules:
   - MATCH,Proxy

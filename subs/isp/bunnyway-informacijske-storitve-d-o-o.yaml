@@ -1,0 +1,34 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-af405e9c04
+    server: vodiwalker-panel-development-hp599.lucity.app
+    port: 443
+    uuid: 2c8af5ed-bf4c-d7cc-e398-8a2193c884dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: vodiwalker-panel-development-hp599.lucity.app
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws/2c8af5ed-bf4c-d7cc-e398-8a2193c884dc
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vodiwalker-panel-development-hp599.lucity.app
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-af405e9c04
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-af405e9c04
+rules:
+  - MATCH,Proxy

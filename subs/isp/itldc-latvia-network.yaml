@@ -1,5 +1,12 @@
 proxies:
   - type: vless
+    name: 4Jadi-7a617d070d
+    server: 195.123.213.28
+    port: 443
+    uuid: 02fcc1a4-ee90-4970-8bbb-4ffaa8109d24
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Kian-b4268ada23
     server: 195.123.213.28
     port: 443
@@ -11,20 +18,6 @@ proxies:
     reality-opts:
       public-key: NMgy1XgCSXExOg6Tg8xG9lCWttMF6sjdpB41lZy6FWo
       short-id: 5c256336e3b673fa
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-f87957debf
-    server: 195.123.208.32
-    port: 443
-    uuid: 1ebcb694-875c-4be7-b6a2-d53c8208991b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: gateway.icloud.com
-    reality-opts:
-      public-key: ICrsmE5hqN7IsDIyHPG2WkDUUFK_VEj9yobLv8zuDwk
-      short-id: 757b9e1ef18e60f0
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -55,6 +48,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sdwf-amq.pages.dev
   - type: vless
+    name: 4Mohsen-3a63206bd1
+    server: 195.123.211.204
+    port: 81
+    uuid: f0c9ebf7-76cc-44b7-8b30-b33ee0ffc898
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: coding.grok2.indevs.in
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: coding.grok2.indevs.in
+  - type: vless
     name: 4Mohsen-ee108e83c6
     server: 195.123.211.204
     port: 81
@@ -75,10 +84,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-7a617d070d
       - 4Kian-b4268ada23
-      - 4FreeIran-f87957debf
       - 4Jadi-7a963ffd7a
       - 4Jadi-e7631269a3
+      - 4Mohsen-3a63206bd1
       - 4Mohsen-ee108e83c6
   - name: Auto
     type: url-test
@@ -86,10 +96,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-7a617d070d
       - 4Kian-b4268ada23
-      - 4FreeIran-f87957debf
       - 4Jadi-7a963ffd7a
       - 4Jadi-e7631269a3
+      - 4Mohsen-3a63206bd1
       - 4Mohsen-ee108e83c6
 rules:
   - MATCH,Proxy
