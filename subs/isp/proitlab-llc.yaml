@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: 4FreeIran-ee1900288f
+    server: slovarik.xyz
+    port: 443
+    uuid: 613b64fe-b88d-42db-9d4f-26b8654d4060
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.slovarik.xyz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-5006d461aa
     server: 2.56.204.183
     port: 443
@@ -19,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-ee1900288f
       - 4Mohsen-5006d461aa
   - name: Auto
     type: url-test
@@ -26,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-ee1900288f
       - 4Mohsen-5006d461aa
 rules:
   - MATCH,Proxy

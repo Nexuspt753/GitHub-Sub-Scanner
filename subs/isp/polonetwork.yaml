@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4Mohsen-6fafd303d9
+    name: 4Mohsen-dec79829b6
     server: 82.139.236.254
     port: 443
     password: 8deb189a-3aed-4865-843b-b72dae954c46
@@ -8,6 +8,11 @@ proxies:
     tls: true
     sni: api.85s.me
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Mohsen-85333631a4
     server: 82.139.242.5
@@ -43,42 +48,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Kian-d9686c641d
-    server: w12.luoli.de
-    port: 443
-    uuid: 42a99644-b90b-3627-8809-a2d6c4078b59
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: w12.luoli.de
-    network: ws
-    ws-opts:
-      path: /v2ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: w12.luoli.de
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-6fafd303d9
+      - 4Mohsen-dec79829b6
       - 4Mohsen-85333631a4
       - 4Nika-5ee5bb37f0
-      - 4Kian-d9686c641d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-6fafd303d9
+      - 4Mohsen-dec79829b6
       - 4Mohsen-85333631a4
       - 4Nika-5ee5bb37f0
-      - 4Kian-d9686c641d
 rules:
   - MATCH,Proxy

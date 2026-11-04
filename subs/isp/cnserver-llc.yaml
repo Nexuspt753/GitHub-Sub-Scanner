@@ -1,19 +1,22 @@
 proxies:
-  - type: trojan
-    name: 4Kian-e77b960a8b
-    server: 188.255.156.209
+  - type: vless
+    name: 4Jadi-e0bdd7833f
+    server: 188.255.157.136
     port: 443
-    password: humanity
+    uuid: 26524cce-d514-4014-a426-365fb266a14d
     udp: true
     tls: true
-    sni: www.cordweave.com
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: xy1ej.stream-node-us.danfeng.qzz.io
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /danfeng?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.cordweave.com
+        Host: xy1ej.stream-node-us.danfeng.qzz.io
   - type: vless
     name: 4Jadi-72cfa28169
     server: 188.255.156.202
@@ -35,7 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-e77b960a8b
+      - 4Jadi-e0bdd7833f
       - 4Jadi-72cfa28169
   - name: Auto
     type: url-test
@@ -43,7 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-e77b960a8b
+      - 4Jadi-e0bdd7833f
       - 4Jadi-72cfa28169
 rules:
   - MATCH,Proxy

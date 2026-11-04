@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: FXxNET⚡️
+    server: 82.152.132.211
+    port: 8020
+    uuid: 136b5ba7-ddac-41ca-b112-6b225051f421
+    udp: true
+    xudp: true
+  - type: vless
+    name: tootffarangi🍓
+    server: 82.152.132.211
+    port: 8020
+    uuid: 136b5ba7-ddac-41ca-b112-6b225051f421
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - FXxNET⚡️
+      - tootffarangi🍓
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - FXxNET⚡️
+      - tootffarangi🍓
+rules:
+  - MATCH,Proxy

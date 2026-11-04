@@ -10,17 +10,17 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: ngzydd.sub-zrj.com
-    port: 121
-    password: 2f653ecd-c290-451e-a848-f8f525bc5a21
+    server: updatess.sub-zrj.com
+    port: 321
+    password: 30f05ba0-9b94-422e-887c-d2d45918a06b
     udp: true
     tls: true
-    sni: streaming.sub-zrj.com
+    sni: data.sub-zrj.com
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
     server: updatess.sub-zrj.com
-    port: 321
+    port: 222
     password: 2f653ecd-c290-451e-a848-f8f525bc5a21
     udp: true
     tls: true
@@ -28,12 +28,12 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-03
-    server: updatess.sub-zrj.com
-    port: 6811
-    password: 30f05ba0-9b94-422e-887c-d2d45918a06b
+    server: ngzydd.sub-zrj.com
+    port: 321
+    password: 2f653ecd-c290-451e-a848-f8f525bc5a21
     udp: true
     tls: true
-    sni: data.sub-zrj.com
+    sni: streaming.sub-zrj.com
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-04
@@ -44,6 +44,25 @@ proxies:
     tls: true
     sni: streaming.sub-zrj.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-05ecfae99e
+    server: 64.178.113.224
+    port: 443
+    uuid: 26524cce-d514-4014-a426-365fb266a14d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - "http/1.1
+"
+    servername: xy1ej.stream-node-us.danfeng.qzz.io
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /danfeng?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xy1ej.stream-node-us.danfeng.qzz.io
 proxy-groups:
   - name: Proxy
     type: select
@@ -54,6 +73,7 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Nika-05ecfae99e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -65,5 +85,6 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
+      - 4Nika-05ecfae99e
 rules:
   - MATCH,Proxy

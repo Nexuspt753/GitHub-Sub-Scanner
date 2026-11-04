@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: 🇩🇪206564
+    server: gerpes.aios-store.ru
+    port: 45006
+    uuid: ecf12398-8689-4c8d-91e2-8f1aeb8bd556
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.python.org
+    reality-opts:
+      public-key: T1DzX4CYLd98VHpbbGrVHGnWsXlWVud1AcGM6mqhulc
+      short-id: d6afc6488f1d1758
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 🇩🇪206613
+    server: gerpes.aios-store.ru
+    port: 45006
+    uuid: ecf12398-8689-4c8d-91e2-8f1aeb8bd556
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.python.org
+    reality-opts:
+      public-key: T1DzX4CYLd98VHpbbGrVHGnWsXlWVud1AcGM6mqhulc
+      short-id: d6afc6488f1d1758
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-59c33cd5cb
+    server: gerpes.aios-store.ru
+    port: 45006
+    uuid: ecf12398-8689-4c8d-91e2-8f1aeb8bd556
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.python.org
+    reality-opts:
+      public-key: T1DzX4CYLd98VHpbbGrVHGnWsXlWVud1AcGM6mqhulc
+      short-id: d6afc6488f1d1758
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇩🇪206564
+      - 🇩🇪206613
+      - 4Mohsen-59c33cd5cb
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇩🇪206564
+      - 🇩🇪206613
+      - 4Mohsen-59c33cd5cb
+rules:
+  - MATCH,Proxy

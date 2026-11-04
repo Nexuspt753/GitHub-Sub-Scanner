@@ -1,19 +1,4 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-e882a141f5
-    server: 167.68.4.199
-    port: 2053
-    password: Aimer
-    udp: true
-    tls: true
-    sni: epge.muarua.filegear-sg.me
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /?proxyip=ts.hpc.tw
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: epge.muarua.filegear-sg.me
   - type: vless
     name: 4Jadi-c60ffc3fd6
     server: 167.68.4.131
@@ -25,6 +10,36 @@ proxies:
     alpn:
       - http/1.1
     servername: proxy-34l.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
+  - type: vless
+    name: 4Sarina-f4240d54c9
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
+  - type: vless
+    name: 4Sarina-43a65b86f6
+    server: 167.68.4.131
+    port: 8443
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: qq
     xudp: true
     network: ws
     ws-opts:
@@ -52,8 +67,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-e882a141f5
       - 4Jadi-c60ffc3fd6
+      - 4Sarina-f4240d54c9
+      - 4Sarina-43a65b86f6
       - ">>@oneclickvpnkeys::US"
   - name: Auto
     type: url-test
@@ -61,8 +77,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-e882a141f5
       - 4Jadi-c60ffc3fd6
+      - 4Sarina-f4240d54c9
+      - 4Sarina-43a65b86f6
       - ">>@oneclickvpnkeys::US"
 rules:
   - MATCH,Proxy

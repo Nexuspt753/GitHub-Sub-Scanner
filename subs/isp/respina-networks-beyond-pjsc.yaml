@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: 4FreeIran-38f0aff6ff
-    server: ser2.plasmoon.ir
-    port: 2027
-    cipher: chacha20-ietf-poly1305
-    password: ylga1tuTxjNdup5-5pNO3TJEiBzgSMVm
-    udp: true
   - type: vless
     name: 4Mohsen-2d97ec658f
     server: ser2.plasmoon.ir
@@ -47,24 +40,41 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-e63bc10f19
+    server: workshopnew.subpannel.ir
+    port: 6036
+    uuid: e17b1c07-de04-4734-a6ec-5a6ea45dc39c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aparat.com
+    reality-opts:
+      public-key: G8xIYrbqP8tFKaMM9BvXj9_BC2JDbUjQqfeuY5YQyGA
+      short-id: 3b828513ffa33f
+    flow: xtls-rprx-vision
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-38f0aff6ff
       - 4Mohsen-2d97ec658f
       - 4Sarina-a0a7f9d484
       - 4Kian-d3ef4e7003
+      - 4Mohsen-e63bc10f19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-38f0aff6ff
       - 4Mohsen-2d97ec658f
       - 4Sarina-a0a7f9d484
       - 4Kian-d3ef4e7003
+      - 4Mohsen-e63bc10f19
 rules:
   - MATCH,Proxy

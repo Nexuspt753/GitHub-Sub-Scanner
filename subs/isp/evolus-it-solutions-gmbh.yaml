@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: vmesc
-    server: at-3.wizard.select
-    port: 443
-    uuid: 074b00de-c4d0-11f1-9902-a337233c6cda
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: at-3.wizard.select
-    reality-opts:
-      public-key: S9OR9-SQHGl717N9AV_LoouRgSd-M4Yz7os10Mj8XxI
-      short-id: cee953f6
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-a2f9cf6e1d
     server: at-3.wizard.select
     port: 443
@@ -27,20 +13,30 @@ proxies:
       short-id: cee953f6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Kian-0ee8507aae
+    server: 93.157.138.137
+    port: 1125
+    uuid: 78c8ab17-814e-4c10-a642-f616c9be979d
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vmesc
       - 4Sarina-a2f9cf6e1d
+      - 4Kian-0ee8507aae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vmesc
       - 4Sarina-a2f9cf6e1d
+      - 4Kian-0ee8507aae
 rules:
   - MATCH,Proxy

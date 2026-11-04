@@ -1,0 +1,31 @@
+proxies:
+  - type: vless
+    name: 4Sarina-7095b07816
+    server: 85.190.107.238
+    port: 443
+    uuid: 4fe83abe-48a3-41d8-b966-1c13e7cfac01
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /jx-yu6idxjr72i2xz
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jyfrj1cims.dev.onappjet.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-7095b07816
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-7095b07816
+rules:
+  - MATCH,Proxy

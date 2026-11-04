@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: 🇺🇸
+    server: 103.11.76.248
+    port: 28679
+    cipher: 2022-blake3-aes-128-gcm
+    password: NzJlOTQ5NWYtM2ZkYi00Cg==
+    udp: true
+  - type: ss
     name: 4Kian-5a090cd087
     server: 103.11.76.248
     port: 28679
@@ -33,6 +40,22 @@ proxies:
     network: ws
     ws-opts:
       path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sdwf-amq.pages.dev
+  - type: vless
+    name: 4FreeIran-1584b47e9a
+    server: 103.11.78.211
+    port: 8443
+    uuid: 3305c285-8d55-4f52-a3b0-2a582f5ffd59
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sdwf-amq.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2048
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sdwf-amq.pages.dev
@@ -73,10 +96,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇺🇸
       - 4Kian-5a090cd087
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-e0e3aac752
+      - 4FreeIran-1584b47e9a
       - 4Sarina-0fe0a5ba05
       - 4FreeIran-893762c432
   - name: Auto
@@ -85,10 +110,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 🇺🇸
       - 4Kian-5a090cd087
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4Nika-e0e3aac752
+      - 4FreeIran-1584b47e9a
       - 4Sarina-0fe0a5ba05
       - 4FreeIran-893762c432
 rules:

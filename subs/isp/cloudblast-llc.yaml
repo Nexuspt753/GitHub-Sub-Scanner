@@ -1,30 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 178.83.122.128
-    port: 443
-    uuid: 43a26f1a-99b7-4b17-98c7-b836fb466999
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: 4FreeIran-2dc30e9a91
-    server: 89.34.230.66
-    port: 60023
-    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: starlink.com
-    reality-opts:
-      public-key: PFL3AoMNTu9-VrM2WIrvQl2l-ibVgR5vIE1Vh-txKVg
-      short-id: 6070d424a64f75
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Mohsen-f5c7a00172
     server: 178.83.122.128
     port: 443
@@ -37,15 +12,6 @@ proxies:
       public-key: nFJCJ2tvxLdLrc9G-O1laW8KDir5SDnaOTmYndVaOGQ
       short-id: 7a3f9e2b1c8d4f6a
     flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-1ddc14eca2
-    server: 178.83.122.128
-    port: 443
-    uuid: 43a26f1a-99b7-4b17-98c7-b836fb466999
-    udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4Sarina-c220bbf0c6
@@ -62,26 +28,39 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4Kian-5ebd34e0ee
+    server: 192.166.82.21
+    port: 443
+    uuid: ffe8ae49-05d7-4f56-a82b-dd618108c270
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: us-slc-global1.xeovo.eu
+    network: ws
+    ws-opts:
+      path: /sacaca
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
-      - 4FreeIran-2dc30e9a91
       - 4Mohsen-f5c7a00172
-      - 4Kian-1ddc14eca2
       - 4Sarina-c220bbf0c6
+      - 4Kian-5ebd34e0ee
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
-      - 4FreeIran-2dc30e9a91
       - 4Mohsen-f5c7a00172
-      - 4Kian-1ddc14eca2
       - 4Sarina-c220bbf0c6
+      - 4Kian-5ebd34e0ee
 rules:
   - MATCH,Proxy
