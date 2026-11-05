@@ -1,5 +1,14 @@
 proxies:
   - type: hysteria2
+    name: Channel
+    server: 152.32.254.68
+    port: 5010
+    password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+    sni: nas.aizhzo.com
+    skip-cert-verify: false
+    obfs: salamander
+    obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
+  - type: hysteria2
     name: 4Jadi-1b9d646dfe
     server: 152.32.254.68
     port: 5010
@@ -16,34 +25,6 @@ proxies:
     sni: nas.aizhzo.com
   - type: vless
     name: DeltaKroneckerGithub
-    server: 165.154.63.139
-    port: 443
-    uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: AE81BrwMc8-kwGEIA1LhzaL03er0Qwt2V-fFy76F5jQ
-      short-id: ca4aedd4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: hopev2ray💟
-    server: 165.154.63.139
-    port: 443
-    uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.amazon.com
-    reality-opts:
-      public-key: AE81BrwMc8-kwGEIA1LhzaL03er0Qwt2V-fFy76F5jQ
-      short-id: ca4aedd4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Channel
     server: 165.154.63.139
     port: 443
     uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
@@ -75,11 +56,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Channel
       - 4Jadi-1b9d646dfe
       - 4Jadi-f5dcf9bd20
       - DeltaKroneckerGithub
-      - hopev2ray💟
-      - Channel
       - 4Mohsen-b69bb8ffdb
   - name: Auto
     type: url-test
@@ -87,11 +67,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Channel
       - 4Jadi-1b9d646dfe
       - 4Jadi-f5dcf9bd20
       - DeltaKroneckerGithub
-      - hopev2ray💟
-      - Channel
       - 4Mohsen-b69bb8ffdb
 rules:
   - MATCH,Proxy

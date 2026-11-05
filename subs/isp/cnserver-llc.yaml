@@ -1,19 +1,4 @@
 proxies:
-  - type: trojan
-    name: 4Kian-e77b960a8b
-    server: 188.255.156.209
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.cordweave.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /assignment
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.cordweave.com
   - type: vless
     name: 4Jadi-e0bdd7833f
     server: 188.255.157.136
@@ -48,22 +33,39 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf3.schzyc.cc.cd
+  - type: vmess
+    name: 4Kian-883b045a13
+    server: 144.225.130.23
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-e77b960a8b
       - 4Jadi-e0bdd7833f
       - 4Jadi-72cfa28169
+      - 4Kian-883b045a13
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-e77b960a8b
       - 4Jadi-e0bdd7833f
       - 4Jadi-72cfa28169
+      - 4Kian-883b045a13
 rules:
   - MATCH,Proxy

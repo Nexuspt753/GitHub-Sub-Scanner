@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: V2ray_confiig
+    server: 77.221.132.206
+    port: 24759
+    cipher: chacha20-ietf-poly1305
+    password: hCgbUnMaoAfSgvE8IKdnGu
+    udp: true
+  - type: ss
     name: 🇳🇱03
     server: 77.221.132.206
     port: 24759
@@ -15,6 +22,13 @@ proxies:
     udp: true
   - type: ss
     name: 🇳🇱05
+    server: 77.221.132.206
+    port: 24759
+    cipher: chacha20-ietf-poly1305
+    password: hCgbUnMaoAfSgvE8IKdnGu
+    udp: true
+  - type: ss
+    name: 🇳🇱10
     server: 77.221.132.206
     port: 24759
     cipher: chacha20-ietf-poly1305
@@ -74,70 +88,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nl18.meshbeat.online
-  - type: vless
-    name: 4Jadi-8e7624a99c
-    server: 95.142.32.42
-    port: 8444
-    uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    alpn:
-      - http/1.1
-    servername: nl18.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/86f81c4330/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl18.meshbeat.online
-  - type: vless
-    name: 4Sarina-6b823e9ccc
-    server: 95.142.32.42
-    port: 8444
-    uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: nl18.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/86f81c4330/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl18.meshbeat.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - V2ray_confiig
       - 🇳🇱03
       - 🇳🇱04
       - 🇳🇱05
+      - 🇳🇱10
       - 4FreeIran-0a24ce4e64
       - 🧿40@oneclickvpnkeys
       - FarazV2ray
       - V2raySaman
-      - 4Jadi-8e7624a99c
-      - 4Sarina-6b823e9ccc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - V2ray_confiig
       - 🇳🇱03
       - 🇳🇱04
       - 🇳🇱05
+      - 🇳🇱10
       - 4FreeIran-0a24ce4e64
       - 🧿40@oneclickvpnkeys
       - FarazV2ray
       - V2raySaman
-      - 4Jadi-8e7624a99c
-      - 4Sarina-6b823e9ccc
 rules:
   - MATCH,Proxy
