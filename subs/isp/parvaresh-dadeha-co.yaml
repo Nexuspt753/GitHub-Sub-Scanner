@@ -1,5 +1,16 @@
 proxies:
   - type: vmess
+    name: 4Sarina-5397fe1e27
+    server: s1.connect.bloroxy.net
+    port: 1080
+    uuid: 43babe40-bb75-43c6-bb17-70217b94c28c
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: none
+  - type: vmess
     name: 4Sarina-4e4bcff2dd
     server: s1.connect.bloroxy.net
     port: 1127
@@ -15,6 +26,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-5397fe1e27
       - 4Sarina-4e4bcff2dd
   - name: Auto
     type: url-test
@@ -22,6 +34,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-5397fe1e27
       - 4Sarina-4e4bcff2dd
 rules:
   - MATCH,Proxy

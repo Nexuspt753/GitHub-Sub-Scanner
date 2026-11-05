@@ -1,4 +1,32 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.77.236.113
+    port: 443
+    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: files.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.77.236.114
+    port: 443
+    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: files.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4FreeIran-1d9532d837
     server: 5.83.129.11
@@ -21,6 +49,20 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: files.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-da7f12edc9
+    server: 31.77.236.113
+    port: 443
+    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: files.porsche.com
     reality-opts:
       public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
@@ -55,26 +97,47 @@ proxies:
       short-id: 1a2b3c4d
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-017d0b3bde
+    server: 5.83.129.236
+    port: 443
+    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: host-de-upscale.cdn.cachefleet.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-1d9532d837
       - 4Jadi-0cf0045940
       - tootffarangi🍓
+      - 4Jadi-da7f12edc9
       - 4FreeIran-ed0133d457
       - 4Jadi-5e493e65dc
+      - 4Nika-017d0b3bde
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-1d9532d837
       - 4Jadi-0cf0045940
       - tootffarangi🍓
+      - 4Jadi-da7f12edc9
       - 4FreeIran-ed0133d457
       - 4Jadi-5e493e65dc
+      - 4Nika-017d0b3bde
 rules:
   - MATCH,Proxy

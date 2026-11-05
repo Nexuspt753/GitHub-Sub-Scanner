@@ -13,12 +13,26 @@ proxies:
       short-id: 0e9e64843ec8
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-5b50ea5942
+    server: cdn-ya.shamanapp.online
+    port: 443
+    uuid: 40c8a202-4b7f-45a6-b0aa-37db0fac4df8
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn-ya.shamanapp.online
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-23973915ff
+      - 4Mohsen-5b50ea5942
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-23973915ff
+      - 4Mohsen-5b50ea5942
 rules:
   - MATCH,Proxy

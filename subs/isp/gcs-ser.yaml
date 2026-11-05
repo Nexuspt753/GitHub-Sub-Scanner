@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 193.233.252.43
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: se1.japancase.site
+    reality-opts:
+      public-key: zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg
+      short-id: 41ae8e266bc3346f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-ed293501f6
     server: 83.217.9.254
     port: 443
@@ -12,18 +26,36 @@ proxies:
       public-key: c-LdrrjWXggAWcOkfbwawezHTcw7Bx0kzs973IDFBmM
       short-id: 93980c41b30b2d60
     xudp: true
+  - type: vless
+    name: 4Mohsen-251d6293c2
+    server: 193.233.252.43
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: se1.japancase.site
+    reality-opts:
+      public-key: zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg
+      short-id: 41ae8e266bc3346f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-ed293501f6
+      - 4Mohsen-251d6293c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-ed293501f6
+      - 4Mohsen-251d6293c2
 rules:
   - MATCH,Proxy

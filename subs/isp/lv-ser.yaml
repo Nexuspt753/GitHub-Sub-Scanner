@@ -1,32 +1,28 @@
 proxies:
   - type: vless
-    name: "9529"
-    server: 62.60.234.29
+    name: 4Nika-07786d1158
+    server: lv.monkora.org
     port: 443
-    uuid: 9e3132b8-b595-444a-833a-2de44789f9d7
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: shephe.dpdns.org
+    client-fingerprint: firefox
+    servername: example.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: shephe.dpdns.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - "9529"
+      - 4Nika-07786d1158
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "9529"
+      - 4Nika-07786d1158
 rules:
   - MATCH,Proxy

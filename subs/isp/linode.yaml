@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4FreeIran-e84f86ce25
+    name: DeltaKroneckerGithub
     server: free.vkehi.store
     port: 443
     uuid: e4d1298a-1f21-42e2-a53e-1b22c0645c48
@@ -13,7 +13,7 @@ proxies:
     servername: aka.ms
     xudp: true
   - type: vless
-    name: 4FreeIran-159571b69d
+    name: 4Sarina-3721a18668
     server: free.vkehi.store
     port: 443
     uuid: e4d1298a-1f21-42e2-a53e-1b22c0645c48
@@ -25,20 +25,35 @@ proxies:
       - http/1.1
     servername: zoom.com
     xudp: true
+  - type: vless
+    name: 4FreeIran-e84f86ce25
+    server: free.vkehi.store
+    port: 443
+    uuid: e4d1298a-1f21-42e2-a53e-1b22c0645c48
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: aka.ms
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - 4Sarina-3721a18668
       - 4FreeIran-e84f86ce25
-      - 4FreeIran-159571b69d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - 4Sarina-3721a18668
       - 4FreeIran-e84f86ce25
-      - 4FreeIran-159571b69d
 rules:
   - MATCH,Proxy

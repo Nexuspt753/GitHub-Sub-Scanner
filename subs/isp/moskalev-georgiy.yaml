@@ -1,11 +1,17 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: hl-freedom-1.undef.network
+    server: 201.10.90.113
     port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
+    uuid: 610ac982-04eb-34c0-80b1-5dd3c2ca131e
     udp: true
-    client-fingerprint: chrome
+    tls: true
+    client-fingerprint: firefox
+    servername: undef-aut-0.undef.network
+    reality-opts:
+      public-key: 6z3VlbF2v0C3FTWQQemYDxX-MIzwaz_k8_B-xyc0Xyg
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Mohsen-eccf1e3f7d
     server: 201.10.90.113
@@ -19,6 +25,20 @@ proxies:
       public-key: 6z3VlbF2v0C3FTWQQemYDxX-MIzwaz_k8_B-xyc0Xyg
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-cf414c0347
+    server: 89.125.100.72
+    port: 443
+    uuid: ad26c433-baa9-4e85-8c18-f2685403767e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: PSVwD5kQazghbdAEfAOzEQnd-ZErzcAHS89GmpeSviM
+      short-id: 14efb3a8
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -26,6 +46,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 4Mohsen-eccf1e3f7d
+      - 4Jadi-cf414c0347
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -34,5 +55,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 4Mohsen-eccf1e3f7d
+      - 4Jadi-cf414c0347
 rules:
   - MATCH,Proxy

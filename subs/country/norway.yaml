@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: Oslo · 🇳🇴
+    server: 185.213.23.63
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+    udp: true
+  - type: ss
     name: Oslo · 4Mohsen-423c87dd24
     server: 185.213.23.63
     port: 990
@@ -13,13 +20,21 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
     udp: true
-  - type: ss
-    name: Oslo · @DeltaKroneckerGithub-01
-    server: 185.213.23.63
-    port: 990
-    cipher: chacha20-ietf-poly1305
-    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  - type: trojan
+    name: Oslo · 4Nika-929923757d
+    server: 202.50.55.76
+    port: 443
+    password: humanity
     udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
   - type: vless
     name: Oslo · @tootffarangi🍓
     server: no1.fox-lisa.ru
@@ -80,48 +95,34 @@ proxies:
       short-id: 027af64166562b09
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Oslo · 4Kian-5bb1f3e484
-    server: dl6.6at.ir
-    port: 2157
-    uuid: f07b2e36-b533-4cdd-9a70-58d5e0e6eeee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: in.tradingview.com
-    reality-opts:
-      public-key: pzcfnv7AdzlRSwJFlo4JHhNNVVIjKiYBlwvR9QumLHo
-      short-id: a88e66a27d5a9921
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Oslo · 🇳🇴
       - Oslo · 4Mohsen-423c87dd24
       - Oslo · @DeltaKroneckerGithub
-      - Oslo · @DeltaKroneckerGithub-01
+      - Oslo · 4Nika-929923757d
       - Oslo · @tootffarangi🍓
       - Oslo · 4Nika-2e8dd6773a
       - Oslo · 🇳🇴NO-185.213.23.63-0171
       - Oslo · 4Kian-56cf761cd3
       - Oslo · 4FreeIran-7126e01823
-      - Oslo · 4Kian-5bb1f3e484
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Oslo · 🇳🇴
       - Oslo · 4Mohsen-423c87dd24
       - Oslo · @DeltaKroneckerGithub
-      - Oslo · @DeltaKroneckerGithub-01
+      - Oslo · 4Nika-929923757d
       - Oslo · @tootffarangi🍓
       - Oslo · 4Nika-2e8dd6773a
       - Oslo · 🇳🇴NO-185.213.23.63-0171
       - Oslo · 4Kian-56cf761cd3
       - Oslo · 4FreeIran-7126e01823
-      - Oslo · 4Kian-5bb1f3e484
 rules:
   - MATCH,Proxy

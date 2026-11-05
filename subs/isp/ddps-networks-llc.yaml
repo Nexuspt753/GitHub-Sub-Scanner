@@ -13,12 +13,29 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-c6b6985d9d
+    server: 131.143.214.224
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxywsfp=unsafe
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-8a595d113b
+      - 4Nika-c6b6985d9d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-8a595d113b
+      - 4Nika-c6b6985d9d
 rules:
   - MATCH,Proxy

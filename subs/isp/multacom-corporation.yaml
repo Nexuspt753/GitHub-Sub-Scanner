@@ -1,15 +1,6 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 113.20.12.98
-    port: 443
-    password: 600421cf-11d7-429f-a65b-c30397f1bc03
-    udp: true
-    tls: true
-    sni: ca.freeguard.org
-    client-fingerprint: chrome
   - type: vless
-    name: 4Mohsen-dffb034de0
+    name: DeltaKroneckerGithub
     server: 103.232.95.178
     port: 443
     uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
@@ -24,6 +15,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: u.srilankangrill.online
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 113.20.12.98
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: ca.freeguard.org
+    client-fingerprint: chrome
   - type: vmess
     name: 4Nika-6f29d57d49
     server: 148.135.33.140
@@ -47,7 +47,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-dffb034de0
+      - DeltaKroneckerGithub-01
       - 4Nika-6f29d57d49
   - name: Auto
     type: url-test
@@ -56,7 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-dffb034de0
+      - DeltaKroneckerGithub-01
       - 4Nika-6f29d57d49
 rules:
   - MATCH,Proxy

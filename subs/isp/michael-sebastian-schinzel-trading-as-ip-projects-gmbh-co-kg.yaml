@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 77.90.2.130
+    port: 43086
+    uuid: d782aa4c-9284-4a60-a9d9-f61412f8a2a4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: apple.com
+    reality-opts:
+      public-key: SRKTZm_KYvsD9ONd5VU54ABZxudjR65r5Uhxc-1lLko
+      short-id: 1c601fed
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: VPsave
     server: 77.90.2.130
     port: 43086
@@ -14,7 +28,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-c7e68a1c47
+    name: 4Sarina-a6e8117ca8
     server: 77.90.2.130
     port: 43086
     uuid: d782aa4c-9284-4a60-a9d9-f61412f8a2a4
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - VPsave
-      - 4Kian-c7e68a1c47
+      - 4Sarina-a6e8117ca8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - VPsave
-      - 4Kian-c7e68a1c47
+      - 4Sarina-a6e8117ca8
 rules:
   - MATCH,Proxy

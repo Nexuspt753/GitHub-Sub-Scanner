@@ -1,18 +1,36 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-f5c7a00172
-    server: 178.83.122.128
+  - type: vmess
+    name: DeltaKroneckerGithub
+    server: 192.166.82.21
     port: 443
-    uuid: 43a26f1a-99b7-4b17-98c7-b836fb466999
+    uuid: ffe8ae49-05d7-4f56-a82b-dd618108c270
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: us-slc-global1.xeovo.eu
+    network: ws
+    ws-opts:
+      path: /sacaca
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-c220bbf0c6
+    server: 178.83.121.85
+    port: 443
+    uuid: 74d736fe-8ba6-42be-8a43-2973a18ef2ca
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: gb-v.global-cdn.org
+    client-fingerprint: chrome
     reality-opts:
-      public-key: nFJCJ2tvxLdLrc9G-O1laW8KDir5SDnaOTmYndVaOGQ
-      short-id: 7a3f9e2b1c8d4f6a
-    flow: xtls-rprx-vision
+      public-key: MhOa-Fkr656VVRcxXd27gam263cdXF_uyGiHZZEISUA
+      short-id: ce741cbe468babc7
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vmess
     name: 4Kian-5ebd34e0ee
     server: 192.166.82.21
@@ -53,7 +71,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f5c7a00172
+      - DeltaKroneckerGithub
+      - 4Sarina-c220bbf0c6
       - 4Kian-5ebd34e0ee
       - 4Jadi-f70cb41d2d
   - name: Auto
@@ -62,7 +81,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f5c7a00172
+      - DeltaKroneckerGithub
+      - 4Sarina-c220bbf0c6
       - 4Kian-5ebd34e0ee
       - 4Jadi-f70cb41d2d
 rules:

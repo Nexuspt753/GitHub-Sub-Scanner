@@ -18,12 +18,40 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: xy1ej.stream-node-us.danfeng.qzz.io
+  - type: vless
+    name: 4FreeIran-305ed74ede
+    server: 143.246.62.134
+    port: 443
+    uuid: 26524cce-d514-4014-a426-365fb266a14d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: xy1ej.stream-node-us.danfeng.qzz.io
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /danfeng?ed=2560fp=firefox
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: xy1ej.stream-node-us.danfeng.qzz.io
+  - type: vless
+    name: 4Jadi-2e94772f0f
+    server: 143.246.62.191
+    port: 8443
+    uuid: eb8c97f7-a154-4442-91b0-54c0d055ad0b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.githubassets.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-93ec002c96
+      - 4FreeIran-305ed74ede
+      - 4Jadi-2e94772f0f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,5 +59,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-93ec002c96
+      - 4FreeIran-305ed74ede
+      - 4Jadi-2e94772f0f
 rules:
   - MATCH,Proxy

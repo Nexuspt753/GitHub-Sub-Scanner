@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: sora1co
-    server: netherrap.extraservices.ir
-    port: 25186
-    uuid: bf6feeab-e24d-444a-80c8-418aceabbe9f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: numpy.org
-    reality-opts:
-      public-key: z8taNICAWDR2i4Ue-A8A5Z0DMwYGNVT4UtyziV6nexc
-      short-id: 396e251e6f974406
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-fa8ef6579b
     server: netherrap.extraservices.ir
     port: 25186
@@ -28,10 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
-    name: 4Jadi-1077f03f6a
+    name: 4Nika-63680d7315
     server: NlS3.zelnora.ir
     port: 55306
-    uuid: 3ba9bab1-c493-4ea2-bf95-916a908e20b3
+    uuid: 95f50240-62dc-4b6b-a9f4-27113ef73274
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-459b66894f
+    server: NlS3.zelnora.ir
+    port: 55306
+    uuid: 6be99634-b5dc-4e49-9f6d-fb1813d0643a
     alterId: 0
     cipher: auto
     udp: true
@@ -42,17 +38,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - sora1co
       - 4Mohsen-fa8ef6579b
-      - 4Jadi-1077f03f6a
+      - 4Nika-63680d7315
+      - 4Nika-459b66894f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - sora1co
       - 4Mohsen-fa8ef6579b
-      - 4Jadi-1077f03f6a
+      - 4Nika-63680d7315
+      - 4Nika-459b66894f
 rules:
   - MATCH,Proxy
