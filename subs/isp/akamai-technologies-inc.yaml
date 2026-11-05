@@ -1,19 +1,21 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 172.236.23.54
+    port: 443
+    password: 3bcd9e33-8377-4b32-af33-217158577ff3
+    udp: true
+    tls: true
+    sni: kdlsupport.zendesk.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: starlink-us6.mfa.cat
     port: 443
     password: sI0wl1bvYlSXu2RsMSAtAIMM
     udp: true
     tls: true
     sni: www.cloudflare.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 170.187.231.189
-    port: 443
-    password: 6cb6f769-b28e-4f7f-a593-8c0b0a161992
-    udp: true
     client-fingerprint: chrome
   - type: ss
     name: 4Sarina-aba7815a2f
@@ -51,13 +53,27 @@ proxies:
     sni: sg-full.privateip.net
     client-fingerprint: chrome
   - type: trojan
-    name: 4Nika-d12d464fd5
+    name: VPNConnectd
     server: 172.233.91.12
     port: 443
     password: 8deb189a-3aed-4865-843b-b72dae954c46
     udp: true
     tls: true
     sni: api.85s.me
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: DeltaKroneckerGithub-05
+    server: 172.232.38.127
+    port: 443
+    password: 3bcd9e33-8377-4b32-af33-217158577ff3
+    udp: true
+    tls: true
+    sni: kdlsupport.zendesk.com
     client-fingerprint: chrome
   - type: trojan
     name: 4Sarina-7872298a6b
@@ -73,15 +89,6 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Nika-f98e5b475e
-    server: 172.236.139.181
-    port: 443
-    password: 8deb189a-3aed-4865-843b-b72dae954c46
-    udp: true
-    tls: true
-    sni: api.85s.me
-    client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-133dc94f08
     server: 139.162.62.195
@@ -110,25 +117,6 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Jadi-1fc7d20167
-    server: 172.235.51.71
-    port: 443
-    uuid: 3c17ead6-201a-4fba-8246-6327b911a1be
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: itunes.apple.com
-    reality-opts:
-      public-key: rzeXNEmuocvPVMnmettRsJbHQGjQGaZoH7jNw_3GUD8
-      short-id: 4bf84b30
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: itunes.apple.com
   - type: vless
     name: 4Sarina-1cee1c6e30
     server: 172.233.129.172
@@ -188,12 +176,11 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - 4Nika-d12d464fd5
+      - VPNConnectd
+      - DeltaKroneckerGithub-05
       - 4Sarina-7872298a6b
-      - 4Nika-f98e5b475e
       - 4Jadi-133dc94f08
       - 4FreeIran-9897c98a45
-      - 4Jadi-1fc7d20167
       - 4Sarina-1cee1c6e30
       - 4FreeIran-f7c9196448
       - 4Jadi-0a471a5596
@@ -209,12 +196,11 @@ proxy-groups:
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
       - DeltaKroneckerGithub-04
-      - 4Nika-d12d464fd5
+      - VPNConnectd
+      - DeltaKroneckerGithub-05
       - 4Sarina-7872298a6b
-      - 4Nika-f98e5b475e
       - 4Jadi-133dc94f08
       - 4FreeIran-9897c98a45
-      - 4Jadi-1fc7d20167
       - 4Sarina-1cee1c6e30
       - 4FreeIran-f7c9196448
       - 4Jadi-0a471a5596

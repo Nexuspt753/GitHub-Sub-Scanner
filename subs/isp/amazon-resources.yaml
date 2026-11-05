@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4Jadi-1d09fb113e
+    name: VPsave
     server: 175.41.232.194
     port: 443
     password: 8deb189a-3aed-4865-843b-b72dae954c46
@@ -8,6 +8,11 @@ proxies:
     tls: true
     sni: api.85s.me
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
     name: 4FreeIran-9875a22275
     server: 175.41.232.194
@@ -27,7 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-1d09fb113e
+      - VPsave
       - 4FreeIran-9875a22275
   - name: Auto
     type: url-test
@@ -35,7 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-1d09fb113e
+      - VPsave
       - 4FreeIran-9875a22275
 rules:
   - MATCH,Proxy

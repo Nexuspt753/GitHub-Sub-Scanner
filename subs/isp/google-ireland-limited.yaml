@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 35.212.211.133
-    port: 443
-    uuid: fdd162f9-1393-4229-a31c-ec5263b918ad
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: dl.google.com
-    reality-opts:
-      public-key: x1ql3ShHUiyfMiA9_49FPY7ZV5Oqw2LcZPI9CUIlQQg
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-a1f12191cf
     server: 34.3.107.0
     port: 443
@@ -25,35 +12,18 @@ proxies:
       public-key: IdpEClCPDYsXitgvDe5WedR1-BIryffkpjyZyAsQCUk
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-66d1ba1d5f
-    server: 35.212.211.133
-    port: 443
-    uuid: fdd162f9-1393-4229-a31c-ec5263b918ad
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: dl.google.com
-    reality-opts:
-      public-key: x1ql3ShHUiyfMiA9_49FPY7ZV5Oqw2LcZPI9CUIlQQg
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Nika-a1f12191cf
-      - 4Nika-66d1ba1d5f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Nika-a1f12191cf
-      - 4Nika-66d1ba1d5f
 rules:
   - MATCH,Proxy
