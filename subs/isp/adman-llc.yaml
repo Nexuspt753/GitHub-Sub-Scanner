@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Kian-b31260daff
+    server: 147.45.161.4
+    port: 443
+    uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: defs-68.topp-con.xyz
+    reality-opts:
+      public-key: xTePrM5IyjR8o52B2mRAO2nNivfyMpBZxya93MQk4Qc
+      short-id: 2a40b6d6495debf3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-ef062f181f
     server: 201.51.29.153
     port: 443
@@ -15,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-b31260daff
       - 4Kian-ef062f181f
   - name: Auto
     type: url-test
@@ -22,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-b31260daff
       - 4Kian-ef062f181f
 rules:
   - MATCH,Proxy

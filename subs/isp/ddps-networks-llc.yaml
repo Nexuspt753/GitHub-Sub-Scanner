@@ -1,32 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Nika-9d0abdb97d
-    server: 131.143.215.37
+  - type: trojan
+    name: 4Nika-8a595d113b
+    server: 158.51.110.12
     port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
     udp: true
     tls: true
+    sni: hhcm.hhxaf.cc.cd
     client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
     network: ws
     ws-opts:
-      path: "%2Ffdip%3Dsstp%3A%2F%2Fvpn%3Avpn%40public-vpn-200.opengw.net%3A443"
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-9d0abdb97d
+      - 4Nika-8a595d113b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9d0abdb97d
+      - 4Nika-8a595d113b
 rules:
   - MATCH,Proxy

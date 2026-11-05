@@ -1,5 +1,20 @@
 proxies:
   - type: trojan
+    name: 4Mohsen-b268a29b49
+    server: 199.119.137.32
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: trojan
     name: 4FreeIran-94c8d70428
     server: 199.119.137.32
     port: 8443
@@ -13,18 +28,29 @@ proxies:
       path: "%2Fassignment"
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: VPsave
+    server: varzesh.com.tiket.paxaro.ir
+    port: 4433
+    uuid: 9d464bfa-c8b2-4a4f-9bf7-9ec31b339b67
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-b268a29b49
       - 4FreeIran-94c8d70428
+      - VPsave
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-b268a29b49
       - 4FreeIran-94c8d70428
+      - VPsave
 rules:
   - MATCH,Proxy

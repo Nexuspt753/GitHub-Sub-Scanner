@@ -1,6 +1,6 @@
 proxies:
   - type: trojan
-    name: 4FreeIran-3c3dd02808
+    name: 4Jadi-96350f313a
     server: 46.174.142.238
     port: 443
     password: humanity
@@ -8,18 +8,40 @@ proxies:
     tls: true
     sni: www.cordweave.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
+  - type: trojan
+    name: 4FreeIran-8df3436891
+    server: 46.174.142.238
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "%2Fassignment"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-3c3dd02808
+      - 4Jadi-96350f313a
+      - 4FreeIran-8df3436891
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-3c3dd02808
+      - 4Jadi-96350f313a
+      - 4FreeIran-8df3436891
 rules:
   - MATCH,Proxy

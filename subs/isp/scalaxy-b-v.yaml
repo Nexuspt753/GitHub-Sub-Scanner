@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4FreeIran-bd97330e6c
+    name: 4Nika-e91f226f7a
     server: 38.180.38.137
     port: 443
     uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
@@ -15,18 +15,33 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vlso5.1d.mom
+  - type: vless
+    name: 4Nika-07e5763198
+    server: 38.180.38.137
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /socks5=888:888@hkip.1d.mom:1080fp=chromesecurity=tls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-bd97330e6c
+      - 4Nika-e91f226f7a
+      - 4Nika-07e5763198
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-bd97330e6c
+      - 4Nika-e91f226f7a
+      - 4Nika-07e5763198
 rules:
   - MATCH,Proxy

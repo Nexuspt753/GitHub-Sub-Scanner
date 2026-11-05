@@ -1,50 +1,30 @@
 proxies:
   - type: vless
-    name: 4Mohsen-e3676bed9f
-    server: 103.204.174.165
+    name: 4Mohsen-c11e554b6d
+    server: 103.204.174.80
     port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    uuid: 91a538f2-e8d6-4fd1-b00a-d39522f20c35
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
+    client-fingerprint: firefox
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: c8xReeCgCTOZ2snvR7I4sPtSYAJquSC-_pAIuZG3rVQ
+      short-id: 9b1813e63f474741
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Kian-4339589e0f
-    server: 103.204.174.165
-    port: 443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chromefp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e3676bed9f
-      - 4Kian-4339589e0f
+      - 4Mohsen-c11e554b6d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e3676bed9f
-      - 4Kian-4339589e0f
+      - 4Mohsen-c11e554b6d
 rules:
   - MATCH,Proxy
