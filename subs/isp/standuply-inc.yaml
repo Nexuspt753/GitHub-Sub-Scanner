@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Jadi-ced9e30196
+    server: sb3.vpsbycloud.net
+    port: 443
+    uuid: 919bbde5-9cf7-43ac-9c40-1cc46c8ff80e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sb3.vpsbycloud.net
+    reality-opts:
+      public-key: pTxLq4RGrojBgV3RAc21rcZTC0BJnvO_UO5d_4MtM3M
+      short-id: fd6f2715c26aab5e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-ced9e30196
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-ced9e30196
+rules:
+  - MATCH,Proxy

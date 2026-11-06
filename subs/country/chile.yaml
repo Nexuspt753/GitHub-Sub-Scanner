@@ -1,24 +1,6 @@
 proxies:
   - type: trojan
-    name: Santiago · @DeltaKroneckerGithub
-    server: 64.176.7.205
-    port: 443
-    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-    udp: true
-    tls: true
-    sni: advanceyouremploymentskillsandcareerdevelopmenthub.com
-    client-fingerprint: chrome
-  - type: trojan
     name: Santiago · 🔰
-    server: 64.176.7.205
-    port: 443
-    password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-    udp: true
-    tls: true
-    sni: advanceyouremploymentskillsandcareerdevelopmenthub.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: Santiago · @ConfigV2RayNG
     server: 64.176.7.205
     port: 443
     password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
@@ -35,24 +17,37 @@ proxies:
     tls: true
     sni: advanceyouremploymentskillsandcareerdevelopmenthub.com
     client-fingerprint: chrome
+  - type: vmess
+    name: Curicó · @DeltaKroneckerGithub
+    server: 170.239.86.176
+    port: 40708
+    uuid: 53005ac8-eed1-4e32-8183-7152e099877a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /arki?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Santiago · @DeltaKroneckerGithub
       - Santiago · 🔰
-      - Santiago · @ConfigV2RayNG
       - Santiago · @v2ray313
+      - Curicó · @DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Santiago · @DeltaKroneckerGithub
       - Santiago · 🔰
-      - Santiago · @ConfigV2RayNG
       - Santiago · @v2ray313
+      - Curicó · @DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

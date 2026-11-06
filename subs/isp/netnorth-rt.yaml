@@ -1,13 +1,74 @@
 proxies:
   - type: vless
-    name: 4FreeIran-be153788cd
-    server: xnod13x.artemida.live
+    name: DeltaKroneckerGithub
+    server: 82.148.225.244
     port: 8443
-    uuid: c05ec3c7-2784-da2b-aa98-a3c132860fcb
+    uuid: 0fdb1df7-b3b6-4d29-9fd6-2b92fc80b852
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: xnod13x.artemida.live
+    servername: sw2.cloudvienta.com
+    reality-opts:
+      public-key: ndIKnA3ySMv5vBJ-OfP8IhFWVu7mtK0nzhgSil1NaVg
+      short-id: 00f7359d92c884cc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 82.148.225.244
+    port: 8445
+    uuid: 0fdb1df7-b3b6-4d29-9fd6-2b92fc80b852
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sw2.cloudvienta.com
+    reality-opts:
+      public-key: ndIKnA3ySMv5vBJ-OfP8IhFWVu7mtK0nzhgSil1NaVg
+      short-id: 00f7359d92c884cc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 82.148.240.81
+    port: 443
+    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: images.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: at-86-10.cdn-lab.online
+    port: 443
+    uuid: 5fa16fdf-5b3c-4f57-988d-b24c6722c91a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: at-86-10.cdn-lab.online
+    reality-opts:
+      public-key: grOuLMf8qYwwB0EFvBDmoVKsM4LSaovUKOIk8Whe-14
+      short-id: 7311e59b009bbed5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-04
+    server: 82.148.240.74
+    port: 443
+    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-v2.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -15,13 +76,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-be153788cd
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-be153788cd
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
 rules:
   - MATCH,Proxy

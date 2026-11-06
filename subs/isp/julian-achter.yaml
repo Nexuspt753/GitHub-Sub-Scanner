@@ -1,27 +1,31 @@
 proxies:
   - type: vless
-    name: 4Jadi-39f1bbd9b5
-    server: loudarch.net
-    port: 443
-    uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
+    name: 4Kian-2815ebf243
+    server: 45.133.73.20
+    port: 2087
+    uuid: 3d78373f-bdbd-428a-9b83-aea64264bf4e
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: loudarch.net
-    flow: xtls-rprx-vision
+    servername: main.vpsvdsclouds.net
+    reality-opts:
+      public-key: oxdpwF7pHTpNG_R2y_Og0vOd2AAsCZ9dhCADuFH90AU
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-39f1bbd9b5
+      - 4Kian-2815ebf243
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-39f1bbd9b5
+      - 4Kian-2815ebf243
 rules:
   - MATCH,Proxy

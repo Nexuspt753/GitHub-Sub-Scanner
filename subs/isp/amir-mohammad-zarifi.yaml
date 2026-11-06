@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: vless
+    name: 4Sarina-cc71c4c88d
     server: KO.XORFUNO.IR
     port: 2087
     uuid: ae8976cc-f26d-45a6-8602-7a5de5808e32
@@ -8,18 +8,30 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vmess
+    name: 4Sarina-2f1ba1a01c
+    server: 92.42.203.240
+    port: 2052
+    uuid: 6a9d4c0b-938a-4b58-911d-e3ca45d17ab5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Sarina-cc71c4c88d
+      - 4Sarina-2f1ba1a01c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Sarina-cc71c4c88d
+      - 4Sarina-2f1ba1a01c
 rules:
   - MATCH,Proxy

@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: 4Sarina-89d98a7a73
+    server: nl1.oh-node.com
+    port: 443
+    uuid: a1f747ee-ba92-4273-896f-dda15f9ea057
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.philips.com
+    reality-opts:
+      public-key: AFQAIB5u9Uu6nf9fkP1BdcSHivSuUv97l4FH-LoFYgw
+      short-id: 92dca6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-8aa76144fa
+    server: nl2.oh-node.com
+    port: 443
+    uuid: a1f747ee-ba92-4273-896f-dda15f9ea057
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.philips.com
+    reality-opts:
+      public-key: Ncb78PVwvwU2tB1eiOlJd0ZCG2CbqG7-dPIHztlq2yM
+      short-id: 69cc4c0d5e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-eaa0aa4ead
     server: nl1.miyazono-kaori.com
     port: 443
@@ -18,6 +46,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-89d98a7a73
+      - 4Sarina-8aa76144fa
       - 4FreeIran-eaa0aa4ead
   - name: Auto
     type: url-test
@@ -25,6 +55,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-89d98a7a73
+      - 4Sarina-8aa76144fa
       - 4FreeIran-eaa0aa4ead
 rules:
   - MATCH,Proxy

@@ -1,6 +1,34 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: nl2.botfight.fun
+    port: 443
+    uuid: 255a8044-3337-473e-af26-46a37208adcc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl2.botfight.fun
+    reality-opts:
+      public-key: KzMIiJZl6BXPiDBCOFNEiL1Uc3CJg_ZSZJLrc4MgFnU
+      short-id: f3912f1a2dd0ed8e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 185.209.15.44
+    port: 443
+    uuid: 255a8044-3337-473e-af26-46a37208adcc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl2.botfight.fun
+    reality-opts:
+      public-key: KzMIiJZl6BXPiDBCOFNEiL1Uc3CJg_ZSZJLrc4MgFnU
+      short-id: f3912f1a2dd0ed8e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-02
     server: ee1.nngo.cc
     port: 443
     password: pR320Cwdj7mJ9HKc_UVz-VJyuecT4qdh
@@ -8,12 +36,29 @@ proxies:
     tls: true
     sni: ee1.nngo.cc
     client-fingerprint: firefox
+  - type: vless
+    name: 4FreeIran-3adc5b2489
+    server: 178.214.99.23
+    port: 8443
+    uuid: aa73bd9e-cb2b-42e8-83af-d8fadb0f0a3b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 212.192.156.15
+    reality-opts:
+      public-key: "-hU_KII45qUcKlf4OhKbVC8-Qlkiwy9I4BZvRT_nanQ"
+      short-id: aa128710bc
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4FreeIran-3adc5b2489
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +66,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4FreeIran-3adc5b2489
 rules:
   - MATCH,Proxy

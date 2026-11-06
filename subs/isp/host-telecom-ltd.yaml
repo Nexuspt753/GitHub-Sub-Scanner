@@ -1,31 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: images.paner-145.online
-    port: 443
-    uuid: aa09ada3-ad33-4668-9c1a-6af275272567
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: images.paner-145.online
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 201.4.100.69
-    port: 443
-    uuid: aa09ada3-ad33-4668-9c1a-6af275272567
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: images.paner-145.online
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-f87fab959c
     server: 201.4.100.69
     port: 443
@@ -38,37 +12,18 @@ proxies:
       public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-adb899f15b
-    server: images.paner-145.online
-    port: 443
-    uuid: aa09ada3-ad33-4668-9c1a-6af275272567
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: images.paner-145.online
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-f87fab959c
-      - 4Nika-adb899f15b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Mohsen-f87fab959c
-      - 4Nika-adb899f15b
 rules:
   - MATCH,Proxy

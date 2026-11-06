@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: 4Nika-c7fd09d7fa
-    server: 128.203.252.97
-    port: 443
-    uuid: 5e610f80-fc6a-479d-8621-b672355b96a1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cf-1rm.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: "%2F"
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cf-1rm.pages.dev
   - type: vmess
     name: 4Nika-73fe828df7
     server: 51.132.38.134
@@ -25,6 +9,38 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-0d191cf00b
+    server: az-1.linkaa.xyz
+    port: 53110
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
+  - type: vmess
+    name: 4Nika-be4369c583
+    server: az-1.linkaa.xyz
+    port: 55386
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
   - type: vmess
     name: 4Nika-761b1a6d96
     server: az-1.linkaa.xyz
@@ -40,22 +56,62 @@ proxies:
       path: /game/resources
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Sarina-108329243a
+    server: az-1.linkaa.xyz
+    port: 53617
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
+  - type: vmess
+    name: 4Sarina-70f1fc000d
+    server: az-1.linkaa.xyz
+    port: 53437
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-c7fd09d7fa
       - 4Nika-73fe828df7
+      - 4FreeIran-0d191cf00b
+      - 4Nika-be4369c583
       - 4Nika-761b1a6d96
+      - 4Sarina-108329243a
+      - 4Sarina-70f1fc000d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-c7fd09d7fa
       - 4Nika-73fe828df7
+      - 4FreeIran-0d191cf00b
+      - 4Nika-be4369c583
       - 4Nika-761b1a6d96
+      - 4Sarina-108329243a
+      - 4Sarina-70f1fc000d
 rules:
   - MATCH,Proxy

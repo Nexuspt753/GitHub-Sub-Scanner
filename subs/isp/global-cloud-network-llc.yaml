@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: cdn4.anytube.ru
+    port: 443
+    uuid: 255a8044-3337-473e-af26-46a37208adcc
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn4.anytube.ru
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vless
+    server: 46.243.233.170
+    port: 8443
+    uuid: 13718497-ab31-4144-b2dc-3d9315366376
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Kian-f790684019
+    server: cdn4.anytube.ru
+    port: 443
+    uuid: 255a8044-3337-473e-af26-46a37208adcc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn4.anytube.ru
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-479e532330
     server: fbsv6.guardora.pro
     port: 443
@@ -22,6 +54,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - vless
+      - 4Kian-f790684019
       - 4Mohsen-479e532330
   - name: Auto
     type: url-test
@@ -29,6 +64,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - vless
+      - 4Kian-f790684019
       - 4Mohsen-479e532330
 rules:
   - MATCH,Proxy

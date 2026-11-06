@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: 4Sarina-a0a7f9d484
+    name: 4Jadi-3e251b5174
     server: ser2.plasmoon.ir
     port: 2026
-    uuid: c4cdca6c-a9a8-4024-98d5-cdd64f5e0b80
+    uuid: 3d11274e-1267-4777-9904-971192a83c0e
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -12,24 +12,25 @@ proxies:
     servername: tun2.plasmoon.ir
     xudp: true
   - type: vless
-    name: 4Kian-d3ef4e7003
-    server: workshopnew.subpannel.ir
-    port: 6036
-    uuid: e17b1c07-de04-4734-a6ec-5a6ea45dc39c
+    name: vpnsal
+    server: dns6.mizdomaingame.ir
+    port: 443
+    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: aparat.com
-    reality-opts:
-      public-key: G8xIYrbqP8tFKaMM9BvXj9_BC2JDbUjQqfeuY5YQyGA
-      short-id: 3b828513ffa33f
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: dns6.mizdomaingame.ir
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /25qxao9a6
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns6.mizdomaingame.ir
   - type: vless
-    name: 4Mohsen-e63bc10f19
+    name: 4Kian-d3ef4e7003
     server: workshopnew.subpannel.ir
     port: 6036
     uuid: e17b1c07-de04-4734-a6ec-5a6ea45dc39c
@@ -50,17 +51,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-a0a7f9d484
+      - 4Jadi-3e251b5174
+      - vpnsal
       - 4Kian-d3ef4e7003
-      - 4Mohsen-e63bc10f19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-a0a7f9d484
+      - 4Jadi-3e251b5174
+      - vpnsal
       - 4Kian-d3ef4e7003
-      - 4Mohsen-e63bc10f19
 rules:
   - MATCH,Proxy

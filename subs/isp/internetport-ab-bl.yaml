@@ -17,6 +17,15 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: checkout.skog.lalibobi.online
+    port: 443
+    password: qjQdBgnCuhLVLxYKyBrEWHYtWJYtBjpS
+    udp: true
+    tls: true
+    sni: checkout.skog.lalibobi.online
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -24,6 +33,7 @@ proxy-groups:
       - Auto
       - 4Mohsen-9ff156e3cc
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,5 +42,6 @@ proxy-groups:
     proxies:
       - 4Mohsen-9ff156e3cc
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
