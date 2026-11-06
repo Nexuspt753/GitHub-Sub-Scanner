@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 103.25.202.25
-    port: 443
-    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
-    udp: true
-    tls: true
-    client-fingerprint: android
-    servername: u.srilankangrill.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: u.srilankangrill.online
   - type: trojan
     name: 4Nika-58863bd7d3
     server: 103.25.202.114
@@ -77,26 +61,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: u.srilankangrill.online
+  - type: vless
+    name: 4Jadi-1a1a76433c
+    server: 103.25.202.25
+    port: 443
+    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: u.srilankangrill.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: u.srilankangrill.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Nika-58863bd7d3
       - 4Kian-984a22e656
       - 4Nika-6c48ebdbbd
       - 4FreeIran-c8f6a14a2f
+      - 4Jadi-1a1a76433c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Nika-58863bd7d3
       - 4Kian-984a22e656
       - 4Nika-6c48ebdbbd
       - 4FreeIran-c8f6a14a2f
+      - 4Jadi-1a1a76433c
 rules:
   - MATCH,Proxy

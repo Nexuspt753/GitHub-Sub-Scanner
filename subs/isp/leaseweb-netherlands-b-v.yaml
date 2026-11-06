@@ -1,33 +1,34 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-981f8bc2ef
-    server: 185.19.33.200
-    port: 2098
-    password: kpg57fi8uon5i67t
-    sni: 185.19.33.200
-    obfs: salamander
-    obfs-password: 7922smqtd5qm70fu
   - type: vless
-    name: 4FreeIran-76599c5a8a
-    server: 185.19.33.171
-    port: 443
-    uuid: 922ca9bc-1a63-4306-8677-977565b0a54b
+    name: 4Kian-db2dbfe045
+    server: 185.19.33.160
+    port: 8443
+    uuid: fc1aae3b-e361-416c-aebf-cebdcceedae9
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: 185.19.33.160
     xudp: true
+    network: ws
+    ws-opts:
+      path: /x7k2-media-stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 185.19.33.160
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-981f8bc2ef
-      - 4FreeIran-76599c5a8a
+      - 4Kian-db2dbfe045
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-981f8bc2ef
-      - 4FreeIran-76599c5a8a
+      - 4Kian-db2dbfe045
 rules:
   - MATCH,Proxy
