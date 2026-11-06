@@ -10,12 +10,24 @@ proxies:
     xudp: true
     skip-cert-verify: false
     servername: none
+  - type: vmess
+    name: 4Jadi-646f4e23f1
+    server: s1.connect.bloroxy.net
+    port: 1152
+    uuid: e0be13c2-98f7-4965-b386-87745a82d96b
+    alterId: 1
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: none
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-27eb55412e
+      - 4Jadi-646f4e23f1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-27eb55412e
+      - 4Jadi-646f4e23f1
 rules:
   - MATCH,Proxy

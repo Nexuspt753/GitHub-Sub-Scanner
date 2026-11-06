@@ -15,8 +15,8 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ul-mexico1.09vpn.com
   - type: vless
-    name: 4Sarina-75e29b62c4
-    server: ul-mexico1.09vpn.com
+    name: DeltaKroneckerGithub-01
+    server: UL-Mexico1.09vpn.com
     port: 8443
     uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
     udp: true
@@ -28,7 +28,32 @@ proxies:
       path: /vless/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ul-mexico1.09vpn.com
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: 103.88.232.55
+    port: 1270
+    uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: xmfhlpy.com
+  - type: vless
+    name: 4Sarina-eb231e143c
+    server: UL-Mexico1.09vpn.com
+    port: 8443
+    uuid: a6d20e79-d326-42c1-bc20-f4cecc6dc42d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Nika-0cc7caddc1
     server: 103.88.232.55
@@ -42,7 +67,7 @@ proxies:
     tls: true
     servername: xmfhlpy.com
   - type: vmess
-    name: 4Kian-eee6a720f0
+    name: 4Nika-71b0a44368
     server: 185.209.179.23
     port: 443
     uuid: fa6559bc-f43b-4d86-b7c5-13cca522e3f2
@@ -52,9 +77,12 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
+    servername: rich-claw.nyc.boxd.sh
+    alpn:
+      - http/1.1
     network: ws
     ws-opts:
-      path: /Telegram=
+      path: /Telegram=@AmyraxVPN
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rich-claw.nyc.boxd.sh
@@ -64,9 +92,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-75e29b62c4
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Sarina-eb231e143c
       - 4Nika-0cc7caddc1
-      - 4Kian-eee6a720f0
+      - 4Nika-71b0a44368
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,8 +104,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-75e29b62c4
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Sarina-eb231e143c
       - 4Nika-0cc7caddc1
-      - 4Kian-eee6a720f0
+      - 4Nika-71b0a44368
 rules:
   - MATCH,Proxy

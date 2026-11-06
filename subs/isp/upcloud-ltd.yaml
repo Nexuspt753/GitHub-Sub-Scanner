@@ -1,20 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-9398b7cb1e
-    server: 212.147.238.253
-    port: 19883
-    password: 0zy7kb86chk9ktbn
-    sni: dlwww.mymuic.ir
-    obfs: salamander
-    obfs-password: otwmdcyqh98idcxv
-  - type: hysteria2
-    name: 4Mohsen-f1a072d5e3
-    server: dlwww.mymuic.ir
-    port: 19883
-    password: 0zy7kb86chk9ktbn
-    sni: dlwww.mymuic.ir
-    obfs: salamander
-    obfs-password: otwmdcyqh98idcxv
   - type: vless
     name: 4Kian-a41a979ea7
     server: 212.147.246.0
@@ -62,12 +46,29 @@ proxies:
       short-id: bf
     xudp: true
   - type: vless
-    name: 4Sarina-7b1bfc2c8a
-    server: 87.58.159.20
-    port: 443
-    uuid: awlix_ir
+    name: 4Mohsen-5eea16577b
+    server: ae.privatevip.ir
+    port: 450
+    uuid: 7c730089-1791-4828-89b2-86e7e1663063
     udp: true
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-ec1412f61b
+    server: tr.privatevip.ir
+    port: 448
+    uuid: 7c730089-1791-4828-89b2-86e7e1663063
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Kian-0b1978dc66
     server: 87.58.148.202
@@ -84,48 +85,30 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-96c473b79c
-    server: free.familysharing.ir
-    port: 443
-    uuid: fdc7d1aa-5360-55d2-8228-074a7d0ebeef
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: amp-api-search-edge.apps.apple.com
-    reality-opts:
-      public-key: ZrdPHtBvi7yMRj17SohKaGQEXuDptmCJWCi8gk5HlD8
-      short-id: 35938c4e546cd459
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-9398b7cb1e
-      - 4Mohsen-f1a072d5e3
       - 4Kian-a41a979ea7
       - 4Mohsen-2b00b707e1
       - awlix_ir
       - 4FreeIran-c052c76a1f
-      - 4Sarina-7b1bfc2c8a
+      - 4Mohsen-5eea16577b
+      - 4Kian-ec1412f61b
       - 4Kian-0b1978dc66
-      - 4Mohsen-96c473b79c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9398b7cb1e
-      - 4Mohsen-f1a072d5e3
       - 4Kian-a41a979ea7
       - 4Mohsen-2b00b707e1
       - awlix_ir
       - 4FreeIran-c052c76a1f
-      - 4Sarina-7b1bfc2c8a
+      - 4Mohsen-5eea16577b
+      - 4Kian-ec1412f61b
       - 4Kian-0b1978dc66
-      - 4Mohsen-96c473b79c
 rules:
   - MATCH,Proxy

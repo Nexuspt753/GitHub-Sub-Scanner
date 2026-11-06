@@ -1,50 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Nika-2430197b8c
-    server: 188.239.19.57
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 188.239.9.91
     port: 443
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
+    cipher: none
+    password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: t5pmr.mail-node.gfw.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /danfeng?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: t5pmr.mail-node.gfw.kdns.fr
-  - type: vless
-    name: 4Mohsen-e24b26772b
-    server: 188.239.19.57
-    port: 443
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: t5pmr.mail-node.gfw.kdns.fr
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /danfeng?ed
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: t5pmr.mail-node.gfw.kdns.fr
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-2430197b8c
-      - 4Mohsen-e24b26772b
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-2430197b8c
-      - 4Mohsen-e24b26772b
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

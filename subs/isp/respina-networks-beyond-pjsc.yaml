@@ -1,18 +1,38 @@
 proxies:
   - type: vless
-    name: 4Jadi-3e251b5174
-    server: ser2.plasmoon.ir
-    port: 2026
-    uuid: 3d11274e-1267-4777-9904-971192a83c0e
+    name: 4Jadi-7be50a5b41
+    server: www.gfwshop.ir
+    port: 2095
+    uuid: 1884c294-dd9b-4012-a249-232c1cbc7fef
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: tun2.plasmoon.ir
+    client-fingerprint: qq
+    servername: www.gfwshop.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.gfwshop.ir
   - type: vless
-    name: vpnsal
+    name: 4FreeIran-13916bbcc5
+    server: www.gfwshop.ir
+    port: 2096
+    uuid: 1884c294-dd9b-4012-a249-232c1cbc7fef
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.gfwshop.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.gfwshop.ir
+  - type: vless
+    name: 4FreeIran-d08f911434
     server: dns6.mizdomaingame.ir
     port: 443
     uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
@@ -46,22 +66,43 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-e63bc10f19
+    server: workshopnew.subpannel.ir
+    port: 6036
+    uuid: e17b1c07-de04-4734-a6ec-5a6ea45dc39c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aparat.com
+    reality-opts:
+      public-key: G8xIYrbqP8tFKaMM9BvXj9_BC2JDbUjQqfeuY5YQyGA
+      short-id: 3b828513ffa33f
+    flow: xtls-rprx-vision
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3e251b5174
-      - vpnsal
+      - 4Jadi-7be50a5b41
+      - 4FreeIran-13916bbcc5
+      - 4FreeIran-d08f911434
       - 4Kian-d3ef4e7003
+      - 4Mohsen-e63bc10f19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3e251b5174
-      - vpnsal
+      - 4Jadi-7be50a5b41
+      - 4FreeIran-13916bbcc5
+      - 4FreeIran-d08f911434
       - 4Kian-d3ef4e7003
+      - 4Mohsen-e63bc10f19
 rules:
   - MATCH,Proxy

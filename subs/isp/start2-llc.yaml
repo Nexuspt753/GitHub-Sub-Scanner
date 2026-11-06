@@ -1,6 +1,13 @@
 proxies:
   - type: vless
-    name: "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#vpnsal"
+    name: VPsave
+    server: 185.126.93.225
+    port: 443
+    uuid: f04cc810-aaf2-4a7b-8cad-356cdd30d394
+    udp: true
+    xudp: true
+  - type: vless
+    name: "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing"
     server: 185.126.93.226
     port: 443
     uuid: f04cc810-aaf2-4a7b-8cad-356cdd30d394
@@ -14,8 +21,15 @@ proxies:
     udp: true
     xudp: true
   - type: vless
-    name: "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing"
+    name: "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing-01"
     server: tg1.cdnphotos.org
+    port: 443
+    uuid: f04cc810-aaf2-4a7b-8cad-356cdd30d394
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-ae719231a5
+    server: 185.126.93.226
     port: 443
     uuid: f04cc810-aaf2-4a7b-8cad-356cdd30d394
     udp: true
@@ -25,17 +39,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#vpnsal"
-      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@EXPRESSVPN_420"
+      - VPsave
       - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing"
+      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@EXPRESSVPN_420"
+      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing-01"
+      - 4Mohsen-ae719231a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#vpnsal"
-      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@EXPRESSVPN_420"
+      - VPsave
       - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing"
+      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@EXPRESSVPN_420"
+      - "&security=tls&encryption=none&insecure=0&fp=chrome&type=xhttp&allowInsecure=0&sni=tg1.cdnphotos.org#@VConfing-01"
+      - 4Mohsen-ae719231a5
 rules:
   - MATCH,Proxy

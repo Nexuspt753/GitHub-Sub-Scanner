@@ -1,66 +1,31 @@
 proxies:
-  - type: vless
-    name: 4Kian-4ee1f124c5
-    server: 167.68.4.131
-    port: 8443
-    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+  - type: trojan
+    name: ">>@oneclickvpnkeys::US"
+    server: 167.68.4.199
+    port: 2053
+    password: Aimer
     udp: true
     tls: true
-    client-fingerprint: safari
-    servername: proxy-34l.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proxy-34l.pages.dev
-  - type: vless
-    name: 4Sarina-f4240d54c9
-    server: 167.68.4.131
-    port: 8443
-    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
-    udp: true
-    tls: true
+    sni: epge.muarua.filegear-sg.me
     client-fingerprint: chrome
-    xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /?proxyip=ts.hpc.tw
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proxy-34l.pages.dev
-  - type: vless
-    name: 4Sarina-43a65b86f6
-    server: 167.68.4.131
-    port: 8443
-    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proxy-34l.pages.dev
+        Host: epge.muarua.filegear-sg.me
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-4ee1f124c5
-      - 4Sarina-f4240d54c9
-      - 4Sarina-43a65b86f6
+      - ">>@oneclickvpnkeys::US"
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-4ee1f124c5
-      - 4Sarina-f4240d54c9
-      - 4Sarina-43a65b86f6
+      - ">>@oneclickvpnkeys::US"
 rules:
   - MATCH,Proxy

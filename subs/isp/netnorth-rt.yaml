@@ -31,20 +31,6 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: DeltaKroneckerGithub-02
-    server: 82.148.240.81
-    port: 443
-    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: images.porsche.com
-    reality-opts:
-      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
-      short-id: 1a2b3c4d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-03
     server: at-86-10.cdn-lab.online
     port: 443
     uuid: 5fa16fdf-5b3c-4f57-988d-b24c6722c91a
@@ -58,7 +44,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: DeltaKroneckerGithub-04
+    name: DeltaKroneckerGithub-03
     server: 82.148.240.74
     port: 443
     uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
@@ -71,6 +57,80 @@ proxies:
       short-id: 1a2b3c4d
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: VPsave
+    server: 82.148.225.244
+    port: 8445
+    uuid: 0fdb1df7-b3b6-4d29-9fd6-2b92fc80b852
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sw2.cloudvienta.com
+    reality-opts:
+      public-key: ndIKnA3ySMv5vBJ-OfP8IhFWVu7mtK0nzhgSil1NaVg
+      short-id: 00f7359d92c884cc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-b0fab6a81d
+    server: 82.148.225.244
+    port: 8443
+    uuid: 0fdb1df7-b3b6-4d29-9fd6-2b92fc80b852
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sw2.cloudvienta.com
+    reality-opts:
+      public-key: ndIKnA3ySMv5vBJ-OfP8IhFWVu7mtK0nzhgSil1NaVg
+      short-id: 00f7359d92c884cc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-5da6930c0f
+    server: 82.148.225.244
+    port: 8445
+    uuid: 0fdb1df7-b3b6-4d29-9fd6-2b92fc80b852
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sw2.cloudvienta.com
+    reality-opts:
+      public-key: ndIKnA3ySMv5vBJ-OfP8IhFWVu7mtK0nzhgSil1NaVg
+      short-id: 00f7359d92c884cc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-920944ad3b
+    server: 82.148.240.74
+    port: 443
+    uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets-v2.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-3240e841fd
+    server: fr1.vpngold.ru
+    port: 8443
+    uuid: a52fd54b-ba4d-4d11-8e00-301e2646cd66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr1.vpngold.ru
+    reality-opts:
+      public-key: 1H1DiBCBB7fpALV71pH1q66ePybBFlVOcxftdlQimQ8
+      short-id: 385cb18df0892069
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -80,7 +140,11 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
+      - VPsave
+      - 4Sarina-b0fab6a81d
+      - 4Kian-5da6930c0f
+      - 4Jadi-920944ad3b
+      - 4Jadi-3240e841fd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,6 +155,10 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
       - DeltaKroneckerGithub-03
-      - DeltaKroneckerGithub-04
+      - VPsave
+      - 4Sarina-b0fab6a81d
+      - 4Kian-5da6930c0f
+      - 4Jadi-920944ad3b
+      - 4Jadi-3240e841fd
 rules:
   - MATCH,Proxy

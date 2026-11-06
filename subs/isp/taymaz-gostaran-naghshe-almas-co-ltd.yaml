@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: 4Kian-3da4e596cc
-    server: bt.wufpel.ir
-    port: 443
-    uuid: c3f7925d-bd87-4bab-9f99-39c8f1927d63
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: f9b721e792dd7e62.wufpel.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /Black-tunnel
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: bt.wufpel.ir
-  - type: vless
     name: 4Jadi-3437629509
     server: bt.wufpel.ir
     port: 8443
@@ -51,24 +35,58 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-b5b4c34424
+    server: dl1.armd.fun
+    port: 443
+    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-0a9975d7f6
+    server: dl1.armd.fun
+    port: 443
+    uuid: f6f54cb7-6a60-49cd-a871-f7b26064dce9
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-ce9a599b3e
+    server: dl1.armd.fun
+    port: 443
+    uuid: 72ec8eaf-6a67-4026-aea6-963e3a9ca16a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-3da4e596cc
       - 4Jadi-3437629509
       - 4Mohsen-1569f73d27
       - 4Jadi-b082450f5d
+      - 4FreeIran-b5b4c34424
+      - 4Jadi-0a9975d7f6
+      - 4Nika-ce9a599b3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-3da4e596cc
       - 4Jadi-3437629509
       - 4Mohsen-1569f73d27
       - 4Jadi-b082450f5d
+      - 4FreeIran-b5b4c34424
+      - 4Jadi-0a9975d7f6
+      - 4Nika-ce9a599b3e
 rules:
   - MATCH,Proxy

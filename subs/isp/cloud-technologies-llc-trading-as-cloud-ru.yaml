@@ -1,20 +1,18 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 176.123.160.193
-    port: 176
-    uuid: ecf12398-8689-4c8d-91e2-8f1aeb8bd556
+    name: 4Sarina-3df0919cfc
+    server: cdn66.whitenw.net
+    port: 7449
+    uuid: 8dddc313-e588-478b-9175-8702da3235bf
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.videolan.org
+    client-fingerprint: firefox
+    servername: passport.yandex.ru
     reality-opts:
-      public-key: h6C_S8mSHwrvoWycQbMd7j3H2HTabo9tFYCdLRXzETs
-      short-id: 7f53c13ffe6a0cb3
+      public-key: gow0GZoNl7bMLLPDUf15bHavTS25l-KRg7Pht8w62AQ
+      short-id: bff84bf3e681c7a0
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: 🇷🇺
     server: 176.123.160.193
@@ -31,6 +29,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Sarina-64799fba38
+    server: edge-97960.greatecloud.com
+    port: 443
+    uuid: aa73bd9e-cb2b-42e8-83af-d8fadb0f0a3b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: pl.greatecloud.com
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Nika-92aa72abd8
     server: 176.123.160.193
@@ -52,8 +64,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - VPsave
+      - 4Sarina-3df0919cfc
       - 🇷🇺
+      - 4Sarina-64799fba38
       - 4Nika-92aa72abd8
   - name: Auto
     type: url-test
@@ -61,8 +74,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
+      - 4Sarina-3df0919cfc
       - 🇷🇺
+      - 4Sarina-64799fba38
       - 4Nika-92aa72abd8
 rules:
   - MATCH,Proxy
