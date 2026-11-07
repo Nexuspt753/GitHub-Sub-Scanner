@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: FXxNET⚡️
-    server: 91.185.83.105
-    port: 9443
-    uuid: 18c83152-8420-4865-889d-ff47a300a451
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: Te3ZcFFTilb6_j4hdotSvXaRYBzGuNiRxuBh8n1NezU
-      short-id: 91d2d3db690f4b59
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-3d2fba0c83
     server: 91.185.83.105
     port: 9443
@@ -27,6 +13,24 @@ proxies:
       short-id: 91d2d3db690f4b59
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-6f06f670b5
+    server: 91.185.83.44
+    port: 443
+    uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: nguyxejonb.rucdncomp.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/telemetry/0294da469190/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nguyxejonb.rucdncomp.pro
   - type: vless
     name: 4Jadi-d3f37b53c8
     server: 91.185.83.44
@@ -50,8 +54,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - FXxNET⚡️
       - 4FreeIran-3d2fba0c83
+      - 4Kian-6f06f670b5
       - 4Jadi-d3f37b53c8
   - name: Auto
     type: url-test
@@ -59,8 +63,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - FXxNET⚡️
       - 4FreeIran-3d2fba0c83
+      - 4Kian-6f06f670b5
       - 4Jadi-d3f37b53c8
 rules:
   - MATCH,Proxy

@@ -1,5 +1,12 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 49.212.193.129
+    port: 443
+    password: "!str18844"
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Kian-08e09d6eb6
     server: trs12.bolab.net
     port: 443
@@ -12,6 +19,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-08e09d6eb6
   - name: Auto
     type: url-test
@@ -19,6 +27,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-08e09d6eb6
 rules:
   - MATCH,Proxy

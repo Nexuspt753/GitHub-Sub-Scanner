@@ -1,13 +1,6 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 83.228.224.161
-    port: 443
-    password: SoftNetConnect
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: 83.228.230.226
     port: 8443
     password: SoftNetConnect
@@ -16,7 +9,7 @@ proxies:
     sni: play.google.com
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: 84.234.29.238
     port: 443
     password: Masir_Sefid
@@ -24,20 +17,6 @@ proxies:
     tls: true
     sni: store.steampowered.com
     client-fingerprint: chrome
-  - type: vless
-    name: 4Sarina-ce5b4820bd
-    server: 195.15.203.71
-    port: 4436
-    uuid: 15125378-ed73-4ee3-4a60-49154961e5c1
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: doi.org
-    reality-opts:
-      public-key: HFSvpLQaOAhqp5ZTntPRQAY-5NbnzLwbLBLlU3wAoQw
-      short-id: 083ab741
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -45,8 +24,6 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Sarina-ce5b4820bd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,7 +32,5 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 4Sarina-ce5b4820bd
 rules:
   - MATCH,Proxy
