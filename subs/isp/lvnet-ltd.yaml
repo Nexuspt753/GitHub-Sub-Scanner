@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Mohsen-60815603c0
-    server: fin2.vpngold.ru
+    name: 4Mohsen-0cb75fdbff
+    server: 45.86.67.114
     port: 8443
-    uuid: a52fd54b-ba4d-4d11-8e00-301e2646cd66
+    uuid: 6eaf5e8f-e4fe-4dc7-a1cd-f24343536abe
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: fin2.vpngold.ru
+    client-fingerprint: firefox
+    servername: us1.kittieslabs.tech
     reality-opts:
-      public-key: 1H1DiBCBB7fpALV71pH1q66ePybBFlVOcxftdlQimQ8
-      short-id: 385cb18df0892069
-    flow: xtls-rprx-vision
+      public-key: vzxQR7aijDhEEV2Dq6P6eFJckkgOLTq86bySpqVGsQo
+      short-id: de9061cbed448be3
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-60815603c0
+      - 4Mohsen-0cb75fdbff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-60815603c0
+      - 4Mohsen-0cb75fdbff
 rules:
   - MATCH,Proxy

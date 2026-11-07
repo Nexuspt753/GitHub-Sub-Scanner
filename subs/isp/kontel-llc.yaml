@@ -1,4 +1,36 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 185.244.43.99
+    port: 8444
+    uuid: e6b16182-b55a-481a-a72a-a02d0233b850
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: drHN56XyKC5veHm0uaclQBAz2pLm70u-aXuVaSaSU0w
+      short-id: 21d9dbf9eb99735d
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 46.8.19.126
+    port: 8444
+    uuid: b9a220db-e5a3-40c9-9836-05b5bbc8c7e4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
+      short-id: cb1733a12d48629b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: hysteria2
     name: 4FreeIran-ee48b3aedc
     server: 46.8.210.209
@@ -6,18 +38,58 @@ proxies:
     password: 95c61940-2823-4665-a033-d4f2218329b6
     sni: ru3.kinotorg.net
     skip-cert-verify: true
+  - type: vless
+    name: 4Kian-5846f80cf0
+    server: 46.8.19.126
+    port: 8444
+    uuid: b9a220db-e5a3-40c9-9836-05b5bbc8c7e4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
+      short-id: cb1733a12d48629b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-1011dd8e8e
+    server: 185.244.43.99
+    port: 8444
+    uuid: e6b16182-b55a-481a-a72a-a02d0233b850
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 360.yandex.ru
+    reality-opts:
+      public-key: drHN56XyKC5veHm0uaclQBAz2pLm70u-aXuVaSaSU0w
+      short-id: 21d9dbf9eb99735d
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-ee48b3aedc
+      - 4Kian-5846f80cf0
+      - 4FreeIran-1011dd8e8e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4FreeIran-ee48b3aedc
+      - 4Kian-5846f80cf0
+      - 4FreeIran-1011dd8e8e
 rules:
   - MATCH,Proxy

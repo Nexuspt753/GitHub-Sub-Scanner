@@ -1,29 +1,34 @@
 proxies:
   - type: vless
-    name: 4FreeIran-db84eebc51
-    server: vecamir.beautifaster.ir
-    port: 8443
-    uuid: 09b8cd8d-40c4-4a7b-a8b3-193fb88e929e
+    name: 4Mohsen-8b8ad27f05
+    server: tun401.app20.ir
+    port: 2092
+    uuid: f60879c7-ce0b-47be-b208-d889558bc7bb
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: blocked.inszoneins.com
-    reality-opts:
-      public-key: mdGufiF3hqBH0oKfsCXYUhNJyEfOTCHqLyWdub9jhy0
-      short-id: cb9853582f87568c
+    alpn:
+      - http/1.1
+    servername: cert.pcapps.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tun4.videobazi.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-db84eebc51
+      - 4Mohsen-8b8ad27f05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-db84eebc51
+      - 4Mohsen-8b8ad27f05
 rules:
   - MATCH,Proxy

@@ -1,29 +1,30 @@
 proxies:
   - type: vless
-    name: 4Mohsen-b9298daf0d
-    server: 38.76.180.144
-    port: 1443
-    uuid: d98b67d4-024a-4bba-91e2-e6ebece6df11
+    name: 4Nika-c73e3139a5
+    server: 156.238.224.252
+    port: 21521
+    uuid: 4a02db06-cd14-433b-a05e-d723812be9c8
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: apple.com
+    reality-opts:
+      public-key: GPEKqQY86dtZ5XQVS89zbUcTpL7tFsqFwyI0BCedckk
+      short-id: 675d2c4a
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 38.76.180.144
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-b9298daf0d
+      - 4Nika-c73e3139a5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-b9298daf0d
+      - 4Nika-c73e3139a5
 rules:
   - MATCH,Proxy

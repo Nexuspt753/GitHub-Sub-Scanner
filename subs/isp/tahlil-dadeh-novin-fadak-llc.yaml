@@ -1,46 +1,31 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: nl-3.it-crp.ru
-    port: 443
-    uuid: 73a0f995-f2f1-4d47-a99d-a6dcc1952bf9
+    name: 4Mohsen-b28a783d6e
+    server: 94.183.164.80
+    port: 7443
+    uuid: 1a8160ff-22ba-4804-ac29-69d9fe5bf9a4
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: nl-3.it-crp.ru
+    client-fingerprint: chrome
+    servername: optim.tildacdn.pub
     reality-opts:
-      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
-      short-id: a1b2c3d4b5
-    flow: xtls-rprx-vision
+      public-key: unNROkbh95ZZNHzG2RIkgrFftOLldNH0ccmtW63CziE
     xudp: true
-  - type: vless
-    name: 4Jadi-ba15603979
-    server: nl-3.it-crp.ru
-    port: 443
-    uuid: 73a0f995-f2f1-4d47-a99d-a6dcc1952bf9
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: nl-3.it-crp.ru
-    reality-opts:
-      public-key: HLKQ0JvyaZ16JNdl0pbEPkiVRYJDiZNzGz9prDMiw2s
-      short-id: a1b2c3d4b5
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Jadi-ba15603979
+      - 4Mohsen-b28a783d6e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Jadi-ba15603979
+      - 4Mohsen-b28a783d6e
 rules:
   - MATCH,Proxy

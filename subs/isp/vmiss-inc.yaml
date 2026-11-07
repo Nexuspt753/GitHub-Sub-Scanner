@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.207.172.42
+    port: 443
+    password: Aimer
+    udp: true
+    tls: true
+    sni: agepj.ambercc.filegear-sg.me
+    client-fingerprint: chrome
   - type: vless
     name: 4Kian-5e14f2862d
     server: 38.47.96.220
@@ -32,22 +41,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: parsa-panel-dy55x.railway1385-2a46.workers.dev
   - type: vless
-    name: 4Mohsen-8541168b0a
-    server: 103.247.28.203
-    port: 443
-    uuid: 64726966-0000-4000-8000-740000000000
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: parsa-panel-dy55x.railway1385-2a46.workers.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: parsa-panel-dy55x.railway1385-2a46.workers.dev
-  - type: vless
     name: 4Mohsen-0a6004ed3a
     server: 45.221.115.3
     port: 443
@@ -68,9 +61,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-5e14f2862d
       - 4Jadi-cc007afd6a
-      - 4Mohsen-8541168b0a
       - 4Mohsen-0a6004ed3a
   - name: Auto
     type: url-test
@@ -78,9 +71,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-5e14f2862d
       - 4Jadi-cc007afd6a
-      - 4Mohsen-8541168b0a
       - 4Mohsen-0a6004ed3a
 rules:
   - MATCH,Proxy

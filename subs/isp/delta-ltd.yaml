@@ -1,26 +1,63 @@
 proxies:
   - type: vless
-    name: 4Jadi-11ed1a3b69
-    server: 9900edx.msk2.h1clayd.click
+    name: 4Nika-ed31dcbf80
+    server: 9e72bbg.msk2.h1clayd.click
     port: 443
     uuid: 13e6bdfd-d51b-4e57-a40e-b88784cba8bd
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 9900edx.msk2.h1clayd.click
+    servername: 9e72bbg.msk2.h1clayd.click
+    reality-opts:
+      public-key: 0R5QIf2DFXNgISIYDQdoWIdbNoImaJHrwOkc2tzRPyQ
+      short-id: cc07501e28b18687
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-f31eefd2bd
+    server: 84.252.100.49
+    port: 443
+    uuid: 3db8407b-1f96-4b82-bfeb-55258c1e57b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: flarora.ferreo.sbs
+    reality-opts:
+      public-key: HKKWGVu7xJfscDTH_28WhqSfSnp8fA5jpj7X1eMO-mU
+      short-id: 1067b23f928e7618
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-3e8a5a79eb
+    server: 109.248.169.195
+    port: 43000
+    uuid: caed9423-a900-4704-9045-d207a8d4697b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 0cVL3RpP9S7OYgQDyZMoV6n3LtrbDJ7DjjUk_0ZizWc
+      short-id: 445b41ed
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-11ed1a3b69
+      - 4Nika-ed31dcbf80
+      - 4Sarina-f31eefd2bd
+      - 4Jadi-3e8a5a79eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-11ed1a3b69
+      - 4Nika-ed31dcbf80
+      - 4Sarina-f31eefd2bd
+      - 4Jadi-3e8a5a79eb
 rules:
   - MATCH,Proxy

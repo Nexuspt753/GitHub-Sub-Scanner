@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: Cileunyi · @DeltaKroneckerGithub
+    server: 103.67.79.156
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 103.67.79.156
+    client-fingerprint: chrome
+  - type: trojan
     name: Jakarta · @DeltaKroneckerGithub
     server: 172.232.250.160
     port: 443
@@ -64,22 +73,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: xy1ej.stream-node-us.danfeng.qzz.io
-  - type: vless
-    name: Jakarta · @FXxNET⚡️
-    server: 43.173.1.153
-    port: 8443
-    uuid: d342d11e-d224-4463-b982-532309285094
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ccc.010304.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ccc.010304.xyz
   - type: vless
     name: Jakarta · @VPsave
     server: 43.173.1.153
@@ -146,36 +139,57 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: TnmXPIFVwfvyFZvf.v.3dns.vip
+  - type: vmess
+    name: Jakarta · 4Kian-8947f30c95
+    server: free2.rajaserver2.web.id
+    port: 80
+    uuid: 4d4708ef-0729-44ac-b2b0-411ce0242e89
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: free2.rajaserver2.web.id
+    alpn:
+      - http/1.1
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free2.rajaserver2.web.id
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Cileunyi · @DeltaKroneckerGithub
       - Jakarta · @DeltaKroneckerGithub
       - Jakarta · @DeltaKroneckerGithub-01
       - Cicurug · 4Nika-4a4e0a73bd
       - Jakarta · 4Jadi-700561e9e5
       - Jakarta · 4Sarina-2cb600d6ca
-      - Jakarta · @FXxNET⚡️
       - Jakarta · @VPsave
       - Jakarta · 4FreeIran-17ae38141d
       - Jakarta · 4Kian-122cff80cc
       - Jakarta · 4FreeIran-1c6bffde63
+      - Jakarta · 4Kian-8947f30c95
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Cileunyi · @DeltaKroneckerGithub
       - Jakarta · @DeltaKroneckerGithub
       - Jakarta · @DeltaKroneckerGithub-01
       - Cicurug · 4Nika-4a4e0a73bd
       - Jakarta · 4Jadi-700561e9e5
       - Jakarta · 4Sarina-2cb600d6ca
-      - Jakarta · @FXxNET⚡️
       - Jakarta · @VPsave
       - Jakarta · 4FreeIran-17ae38141d
       - Jakarta · 4Kian-122cff80cc
       - Jakarta · 4FreeIran-1c6bffde63
+      - Jakarta · 4Kian-8947f30c95
 rules:
   - MATCH,Proxy
