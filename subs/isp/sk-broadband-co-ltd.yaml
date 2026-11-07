@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Kian-41deed32ef
+    server: p141.panda001.net
+    port: 4652
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+    udp: true
   - type: trojan
     name: 4Kian-fad1b30ee8
     server: 118.218.10.159
@@ -14,35 +21,43 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: ss
-    name: 🇰🇷KR-211.178.105.134-0243
-    server: 211.178.105.134
-    port: 6123
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
+    name: DeltaKroneckerGithub
+    server: glance.asuscomm.com
+    port: 10099
+    cipher: chacha20-ietf-poly1305
+    password: "12242"
     udp: true
-  - type: ss
-    name: 🇰🇷KR-218.237.185.234-0255
-    server: p141.panda001.net
-    port: 4652
-    cipher: aes-256-cfb
-    password: qwerREWQ@@
+  - type: vless
+    name: 4Nika-2415914bc6
+    server: hg3.xueshan168.cc
+    port: 16001
+    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: iv3BAoFjlsPSSjOn1cyXVZ3H31KqX65PoJusBEfU0lM
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-41deed32ef
       - 4Kian-fad1b30ee8
-      - 🇰🇷KR-211.178.105.134-0243
-      - 🇰🇷KR-218.237.185.234-0255
+      - DeltaKroneckerGithub
+      - 4Nika-2415914bc6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-41deed32ef
       - 4Kian-fad1b30ee8
-      - 🇰🇷KR-211.178.105.134-0243
-      - 🇰🇷KR-218.237.185.234-0255
+      - DeltaKroneckerGithub
+      - 4Nika-2415914bc6
 rules:
   - MATCH,Proxy

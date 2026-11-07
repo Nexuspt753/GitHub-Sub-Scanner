@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Nika-c4612f03fc
+    server: 142.91.109.11
+    port: 443
+    uuid: d8cf80f7-e24b-4961-91f6-77d494bcbdab
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com.cn
+    reality-opts:
+      public-key: b6ndQ_P82h5fxP4fQkArf8hxVK3gsOTmwLeIPhLBPh4
+      short-id: 9a79ee418c7c1fc3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-d2a47fb68f
     server: 142.91.108.25
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-c4612f03fc
       - 4Sarina-d2a47fb68f
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-c4612f03fc
       - 4Sarina-d2a47fb68f
 rules:
   - MATCH,Proxy

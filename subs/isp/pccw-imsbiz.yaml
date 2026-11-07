@@ -1,19 +1,37 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: kaizen-hk-11.gocmydns.com
+    server: hkt.xueshan168.cc
     port: 443
-    password: 29db38f0-e302-3768-8867-0b9bf00c77e4cmynw
+    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
     udp: true
     tls: true
-    sni: images.apple.com
-    client-fingerprint: chrome
+    client-fingerprint: ios
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: iv3BAoFjlsPSSjOn1cyXVZ3H31KqX65PoJusBEfU0lM
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-5c739779c7
+    server: hkt.xueshan168.cc
+    port: 443
+    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: s0.awsstatic.com
+    reality-opts:
+      public-key: iv3BAoFjlsPSSjOn1cyXVZ3H31KqX65PoJusBEfU0lM
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-5c739779c7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-5c739779c7
 rules:
   - MATCH,Proxy

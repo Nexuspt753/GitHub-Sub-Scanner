@@ -1,38 +1,23 @@
 proxies:
-  - type: ss
-    name: 4Nika-0c4cec0de7
-    server: 35.209.12.212
-    port: 63691
-    cipher: 2022-blake3-aes-128-gcm
-    password: 8JCsPssfgS8tiRwiMlhARg==
-    udp: true
-  - type: vless
-    name: 4Nika-a1f12191cf
-    server: 34.3.107.0
-    port: 443
-    uuid: ac3a403e-f7f1-4804-8a25-23b0ffe458f9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: addons.mozilla.org
-    reality-opts:
-      public-key: IdpEClCPDYsXitgvDe5WedR1-BIryffkpjyZyAsQCUk
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: 4Jadi-a9d158b316
+    server: 35.207.53.51
+    port: 20999
+    password: MZKlrFbG73bKvCDe8VPul5PR9xQm
+    sni: www.apple.com
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-0c4cec0de7
-      - 4Nika-a1f12191cf
+      - 4Jadi-a9d158b316
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-0c4cec0de7
-      - 4Nika-a1f12191cf
+      - 4Jadi-a9d158b316
 rules:
   - MATCH,Proxy

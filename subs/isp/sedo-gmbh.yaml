@@ -16,12 +16,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sgp.kapok.buzz
+  - type: vmess
+    name: 4Nika-a6efc205cf
+    server: us.kapok.buzz
+    port: 443
+    uuid: eb4550a1-bd63-4f9c-b4b6-fdd24b440728
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: us.kapok.buzz
+    network: ws
+    ws-opts:
+      path: /SCP-914
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: us.kapok.buzz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-873b670b8a
+      - 4Nika-a6efc205cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +48,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-873b670b8a
+      - 4Nika-a6efc205cf
 rules:
   - MATCH,Proxy

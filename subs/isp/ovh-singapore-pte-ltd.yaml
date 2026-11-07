@@ -1,0 +1,81 @@
+proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: sgovh-trojan.bonds.id
+    port: 443
+    password: 8a967ec0-634e-11ed-8ef5-1239d0255272
+    udp: true
+    tls: true
+    sni: www.namava.ir
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 51.79.220.79
+    port: 443
+    password: 96dca130-61c6-11ed-bc37-1239d0255272
+    udp: true
+    tls: true
+    sni: zoom.us
+    client-fingerprint: chrome
+  - type: ss
+    name: 4FreeIran-ea19d1a8ed
+    server: 51.79.178.63
+    port: 3306
+    cipher: aes-256-gcm
+    password: Y6R9pAtvxxzmGC
+    udp: true
+  - type: ss
+    name: 4Sarina-b0ad477a1c
+    server: 51.79.228.131
+    port: 19999
+    cipher: aes-256-gcm
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 51.79.228.131
+    port: 19999
+    cipher: aes-256-gcm
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 51.79.228.131
+    port: 19999
+    cipher: aes-256-gcm
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    udp: true
+  - type: ss
+    name: 🇸🇬SG-51.79.228.131-0204
+    server: 51.79.228.131
+    port: 19999
+    cipher: aes-256-gcm
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-ea19d1a8ed
+      - 4Sarina-b0ad477a1c
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 🇸🇬SG-51.79.228.131-0204
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-ea19d1a8ed
+      - 4Sarina-b0ad477a1c
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - 🇸🇬SG-51.79.228.131-0204
+rules:
+  - MATCH,Proxy

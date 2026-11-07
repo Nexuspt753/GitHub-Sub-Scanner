@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 185.86.147.175
+    port: 443
+    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bhjolq0d0l.flowersgood.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/telemetry/045d381f1166/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bhjolq0d0l.flowersgood.top
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -15,20 +31,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4FreeIran-e7c2e5d2a6
-    server: 185.86.145.112
-    port: 10452
-    uuid: 18c83152-8420-4865-889d-ff47a300a451
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: L1Ug_ELbeZ_5q9QRzO5Lg_ZMkus9n72aiUfvFirN9Vo
-      short-id: c8a79c7b64adca2a
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Jadi-33351c9922
     server: 185.86.147.143
     port: 7443
@@ -40,20 +42,6 @@ proxies:
     reality-opts:
       public-key: 0w339GBhpDiYwa9Wgqu3z3epu8dHAzeYUFXPtvzK8To
       short-id: 190c27ae5f2e4d2c
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Jadi-a6ed0f3521
-    server: 185.86.147.184
-    port: 9449
-    uuid: 18c83152-8420-4865-889d-ff47a300a451
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: SsPslLCfw2CGDmCs17gTLRSUOsOfv0KgnuLnkyTqCzA
-      short-id: 62002c0a685ac208
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -256,33 +244,14 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bhjolq0d0l.flowersgood.top
-  - type: vless
-    name: 4Jadi-50bb362dc4
-    server: vivozim.vyvoz-musora.cc
-    port: 443
-    uuid: a0052f4f-4c63-485a-a16f-ab2d5d718cd3
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    alpn:
-      - http/1.1
-    servername: vivozim.vyvoz-musora.cc
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /e8ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vivozim.vyvoz-musora.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-e7c2e5d2a6
+      - DeltaKroneckerGithub-01
       - 4Jadi-33351c9922
-      - 4Jadi-a6ed0f3521
       - 🇷🇺208528
       - 🇷🇺208577
       - 🇷🇺RU-🚀@VPNine1
@@ -295,7 +264,6 @@ proxy-groups:
       - 4Nika-7d77cecdc6
       - 4Jadi-49b249819c
       - 4Nika-024aa03b20
-      - 4Jadi-50bb362dc4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -303,9 +271,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-e7c2e5d2a6
+      - DeltaKroneckerGithub-01
       - 4Jadi-33351c9922
-      - 4Jadi-a6ed0f3521
       - 🇷🇺208528
       - 🇷🇺208577
       - 🇷🇺RU-🚀@VPNine1
@@ -318,6 +285,5 @@ proxy-groups:
       - 4Nika-7d77cecdc6
       - 4Jadi-49b249819c
       - 4Nika-024aa03b20
-      - 4Jadi-50bb362dc4
 rules:
   - MATCH,Proxy

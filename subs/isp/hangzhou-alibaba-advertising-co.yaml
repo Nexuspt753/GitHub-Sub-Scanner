@@ -1,19 +1,54 @@
 proxies:
   - type: vmess
     name: DeltaKroneckerGithub
-    server: 39.108.113.127
-    port: 10086
-    uuid: fccbad0f-eb6c-4bdd-80ed-145409e2f761
+    server: al21.aoyond.me
+    port: 59554
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: DeltaKroneckerGithub-01
+    server: al21.aoyond.me
+    port: 45902
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-02
+    server: al21.aoyond.me
+    port: 20705
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-03
+    server: al21.aoyond.me
+    port: 43837
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-04
+    server: al21.aoyond.me
+    port: 64952
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: 4Mohsen-d7fa23155b
     server: 39.108.113.127
@@ -104,18 +139,38 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4FreeIran-7a12d8a646
+    server: 39.108.113.127
+    port: 10086
+    uuid: 19ee3050-be66-4850-9f13-fc9d47487a3c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Mohsen-d7fa23155b
       - 4Jadi-1a86996b04
       - 4Nika-b2cd6dc7db
       - 4FreeIran-d42f66863d
       - 4Jadi-8d925749e3
       - 4Kian-78a7c0da13
+      - 4FreeIran-7a12d8a646
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -123,11 +178,16 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
       - 4Mohsen-d7fa23155b
       - 4Jadi-1a86996b04
       - 4Nika-b2cd6dc7db
       - 4FreeIran-d42f66863d
       - 4Jadi-8d925749e3
       - 4Kian-78a7c0da13
+      - 4FreeIran-7a12d8a646
 rules:
   - MATCH,Proxy

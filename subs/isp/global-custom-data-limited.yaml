@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Sarina-474131c06a
+    server: 5.157.30.3
+    port: 8443
+    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp6.1145678.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /docs
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp6.1145678.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-474131c06a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-474131c06a
+rules:
+  - MATCH,Proxy

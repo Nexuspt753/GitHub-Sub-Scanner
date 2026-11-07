@@ -1,6 +1,21 @@
 proxies:
   - type: vmess
-    name: 4Kian-8947f30c95
+    name: DeltaKroneckerGithub
+    server: free2.rajaserver2.web.id
+    port: 443
+    uuid: 4d4708ef-0729-44ac-b2b0-411ce0242e89
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: free2.rajaserver2.web.id
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess-grpc
+  - type: vmess
+    name: 4Sarina-3ef92f4651
     server: free2.rajaserver2.web.id
     port: 80
     uuid: 4d4708ef-0729-44ac-b2b0-411ce0242e89
@@ -23,13 +38,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-8947f30c95
+      - DeltaKroneckerGithub
+      - 4Sarina-3ef92f4651
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-8947f30c95
+      - DeltaKroneckerGithub
+      - 4Sarina-3ef92f4651
 rules:
   - MATCH,Proxy

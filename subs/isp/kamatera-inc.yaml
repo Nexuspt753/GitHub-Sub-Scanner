@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 74.113.233.192
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: jp1.japancase.site
+    reality-opts:
+      public-key: vR15JQvAL78o2FzRCftXVm1LTz-xdU31wBB2ohHFD0g
+      short-id: 47b225059e19aa39
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 45.91.171.116
     port: 443
     password: 2ee85121-31de-4581-a492-eb00f606e392
@@ -18,50 +32,7 @@ proxies:
     sni: 207.126.167.150
     client-fingerprint: chrome
   - type: vless
-    name: 4Nika-88ea0543a0
-    server: 113.30.190.30
-    port: 443
-    uuid: 4fe83abe-48a3-41d8-b966-1c13e7cfac01
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /jx-yu6idxjr72i2xz
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jyfrj1cims.dev.onappjet.com
-  - type: vless
-    name: 4Mohsen-4c35910d1c
-    server: 113.30.191.181
-    port: 443
-    uuid: 4fe83abe-48a3-41d8-b966-1c13e7cfac01
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /jx-yu6idxjr72i2xz
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jyfrj1cims.dev.onappjet.com
-  - type: vless
     name: Shh_Proxy-New⁷
-    server: 5.180.181.113
-    port: 443
-    uuid: b1da2601-ff93-46d6-af87-04af3f541fde
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sun1-19.userapi.com
-    reality-opts:
-      public-key: wY_MYPJUx849su3BlowuxnwnUaj25iLfRw2LooQfPAY
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Jadi-1869d93597
     server: 5.180.181.113
     port: 443
     uuid: b1da2601-ff93-46d6-af87-04af3f541fde
@@ -79,11 +50,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-3deb751852
-      - 4Nika-88ea0543a0
-      - 4Mohsen-4c35910d1c
       - Shh_Proxy-New⁷
-      - 4Jadi-1869d93597
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -91,10 +60,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Sarina-3deb751852
-      - 4Nika-88ea0543a0
-      - 4Mohsen-4c35910d1c
       - Shh_Proxy-New⁷
-      - 4Jadi-1869d93597
 rules:
   - MATCH,Proxy

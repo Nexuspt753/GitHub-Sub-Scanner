@@ -1,26 +1,31 @@
 proxies:
-  - type: vless
+  - type: vmess
     name: DeltaKroneckerGithub
-    server: 47.100.208.186
-    port: 443
-    uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+    server: al11.aynd.me
+    port: 27487
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 9qwbb.dsm7.5r1.hh.vavava.kdns.fr
+    skip-cert-verify: false
+  - type: vmess
+    name: DeltaKroneckerGithub-01
+    server: ali2.aoyond.me
+    port: 19689
+    uuid: 279c2c58-2001-4f1a-8c12-fa9bd992f4ef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy
