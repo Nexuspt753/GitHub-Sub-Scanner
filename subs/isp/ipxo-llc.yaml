@@ -1,9 +1,18 @@
 proxies:
   - type: trojan
-    name: 4Nika-f93c96912f
+    name: DeltaKroneckerGithub
     server: 157.254.38.210
-    port: 20126
-    password: 63872b0d-87dd-4474-b690-92773af2922e
+    port: 20123
+    password: d9064589-74af-432a-9390-5d8a9da281bf
+    udp: true
+    tls: true
+    sni: hk.catxstar.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-f8359abbb7
+    server: 157.254.38.210
+    port: 20035
+    password: ba07a8af-5544-48ac-ab62-3b6c00a44fa6
     udp: true
     tls: true
     sni: hk.catxstar.com
@@ -17,6 +26,20 @@ proxies:
     tls: true
     sni: hk.catxstar.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Sarina-5aa073fce3
+    server: usa.letsconnectpoint.com
+    port: 443
+    uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: usa.letsconnectpoint.com
+    reality-opts:
+      public-key: I45spoFEwSCaxR8FIP1HnrFj5KbR3keSAGMMdgt2AHY
+      short-id: b1c5a5e2
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: ⚡️
     server: nl.puflino.com
@@ -45,24 +68,44 @@ proxies:
       short-id: 1be482b8e08aa0ef
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-1a6c4f1583
+    server: nl.puflino.com
+    port: 8443
+    uuid: c7270753-bd18-4696-956d-57dbde1183fe
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: nl2.reddotcorp.org
+    reality-opts:
+      public-key: VDZdbh_RzDDZsHpYF58yUuuvXh93XnmkvpSqb50qG2U
+      short-id: 1be482b8e08aa0ef
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-f93c96912f
+      - DeltaKroneckerGithub
+      - 4Jadi-f8359abbb7
       - 4Sarina-6de19e329d
+      - 4Sarina-5aa073fce3
       - ⚡️
       - 4Kian-9bd29c8c5c
+      - 4Jadi-1a6c4f1583
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-f93c96912f
+      - DeltaKroneckerGithub
+      - 4Jadi-f8359abbb7
       - 4Sarina-6de19e329d
+      - 4Sarina-5aa073fce3
       - ⚡️
       - 4Kian-9bd29c8c5c
+      - 4Jadi-1a6c4f1583
 rules:
   - MATCH,Proxy

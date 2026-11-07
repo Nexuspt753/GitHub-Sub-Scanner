@@ -13,27 +13,12 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4FreeIran-9875a22275
-    server: 175.41.232.194
-    port: 443
-    password: 8deb189a-3aed-4865-843b-b72dae954c46
-    udp: true
-    tls: true
-    sni: api.85s.me
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - VPsave
-      - 4FreeIran-9875a22275
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
-      - 4FreeIran-9875a22275
 rules:
   - MATCH,Proxy

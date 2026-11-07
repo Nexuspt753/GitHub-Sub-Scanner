@@ -6,6 +6,13 @@ proxies:
     password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
     sni: hy.quattro-tech.ru
     skip-cert-verify: false
+  - type: ss
+    name: 4Nika-a607aab12b
+    server: msk2.rvpn.app
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: MODziWLa9qMuW-4yPa0rfw
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 91.240.87.108
@@ -15,13 +22,29 @@ proxies:
     tls: true
     sni: z40.tgnn.live
     client-fingerprint: firefox
+  - type: vless
+    name: 4Jadi-abad56f52d
+    server: ru11.oshost.network
+    port: 443
+    uuid: afbd410e-1663-4f40-9d3b-df5117aa23ca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ru11.oshost.network
+    reality-opts:
+      public-key: 52fsWySqEpUvCt-jbEy2rYjVIZBYwoqsGfmSef8_UgI
+      short-id: 97a15f5af85c4a30
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-51699e7dad
+      - 4Nika-a607aab12b
       - DeltaKroneckerGithub
+      - 4Jadi-abad56f52d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,6 +52,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-51699e7dad
+      - 4Nika-a607aab12b
       - DeltaKroneckerGithub
+      - 4Jadi-abad56f52d
 rules:
   - MATCH,Proxy

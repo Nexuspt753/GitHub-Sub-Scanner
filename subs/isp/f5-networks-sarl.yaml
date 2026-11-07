@@ -1,34 +1,54 @@
 proxies:
   - type: vless
-    name: 4Kian-f7e8a33a03
+    name: vless
     server: 159.60.146.82
     port: 443
-    uuid: d7801e5a-254d-4dff-a7dd-ef5eb0b30374
+    uuid: 0ff37a1b-ef27-403d-9eec-34e6c7d356ac
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: nova-relay-d9g973.pages.dev
+    servername: app-base-njw3ky.pages.dev
     xudp: true
     network: ws
     ws-opts:
       path: /ws?ip=159.60.146.82:443
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nova-relay-d9g973.pages.dev
+        Host: app-base-njw3ky.pages.dev
+  - type: vless
+    name: 4Kian-11a8099227
+    server: 159.60.146.82
+    port: 443
+    uuid: 0ff37a1b-ef27-403d-9eec-34e6c7d356ac
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=159.60.146.82:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: app-base-njw3ky.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f7e8a33a03
+      - vless
+      - 4Kian-11a8099227
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f7e8a33a03
+      - vless
+      - 4Kian-11a8099227
 rules:
   - MATCH,Proxy

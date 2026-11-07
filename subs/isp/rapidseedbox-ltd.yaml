@@ -1,30 +1,27 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-fde6404dfa
-    server: bremen.gosgenarchive.com
-    port: 448
-    password: hn7BMZxEjR9uE0adcvA6cqQMoKwA88hT
+  - type: vless
+    name: 4Nika-bbee01611f
+    server: 45.86.245.75
+    port: 2443
+    uuid: 664d2284-e0ad-4de4-9752-a0e12a29840e
     udp: true
     tls: true
-    sni: bremen.gosgenarchive.com
-    alpn:
-      - h2
     client-fingerprint: firefox
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    servername: xkg82.enterquality.online
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-fde6404dfa
+      - 4Nika-bbee01611f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-fde6404dfa
+      - 4Nika-bbee01611f
 rules:
   - MATCH,Proxy

@@ -1,16 +1,22 @@
 proxies:
-  - type: ss
-    name: 4Kian-0da0522278
-    server: ser1.plasmoon.ir
-    port: 2028
-    cipher: 2022-blake3-aes-128-gcm
-    password: UVqvTTy4pr77CJ2linjEnA==:HNWPQ7l1ZYYrGNt2RYtenQ==
-    udp: true
   - type: vless
-    name: 4Kian-225fcaa240
+    name: 4FreeIran-b0b7a6ae14
+    server: iran2.panelsaz.com
+    port: 2087
+    uuid: 1b71cb74-16f8-4ea0-9acf-d03a3d66dff6
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /upl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: trnewpnltun.mamadhpbot.ir
+  - type: vless
+    name: 4FreeIran-a5eb13dcf0
     server: ser1.plasmoon.ir
     port: 2026
-    uuid: 79509300-cfdf-4281-b7ff-44ed3a20a72e
+    uuid: 3d11274e-1267-4777-9904-971192a83c0e
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -32,40 +38,22 @@ proxies:
       short-id: 312b6373cac83323
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Mohsen-3e52590932
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-0da0522278
-      - 4Kian-225fcaa240
+      - 4FreeIran-b0b7a6ae14
+      - 4FreeIran-a5eb13dcf0
       - 4Sarina-b6b7d7824f
-      - 4Mohsen-3e52590932
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-0da0522278
-      - 4Kian-225fcaa240
+      - 4FreeIran-b0b7a6ae14
+      - 4FreeIran-a5eb13dcf0
       - 4Sarina-b6b7d7824f
-      - 4Mohsen-3e52590932
 rules:
   - MATCH,Proxy

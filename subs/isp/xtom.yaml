@@ -1,6 +1,13 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
+    server: us-3.tr202605.com
+    port: 443
+    password: Tn9ytcFXsOnbUsJYKJ
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-5befe32820
     server: 80.66.196.231
     port: 443
     password: eeb6823c-b926-4ea2-866a-5542edd26e59
@@ -8,20 +15,33 @@ proxies:
     tls: true
     sni: tjsp.hhxaf.cc.cd
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: us-3.tr202605.com
+    name: 4Mohsen-703d50d352
+    server: 193.163.19.232
     port: 443
-    password: Tn9ytcFXsOnbUsJYKJ
+    password: humanity
     udp: true
+    tls: true
+    sni: www.cordweave.com
     client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-5befe32820
+      - 4Mohsen-703d50d352
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,6 +49,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4FreeIran-5befe32820
+      - 4Mohsen-703d50d352
 rules:
   - MATCH,Proxy

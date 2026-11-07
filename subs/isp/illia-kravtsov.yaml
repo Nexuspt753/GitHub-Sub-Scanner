@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 94.249.180.86
+    port: 443
+    uuid: 0de1d303-d7de-0001-8679-c4cb67e2e2cc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amd.com
+    reality-opts:
+      public-key: WWeAHWUVD-phmnjNJ823cer0c4CMIbEs08AhsuEZmDc
+      short-id: a696de84963656de
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-69db0b4764
     server: 94.249.180.86
     port: 443
@@ -38,36 +52,24 @@ proxies:
     servername: amd.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-8835a8b69a
-    server: 94.249.180.253
-    port: 443
-    uuid: d6f6e995-c088-458f-aaa6-50096327b4b4
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    alpn:
-      - http/1.1
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-69db0b4764
       - 4Mohsen-9ea26aa7c8
       - 4Mohsen-e4b76fe359
-      - 4Sarina-8835a8b69a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-69db0b4764
       - 4Mohsen-9ea26aa7c8
       - 4Mohsen-e4b76fe359
-      - 4Sarina-8835a8b69a
 rules:
   - MATCH,Proxy

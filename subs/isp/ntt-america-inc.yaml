@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: 4Sarina-bd19f20ed8
+    server: 128.121.31.154
+    port: 587
+    uuid: 26524cce-d514-4014-a426-365fb266a14d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: t5pmr.mail-node.gfw.kdns.fr
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /danfeng?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: t5pmr.mail-node.gfw.kdns.fr
+  - type: vless
     name: 4Kian-8c56705652
     server: 128.121.31.249
     port: 587
@@ -53,22 +71,60 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: speedtest.danfengno1.kdns.fr
+  - type: vless
+    name: 4Jadi-7b2a4197f8
+    server: 128.241.25.72
+    port: 30021
+    uuid: 65f26a08-9a5e-4b28-9004-f98676cc1e49
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev
+  - type: vless
+    name: 4Sarina-842beba89a
+    server: 128.241.25.215
+    port: 30036
+    uuid: 87e7d0b2-faf6-4644-97ae-ad9bffca2c97
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-bd19f20ed8
       - 4Kian-8c56705652
       - 4Sarina-60188de09d
       - 4Jadi-7e082acd54
+      - 4Jadi-7b2a4197f8
+      - 4Sarina-842beba89a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-bd19f20ed8
       - 4Kian-8c56705652
       - 4Sarina-60188de09d
       - 4Jadi-7e082acd54
+      - 4Jadi-7b2a4197f8
+      - 4Sarina-842beba89a
 rules:
   - MATCH,Proxy

@@ -1,34 +1,30 @@
 proxies:
   - type: vless
-    name: 4Nika-8e9ed47dd0
-    server: 185.229.9.135
+    name: 4Mohsen-7d023cf1c8
+    server: 185.229.9.175
     port: 443
-    uuid: 2f4de908-b22e-48e9-9e57-fc86acf02c56
+    uuid: 18c83152-8420-4865-889d-ff47a300a451
     udp: true
     tls: true
-    client-fingerprint: android
-    alpn:
-      - http/1.1
-    servername: lesotorg-kirov.ru
+    client-fingerprint: firefox
+    servername: api.ok.ru
+    reality-opts:
+      public-key: Eutx4frdhG1y7THj7k3CjazAsrCMj932RtbV4a1QfQk
+      short-id: d5b6308860d578bb
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /chws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lesotorg-kirov.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-8e9ed47dd0
+      - 4Mohsen-7d023cf1c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-8e9ed47dd0
+      - 4Mohsen-7d023cf1c8
 rules:
   - MATCH,Proxy

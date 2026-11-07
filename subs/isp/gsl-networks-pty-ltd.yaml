@@ -22,10 +22,10 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-01
-    server: 173.244.56.6
+    server: 173.244.56.9
     port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
+    cipher: YWVzLTEyOC1nY206c2hhZG93c29ja3M%3D
+    password: ""
     udp: true
   - type: ss
     name: ss
@@ -37,6 +37,13 @@ proxies:
   - type: ss
     name: DeltaKroneckerGithub-02
     server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 173.244.56.6
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
@@ -55,20 +62,6 @@ proxies:
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
-  - type: vless
-    name: 4Nika-de6b034da1
-    server: 203.10.96.138
-    port: 443
-    uuid: e2af4c44-191a-4866-8ff3-bd2c5f6c37af
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: cdn-dynmedia-1.microsoft.com
-    reality-opts:
-      public-key: VFG2L-3i30fQZg3wd0DF6dEGdaT27S-PKpuYu7Hp8xU
-      short-id: fd26d49a
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -80,9 +73,9 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - ss
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 🇺🇸US-173.244.56.6-0191
       - 🇺🇸US-173.244.56.9-0190
-      - 4Nika-de6b034da1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -95,8 +88,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - ss
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 🇺🇸US-173.244.56.6-0191
       - 🇺🇸US-173.244.56.9-0190
-      - 4Nika-de6b034da1
 rules:
   - MATCH,Proxy
