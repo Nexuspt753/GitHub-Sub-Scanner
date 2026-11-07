@@ -1,19 +1,31 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: cranberry.timing.singer.aliyunglsb.com
-    port: 37062
-    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
+    server: hk010.zestapp778.com
+    port: 31884
+    uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
     udp: true
     tls: true
-    sni: steampipe.akamaized.net
     client-fingerprint: chrome
+    servername: hk010.zestapp778.com
+    xudp: true
+  - type: vless
+    name: 4FreeIran-5fa5f66a7e
+    server: 152.175.6.229
+    port: 31884
+    uuid: 32dd0fc0-cf2d-42f0-8680-efc77042550c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: hk010.zestapp778.com
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-5fa5f66a7e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-5fa5f66a7e
 rules:
   - MATCH,Proxy

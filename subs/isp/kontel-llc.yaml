@@ -1,20 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 46.8.19.126
-    port: 8444
-    uuid: b9a220db-e5a3-40c9-9836-05b5bbc8c7e4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
-      short-id: cb1733a12d48629b
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: hysteria2
     name: 4FreeIran-ee48b3aedc
     server: 46.8.210.209
@@ -22,38 +6,18 @@ proxies:
     password: 95c61940-2823-4665-a033-d4f2218329b6
     sni: ru3.kinotorg.net
     skip-cert-verify: true
-  - type: vless
-    name: 4Kian-ad324d94ae
-    server: 46.8.19.126
-    port: 8444
-    uuid: f67f1548-c958-45e4-a7f4-194b90ccd99f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
-      short-id: cb1733a12d48629b
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4FreeIran-ee48b3aedc
-      - 4Kian-ad324d94ae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4FreeIran-ee48b3aedc
-      - 4Kian-ad324d94ae
 rules:
   - MATCH,Proxy

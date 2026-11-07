@@ -1,35 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-4bf1675754
-    server: 122.8.47.4
-    port: 8443
-    uuid: 1c80222f-9fd9-db7b-c1ae-86c82c158b9d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: hwwiWVqYq5b7S0JaXNSxjWSEv_1OUFMaWJGHzeAGyRM
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-b7c77fa69e
-    server: 122.8.47.5
-    port: 8443
-    uuid: 1c80222f-9fd9-db7b-c1ae-86c82c158b9d
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: skXBkyphBIt0TWVM0R5U3U-8UG0cuW00ONkaQpJ-OxU
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Kian-ef56204c59
     server: 170.168.99.5
     port: 8443
@@ -44,73 +14,18 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: ConfigV2RayNG
-    server: 122.8.47.4
-    port: 8443
-    uuid: ffaa2141-759b-424f-f28c-23dbeae00f10
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.philips.com
-    reality-opts:
-      public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Nika-525daeb1a3
-    server: 122.8.47.4
-    port: 8443
-    uuid: ffaa2141-759b-424f-f28c-23dbeae00f10
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.philips.com
-    reality-opts:
-      public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-431571536a
-    server: 122.8.47.4
-    port: 8443
-    uuid: ffaa2141-759b-424f-f28c-23dbeae00f10
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.philips.com
-    reality-opts:
-      public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-4bf1675754
-      - 4FreeIran-b7c77fa69e
       - 4Kian-ef56204c59
-      - ConfigV2RayNG
-      - 4Nika-525daeb1a3
-      - 4Mohsen-431571536a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-4bf1675754
-      - 4FreeIran-b7c77fa69e
       - 4Kian-ef56204c59
-      - ConfigV2RayNG
-      - 4Nika-525daeb1a3
-      - 4Mohsen-431571536a
 rules:
   - MATCH,Proxy

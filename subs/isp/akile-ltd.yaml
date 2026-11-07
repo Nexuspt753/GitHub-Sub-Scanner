@@ -1,11 +1,25 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: hk3n.wxgqlfx.vip
+    port: 35193
+    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Jadi-f3caa937ec
     server: fre.guren1.me
     port: 8443
     password: c3a8753e-317e-479e-bee7-01adf5e2af7e
   - type: vless
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 156.226.168.221
     port: 35193
     uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
@@ -18,20 +32,15 @@ proxies:
       short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
-  - type: trojan
-    name: 4Sarina-0576414ebc
-    server: 83.147.15.84
-    port: 8443
-    password: 8deb189a-3aed-4865-843b-b72dae954c46
-    udp: true
-    tls: true
-    sni: api.85s.me
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: hysteria2
+    name: 4Nika-3d42b73fc3
+    server: 154.85.19.50
+    port: 443
+    password: d8cf80f7-e24b-4961-91f6-77d494bcbdab
+    sni: www.bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
   - type: trojan
     name: 4Kian-378ef8aefe
     server: 156.246.91.9
@@ -47,14 +56,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Nika-33fcabfd35
+    name: 4Mohsen-5d77b10feb
     server: 156.226.168.221
+    port: 35193
+    uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.apple.com
+    reality-opts:
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-683f546702
+    server: hk3n.wxgqlfx.vip
     port: 35193
     uuid: 35cbae61-ee10-4cb9-abb8-4950b35e9851
     udp: true
     tls: true
     client-fingerprint: chrome
     servername: www.apple.com
+    reality-opts:
+      public-key: d_pn_DMaIxhCkNh80h0Mc7nP94hrlN--I8liOIREDxE
+      short-id: e8daed2d
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -85,47 +111,62 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-6ae276e642
-    server: 156.231.112.160
-    port: 443
-    uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
+    name: 4Jadi-c6669bf14e
+    server: 156.246.88.125
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: u.srilankangrill.online
+    servername: github.com
+    reality-opts:
+      public-key: 1fa6iCY7vhoQyKu91FeaK04FN-mr1qeHnrtdyLZ79mk
+      short-id: 6caead99
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: u.srilankangrill.online
+  - type: vless
+    name: 4Mohsen-86b69835c1
+    server: 156.246.88.125
+    port: 26518
+    uuid: e01fcb68-3112-49da-b85d-dffb799cfc9b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: github.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-f3caa937ec
       - DeltaKroneckerGithub
-      - 4Sarina-0576414ebc
+      - 4Jadi-f3caa937ec
+      - DeltaKroneckerGithub-01
+      - 4Nika-3d42b73fc3
       - 4Kian-378ef8aefe
-      - 4Nika-33fcabfd35
+      - 4Mohsen-5d77b10feb
+      - 4Jadi-683f546702
       - 4Jadi-0102015f0c
       - 4Sarina-43f6149257
-      - 4Sarina-6ae276e642
+      - 4Jadi-c6669bf14e
+      - 4Mohsen-86b69835c1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-f3caa937ec
       - DeltaKroneckerGithub
-      - 4Sarina-0576414ebc
+      - 4Jadi-f3caa937ec
+      - DeltaKroneckerGithub-01
+      - 4Nika-3d42b73fc3
       - 4Kian-378ef8aefe
-      - 4Nika-33fcabfd35
+      - 4Mohsen-5d77b10feb
+      - 4Jadi-683f546702
       - 4Jadi-0102015f0c
       - 4Sarina-43f6149257
-      - 4Sarina-6ae276e642
+      - 4Jadi-c6669bf14e
+      - 4Mohsen-86b69835c1
 rules:
   - MATCH,Proxy

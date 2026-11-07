@@ -1,12 +1,25 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: music.3apes.online
+    server: 217.60.27.78
     port: 443
     uuid: 12776e55-6230-48b9-b069-1bb8a04b4237
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: firefox
+    servername: music.3apes.online
+    reality-opts:
+      public-key: q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-68e452668e
+    server: 217.60.27.78
+    port: 443
+    uuid: 12776e55-6230-48b9-b069-1bb8a04b4237
+    udp: true
+    tls: true
+    client-fingerprint: firefox
     servername: music.3apes.online
     reality-opts:
       public-key: q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ
@@ -25,13 +38,26 @@ proxies:
       public-key: q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-c240641a94
+    server: music.3apes.online
+    port: 443
+    uuid: 12776e55-6230-48b9-b069-1bb8a04b4237
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: music.3apes.online
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-68e452668e
       - 4Sarina-6f48bb76d0
+      - 4FreeIran-c240641a94
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,6 +65,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-68e452668e
       - 4Sarina-6f48bb76d0
+      - 4FreeIran-c240641a94
 rules:
   - MATCH,Proxy

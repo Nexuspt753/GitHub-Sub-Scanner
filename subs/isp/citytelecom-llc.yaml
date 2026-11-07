@@ -5,12 +5,27 @@ proxies:
     port: 19455
     password: 190edece-2750-454c-b766-0570fc32deca
     sni: mshvpn.online
+  - type: vless
+    name: 4Kian-556dbbe891
+    server: 185.229.9.79
+    port: 443
+    uuid: 18c83152-8420-4865-889d-ff47a300a451
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.vk.com
+    reality-opts:
+      public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+      short-id: 0bb3fbdc6cb178d4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-189074a9aa
+      - 4Kian-556dbbe891
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-189074a9aa
+      - 4Kian-556dbbe891
 rules:
   - MATCH,Proxy

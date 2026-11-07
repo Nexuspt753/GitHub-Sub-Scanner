@@ -1,26 +1,6 @@
 proxies:
   - type: vmess
     name: DeltaKroneckerGithub
-    server: renderer-stream-1-871.mirra.now
-    port: 443
-    uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-1-871.mirra.now
-    alpn:
-      - h2
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/o36ecpsebqjq/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-1-871.mirra.now
-  - type: vmess
-    name: DeltaKroneckerGithub-01
     server: 93.93.89.118
     port: 443
     uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
@@ -39,32 +19,12 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-1-871.mirra.now
-  - type: vmess
-    name: 4Kian-fe768cc2ed
-    server: 93.93.88.22
-    port: 443
-    uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-1-871.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/o36ecpsebqjq/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-1-871.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Kian-fe768cc2ed
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -72,7 +32,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Kian-fe768cc2ed
 rules:
   - MATCH,Proxy
