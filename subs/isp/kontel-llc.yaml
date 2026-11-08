@@ -6,6 +6,18 @@ proxies:
     password: 95c61940-2823-4665-a033-d4f2218329b6
     sni: ru3.kinotorg.net
     skip-cert-verify: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ru2.x8lab.org
+    port: 9443
+    password: bVhfAPS7f_tagBb-G79z0zWB6L1yK84H
+    udp: true
+    tls: true
+    sni: ru2.x8lab.org
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: 4Kian-9099a12065
     server: 185.186.140.69
@@ -22,13 +34,48 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-b2c6152652
+    server: 185.186.143.76
+    port: 443
+    uuid: 528c9248-7b50-45fb-9188-e46d889dafe6
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: ru-kitchen.ru
+    reality-opts:
+      public-key: 6vDdlh4aAipoRQ-IXDjzTUtKpZS09xtNXIisCa__2CM
+      short-id: f74c6a18133e2e72
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-5846f80cf0
+    server: 46.8.19.126
+    port: 8444
+    uuid: b9a220db-e5a3-40c9-9836-05b5bbc8c7e4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
+      short-id: cb1733a12d48629b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-ee48b3aedc
+      - DeltaKroneckerGithub
       - 4Kian-9099a12065
+      - 4FreeIran-b2c6152652
+      - 4Kian-5846f80cf0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -36,6 +83,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-ee48b3aedc
+      - DeltaKroneckerGithub
       - 4Kian-9099a12065
+      - 4FreeIran-b2c6152652
+      - 4Kian-5846f80cf0
 rules:
   - MATCH,Proxy

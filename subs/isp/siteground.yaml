@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: FXxNET⚡️
+    server: adc.tigermoney.ir
+    port: 1598
+    uuid: 626b7b21-05ae-41e3-ba51-d4ec6ec2c1dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: app-analytics-services.com
+    reality-opts:
+      public-key: 32aPyURIGlMSOfJGyqrU_HhDFtx0c9XkImHfmXL6pSs
+      short-id: 25cc9a9ffdbaa7ac
+    xudp: true
+  - type: vless
+    name: 4Jadi-ffeafad139
+    server: adc.tigermoney.ir
+    port: 1598
+    uuid: 626b7b21-05ae-41e3-ba51-d4ec6ec2c1dc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: app-analytics-services.com
+    reality-opts:
+      public-key: 32aPyURIGlMSOfJGyqrU_HhDFtx0c9XkImHfmXL6pSs
+      short-id: 25cc9a9ffdbaa7ac
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - FXxNET⚡️
+      - 4Jadi-ffeafad139
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - FXxNET⚡️
+      - 4Jadi-ffeafad139
+rules:
+  - MATCH,Proxy

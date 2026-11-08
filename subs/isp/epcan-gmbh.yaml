@@ -1,0 +1,90 @@
+proxies:
+  - type: vless
+    name: 12126@proxy_online_net
+    server: n4.topingr.ir
+    port: 443
+    uuid: 3694cbd9-986b-4bf3-95df-3649b37ccb47
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: static.zovip2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/pulse
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: static.zovip2.ir
+  - type: vless
+    name: 4Mohsen-9c966dc105
+    server: n4.topingr.ir
+    port: 443
+    uuid: 3694cbd9-986b-4bf3-95df-3649b37ccb47
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: static.zovip2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/pulse
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: static.zovip2.ir
+  - type: vless
+    name: ⚡10
+    server: n4.topingr.ir
+    port: 443
+    uuid: f9cb35cd-e905-4b8a-8188-44873be88c2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: static.zovip2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/pulse
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: static.zovip2.ir
+  - type: vless
+    name: 4Sarina-042d5b3616
+    server: n4.topingr.ir
+    port: 443
+    uuid: f9cb35cd-e905-4b8a-8188-44873be88c2f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: static.zovip2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v3/pulse
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: static.zovip2.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 12126@proxy_online_net
+      - 4Mohsen-9c966dc105
+      - ⚡10
+      - 4Sarina-042d5b3616
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 12126@proxy_online_net
+      - 4Mohsen-9c966dc105
+      - ⚡10
+      - 4Sarina-042d5b3616
+rules:
+  - MATCH,Proxy

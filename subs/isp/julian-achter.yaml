@@ -1,31 +1,34 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 45.133.73.20
-    port: 2087
-    uuid: 3d78373f-bdbd-428a-9b83-aea64264bf4e
+    name: vless
+    server: nl.louien.space
+    port: 4443
+    uuid: c447b5e9-417e-4784-9016-026b206da36c
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: main.vpsvdsclouds.net
-    reality-opts:
-      public-key: oxdpwF7pHTpNG_R2y_Og0vOd2AAsCZ9dhCADuFH90AU
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-283b7cdd95
+    server: nl.louien.space
+    port: 8080
+    uuid: c447b5e9-417e-4784-9016-026b206da36c
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
+      - vless
+      - 4Jadi-283b7cdd95
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
+      - vless
+      - 4Jadi-283b7cdd95
 rules:
   - MATCH,Proxy

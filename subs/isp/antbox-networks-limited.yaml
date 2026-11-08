@@ -1,30 +1,25 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-7df3578737
-    server: 192.238.242.209
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 192.238.238.62
     port: 443
-    uuid: 1062962a-7495-4b71-818b-f5e1f48596cf
+    password: 9c2cd61e-fa64-3e6f-a817-132e17e11949
     udp: true
     tls: true
+    sni: origin-a.akamaihd.net
     client-fingerprint: chrome
-    servername: account.booking.com
-    reality-opts:
-      public-key: VJXtyD2vDeGBXL2qwKStAvZsB7a8ZoIZQjlPitcozzQ
-      short-id: 65388410c45965a6
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-7df3578737
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-7df3578737
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,20 +1,18 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 95.142.32.42
-    port: 8444
-    uuid: a8321cfe-39a2-48a0-a918-f01f7d9006ed
+  - type: ss
+    name: V2ray_confiig
+    server: 77.221.132.206
+    port: 24759
+    cipher: chacha20-ietf-poly1305
+    password: hCgbUnMaoAfSgvE8IKdnGu
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nl18.meshbeat.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v1/devices/86f81c4330/telemetry
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl18.meshbeat.online
+  - type: ss
+    name: 🇳🇱
+    server: 77.221.132.206
+    port: 24759
+    cipher: chacha20-ietf-poly1305
+    password: hCgbUnMaoAfSgvE8IKdnGu
+    udp: true
   - type: ss
     name: 4FreeIran-0a24ce4e64
     server: 77.221.132.206
@@ -27,7 +25,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - V2ray_confiig
+      - 🇳🇱
       - 4FreeIran-0a24ce4e64
   - name: Auto
     type: url-test
@@ -35,7 +34,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - V2ray_confiig
+      - 🇳🇱
       - 4FreeIran-0a24ce4e64
 rules:
   - MATCH,Proxy

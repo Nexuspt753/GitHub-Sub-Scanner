@@ -10,12 +10,24 @@ proxies:
     servername: xkg82.enterquality.online
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-b21635a578
+    server: xkg82.enterquality.online
+    port: 2443
+    uuid: 664d2284-e0ad-4de4-9752-a0e12a29840e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: xkg82.enterquality.online
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-bbee01611f
+      - 4Nika-b21635a578
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +35,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-bbee01611f
+      - 4Nika-b21635a578
 rules:
   - MATCH,Proxy

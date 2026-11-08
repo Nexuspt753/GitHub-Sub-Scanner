@@ -14,28 +14,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-525daeb1a3
-    server: 122.8.47.4
-    port: 8443
-    uuid: ffaa2141-759b-424f-f28c-23dbeae00f10
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.philips.com
-    reality-opts:
-      public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-ef56204c59
-      - 4Nika-525daeb1a3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -43,6 +27,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-ef56204c59
-      - 4Nika-525daeb1a3
 rules:
   - MATCH,Proxy

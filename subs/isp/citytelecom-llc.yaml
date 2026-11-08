@@ -1,31 +1,43 @@
 proxies:
   - type: hysteria2
-    name: 4Nika-31ba7fd798
-    server: 89.125.214.221
-    port: 19453
-    password: 190edece-2750-454c-b766-0570fc32deca
-    sni: mshvpn.online
-  - type: hysteria2
     name: 4Mohsen-e1e42b8b61
     server: 89.125.214.221
     port: 19455
     password: 190edece-2750-454c-b766-0570fc32deca
     sni: mshvpn.online
     skip-cert-verify: true
+  - type: vless
+    name: 4Nika-110eeebfb1
+    server: 185.229.9.135
+    port: 443
+    uuid: 2f4de908-b22e-48e9-9e57-fc86acf02c56
+    udp: true
+    tls: true
+    client-fingerprint: android
+    alpn:
+      - http/1.1
+    servername: lesotorg-kirov.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /chws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lesotorg-kirov.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-31ba7fd798
       - 4Mohsen-e1e42b8b61
+      - 4Nika-110eeebfb1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-31ba7fd798
       - 4Mohsen-e1e42b8b61
+      - 4Nika-110eeebfb1
 rules:
   - MATCH,Proxy

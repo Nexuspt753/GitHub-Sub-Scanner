@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Nika-a9f7ae89ae
+    server: 31.59.65.33
+    port: 3729
+    uuid: cf715525-50b8-4128-b72f-1502422b38e2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: us29.static-s3.org
+    reality-opts:
+      public-key: 2MIj41I4-fKz1H0jVVhXbLoKHJ3WvGx82Yn_LuH8Ilc
+      short-id: b9eda8db1552f9c5
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-9d3ac5c0de
     server: 31.59.83.4
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-a9f7ae89ae
       - 4Kian-9d3ac5c0de
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-a9f7ae89ae
       - 4Kian-9d3ac5c0de
 rules:
   - MATCH,Proxy
