@@ -1,12 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-e94acc3d25
-    server: 31.14.116.82
-    port: 8443
-    uuid: 3b3457dc-a606-4b0b-aac6-c7aedc9d8619
-    udp: true
-    xudp: true
-  - type: vless
     name: 4FreeIran-6e0441b876
     server: crm2.play98.ir
     port: 52862
@@ -33,30 +26,46 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-0ff6a85a62
+    name: 4Mohsen-de2a9a19a5
     server: 31.14.116.80
     port: 8443
     uuid: 93579113-3df4-4206-8124-a75d381a3e32
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-f7df643cec
+    server: c1.lionets.nl
+    port: 443
+    uuid: dac47b49-233f-49e9-b1a0-8dcc06907256
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: aparat.com
+    reality-opts:
+      public-key: RKd3-fMd-D-DaNA0b3snyuPwBlbHgiDMsU8CK8DpgHA
+      short-id: 057f
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e94acc3d25
       - 4FreeIran-6e0441b876
       - 4Jadi-8b0d39d94c
-      - 4FreeIran-0ff6a85a62
+      - 4Mohsen-de2a9a19a5
+      - 4FreeIran-f7df643cec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e94acc3d25
       - 4FreeIran-6e0441b876
       - 4Jadi-8b0d39d94c
-      - 4FreeIran-0ff6a85a62
+      - 4Mohsen-de2a9a19a5
+      - 4FreeIran-f7df643cec
 rules:
   - MATCH,Proxy

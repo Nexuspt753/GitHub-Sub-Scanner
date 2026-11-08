@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Kian-5c2034fe07
+    server: 2.59.80.128
+    port: 8465
+    uuid: ad26c433-baa9-4e85-8c18-f2685403767e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: PSVwD5kQazghbdAEfAOzEQnd-ZErzcAHS89GmpeSviM
+      short-id: 14efb3a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-fbc9dad599
     server: 2.59.80.128
     port: 8524
@@ -19,6 +33,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-5c2034fe07
       - 4Nika-fbc9dad599
   - name: Auto
     type: url-test
@@ -26,6 +41,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-5c2034fe07
       - 4Nika-fbc9dad599
 rules:
   - MATCH,Proxy

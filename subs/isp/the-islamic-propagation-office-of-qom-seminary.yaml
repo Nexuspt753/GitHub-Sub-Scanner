@@ -1,0 +1,31 @@
+proxies:
+  - type: vless
+    name: 4Jadi-d8f650370c
+    server: www.agahiya.ir
+    port: 443
+    uuid: 57e089a8-0cd1-48d0-b572-105c4804f6b8
+    udp: true
+    tls: true
+    client-fingerprint: android
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /jx-y8179aild6rsmj
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: soliconf-gghosin4-cell.dormhost.app
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-d8f650370c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-d8f650370c
+rules:
+  - MATCH,Proxy

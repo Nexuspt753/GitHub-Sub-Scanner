@@ -1,12 +1,5 @@
 proxies:
   - type: ss
-    name: FarazV2ray
-    server: 216.105.168.18
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: bQZl7HDxSabr1FurTYQHFU
-    udp: true
-  - type: ss
     name: V2raySaman
     server: 216.105.168.18
     port: 443
@@ -14,11 +7,32 @@ proxies:
     password: bQZl7HDxSabr1FurTYQHFU
     udp: true
   - type: ss
+    name: VConfing
+    server: 66.23.203.19
+    port: 19690
+    cipher: aes-128-gcm
+    password: 4e501338a6c03d7626f2fa0e09ed66d6
+    udp: true
+  - type: ss
+    name: Tel@MARAMBASHI
+    server: 66.23.203.19
+    port: 19690
+    cipher: aes-128-gcm
+    password: 4e501338a6c03d7626f2fa0e09ed66d6
+    udp: true
+  - type: ss
     name: 4Jadi-5a3ef5fb18
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
     password: bQZl7HDxSabr1FurTYQHFU
+    udp: true
+  - type: ss
+    name: 4Mohsen-6afa29ebda
+    server: 216.105.168.18
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: hCCWOcIsK5wrFz4OX70rWf
     udp: true
   - type: trojan
     name: DeltaKroneckerGithub
@@ -28,22 +42,32 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-99d41d2f54
+    server: 66.23.203.21
+    port: 59689
+    password: ae7eb4dwyaz25pxwgq59
+    udp: true
+    client-fingerprint: chrome
   - type: ss
     name: DeltaKroneckerGithub-01
     server: 216.105.168.18
     port: 443
     cipher: chacha20-ietf-poly1305
-    password: bQZl7HDxSabr1FurTYQHFU
+    password: hCCWOcIsK5wrFz4OX70rWf
     udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - FarazV2ray
       - V2raySaman
+      - VConfing
+      - Tel@MARAMBASHI
       - 4Jadi-5a3ef5fb18
+      - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
+      - 4Jadi-99d41d2f54
       - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
@@ -51,10 +75,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - FarazV2ray
       - V2raySaman
+      - VConfing
+      - Tel@MARAMBASHI
       - 4Jadi-5a3ef5fb18
+      - 4Mohsen-6afa29ebda
       - DeltaKroneckerGithub
+      - 4Jadi-99d41d2f54
       - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

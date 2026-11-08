@@ -1,13 +1,15 @@
 proxies:
   - type: vless
-    name: 4Kian-f790684019
-    server: cdn4.anytube.ru
-    port: 443
-    uuid: 255a8044-3337-473e-af26-46a37208adcc
+    name: DeltaKroneckerGithub
+    server: rapira-dof.whitenw.net
+    port: 8445
+    uuid: cd138479-c87a-4d4c-b6ea-4beeb6ef2b47
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: cdn4.anytube.ru
+    servername: passport.yandex.ru
+    reality-opts:
+      public-key: l06r0clkHjHk7HRGpkDBJwZ1JJscSqfwHUQOrV3v3hQ
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -28,20 +30,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fbsv6.guardora.pro
+  - type: vless
+    name: 4FreeIran-487979acd1
+    server: rapira-dof.whitenw.net
+    port: 8445
+    uuid: cd138479-c87a-4d4c-b6ea-4beeb6ef2b47
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: passport.yandex.ru
+    reality-opts:
+      public-key: l06r0clkHjHk7HRGpkDBJwZ1JJscSqfwHUQOrV3v3hQ
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f790684019
+      - DeltaKroneckerGithub
       - 4Mohsen-479e532330
+      - 4FreeIran-487979acd1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f790684019
+      - DeltaKroneckerGithub
       - 4Mohsen-479e532330
+      - 4FreeIran-487979acd1
 rules:
   - MATCH,Proxy

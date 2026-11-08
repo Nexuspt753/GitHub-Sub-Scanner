@@ -1,54 +1,29 @@
 proxies:
   - type: vless
-    name: 4Mohsen-e22462230f
-    server: 154.194.12.182
-    port: 2053
-    uuid: 8ab5939a-c5ea-4d55-9abc-f28dbaafd79f
+    name: 4Sarina-6ef04902fb
+    server: 154.194.12.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: vexpanel-085724233a.pages.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /ws/8ab5939ac5ea4d55
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vexpanel-085724233a.pages.dev
-  - type: vless
-    name: 4Sarina-97904b4024
-    server: 154.194.12.182
-    port: 443
-    uuid: 8ab5939a-c5ea-4d55-9abc-f28dbaafd79f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: vexpanel-085724233a.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws/8ab5939ac5ea4d55
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vexpanel-085724233a.pages.dev
+        Host: vms.lifetime35.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e22462230f
-      - 4Sarina-97904b4024
+      - 4Sarina-6ef04902fb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e22462230f
-      - 4Sarina-97904b4024
+      - 4Sarina-6ef04902fb
 rules:
   - MATCH,Proxy

@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Mohsen-d04d5beb43
+    server: w8.fllow.ir
+    port: 2083
+    uuid: 2e70d9ae-7906-4e34-a6f9-187987823e0b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: blog.api.www.cloudflare.com
+    reality-opts:
+      public-key: 7rDVNkpWxUhi7o6Wp7YzX3VUhGUfnA47yGTTh0nTbxM
+      short-id: a8131121b2
+    xudp: true
+  - type: vless
     name: 4Jadi-a4c8319d0e
     server: n1.fllow.ir
     port: 443
@@ -16,7 +29,23 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4FreeIran-aa06832632
+    name: 4Jadi-378f7689a7
+    server: n1.fllow.ir
+    port: 25456
+    uuid: 71985fc8-74ab-44af-a476-ff21cc8617b2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: raka.bing.com
+    reality-opts:
+      public-key: 2_l_AeThgEkkPEN4_jQm83_oGgx_e9nsvYc2VHXk93w
+      short-id: 226f09e4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-5619d5cd22
     server: n1.fllow.ir
     port: 443
     uuid: e4d98cb3-ad20-4f27-bdf6-ab99af212bdc
@@ -36,15 +65,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-d04d5beb43
       - 4Jadi-a4c8319d0e
-      - 4FreeIran-aa06832632
+      - 4Jadi-378f7689a7
+      - 4Nika-5619d5cd22
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-d04d5beb43
       - 4Jadi-a4c8319d0e
-      - 4FreeIran-aa06832632
+      - 4Jadi-378f7689a7
+      - 4Nika-5619d5cd22
 rules:
   - MATCH,Proxy

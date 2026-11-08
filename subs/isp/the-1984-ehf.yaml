@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Jadi-3b72cb5998
+    server: 93.95.226.159
+    port: 28150
+    uuid: b4e69d67-9d41-417c-b465-ebf1591fb792
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: google.com
+    reality-opts:
+      public-key: KQW_o2BlCjMC8aH5lkNkO_rmMCAUykQIQCCIIehhsAo
+      short-id: "06"
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-3b72cb5998
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-3b72cb5998
+rules:
+  - MATCH,Proxy

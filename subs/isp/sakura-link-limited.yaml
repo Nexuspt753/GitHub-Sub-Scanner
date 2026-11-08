@@ -1,15 +1,6 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 152.175.38.171
-    port: 2053
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-    udp: true
-    tls: true
-    sni: official.tokyometropolis.odessa.ua
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
     server: official.tokyometropolis.kharkov.ua
     port: 2053
     password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
@@ -17,12 +8,21 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
+    name: DeltaKroneckerGithub-01
     server: official.tokyometropolis.chernigov.ua
     port: 2053
     password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
     udp: true
     tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 152.175.38.178
+    port: 2053
+    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+    udp: true
+    tls: true
+    sni: official.tokyometropolis.chernigov.ua
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-03
@@ -129,58 +129,6 @@ proxies:
     tls: true
     sni: official.tokyometropolis.chernigov.ua
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-5d1774365b
-    server: rb.xueshan168.cc
-    port: 443
-    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s0.awsstatic.com
-    reality-opts:
-      public-key: n6PsqXLQPrE3HHEg3iD_s09gniWkyD_h0Dq5Q3mtV28
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-5ddb03acd2
-    server: rb1.xueshan168.cc
-    port: 443
-    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s0.awsstatic.com
-    reality-opts:
-      public-key: boasPshryA8BDZa_GxZX8JRKJpBErbuH_lS6c9tvPCg
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-8fd29d8570
-    server: x-rb.xueshan168.cc
-    port: 443
-    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s0.awsstatic.com
-    reality-opts:
-      public-key: iv3BAoFjlsPSSjOn1cyXVZ3H31KqX65PoJusBEfU0lM
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-21eda8d010
-    server: x-rb1.xueshan168.cc
-    port: 16001
-    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s0.awsstatic.com
-    reality-opts:
-      public-key: CuqzBeQR_1VIdOGOgn5v8-t-X-YzURF9b3wtKVVyKQ8
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -202,10 +150,6 @@ proxy-groups:
       - 4Jadi-b2d85c9f8f
       - 4Kian-ff044c446a
       - DeltaKroneckerGithub-07
-      - 4Kian-5d1774365b
-      - 4Kian-5ddb03acd2
-      - 4Nika-8fd29d8570
-      - 4Kian-21eda8d010
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -228,9 +172,5 @@ proxy-groups:
       - 4Jadi-b2d85c9f8f
       - 4Kian-ff044c446a
       - DeltaKroneckerGithub-07
-      - 4Kian-5d1774365b
-      - 4Kian-5ddb03acd2
-      - 4Nika-8fd29d8570
-      - 4Kian-21eda8d010
 rules:
   - MATCH,Proxy

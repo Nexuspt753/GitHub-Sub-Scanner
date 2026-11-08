@@ -1,0 +1,100 @@
+proxies:
+  - type: vless
+    name: FXxNET⚡️
+    server: 72.56.59.177
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: FXxNET⚡️-01
+    server: 72.56.59.223
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: FXxNET⚡️-02
+    server: 72.56.59.254
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-20e35726a8
+    server: 72.56.59.177
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-aa72a84f5e
+    server: 72.56.59.223
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-35728008a6
+    server: 72.56.59.254
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - FXxNET⚡️
+      - FXxNET⚡️-01
+      - FXxNET⚡️-02
+      - 4FreeIran-20e35726a8
+      - 4Jadi-aa72a84f5e
+      - 4FreeIran-35728008a6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - FXxNET⚡️
+      - FXxNET⚡️-01
+      - FXxNET⚡️-02
+      - 4FreeIran-20e35726a8
+      - 4Jadi-aa72a84f5e
+      - 4FreeIran-35728008a6
+rules:
+  - MATCH,Proxy
