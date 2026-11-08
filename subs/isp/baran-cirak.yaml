@@ -1,17 +1,33 @@
 proxies:
   - type: vless
-    name: 4Nika-80bf3e2593
+    name: 4Sarina-0840d8c820
     server: 146.103.24.187
     port: 8443
     uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     servername: vlso5.1d.mom
     xudp: true
     network: ws
     ws-opts:
       path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
+  - type: vless
+    name: 4FreeIran-dc191eb24f
+    server: 146.103.24.187
+    port: 8443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vlso5.1d.mom
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=firefox
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vlso5.1d.mom
@@ -32,18 +48,15 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vlso5.1d.mom
   - type: vless
-    name: 4FreeIran-c1a046ba9d
+    name: 4Jadi-09e1b39dc7
     server: 146.103.24.187
     port: 8443
     uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vlso5.1d.mom
     xudp: true
     network: ws
     ws-opts:
-      path: /fp=firefox
+      path: /fp=firefoxsecurity=tls
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vlso5.1d.mom
@@ -52,17 +65,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-80bf3e2593
+      - 4Sarina-0840d8c820
+      - 4FreeIran-dc191eb24f
       - 4Mohsen-7010e63745
-      - 4FreeIran-c1a046ba9d
+      - 4Jadi-09e1b39dc7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-80bf3e2593
+      - 4Sarina-0840d8c820
+      - 4FreeIran-dc191eb24f
       - 4Mohsen-7010e63745
-      - 4FreeIran-c1a046ba9d
+      - 4Jadi-09e1b39dc7
 rules:
   - MATCH,Proxy

@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.66.129.12
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 45.66.129.225
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 45.66.129.128
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+rules:
+  - MATCH,Proxy

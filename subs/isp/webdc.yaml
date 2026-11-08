@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Nika-49b6925994
+    name: DeltaKroneckerGithub
     server: 62.109.1.5
     port: 2058
     uuid: 4ad9f982-b56a-444a-9684-35ce51307a36
@@ -13,18 +13,47 @@ proxies:
       short-id: 937255313d6ce673
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-2c38776d37
+    server: 62.109.1.5
+    port: 2058
+    uuid: 4ad9f982-b56a-444a-9684-35ce51307a36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: lJBsn9ndieTIUBzXkJUhf6O0OE8pm29_z1fUtARwL0s
+      short-id: 937255313d6ce673
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-23fa920c7e
+    server: 62.109.1.5
+    port: 2058
+    uuid: 4ad9f982-b56a-444a-9684-35ce51307a36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-49b6925994
+      - DeltaKroneckerGithub
+      - 4Nika-2c38776d37
+      - 4Sarina-23fa920c7e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-49b6925994
+      - DeltaKroneckerGithub
+      - 4Nika-2c38776d37
+      - 4Sarina-23fa920c7e
 rules:
   - MATCH,Proxy

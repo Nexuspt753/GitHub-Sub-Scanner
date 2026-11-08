@@ -1,22 +1,24 @@
 proxies:
   - type: vmess
-    name: DeltaKroneckerGithub
-    server: 195.208.65.155
+    name: 4Mohsen-cc8fecf1f0
+    server: renderer-stream-1-832.mirra.now
     port: 443
-    uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+    uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: renderer-stream-1-871.mirra.now
+    servername: renderer-stream-1-832.mirra.now
+    alpn:
+      - h2
     network: ws
     ws-opts:
-      path: /api/v1/gpu-stream/o36ecpsebqjq/socket
+      path: /api/v1/gpu-stream/socket
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-1-871.mirra.now
+        Host: renderer-stream-1-832.mirra.now
   - type: vmess
     name: 4FreeIran-c7d559a825
     server: renderer-stream-2-114.mirra.now
@@ -37,20 +39,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-114.mirra.now
+  - type: vmess
+    name: 4FreeIran-9ca83990aa
+    server: renderer-stream-2-129.mirra.now
+    port: 443
+    uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-129.mirra.now
+    alpn:
+      - h2
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-129.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Mohsen-cc8fecf1f0
       - 4FreeIran-c7d559a825
+      - 4FreeIran-9ca83990aa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Mohsen-cc8fecf1f0
       - 4FreeIran-c7d559a825
+      - 4FreeIran-9ca83990aa
 rules:
   - MATCH,Proxy

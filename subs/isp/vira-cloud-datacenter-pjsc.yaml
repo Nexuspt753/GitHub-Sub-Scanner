@@ -1,7 +1,14 @@
 proxies:
   - type: vless
+    name: 4Sarina-bea1387e74
+    server: tun.fxhunter.ir
+    port: 4253
+    uuid: 1c0c0469-5b4f-4df3-b25b-cbeafb88d2f2
+    udp: true
+    xudp: true
+  - type: vless
     name: vpnsal
-    server: dns1.mizdomaingame.ir
+    server: dns6.mizdomaingame.ir
     port: 443
     uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
     udp: true
@@ -9,16 +16,17 @@ proxies:
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: dns1.mizdomaingame.ir
+    servername: dns6.mizdomaingame.ir
     xudp: true
     network: ws
     ws-opts:
-      path: /j5qklki8k
+      path: /25qxao9a6
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns6.mizdomaingame.ir
   - type: vless
-    name: vpnsal-01
-    server: dns2.mizdomaingame.ir
+    name: 4FreeIran-d08f911434
+    server: dns6.mizdomaingame.ir
     port: 443
     uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
     udp: true
@@ -26,65 +34,30 @@ proxies:
     client-fingerprint: chrome
     alpn:
       - http/1.1
-    servername: dns2.mizdomaingame.ir
+    servername: dns6.mizdomaingame.ir
     xudp: true
     network: ws
     ws-opts:
-      path: /j5qklki8k
+      path: /25qxao9a6
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4FreeIran-b3d5ddda27
-    server: dns1.mizdomaingame.ir
-    port: 443
-    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: dns1.mizdomaingame.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /j5qklki8k
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Jadi-b11a5887b8
-    server: dns2.mizdomaingame.ir
-    port: 443
-    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: dns2.mizdomaingame.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /j5qklki8k
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns6.mizdomaingame.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-bea1387e74
       - vpnsal
-      - vpnsal-01
-      - 4FreeIran-b3d5ddda27
-      - 4Jadi-b11a5887b8
+      - 4FreeIran-d08f911434
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-bea1387e74
       - vpnsal
-      - vpnsal-01
-      - 4FreeIran-b3d5ddda27
-      - 4Jadi-b11a5887b8
+      - 4FreeIran-d08f911434
 rules:
   - MATCH,Proxy

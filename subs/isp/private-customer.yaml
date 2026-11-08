@@ -1,50 +1,64 @@
 proxies:
-  - type: ss
-    name: 4Sarina-35f99ae02e
-    server: 77.216.2.178
-    port: 30
-    cipher: chacha20-ietf-poly1305
-    password: BHxDn8Z67zuaoQsjHqSAMQQs8Dz1CGqJ
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 77.216.2.178
-    port: 30
-    cipher: chacha20-ietf-poly1305
-    password: BHxDn8Z67zuaoQsjHqSAMQQs8Dz1CGqJ
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 77.216.2.178
-    port: 30
-    cipher: chacha20-ietf-poly1305
-    password: BHxDn8Z67zuaoQsjHqSAMQQs8Dz1CGqJ
-    udp: true
   - type: vless
-    name: 4Nika-1565054b0c
-    server: ee.h1cloud.net
-    port: 25895
-    uuid: f90b7d43-69e2-4b46-a672-8029bc6796a2
+    name: DeltaKroneckerGithub
+    server: 131.143.180.53
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
     udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
+  - type: vless
+    name: 4FreeIran-63aff8188d
+    server: 131.143.180.53
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
+  - type: vless
+    name: 4Jadi-55d0065521
+    server: 130.12.102.125
+    port: 443
+    uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: localhost
+    reality-opts:
+      public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-35f99ae02e
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-1565054b0c
+      - 4FreeIran-63aff8188d
+      - 4Jadi-55d0065521
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-35f99ae02e
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-1565054b0c
+      - 4FreeIran-63aff8188d
+      - 4Jadi-55d0065521
 rules:
   - MATCH,Proxy

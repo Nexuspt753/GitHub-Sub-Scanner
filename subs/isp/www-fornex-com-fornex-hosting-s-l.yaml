@@ -1,25 +1,76 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 31.172.71.23
+  - type: vless
+    name: 4Nika-94bb2ae93a
+    server: 2.58.66.143
     port: 443
-    password: "1234567890"
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
     udp: true
     tls: true
-    sni: kfm-bn0.pages.dev
+    client-fingerprint: firefox
+    servername: example.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    xudp: true
+  - type: vless
+    name: 4Mohsen-9992714969
+    server: 2.58.66.198
+    port: 443
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: example.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    xudp: true
+  - type: vless
+    name: 4Sarina-4ecda8c45f
+    server: 130.17.13.244
+    port: 443
+    uuid: 4fe83abe-48a3-41d8-b966-1c13e7cfac01
+    udp: true
+    tls: true
     client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /jx-yu6idxjr72i2xz
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jyfrj1cims.dev.onappjet.com
+  - type: vless
+    name: 4Mohsen-e0e74743c2
+    server: 130.17.20.158
+    port: 443
+    uuid: 4fe83abe-48a3-41d8-b966-1c13e7cfac01
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /jx-yu6idxjr72i2xz
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jyfrj1cims.dev.onappjet.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-94bb2ae93a
+      - 4Mohsen-9992714969
+      - 4Sarina-4ecda8c45f
+      - 4Mohsen-e0e74743c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-94bb2ae93a
+      - 4Mohsen-9992714969
+      - 4Sarina-4ecda8c45f
+      - 4Mohsen-e0e74743c2
 rules:
   - MATCH,Proxy

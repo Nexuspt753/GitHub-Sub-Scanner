@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Mohsen-598fbacdea
+    name: 4Jadi-2a60ffffa2
     server: tunell2027.crackerbinam.org
     port: 48312
     uuid: f47057d5-120d-4b42-b6d6-30469aef6813
@@ -12,30 +12,23 @@ proxies:
       public-key: d9eM_jy8ztZrOf3DMq1m55VQSo7bnKcG1dRnO9ktJ2Y
       short-id: 902c315efc
     xudp: true
-  - type: vless
-    name: 4Sarina-a107fa34ec
-    server: tunell2027.crackerbinam.org
-    port: 48312
-    uuid: f47057d5-120d-4b42-b6d6-30469aef6813
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-598fbacdea
-      - 4Sarina-a107fa34ec
+      - 4Jadi-2a60ffffa2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-598fbacdea
-      - 4Sarina-a107fa34ec
+      - 4Jadi-2a60ffffa2
 rules:
   - MATCH,Proxy

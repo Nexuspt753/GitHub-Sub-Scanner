@@ -1,4 +1,72 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 27.50.48.13
+    port: 443
+    uuid: c98a16e4-0dc5-42f0-b3db-30f04525c123
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+    servername: vless2-8vx.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vless2-8vx.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 27.50.48.6
+    port: 443
+    uuid: c98a16e4-0dc5-42f0-b3db-30f04525c123
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+    servername: vless2-8vx.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vless2-8vx.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 27.50.49.154
+    port: 2083
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: proxy-34l.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-34l.pages.dev
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 27.50.48.8
+    port: 443
+    uuid: c98a16e4-0dc5-42f0-b3db-30f04525c123
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vless2-8vx.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vless2-8vx.pages.dev
   - type: trojan
     name: TEL;Father_vpn
     server: 27.50.48.49
@@ -50,39 +118,82 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: proxy-34l.pages.dev
   - type: vless
-    name: 4FreeIran-2080d82cd3
-    server: 27.50.49.154
-    port: 2083
+    name: 4Sarina-2e2552e6a3
+    server: 27.50.49.242
+    port: 8443
     uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
     udp: true
     tls: true
-    client-fingerprint: ios
-    servername: proxy-34l.pages.dev
+    client-fingerprint: qq
     xudp: true
     network: ws
     ws-opts:
-      path: /?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proxy-34l.pages.dev
+        Host: proxy-1cu.pages.dev
+  - type: vless
+    name: 4Jadi-6192c0b7eb
+    server: 27.50.48.13
+    port: 443
+    uuid: c98a16e4-0dc5-42f0-b3db-30f04525c123
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vless2-8vx.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vless2-8vx.pages.dev
+  - type: vless
+    name: 4Jadi-001aa99ff9
+    server: 27.50.48.8
+    port: 443
+    uuid: c98a16e4-0dc5-42f0-b3db-30f04525c123
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vless2-8vx.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vless2-8vx.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - TEL;Father_vpn
       - 4Kian-0229ebc253
       - 4Mohsen-67b14bf19b
-      - 4FreeIran-2080d82cd3
+      - 4Sarina-2e2552e6a3
+      - 4Jadi-6192c0b7eb
+      - 4Jadi-001aa99ff9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - TEL;Father_vpn
       - 4Kian-0229ebc253
       - 4Mohsen-67b14bf19b
-      - 4FreeIran-2080d82cd3
+      - 4Sarina-2e2552e6a3
+      - 4Jadi-6192c0b7eb
+      - 4Jadi-001aa99ff9
 rules:
   - MATCH,Proxy

@@ -1,30 +1,71 @@
 proxies:
   - type: vless
-    name: 4Nika-3b0b0ed97e
-    server: 83.147.242.230
+    name: DeltaKroneckerGithub
+    server: proxyip.jp.cmliussss.net
     port: 443
-    uuid: fc47db0c-c6f2-4665-bdb2-8f717822ce9d
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: h8wfq9h89fqwhq8wf9.datahubfiles.com
-    reality-opts:
-      public-key: mg2URd06-rc-sNNFMNjJDtihZS8mKWMkEjvBsIw_1hA
-      short-id: 496ec87bcb686a66
-    flow: xtls-rprx-vision
+    servername: vp10.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vmess
+    name: 4Kian-54c7b6521f
+    server: 132.243.22.80
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4Nika-5dab8a138b
+    server: 132.243.22.80
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-3b0b0ed97e
+      - DeltaKroneckerGithub
+      - 4Kian-54c7b6521f
+      - 4Nika-5dab8a138b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-3b0b0ed97e
+      - DeltaKroneckerGithub
+      - 4Kian-54c7b6521f
+      - 4Nika-5dab8a138b
 rules:
   - MATCH,Proxy

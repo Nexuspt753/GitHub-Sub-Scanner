@@ -1,48 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 95.182.121.140
+    name: 4FreeIran-51b255468a
+    server: worker02-k3s-dev.dvp.weatherapi.cc
     port: 443
-    uuid: 8dd437e1-5f3f-446e-98fe-aa29b80057fb
+    uuid: 82e94483-7cda-3006-a510-7309acec2a4a
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: crt.onecloudstream.com
+    servername: worker02-k3s-dev.dvp.weatherapi.cc
+    reality-opts:
+      public-key: fH4PPPAtKg1Vha2JoIYsoCWyY1lOZh33ZzPk5Ra9mmA
+      short-id: fa225678c4934349
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-8e47298cd4
-    server: 95.182.121.140
-    port: 443
-    uuid: 8dd437e1-5f3f-446e-98fe-aa29b80057fb
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: crt.onecloudstream.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Kian-8e47298cd4
+      - 4FreeIran-51b255468a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Kian-8e47298cd4
+      - 4FreeIran-51b255468a
 rules:
   - MATCH,Proxy

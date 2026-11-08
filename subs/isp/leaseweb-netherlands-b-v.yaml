@@ -1,34 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Kian-db2dbfe045
-    server: 185.19.33.160
-    port: 8443
-    uuid: fc1aae3b-e361-416c-aebf-cebdcceedae9
+  - type: vmess
+    name: 4Mohsen-2a52f0c141
+    server: 53f3167b1b943c53.vira-ai.dns.8.8.8.8.ir-service.connectoo.my.id
+    port: 2044
+    uuid: 6bf2145c-75ea-48bc-b10a-84265c8d0973
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: 185.19.33.160
     xudp: true
-    network: ws
-    ws-opts:
-      path: /x7k2-media-stream
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 185.19.33.160
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-db2dbfe045
+      - 4Mohsen-2a52f0c141
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-db2dbfe045
+      - 4Mohsen-2a52f0c141
 rules:
   - MATCH,Proxy
