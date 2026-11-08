@@ -1,23 +1,29 @@
 proxies:
-  - type: ss
-    name: Muscat · @DeltaKroneckerGithub
-    server: 130.94.81.180
-    port: 18415
-    cipher: aes-128-gcm
-    password: b667234b8d2e7eb34444857ea3a9b18a
+  - type: vless
+    name: Muscat · 4Mohsen-1adfe1ef3e
+    server: vpn.noxtem.cc
+    port: 2020
+    uuid: b2ee4a4e-eb20-4bb4-956c-dc0f5187633e
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: vpn.noxtem.cc
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Muscat · @DeltaKroneckerGithub
+      - Muscat · 4Mohsen-1adfe1ef3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Muscat · @DeltaKroneckerGithub
+      - Muscat · 4Mohsen-1adfe1ef3e
 rules:
   - MATCH,Proxy

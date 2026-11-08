@@ -1,29 +1,32 @@
 proxies:
-  - type: vless
-    name: confing_v2rayy
-    server: 103.238.227.211
-    port: 21003
-    uuid: 52d2187c-34e1-40fd-a6f5-0a74ff7d3e9a
+  - type: vmess
+    name: 4Mohsen-b7fa7a899a
+    server: hk2.ssn571.top
+    port: 38888
+    uuid: 24f9c0b4-f1c8-43a2-9c17-0a256b693db5
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: EXU8eOS1kf_ROqC68NO-zbzRFGx7U5zE6WvjxRzYeTo
-      short-id: eb9539689690d35c
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - confing_v2rayy
+      - 4Mohsen-b7fa7a899a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - confing_v2rayy
+      - 4Mohsen-b7fa7a899a
 rules:
   - MATCH,Proxy

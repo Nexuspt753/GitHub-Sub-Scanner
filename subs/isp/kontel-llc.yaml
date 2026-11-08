@@ -15,22 +15,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: 46.8.19.126
-    port: 8444
-    uuid: b9a220db-e5a3-40c9-9836-05b5bbc8c7e4
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
-      short-id: cb1733a12d48629b
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: hysteria2
     name: 4FreeIran-ee48b3aedc
     server: 46.8.210.209
@@ -70,16 +54,47 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-17ce07ff2c
+    server: 46.8.19.126
+    port: 8443
+    uuid: f67f1548-c958-45e4-a7f4-194b90ccd99f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
+      short-id: cb1733a12d48629b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-ad324d94ae
+    server: 46.8.19.126
+    port: 8444
+    uuid: f67f1548-c958-45e4-a7f4-194b90ccd99f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: pjRu70aycBq_sodRHf_BDYUXVjmi0wofQNQXTTXQfDU
+      short-id: cb1733a12d48629b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4FreeIran-ee48b3aedc
       - 4Kian-5846f80cf0
       - 4FreeIran-1011dd8e8e
+      - 4Mohsen-17ce07ff2c
+      - 4Kian-ad324d94ae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -87,9 +102,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4FreeIran-ee48b3aedc
       - 4Kian-5846f80cf0
       - 4FreeIran-1011dd8e8e
+      - 4Mohsen-17ce07ff2c
+      - 4Kian-ad324d94ae
 rules:
   - MATCH,Proxy

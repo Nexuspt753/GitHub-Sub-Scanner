@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: 4Nika-0898be1da0
-    server: 178.253.16.185
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: x2A6AsyZ-rAllz0wbKHzWA
-    udp: true
   - type: vless
     name: 4Jadi-fecf89dd28
     server: 103.71.23.244
@@ -108,6 +101,24 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
   - type: vmess
+    name: 4FreeIran-874de140dc
+    server: 95.81.126.119
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
+  - type: vmess
     name: 4FreeIran-76a7662a8b
     server: 95.81.126.119
     port: 443
@@ -129,13 +140,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-0898be1da0
       - 4Jadi-fecf89dd28
       - VPsave
       - 4Nika-56f73a8db3
       - 4Mohsen-c934b0efe7
       - 4Jadi-33f60f81e2
       - 4Mohsen-c69f225524
+      - 4FreeIran-874de140dc
       - 4FreeIran-76a7662a8b
   - name: Auto
     type: url-test
@@ -143,13 +154,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-0898be1da0
       - 4Jadi-fecf89dd28
       - VPsave
       - 4Nika-56f73a8db3
       - 4Mohsen-c934b0efe7
       - 4Jadi-33f60f81e2
       - 4Mohsen-c69f225524
+      - 4FreeIran-874de140dc
       - 4FreeIran-76a7662a8b
 rules:
   - MATCH,Proxy

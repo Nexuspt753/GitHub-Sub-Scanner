@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Sarina-1a509c7c8d
+    name: fastkanfig
     server: 188.225.45.152
     port: 443
     uuid: 238e492b-bc20-4380-92b6-135d39112ca4
@@ -13,34 +13,18 @@ proxies:
       short-id: 52ccb3687fe0b7ec
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Tarkshodeh
-    server: 188.225.25.142
-    port: 443
-    uuid: 7cde4592-4758-415f-8b97-c188faa4d1c9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: prime.betust.net
-    reality-opts:
-      public-key: SxbaWzlvE_HQqqsA4PNX2PFcSYXTVE2nZlgLc7cPOgk
-      short-id: 8681edc9
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-1a509c7c8d
-      - Tarkshodeh
+      - fastkanfig
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-1a509c7c8d
-      - Tarkshodeh
+      - fastkanfig
 rules:
   - MATCH,Proxy
