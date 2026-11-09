@@ -13,12 +13,28 @@ proxies:
       short-id: 87ac946b53bb52f5
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-86fdeb93c2
+    server: 194.55.239.39
+    port: 3443
+    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: orbdash.fun
+    reality-opts:
+      public-key: sj9jXacuSqKItqV-mBbv7O-puk3RX5stKYTSCG2y6ic
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-cf622272c2
+      - 4Nika-86fdeb93c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-cf622272c2
+      - 4Nika-86fdeb93c2
 rules:
   - MATCH,Proxy

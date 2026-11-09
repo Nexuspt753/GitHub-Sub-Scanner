@@ -1,12 +1,29 @@
 proxies:
   - type: vless
-    name: vless
-    server: iroo9.netbazshop.ir
-    port: 2087
-    uuid: a74d8860-7c2b-4be1-87ad-80ac5ee7cb7d
+    name: 4Jadi-86eeab8751
+    server: fi.trackless.sbs
+    port: 19892
+    uuid: 146d9538-a791-4ef1-8aa5-8c8e5fb0bb78
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: ryeuZl8ERrBWDphiPatep_J4bL_EtQxGMH5iYKB62ko
+      short-id: 2e430401089e47ed
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: tu1.rainwave.ir
+    port: 2050
+    uuid: 5c0814cb-09aa-452f-87a9-49000394b459
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: tun2.plasmoon.ir
     xudp: true
   - type: vless
     name: 4Nika-6947eb55b3
@@ -25,7 +42,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Jadi-86eeab8751
+      - VPsave
       - 4Nika-6947eb55b3
   - name: Auto
     type: url-test
@@ -33,7 +51,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Jadi-86eeab8751
+      - VPsave
       - 4Nika-6947eb55b3
 rules:
   - MATCH,Proxy
