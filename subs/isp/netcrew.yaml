@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 179.253.248.21
+    port: 443
+    uuid: a3940ddb-ba50-5109-a0fd-4a06990f1ded
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: learn.microsoft.com
+    reality-opts:
+      public-key: ABZFDD3Ne57Q0i7skCnEpyUVTKTdMhm3aqJ9mwLZ7lw
+      short-id: 62169cb853fb7503
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Jadi-103ba851f5
     server: 179.255.103.55
@@ -6,7 +20,7 @@ proxies:
     password: 92bf29cc-ee08-4c97-bf0b-b4dff41e5bd8
     sni: n02.jinggai.online
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 179.255.132.69
     port: 443
     password: humanity
@@ -23,22 +37,58 @@ proxies:
     tls: true
     sni: www.cordweave.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4FreeIran-6c66a3c2f5
+    server: 179.255.124.23
+    port: 443
+    uuid: a3940ddb-ba50-5109-a0fd-4a06990f1ded
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.logitech.com
+    reality-opts:
+      public-key: ZxdYEReKF-M_vIMpZWVMHf7ixDZmzIg-6Xt7IzstgwE
+      short-id: 16e300b06a6a7413
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-958c90b63c
+    server: 179.255.107.87
+    port: 443
+    uuid: affb10d4-3835-4b1f-b5a3-3481489911b6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cat.ilovezhenjiu.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cgciws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cat.ilovezhenjiu.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-103ba851f5
       - DeltaKroneckerGithub
+      - 4Jadi-103ba851f5
+      - DeltaKroneckerGithub-01
       - 4Kian-cae9c57aad
+      - 4FreeIran-6c66a3c2f5
+      - 4FreeIran-958c90b63c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-103ba851f5
       - DeltaKroneckerGithub
+      - 4Jadi-103ba851f5
+      - DeltaKroneckerGithub-01
       - 4Kian-cae9c57aad
+      - 4FreeIran-6c66a3c2f5
+      - 4FreeIran-958c90b63c
 rules:
   - MATCH,Proxy

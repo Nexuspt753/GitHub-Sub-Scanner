@@ -11,12 +11,28 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: 4FreeIran-e3b0f9aa77
+    server: 135.106.190.126
+    port: 443
+    uuid: c47159bb-2c15-440d-b239-8594d7e7efbb
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    alpn:
+      - h2
+    servername: a20uq2ozhd.j.cloudfront.hls.edgehls.net
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4FreeIran-e3b0f9aa77
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -24,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4FreeIran-e3b0f9aa77
 rules:
   - MATCH,Proxy

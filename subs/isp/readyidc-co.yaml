@@ -1,29 +1,50 @@
 proxies:
   - type: vless
-    name: 4Kian-3cbef4fe42
-    server: tg.xueshan168.cc
+    name: 4Mohsen-bff7e5017c
+    server: 103.107.53.42
     port: 443
-    uuid: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
+    uuid: affb10d4-3835-4b1f-b5a3-3481489911b6
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: s0.awsstatic.com
-    reality-opts:
-      public-key: ioAxuQJyUMKN1kx8ThkL_-4NEaFYN6TB5XhHqSEYXEM
-    flow: xtls-rprx-vision
+    servername: cat.ilovezhenjiu.top
     xudp: true
+    network: ws
+    ws-opts:
+      path: /cgciws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cat.ilovezhenjiu.top
+  - type: vless
+    name: 4Mohsen-1dfcb2a786
+    server: 103.107.53.42
+    port: 443
+    uuid: affb10d4-3835-4b1f-b5a3-3481489911b6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cat.ilovezhenjiu.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cgciwsfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cat.ilovezhenjiu.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-3cbef4fe42
+      - 4Mohsen-bff7e5017c
+      - 4Mohsen-1dfcb2a786
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-3cbef4fe42
+      - 4Mohsen-bff7e5017c
+      - 4Mohsen-1dfcb2a786
 rules:
   - MATCH,Proxy

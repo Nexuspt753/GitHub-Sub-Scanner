@@ -1,7 +1,14 @@
 proxies:
   - type: ss
     name: DeltaKroneckerGithub
-    server: 185.188.106.10
+    server: dkstatics-public.digikala.com
+    port: 443
+    cipher: none
+    password: RSzEIkk2EsHEAVj15N5E/A==
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: dkstatics-public.digikala.com
     port: 443
     cipher: none
     password: RSzEIkk2EsHEAVj15N5E/A==
@@ -12,6 +19,7 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

@@ -1,0 +1,38 @@
+proxies:
+  - type: vmess
+    name: 🇸🇬SG-🚀@VPNine1
+    server: 116.88.224.217
+    port: 8080
+    uuid: 6f4f0eb5-fe86-41ca-eccb-a6ca68f88d9b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-83ef6dfee8
+    server: 116.88.224.217
+    port: 8080
+    uuid: 6f4f0eb5-fe86-41ca-eccb-a6ca68f88d9b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇸🇬SG-🚀@VPNine1
+      - 4Kian-83ef6dfee8
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇸🇬SG-🚀@VPNine1
+      - 4Kian-83ef6dfee8
+rules:
+  - MATCH,Proxy

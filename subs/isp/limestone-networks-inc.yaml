@@ -1,31 +1,32 @@
 proxies:
   - type: vless
-    name: 4FreeIran-6c6e5f325f
-    server: 178.20.28.3
+    name: 4Nika-6bb4644fe0
+    server: 93.127.223.238
     port: 8443
-    uuid: cfcfd0bb-7e8c-4f2b-9cc2-505c983fb8f1
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: res.cdn.office.net
-    reality-opts:
-      public-key: 4g8R0-Acc1LjppgvUopldH0Wg3JA2tPXvYB96aJnigo
+    servername: snip.edgeoneai.cc.cd
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-6c6e5f325f
+      - 4Nika-6bb4644fe0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-6c6e5f325f
+      - 4Nika-6bb4644fe0
 rules:
   - MATCH,Proxy

@@ -1,56 +1,28 @@
 proxies:
-  - type: vless
+  - type: vmess
     name: DeltaKroneckerGithub
-    server: 131.143.180.53
-    port: 443
-    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    server: 151.242.165.160
+    port: 6233
+    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: unsafe
-    servername: jp3.yohototo.top
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: v47.emnode.top
     network: ws
     ws-opts:
-      path: /tyxyws
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp3.yohototo.top
-  - type: vless
-    name: 4FreeIran-63aff8188d
-    server: 131.143.180.53
-    port: 443
-    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-    udp: true
-    tls: true
-    client-fingerprint: unsafe
-    servername: jp3.yohototo.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /tyxyws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp3.yohototo.top
-  - type: vless
-    name: 4Jadi-55d0065521
-    server: 130.12.102.125
-    port: 443
-    uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: localhost
-    reality-opts:
-      public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
-    xudp: true
+        Host: v47.emnode.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-63aff8188d
-      - 4Jadi-55d0065521
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,7 +30,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-63aff8188d
-      - 4Jadi-55d0065521
 rules:
   - MATCH,Proxy

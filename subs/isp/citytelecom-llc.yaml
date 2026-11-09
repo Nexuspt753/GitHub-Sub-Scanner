@@ -1,5 +1,13 @@
 proxies:
   - type: hysteria2
+    name: 4Kian-b125fd801e
+    server: 89.125.214.221
+    port: 19453
+    password: 190edece-2750-454c-b766-0570fc32deca
+    sni: mshvpn.online
+    alpn:
+      - h3
+  - type: hysteria2
     name: 4Mohsen-e1e42b8b61
     server: 89.125.214.221
     port: 19455
@@ -7,53 +15,35 @@ proxies:
     sni: mshvpn.online
     skip-cert-verify: true
   - type: vless
-    name: 4FreeIran-907cd1f010
-    server: 185.229.9.175
+    name: 4Kian-556dbbe891
+    server: 185.229.9.79
     port: 443
     uuid: 18c83152-8420-4865-889d-ff47a300a451
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: max.ru
+    servername: www.vk.com
     reality-opts:
-      public-key: 2QoNARj5aaa5-kUEiwx38KzbbiENQZ95V7x9jFo6f2A
-      short-id: 88a84e3390fcf4a7
+      public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+      short-id: 0bb3fbdc6cb178d4
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-110eeebfb1
-    server: 185.229.9.135
-    port: 443
-    uuid: 2f4de908-b22e-48e9-9e57-fc86acf02c56
-    udp: true
-    tls: true
-    client-fingerprint: android
-    alpn:
-      - http/1.1
-    servername: lesotorg-kirov.ru
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /chws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lesotorg-kirov.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-b125fd801e
       - 4Mohsen-e1e42b8b61
-      - 4FreeIran-907cd1f010
-      - 4Nika-110eeebfb1
+      - 4Kian-556dbbe891
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-b125fd801e
       - 4Mohsen-e1e42b8b61
-      - 4FreeIran-907cd1f010
-      - 4Nika-110eeebfb1
+      - 4Kian-556dbbe891
 rules:
   - MATCH,Proxy

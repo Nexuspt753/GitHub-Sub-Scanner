@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 14.198.59.87
+    port: 443
+    uuid: 0200e8ed-ebf6-4371-937f-ed3b3c3d872c
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: i0.hdslb.com
+    reality-opts:
+      public-key: dYzI6PIDa_2ckWhOGsQ1_A_v6uCL7XgT59vYJcUZFmE
+      short-id: f71889da
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 119.246.1.143
     port: 443
     password: BxceQaOe
@@ -17,13 +31,29 @@ proxies:
     tls: true
     sni: t.me/ripaojiedian
     client-fingerprint: chrome
+  - type: vless
+    name: 4FreeIran-46599426e0
+    server: 14.198.59.87
+    port: 443
+    uuid: 0200e8ed-ebf6-4371-937f-ed3b3c3d872c
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: i0.hdslb.com
+    reality-opts:
+      public-key: dYzI6PIDa_2ckWhOGsQ1_A_v6uCL7XgT59vYJcUZFmE
+      short-id: f71889da
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-1064c7758a
+      - 4FreeIran-46599426e0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -31,6 +61,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-1064c7758a
+      - 4FreeIran-46599426e0
 rules:
   - MATCH,Proxy

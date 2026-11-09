@@ -13,12 +13,27 @@ proxies:
       short-id: b9eda8db1552f9c5
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-9d3ac5c0de
+    server: 31.59.83.4
+    port: 443
+    uuid: fd1f71b0-9b51-4aef-8c1e-97b132fb4531
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: mk.global-cdn.org
+    reality-opts:
+      public-key: BSPkA0yUFBZ7JS7rD69rLaTn_5QSAaPQZtO7HV_et30
+      short-id: b868b87c347a451e
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-a9f7ae89ae
+      - 4Kian-9d3ac5c0de
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-a9f7ae89ae
+      - 4Kian-9d3ac5c0de
 rules:
   - MATCH,Proxy

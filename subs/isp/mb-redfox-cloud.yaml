@@ -1,30 +1,99 @@
 proxies:
   - type: vless
-    name: 4Nika-e951557f81
-    server: 45.81.254.142
-    port: 443
-    uuid: d6351bc8-0d51-48c4-9cb0-2ffd217f4797
+    name: DeltaKroneckerGithub
+    server: germany3.banovano.space
+    port: 2053
+    uuid: 5adf559d-252c-489b-baf5-bec895a16aca
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.sciencedirect.com
-    reality-opts:
-      public-key: cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0
-      short-id: a1b2c4d4a1b2c5d5
-    flow: xtls-rprx-vision
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: germany3.banovano.space
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: germany3.banovano.space
+    port: 2053
+    uuid: 53555197-bf0a-49e6-bea1-211fcfc1d962
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: germany3.banovano.space
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 45.81.252.143
+    port: 2053
+    uuid: 53555197-bf0a-49e6-bea1-211fcfc1d962
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: germany3.banovano.space
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-86d153fcb8
+    server: 45.81.252.143
+    port: 2053
+    uuid: 53555197-bf0a-49e6-bea1-211fcfc1d962
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: germany3.banovano.space
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-78c6c7e8dd
+    server: germany3.banovano.space
+    port: 2053
+    uuid: 5adf559d-252c-489b-baf5-bec895a16aca
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - h2
+    servername: germany3.banovano.space
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-e951557f81
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4FreeIran-86d153fcb8
+      - 4Sarina-78c6c7e8dd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-e951557f81
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4FreeIran-86d153fcb8
+      - 4Sarina-78c6c7e8dd
 rules:
   - MATCH,Proxy

@@ -9,25 +9,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-1b9bb645bc
-    server: checklist.harmira.ir
-    port: 29867
-    uuid: 7a81a82d-9040-4c41-9b7e-ace77350e879
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-ebe7d5f622
-      - 4Nika-1b9bb645bc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,6 +22,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-ebe7d5f622
-      - 4Nika-1b9bb645bc
 rules:
   - MATCH,Proxy
