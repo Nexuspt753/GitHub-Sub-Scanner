@@ -33,6 +33,21 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: free2.rajaserver2.web.id
+  - type: vmess
+    name: 4Sarina-99565cc4da
+    server: free2.rajaserver2.web.id
+    port: 443
+    uuid: 4d4708ef-0729-44ac-b2b0-411ce0242e89
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: free2.rajaserver2.web.id
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess-grpc
 proxy-groups:
   - name: Proxy
     type: select
@@ -40,6 +55,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 4Kian-8947f30c95
+      - 4Sarina-99565cc4da
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -48,5 +64,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 4Kian-8947f30c95
+      - 4Sarina-99565cc4da
 rules:
   - MATCH,Proxy

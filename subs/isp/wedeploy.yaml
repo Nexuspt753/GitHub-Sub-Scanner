@@ -1,0 +1,25 @@
+proxies:
+  - type: vless
+    name: vless
+    server: uk.song69.fun
+    port: 443
+    uuid: 92b79c22-f68b-4713-8b21-52f264cb92f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+rules:
+  - MATCH,Proxy

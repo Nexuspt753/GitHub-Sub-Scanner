@@ -1,0 +1,38 @@
+proxies:
+  - type: vmess
+    name: 🇮🇷IR-🚀@VPNine1
+    server: 185.105.101.204
+    port: 443
+    uuid: f14150ab-a6fd-4e87-8188-032cfae5f580
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-50adbb2cb2
+    server: 185.105.101.204
+    port: 443
+    uuid: f14150ab-a6fd-4e87-8188-032cfae5f580
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇮🇷IR-🚀@VPNine1
+      - 4Kian-50adbb2cb2
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇮🇷IR-🚀@VPNine1
+      - 4Kian-50adbb2cb2
+rules:
+  - MATCH,Proxy

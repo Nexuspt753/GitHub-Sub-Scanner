@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 157.254.38.210
+    port: 20123
+    password: d9064589-74af-432a-9390-5d8a9da281bf
+    udp: true
+    tls: true
+    sni: hk.catxstar.com
+    client-fingerprint: chrome
+  - type: trojan
     name: VPsave
     server: 157.254.38.210
     port: 20086
@@ -9,16 +18,7 @@ proxies:
     sni: hk.catxstar.com
     client-fingerprint: chrome
   - type: trojan
-    name: 4Nika-f93c96912f
-    server: 157.254.38.210
-    port: 20126
-    password: 63872b0d-87dd-4474-b690-92773af2922e
-    udp: true
-    tls: true
-    sni: hk.catxstar.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-01
     server: 157.254.38.210
     port: 20086
     password: d9064589-74af-432a-9390-5d8a9da281bf
@@ -35,27 +35,32 @@ proxies:
     tls: true
     sni: hk.catxstar.com
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Nika-0d31baf5bb
-    server: 157.254.38.210
-    port: 20123
-    password: d9064589-74af-432a-9390-5d8a9da281bf
-    udp: true
-    tls: true
-    sni: hk.catxstar.com
-    client-fingerprint: chrome
   - type: vless
-    name: ⚡️
-    server: nl.puflino.com
-    port: 8443
-    uuid: c7270753-bd18-4696-956d-57dbde1183fe
+    name: 4Kian-52a2f25ead
+    server: 74.0.42.217
+    port: 443
+    uuid: 059ae29f-4d6e-4f78-952d-cc85251722bc
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: nl2.reddotcorp.org
+    servername: www.ipxo.com
     reality-opts:
-      public-key: VDZdbh_RzDDZsHpYF58yUuuvXh93XnmkvpSqb50qG2U
-      short-id: 1be482b8e08aa0ef
+      public-key: D0XU_vaxhJewIPzWLbXIVHfoq68Jcu48HUp9I4r30xU
+      short-id: d211e464747fdf2c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave-01
+    server: 74.0.42.217
+    port: 443
+    uuid: b96b8ea9-6883-4da9-bf7f-bf58218eb151
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ipxo.com
+    reality-opts:
+      public-key: D0XU_vaxhJewIPzWLbXIVHfoq68Jcu48HUp9I4r30xU
+      short-id: d211e464747fdf2c
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -72,30 +77,62 @@ proxies:
       short-id: 1be482b8e08aa0ef
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-1a6c4f1583
+    server: nl.puflino.com
+    port: 8443
+    uuid: c7270753-bd18-4696-956d-57dbde1183fe
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: nl2.reddotcorp.org
+    reality-opts:
+      public-key: VDZdbh_RzDDZsHpYF58yUuuvXh93XnmkvpSqb50qG2U
+      short-id: 1be482b8e08aa0ef
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-34dbf66ee6
+    server: 74.0.42.217
+    port: 443
+    uuid: e09ac54d-1c4d-467a-9359-2e5bf4fdb34b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ipxo.com
+    reality-opts:
+      public-key: D0XU_vaxhJewIPzWLbXIVHfoq68Jcu48HUp9I4r30xU
+      short-id: d211e464747fdf2c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
-      - 4Nika-f93c96912f
       - DeltaKroneckerGithub
+      - VPsave
+      - DeltaKroneckerGithub-01
       - 4Mohsen-6138df2557
-      - 4Nika-0d31baf5bb
-      - ⚡️
+      - 4Kian-52a2f25ead
+      - VPsave-01
       - 4Kian-9bd29c8c5c
+      - 4Jadi-1a6c4f1583
+      - 4FreeIran-34dbf66ee6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
-      - 4Nika-f93c96912f
       - DeltaKroneckerGithub
+      - VPsave
+      - DeltaKroneckerGithub-01
       - 4Mohsen-6138df2557
-      - 4Nika-0d31baf5bb
-      - ⚡️
+      - 4Kian-52a2f25ead
+      - VPsave-01
       - 4Kian-9bd29c8c5c
+      - 4Jadi-1a6c4f1583
+      - 4FreeIran-34dbf66ee6
 rules:
   - MATCH,Proxy
