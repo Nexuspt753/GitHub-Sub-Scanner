@@ -1,32 +1,66 @@
 proxies:
   - type: vless
-    name: 4Jadi-cf56259f76
-    server: 103.177.249.40
-    port: 2083
-    uuid: 97532b08-357e-4140-a6f0-8e07f2ed3327
+    name: DeltaKroneckerGithub
+    server: 362c1eg.se1.h1clayd.click
+    port: 443
+    uuid: c82031be-e90f-4b15-ab4f-7ccef236d3ca
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: yf.962456.xyz
+    client-fingerprint: firefox
+    servername: 362c1eg.se1.h1clayd.click
+    reality-opts:
+      public-key: BLhS7fE4Yh6kAADw7yRIn2PzKun-JDagJHJNOePYRSY
+      short-id: bee802ae4ab66496
     xudp: true
-    network: ws
-    ws-opts:
-      path: /proxyip=kr.william.us.ci
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: yf.962456.xyz
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-50b261d895
+    server: se1.h1cloud.net
+    port: 443
+    uuid: 632cd343-1e8f-4bf6-a9a2-20ada1f6970f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 3fb2b6t.se1.h1clayd.click
+    reality-opts:
+      public-key: XQWaIMBPo0mpWs3MooxxkjWNSgxnkIESd_2PnR8_2HA
+      short-id: 1061f1b1cdaad3ad
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-7484aa771f
+    server: 362c1eg.se1.h1clayd.click
+    port: 443
+    uuid: c82031be-e90f-4b15-ab4f-7ccef236d3ca
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 362c1eg.se1.h1clayd.click
+    reality-opts:
+      public-key: BLhS7fE4Yh6kAADw7yRIn2PzKun-JDagJHJNOePYRSY
+      short-id: bee802ae4ab66496
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-cf56259f76
+      - DeltaKroneckerGithub
+      - 4Kian-50b261d895
+      - 4Jadi-7484aa771f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-cf56259f76
+      - DeltaKroneckerGithub
+      - 4Kian-50b261d895
+      - 4Jadi-7484aa771f
 rules:
   - MATCH,Proxy

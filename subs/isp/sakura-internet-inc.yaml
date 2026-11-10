@@ -22,22 +22,13 @@ proxies:
     password: 9b7dc1a8-1977-4174-a82d-39ce4081b8eb
     sni: x-rb2.xueshan168.cc
     skip-cert-verify: true
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub-01
-    server: proxyip.jp.cmliussss.net
+    server: os-tr-5.cats22.net
     port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    password: 18844@zxcvbn
     udp: true
-    tls: true
     client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
   - type: trojan
     name: 4Kian-08e09d6eb6
     server: trs12.bolab.net
@@ -54,6 +45,38 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-64ed12c938
+    server: 160.16.109.149
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
+  - type: vless
+    name: 4Kian-bb3b3e92b3
+    server: 160.16.109.149
+    port: 443
+    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: vp10.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -64,6 +87,8 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - 4Kian-08e09d6eb6
       - DeltaKroneckerGithub-02
+      - 4Nika-64ed12c938
+      - 4Kian-bb3b3e92b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,5 +100,7 @@ proxy-groups:
       - DeltaKroneckerGithub-01
       - 4Kian-08e09d6eb6
       - DeltaKroneckerGithub-02
+      - 4Nika-64ed12c938
+      - 4Kian-bb3b3e92b3
 rules:
   - MATCH,Proxy

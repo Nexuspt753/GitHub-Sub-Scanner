@@ -38,21 +38,23 @@ proxies:
       short-id: b7e45d3a65bfc319
     xudp: true
   - type: vless
-    name: 4FreeIran-0dac2f6e42
-    server: f23517a768.didpadaz.ir
-    port: 8471
-    uuid: b49e0deb-e43d-4a2a-b58d-7e2db8f486b5
+    name: 4Mohsen-f77c4779c9
+    server: s1ip.bestping.net
+    port: 8443
+    uuid: c9dff3c0-e974-4873-8203-ef461af43cba
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: f23517a768.didpadaz.ir
+    alpn:
+      - http/1.1
+    servername: s1ip.bestping.net
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /bestping
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: f23517a768.didpadaz.ir
+        Host: s1ip.bestping.net
   - type: vless
     name: 4Mohsen-41d4038b0c
     server: tun22.app20.ir
@@ -71,6 +73,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: tun2.appii.ir
+  - type: vmess
+    name: 4Mohsen-3e52590932
+    server: rma4.rmaaccshop.ir
+    port: 44808
+    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
@@ -79,8 +97,9 @@ proxy-groups:
       - 4FreeIran-a2c5d2d068
       - 4Mohsen-55d037dd2d
       - 4Kian-ffddce6cfa
-      - 4FreeIran-0dac2f6e42
+      - 4Mohsen-f77c4779c9
       - 4Mohsen-41d4038b0c
+      - 4Mohsen-3e52590932
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -90,7 +109,8 @@ proxy-groups:
       - 4FreeIran-a2c5d2d068
       - 4Mohsen-55d037dd2d
       - 4Kian-ffddce6cfa
-      - 4FreeIran-0dac2f6e42
+      - 4Mohsen-f77c4779c9
       - 4Mohsen-41d4038b0c
+      - 4Mohsen-3e52590932
 rules:
   - MATCH,Proxy

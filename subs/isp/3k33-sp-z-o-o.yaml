@@ -1,0 +1,68 @@
+proxies:
+  - type: vless
+    name: 🇵🇱
+    server: 151.245.112.193
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
+    name: 4Kian-5a810dc62f
+    server: 151.245.112.193
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
+    name: 4FreeIran-09c3b58018
+    server: 151.245.112.193
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇵🇱
+      - 4Kian-5a810dc62f
+      - 4FreeIran-09c3b58018
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇵🇱
+      - 4Kian-5a810dc62f
+      - 4FreeIran-09c3b58018
+rules:
+  - MATCH,Proxy

@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: 4Kian-f790684019
-    server: cdn4.anytube.ru
-    port: 443
-    uuid: 255a8044-3337-473e-af26-46a37208adcc
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: cdn4.anytube.ru
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: VPsave
     server: 81.94.148.67
     port: 2053
@@ -41,6 +30,22 @@ proxies:
   - type: vless
     name: VPsave-01
     server: 6b9iw.guardora.pro
+    port: 10018
+    uuid: d9cc5c37-b53c-14a1-b4e1-1b9f7fbea1b1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 6b9iw.guardora.pro
+    reality-opts:
+      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
+      short-id: c1a7e9b4711d5f60
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: VPsave-02
+    server: 6b9iw.guardora.pro
     port: 443
     uuid: d9cc5c37-b53c-14a1-b4e1-1b9f7fbea1b1
     udp: true
@@ -55,53 +60,6 @@ proxies:
       path: /ogVAL8moh5SB
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-479e532330
-    server: fbsv6.guardora.pro
-    port: 443
-    uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: fbsv6.guardora.pro
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fbsv6.guardora.pro
-  - type: vless
-    name: 4Kian-12f1a56014
-    server: rapira-dof.whitenw.net
-    port: 8445
-    uuid: cd138479-c87a-4d4c-b6ea-4beeb6ef2b47
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: l06r0clkHjHk7HRGpkDBJwZ1JJscSqfwHUQOrV3v3hQ
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-58dba53d49
-    server: 6b9iw.guardora.pro
-    port: 10018
-    uuid: d9cc5c37-b53c-1131-b4e1-1b9f7fbea1b1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 6b9iw.guardora.pro
-    reality-opts:
-      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
-      short-id: c1a7e9b4711d5f60
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: 4Mohsen-cc36496748
     server: 6b9iw.guardora.pro
@@ -119,22 +77,6 @@ proxies:
       path: /ogVAL8moh5SB
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-1b9ece6953
-    server: 6b9iw.guardora.pro
-    port: 10018
-    uuid: d9cc5c37-b53c-14a1-b4e1-1b9f7fbea1b1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 6b9iw.guardora.pro
-    reality-opts:
-      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
-      short-id: c1a7e9b4711d5f60
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: 4Mohsen-d9c4e2b9f3
     server: 6b9iw.guardora.pro
@@ -157,15 +99,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-f790684019
       - VPsave
       - 4FreeIran-e900e21e2e
       - VPsave-01
-      - 4Mohsen-479e532330
-      - 4Kian-12f1a56014
-      - 4Mohsen-58dba53d49
+      - VPsave-02
       - 4Mohsen-cc36496748
-      - 4Nika-1b9ece6953
       - 4Mohsen-d9c4e2b9f3
   - name: Auto
     type: url-test
@@ -173,15 +111,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f790684019
       - VPsave
       - 4FreeIran-e900e21e2e
       - VPsave-01
-      - 4Mohsen-479e532330
-      - 4Kian-12f1a56014
-      - 4Mohsen-58dba53d49
+      - VPsave-02
       - 4Mohsen-cc36496748
-      - 4Nika-1b9ece6953
       - 4Mohsen-d9c4e2b9f3
 rules:
   - MATCH,Proxy

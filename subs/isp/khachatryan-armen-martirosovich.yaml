@@ -14,20 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-626f007034
-    server: 189.74.115.23
-    port: 443
-    uuid: 9d8c3007-dfcd-4d34-a729-ae793f826581
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: api.mediaroshcha.cc
-    reality-opts:
-      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
-      short-id: a8
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-cacca25ab1
     server: 189.74.114.119
     port: 443
@@ -55,15 +41,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-2351e21ea6
+    server: 189.74.114.93
+    port: 443
+    uuid: c6628db6-025d-40e8-b79d-033f4372a6b7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.mediaklenov.cc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-84b1f3323a
-      - 4FreeIran-626f007034
       - 4Kian-cacca25ab1
       - 4Mohsen-cfccdc19c8
+      - 4FreeIran-2351e21ea6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,8 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-84b1f3323a
-      - 4FreeIran-626f007034
       - 4Kian-cacca25ab1
       - 4Mohsen-cfccdc19c8
+      - 4FreeIran-2351e21ea6
 rules:
   - MATCH,Proxy

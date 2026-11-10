@@ -15,12 +15,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: apk.bestforcast.ir
+  - type: vmess
+    name: 4Nika-ab6eb4e309
+    server: tun.xelnivo.ir
+    port: 33625
+    uuid: 243bb526-ced4-4508-b0c3-e6442caadf57
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-12eca84984
+    server: tun.xelnivo.ir
+    port: 36771
+    uuid: 243bb526-ced4-4508-b0c3-e6442caadf57
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-1b1f7a09f3
+      - 4Nika-ab6eb4e309
+      - 4Jadi-12eca84984
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +50,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-1b1f7a09f3
+      - 4Nika-ab6eb4e309
+      - 4Jadi-12eca84984
 rules:
   - MATCH,Proxy

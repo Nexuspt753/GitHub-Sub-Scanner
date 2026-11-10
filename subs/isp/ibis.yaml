@@ -1,16 +1,44 @@
 proxies:
   - type: vless
-    name: 4Jadi-516f6bb5af
-    server: 83.141.74.243
+    name: 4Mohsen-2b3dc2afbe
+    server: unix1tbilion.wizardxray.net
     port: 443
-    uuid: 10f87092-d438-4586-9d89-40bcd3422e10
+    uuid: c62a9b06-7e2d-47b8-9cc3-583caa3e6d21
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: codifylabs.ru
-    reality-opts:
-      public-key: f8Dpdg-6kuxif52U12uLi1Pfm06WucDblXVFCowLvHQ
-      short-id: 4501d0f5ea4c5099
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: unix1tbilion.wizardxray.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-f27dafed6d
+    server: unix1tbilion.wizardxray.net
+    port: 443
+    uuid: e2e0de8b-c926-4f64-8e81-99acc66ea0a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: unix1tbilion.wizardxray.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-482ccef827
+    server: unix1tbilion.wizardxray.net
+    port: 443
+    uuid: f882d9fb-6b4a-43b6-99a7-95fa71bc5ca8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: unix1tbilion.wizardxray.net
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-516f6bb5af
+      - 4Mohsen-2b3dc2afbe
+      - 4Mohsen-f27dafed6d
+      - 4FreeIran-482ccef827
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-516f6bb5af
+      - 4Mohsen-2b3dc2afbe
+      - 4Mohsen-f27dafed6d
+      - 4FreeIran-482ccef827
 rules:
   - MATCH,Proxy

@@ -1,31 +1,56 @@
 proxies:
   - type: trojan
-    name: 4Nika-4c17aa5fc5
+    name: 4Mohsen-b68bac4962
     server: 188.253.12.15
-    port: 48697
+    port: 45619
     password: 4f4d1167-ef14-4304-9bce-0740472503ef
     udp: true
     tls: true
-    sni: gh.01.naiun.bilibili.com
+    sni: fr.01.naiun.bilibili.com
     client-fingerprint: chrome
   - type: trojan
-    name: 4Mohsen-94f4a9c5ee
-    server: 188.253.12.93
-    port: 41943
-    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    name: 4FreeIran-42fad65e1f
+    server: 185.220.238.77
+    port: 11543
+    password: HutaoCloud
     udp: true
     tls: true
-    sni: az.01.naiun.bilibili.com
+    sni: 185.220.238.77
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Jadi-7ba12d61be
-    server: 188.253.12.93
-    port: 45553
-    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    network: ws
+    ws-opts:
+      path: /api
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-57bace090b
+    server: 188.253.6.249
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
     udp: true
     tls: true
-    sni: ch.01.naiun.bilibili.com
     client-fingerprint: chrome
+    servername: vlso5.1d.mom
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /socks5=888:888@hkip.1d.mom:1080fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
+  - type: vless
+    name: 4Mohsen-c053736b51
+    server: 188.253.6.249
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /socks5=888:888@hkip.1d.mom:1080fp=chromesecurity=tls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
   - type: vmess
     name: 4Sarina-4236d8440f
     server: 103.160.180.26
@@ -41,9 +66,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-4c17aa5fc5
-      - 4Mohsen-94f4a9c5ee
-      - 4Jadi-7ba12d61be
+      - 4Mohsen-b68bac4962
+      - 4FreeIran-42fad65e1f
+      - 4Mohsen-57bace090b
+      - 4Mohsen-c053736b51
       - 4Sarina-4236d8440f
   - name: Auto
     type: url-test
@@ -51,9 +77,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-4c17aa5fc5
-      - 4Mohsen-94f4a9c5ee
-      - 4Jadi-7ba12d61be
+      - 4Mohsen-b68bac4962
+      - 4FreeIran-42fad65e1f
+      - 4Mohsen-57bace090b
+      - 4Mohsen-c053736b51
       - 4Sarina-4236d8440f
 rules:
   - MATCH,Proxy

@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Jadi-8fec872955
+    server: 153.56.228.151
+    port: 443
+    uuid: 4618cebd-e1e9-45c3-be98-d9d6e3ee8bef
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bbcdd4t.de-p2.h1clayd.click
+    reality-opts:
+      public-key: n9cdr2Qf9h3S_jf5Rcd15fl-4fxuztHvlexE7G-QvW8
+      short-id: 1aab0b827885a8b4
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-8fec872955
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-8fec872955
+rules:
+  - MATCH,Proxy
