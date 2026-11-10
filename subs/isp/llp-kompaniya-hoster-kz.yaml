@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 🇰🇿12
+    server: 176.120.21.23
+    port: 443
+    uuid: 83cc8226-1087-49ae-aac3-1f157ddc57b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: OAU9917HKYqvTO59c9SvAL9BBh8v85tfJhw5PMg-2iU
+      short-id: c4d4cf50489d51
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 🇰🇿12
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 🇰🇿12
+rules:
+  - MATCH,Proxy

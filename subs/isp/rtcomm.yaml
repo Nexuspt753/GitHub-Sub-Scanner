@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-b4289e96a6
+    server: c3b4ce4b957a.vps.myjino.ru
+    port: 53898
+    uuid: 03cc7a29-6616-4f97-a4ec-d0d781ece3d6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: c3b4ce4b957a.vps.myjino.ru
+    reality-opts:
+      public-key: aV_BHCeZ30y4-5rpUIHaWHMYAgogLsw4AE06Rw2X4WE
+      short-id: e202a94ad1711af2
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-b4289e96a6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-b4289e96a6
+rules:
+  - MATCH,Proxy

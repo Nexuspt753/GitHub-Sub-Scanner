@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4FreeIran-b9cebc0089
+    server: 95.133.166.163
+    port: 443
+    uuid: 5e610f80-fc6a-479d-8621-b672355b96a1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cf-1rm.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cf-1rm.pages.dev
+  - type: vless
     name: Cnetvpn
     server: 188.241.54.208
     port: 443
@@ -29,36 +45,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.nihaoyun.top
-  - type: vless
-    name: 4Sarina-374f605418
-    server: 188.241.54.208
-    port: 443
-    uuid: fbaa413d-2ffb-4e36-8444-e1b1ab829fe1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.samsung.com
-    reality-opts:
-      public-key: qlVZ2ehdXHCxIADkf5swgXT2ZHrpSP7HM6SKTBMQXRU
-      short-id: 456bf62e2b728b97
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-b9cebc0089
       - Cnetvpn
       - 4Jadi-73d5e8676f
-      - 4Sarina-374f605418
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-b9cebc0089
       - Cnetvpn
       - 4Jadi-73d5e8676f
-      - 4Sarina-374f605418
 rules:
   - MATCH,Proxy

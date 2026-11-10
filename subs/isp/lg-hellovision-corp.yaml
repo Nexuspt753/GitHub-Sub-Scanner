@@ -3,15 +3,49 @@ proxies:
     name: DeltaKroneckerGithub
     server: 36.38.117.86
     port: 11965
-    cipher: none
-    password: https://t.me/WangCai2🇨🇳
+    cipher: bm9uZTpodHRwczovL3QubWUvV2FuZ0NhaTLwn4eo8J-Hsw
+    password: ""
     udp: true
+  - type: vless
+    name: 4Mohsen-2db5553318
+    server: 36.38.117.86
+    port: 12203
+    uuid: 9d98d1db-e679-45df-8e15-741cfb06031f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tele-eyz.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tele-eyz.pages.dev
+  - type: vless
+    name: 4Jadi-9baa1eefe5
+    server: 36.38.117.86
+    port: 12203
+    uuid: 9d98d1db-e679-45df-8e15-741cfb06031f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tele-eyz.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: tele-eyz.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Mohsen-2db5553318
+      - 4Jadi-9baa1eefe5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Mohsen-2db5553318
+      - 4Jadi-9baa1eefe5
 rules:
   - MATCH,Proxy

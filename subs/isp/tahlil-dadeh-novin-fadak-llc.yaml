@@ -29,6 +29,50 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: VPsave
+    server: 94.183.164.119
+    port: 22843
+    uuid: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl16.blog-forme.ru
+    reality-opts:
+      public-key: b4IjSqjLCM2MZyRiqv-VBsRB1D7CrRaQCDXaUIfp6mA
+      short-id: 646903b46c069439
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-28094f79fe
+    server: 94.183.164.141
+    port: 7443
+    uuid: 25ce9135-58c0-46fb-97ad-a39eeff459e9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: optim.tildacdn.pub
+    reality-opts:
+      public-key: unNROkbh95ZZNHzG2RIkgrFftOLldNH0ccmtW63CziE
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-4aedbdc8d9
+    server: 94.183.164.141
+    port: 7443
+    uuid: 8a4fe9f3-4da3-4004-b721-cae64ff0d018
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: optim.tildacdn.pub
+    reality-opts:
+      public-key: unNROkbh95ZZNHzG2RIkgrFftOLldNH0ccmtW63CziE
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -36,6 +80,9 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - VPsave
+      - 4Jadi-28094f79fe
+      - 4Kian-4aedbdc8d9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -44,5 +91,8 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - VPsave
+      - 4Jadi-28094f79fe
+      - 4Kian-4aedbdc8d9
 rules:
   - MATCH,Proxy

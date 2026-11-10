@@ -14,6 +14,31 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Nika-724aff175b
+    server: 47.80.19.173
+    port: 2053
+    uuid: 319d5ffb-57e8-4bbd-ac0c-5d55d0c253de
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    reality-opts:
+      public-key: DfFU5OG93GxB1x25Dl2BTkxKsBTFF4Su4PXYPbYvmms
+      short-id: 3c4041d3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-6b044326fe
+    server: 47.80.19.173
+    port: 2053
+    uuid: 319d5ffb-57e8-4bbd-ac0c-5d55d0c253de
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: gateway.icloud.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-334b5f2c4c
     server: 47.80.57.116
     port: 443
@@ -30,6 +55,20 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mia6.pages.dev
   - type: vless
+    name: v2rayng3
+    server: 47.89.186.170
+    port: 55861
+    uuid: d51ed55c-d6dd-400b-aaf6-017c33969bfe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.intel.com
+    reality-opts:
+      public-key: t2ndf6SeVxinFCo5bcemnW_ZZhAtmHWiAkllks5qPWs
+      short-id: 7551ed1b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-c4c6127b7e
     server: 47.89.186.170
     port: 55861
@@ -43,14 +82,36 @@ proxies:
       short-id: 7551ed1b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Kian-a7f1ae6414
+    server: AUSbEb7vTjqR13wy.v.3dns.vip
+    port: 443
+    uuid: 545a503ba94849b38105e6a0fbc493e8
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: AUSbEb7vTjqR13wy.v.3dns.vip
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: AUSbEb7vTjqR13wy.v.3dns.vip
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-7dc5bc24b2
+      - 4Nika-724aff175b
+      - 4FreeIran-6b044326fe
       - 4Kian-334b5f2c4c
+      - v2rayng3
       - 4Nika-c4c6127b7e
+      - 4Kian-a7f1ae6414
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,7 +119,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-7dc5bc24b2
+      - 4Nika-724aff175b
+      - 4FreeIran-6b044326fe
       - 4Kian-334b5f2c4c
+      - v2rayng3
       - 4Nika-c4c6127b7e
+      - 4Kian-a7f1ae6414
 rules:
   - MATCH,Proxy

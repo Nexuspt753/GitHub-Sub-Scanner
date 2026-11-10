@@ -1,32 +1,58 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 51.170.185.165
-    port: 45819
-    cipher: 2022-blake3-chacha20-poly1305
-    password: u1NAK7Sc9gI0zhd9RVIsisY4VVe58lx0Jvn2QV8QMeo%3D
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 51.170.185.165
-    port: 45819
-    cipher: 2022-blake3-chacha20-poly1305
-    password: u1NAK7Sc9gI0zhd9RVIsisY4VVe58lx0Jvn2QV8QMeo=
-    udp: true
+  - type: hysteria2
+    name: 4Jadi-30032e2fc9
+    server: 138.3.208.26
+    port: 50160
+    password: 184cdec28da5a09450803c8debcd2cc9
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-ee268b4caf
+    server: 138.3.208.26
+    port: 50160
+    password: 184cdec28da5a09450803c8debcd2cc9
+    sni: "1"
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-5796dfe982
+    server: 138.3.208.26
+    port: 50160
+    password: 184cdec28da5a09450803c8debcd2cc9
+    sni: 138.3.208.26
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-8f63944a33
+    server: 138.3.208.26
+    port: 50160
+    password: 184cdec28da5a09450803c8debcd2cc9
+    sni: off
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Sarina-8d0bf9060d
+    server: 138.3.208.26
+    port: 50160
+    password: 184cdec28da5a09450803c8debcd2cc9
+    sni: www.bing.com
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Jadi-30032e2fc9
+      - 4Sarina-ee268b4caf
+      - 4Jadi-5796dfe982
+      - 4Sarina-8f63944a33
+      - 4Sarina-8d0bf9060d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Jadi-30032e2fc9
+      - 4Sarina-ee268b4caf
+      - 4Jadi-5796dfe982
+      - 4Sarina-8f63944a33
+      - 4Sarina-8d0bf9060d
 rules:
   - MATCH,Proxy

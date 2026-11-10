@@ -1,14 +1,4 @@
 proxies:
-  - type: vmess
-    name: DeltaKroneckerGithub
-    server: 94.184.18.130
-    port: 44580
-    uuid: 45dc5086-f30d-4b34-aac4-612c074243c8
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
   - type: vless
     name: 4Jadi-824e57a7e7
     server: dnld.chaqalli.com
@@ -22,63 +12,18 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dnld.chaqalli.com
-  - type: vless
-    name: 4Sarina-5102f1e6ca
-    server: dnld.chaqalli.com
-    port: 8180
-    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: dnld.chaqalli.com
-  - type: vless
-    name: 4Nika-e5df1a1b6e
-    server: dnld.chaqalli.com
-    port: 8180
-    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-09637100fd
-    server: dnld.chaqalli.com
-    port: 8180
-    uuid: 560ecca1-7e20-4b41-b4d6-781fb3bc179d
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Jadi-824e57a7e7
-      - 4Sarina-5102f1e6ca
-      - 4Nika-e5df1a1b6e
-      - 4Sarina-09637100fd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Jadi-824e57a7e7
-      - 4Sarina-5102f1e6ca
-      - 4Nika-e5df1a1b6e
-      - 4Sarina-09637100fd
 rules:
   - MATCH,Proxy

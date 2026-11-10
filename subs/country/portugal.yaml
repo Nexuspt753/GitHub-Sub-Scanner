@@ -1,23 +1,32 @@
 proxies:
-  - type: ss
-    name: Lisbon · 4Sarina-892e46ca25
-    server: 185.231.233.91
-    port: 17167
-    cipher: aes-128-gcm
-    password: d925ddb6fe1e6e62887cf3dc3f5137f3
+  - type: vless
+    name: Porto · 4Mohsen-8bf568217d
+    server: 195.133.92.228
+    port: 443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v1-24z.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v1-24z.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Lisbon · 4Sarina-892e46ca25
+      - Porto · 4Mohsen-8bf568217d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Lisbon · 4Sarina-892e46ca25
+      - Porto · 4Mohsen-8bf568217d
 rules:
   - MATCH,Proxy

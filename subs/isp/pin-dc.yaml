@@ -13,12 +13,27 @@ proxies:
       short-id: 5dffebe33d1e36
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-49f5b35610
+    server: 46.161.14.13
+    port: 443
+    uuid: 798ab01c-eb0f-4e1e-9a99-a486ca4eaaf3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vkuseraudio.com
+    reality-opts:
+      public-key: wj4JJuI6yc1jICZFE3vGZjFP5Js4RyvaSIRKFNVSsB0
+      short-id: 5dffebe33d1e36
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Kian-49f5b35610
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Kian-49f5b35610
 rules:
   - MATCH,Proxy

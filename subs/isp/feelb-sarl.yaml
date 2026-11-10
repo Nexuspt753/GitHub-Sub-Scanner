@@ -1,33 +1,30 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-7f65b48341
-    server: 193.160.130.117
-    port: 443
-    uuid: 9b456c2a-f2c1-45e1-87a9-b7628b04bb24
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Nika-8ac2a0c1ac
+    server: 45.145.167.80
+    port: 23030
+    uuid: 30b99882-86ca-46a2-8aad-6f1b97407d22
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /linkws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: beyonddsz.cfd
+    client-fingerprint: edge
+    alpn:
+      - h2
+      - http/1.1
+    servername: gb.ezhiknet.work
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-7f65b48341
+      - 4Nika-8ac2a0c1ac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-7f65b48341
+      - 4Nika-8ac2a0c1ac
 rules:
   - MATCH,Proxy

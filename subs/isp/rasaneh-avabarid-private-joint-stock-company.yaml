@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: v2ray_configs_pools
+    server: mabix.dgtr.net
+    port: 443
+    uuid: 01d31e8f-5eb5-4f2f-bceb-addb87f107a3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speedtest.net
+    reality-opts:
+      public-key: hvgEwCWp__pO1IzyQfvz-whyQhBbj760XxZ6SxD9qDg
+      short-id: b101b6832ecf3eca
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-e446e9c77e
     server: mabix.dgtr.net
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - v2ray_configs_pools
       - 4Nika-e446e9c77e
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray_configs_pools
       - 4Nika-e446e9c77e
 rules:
   - MATCH,Proxy

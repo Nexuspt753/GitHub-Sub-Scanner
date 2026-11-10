@@ -13,12 +13,20 @@ proxies:
       short-id: 05f5d227c525b840
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-b7359830b0
+    server: 153.75.87.192
+    port: 443
+    uuid: b4d8014d-5ff5-48b4-9b08-7137fc0cdb1d
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-787e6d99fd
+      - 4Kian-b7359830b0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-787e6d99fd
+      - 4Kian-b7359830b0
 rules:
   - MATCH,Proxy

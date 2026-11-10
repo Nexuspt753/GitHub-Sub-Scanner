@@ -1,50 +1,30 @@
 proxies:
-  - type: vmess
-    name: 4FreeIran-149436844e
-    server: sylva53.ceoiii.com
-    port: 36824
-    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-658b01aaab
+    server: 74.161.152.237
+    port: 2083
+    uuid: 52a5a29f-c162-411a-8a37-a3f11b0dc537
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: WbgtxLlo2gmTzB4Wzxgh_U7G97d4ENTS10fYIoujET4
+      short-id: 0123456789abcdef
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
-  - type: vmess
-    name: 4FreeIran-4ce6751e6f
-    server: sylva53.ceoiii.com
-    port: 36824
-    uuid: 4f198ea9-311e-3dcf-910c-896de6cb160b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ajax.microsoft.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-149436844e
-      - 4FreeIran-4ce6751e6f
+      - 4FreeIran-658b01aaab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-149436844e
-      - 4FreeIran-4ce6751e6f
+      - 4FreeIran-658b01aaab
 rules:
   - MATCH,Proxy
