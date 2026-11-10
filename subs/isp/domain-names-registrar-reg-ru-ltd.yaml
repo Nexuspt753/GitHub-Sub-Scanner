@@ -1,4 +1,22 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 95.163.232.240
+    port: 443
+    uuid: 010be6fa-ab5f-404a-9edf-ab2db1f09f0c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: files.neurixai.app
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/generate
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: files.neurixai.app
   - type: vmess
     name: 4Kian-60faed0634
     server: 194.226.142.120
@@ -56,6 +74,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-60faed0634
       - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707
@@ -65,6 +84,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-60faed0634
       - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707

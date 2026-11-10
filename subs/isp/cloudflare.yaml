@@ -1,4 +1,36 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 103.31.4.75
+    port: 8443
+    uuid: 9443badf-414f-4b12-b19a-7cc2c7431163
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: moz.ar-marz.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /man
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: moz.ar-marz.fun
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 103.31.4.160
+    port: 8443
+    uuid: 9443badf-414f-4b12-b19a-7cc2c7431163
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: moz.ar-marz.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /man
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: moz.ar-marz.fun
   - type: trojan
     name: 4Mohsen-98b2dd9f00
     server: 141.101.90.101
@@ -88,6 +120,25 @@ proxies:
     tls: true
     client-fingerprint: firefox
     servername: moz.ar-marz.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /man
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: moz.ar-marz.fun
+  - type: vless
+    name: 4Mohsen-cfe45c75f8
+    server: cf.amirmcir.ir
+    port: 8443
+    uuid: 9443badf-414f-4b12-b19a-7cc2c7431163
+    udp: true
+    tls: true
+    client-fingerprint: random
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     xudp: true
     network: ws
     ws-opts:
@@ -225,12 +276,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-98b2dd9f00
       - 4Kian-6c7b5488a8
       - 4Sarina-40537f105f
       - 4FreeIran-01ec61e6ae
       - 4Kian-7ac626cce2
       - 4Mohsen-3e48f3038e
+      - 4Mohsen-cfe45c75f8
       - 4Mohsen-716cd86f3d
       - 4Jadi-4f568a03ff
       - 4Nika-18064d6507
@@ -245,12 +299,15 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Mohsen-98b2dd9f00
       - 4Kian-6c7b5488a8
       - 4Sarina-40537f105f
       - 4FreeIran-01ec61e6ae
       - 4Kian-7ac626cce2
       - 4Mohsen-3e48f3038e
+      - 4Mohsen-cfe45c75f8
       - 4Mohsen-716cd86f3d
       - 4Jadi-4f568a03ff
       - 4Nika-18064d6507

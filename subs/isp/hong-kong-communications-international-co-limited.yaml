@@ -1,25 +1,36 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-00407cf106
-    server: hik160.pacemakere.com
-    port: 20014
-    password: 778f5385b4254495
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 38.47.220.144
+    port: 443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
     udp: true
     tls: true
-    sni: hik160.pacemakere.com
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - h3
+      - http/1.1
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-00407cf106
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-00407cf106
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,51 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: jp2static.xyy123.bid
-    port: 443
-    uuid: 28e553d9-52ab-48c6-afa6-e4f064c6e085
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amazon.com
-    reality-opts:
-      public-key: GeKuYNeAqQQkTN9OMJxXA9I-rXs7IiGh4Sl82crCITc
-      short-id: 83faf94a0e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: DeltaKroneckerGithub-01
-    server: jp2static.xyy123.bid
-    port: 443
-    uuid: 2aabf881-60dd-492b-97f6-774377dc3882
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: image.semiconductor.samsung.com
-    reality-opts:
-      public-key: CKfGUIOy-k2OfwtxsqeHIQWwR29WAbypOvKH4bAVo18
-      short-id: 732d5d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vmess
-    name: DeltaKroneckerGithub-02
-    server: 151.242.165.160
-    port: 6233
-    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: v47.emnode.top
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: v47.emnode.top
-  - type: vless
     name: 4Sarina-56be7652d2
     server: jp2support.xyy123.bid
     port: 443
@@ -71,17 +25,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-d6ee217184
-    server: jp2static.xyy123.bid
-    port: 443
-    uuid: 28e553d9-52ab-48c6-afa6-e4f064c6e085
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amazon.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-8a31c4e41f
     server: jp2static.xyy123.bid
     port: 443
@@ -93,6 +36,17 @@ proxies:
     reality-opts:
       public-key: CKfGUIOy-k2OfwtxsqeHIQWwR29WAbypOvKH4bAVo18
       short-id: 732d5d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4f592c40b2
+    server: jp2static.xyy123.bid
+    port: 443
+    uuid: 2aabf881-60dd-492b-97f6-774377dc3882
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: image.semiconductor.samsung.com
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -117,47 +71,48 @@ proxies:
     servername: home.amazon.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-6ff00df2c3
-    server: jp2static.xyy123.bid
-    port: 443
-    uuid: d8af34bf-d02f-4fe2-8063-386635d026ae
+  - type: vmess
+    name: 4Jadi-891604cb23
+    server: 151.242.165.160
+    port: 6233
+    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.led.samsung.com
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: v47.emnode.top
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v47.emnode.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Sarina-56be7652d2
       - 4Sarina-5740f718d1
-      - 4Nika-d6ee217184
       - 4Sarina-8a31c4e41f
+      - 4FreeIran-4f592c40b2
       - 4Nika-8b69d521f0
       - 4Kian-068bc1e05a
-      - 4FreeIran-6ff00df2c3
+      - 4Jadi-891604cb23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Sarina-56be7652d2
       - 4Sarina-5740f718d1
-      - 4Nika-d6ee217184
       - 4Sarina-8a31c4e41f
+      - 4FreeIran-4f592c40b2
       - 4Nika-8b69d521f0
       - 4Kian-068bc1e05a
-      - 4FreeIran-6ff00df2c3
+      - 4Jadi-891604cb23
 rules:
   - MATCH,Proxy

@@ -1,40 +1,25 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: hl-freedom-1.undef.network
+    server: hl-freedom-0.undef.network
     port: 443
-    password: 7LBbob9IutFObLxLf9Svc1HaV
+    password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
     udp: true
     tls: true
-    sni: hl-freedom-1.undef.network
+    sni: hl-freedom-0.undef.network
     client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /f2fc2a1f
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hl-freedom-1.undef.network
-  - type: vless
-    name: 4Jadi-cf414c0347
-    server: 89.125.100.72
-    port: 443
-    uuid: ad26c433-baa9-4e85-8c18-f2685403767e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: addons.mozilla.org
-    reality-opts:
-      public-key: PSVwD5kQazghbdAEfAOzEQnd-ZErzcAHS89GmpeSviM
-      short-id: 14efb3a8
-    flow: xtls-rprx-vision
-    xudp: true
+        Host: hl-freedom-0.undef.network
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Jadi-cf414c0347
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +27,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Jadi-cf414c0347
 rules:
   - MATCH,Proxy

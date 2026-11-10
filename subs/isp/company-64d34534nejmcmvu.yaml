@@ -1,29 +1,40 @@
 proxies:
   - type: vless
-    name: 4Sarina-4977cf627a
-    server: 169.40.37.232
-    port: 25362
-    uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
+    name: DeltaKroneckerGithub
+    server: 169.40.37.109
+    port: 8443
+    uuid: 1f3c1ce1-c15f-4965-be6b-24bec4191374
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.chip.de
-    reality-opts:
-      public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
-      short-id: 23732d14a527990d
+    client-fingerprint: chrome
+    servername: 169.40.37.109
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 169.40.37.109
+    port: 8443
+    uuid: a09393b3-cefb-4d9e-bdba-2f8ff069c4e3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 169.40.37.109
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-4977cf627a
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-4977cf627a
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
 rules:
   - MATCH,Proxy

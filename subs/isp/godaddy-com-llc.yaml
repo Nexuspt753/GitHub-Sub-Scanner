@@ -1,29 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Kian-56c191cc5f
-    server: 45.40.149.50
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 184.168.127.50
+    port: 443
+    password: 28d98f761aca9d636f44db62544628eb
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime39.workers.dev
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-56c191cc5f
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-56c191cc5f
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 193.219.97.198
+    port: 443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
     name: 4Sarina-6666df4049
     server: 193.219.97.198
     port: 443
@@ -16,7 +32,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fs.qicai99.com
   - type: vless
-    name: 4Sarina-1f0fa46296
+    name: 4Nika-70f029f704
     server: 193.219.97.198
     port: 443
     uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
@@ -36,15 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-6666df4049
-      - 4Sarina-1f0fa46296
+      - 4Nika-70f029f704
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-6666df4049
-      - 4Sarina-1f0fa46296
+      - 4Nika-70f029f704
 rules:
   - MATCH,Proxy

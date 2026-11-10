@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 4Kian-5e7bea1219
-    server: dns3.m3hrzd.ir
-    port: 8044
-    cipher: chacha20-ietf-poly1305
-    password: U5Jk0BhRNKjb5wQBBOXx2wwkWZ_yWU0N
+  - type: vless
+    name: 4Kian-fd92e7b29d
+    server: us.tutu4ka.online
+    port: 8443
+    uuid: 28e0309d-0333-41c5-94f7-2f6fd9662a4a
     udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: chess.com
+    reality-opts:
+      public-key: CMWmMnyh-0LqCsJqEMpMxJnahlgKYc0JKp9IqpbpBl0
+      short-id: 3f13cc1358d40526
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-5e7bea1219
+      - 4Kian-fd92e7b29d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-5e7bea1219
+      - 4Kian-fd92e7b29d
 rules:
   - MATCH,Proxy

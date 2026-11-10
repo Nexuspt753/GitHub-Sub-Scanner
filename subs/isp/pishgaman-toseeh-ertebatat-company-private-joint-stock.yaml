@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: 4Mohsen-b528b5711e
+    server: 5.202.11.137
+    port: 555
+    cipher: chacha20-ietf-poly1305
+    password: 60806a2e4c3945f4ba08beade8d71d4e
+    udp: true
+  - type: ss
+    name: 4Nika-c37a1e7d46
+    server: mojtun.mlbaz.ir
+    port: 555
+    cipher: chacha20-ietf-poly1305
+    password: 60806a2e4c3945f4ba08beade8d71d4e
+    udp: true
   - type: vless
     name: 4Sarina-baac6c4c2f
     server: 5.202.5.146
@@ -23,6 +37,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-b528b5711e
+      - 4Nika-c37a1e7d46
       - 4Sarina-baac6c4c2f
   - name: Auto
     type: url-test
@@ -30,6 +46,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-b528b5711e
+      - 4Nika-c37a1e7d46
       - 4Sarina-baac6c4c2f
 rules:
   - MATCH,Proxy

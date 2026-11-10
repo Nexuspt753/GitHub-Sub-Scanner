@@ -1,7 +1,52 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 7cabc1g.de-p2.h1clayd.click
+    port: 443
+    uuid: 4618cebd-e1e9-45c3-be98-d9d6e3ee8bef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 7cabc1g.de-p2.h1clayd.click
+    reality-opts:
+      public-key: VKwRsPrkqzgO1NgEd9uK-g9Sg9vWUl37msYt4OH7XiI
+      short-id: d04b7f092468a136
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-8fec872955
     server: 153.56.228.151
+    port: 443
+    uuid: 4618cebd-e1e9-45c3-be98-d9d6e3ee8bef
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bbcdd4t.de-p2.h1clayd.click
+    reality-opts:
+      public-key: n9cdr2Qf9h3S_jf5Rcd15fl-4fxuztHvlexE7G-QvW8
+      short-id: 1aab0b827885a8b4
+    xudp: true
+  - type: vless
+    name: 4Sarina-6880847006
+    server: 7cabc1g.de-p2.h1clayd.click
+    port: 443
+    uuid: 4618cebd-e1e9-45c3-be98-d9d6e3ee8bef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 7cabc1g.de-p2.h1clayd.click
+    reality-opts:
+      public-key: VKwRsPrkqzgO1NgEd9uK-g9Sg9vWUl37msYt4OH7XiI
+      short-id: d04b7f092468a136
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-5135061f14
+    server: bbcdd4t.de-p2.h1clayd.click
     port: 443
     uuid: 4618cebd-e1e9-45c3-be98-d9d6e3ee8bef
     udp: true
@@ -17,13 +62,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Jadi-8fec872955
+      - 4Sarina-6880847006
+      - 4Jadi-5135061f14
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Jadi-8fec872955
+      - 4Sarina-6880847006
+      - 4Jadi-5135061f14
 rules:
   - MATCH,Proxy
