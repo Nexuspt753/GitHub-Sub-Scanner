@@ -1,5 +1,20 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 191.44.112.170.sslip.io
+    port: 443
+    password: 46d221fa-e9b4-748c-4eae-019a88e42991
+    udp: true
+    tls: true
+    sni: orbylume.my.to
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /tvpn-trojan/bg
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: orbylume.my.to
+  - type: trojan
     name: 4Nika-41d67c5df5
     server: 191.44.112.170.sslip.io
     port: 443
@@ -14,6 +29,15 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: orbylume.my.to
+  - type: trojan
+    name: 4Mohsen-c109aa59de
+    server: 191.44.112.170.sslip.io
+    port: 443
+    password: 46d221fa-e9b4-748c-4eae-019a88e42991
+    udp: true
+    tls: true
+    sni: orbylume.my.to
+    client-fingerprint: chrome
   - type: trojan
     name: 4Jadi-492f39e158
     server: 191.44.112.170.sslip.io
@@ -37,6 +61,21 @@ proxies:
       path: /tvpn-trojan/bg
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Mohsen-35c7718182
+    server: 191.44.112.170
+    port: 443
+    password: 46d221fa-e9b4-748c-4eae-019a88e42991
+    udp: true
+    tls: true
+    sni: orbylume.my.to
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /tvpn-trojan/bg
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: orbylume.my.to
   - type: vless
     name: Tarkahodeh
     server: 194.238.57.23
@@ -53,22 +92,6 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: VPsave
-    server: 191.44.112.170
-    port: 443
-    uuid: 46d221fa-e9b4-748c-4eae-019a88e42991
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: orbylume.my.to
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /tvpn-tor/is
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: orbylume.my.to
   - type: vless
     name: 4Nika-473d000d37
     server: poland3.banovano.space
@@ -100,38 +123,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Jadi-216a365f04
-    server: 191.44.112.170
-    port: 443
-    uuid: 46d221fa-e9b4-748c-4eae-019a88e42991
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: orbylume.my.to
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /tvpn-tor/is
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: orbylume.my.to
-  - type: vless
-    name: 4Kian-5722630c6b
-    server: 191.44.112.170
-    port: 443
-    uuid: 46d221fa-e9b4-748c-4eae-019a88e42991
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: orbylume.my.to
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /tvpn-tor/isfp=firefox
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: orbylume.my.to
-  - type: vless
     name: 4Nika-29c2a6efce
     server: fi.quic.best
     port: 443
@@ -147,15 +138,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-41d67c5df5
+      - 4Mohsen-c109aa59de
       - 4Jadi-492f39e158
       - 4Sarina-c7b2120623
+      - 4Mohsen-35c7718182
       - Tarkahodeh
-      - VPsave
       - 4Nika-473d000d37
       - 4FreeIran-aedd5ad05d
-      - 4Jadi-216a365f04
-      - 4Kian-5722630c6b
       - 4Nika-29c2a6efce
   - name: Auto
     type: url-test
@@ -163,15 +154,15 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-41d67c5df5
+      - 4Mohsen-c109aa59de
       - 4Jadi-492f39e158
       - 4Sarina-c7b2120623
+      - 4Mohsen-35c7718182
       - Tarkahodeh
-      - VPsave
       - 4Nika-473d000d37
       - 4FreeIran-aedd5ad05d
-      - 4Jadi-216a365f04
-      - 4Kian-5722630c6b
       - 4Nika-29c2a6efce
 rules:
   - MATCH,Proxy

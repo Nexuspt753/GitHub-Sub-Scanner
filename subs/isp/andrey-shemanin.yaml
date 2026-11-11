@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Kian-d74343d8e0
+    server: 81.90.24.141
+    port: 443
+    uuid: f807208f-27ed-0007-8736-b63732ea88c6
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: lesson-freedom-agent-inhabitant.v4.swiftlet.online
+    reality-opts:
+      public-key: cf7j5G-01AQB0n1WWdVnviRnG32BCLdCMdEe9-s3BA0
+      short-id: b0d8f264b7ac8ac0
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-d74343d8e0
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-d74343d8e0
+rules:
+  - MATCH,Proxy

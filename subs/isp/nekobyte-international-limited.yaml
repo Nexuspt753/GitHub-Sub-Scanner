@@ -16,20 +16,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: v2ray313
-    server: app-mi-26.spbstudentlife.com
-    port: 443
-    uuid: 07680ffb-0666-4836-b6ad-ec0de62bc38f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: assets-mi-26.spbstudentlife.com
-    reality-opts:
-      public-key: cYtAkO6yUCuRTxHvF8EH76bybk1yfS005KLls-at2yc
-      short-id: a7856800c2deb7b2
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-47f1425c42
     server: app-mi-26.spbstudentlife.com
     port: 443
@@ -59,15 +45,29 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-6c6d2569d2
+    server: 147.45.210.56
+    port: 443
+    uuid: d2fc9881-cbc9-421f-a782-b6f7d274b787
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.google.com
+    reality-opts:
+      public-key: LvFqyJeNirhMzd15XfdJ-MW3i0BZs5mXU1c-Llox8hQ
+      short-id: c97e0a447f8b2811
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - v2ray313
       - 4Sarina-47f1425c42
       - 4Sarina-76a98c3af6
+      - 4Mohsen-6c6d2569d2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,8 +75,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - v2ray313
       - 4Sarina-47f1425c42
       - 4Sarina-76a98c3af6
+      - 4Mohsen-6c6d2569d2
 rules:
   - MATCH,Proxy

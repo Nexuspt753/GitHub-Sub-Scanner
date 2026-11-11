@@ -6,20 +6,32 @@ proxies:
     password: 28d98f761aca9d636f44db62544628eb
     udp: true
     client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 184.168.127.50
-    port: 443
-    password: 36ebef7d1b1d6205fd0c55f28800e674
+  - type: vless
+    name: 4Kian-56c191cc5f
+    server: 45.40.149.50
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
-    client-fingerprint: chrome
-  - type: ss
-    name: DeltaKroneckerGithub-02
-    server: 50.62.88.16
-    port: 443
-    cipher: none
-    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime39.workers.dev
+  - type: vless
+    name: 4Kian-bf4396b241
+    server: 45.40.151.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime42.workers.dev
   - type: vless
     name: 4Jadi-c24ac1678a
     server: 50.62.195.4
@@ -39,8 +51,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Kian-56c191cc5f
+      - 4Kian-bf4396b241
       - 4Jadi-c24ac1678a
   - name: Auto
     type: url-test
@@ -49,8 +61,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
+      - 4Kian-56c191cc5f
+      - 4Kian-bf4396b241
       - 4Jadi-c24ac1678a
 rules:
   - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Nika-5577417dc3
+    server: 95.167.57.129
+    port: 7444
+    uuid: f807208f-27ed-465a-8736-b63732ea88c6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ligastavok.ru
+    reality-opts:
+      public-key: uxWBM2b-QHbLSKWZ_Zy29c7tcrw0pLM7AaAFTo_R6lc
+      short-id: "298938469938"
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-5577417dc3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-5577417dc3
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 4Sarina-023bc93464
+    server: crm2.play98.ir
+    port: 52862
+    uuid: 436899a7-965b-4e6e-8797-27f9363d812c
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Jadi-8b0d39d94c
     server: 79.175.189.121
     port: 40021
@@ -20,20 +32,40 @@ proxies:
     uuid: 93579113-3df4-4206-8124-a75d381a3e32
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-f7df643cec
+    server: c1.lionets.nl
+    port: 443
+    uuid: dac47b49-233f-49e9-b1a0-8dcc06907256
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: aparat.com
+    reality-opts:
+      public-key: RKd3-fMd-D-DaNA0b3snyuPwBlbHgiDMsU8CK8DpgHA
+      short-id: 057f
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-023bc93464
       - 4Jadi-8b0d39d94c
       - 4Mohsen-de2a9a19a5
+      - 4FreeIran-f7df643cec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-023bc93464
       - 4Jadi-8b0d39d94c
       - 4Mohsen-de2a9a19a5
+      - 4FreeIran-f7df643cec
 rules:
   - MATCH,Proxy

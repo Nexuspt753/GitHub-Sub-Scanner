@@ -1,5 +1,17 @@
 proxies:
   - type: trojan
+    name: v2ray_phoenix
+    server: connect-se.mimowhat.online
+    port: 443
+    password: FkQH0Q5EFneySv20Qj3yoArD2GSb2XZF
+    udp: true
+    tls: true
+    sni: connect-se.mimowhat.online
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Jadi-1bf1895d55
     server: connect-se.mimowhat.online
     port: 443
@@ -11,34 +23,20 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
-  - type: vless
-    name: 4Nika-34036675bd
-    server: 185.153.55.159
-    port: 443
-    uuid: 47171e1c-ee62-4f39-99bb-b77fe876095b
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: se1.refprov.online
-    reality-opts:
-      public-key: pEtJviwCErc3Ztwnev1p4m9ZhWgdVV9a6rpa0Hujvj0
-      short-id: b91fe4e1
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - v2ray_phoenix
       - 4Jadi-1bf1895d55
-      - 4Nika-34036675bd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray_phoenix
       - 4Jadi-1bf1895d55
-      - 4Nika-34036675bd
 rules:
   - MATCH,Proxy

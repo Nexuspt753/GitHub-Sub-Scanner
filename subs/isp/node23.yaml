@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-3923e27d9f
+    server: 91.238.111.225
+    port: 443
+    uuid: 60214840-e4b9-4b4d-8661-4254f324cfe5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn-sel.shamanapp.online
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-3923e27d9f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-3923e27d9f
+rules:
+  - MATCH,Proxy

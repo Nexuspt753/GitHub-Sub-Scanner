@@ -1,23 +1,41 @@
 proxies:
-  - type: ss
-    name: 4Sarina-cff77a26cf
-    server: irx-maxuup.ir.maxuup.fun
-    port: 3043
-    cipher: chacha20-ietf-poly1305
-    password: 090324001d0a0a0abc27d07e8172a81d
+  - type: vless
+    name: 4Sarina-804846441f
+    server: ir-news.pingbazi2027.ir
+    port: 3040
+    uuid: 5b129671-ef53-3373-5149-de23a65606e9
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.aparat.com
+    reality-opts:
+      public-key: YfHSYoUGAuTwCab4F65ymIQQTBSPuk9C5RX6rvg-KkM
+      short-id: fbd534db
+    xudp: true
+  - type: vmess
+    name: 4Mohsen-03b71fa9fe
+    server: irx-maxuup.ir.maxuup.fun
+    port: 3040
+    uuid: 88f9d297-44e1-a6d2-3875-9914bb45f96e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-cff77a26cf
+      - 4Sarina-804846441f
+      - 4Mohsen-03b71fa9fe
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-cff77a26cf
+      - 4Sarina-804846441f
+      - 4Mohsen-03b71fa9fe
 rules:
   - MATCH,Proxy

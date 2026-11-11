@@ -1,43 +1,47 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 139.180.146.200
-    port: 8886
-    password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Kian-1f1054387c
-    server: 139.180.146.200
-    port: 8886
-    password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4FreeIran-2a37a124e3
-    server: 139.180.146.200
-    port: 8886
-    password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  - type: vless
+    name: 4Kian-bd694c907e
+    server: 139.180.133.235
+    port: 9443
+    uuid: 14c36bd3-d631-4618-99aa-5f6c1c9f4abc
     udp: true
     tls: true
-    sni: 139.180.146.200
+    client-fingerprint: firefox
+    servername: i.s-microsoft.com
+    reality-opts:
+      public-key: rgtOiCdN6uMCpk9LhOTEIm4LVjLlkH-9LYbcf6AXBg4
+      short-id: 6d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-888517314d
+    server: sgp.beijingshi.asia
+    port: 8443
+    uuid: 14c36bd3-d631-4618-99aa-5f6c1c9f4abc
+    udp: true
+    tls: true
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: sgp.beijingshi.asia
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Kian-1f1054387c
-      - 4FreeIran-2a37a124e3
+      - 4Kian-bd694c907e
+      - 4Mohsen-888517314d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Kian-1f1054387c
-      - 4FreeIran-2a37a124e3
+      - 4Kian-bd694c907e
+      - 4Mohsen-888517314d
 rules:
   - MATCH,Proxy

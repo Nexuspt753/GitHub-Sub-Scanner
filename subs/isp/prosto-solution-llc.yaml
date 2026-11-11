@@ -1,25 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 104.143.223.236
-    port: 2085
-    uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Nika-bfe4223171
-    server: 104.143.223.236
-    port: 2085
-    uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Sarina-f81694a61b
     server: 104.143.223.236
     port: 2085
@@ -41,24 +21,32 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Kian-25d86f72ef
+    server: 104.143.223.236
+    port: 2085
+    uuid: 6538f5c3-5b01-4956-a8e6-47688c01c42e
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Nika-bfe4223171
       - 4Sarina-f81694a61b
       - 4Sarina-45617aaa9d
+      - 4Kian-25d86f72ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Nika-bfe4223171
       - 4Sarina-f81694a61b
       - 4Sarina-45617aaa9d
+      - 4Kian-25d86f72ef
 rules:
   - MATCH,Proxy

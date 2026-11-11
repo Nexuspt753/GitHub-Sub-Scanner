@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: 4Kian-73b8bd7a2d
+    server: 216.23.84.115
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
   - type: vmess
     name: 4Jadi-4bb2559191
     server: yg2.needss.top
@@ -19,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-73b8bd7a2d
       - 4Jadi-4bb2559191
   - name: Auto
     type: url-test
@@ -26,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-73b8bd7a2d
       - 4Jadi-4bb2559191
 rules:
   - MATCH,Proxy

@@ -1,30 +1,33 @@
 proxies:
   - type: vless
-    name: 4FreeIran-51b255468a
-    server: worker02-k3s-dev.dvp.weatherapi.cc
+    name: 4FreeIran-b5a425a464
+    server: 95.182.121.9
     port: 443
-    uuid: 82e94483-7cda-3006-a510-7309acec2a4a
+    uuid: aa8d7bf2-26e2-46bb-ac3b-33a932d26cb3
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: worker02-k3s-dev.dvp.weatherapi.cc
-    reality-opts:
-      public-key: fH4PPPAtKg1Vha2JoIYsoCWyY1lOZh33ZzPk5Ra9mmA
-      short-id: fa225678c4934349
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: va.stream-room.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-51b255468a
+      - 4FreeIran-b5a425a464
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-51b255468a
+      - 4FreeIran-b5a425a464
 rules:
   - MATCH,Proxy
