@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Jadi-34b5500bfd
+    server: 85.234.114.53
+    port: 22231
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: r1.mizulina.top
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-34b5500bfd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-34b5500bfd
+rules:
+  - MATCH,Proxy

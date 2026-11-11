@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: 4Sarina-56be7652d2
-    server: jp2support.xyy123.bid
-    port: 443
-    uuid: 206a8ff5-75a9-4191-8688-9e107d6f6c9d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: developer.qa.nvidia.cn
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-d6ee217184
     server: jp2static.xyy123.bid
     port: 443
@@ -65,28 +54,46 @@ proxies:
     servername: download.led.samsung.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Jadi-891604cb23
+    server: 151.242.165.160
+    port: 6233
+    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: v47.emnode.top
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v47.emnode.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-56be7652d2
       - 4Nika-d6ee217184
       - 4FreeIran-4f592c40b2
       - 4Nika-8b69d521f0
       - 4Kian-068bc1e05a
       - 4FreeIran-6ff00df2c3
+      - 4Jadi-891604cb23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-56be7652d2
       - 4Nika-d6ee217184
       - 4FreeIran-4f592c40b2
       - 4Nika-8b69d521f0
       - 4Kian-068bc1e05a
       - 4FreeIran-6ff00df2c3
+      - 4Jadi-891604cb23
 rules:
   - MATCH,Proxy

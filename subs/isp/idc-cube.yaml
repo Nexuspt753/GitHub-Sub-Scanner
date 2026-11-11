@@ -1,25 +1,50 @@
 proxies:
-  - type: trojan
-    name: 4Nika-b05224914c
-    server: f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com
-    port: 13209
-    password: fac593ac-d6aa-4523-bea9-b3eb2a2b3da3
+  - type: vless
+    name: 4FreeIran-35dc6948ab
+    server: 200.180.163.38
+    port: 443
+    uuid: 5b28a0c9-eda3-4c78-b07b-48cbd1670771
     udp: true
     tls: true
-    sni: 207.yuanul.com
+    client-fingerprint: random
+    servername: eu-central.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eu-central.862400.xyz
+  - type: vless
+    name: 4FreeIran-8be7c00ea2
+    server: 200.180.163.38
+    port: 443
+    uuid: 5b28a0c9-eda3-4c78-b07b-48cbd1670771
+    udp: true
+    tls: true
     client-fingerprint: chrome
+    servername: eu-central.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: eu-central.862400.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-b05224914c
+      - 4FreeIran-35dc6948ab
+      - 4FreeIran-8be7c00ea2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-b05224914c
+      - 4FreeIran-35dc6948ab
+      - 4FreeIran-8be7c00ea2
 rules:
   - MATCH,Proxy

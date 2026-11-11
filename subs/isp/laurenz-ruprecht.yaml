@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: VPsave
+    server: 4935e4t.de25.h1clayd.click
+    port: 443
+    uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 4935e4t.de25.h1clayd.click
+    reality-opts:
+      public-key: MzgB17ZFbKqs8pbC3EscTzHid_ENc-k_Cp6nXl-2knw
+      short-id: 6976d670818644cc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-53c6db9d96
     server: 5406e6g.de27.h1clayd.click
     port: 443
@@ -42,29 +56,15 @@ proxies:
       public-key: "-Kj5RBoDmULkrxxd6qNDAfpfoPpL9DY07FRVM_TME1M"
       short-id: 30eb12b1050ee52d
     xudp: true
-  - type: vless
-    name: 4Sarina-68e5bc90bf
-    server: 4935e4t.de25.h1clayd.click
-    port: 443
-    uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 4935e4t.de25.h1clayd.click
-    reality-opts:
-      public-key: MzgB17ZFbKqs8pbC3EscTzHid_ENc-k_Cp6nXl-2knw
-      short-id: 6976d670818644cc
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - VPsave
       - 4Jadi-53c6db9d96
       - 4Mohsen-ff4c69bb84
-      - 4Sarina-68e5bc90bf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -72,8 +72,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - VPsave
       - 4Jadi-53c6db9d96
       - 4Mohsen-ff4c69bb84
-      - 4Sarina-68e5bc90bf
 rules:
   - MATCH,Proxy

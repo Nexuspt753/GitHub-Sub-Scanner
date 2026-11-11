@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: Tashkent · 4Kian-4fb65fc286
-    server: 46.8.114.205
-    port: 443
-    uuid: 9f9c913b-0b78-4d14-a4db-560794cbc90f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: plov.plus-hit.ru
-    reality-opts:
-      public-key: QsUgVxHyjCKdtYBnBGoEM74F3k9uc2kimLPbf_qAAAM
-      short-id: bf8b003cb32c968b
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: Tashkent · 4Jadi-5c8285adb3
     server: plov.plus-hit.ru
     port: 443
@@ -27,38 +13,18 @@ proxies:
       short-id: bf8b003cb32c968b
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: Tashkent · 4Jadi-785e88496a
-    server: 37.110.209.228
-    port: 80
-    uuid: ecba5b33-f768-4d8a-b004-b29e8e5c676f
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sazgar.serveirc.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Tashkent · 4Kian-4fb65fc286
       - Tashkent · 4Jadi-5c8285adb3
-      - Tashkent · 4Jadi-785e88496a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Tashkent · 4Kian-4fb65fc286
       - Tashkent · 4Jadi-5c8285adb3
-      - Tashkent · 4Jadi-785e88496a
 rules:
   - MATCH,Proxy

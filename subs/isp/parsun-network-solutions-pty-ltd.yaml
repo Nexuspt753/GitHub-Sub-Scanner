@@ -10,26 +10,30 @@ proxies:
     servername: tun.mitdns.ir
     xudp: true
   - type: vless
-    name: 4Jadi-65975541f1
-    server: finio.pedramhost.ir
-    port: 27195
-    uuid: b4f8be1d-8327-48cc-b84e-7e3714ab5439
+    name: 4Mohsen-eac76ac399
+    server: api-store-log.darkdragon1.com
+    port: 8443
+    uuid: a5563cd4-5363-4a6f-a32a-54917a4887cc
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: h2IZ2DHQ-ibHC8NzuO7TVo3wS7G8DBV1hoCCR5cbRko
-      short-id: cd9a75b7
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: api-store-log.darkdragon1.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /about
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: api-store-log.darkdragon1.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-ac75a31fa6
-      - 4Jadi-65975541f1
+      - 4Mohsen-eac76ac399
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-ac75a31fa6
-      - 4Jadi-65975541f1
+      - 4Mohsen-eac76ac399
 rules:
   - MATCH,Proxy

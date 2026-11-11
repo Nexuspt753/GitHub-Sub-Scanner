@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: vpnsal
+    server: dns6.mizdomaingame.ir
+    port: 443
+    uuid: 8077b2a0-8230-46d1-941d-b709f8f1c764
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dns6.mizdomaingame.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /25qxao9a6
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dns6.mizdomaingame.ir
+  - type: vless
     name: 4Mohsen-7d2127f9bb
     server: dns6.mizdomaingame.ir
     port: 443
@@ -22,6 +40,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vpnsal
       - 4Mohsen-7d2127f9bb
   - name: Auto
     type: url-test
@@ -29,6 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vpnsal
       - 4Mohsen-7d2127f9bb
 rules:
   - MATCH,Proxy

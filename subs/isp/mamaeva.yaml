@@ -1,26 +1,32 @@
 proxies:
   - type: vless
-    name: 4Mohsen-bd6ab4735a
-    server: 95.140.158.168
-    port: 443
-    uuid: a96ad3ea-4820-43d2-bbf3-27c6bf19d652
+    name: 4Mohsen-0d97d8334e
+    server: 95.140.152.173
+    port: 2083
+    uuid: 3e40a4ab-efc5-4023-8e0e-9a10324ad44a
     udp: true
     tls: true
-    client-fingerprint: random
-    servername: fi.bootless.ru
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: B7x5bYp-YhtLeH31zYcilpKFCkGTMe3jtSECSw-bMC4
+      short-id: bc306875
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-bd6ab4735a
+      - 4Mohsen-0d97d8334e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-bd6ab4735a
+      - 4Mohsen-0d97d8334e
 rules:
   - MATCH,Proxy
