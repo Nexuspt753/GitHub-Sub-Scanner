@@ -13,6 +13,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4FreeIran-72a37370cd
+    server: cz-prg.dontblockmepls.com
+    port: 2063
+    uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: rusbid.de
+    reality-opts:
+      public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-4860198e1d
     server: pl-waw.dontblockmepls.com
     port: 2063
@@ -28,27 +44,14 @@ proxies:
       public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-2316b7337b
-    server: pl-waw.dontblockmepls.com
-    port: 2063
-    uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: rusbid.de
-    reality-opts:
-      public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - appsooner
+      - 4FreeIran-72a37370cd
       - 4Sarina-4860198e1d
-      - 4Jadi-2316b7337b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,7 +59,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - appsooner
+      - 4FreeIran-72a37370cd
       - 4Sarina-4860198e1d
-      - 4Jadi-2316b7337b
 rules:
   - MATCH,Proxy

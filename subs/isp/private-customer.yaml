@@ -11,17 +11,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-d6ee217184
-    server: jp2static.xyy123.bid
-    port: 443
-    uuid: 28e553d9-52ab-48c6-afa6-e4f064c6e085
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: amazon.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-4f592c40b2
     server: jp2static.xyy123.bid
     port: 443
@@ -43,27 +32,33 @@ proxies:
     servername: home.amazon.com
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-6ff00df2c3
-    server: jp2static.xyy123.bid
-    port: 443
-    uuid: d8af34bf-d02f-4fe2-8063-386635d026ae
+  - type: vmess
+    name: 4Sarina-8ee80354d8
+    server: 151.242.165.160
+    port: 6233
+    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.led.samsung.com
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: v47.emnode.top
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v47.emnode.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-56be7652d2
-      - 4Nika-d6ee217184
       - 4FreeIran-4f592c40b2
       - 4Kian-068bc1e05a
-      - 4FreeIran-6ff00df2c3
+      - 4Sarina-8ee80354d8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -71,9 +66,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-56be7652d2
-      - 4Nika-d6ee217184
       - 4FreeIran-4f592c40b2
       - 4Kian-068bc1e05a
-      - 4FreeIran-6ff00df2c3
+      - 4Sarina-8ee80354d8
 rules:
   - MATCH,Proxy

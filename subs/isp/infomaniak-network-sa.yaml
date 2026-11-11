@@ -1,30 +1,25 @@
 proxies:
-  - type: vless
-    name: 4Sarina-ce5b4820bd
-    server: 195.15.203.71
-    port: 4436
-    uuid: 15125378-ed73-4ee3-4a60-49154961e5c1
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 83.228.230.226
+    port: 8443
+    password: SoftNetConnect
     udp: true
     tls: true
-    client-fingerprint: ios
-    servername: doi.org
-    reality-opts:
-      public-key: HFSvpLQaOAhqp5ZTntPRQAY-5NbnzLwbLBLlU3wAoQw
-      short-id: 083ab741
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: play.google.com
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-ce5b4820bd
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-ce5b4820bd
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

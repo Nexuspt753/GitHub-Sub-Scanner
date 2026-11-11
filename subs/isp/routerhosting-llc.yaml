@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 4Sarina-c5affe84cb
+    server: uuss2.qik-server.uk
+    port: 443
+    uuid: 38de3363-7945-402e-9a9b-6f2f9015a44e
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: uuss2.qik-server.uk
+    xudp: true
+  - type: vless
     name: vless
     server: usa.amosh.sbs
     port: 2053
@@ -15,12 +27,32 @@ proxies:
   - type: vless
     name: vless-01
     server: usa.amosh.sbs
+    port: 46539
+    uuid: 901c1ed2-be44-4c97-843e-7bcdcce28e04
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4FreeIran-544ed94ae4
+    server: usa.amosh.sbs
+    port: 2053
+    uuid: 901c1ed2-be44-4c97-843e-7bcdcce28e04
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    xudp: true
+  - type: vless
+    name: 4Nika-2e749d992a
+    server: usa.amosh.sbs
     port: 2053
     uuid: 901c1ed2-be44-4c97-843e-7bcdcce28e04
     udp: true
     xudp: true
   - type: vless
-    name: vless-02
+    name: 4Kian-035f417823
     server: usa.amosh.sbs
     port: 46539
     uuid: 901c1ed2-be44-4c97-843e-7bcdcce28e04
@@ -52,9 +84,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-c5affe84cb
       - vless
       - vless-01
-      - vless-02
+      - 4FreeIran-544ed94ae4
+      - 4Nika-2e749d992a
+      - 4Kian-035f417823
       - 4Nika-787e6d99fd
       - 4Kian-b7359830b0
   - name: Auto
@@ -63,9 +98,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-c5affe84cb
       - vless
       - vless-01
-      - vless-02
+      - 4FreeIran-544ed94ae4
+      - 4Nika-2e749d992a
+      - 4Kian-035f417823
       - 4Nika-787e6d99fd
       - 4Kian-b7359830b0
 rules:

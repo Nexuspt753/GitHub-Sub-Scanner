@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
+    name: 4FreeIran-cdb7120849
     server: 212.103.62.233
     port: 443
     uuid: a715374a-a745-4800-889b-0c864fad5ca0
@@ -13,6 +13,23 @@ proxies:
       short-id: 35d45334668b3ac5
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4FreeIran-26cc23d424
+    server: 23.224.101.102
+    port: 443
+    uuid: 946ba5df-5771-4873-a3cb-892378526147
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /footers
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 23.224.101.102
   - type: vmess
     name: 4Nika-a00e2c4d6b
     server: 23.224.101.102
@@ -35,7 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4FreeIran-cdb7120849
+      - 4FreeIran-26cc23d424
       - 4Nika-a00e2c4d6b
   - name: Auto
     type: url-test
@@ -43,7 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4FreeIran-cdb7120849
+      - 4FreeIran-26cc23d424
       - 4Nika-a00e2c4d6b
 rules:
   - MATCH,Proxy

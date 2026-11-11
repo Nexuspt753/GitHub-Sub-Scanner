@@ -1,26 +1,68 @@
 proxies:
   - type: vless
-    name: 4Mohsen-e934141bef
-    server: 192.109.200.108
+    name: FarazV2ray
+    server: nl-balancer.peregrine-sub.net
     port: 443
-    uuid: e8f7bbc6-3f5b-42b1-9903-45d3ba608e30
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ads.x5.ru
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: V2raySaman
+    server: nl-balancer.peregrine-sub.net
+    port: 443
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-b9736bb122
+    server: nl-balancer.peregrine-sub.net
+    port: 443
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-d3f8055bfa
+    server: nl-balancer.peregrine-sub.net
+    port: 443
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e934141bef
+      - FarazV2ray
+      - V2raySaman
+      - 4Mohsen-b9736bb122
+      - 4Jadi-d3f8055bfa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e934141bef
+      - FarazV2ray
+      - V2raySaman
+      - 4Mohsen-b9736bb122
+      - 4Jadi-d3f8055bfa
 rules:
   - MATCH,Proxy

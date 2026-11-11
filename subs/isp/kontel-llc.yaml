@@ -1,23 +1,32 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-5354b1a763
-    server: 46.8.210.209
+  - type: vless
+    name: 4Kian-9099a12065
+    server: 185.186.140.69
     port: 443
-    password: 95c61940-2823-4665-a033-d4f2218329b6
-    sni: ru3.kinotorg.net
-    skip-cert-verify: true
+    uuid: 3152e78d-4aa1-4323-a1cb-692d01258f01
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: ea.com
+    reality-opts:
+      public-key: D_wVvCZGOUWDp1-TscOXN6MnTqcHmhZyGxc8hL_A1n8
+      short-id: 89e6091d
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-5354b1a763
+      - 4Kian-9099a12065
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-5354b1a763
+      - 4Kian-9099a12065
 rules:
   - MATCH,Proxy

@@ -1,4 +1,22 @@
 proxies:
+  - type: vless
+    name: 4Kian-0d065940e4
+    server: 95.163.232.240
+    port: 443
+    uuid: 010be6fa-ab5f-404a-9edf-ab2db1f09f0c
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - http/1.1
+    servername: api.neuroblur.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/generate
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: api.neuroblur.top
   - type: vmess
     name: 4Kian-60faed0634
     server: 194.226.142.120
@@ -74,6 +92,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-0d065940e4
       - 4Kian-60faed0634
       - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707
@@ -84,6 +103,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-0d065940e4
       - 4Kian-60faed0634
       - 4Nika-7883f07192
       - 4Mohsen-fd77f9a707

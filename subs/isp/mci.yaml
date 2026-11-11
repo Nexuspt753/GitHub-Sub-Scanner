@@ -1,42 +1,25 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-8e8e70e3ea
-    server: 188.213.198.25
-    port: 1311
-    uuid: 6b5d6852-0b29-4fb7-afa3-8904638bc1b5
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ir1.wufpel.ir
+    port: 443
+    password: GbeGE_MwDQ_2Q_0b9RgdZd07ChS3mMLz
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Nika-ace2b6e1c0
-    server: 188.213.198.25
-    port: 5456
-    uuid: 6b5d6852-0b29-4fb7-afa3-8904638bc1b5
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    tls: true
+    sni: bf0264eb50014997.wufpel.ir
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-8e8e70e3ea
-      - 4Nika-ace2b6e1c0
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-8e8e70e3ea
-      - 4Nika-ace2b6e1c0
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy
