@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Sarina-54d2ebb8e7
+    server: 85.206.161.209
+    port: 443
+    uuid: 20e565e1-3858-40bf-94e8-4ec9624fc985
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: wallweb8.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wallweb8.pages.dev
+  - type: vless
     name: 4Mohsen-900defe9e4
     server: 88.119.165.131
     port: 443
@@ -18,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-54d2ebb8e7
       - 4Mohsen-900defe9e4
   - name: Auto
     type: url-test
@@ -25,6 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-54d2ebb8e7
       - 4Mohsen-900defe9e4
 rules:
   - MATCH,Proxy

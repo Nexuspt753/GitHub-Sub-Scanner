@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-66b2c53cfe
+    server: 212.113.112.239
+    port: 8443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v6-95o.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v6-95o.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-66b2c53cfe
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-66b2c53cfe
+rules:
+  - MATCH,Proxy

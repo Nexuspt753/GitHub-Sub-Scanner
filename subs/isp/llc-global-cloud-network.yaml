@@ -1,32 +1,38 @@
 proxies:
   - type: vless
-    name: 4Mohsen-f44b41dd1b
-    server: 37.18.15.103
-    port: 443
-    uuid: f79fe29a-39c9-445d-a6e9-85bfa76d5f02
+    name: 4FreeIran-3d1d23b239
+    server: 37.18.15.112
+    port: 8443
+    uuid: 37af0181-5598-4aad-a040-d926bcb65757
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: j8dvb.guardora.pro
+    client-fingerprint: firefox
+    servername: earlytrain.net
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api/v2/client/session/connect
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: j8dvb.guardora.pro
+  - type: vless
+    name: 4Sarina-987a75e816
+    server: earlytrain.net
+    port: 8443
+    uuid: 37af0181-5598-4aad-a040-d926bcb65757
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: earlytrain.net
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f44b41dd1b
+      - 4FreeIran-3d1d23b239
+      - 4Sarina-987a75e816
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f44b41dd1b
+      - 4FreeIran-3d1d23b239
+      - 4Sarina-987a75e816
 rules:
   - MATCH,Proxy

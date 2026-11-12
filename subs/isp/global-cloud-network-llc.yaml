@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-d079ac8963
-    server: dwedfs.whitenw.net
-    port: 8445
-    uuid: 84a56b88-2f89-4a57-b925-74abd5b7fd87
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: I_0JD13_bJuD6bNhTfb1PFPJUQqEVHl-YFluNwHAPD4
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-479e532330
     server: fbsv6.guardora.pro
     port: 443
@@ -30,6 +17,19 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fbsv6.guardora.pro
+  - type: vless
+    name: 4Kian-2caeac5240
+    server: 46.243.234.105
+    port: 443
+    uuid: c4d096c8-ace2-4c9e-800f-3fbc4035f8fe
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru18.importmsk.net
+    reality-opts:
+      public-key: 0kj3nmEYy4vsCMU9ydxawSoP-MLeIxpuXUjzFlYcz1E
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Jadi-dc7d8b3529
     server: 46.243.234.118
@@ -83,60 +83,46 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-12f1a56014
-    server: rapira-dof.whitenw.net
-    port: 8445
-    uuid: cd138479-c87a-4d4c-b6ea-4beeb6ef2b47
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: passport.yandex.ru
-    reality-opts:
-      public-key: l06r0clkHjHk7HRGpkDBJwZ1JJscSqfwHUQOrV3v3hQ
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-1b9ece6953
+    name: 4Mohsen-d9c4e2b9f3
     server: 6b9iw.guardora.pro
-    port: 10018
+    port: 443
     uuid: d9cc5c37-b53c-14a1-b4e1-1b9f7fbea1b1
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
     servername: 6b9iw.guardora.pro
-    reality-opts:
-      public-key: D0FqzTuVSzCF8IcFo64SFIpMsaGV47LW3el2GCCVoFY
-      short-id: c1a7e9b4711d5f60
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /ogVAL8moh5SB
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d079ac8963
       - 4Mohsen-479e532330
+      - 4Kian-2caeac5240
       - 4Jadi-dc7d8b3529
       - 4FreeIran-782879fa0e
       - 4Sarina-8de4e79eac
       - 4Jadi-431d2781c8
-      - 4Kian-12f1a56014
-      - 4Nika-1b9ece6953
+      - 4Mohsen-d9c4e2b9f3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d079ac8963
       - 4Mohsen-479e532330
+      - 4Kian-2caeac5240
       - 4Jadi-dc7d8b3529
       - 4FreeIran-782879fa0e
       - 4Sarina-8de4e79eac
       - 4Jadi-431d2781c8
-      - 4Kian-12f1a56014
-      - 4Nika-1b9ece6953
+      - 4Mohsen-d9c4e2b9f3
 rules:
   - MATCH,Proxy

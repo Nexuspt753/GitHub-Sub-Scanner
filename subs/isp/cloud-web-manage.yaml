@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: 4Sarina-3deb751852
+    server: 207.126.167.150
+    port: 443
+    password: O4O8.Ew+ujFX6GJBQ=xQr.heGwux0GYHqk
+    udp: true
+    tls: true
+    sni: 207.126.167.150
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-3deb751852
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-3deb751852
+rules:
+  - MATCH,Proxy

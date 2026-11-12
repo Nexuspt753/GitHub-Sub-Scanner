@@ -6,12 +6,23 @@ proxies:
     password: 6da2c981-8c77-4340-bda3-93399b7aea26
     sni: blogs.blog-forme.ru
     skip-cert-verify: true
+  - type: vmess
+    name: 4Nika-6dd05a59b6
+    server: 123466.ru
+    port: 26032
+    uuid: 804334e2-04ca-434c-8311-3ccee8218175
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-2d3b9a931a
+      - 4Nika-6dd05a59b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +30,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-2d3b9a931a
+      - 4Nika-6dd05a59b6
 rules:
   - MATCH,Proxy

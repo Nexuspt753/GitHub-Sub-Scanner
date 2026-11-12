@@ -1,16 +1,5 @@
 proxies:
   - type: hysteria2
-    name: 4Sarina-f84972c260
-    server: 165.154.193.165
-    port: 443
-    password: qtMKhrFAMrVZUfupkc5CFHmRKYtNPSjt
-    sni: 165.154.193.165
-    skip-cert-verify: true
-    alpn:
-      - h3
-    obfs: salamander
-    obfs-password: d7897b996af77eeecb7ac010361d74fb
-  - type: hysteria2
     name: 4FreeIran-d33d91decd
     server: 165.154.193.165
     port: 443
@@ -18,40 +7,18 @@ proxies:
     skip-cert-verify: true
     obfs: salamander
     obfs-password: d7897b996af77eeecb7ac010361d74fb
-  - type: hysteria2
-    name: 4Mohsen-42fd61456d
-    server: 165.154.193.165
-    port: 443
-    password: qtMKhrFAMrVZUfupkc5CFHmRKYtNPSjt
-    sni: 165.154.193.165
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Kian-be1aa3eaaa
-    server: 165.154.193.165
-    port: 443
-    password: qtMKhrFAMrVZUfupkc5CFHmRKYtNPSjt
-    sni: 165.154.193.165
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: salamander
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-f84972c260
       - 4FreeIran-d33d91decd
-      - 4Mohsen-42fd61456d
-      - 4Kian-be1aa3eaaa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-f84972c260
       - 4FreeIran-d33d91decd
-      - 4Mohsen-42fd61456d
-      - 4Kian-be1aa3eaaa
 rules:
   - MATCH,Proxy

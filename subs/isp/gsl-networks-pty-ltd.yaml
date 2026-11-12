@@ -1,25 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 103.62.49.75
-    port: 443
-    uuid: 14549c60-4d22-463d-a446-ed5cfbea8fa3
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: iosapps.itunes.apple.com
-    reality-opts:
-      public-key: yzIdIf5RpR-rTzlULRjJoCgcQdx3-yXKl7eT7IuThn4
-      short-id: bb9ab0d5242d53e9
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: ss
-    name: 🇺🇸
-    server: 173.244.56.6
-    port: 443
-    cipher: aes-128-gcm
-    password: shadowsocks
-    udp: true
   - type: ss
     name: 4Jadi-bafa6af781
     server: 173.244.56.6
@@ -34,24 +13,29 @@ proxies:
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
+    server: 173.244.56.6
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 🇺🇸
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 🇺🇸
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 91.108.249.72
+    port: 8443
+    uuid: a0bd3ae7-5955-4080-af16-3a2040e3a34c
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: www.faceit.com
+    reality-opts:
+      public-key: HHvePC1AS3_pZT-Ommfdj_WLvgvWBmXhELTKEYmkMwc
+      short-id: 8456fc06a3dc4a25
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: nl-balancer.peregrine-sub.net
+    port: 443
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: V2raySaman
+    server: nl-balancer.peregrine-sub.net
+    port: 443
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: v2ray313
     server: nl-balancer.peregrine-sub.net
     port: 443
@@ -13,26 +39,36 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-b9736bb122
+    name: 4Sarina-b518c682e8
     server: nl-balancer.peregrine-sub.net
     port: 443
     uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - V2raySaman
       - v2ray313
-      - 4Mohsen-b9736bb122
+      - 4Sarina-b518c682e8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - V2raySaman
       - v2ray313
-      - 4Mohsen-b9736bb122
+      - 4Sarina-b518c682e8
 rules:
   - MATCH,Proxy

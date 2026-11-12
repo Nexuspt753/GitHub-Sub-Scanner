@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: Tarkshodeh
+    server: 212.46.33.5
+    port: 443
+    uuid: 71091100-c6ed-41fa-84ac-acf7ff9eeb7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: slowkd.sadiepinki.com
+    reality-opts:
+      public-key: z37XIezsPyfMgmdXyFd9qT4C4maDAs1OcRt-wfyrXVo
+      short-id: 9c2378562188c3cb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Tarkshodeh-01
+    server: slowkd.sadiepinki.com
+    port: 443
+    uuid: 71091100-c6ed-41fa-84ac-acf7ff9eeb7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: slowkd.sadiepinki.com
+    reality-opts:
+      public-key: z37XIezsPyfMgmdXyFd9qT4C4maDAs1OcRt-wfyrXVo
+      short-id: 9c2378562188c3cb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-e0c094cb16
+    server: 212.46.33.5
+    port: 443
+    uuid: 71091100-c6ed-41fa-84ac-acf7ff9eeb7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: slowkd.sadiepinki.com
+    reality-opts:
+      public-key: z37XIezsPyfMgmdXyFd9qT4C4maDAs1OcRt-wfyrXVo
+      short-id: 9c2378562188c3cb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-1153798352
+    server: slowkd.sadiepinki.com
+    port: 443
+    uuid: 71091100-c6ed-41fa-84ac-acf7ff9eeb7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: slowkd.sadiepinki.com
+    reality-opts:
+      public-key: z37XIezsPyfMgmdXyFd9qT4C4maDAs1OcRt-wfyrXVo
+      short-id: 9c2378562188c3cb
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Tarkshodeh
+      - Tarkshodeh-01
+      - 4Mohsen-e0c094cb16
+      - 4Nika-1153798352
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Tarkshodeh
+      - Tarkshodeh-01
+      - 4Mohsen-e0c094cb16
+      - 4Nika-1153798352
+rules:
+  - MATCH,Proxy

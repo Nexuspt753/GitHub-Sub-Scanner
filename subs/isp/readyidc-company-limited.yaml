@@ -1,30 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-6a6c0b141e
+  - type: vless
+    name: 4Jadi-8b84879b38
     server: 43.229.148.249
     port: 443
-    password: humanity
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
     udp: true
     tls: true
-    sni: www.cordweave.com
     client-fingerprint: chrome
+    servername: v5-4b5.pages.dev
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v5-4b5.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-6a6c0b141e
+      - 4Jadi-8b84879b38
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-6a6c0b141e
+      - 4Jadi-8b84879b38
 rules:
   - MATCH,Proxy

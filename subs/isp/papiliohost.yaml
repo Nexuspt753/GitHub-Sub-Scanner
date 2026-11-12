@@ -1,30 +1,50 @@
 proxies:
   - type: vless
-    name: 4Nika-fb3ab035eb
-    server: pengu.persian2xl.ir
-    port: 500
-    uuid: cd370c03-93f6-475e-9820-f4aac2a98e0c
+    name: 4FreeIran-268fab68e3
+    server: dl1-de1.penguin-easyconnet.ir
+    port: 443
+    uuid: 9369a12f-cef2-44ec-9b10-ca841960ea55
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.icloud.com
-    reality-opts:
-      public-key: el5YbcwdLyOeLOWkJATaRmMKzDZ2PPwaXLWt5lYORj0
-      short-id: aeb9c783c6278086
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: dl1-de1.penguin-easyconnet.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /games/fortnite
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl1-de1.penguin-easyconnet.ir
+  - type: vless
+    name: 4Jadi-f3ac30651e
+    server: dl1.penguin-easyconnet.ir
+    port: 443
+    uuid: 9369a12f-cef2-44ec-9b10-ca841960ea55
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: dl1.penguin-easyconnet.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /games/fortnite
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl1.penguin-easyconnet.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-fb3ab035eb
+      - 4FreeIran-268fab68e3
+      - 4Jadi-f3ac30651e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-fb3ab035eb
+      - 4FreeIran-268fab68e3
+      - 4Jadi-f3ac30651e
 rules:
   - MATCH,Proxy

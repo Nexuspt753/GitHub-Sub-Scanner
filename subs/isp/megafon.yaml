@@ -1,39 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-4197f76d10
-    server: 178.176.128.203
-    port: 443
-    uuid: 1a3641f0-833d-48a7-91ac-b17a97e70714
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: cdnapiv3.tronglob5.net
-    xudp: true
-  - type: vless
-    name: vless
-    server: 178.176.128.128
-    port: 443
-    uuid: 50b95deb-6394-46c5-b88a-583e5b3ca7ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-  - type: vless
-    name: VPsave
-    server: 178.176.128.128
-    port: 443
-    uuid: 50b95deb-6394-46c5-b88a-583e5b3ca7ee
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-  - type: vless
     name: 4Nika-87f86f71b9
     server: 178.176.128.128
     port: 443
@@ -44,38 +10,18 @@ proxies:
     alpn:
       - h2
     xudp: true
-  - type: vless
-    name: 4Nika-7319426505
-    server: 178.176.128.203
-    port: 443
-    uuid: cfe4c965-5a5e-4840-bee6-5f9208236671
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-    servername: cdnapiv3.tronglob6.net
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-4197f76d10
-      - vless
-      - VPsave
       - 4Nika-87f86f71b9
-      - 4Nika-7319426505
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-4197f76d10
-      - vless
-      - VPsave
       - 4Nika-87f86f71b9
-      - 4Nika-7319426505
 rules:
   - MATCH,Proxy

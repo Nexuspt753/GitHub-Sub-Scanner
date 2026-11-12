@@ -1,31 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4FreeIran-14479cda73
-    server: 194.114.138.162
+  - type: vless
+    name: 4Kian-7e0da5b439
+    server: 45.142.247.123
     port: 443
-    password: humanity
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
     udp: true
     tls: true
-    sni: www.cordweave.com
     client-fingerprint: chrome
+    servername: v5-4b5.pages.dev
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.cordweave.com
+        Host: v5-4b5.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-14479cda73
+      - 4Kian-7e0da5b439
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-14479cda73
+      - 4Kian-7e0da5b439
 rules:
   - MATCH,Proxy

@@ -12,12 +12,27 @@ proxies:
     servername: vpn.noxtem.cc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Muscat · 4FreeIran-0dfb87c023
+    server: vpn.noxtem.cc
+    port: 443
+    uuid: 85d4cede-8341-4565-9adc-34eadc344de2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: blog.api.www.cloudflare.com
+    reality-opts:
+      public-key: l688n0i3cg86xE5siG0BO4iSfwdzIqB-PX1M0P8Pk2s
+      short-id: 3b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Muscat · 4Nika-e237717b4c
+      - Muscat · 4FreeIran-0dfb87c023
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Muscat · 4Nika-e237717b4c
+      - Muscat · 4FreeIran-0dfb87c023
 rules:
   - MATCH,Proxy

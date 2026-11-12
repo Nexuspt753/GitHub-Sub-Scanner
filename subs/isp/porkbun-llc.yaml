@@ -1,0 +1,33 @@
+proxies:
+  - type: hysteria2
+    name: 4FreeIran-d6572d74dd
+    server: nas.aizhzo.com
+    port: 5010
+    password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+    sni: nas.aizhzo.com
+    skip-cert-verify: false
+    obfs: salamander
+  - type: hysteria2
+    name: 4Jadi-15e7cea306
+    server: nas.aizhzo.com
+    port: 5010
+    password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+    sni: nas.aizhzo.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-d6572d74dd
+      - 4Jadi-15e7cea306
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-d6572d74dd
+      - 4Jadi-15e7cea306
+rules:
+  - MATCH,Proxy
