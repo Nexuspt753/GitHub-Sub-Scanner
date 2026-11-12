@@ -13,12 +13,50 @@ proxies:
     servername: zug-net.locallynet.org
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: tootffarangi🍓-13
+    server: zug-net.locallynet.org
+    port: 6443
+    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: zug-net.locallynet.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-e8a8e56529
+    server: 92.119.165.51
+    port: 6443
+    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: zug-net.locallynet.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-283b7cdd95
+    server: nl.louien.space
+    port: 8080
+    uuid: c447b5e9-417e-4784-9016-026b206da36c
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Selinc
+      - tootffarangi🍓-13
+      - 4Nika-e8a8e56529
+      - 4Jadi-283b7cdd95
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +64,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Selinc
+      - tootffarangi🍓-13
+      - 4Nika-e8a8e56529
+      - 4Jadi-283b7cdd95
 rules:
   - MATCH,Proxy

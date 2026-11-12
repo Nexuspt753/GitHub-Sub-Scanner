@@ -1,34 +1,26 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-eac76ac399
-    server: api-store-log.darkdragon1.com
-    port: 8443
-    uuid: a5563cd4-5363-4a6f-a32a-54917a4887cc
+  - type: vmess
+    name: 4Sarina-bdf1c97072
+    server: SOMS.izumii.ir
+    port: 1718
+    uuid: fddf9204-9234-49ab-9688-df09f6d0609f
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: api-store-log.darkdragon1.com
     xudp: true
-    network: ws
-    ws-opts:
-      path: /about
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: api-store-log.darkdragon1.com
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-eac76ac399
+      - 4Sarina-bdf1c97072
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-eac76ac399
+      - 4Sarina-bdf1c97072
 rules:
   - MATCH,Proxy

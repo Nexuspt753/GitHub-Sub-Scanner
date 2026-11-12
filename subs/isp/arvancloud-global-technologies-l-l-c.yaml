@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Sarina-59cc275ab3
+    server: dears.mobileemdad.top
+    port: 443
+    uuid: 486c73fe-7471-4f7f-a5f0-54e2c3f24b4b
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: play.google.com
+    reality-opts:
+      public-key: dMBDL7ry94pavIxYmzimeyaCqor6fUNb0v3dzHif9xY
+      short-id: e64e9f5eefbffc15
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-b0052e7ce1
     server: dearv.moon-night.ir
     port: 443
@@ -13,18 +27,34 @@ proxies:
       short-id: e64e9f5eefbffc15
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-1ff97a59b5
+    server: 130.185.121.69
+    port: 443
+    uuid: d3c9d170-80fa-489a-8ba2-f4cc80d240e3
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-59cc275ab3
       - 4FreeIran-b0052e7ce1
+      - 4Mohsen-1ff97a59b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-59cc275ab3
       - 4FreeIran-b0052e7ce1
+      - 4Mohsen-1ff97a59b5
 rules:
   - MATCH,Proxy

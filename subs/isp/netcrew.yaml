@@ -1,13 +1,16 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-103ba851f5
-    server: 179.255.103.55
-    port: 443
-    password: 92bf29cc-ee08-4c97-bf0b-b4dff41e5bd8
-    sni: n02.jinggai.online
   - type: trojan
     name: DeltaKroneckerGithub
     server: 179.255.132.69
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 179.255.136.143
     port: 443
     password: humanity
     udp: true
@@ -28,8 +31,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-103ba851f5
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-cae9c57aad
   - name: Auto
     type: url-test
@@ -37,8 +40,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-103ba851f5
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-cae9c57aad
 rules:
   - MATCH,Proxy

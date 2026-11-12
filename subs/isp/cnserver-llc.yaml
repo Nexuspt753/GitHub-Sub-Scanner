@@ -1,12 +1,14 @@
 proxies:
   - type: vless
-    name: 🇺🇸212209
+    name: 4Jadi-31d80ac73b
     server: 188.255.157.136
     port: 443
     uuid: 26524cce-d514-4014-a426-365fb266a14d
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
     servername: xy1ej.stream-node-us.danfeng.qzz.io
     xudp: true
     network: ws
@@ -15,73 +17,18 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: xy1ej.stream-node-us.danfeng.qzz.io
-  - type: vless
-    name: 🇺🇸212258
-    server: 188.255.157.136
-    port: 443
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: xy1ej.stream-node-us.danfeng.qzz.io
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /danfeng?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: xy1ej.stream-node-us.danfeng.qzz.io
-  - type: vless
-    name: 🇺🇸US-🚀@VPNine1
-    server: 188.255.157.136
-    port: 443
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: xy1ej.stream-node-us.danfeng.qzz.io
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /danfeng?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: xy1ej.stream-node-us.danfeng.qzz.io
-  - type: vmess
-    name: 4Kian-883b045a13
-    server: 144.225.130.23
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇺🇸212209
-      - 🇺🇸212258
-      - 🇺🇸US-🚀@VPNine1
-      - 4Kian-883b045a13
+      - 4Jadi-31d80ac73b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇺🇸212209
-      - 🇺🇸212258
-      - 🇺🇸US-🚀@VPNine1
-      - 4Kian-883b045a13
+      - 4Jadi-31d80ac73b
 rules:
   - MATCH,Proxy

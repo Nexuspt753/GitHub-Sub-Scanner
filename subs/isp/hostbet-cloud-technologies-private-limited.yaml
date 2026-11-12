@@ -1,12 +1,26 @@
 proxies:
   - type: vless
-    name: 4Mohsen-05390f5181
+    name: VPsave
     server: de3.japancase.site
     port: 443
     uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
     udp: true
     tls: true
-    client-fingerprint: qq
+    client-fingerprint: chrome
+    servername: de3.japancase.site
+    reality-opts:
+      public-key: iaJ8vIpfWkkzA-Tegc_wIQSF7DWKm2yTYCd3kvaGXig
+      short-id: d9d9e325a7f069e2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-be875d0d6a
+    server: de3.japancase.site
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: de3.japancase.site
     reality-opts:
       public-key: iaJ8vIpfWkkzA-Tegc_wIQSF7DWKm2yTYCd3kvaGXig
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-05390f5181
+      - VPsave
+      - 4Mohsen-be875d0d6a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-05390f5181
+      - VPsave
+      - 4Mohsen-be875d0d6a
 rules:
   - MATCH,Proxy

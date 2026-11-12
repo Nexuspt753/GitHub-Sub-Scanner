@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 🇹🇼
+    server: amasoid.ddns.net
+    port: 14514
+    cipher: 2022-blake3-aes-128-gcm
+    password: b7I6g7l7fJhBaMInJ+zkzw==
+    udp: true
   - type: hysteria2
     name: 4FreeIran-980fa79e9b
     server: 34.24.25.1
@@ -8,6 +15,13 @@ proxies:
     skip-cert-verify: true
   - type: ss
     name: 4Sarina-32c1af04bd
+    server: amasoid.ddns.net
+    port: 14514
+    cipher: 2022-blake3-aes-128-gcm
+    password: b7I6g7l7fJhBaMInJ+zkzw==
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub
     server: amasoid.ddns.net
     port: 14514
     cipher: 2022-blake3-aes-128-gcm
@@ -27,13 +41,36 @@ proxies:
       short-id: 56c96c1d14
     flow: xtls-rprx-vision
     xudp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: amasoid.ddns.net
-    port: 14514
-    cipher: 2022-blake3-aes-128-gcm
-    password: b7I6g7l7fJhBaMInJ+zkzw==
+  - type: vless
+    name: 4Kian-048baa8ac2
+    server: a.r-o-o-t3.ir
+    port: 443
+    uuid: 09548571-364e-4876-8e92-98f423e73913
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.linkedin.com
+    reality-opts:
+      public-key: nA87ol2_2BADZHfXhH00wy3fNe4R8TiGG_IQbzWbPnA
+      short-id: 56c96c1d14
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-3aeec904b4
+    server: 34.39.80.57
+    port: 50818
+    uuid: 408c814e-f70a-4d16-b3b3-8182bb70211d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yingguo.rymaker.cn
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /GunService
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: yingguo.rymaker.cn
   - type: vless
     name: 4Kian-b122032a9a
     server: 34.39.80.57
@@ -49,6 +86,19 @@ proxies:
       path: /GunService
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-c84649ce72
+    server: cloud.sarasimano.com
+    port: 80
+    uuid: b360267f-81aa-4740-a9c0-9a64fe7f9775
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: onlytesla4.sarasimano.com
   - type: vmess
     name: 4Mohsen-67613b1f5b
     server: 34.175.202.195
@@ -61,23 +111,6 @@ proxies:
     skip-cert-verify: false
     tls: true
     servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Sarina-eef62536b1
-    server: 35.241.172.224
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -102,50 +135,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Jadi-3ca055f16d
-    server: aaaa.wxx.gay
-    port: 443
-    uuid: 8237ec34-143a-11ee-8019-000017022008
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /look
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇹🇼
       - 4FreeIran-980fa79e9b
       - 4Sarina-32c1af04bd
-      - TEL:Father_vpn
       - DeltaKroneckerGithub
+      - TEL:Father_vpn
+      - 4Kian-048baa8ac2
+      - 4FreeIran-3aeec904b4
       - 4Kian-b122032a9a
+      - 4FreeIran-c84649ce72
       - 4Mohsen-67613b1f5b
-      - 4Sarina-eef62536b1
       - 4Jadi-c0afcfcbfa
-      - 4Jadi-3ca055f16d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇹🇼
       - 4FreeIran-980fa79e9b
       - 4Sarina-32c1af04bd
-      - TEL:Father_vpn
       - DeltaKroneckerGithub
+      - TEL:Father_vpn
+      - 4Kian-048baa8ac2
+      - 4FreeIran-3aeec904b4
       - 4Kian-b122032a9a
+      - 4FreeIran-c84649ce72
       - 4Mohsen-67613b1f5b
-      - 4Sarina-eef62536b1
       - 4Jadi-c0afcfcbfa
-      - 4Jadi-3ca055f16d
 rules:
   - MATCH,Proxy
