@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: FarazV2ray
+    server: frfast11.onlineai.pro
+    port: 443
+    uuid: 010be6fa-ab5f-404a-9edf-ab2db1f09f0c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: Frfast11.onlineai.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /assets/sync-6d2f4a
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: Frfast11.onlineai.pro
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - FarazV2ray
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - FarazV2ray
+rules:
+  - MATCH,Proxy

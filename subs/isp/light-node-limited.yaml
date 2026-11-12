@@ -22,15 +22,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: 38.54.29.52
-    port: 443
-    password: af4b064a9c39472fb34ad8b113acdc6b
-    udp: true
-    tls: true
-    sni: 38.54.29.52
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Kian-a262cee4b9
     server: 154.90.62.70
     port: 56127
@@ -38,6 +29,22 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-bf33987b7a
+    server: 130.94.1.177
+    port: 443
+    uuid: b1c31d36-c6b5-414b-88d2-9e24e7bfcca3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.nihaoyun.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.nihaoyun.top
 proxy-groups:
   - name: Proxy
     type: select
@@ -46,8 +53,8 @@ proxy-groups:
       - 4Mohsen-ea4ef07d23
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Kian-a262cee4b9
+      - 4Nika-bf33987b7a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -57,7 +64,7 @@ proxy-groups:
       - 4Mohsen-ea4ef07d23
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Kian-a262cee4b9
+      - 4Nika-bf33987b7a
 rules:
   - MATCH,Proxy

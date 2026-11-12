@@ -16,12 +16,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nexoshop.netvia.ir
+  - type: trojan
+    name: 4Kian-faf01854ef
+    server: 199.68.156.250
+    port: 2087
+    password: 7bpe9s002exll38s
+    udp: true
+    tls: true
+    sni: nexoshop.netvia.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: edge
+    network: ws
+    ws-opts:
+      path: /wss
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nexoshop.netvia.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-fb184c9231
+      - 4Kian-faf01854ef
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +47,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-fb184c9231
+      - 4Kian-faf01854ef
 rules:
   - MATCH,Proxy

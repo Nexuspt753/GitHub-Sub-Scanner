@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: VPsave
+    name: 4FreeIran-7da3ab5aad
     server: 179.253.99.12
     port: 443
     uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
@@ -13,18 +13,34 @@ proxies:
       short-id: 6b360314a8d57342
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-caa7aa325a
+    server: 179.253.99.12
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl4.japancase.site
+    reality-opts:
+      public-key: pTHOOfOiPcrSO2zkyCu6ezTV0-ppCC2JGVXhH1UEkSo
+      short-id: 6b360314a8d57342
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
+      - 4FreeIran-7da3ab5aad
+      - 4Kian-caa7aa325a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
+      - 4FreeIran-7da3ab5aad
+      - 4Kian-caa7aa325a
 rules:
   - MATCH,Proxy

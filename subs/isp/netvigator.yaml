@@ -1,25 +1,32 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: kaizen-hk-11.gocmydns.com
-    port: 443
-    password: 29db38f0-e302-3768-8867-0b9bf00c77e4cmynw
-    udp: true
-    tls: true
-    sni: images.apple.com
-    client-fingerprint: chrome
+  - type: hysteria2
+    name: 4Jadi-46b92ddbb4
+    server: 209.9.200.122
+    port: 20000
+    password: e0379de1-6712-4644-b41b-afde5fa30ad7
+    sni: www.shopify.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Jadi-bb5550c54d
+    server: 209.9.200.122
+    port: 20000
+    password: e0379de1-6712-4644-b41b-afde5fa30ad7
+    sni: www.shopify.com
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-46b92ddbb4
+      - 4Jadi-bb5550c54d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-46b92ddbb4
+      - 4Jadi-bb5550c54d
 rules:
   - MATCH,Proxy

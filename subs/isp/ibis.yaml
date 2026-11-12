@@ -1,6 +1,25 @@
 proxies:
   - type: vless
-    name: Channel
+    name: 4Sarina-23a5f3f6a6
+    server: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+    port: 443
+    uuid: 393f7488-378f-4c3c-98af-702db5f869e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+  - type: vless
+    name: kurdconfig
     server: api-austria.locallynet.org
     port: 6443
     uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
@@ -32,7 +51,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Channel
+      - 4Sarina-23a5f3f6a6
+      - kurdconfig
       - 4Jadi-39baae5157
   - name: Auto
     type: url-test
@@ -40,7 +60,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Channel
+      - 4Sarina-23a5f3f6a6
+      - kurdconfig
       - 4Jadi-39baae5157
 rules:
   - MATCH,Proxy

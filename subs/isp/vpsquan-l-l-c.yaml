@@ -1,46 +1,32 @@
 proxies:
   - type: vless
-    name: confiig_hub
-    server: 23.251.47.71
+    name: 4FreeIran-62036310f2
+    server: 156.239.252.131
     port: 443
-    uuid: 86930779-64ec-46a5-97d9-55e3107f3ce3
+    uuid: 0bb8b560-b056-4245-8b9d-231a0a78c54b
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: E6TSsyOKiYD_V3m3-4BTZVJBbHDgn2dEDg6cCDpASxU
-      short-id: dde3c2dca27ae6e7
-    flow: xtls-rprx-vision
+    servername: vip.freevpn.cloudns.biz
     xudp: true
-  - type: vless
-    name: 4Jadi-6502db8f3b
-    server: 23.251.47.71
-    port: 443
-    uuid: 86930779-64ec-46a5-97d9-55e3107f3ce3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: E6TSsyOKiYD_V3m3-4BTZVJBbHDgn2dEDg6cCDpASxU
-      short-id: dde3c2dca27ae6e7
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /0bb8b560-b056-4245-8b9d-231a0a78c54b?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vip.freevpn.cloudns.biz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - confiig_hub
-      - 4Jadi-6502db8f3b
+      - 4FreeIran-62036310f2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - confiig_hub
-      - 4Jadi-6502db8f3b
+      - 4FreeIran-62036310f2
 rules:
   - MATCH,Proxy

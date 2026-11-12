@@ -1,67 +1,32 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+    name: 4Kian-f3e355a034
+    server: 162.4.194.35
+    port: 443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
+    servername: v5-4b5.pages.dev
     xudp: true
-  - type: vless
-    name: VPsave
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
-    name: 🇭🇰
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
-    name: 4Sarina-54d20ac4fe
-    server: 195.58.144.56
-    port: 11907
-    uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v5-4b5.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - VPsave
-      - 🇭🇰
-      - 4Sarina-54d20ac4fe
+      - 4Kian-f3e355a034
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - VPsave
-      - 🇭🇰
-      - 4Sarina-54d20ac4fe
+      - 4Kian-f3e355a034
 rules:
   - MATCH,Proxy

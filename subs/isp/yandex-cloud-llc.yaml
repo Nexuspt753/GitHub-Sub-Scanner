@@ -12,6 +12,18 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
+    name: 4FreeIran-34e8d1bc78
+    server: 188.72.103.4
+    port: 443
+    uuid: 0000be2c-fb3a-5bce-a7d7-2105d461915b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
     name: vless-01
     server: cdn.oldertown.ru
     port: 443
@@ -33,10 +45,22 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: 4FreeIran-e7f7237804
-    server: 188.72.112.1
+    name: 4Mohsen-6303966592
+    server: cdn.oldertown.ru
     port: 443
-    uuid: 35c26e15-4297-4187-9628-0ef4178b162d
+    uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    xudp: true
+  - type: vless
+    name: 4Kian-f369544c5a
+    server: cdn.oldertown.ru
+    port: 443
+    uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -55,30 +79,18 @@ proxies:
       short-id: 654119f9d6f01dba
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-2ec7eb30df
-    server: 188.72.112.1
-    port: 443
-    uuid: bc5c220e-6c87-4465-a495-acfb1790feda
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - h3
-      - http/1.1
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - 4FreeIran-34e8d1bc78
       - vless-01
       - vless-02
-      - 4FreeIran-e7f7237804
+      - 4Mohsen-6303966592
+      - 4Kian-f369544c5a
       - 4Kian-99d3657079
-      - 4FreeIran-2ec7eb30df
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -86,10 +98,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - 4FreeIran-34e8d1bc78
       - vless-01
       - vless-02
-      - 4FreeIran-e7f7237804
+      - 4Mohsen-6303966592
+      - 4Kian-f369544c5a
       - 4Kian-99d3657079
-      - 4FreeIran-2ec7eb30df
 rules:
   - MATCH,Proxy

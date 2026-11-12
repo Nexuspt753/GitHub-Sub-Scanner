@@ -1,5 +1,76 @@
 proxies:
   - type: vless
+    name: 4Nika-58be5f9946
+    server: api.mediaklenov.cc
+    port: 443
+    uuid: 06123471-6c45-400c-920a-3e6990060b63
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+    servername: api.mediaklenov.cc
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-13244dc80f
+    server: api.mediaroshcha.cc
+    port: 443
+    uuid: 06123471-6c45-400c-920a-3e6990060b63
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: api.mediaroshcha.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-0828d359a4
+    server: api.mediatropa.cc
+    port: 443
+    uuid: 06123471-6c45-400c-920a-3e6990060b63
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: api.mediatropa.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-8077dcf8eb
+    server: api.oblachnyservis.cc
+    port: 443
+    uuid: 06123471-6c45-400c-920a-3e6990060b63
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: api.oblachnyservis.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-817371b6f3
+    server: api.videodolina.cc
+    port: 443
+    uuid: 06123471-6c45-400c-920a-3e6990060b63
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: api.videodolina.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-84b1f3323a
     server: 189.74.114.123
     port: 443
@@ -27,13 +98,15 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4FreeIran-2351e21ea6
-    server: 189.74.114.93
+    name: 4Mohsen-cfccdc19c8
+    server: api.mediaklenov.cc
     port: 443
-    uuid: c6628db6-025d-40e8-b79d-033f4372a6b7
+    uuid: abd5755a-8b77-4ed4-afbd-f2ccbc08e6f5
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: qq
+    alpn:
+      - h2
     servername: api.mediaklenov.cc
     xudp: true
     network: grpc
@@ -44,17 +117,27 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-58be5f9946
+      - 4Sarina-13244dc80f
+      - 4Jadi-0828d359a4
+      - 4Kian-8077dcf8eb
+      - 4Sarina-817371b6f3
       - 4Sarina-84b1f3323a
       - 4Kian-cacca25ab1
-      - 4FreeIran-2351e21ea6
+      - 4Mohsen-cfccdc19c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-58be5f9946
+      - 4Sarina-13244dc80f
+      - 4Jadi-0828d359a4
+      - 4Kian-8077dcf8eb
+      - 4Sarina-817371b6f3
       - 4Sarina-84b1f3323a
       - 4Kian-cacca25ab1
-      - 4FreeIran-2351e21ea6
+      - 4Mohsen-cfccdc19c8
 rules:
   - MATCH,Proxy

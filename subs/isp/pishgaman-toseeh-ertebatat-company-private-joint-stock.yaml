@@ -1,18 +1,4 @@
 proxies:
-  - type: ss
-    name: V2raySaman
-    server: mojigr.fusetea.ir
-    port: 1202
-    cipher: chacha20-ietf-poly1305
-    password: u5pQhekaEgIHRoaIPGsMM-H4BS4nOYhE
-    udp: true
-  - type: ss
-    name: 4Sarina-c6ac6232bf
-    server: mojigr.fusetea.ir
-    port: 1202
-    cipher: chacha20-ietf-poly1305
-    password: u5pQhekaEgIHRoaIPGsMM-H4BS4nOYhE
-    udp: true
   - type: vless
     name: 4Sarina-baac6c4c2f
     server: 5.202.5.146
@@ -32,50 +18,18 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-fa334b165e
-    server: s2.tehranionliine.ir
-    port: 80
-    uuid: b1ac23fb-b336-4d37-a3c0-64b29c4ef3a4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Jadi-c9bac6b127
-    server: raha.ertebatgoostar.ir
-    port: 80
-    uuid: e16db556-7bb2-435b-a75f-d928bd334bb4
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - V2raySaman
-      - 4Sarina-c6ac6232bf
       - 4Sarina-baac6c4c2f
-      - 4Sarina-fa334b165e
-      - 4Jadi-c9bac6b127
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - V2raySaman
-      - 4Sarina-c6ac6232bf
       - 4Sarina-baac6c4c2f
-      - 4Sarina-fa334b165e
-      - 4Jadi-c9bac6b127
 rules:
   - MATCH,Proxy

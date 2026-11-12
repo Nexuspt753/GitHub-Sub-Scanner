@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.187.4.75
+    port: 8443
+    uuid: 9c6e83fc-b755-4ad4-9b0a-14b610153d8f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: 0bmhEnhtswgFKbBedH4ez5O4xmgMfXIuEuSdFLy0PmI
+      short-id: 25115fee0590a21e
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: 4Nika-3a4b67dd80
     server: 31.172.67.43
@@ -6,6 +20,15 @@ proxies:
     cipher: aes-256-cfb
     password: asdKkaskJKfnsa
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 31.172.71.23
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: kfm-bn0.pages.dev
+    client-fingerprint: chrome
   - type: vless
     name: 4Sarina-e54a2b76b0
     server: 199.68.198.13
@@ -127,6 +150,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Kian-91a2378c6e
+    server: 5.187.4.75
+    port: 8443
+    uuid: 9c6e83fc-b755-4ad4-9b0a-14b610153d8f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: 0bmhEnhtswgFKbBedH4ez5O4xmgMfXIuEuSdFLy0PmI
+      short-id: 25115fee0590a21e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-fa9cb411f1
     server: 199.195.193.91
     port: 443
@@ -172,29 +209,14 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Nika-da06da3386
-    server: 89.127.218.61
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-3a4b67dd80
+      - DeltaKroneckerGithub-01
       - 4Sarina-e54a2b76b0
       - 4Nika-94bb2ae93a
       - 4Mohsen-9992714969
@@ -204,17 +226,19 @@ proxy-groups:
       - 4Jadi-af2060755b
       - 4Mohsen-6ef64f6b93
       - 4FreeIran-577465200c
+      - 4Kian-91a2378c6e
       - 4Jadi-fa9cb411f1
       - 4Kian-6102022089
       - 4Jadi-9d26ee478f
-      - 4Nika-da06da3386
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-3a4b67dd80
+      - DeltaKroneckerGithub-01
       - 4Sarina-e54a2b76b0
       - 4Nika-94bb2ae93a
       - 4Mohsen-9992714969
@@ -224,9 +248,9 @@ proxy-groups:
       - 4Jadi-af2060755b
       - 4Mohsen-6ef64f6b93
       - 4FreeIran-577465200c
+      - 4Kian-91a2378c6e
       - 4Jadi-fa9cb411f1
       - 4Kian-6102022089
       - 4Jadi-9d26ee478f
-      - 4Nika-da06da3386
 rules:
   - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Jadi-c61c9ed508
+    server: api.videobereg.cc
+    port: 443
+    uuid: 06123471-6c45-400c-920a-3e6990060b63
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-1949b0aebb
     server: 1.canconnecction.com
     port: 443
@@ -13,34 +27,20 @@ proxies:
       short-id: 3139c392
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-2853271620
-    server: 2.nlconnectium.com
-    port: 443
-    uuid: e7e8f531-d60e-4a78-ad15-c63a01b425b8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 2.nlconnectium.com
-    reality-opts:
-      public-key: jGNydDAbw6vZgarMrwduLumCkD0a6Jt-LvrojStagzQ
-      short-id: 9a5385df
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-c61c9ed508
       - 4Kian-1949b0aebb
-      - 4Kian-2853271620
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-c61c9ed508
       - 4Kian-1949b0aebb
-      - 4Kian-2853271620
 rules:
   - MATCH,Proxy
