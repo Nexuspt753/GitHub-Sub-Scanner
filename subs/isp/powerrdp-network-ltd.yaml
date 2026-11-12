@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 13.143.165.124
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
     name: 🎍42@oneclickvpnkeys
     server: 13.143.165.124
     port: 8443
@@ -16,7 +32,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fs.qicai99.com
   - type: vless
-    name: 4Jadi-7593d1a3dd
+    name: 🎍42@ConfigV2RayNG
     server: 13.143.165.124
     port: 8443
     uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
@@ -30,20 +46,41 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
+    name: 4Mohsen-dd4aa35119
+    server: 13.143.165.124
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 🎍42@oneclickvpnkeys
-      - 4Jadi-7593d1a3dd
+      - 🎍42@ConfigV2RayNG
+      - 4Mohsen-dd4aa35119
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 🎍42@oneclickvpnkeys
-      - 4Jadi-7593d1a3dd
+      - 🎍42@ConfigV2RayNG
+      - 4Mohsen-dd4aa35119
 rules:
   - MATCH,Proxy

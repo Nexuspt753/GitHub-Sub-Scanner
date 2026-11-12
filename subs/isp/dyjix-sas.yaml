@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 45.154.96.24
+    port: 443
+    uuid: 76ab5e47-c9a9-4ceb-82d3-7e1db7a44459
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: firmwaresign.partners.nvidia.com
+    reality-opts:
+      public-key: o2KcQK-yk3JFACI2IuGoYLa23sClJ2_Az_mKzIj2PhY
+      short-id: 40c55f20dfbf097c
+    xudp: true
+  - type: vless
     name: 4Jadi-0fd0e8135a
     server: 45.154.96.24
     port: 443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Jadi-0fd0e8135a
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Jadi-0fd0e8135a
 rules:
   - MATCH,Proxy

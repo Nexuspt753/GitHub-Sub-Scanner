@@ -1,6 +1,34 @@
 proxies:
   - type: vless
-    name: 🇳🇱05
+    name: DeltaKroneckerGithub
+    server: 9.163.235.73
+    port: 2083
+    uuid: 52a5a29f-c162-411a-8a37-a3f11b0dc537
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: WbgtxLlo2gmTzB4Wzxgh_U7G97d4ENTS10fYIoujET4
+      short-id: 0123456789abcdef
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: vasl_bashim
+    server: 9.163.235.73
+    port: 2083
+    uuid: 52a5a29f-c162-411a-8a37-a3f11b0dc537
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: WbgtxLlo2gmTzB4Wzxgh_U7G97d4ENTS10fYIoujET4
+      short-id: 0123456789abcdef
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-576d4bd527
     server: 9.163.235.73
     port: 2083
     uuid: 52a5a29f-c162-411a-8a37-a3f11b0dc537
@@ -29,20 +57,43 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cf-1rm.pages.dev
+  - type: vmess
+    name: 4Jadi-0f69d63565
+    server: az-1.linkaa.xyz
+    port: 53617
+    uuid: 6E571484-4166-4699-8F58-B34A1823691F
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: az-1.linkaa.xyz
+    network: ws
+    ws-opts:
+      path: /game/resources
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: az-1.linkaa.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇳🇱05
+      - DeltaKroneckerGithub
+      - vasl_bashim
+      - 4Nika-576d4bd527
       - 4Sarina-41f0faec6a
+      - 4Jadi-0f69d63565
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇳🇱05
+      - DeltaKroneckerGithub
+      - vasl_bashim
+      - 4Nika-576d4bd527
       - 4Sarina-41f0faec6a
+      - 4Jadi-0f69d63565
 rules:
   - MATCH,Proxy

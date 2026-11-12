@@ -1,23 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-e3475aff79
-    server: ip.immahan.ir
-    port: 8443
-    password: EOaHwQIGHSjmsbYl_g6nPanNsQ2td2Yv
-    sni: tr.tu5pars.ir
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    obfs: salamander
-    obfs-password: TYrQkc4C2MJMKlzlge0M_hrH
-  - type: hysteria2
-    name: 4FreeIran-c21c841873
-    server: ip.immahan.ir
-    port: 8443
-    password: EOaHwQIGHSjmsbYl_g6nPanNsQ2td2Yv
-    sni: tr.tu5pars.ir
-    skip-cert-verify: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 81.12.80.236
@@ -67,8 +48,8 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sv10.tu5pars.ir
   - type: vmess
-    name: 4Sarina-e727473c0f
-    server: sarma.ishizaki.ir
+    name: 4Kian-f93aeb56e0
+    server: 185.215.231.48
     port: 6443
     uuid: 0964d957-cdf7-41fc-94ab-8264f4963b6e
     alterId: 0
@@ -94,30 +75,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: aaparatt.myach.ir
+  - type: vmess
+    name: 4Mohsen-3e52590932
+    server: rma4.rmaaccshop.ir
+    port: 44808
+    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-e3475aff79
-      - 4FreeIran-c21c841873
       - DeltaKroneckerGithub
       - 4Mohsen-4c9f57bb3c
       - 4Mohsen-d02ebc0d58
-      - 4Sarina-e727473c0f
+      - 4Kian-f93aeb56e0
       - 4Jadi-20d5cbfb51
+      - 4Mohsen-3e52590932
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-e3475aff79
-      - 4FreeIran-c21c841873
       - DeltaKroneckerGithub
       - 4Mohsen-4c9f57bb3c
       - 4Mohsen-d02ebc0d58
-      - 4Sarina-e727473c0f
+      - 4Kian-f93aeb56e0
       - 4Jadi-20d5cbfb51
+      - 4Mohsen-3e52590932
 rules:
   - MATCH,Proxy

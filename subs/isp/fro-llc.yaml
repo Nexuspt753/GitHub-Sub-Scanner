@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 4Jadi-e79c58b377
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Mohsen-5536f27dbc
     server: 208.84.100.209
     port: 8080
@@ -16,6 +28,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-e79c58b377
       - 4Mohsen-5536f27dbc
   - name: Auto
     type: url-test
@@ -23,6 +36,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-e79c58b377
       - 4Mohsen-5536f27dbc
 rules:
   - MATCH,Proxy

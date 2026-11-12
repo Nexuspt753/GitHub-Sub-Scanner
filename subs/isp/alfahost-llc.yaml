@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: vless
-    server: 153.76.190.31
+    name: 4Kian-19d946a662
+    server: 141.0.187.4
     port: 2083
-    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
+    uuid: 67c3f089-46cb-4c09-b207-524aa3fd6625
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -17,13 +17,32 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: YFZ
-    server: 153.76.190.31
+    name: 4Jadi-135e20a145
+    server: 141.0.187.6
     port: 2083
-    uuid: d6eb8a46-e6a4-4891-b22e-dfaa609c6afd
+    uuid: 67c3f089-46cb-4c09-b207-524aa3fd6625
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: vless
+    server: 153.76.190.31
+    port: 2083
+    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
     servername: speedtestmark.com
     xudp: true
     network: ws
@@ -48,22 +67,43 @@ proxies:
       path: /vless-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-26f3af52d9
+    server: 153.76.190.31
+    port: 2083
+    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: speedtestmark.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-19d946a662
+      - 4Jadi-135e20a145
       - vless
-      - YFZ
       - 4Jadi-c0c15a17e6
+      - 4Kian-26f3af52d9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-19d946a662
+      - 4Jadi-135e20a145
       - vless
-      - YFZ
       - 4Jadi-c0c15a17e6
+      - 4Kian-26f3af52d9
 rules:
   - MATCH,Proxy

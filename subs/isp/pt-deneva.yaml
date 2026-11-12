@@ -1,5 +1,24 @@
 proxies:
   - type: vmess
+    name: 4Kian-8947f30c95
+    server: free2.rajaserver2.web.id
+    port: 80
+    uuid: 4d4708ef-0729-44ac-b2b0-411ce0242e89
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: free2.rajaserver2.web.id
+    alpn:
+      - http/1.1
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: free2.rajaserver2.web.id
+  - type: vmess
     name: 4Sarina-99565cc4da
     server: free2.rajaserver2.web.id
     port: 443
@@ -19,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-8947f30c95
       - 4Sarina-99565cc4da
   - name: Auto
     type: url-test
@@ -26,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-8947f30c95
       - 4Sarina-99565cc4da
 rules:
   - MATCH,Proxy
