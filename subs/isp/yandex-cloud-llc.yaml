@@ -1,17 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 188.72.103.4
-    port: 443
-    uuid: 0000be2c-fb3a-5bce-a7d7-2105d461915b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
     name: 4FreeIran-34e8d1bc78
     server: 188.72.103.4
     port: 443
@@ -24,7 +12,7 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: vless-01
+    name: vless
     server: cdn.oldertown.ru
     port: 443
     uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
@@ -34,6 +22,15 @@ proxies:
     alpn:
       - h2
       - ""
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: cdn.oldertown.ru
+    port: 443
+    uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: 4Mohsen-6303966592
@@ -46,15 +43,6 @@ proxies:
     alpn:
       - h2
       - ""
-    xudp: true
-  - type: vless
-    name: 4Kian-f369544c5a
-    server: cdn.oldertown.ru
-    port: 443
-    uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
     xudp: true
   - type: vless
     name: vless-02
@@ -82,30 +70,58 @@ proxies:
       short-id: 654119f9d6f01dba
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-37a6adb36d
+    server: static.nlomasterpanel.ru
+    port: 443
+    uuid: 981e728f-d403-4fef-a1ff-6ba9ebe0e702
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: static.nlomasterpanel.ru
+    xudp: true
+  - type: vless
+    name: 4Jadi-eadba455dd
+    server: 188.72.112.1
+    port: 443
+    uuid: d8d9d99e-6622-4620-92dc-23ac2b6d30f6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: shop07.gruzit.my
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
       - 4FreeIran-34e8d1bc78
+      - vless
       - vless-01
       - 4Mohsen-6303966592
-      - 4Kian-f369544c5a
       - vless-02
       - 4Kian-99d3657079
+      - 4Jadi-37a6adb36d
+      - 4Jadi-eadba455dd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - 4FreeIran-34e8d1bc78
+      - vless
       - vless-01
       - 4Mohsen-6303966592
-      - 4Kian-f369544c5a
       - vless-02
       - 4Kian-99d3657079
+      - 4Jadi-37a6adb36d
+      - 4Jadi-eadba455dd
 rules:
   - MATCH,Proxy

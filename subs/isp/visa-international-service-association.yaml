@@ -1,19 +1,38 @@
 proxies:
   - type: trojan
-    name: 4Mohsen-3b1e0cd5f0
-    server: 199.68.156.121
+    name: 4Kian-faf01854ef
+    server: 199.68.156.250
     port: 2087
     password: 7bpe9s002exll38s
     udp: true
     tls: true
     sni: nexoshop.netvia.ir
-    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    client-fingerprint: edge
     network: ws
     ws-opts:
       path: /wss
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: nexoshop.netvia.ir
+  - type: trojan
+    name: 4Mohsen-51c5510f90
+    server: 199.68.156.221
+    port: 2087
+    password: QzVKeGlc2qYRxyzWb3xZFjHbqY2JmOfZ
+    udp: true
+    tls: true
+    sni: nexoastra.xnetaro.ir
+    alpn:
+      - http/1.1
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: /wss
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nexoastra.xnetaro.ir
   - type: trojan
     name: 4Kian-0cb57e96aa
     server: nava.zandix.ir
@@ -36,7 +55,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-3b1e0cd5f0
+      - 4Kian-faf01854ef
+      - 4Mohsen-51c5510f90
       - 4Kian-0cb57e96aa
   - name: Auto
     type: url-test
@@ -44,7 +64,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-3b1e0cd5f0
+      - 4Kian-faf01854ef
+      - 4Mohsen-51c5510f90
       - 4Kian-0cb57e96aa
 rules:
   - MATCH,Proxy

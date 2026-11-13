@@ -1,12 +1,28 @@
 proxies:
   - type: vless
-    name: 4FreeIran-a870e5582b
+    name: VPsave
     server: 206.53.48.69
     port: 443
     uuid: f8cb3c89-32af-4255-bebc-d90aad175069
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
+    servername: gea.kosmosapp.net
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: VPsave-01
+    server: 206.53.48.69
+    port: 443
+    uuid: f8cb3c89-32af-4255-bebc-d90aad175069
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: gea.kosmosapp.net
     reality-opts:
       public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
@@ -20,13 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-a870e5582b
+      - VPsave
+      - VPsave-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-a870e5582b
+      - VPsave
+      - VPsave-01
 rules:
   - MATCH,Proxy

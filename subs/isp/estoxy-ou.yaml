@@ -8,36 +8,12 @@ proxies:
     tls: true
     sni: ee1.nngo.cc
     client-fingerprint: firefox
-  - type: vless
-    name: 4Mohsen-f8bf172fe7
-    server: 178.214.100.11
-    port: 4443
-    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: beast-2.locallynet.org
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-d011798609
-    server: beast-2.locallynet.org
-    port: 4443
-    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: beast-2.locallynet.org
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Mohsen-f8bf172fe7
-      - 4FreeIran-d011798609
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,7 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Mohsen-f8bf172fe7
-      - 4FreeIran-d011798609
 rules:
   - MATCH,Proxy

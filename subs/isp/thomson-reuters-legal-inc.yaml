@@ -1,4 +1,19 @@
 proxies:
+  - type: trojan
+    name: 4Jadi-e882a141f5
+    server: 167.68.4.199
+    port: 2053
+    password: Aimer
+    udp: true
+    tls: true
+    sni: epge.muarua.filegear-sg.me
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /?proxyip=ts.hpc.tw
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: epge.muarua.filegear-sg.me
   - type: vless
     name: 4Kian-51e760e845
     server: 167.68.4.131
@@ -19,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-e882a141f5
       - 4Kian-51e760e845
   - name: Auto
     type: url-test
@@ -26,6 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-e882a141f5
       - 4Kian-51e760e845
 rules:
   - MATCH,Proxy
