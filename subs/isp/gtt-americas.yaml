@@ -1,5 +1,32 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 69.17.3.150
+    port: 443
+    uuid: 140d6fc9-2c6d-41bd-a487-182b52c0184f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: caissuers.microsoft.com
+    reality-opts:
+      public-key: zUbdpLqoZN7kSFDrHgGnAcZqJzKilme_rIJwI3FPGCA
+      short-id: d898752d58acbfe0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 69.17.3.150
+    port: 2001
+    uuid: 140d6fc9-2c6d-41bd-a487-182b52c0184f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: VPsave
     server: 69.17.3.150
     port: 2001
@@ -27,7 +54,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: VPsave-01
+    name: 🇺🇸US_45_@Surfboardv2ray
     server: 69.17.3.150
     port: 443
     uuid: 140d6fc9-2c6d-41bd-a487-182b52c0184f
@@ -55,59 +82,42 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-a3af0012ca
-    server: 64.204.49.68
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    name: 4Jadi-2771566bce
+    server: 69.17.3.150
+    port: 2001
+    uuid: 140d6fc9-2c6d-41bd-a487-182b52c0184f
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vp10.pages.dev
+    servername: google.com
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
-  - type: vless
-    name: 4Nika-fa8e98c376
-    server: 64.204.49.68
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: "%2Ffp%3Dfirefox"
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - VPsave
       - V2rayNPVTConfig
-      - VPsave-01
+      - 🇺🇸US_45_@Surfboardv2ray
       - 12506@proxy_online_net
-      - 4Sarina-a3af0012ca
-      - 4Nika-fa8e98c376
+      - 4Jadi-2771566bce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - VPsave
       - V2rayNPVTConfig
-      - VPsave-01
+      - 🇺🇸US_45_@Surfboardv2ray
       - 12506@proxy_online_net
-      - 4Sarina-a3af0012ca
-      - 4Nika-fa8e98c376
+      - 4Jadi-2771566bce
 rules:
   - MATCH,Proxy

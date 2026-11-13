@@ -1,26 +1,51 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
-    server: 45.192.200.133
+    server: 45.192.203.44
     port: 8443
-    uuid: cf39fab0-bb85-42cb-9945-2ad69d78e575
+    uuid: b6058894-f212-4926-9e19-f65713cca4a4
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: rubifen.adaspoloandco.com
+    client-fingerprint: firefox
+    servername: www.nit.ac.jp
+    reality-opts:
+      public-key: LwajVxx7JjeFcBc1r1WoceX-5Tga7_SwCfEUYS-1Dhg
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /GOrbEh
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rubifen.adaspoloandco.com
+  - type: vless
+    name: 4Nika-cab2fd37da
+    server: 45.192.203.44
+    port: 10727
+    uuid: b6058894-f212-4926-9e19-f65713cca4a4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.nit.ac.jp
+    reality-opts:
+      public-key: Bo_Ty--LAtTzXucycRCKAeh1ktzls1dKv0vuYkoHPTE
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-b2f6cf8e7b
+    server: 45.192.203.44
+    port: 10976
+    uuid: b6058894-f212-4926-9e19-f65713cca4a4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.nit.ac.jp
+    reality-opts:
+      public-key: yXPPzfUp2T-BiLIGriVsi1zL7xqyWPvHDI9Fs4lgPyg
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-cab2fd37da
+      - 4Sarina-b2f6cf8e7b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-cab2fd37da
+      - 4Sarina-b2f6cf8e7b
 rules:
   - MATCH,Proxy

@@ -13,51 +13,12 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: DeltaKroneckerGithub
-    server: 64.118.129.151
-    port: 22222
-    uuid: a5206a55-d5bd-41b9-92a5-bd27a90355ff
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vless
-    name: 4FreeIran-479025664e
-    server: 216.236.45.248
-    port: 1891
-    uuid: 3f68b079-6087-42d9-9a5d-010722f41392
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tele-eb6.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tele-eb6.pages.dev
-  - type: vmess
-    name: 4Mohsen-ad120bf12e
-    server: 64.118.129.151
-    port: 22222
-    uuid: a5206a55-d5bd-41b9-92a5-bd27a90355ff
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-1870a0569b
-      - DeltaKroneckerGithub
-      - 4FreeIran-479025664e
-      - 4Mohsen-ad120bf12e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -65,8 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-1870a0569b
-      - DeltaKroneckerGithub
-      - 4FreeIran-479025664e
-      - 4Mohsen-ad120bf12e
 rules:
   - MATCH,Proxy

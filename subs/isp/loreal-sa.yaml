@@ -1,0 +1,46 @@
+proxies:
+  - type: trojan
+    name: ᴛᴇʟᴇɢʀᴀᴍ
+    server: 81.255.155.10
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.creationlong.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Sarina-2512536e36
+    server: 81.255.155.10
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.creationlong.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - ᴛᴇʟᴇɢʀᴀᴍ
+      - 4Sarina-2512536e36
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - ᴛᴇʟᴇɢʀᴀᴍ
+      - 4Sarina-2512536e36
+rules:
+  - MATCH,Proxy

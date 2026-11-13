@@ -1,20 +1,5 @@
 proxies:
   - type: vless
-    name: Tarkshodeh
-    server: 45.88.13.5
-    port: 8443
-    uuid: 2bb8b13c-b3f0-2552-da05-d0929bfb36db
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: download.nvidia.com
-    reality-opts:
-      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Nika-f1e4031bb3
     server: 45.88.13.5
     port: 8443
@@ -29,6 +14,19 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-f479429905
+    server: 5.181.171.10
+    port: 443
+    uuid: 49ed01ad-3bb4-204f-b0ff-a58f658fd618
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speed.cloudflare.com
+    reality-opts:
+      public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Sarina-e271e0fc7d
     server: 5.181.171.2
@@ -47,8 +45,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Tarkshodeh
       - 4Nika-f1e4031bb3
+      - 4Mohsen-f479429905
       - 4Sarina-e271e0fc7d
   - name: Auto
     type: url-test
@@ -56,8 +54,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Tarkshodeh
       - 4Nika-f1e4031bb3
+      - 4Mohsen-f479429905
       - 4Sarina-e271e0fc7d
 rules:
   - MATCH,Proxy

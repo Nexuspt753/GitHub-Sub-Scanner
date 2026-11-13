@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: 4Nika-746d92b347
+    server: 31.58.213.235
+    port: 443
+    uuid: 2232d904-8e6a-4202-8240-6efd8aec02e9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: starter.jarbook.net
+    reality-opts:
+      public-key: yX-l9ntNogG7DJZjqbsQGfvfsvjAQVFqFLY-Zcc_qG0
+      short-id: 8de61902
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4FreeIran-14398a280e
     server: 151.242.165.160
@@ -22,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-746d92b347
       - 4FreeIran-14398a280e
   - name: Auto
     type: url-test
@@ -29,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-746d92b347
       - 4FreeIran-14398a280e
 rules:
   - MATCH,Proxy

@@ -107,6 +107,23 @@ proxies:
       path: /api
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Jadi-3543b0a9c8
+    server: kn.n3webhosting.com
+    port: 8443
+    uuid: fb981209-8de7-4c27-b4dd-c220b32084e5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: kn.n3webhosting.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -119,6 +136,7 @@ proxy-groups:
       - 4Mohsen-67589c8d6d
       - 4Jadi-26c4ad31ce
       - 4Mohsen-b0069d59be
+      - 4Jadi-3543b0a9c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -132,5 +150,6 @@ proxy-groups:
       - 4Mohsen-67589c8d6d
       - 4Jadi-26c4ad31ce
       - 4Mohsen-b0069d59be
+      - 4Jadi-3543b0a9c8
 rules:
   - MATCH,Proxy

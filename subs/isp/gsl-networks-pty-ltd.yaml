@@ -1,4 +1,32 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 203.23.179.123
+    port: 443
+    uuid: fa081e9f-7574-0002-8928-31aa5ac923c7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de1-b.sbcweb.net
+    reality-opts:
+      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+      short-id: 868419504747f6de
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 203.23.179.123
+    port: 443
+    uuid: fa081e9f-7574-0001-8928-31aa5ac923c7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de1-b.sbcweb.net
+    reality-opts:
+      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+      short-id: 868419504747f6de
+    flow: xtls-rprx-vision
+    xudp: true
   - type: ss
     name: 4Jadi-bafa6af781
     server: 173.244.56.6
@@ -14,8 +42,15 @@ proxies:
     password: shadowsocks
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub
-    server: 173.244.56.6
+    name: DeltaKroneckerGithub-02
+    server: 173.244.56.9
+    port: 443
+    cipher: YWVzLTEyOC1nY206c2hhZG93c29ja3M%3D
+    password: ""
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: 173.244.56.9
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
@@ -34,40 +69,30 @@ proxies:
       short-id: 868419504747f6de
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-18b083c11d
-    server: 203.23.179.123
-    port: 443
-    uuid: fa081e9f-7574-0002-8928-31aa5ac923c7
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: de1-b.sbcweb.net
-    reality-opts:
-      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-      short-id: 868419504747f6de
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-0993198587
-      - 4Mohsen-18b083c11d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-bafa6af781
       - 4Nika-d13983b75b
-      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Mohsen-0993198587
-      - 4Mohsen-18b083c11d
 rules:
   - MATCH,Proxy

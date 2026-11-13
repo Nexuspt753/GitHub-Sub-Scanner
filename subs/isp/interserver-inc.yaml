@@ -1,11 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
-    server: 69.164.240.85
-    port: 50875
-    password: nwilryafgkyvuxauc8pz
+    server: 162.35.101.177
+    port: 443
+    uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
     udp: true
-    client-fingerprint: chrome
+    tls: true
+    client-fingerprint: edge
+    servername: 0592efg.us8.h1clayd.click
+    reality-opts:
+      public-key: cO3wYHISTeorXcM8ffaDCDdqZ-olBQL-GyZqb-W7rTk
+      short-id: bd8f712209a9c283
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: trojan
     name: "[132150]"
     server: 69.164.240.85
@@ -27,19 +36,22 @@ proxies:
       public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
       short-id: 257420d9d430152a
     xudp: true
-  - type: vless
-    name: 4FreeIran-31385ee606
-    server: 162.35.8.62
-    port: 443
-    uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+  - type: trojan
+    name: 4Nika-6a503eef7d
+    server: 69.164.240.85
+    port: 50875
+    password: nwilryafgkyvuxauc8pz
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-0af89a45eb
+    server: 69.164.240.85
+    port: 50875
+    password: nwilryafgkyvuxauc8pz
     udp: true
     tls: true
+    sni: 69.164.240.85
     client-fingerprint: chrome
-    servername: a0688bt.us4.h1clayd.click
-    reality-opts:
-      public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
-      short-id: 257420d9d430152a
-    xudp: true
   - type: vless
     name: 4Kian-2aa6ff5453
     server: 162.35.96.20
@@ -54,6 +66,19 @@ proxies:
       short-id: 84be686ea1d16478
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-858e6bf9b9
+    server: 162.35.101.177
+    port: 443
+    uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: 0592efg.us8.h1clayd.click
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -62,8 +87,10 @@ proxy-groups:
       - DeltaKroneckerGithub
       - "[132150]"
       - "[129948]"
-      - 4FreeIran-31385ee606
+      - 4Nika-6a503eef7d
+      - 4Nika-0af89a45eb
       - 4Kian-2aa6ff5453
+      - 4Nika-858e6bf9b9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -73,7 +100,9 @@ proxy-groups:
       - DeltaKroneckerGithub
       - "[132150]"
       - "[129948]"
-      - 4FreeIran-31385ee606
+      - 4Nika-6a503eef7d
+      - 4Nika-0af89a45eb
       - 4Kian-2aa6ff5453
+      - 4Nika-858e6bf9b9
 rules:
   - MATCH,Proxy

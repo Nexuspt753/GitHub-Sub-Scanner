@@ -36,6 +36,23 @@ proxies:
       short-id: be7d0c9dda4dd4e6
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-23a4b79f1d
+    server: 147.45.125.231
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
@@ -44,6 +61,7 @@ proxy-groups:
       - DeltaKroneckerGithub
       - 4Mohsen-8af2385b40
       - 4Nika-5cf940d30e
+      - 4Nika-23a4b79f1d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -53,5 +71,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - 4Mohsen-8af2385b40
       - 4Nika-5cf940d30e
+      - 4Nika-23a4b79f1d
 rules:
   - MATCH,Proxy

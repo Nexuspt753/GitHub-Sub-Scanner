@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 23.156.153.40
+    port: 443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
     name: 4FreeIran-a7a40b480e
     server: 23.156.153.40
     port: 443
@@ -36,6 +52,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-a7a40b480e
       - 4Mohsen-a299d4f3db
   - name: Auto
@@ -44,6 +61,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-a7a40b480e
       - 4Mohsen-a299d4f3db
 rules:

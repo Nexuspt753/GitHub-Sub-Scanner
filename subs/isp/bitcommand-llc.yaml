@@ -13,12 +13,29 @@ proxies:
       short-id: f64da10a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-a5c403a52d
+    server: 193.163.201.48
+    port: 8443
+    uuid: e10fe991-c249-4eba-9140-e6c4ed642683
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vu.mobileselleraghareza.shop
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ukb
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vu.mobileselleraghareza.shop
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-611b423148
+      - 4Nika-a5c403a52d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-611b423148
+      - 4Nika-a5c403a52d
 rules:
   - MATCH,Proxy
