@@ -7,19 +7,57 @@ proxies:
     password: shadowsocks
     udp: true
   - type: ss
+    name: 4Nika-d13983b75b
+    server: 173.244.56.9
+    port: 443
+    cipher: aes-128-gcm
+    password: shadowsocks
+    udp: true
+  - type: ss
     name: DeltaKroneckerGithub
     server: 173.244.56.6
     port: 443
     cipher: aes-128-gcm
     password: shadowsocks
     udp: true
+  - type: vless
+    name: 4Mohsen-0993198587
+    server: 203.23.179.123
+    port: 443
+    uuid: fa081e9f-7574-0001-8928-31aa5ac923c7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de1-b.sbcweb.net
+    reality-opts:
+      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+      short-id: 868419504747f6de
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-18b083c11d
+    server: 203.23.179.123
+    port: 443
+    uuid: fa081e9f-7574-0002-8928-31aa5ac923c7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de1-b.sbcweb.net
+    reality-opts:
+      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+      short-id: 868419504747f6de
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-bafa6af781
+      - 4Nika-d13983b75b
       - DeltaKroneckerGithub
+      - 4Mohsen-0993198587
+      - 4Mohsen-18b083c11d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +65,9 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-bafa6af781
+      - 4Nika-d13983b75b
       - DeltaKroneckerGithub
+      - 4Mohsen-0993198587
+      - 4Mohsen-18b083c11d
 rules:
   - MATCH,Proxy

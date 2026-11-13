@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: 4Nika-7c373881b1
+    server: 176.109.85.60
+    port: 443
+    uuid: 010be6fa-ab5f-404a-9edf-ab2db1f09f0c
+    udp: true
+    tls: true
+    client-fingerprint: android
+    servername: api.file-obmen.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/generate
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4FreeIran-a725cd92c0
     server: api.file-obmen.top
     port: 443
@@ -20,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-7c373881b1
       - 4FreeIran-a725cd92c0
   - name: Auto
     type: url-test
@@ -27,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-7c373881b1
       - 4FreeIran-a725cd92c0
 rules:
   - MATCH,Proxy

@@ -1,4 +1,19 @@
 proxies:
+  - type: trojan
+    name: 4Kian-c02a4ab6a9
+    server: 144.31.120.77
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.cordweave.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.cordweave.com
   - type: vmess
     name: 4Kian-a2e7b6e00a
     server: 64.188.117.165
@@ -40,6 +55,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-c02a4ab6a9
       - 4Kian-a2e7b6e00a
       - 4Mohsen-fcb4241d8a
   - name: Auto
@@ -48,6 +64,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-c02a4ab6a9
       - 4Kian-a2e7b6e00a
       - 4Mohsen-fcb4241d8a
 rules:
