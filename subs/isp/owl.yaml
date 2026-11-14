@@ -1,29 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 45.142.126.184
-    port: 443
-    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: 4Mohsen-1c058e9d97
-    server: 45.142.126.184
-    port: 443
-    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-    udp: true
-    tls: true
-    client-fingerprint: unsafe
-    servername: jp3.yohototo.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /tyxyws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Kian-680c87443f
     server: 45.142.126.184
     port: 443
@@ -55,24 +31,31 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: jp3.yohototo.top
+  - type: vless
+    name: 4Kian-ebbd21fcb9
+    server: 45.142.126.184
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
-      - 4Mohsen-1c058e9d97
       - 4Kian-680c87443f
       - 4Sarina-a0ee6db694
+      - 4Kian-ebbd21fcb9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
-      - 4Mohsen-1c058e9d97
       - 4Kian-680c87443f
       - 4Sarina-a0ee6db694
+      - 4Kian-ebbd21fcb9
 rules:
   - MATCH,Proxy

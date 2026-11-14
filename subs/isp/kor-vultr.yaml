@@ -1,23 +1,5 @@
 proxies:
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 141.164.42.2
-    port: 443
-    password: 4c3164ee-abcf-4091-abea-d1cd4937a68d
-    udp: true
-    tls: true
-    sni: jy.hhllfly.kdns.fr
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 141.164.42.2
-    port: 443
-    password: "114514"
-    udp: true
-    tls: true
-    sni: tjaaa.hhllfly.kdns.fr
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Nika-807c6d9f6f
     server: 141.164.56.22
     port: 443
@@ -32,38 +14,18 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.cordweave.com
-  - type: vless
-    name: 4Mohsen-68eb448732
-    server: 141.164.43.178
-    port: 443
-    uuid: 583cc910-b57c-4dd0-a4a7-cea51a30b032
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: GR_zPAgxF9PZ70Z9UpSmMlcd2STyoAC0fZTSHkTTCGE
-      short-id: ca193e889d958f81
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Nika-807c6d9f6f
-      - 4Mohsen-68eb448732
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Nika-807c6d9f6f
-      - 4Mohsen-68eb448732
 rules:
   - MATCH,Proxy

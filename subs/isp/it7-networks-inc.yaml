@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 174.137.54.133
+    port: 28443
+    uuid: fd8e435d-674f-457a-bc2a-c35d797349b3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 2z30-1Zgv51Ktfs4A0HGhvLJ3c2p4UjxVRw6eGWEy2k
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Sarina-7d90759016
     server: 67.216.207.144
@@ -6,8 +19,21 @@ proxies:
     password: 740f1a75659256a8c0e2a5686d573496b2a2
     sni: www.bing.com
     skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 174.137.54.133
+    port: 18443
+    uuid: 74529dd1-c01a-4622-a74a-c7ef6032fb7b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: updates.cdn-apple.com
+    reality-opts:
+      public-key: bqdOQ60hXST4ivHTo5nQ8SkcJ8N7cDrSH8eW69rlJBI
+    flow: xtls-rprx-vision
+    xudp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: DeltaKroneckerGithub-02
     server: 104.194.81.182
     port: 443
     password: "521314"
@@ -30,41 +56,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Napsternetvirani
-    server: 104.36.69.105
+    name: 4Sarina-20bc3f8853
+    server: 104.225.239.235
     port: 443
     uuid: 4dbf1ade-33f1-40dc-9273-e51babd570fe
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: portal.citygrainla.com
-    reality-opts:
-      public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
-      short-id: 051f20c2344a2dfd
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: ✅
-    server: 104.36.69.105
-    port: 443
-    uuid: 4dbf1ade-33f1-40dc-9273-e51babd570fe
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: portal.citygrainla.com
-    reality-opts:
-      public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
-      short-id: 051f20c2344a2dfd
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Tel@MARAMBASHI
-    server: 104.36.69.105
-    port: 443
-    uuid: 4dbf1ade-33f1-40dc-9273-e51babd570fe
-    udp: true
-    tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: portal.citygrainla.com
     reality-opts:
       public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
@@ -113,34 +111,49 @@ proxies:
       short-id: 4522e8266a24d531
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-501a6f3339
+    server: 174.137.54.133
+    port: 28443
+    uuid: fd8e435d-674f-457a-bc2a-c35d797349b3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 2z30-1Zgv51Ktfs4A0HGhvLJ3c2p4UjxVRw6eGWEy2k
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-7d90759016
       - DeltaKroneckerGithub
+      - 4Sarina-7d90759016
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-151f5cdca0
-      - Napsternetvirani
-      - ✅
-      - Tel@MARAMBASHI
+      - 4Sarina-20bc3f8853
       - 4Kian-d90e9c0a84
       - i10VPN¹⁰
       - 4Nika-050eb961c2
+      - 4Nika-501a6f3339
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-7d90759016
       - DeltaKroneckerGithub
+      - 4Sarina-7d90759016
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Kian-151f5cdca0
-      - Napsternetvirani
-      - ✅
-      - Tel@MARAMBASHI
+      - 4Sarina-20bc3f8853
       - 4Kian-d90e9c0a84
       - i10VPN¹⁰
       - 4Nika-050eb961c2
+      - 4Nika-501a6f3339
 rules:
   - MATCH,Proxy

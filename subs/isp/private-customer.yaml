@@ -1,4 +1,31 @@
 proxies:
+  - type: vless
+    name: 4Kian-55f7f2ae45
+    server: 31.58.213.230
+    port: 443
+    uuid: 2232d904-8e6a-4202-8240-6efd8aec02e9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cron.jarbook.net
+    reality-opts:
+      public-key: kZT-TcQzZQL0sTmcsipzIgE7qO2vdZom4Res0KbnbQ0
+      short-id: 295f8129
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-bcdf7ad687
+    server: 62.72.166.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime40.workers.dev
   - type: vmess
     name: 4Jadi-891604cb23
     server: 151.242.165.160
@@ -22,6 +49,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-55f7f2ae45
+      - 4FreeIran-bcdf7ad687
       - 4Jadi-891604cb23
   - name: Auto
     type: url-test
@@ -29,6 +58,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-55f7f2ae45
+      - 4FreeIran-bcdf7ad687
       - 4Jadi-891604cb23
 rules:
   - MATCH,Proxy

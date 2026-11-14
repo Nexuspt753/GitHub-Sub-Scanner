@@ -1,6 +1,22 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 103.219.195.65
+    port: 443
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 103.219.192.33
     port: 443
     password: 469c8135-8aea-4c7f-8ec2-c5fdfa980b48
@@ -25,7 +41,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: snip.edgeoneai.cc.cd
   - type: vless
-    name: 4Nika-4ddd18b72b
+    name: 4Sarina-24ea7e569e
     server: 103.219.195.65
     port: 443
     uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -46,8 +62,9 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-8c1d1763f2
-      - 4Nika-4ddd18b72b
+      - 4Sarina-24ea7e569e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,7 +72,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Jadi-8c1d1763f2
-      - 4Nika-4ddd18b72b
+      - 4Sarina-24ea7e569e
 rules:
   - MATCH,Proxy

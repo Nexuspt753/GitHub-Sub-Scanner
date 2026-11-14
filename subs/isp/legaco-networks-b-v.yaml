@@ -1,30 +1,50 @@
 proxies:
   - type: vless
-    name: 4Mohsen-fc21549bcf
-    server: 195.58.46.17
+    name: 4Nika-7c1aaea97c
+    server: 194.58.60.217
     port: 443
-    uuid: bbb2fa0f-30b1-4fb7-b007-79c563ff544b
+    uuid: bbb918c0-a510-45f9-ac94-4d449aef6498
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: t93q8h39r8h183hr.ru
+    servername: node43.lmdscdn.ru
     reality-opts:
       public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
-      short-id: ec9e3ca77d302766
-    flow: xtls-rprx-vision
+      short-id: 7e47d44f1b532321
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-7a21531b2e
+    server: 194.58.60.221
+    port: 443
+    uuid: bbbc1b48-9539-4300-acab-25cea65b533c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: node43.lmdscdn.ru
+    reality-opts:
+      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
+      short-id: db711de5e3ca0a68
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-fc21549bcf
+      - 4Nika-7c1aaea97c
+      - 4Nika-7a21531b2e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-fc21549bcf
+      - 4Nika-7c1aaea97c
+      - 4Nika-7a21531b2e
 rules:
   - MATCH,Proxy

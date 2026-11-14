@@ -1,31 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-15d0b129fb
-    server: 103.116.7.220
-    port: 2096
+    name: 4Jadi-4dd0115505
+    server: 103.116.7.67
+    port: 2083
     uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
     udp: true
     tls: true
-    client-fingerprint: edge
+    client-fingerprint: random
+    servername: proxy-1cu.pages.dev
     xudp: true
     network: ws
     ws-opts:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: proxy-34l.pages.dev
+        Host: proxy-1cu.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-15d0b129fb
+      - 4Jadi-4dd0115505
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-15d0b129fb
+      - 4Jadi-4dd0115505
 rules:
   - MATCH,Proxy

@@ -1,27 +1,13 @@
 proxies:
-  - type: ss
-    name: 4Nika-f1cc70e329
-    server: 38.60.223.125
-    port: 13108
-    cipher: aes-128-gcm
-    password: 8722de56b6c0b3f6a4d01cf91c07e6aa
-    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 38.54.59.90
+    server: 38.54.27.117
     port: 443
     password: af4b064a9c39472fb34ad8b113acdc6b
     udp: true
     tls: true
-    sni: 38.54.59.90
+    sni: 38.54.27.117
     client-fingerprint: chrome
-  - type: ss
-    name: 4Kian-8d3ae62884
-    server: 38.54.59.78
-    port: 16676
-    cipher: aes-128-gcm
-    password: c58938bbf5410f996b13983264fb2229
-    udp: true
   - type: trojan
     name: DeltaKroneckerGithub-01
     server: 38.54.64.247
@@ -39,6 +25,13 @@ proxies:
     tls: true
     sni: 38.54.15.140
     client-fingerprint: chrome
+  - type: ss
+    name: 4Kian-8d3ae62884
+    server: 38.54.59.78
+    port: 16676
+    cipher: aes-128-gcm
+    password: c58938bbf5410f996b13983264fb2229
+    udp: true
   - type: trojan
     name: 4Nika-f83f6d1fb8
     server: 38.60.136.156
@@ -48,40 +41,26 @@ proxies:
     tls: true
     sni: 38.60.136.156
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Nika-062aa68738
-    server: 119.46.51.45
-    port: 37515
-    uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-f1cc70e329
       - DeltaKroneckerGithub
-      - 4Kian-8d3ae62884
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Kian-8d3ae62884
       - 4Nika-f83f6d1fb8
-      - 4Nika-062aa68738
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-f1cc70e329
       - DeltaKroneckerGithub
-      - 4Kian-8d3ae62884
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Kian-8d3ae62884
       - 4Nika-f83f6d1fb8
-      - 4Nika-062aa68738
 rules:
   - MATCH,Proxy

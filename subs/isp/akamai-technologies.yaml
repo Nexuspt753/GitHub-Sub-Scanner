@@ -1,13 +1,22 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 172.104.60.54
+    port: 443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
   - type: ss
     name: configprxy
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
-  - type: ss
-    name: 4Kian-a20717886c
     server: 172.105.39.124
     port: 7002
     cipher: aes-256-gcm
@@ -20,6 +29,14 @@ proxies:
     cipher: aes-256-gcm
     password: pKEW8JPByTVTLtM
     udp: true
+  - type: trojan
+    name: 4Jadi-b85d6c5f32
+    server: trojan1.udpgw.com
+    port: 443
+    password: affae2e0-e84b-11ec-b09f-1239d0255272
+    udp: true
+    tls: true
+    client-fingerprint: chrome
   - type: trojan
     name: 4Nika-2c5627cfa4
     server: 172.104.120.92
@@ -76,45 +93,6 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 172.105.39.124
-    port: 7002
-    cipher: aes-256-gcm
-    password: RexnBgU7EV5ADxG
-    udp: true
-  - type: vless
-    name: 4Nika-33510829cb
-    server: 172.104.60.54
-    port: 443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
-  - type: vless
-    name: 4Jadi-99ea34bfad
-    server: 172.104.60.54
-    port: 443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
   - type: vmess
     name: 4Sarina-4ab167b05f
     server: 172.104.78.98
@@ -153,16 +131,14 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - configprxy
-      - 4Kian-a20717886c
       - 4FreeIran-897cbb92e6
+      - 4Jadi-b85d6c5f32
       - 4Nika-2c5627cfa4
       - 4Mohsen-cb293bb3a6
       - 4Jadi-d03b9609db
       - 4Kian-b2607110ec
-      - DeltaKroneckerGithub
-      - 4Nika-33510829cb
-      - 4Jadi-99ea34bfad
       - 4Sarina-4ab167b05f
       - 4Nika-c866fccba8
   - name: Auto
@@ -171,16 +147,14 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - configprxy
-      - 4Kian-a20717886c
       - 4FreeIran-897cbb92e6
+      - 4Jadi-b85d6c5f32
       - 4Nika-2c5627cfa4
       - 4Mohsen-cb293bb3a6
       - 4Jadi-d03b9609db
       - 4Kian-b2607110ec
-      - DeltaKroneckerGithub
-      - 4Nika-33510829cb
-      - 4Jadi-99ea34bfad
       - 4Sarina-4ab167b05f
       - 4Nika-c866fccba8
 rules:

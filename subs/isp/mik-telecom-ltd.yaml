@@ -1,32 +1,47 @@
 proxies:
   - type: ss
-    name: ⚡19
-    server: 185.194.191.35
-    port: 1353
-    cipher: chacha20-ietf-poly1305
-    password: byX4-DV0C42PLFTWQhMTAQ63mZ8qrDRB
-    udp: true
-  - type: ss
-    name: 4Sarina-de0ea3f8f9
+    name: ss
     server: dns24.m3hrzd.ir
     port: 8044
     cipher: chacha20-ietf-poly1305
     password: v1c-i5SSFXP8n4g1Wbc0L9gX82x5O2Qa
     udp: true
+  - type: ss
+    name: 🇫🇷14
+    server: dns24.m3hrzd.ir
+    port: 1352
+    cipher: chacha20-ietf-poly1305
+    password: byX4-DV0C42PLFTWQhMTAQ63mZ8qrDRB
+    udp: true
+  - type: vless
+    name: 4Sarina-5839b1b26d
+    server: 0cf703b86ea5a239.RaVEnlO.iR
+    port: 8080
+    uuid: 50d10e6c-37e1-4512-b35a-2d4e0adfd079
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 0cf703b86ea5a239.RaVEnlO.iR
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - ⚡19
-      - 4Sarina-de0ea3f8f9
+      - ss
+      - 🇫🇷14
+      - 4Sarina-5839b1b26d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - ⚡19
-      - 4Sarina-de0ea3f8f9
+      - ss
+      - 🇫🇷14
+      - 4Sarina-5839b1b26d
 rules:
   - MATCH,Proxy

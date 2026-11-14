@@ -6,12 +6,20 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: C9jdTZlXIaYhEsfUApaPz1glivAJZ30E
     udp: true
+  - type: ss
+    name: v2ray_phoenix
+    server: 82.152.132.211
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: iwULDLSkDmgNNsXNIayw8w5pDlbYRb3-
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - IRAN_V2RAY1
+      - v2ray_phoenix
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - IRAN_V2RAY1
+      - v2ray_phoenix
 rules:
   - MATCH,Proxy

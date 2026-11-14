@@ -1,16 +1,18 @@
 proxies:
   - type: vless
-    name: 4Sarina-023bc93464
-    server: crm2.play98.ir
-    port: 52862
-    uuid: 436899a7-965b-4e6e-8797-27f9363d812c
+    name: 4Jadi-8b0d39d94c
+    server: 79.175.189.121
+    port: 40021
+    uuid: 4e8e5f05-5c8a-4f53-ba16-1ed044ed0df8
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: ioucvr6V3ToaaU3dmWhIDT6UiS_jnL8t0AXaQQNfDwQ
+      short-id: "5276"
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Jadi-71d80fc735
     server: giti.molipen.ir
@@ -44,6 +46,22 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: /?Telegram---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP
   - type: vless
+    name: 4Nika-d2375d03f9
+    server: giti.molipen.ir
+    port: 21187
+    uuid: 7fe7a38c-1644-4174-9c0a-60037fd4415b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: giti.molipen.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /pen
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: /?Telegram---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP
+  - type: vless
     name: 4FreeIran-067dd77ab3
     server: tu.parsturbo7.ir
     port: 2529
@@ -59,42 +77,26 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-f7df643cec
-    server: c1.lionets.nl
-    port: 443
-    uuid: dac47b49-233f-49e9-b1a0-8dcc06907256
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: aparat.com
-    reality-opts:
-      public-key: RKd3-fMd-D-DaNA0b3snyuPwBlbHgiDMsU8CK8DpgHA
-      short-id: 057f
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-023bc93464
+      - 4Jadi-8b0d39d94c
       - 4Jadi-71d80fc735
       - 4Sarina-415038149d
+      - 4Nika-d2375d03f9
       - 4FreeIran-067dd77ab3
-      - 4FreeIran-f7df643cec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-023bc93464
+      - 4Jadi-8b0d39d94c
       - 4Jadi-71d80fc735
       - 4Sarina-415038149d
+      - 4Nika-d2375d03f9
       - 4FreeIran-067dd77ab3
-      - 4FreeIran-f7df643cec
 rules:
   - MATCH,Proxy

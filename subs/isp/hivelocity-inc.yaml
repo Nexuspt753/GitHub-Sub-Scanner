@@ -5,6 +5,15 @@ proxies:
     port: 28152
     password: 48ef13ac-d89e-4da0-8db4-c6aa72db4918
     sni: fr.song69.fun
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.180.141.48
+    port: 443
+    password: d30ab83dbde4480082048fb315bedebd
+    udp: true
+    tls: true
+    sni: 38.180.141.48
+    client-fingerprint: chrome
   - type: vless
     name: 4Nika-9ccaf37bf5
     server: fr.song69.fun
@@ -19,13 +28,29 @@ proxies:
       short-id: dcb858da
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-78a9f4b3b5
+    server: 45.152.167.19
+    port: 443
+    uuid: 7592ca5c-b352-4562-8856-a9c936a3331b
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: frb1.hat.onl
+    reality-opts:
+      public-key: LSatvkYtdgq5oND_moM9NRW-ZDbdlTvyX9gzeF9r3W8
+      short-id: 1cfdb63f3b860379
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-9ce7bc776b
+      - DeltaKroneckerGithub
       - 4Nika-9ccaf37bf5
+      - 4Nika-78a9f4b3b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +58,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-9ce7bc776b
+      - DeltaKroneckerGithub
       - 4Nika-9ccaf37bf5
+      - 4Nika-78a9f4b3b5
 rules:
   - MATCH,Proxy

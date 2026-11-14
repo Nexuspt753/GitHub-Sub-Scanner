@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: VPsave
+    server: 216.172.144.199
+    port: 40643
+    cipher: chacha20-ietf-poly1305
+    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
+    udp: true
+  - type: ss
+    name: 4Kian-5a8b528ce7
+    server: 216.172.144.199
+    port: 40643
+    cipher: chacha20-ietf-poly1305
+    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
+    udp: true
   - type: trojan
     name: 4FreeIran-a1cffca0ef
     server: 104.253.175.99
@@ -13,52 +27,22 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 216.172.144.199
-    port: 40643
-    cipher: chacha20-ietf-poly1305
-    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 216.172.144.199
-    port: 40643
-    cipher: chacha20-ietf-poly1305
-    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
-    udp: true
-  - type: trojan
-    name: 4Nika-a568bfb709
-    server: 45.38.3.25
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.pleadcourt.org
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
+      - 4Kian-5a8b528ce7
       - 4FreeIran-a1cffca0ef
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-a568bfb709
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
+      - 4Kian-5a8b528ce7
       - 4FreeIran-a1cffca0ef
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - 4Nika-a568bfb709
 rules:
   - MATCH,Proxy

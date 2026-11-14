@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 95.85.254.14
+    port: 8443
+    uuid: f2905db1-4c91-48fc-a101-705d1620e279
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl2-edge.gacvpn.site
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: hysteria2
     name: 4Nika-03bb3a837f
     server: 217.60.72.225
@@ -26,22 +39,69 @@ proxies:
       short-id: 1ae19cbe6d819b27
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: tootffarangi🍓
+    server: 95.85.254.14
+    port: 8443
+    uuid: f2905db1-4c91-48fc-a101-705d1620e279
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl2-edge.gacvpn.site
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-7edb02e594
+    server: 95.85.254.14
+    port: 8443
+    uuid: f2905db1-4c91-48fc-a101-705d1620e279
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pl2-edge.gacvpn.site
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Nika-93da248344
+    server: 95.85.254.14
+    port: 8443
+    uuid: f2905db1-4c91-48fc-a101-705d1620e279
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl2-edge.gacvpn.site
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-03bb3a837f
       - 4FreeIran-77b4f820ce
       - 4Jadi-7d14664197
+      - tootffarangi🍓
+      - 4Jadi-7edb02e594
+      - 4Nika-93da248344
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-03bb3a837f
       - 4FreeIran-77b4f820ce
       - 4Jadi-7d14664197
+      - tootffarangi🍓
+      - 4Jadi-7edb02e594
+      - 4Nika-93da248344
 rules:
   - MATCH,Proxy

@@ -1,20 +1,22 @@
 proxies:
   - type: vless
-    name: 4Mohsen-50f1ad81d8
-    server: 8.209.108.3
+    name: 4Jadi-18f439356a
+    server: 8.209.83.19
     port: 443
-    uuid: 7c03538c-c6dd-4dc1-b35c-5fc0e2a43271
+    uuid: 0281a320-21e8-434f-86b7-a7c0db58c0db
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: dnsss.kdns.fr
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: je8r21hqax.dev.onappjet.com
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /ws/0281a320-21e8-434f-86b7-a7c0db58c0db
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: dnsss.kdns.fr
+        Host: je8r21hqax.dev.onappjet.com
   - type: vmess
     name: fastkanfig | سرور 5
     server: 8.209.104.230
@@ -67,6 +69,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: lg30.cfcdn3.xyz
+  - type: vmess
+    name: 4Jadi-1d367453ff
+    server: CZE2OsD7QJH7t7ez.v.3dns.vip
+    port: 443
+    uuid: 185229d401c34fc988127db14324c98b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: CZE2OsD7QJH7t7ez.v.3dns.vip
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: CZE2OsD7QJH7t7ez.v.3dns.vip
   - type: vmess
     name: 4Sarina-b3c4f86cad
     server: CZE2OsD7QJH7t7ez.v.3dns.vip
@@ -139,52 +159,34 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: kRUXDIdk3hdiDOcf.v.3dns.vip
-  - type: vmess
-    name: 4Sarina-b989600a39
-    server: vOYM4rPWYVnQ5l7g.v.3dns.vip
-    port: 443
-    uuid: 5179c85ca942460e81e02bb711fd3e9c
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: vOYM4rPWYVnQ5l7g.v.3dns.vip
-    network: ws
-    ws-opts:
-      path: /ws-vmess
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vOYM4rPWYVnQ5l7g.v.3dns.vip
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-50f1ad81d8
+      - 4Jadi-18f439356a
       - fastkanfig | سرور 5
       - 4Sarina-bdcd66c482
       - 4Nika-78ea240784
+      - 4Jadi-1d367453ff
       - 4Sarina-b3c4f86cad
       - 4Nika-11d2c593c0
       - 4Jadi-ace2673359
       - 4Kian-a43326784a
-      - 4Sarina-b989600a39
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-50f1ad81d8
+      - 4Jadi-18f439356a
       - fastkanfig | سرور 5
       - 4Sarina-bdcd66c482
       - 4Nika-78ea240784
+      - 4Jadi-1d367453ff
       - 4Sarina-b3c4f86cad
       - 4Nika-11d2c593c0
       - 4Jadi-ace2673359
       - 4Kian-a43326784a
-      - 4Sarina-b989600a39
 rules:
   - MATCH,Proxy
