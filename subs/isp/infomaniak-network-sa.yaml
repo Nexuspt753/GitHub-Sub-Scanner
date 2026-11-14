@@ -8,12 +8,46 @@ proxies:
     tls: true
     sni: play.google.com
     client-fingerprint: chrome
+  - type: vless
+    name: 🇨🇭214053
+    server: 83.228.207.179
+    port: 443
+    uuid: 4b50270b-5caf-4c34-b3da-17b4525604a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cryptoventura.online
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/de3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cryptoventura.online
+  - type: vless
+    name: 4Nika-33181b9707
+    server: 84.234.30.10
+    port: 443
+    uuid: c5ff3a34-2711-4ecd-a7da-5de70ad9642c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: sHyXyKWmgclplgMDG7A2MSsrC9G9fjMh1eYRmgoxqGk
+      short-id: 30ed00627d04e69d
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 🇨🇭214053
+      - 4Nika-33181b9707
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 🇨🇭214053
+      - 4Nika-33181b9707
 rules:
   - MATCH,Proxy

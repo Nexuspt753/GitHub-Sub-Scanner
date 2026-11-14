@@ -1,17 +1,5 @@
 proxies:
   - type: vless
-    name: 4FreeIran-34e8d1bc78
-    server: 188.72.103.4
-    port: 443
-    uuid: 0000be2c-fb3a-5bce-a7d7-2105d461915b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
     name: vless
     server: cdn.oldertown.ru
     port: 443
@@ -24,13 +12,16 @@ proxies:
       - ""
     xudp: true
   - type: vless
-    name: vless-01
-    server: cdn.oldertown.ru
+    name: 4FreeIran-34e8d1bc78
+    server: 188.72.103.4
     port: 443
-    uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
+    uuid: 0000be2c-fb3a-5bce-a7d7-2105d461915b
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
     name: 4Mohsen-6303966592
@@ -45,7 +36,16 @@ proxies:
       - ""
     xudp: true
   - type: vless
-    name: vless-02
+    name: 4Kian-f369544c5a
+    server: cdn.oldertown.ru
+    port: 443
+    uuid: 29777784-b5ad-4e2a-be7b-335f033ab97c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
     server: static.nlomasterpanel.ru
     port: 443
     uuid: 981e728f-d403-4fef-a1ff-6ba9ebe0e702
@@ -71,7 +71,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-37a6adb36d
+    name: 4Mohsen-41b4a827ff
     server: static.nlomasterpanel.ru
     port: 443
     uuid: 981e728f-d403-4fef-a1ff-6ba9ebe0e702
@@ -81,47 +81,64 @@ proxies:
     alpn:
       - h2
       - http/1.1
-    servername: static.nlomasterpanel.ru
     xudp: true
   - type: vless
-    name: 4Jadi-eadba455dd
-    server: 188.72.112.1
+    name: 4FreeIran-2fdb8e3cb0
+    server: 94.139.250.226
     port: 443
-    uuid: d8d9d99e-6622-4620-92dc-23ac2b6d30f6
+    uuid: fa081e9f-7574-0002-8928-31aa5ac923c7
+    udp: true
+    tls: true
+    client-fingerprint: android
+    servername: rus8-b.sbcweb.net
+    reality-opts:
+      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+      short-id: 344f83372596eea2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-f4d44587c7
+    server: 94.139.250.226
+    port: 443
+    uuid: fa081e9f-7574-0002-8928-31aa5ac923c7
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: shop07.gruzit.my
+    servername: rus8-b.sbcweb.net
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-34e8d1bc78
       - vless
-      - vless-01
+      - 4FreeIran-34e8d1bc78
       - 4Mohsen-6303966592
-      - vless-02
+      - 4Kian-f369544c5a
+      - vless-01
       - 4Kian-99d3657079
-      - 4Jadi-37a6adb36d
-      - 4Jadi-eadba455dd
+      - 4Mohsen-41b4a827ff
+      - 4FreeIran-2fdb8e3cb0
+      - 4Jadi-f4d44587c7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-34e8d1bc78
       - vless
-      - vless-01
+      - 4FreeIran-34e8d1bc78
       - 4Mohsen-6303966592
-      - vless-02
+      - 4Kian-f369544c5a
+      - vless-01
       - 4Kian-99d3657079
-      - 4Jadi-37a6adb36d
-      - 4Jadi-eadba455dd
+      - 4Mohsen-41b4a827ff
+      - 4FreeIran-2fdb8e3cb0
+      - 4Jadi-f4d44587c7
 rules:
   - MATCH,Proxy

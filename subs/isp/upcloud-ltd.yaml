@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 4Mohsen-2b00b707e1
+    server: 95.111.195.98
+    port: 443
+    uuid: 270c3fa5-0293-4d68-875c-6cdc3bdc5b84
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: vless
     server: 94.237.83.139
     port: 443
@@ -13,9 +25,16 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: 4Jadi-95e2f6b104
-    server: fr.privatevip.ir
-    port: 451
+    name: awlix_ir
+    server: 87.58.159.20
+    port: 443
+    uuid: awlix_ir
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-5e62329bc6
+    server: 94.237.28.66
+    port: 443
     uuid: 7c730089-1791-4828-89b2-86e7e1663063
     udp: true
     xudp: true
@@ -24,20 +43,20 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fr.privatevip.ir
+        Host: play.google.com
   - type: vless
-    name: 4Jadi-951055dde2
-    server: 94.237.83.139
-    port: 443
-    uuid: V2XNET-V2XNET
+    name: 4Kian-2df85e94d2
+    server: nl.privatevip.ir
+    port: 447
+    uuid: 7c730089-1791-4828-89b2-86e7e1663063
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h3
-      - h2
-      - http/1.1
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl.privatevip.ir
   - type: vless
     name: 4Sarina-7b1bfc2c8a
     server: 87.58.159.20
@@ -61,35 +80,42 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Sarina-e921502e69
-    server: a-services.xevpuk.ir
-    port: 8080
-    uuid: e484b9cb-1bfb-79fb-c7a9-31294cfafe68
+  - type: vmess
+    name: 4FreeIran-79b17dfc15
+    server: Fast.jexmuk.ir
+    port: 16176
+    uuid: b28bfd04-0b91-4bfb-ab88-4d5c33fd1131
+    alterId: 0
+    cipher: auto
     udp: true
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-2b00b707e1
       - vless
-      - 4Jadi-95e2f6b104
-      - 4Jadi-951055dde2
+      - awlix_ir
+      - 4Nika-5e62329bc6
+      - 4Kian-2df85e94d2
       - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
-      - 4Sarina-e921502e69
+      - 4FreeIran-79b17dfc15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-2b00b707e1
       - vless
-      - 4Jadi-95e2f6b104
-      - 4Jadi-951055dde2
+      - awlix_ir
+      - 4Nika-5e62329bc6
+      - 4Kian-2df85e94d2
       - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
-      - 4Sarina-e921502e69
+      - 4FreeIran-79b17dfc15
 rules:
   - MATCH,Proxy

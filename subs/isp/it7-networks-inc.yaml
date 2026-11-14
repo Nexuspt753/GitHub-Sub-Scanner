@@ -1,6 +1,22 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-7d90759016
+    server: 67.216.207.144
+    port: 443
+    password: 740f1a75659256a8c0e2a5686d573496b2a2
+    sni: www.bing.com
+    skip-cert-verify: true
   - type: trojan
     name: DeltaKroneckerGithub
+    server: 104.194.81.182
+    port: 443
+    password: "521314"
+    udp: true
+    tls: true
+    sni: tjplay.lxdxo.kdns.fr
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 104.160.44.203
     port: 443
     password: 600421cf-11d7-429f-a65b-c30397f1bc03
@@ -64,42 +80,30 @@ proxies:
       short-id: 051f20c2344a2dfd
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-20bc3f8853
-    server: 104.225.239.235
-    port: 443
-    uuid: 4dbf1ade-33f1-40dc-9273-e51babd570fe
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: portal.citygrainla.com
-    reality-opts:
-      public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
-      short-id: 051f20c2344a2dfd
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-7d90759016
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-151f5cdca0
       - Napsternetvirani
       - ✅
       - Tel@MARAMBASHI
-      - 4Sarina-20bc3f8853
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-7d90759016
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 4Kian-151f5cdca0
       - Napsternetvirani
       - ✅
       - Tel@MARAMBASHI
-      - 4Sarina-20bc3f8853
 rules:
   - MATCH,Proxy

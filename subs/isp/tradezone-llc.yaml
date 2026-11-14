@@ -1,31 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Mohsen-08eb987bc7
+  - type: vless
+    name: 4Nika-15049e2b0f
     server: 194.135.119.82
     port: 2053
-    password: humanity
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
     udp: true
     tls: true
-    sni: www.cordweave.com
     client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /fp=chrome
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.cordweave.com
+        Host: fs.qicai99.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-08eb987bc7
+      - 4Nika-15049e2b0f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-08eb987bc7
+      - 4Nika-15049e2b0f
 rules:
   - MATCH,Proxy

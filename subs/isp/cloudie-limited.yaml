@@ -9,12 +9,34 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-6ff5667d99
+    server: v45.hdacd.com
+    port: 30845
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-8200ba5f10
+    server: v6.hdacd.com
+    port: 30806
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-62941ac1f1
+      - 4Nika-6ff5667d99
+      - 4Jadi-8200ba5f10
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -22,5 +44,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-62941ac1f1
+      - 4Nika-6ff5667d99
+      - 4Jadi-8200ba5f10
 rules:
   - MATCH,Proxy

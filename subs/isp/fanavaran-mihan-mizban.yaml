@@ -12,12 +12,39 @@ proxies:
       public-key: i-x761Xv6dT-q_PknZqg_qhdVT-v9ph2uz9XPniIrRc
       short-id: 399c41e92bdd7e78
     xudp: true
+  - type: vless
+    name: 4Sarina-ccf323dea9
+    server: static2.techo-net.com
+    port: 8443
+    uuid: 061c644f-72c1-496b-808e-3e76e0bfcb60
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: play.google.com
+    reality-opts:
+      public-key: i-x761Xv6dT-q_PknZqg_qhdVT-v9ph2uz9XPniIrRc
+      short-id: 399c41e92bdd7e78
+    xudp: true
+  - type: vless
+    name: 4Kian-1f744eca02
+    server: meli.zxico.ir
+    port: 80
+    uuid: fdc94727-c5f7-400c-9ef4-da679ce36024
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-c15c766c84
+      - 4Sarina-ccf323dea9
+      - 4Kian-1f744eca02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +52,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-c15c766c84
+      - 4Sarina-ccf323dea9
+      - 4Kian-1f744eca02
 rules:
   - MATCH,Proxy

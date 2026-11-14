@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: VPsave
+    server: 78.140.253.25
+    port: 445
+    uuid: cdf4bc13-31e6-4bff-962c-05fe9151c593
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: bel.vrsvpn.com
+    reality-opts:
+      public-key: Vi1Rr8Qf0-OeeXyHCt8Hsz1yRzVRkniPweoKl3Y6ohY
+      short-id: 15aa18f121da1f81
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-88174e2bf3
+    server: 78.140.253.25
+    port: 445
+    uuid: cdf4bc13-31e6-4bff-962c-05fe9151c593
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bel.vrsvpn.com
+    reality-opts:
+      public-key: Vi1Rr8Qf0-OeeXyHCt8Hsz1yRzVRkniPweoKl3Y6ohY
+      short-id: 15aa18f121da1f81
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - VPsave
+      - 4Nika-88174e2bf3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - VPsave
+      - 4Nika-88174e2bf3
+rules:
+  - MATCH,Proxy

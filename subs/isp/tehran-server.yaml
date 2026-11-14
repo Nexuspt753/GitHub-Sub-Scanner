@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Mohsen-7594af6983
+    server: tun404.app9.ir
+    port: 8023
+    uuid: 27f1eba3-0d5f-47c3-8dfa-f734f3aeccdf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: speedtest.net
+    reality-opts:
+      public-key: 3VKs9HG9EgsB69ppfvFEJcXiO5MDOvvQOByDD2HceXQ
+      short-id: b7e45d3a65bfc319
+    xudp: true
+  - type: vless
     name: 4Nika-0e070d09af
     server: tun404.app9.ir
     port: 8023
@@ -12,30 +25,20 @@ proxies:
       public-key: 3VKs9HG9EgsB69ppfvFEJcXiO5MDOvvQOByDD2HceXQ
       short-id: b7e45d3a65bfc319
     xudp: true
-  - type: vmess
-    name: 4Mohsen-03b71fa9fe
-    server: irx-maxuup.ir.maxuup.fun
-    port: 3040
-    uuid: 88f9d297-44e1-a6d2-3875-9914bb45f96e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-7594af6983
       - 4Nika-0e070d09af
-      - 4Mohsen-03b71fa9fe
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-7594af6983
       - 4Nika-0e070d09af
-      - 4Mohsen-03b71fa9fe
 rules:
   - MATCH,Proxy
