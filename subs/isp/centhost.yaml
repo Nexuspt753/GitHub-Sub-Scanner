@@ -13,12 +13,30 @@ proxies:
       short-id: 9e5a335de26d1f5a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-4753453bb0
+    server: 31.59.192.254
+    port: 8080
+    uuid: ccf353ca-fa34-43fc-8ed9-520fb9d74bf6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: va.stream-room.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-231fc3df7e
+      - 4Jadi-4753453bb0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +44,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-231fc3df7e
+      - 4Jadi-4753453bb0
 rules:
   - MATCH,Proxy

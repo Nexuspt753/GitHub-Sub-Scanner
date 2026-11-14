@@ -13,12 +13,27 @@ proxies:
       short-id: bf8b003cb32c968b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-3c06d73650
+    server: 46.8.114.205
+    port: 443
+    uuid: c9722094-0f55-4678-96db-3b88953a46da
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: plov.plus-hit.ru
+    reality-opts:
+      public-key: QsUgVxHyjCKdtYBnBGoEM74F3k9uc2kimLPbf_qAAAM
+      short-id: bf8b003cb32c968b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-4cd499df87
+      - 4Sarina-3c06d73650
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-4cd499df87
+      - 4Sarina-3c06d73650
 rules:
   - MATCH,Proxy

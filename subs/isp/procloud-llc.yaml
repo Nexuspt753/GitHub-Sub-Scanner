@@ -1,94 +1,29 @@
 proxies:
-  - type: trojan
-    name: VPsave
-    server: 5.59.204.26
-    port: 51443
-    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
+  - type: vless
+    name: ConfigV2RayNG
+    server: 5.59.204.81
+    port: 8443
+    uuid: 97fd7807-7e2b-49da-8a0e-e40197088f97
     udp: true
     tls: true
-    sni: lv.nebulaguard.org
+    client-fingerprint: chrome
     alpn:
       - h2
-      - h3
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /trojan/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lv.nebulaguard.org
-  - type: trojan
-    name: VPsave-01
-    server: 5.59.204.26
-    port: 51443
-    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
-    udp: true
-    tls: true
-    sni: lv.nebulaguard.org
-    alpn:
-      - h2
-      - h3
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /trojan/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lv.nebulaguard.org
-  - type: trojan
-    name: 4FreeIran-7dfbacac9c
-    server: 5.59.204.26
-    port: 21443
-    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
-    udp: true
-    tls: true
-    sni: fi1.nebulaguard.org
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /trojan/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fi1.nebulaguard.org
-  - type: trojan
-    name: 4Jadi-7ae543a7eb
-    server: 5.59.204.26
-    port: 51443
-    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
-    udp: true
-    tls: true
-    sni: lv.nebulaguard.org
-    alpn:
-      - h2
-      - h3
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /trojan/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lv.nebulaguard.org
+    servername: id-6af3f40b.adhil.uk
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
-      - VPsave-01
-      - 4FreeIran-7dfbacac9c
-      - 4Jadi-7ae543a7eb
+      - ConfigV2RayNG
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
-      - VPsave-01
-      - 4FreeIran-7dfbacac9c
-      - 4Jadi-7ae543a7eb
+      - ConfigV2RayNG
 rules:
   - MATCH,Proxy

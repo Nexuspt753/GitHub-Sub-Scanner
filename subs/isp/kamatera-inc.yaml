@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Nika-b3b2b4afe3
+    server: 212.86.105.233
+    port: 8443
+    cipher: aes-256-gcm
+    password: PJirKQcyqbAiqebq4AHetGUkZuQvmT6ffwuyPFZu0ng=
+    udp: true
   - type: trojan
     name: DeltaKroneckerGithub
     server: 45.91.171.116
@@ -32,19 +39,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: Shh_Proxy-New⁷
-    server: 5.180.181.113
-    port: 443
-    uuid: b1da2601-ff93-46d6-af87-04af3f541fde
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sun1-19.userapi.com
-    reality-opts:
-      public-key: wY_MYPJUx849su3BlowuxnwnUaj25iLfRw2LooQfPAY
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Jadi-901bc4bffc
     server: 78.138.17.65
     port: 443
@@ -58,26 +52,57 @@ proxies:
       short-id: 168b19fa874b9934
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-c1b64af35d
+    server: es.srv.dvzh.net
+    port: 443
+    uuid: 9ab3a362-1518-496d-b08d-eced45cec936
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: es.srv.dvzh.net
+    reality-opts:
+      public-key: 9GEc6lOjnGQyyE1951OZSBMWt4uCXsOjKyj9fysxHH0
+      short-id: e0ccc8c2f487d913
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-1869d93597
+    server: 5.180.181.113
+    port: 443
+    uuid: b1da2601-ff93-46d6-af87-04af3f541fde
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sun1-19.userapi.com
+    reality-opts:
+      public-key: wY_MYPJUx849su3BlowuxnwnUaj25iLfRw2LooQfPAY
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-b3b2b4afe3
       - DeltaKroneckerGithub
       - 4Sarina-3deb751852
       - VPsave
-      - Shh_Proxy-New⁷
       - 4Jadi-901bc4bffc
+      - 4Mohsen-c1b64af35d
+      - 4Jadi-1869d93597
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-b3b2b4afe3
       - DeltaKroneckerGithub
       - 4Sarina-3deb751852
       - VPsave
-      - Shh_Proxy-New⁷
       - 4Jadi-901bc4bffc
+      - 4Mohsen-c1b64af35d
+      - 4Jadi-1869d93597
 rules:
   - MATCH,Proxy
