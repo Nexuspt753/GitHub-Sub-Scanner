@@ -29,6 +29,23 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cg1c01.waimaojd.com
+  - type: vmess
+    name: 4Sarina-9c0d3fe241
+    server: cg1c02.waimaojd.com
+    port: 443
+    uuid: 332774e5-9371-48bb-b518-1fe56c7268da
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /api/v1/graphql
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cg1c02.waimaojd.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -37,6 +54,7 @@ proxy-groups:
       - 4Sarina-972e28868a
       - 4FreeIran-22d055009b
       - 4Mohsen-3e1f2e7f9c
+      - 4Sarina-9c0d3fe241
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,5 +64,6 @@ proxy-groups:
       - 4Sarina-972e28868a
       - 4FreeIran-22d055009b
       - 4Mohsen-3e1f2e7f9c
+      - 4Sarina-9c0d3fe241
 rules:
   - MATCH,Proxy

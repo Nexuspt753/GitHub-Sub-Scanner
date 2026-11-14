@@ -1,10 +1,17 @@
 proxies:
   - type: ss
-    name: 4Jadi-eb41230db0
-    server: 5.57.38.193
+    name: 4Nika-5f0bb7153d
+    server: 81.12.33.85
     port: 8443
     cipher: 2022-blake3-aes-128-gcm
-    password: SOg9NNrasz6s7bbtrDE7Fw==:nfwmZHDK9w/T6vKnwZzAUQ==
+    password: LD9xA0I5NrE/aPKvmXN0kQ==:+Jcvx6aJhFN8fvoHnixY6A==
+    udp: true
+  - type: ss
+    name: 4Kian-3e438fc25d
+    server: 5.57.38.179
+    port: 5005
+    cipher: chacha20-ietf-poly1305
+    password: Jnux6cwl7GQbIhtqVyCfH69U7gYkUZ8p
     udp: true
   - type: trojan
     name: DeltaKroneckerGithub
@@ -114,30 +121,96 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: sv1000.tu5pars.ir
+  - type: vless
+    name: 4Nika-5fd8aa5735
+    server: ip2.immahan.ir
+    port: 443
+    uuid: da4cf23f-064e-42ea-8e8e-6994048ffbcd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: sv1000.tu5pars.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sv1000.tu5pars.ir
+  - type: vless
+    name: 4Jadi-c2ef0a9ddb
+    server: ip2.immahan.ir
+    port: 443
+    uuid: da4cf23f-064e-42ea-8e8e-6994048ffbcd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: sv9.tu5pars.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sv9.tu5pars.ir
+  - type: vmess
+    name: 4Jadi-20d5cbfb51
+    server: sepi.myach.ir
+    port: 2053
+    uuid: 4ed4b07e-1b5a-464a-a7a8-089951957301
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: sepi.myach.ir
+    network: ws
+    ws-opts:
+      path: /ukurwuhytuyti4fuow4u05u04ur0[u0udifdhvoohfofhogfhoufhguoghufoisdfhiohihjeiejhoipdjoih
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: aaparatt.myach.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-eb41230db0
+      - 4Nika-5f0bb7153d
+      - 4Kian-3e438fc25d
       - DeltaKroneckerGithub
       - 4Mohsen-4c9f57bb3c
       - telegram:@pirozi_ArGaP
       - telegram:@pirozi_ArGaP-01
       - 4Sarina-c3c7c89e27
       - 4Nika-be62f40379
+      - 4Nika-5fd8aa5735
+      - 4Jadi-c2ef0a9ddb
+      - 4Jadi-20d5cbfb51
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-eb41230db0
+      - 4Nika-5f0bb7153d
+      - 4Kian-3e438fc25d
       - DeltaKroneckerGithub
       - 4Mohsen-4c9f57bb3c
       - telegram:@pirozi_ArGaP
       - telegram:@pirozi_ArGaP-01
       - 4Sarina-c3c7c89e27
       - 4Nika-be62f40379
+      - 4Nika-5fd8aa5735
+      - 4Jadi-c2ef0a9ddb
+      - 4Jadi-20d5cbfb51
 rules:
   - MATCH,Proxy

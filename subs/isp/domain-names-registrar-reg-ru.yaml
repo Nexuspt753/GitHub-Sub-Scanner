@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: VPsave
+    server: 161.104.28.171
+    port: 443
+    uuid: 41a382b8-6d2f-482e-abf2-954a56456e8c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us1.serverslocal.ru
+    reality-opts:
+      public-key: VbUdI9MaHFYPBJ1gmmfGyUX415RdeS2yg7ojhX43_m8
+      short-id: b5ea2877aadeb97c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-2448bd4cf6
+    server: 161.104.28.171
+    port: 443
+    uuid: 41a382b8-6d2f-482e-abf2-954a56456e8c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: us1.serverslocal.ru
+    reality-opts:
+      public-key: VbUdI9MaHFYPBJ1gmmfGyUX415RdeS2yg7ojhX43_m8
+      short-id: b5ea2877aadeb97c
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - VPsave
+      - 4Kian-2448bd4cf6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - VPsave
+      - 4Kian-2448bd4cf6
+rules:
+  - MATCH,Proxy

@@ -1,30 +1,36 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 154.84.56.198
-    port: 443
-    uuid: 9c44b1db-9b38-4d77-adec-7f549c1770a9
+  - type: trojan
+    name: 4Nika-51e13391bd
+    server: a-cm.jiasu.one
+    port: 56262
+    password: 5398a62d-6fae-465d-8ffe-19418a8b561e
     udp: true
     tls: true
+    sni: hk06.jiasu.one
     client-fingerprint: chrome
-    servername: www.universityofcalifornia.edu
-    reality-opts:
-      public-key: EHQEopoNqm2q8R2uu8ffAIpI-k2q-9Z5RUWafETWVGs
-      short-id: b7e4a1c9d3f60528
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: trojan
+    name: 4Sarina-192ac35eea
+    server: a-cm.jiasu.one
+    port: 14525
+    password: f5b7d963-ec43-4515-8bd5-33cbcc5582ec
+    udp: true
+    tls: true
+    sni: us03.200913.xyz
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-51e13391bd
+      - 4Sarina-192ac35eea
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-51e13391bd
+      - 4Sarina-192ac35eea
 rules:
   - MATCH,Proxy

@@ -1,6 +1,36 @@
 proxies:
+  - type: trojan
+    name: 4Kian-7f73627249
+    server: 80.211.238.61
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Kian-50c9d6b8e9
+    name: 4Kian-1df9b162af
+    server: 188.213.170.198
+    port: 443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v5-4b5.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v5-4b5.pages.dev
+  - type: vless
+    name: 4Mohsen-a2a06e47f1
     server: 80.211.134.75
     port: 443
     uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
@@ -20,13 +50,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-50c9d6b8e9
+      - 4Kian-7f73627249
+      - 4Kian-1df9b162af
+      - 4Mohsen-a2a06e47f1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-50c9d6b8e9
+      - 4Kian-7f73627249
+      - 4Kian-1df9b162af
+      - 4Mohsen-a2a06e47f1
 rules:
   - MATCH,Proxy

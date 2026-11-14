@@ -12,25 +12,39 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: vless
-    server: 94.237.83.139
+    name: 4Mohsen-bb5e560754
+    server: 5674-4.seenode.app
     port: 443
-    uuid: V2XNET-V2XNET
+    uuid: 510e8bc2-020c-412a-9caa-b036031268e8
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
-      - h3
-      - h2
       - http/1.1
+    servername: 5674-4.seenode.app
     xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 5674-4.seenode.app
   - type: vless
-    name: awlix_ir
-    server: 87.58.159.20
+    name: 4Jadi-a08ca08fb7
+    server: 80.47.229.187
     port: 443
-    uuid: awlix_ir
+    uuid: 510e8bc2-020c-412a-9caa-b036031268e8
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 5674-4.seenode.app
     xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 5674-4.seenode.app
   - type: vless
     name: 4Nika-5e62329bc6
     server: 94.237.28.66
@@ -44,19 +58,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
-  - type: vless
-    name: 4Kian-2df85e94d2
-    server: nl.privatevip.ir
-    port: 447
-    uuid: 7c730089-1791-4828-89b2-86e7e1663063
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nl.privatevip.ir
   - type: vless
     name: 4Sarina-7b1bfc2c8a
     server: 87.58.159.20
@@ -80,29 +81,17 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vmess
-    name: 4FreeIran-79b17dfc15
-    server: Fast.jexmuk.ir
-    port: 16176
-    uuid: b28bfd04-0b91-4bfb-ab88-4d5c33fd1131
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-2b00b707e1
-      - vless
-      - awlix_ir
+      - 4Mohsen-bb5e560754
+      - 4Jadi-a08ca08fb7
       - 4Nika-5e62329bc6
-      - 4Kian-2df85e94d2
       - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
-      - 4FreeIran-79b17dfc15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -110,12 +99,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-2b00b707e1
-      - vless
-      - awlix_ir
+      - 4Mohsen-bb5e560754
+      - 4Jadi-a08ca08fb7
       - 4Nika-5e62329bc6
-      - 4Kian-2df85e94d2
       - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
-      - 4FreeIran-79b17dfc15
 rules:
   - MATCH,Proxy

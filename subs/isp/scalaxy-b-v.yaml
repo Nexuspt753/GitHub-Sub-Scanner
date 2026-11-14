@@ -6,12 +6,22 @@ proxies:
     cipher: aes-128-gcm
     password: 5126ccc78eea4c643cbed4e6c21465e8
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 38.180.173.150
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 38.180.173.150
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-f1c9c7ade6
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +29,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-f1c9c7ade6
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

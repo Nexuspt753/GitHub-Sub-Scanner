@@ -1,6 +1,24 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: bhjolq0d0l.flowersgood.top
+    port: 443
+    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: bhjolq0d0l.flowersgood.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/telemetry/045d381f1166/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: bhjolq0d0l.flowersgood.top
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 217.16.17.127
     port: 25565
     password: WaGG8TGpKhcMU-F-e9vrjB7MnUHGPhtt
@@ -14,6 +32,22 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-7ad98bd906
+    server: 95.163.209.247
+    port: 443
+    uuid: 010be6fa-ab5f-404a-9edf-ab2db1f09f0c
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: fst.krevetkabs111.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/generate
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fst.krevetkabs111.net
   - type: vless
     name: 4Mohsen-66f66a1f75
     server: fst.krevetkabs111.net
@@ -36,6 +70,8 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-7ad98bd906
       - 4Mohsen-66f66a1f75
   - name: Auto
     type: url-test
@@ -44,6 +80,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-7ad98bd906
       - 4Mohsen-66f66a1f75
 rules:
   - MATCH,Proxy

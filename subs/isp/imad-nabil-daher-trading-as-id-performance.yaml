@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Nika-c8e99a11d0
+    server: 45.65.112.23
+    port: 2087
+    uuid: 16571fd5-5c8a-44ae-99fa-a354565e500b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: b5.dl-netprime.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws-tls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: b5.dl-netprime.com
+  - type: vless
     name: 4Kian-d72417ccd1
     server: ggggoods.brand-netprime.com
     port: 2087
@@ -22,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-c8e99a11d0
       - 4Kian-d72417ccd1
   - name: Auto
     type: url-test
@@ -29,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-c8e99a11d0
       - 4Kian-d72417ccd1
 rules:
   - MATCH,Proxy

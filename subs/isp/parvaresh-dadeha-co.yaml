@@ -1,9 +1,20 @@
 proxies:
   - type: vmess
-    name: 4FreeIran-7144a1ba33
+    name: 4FreeIran-1cbf985e16
     server: s1.connect.bloroxy.net
-    port: 1143
-    uuid: edc77e16-140c-4481-aa26-689ff162b16f
+    port: 1027
+    uuid: a8db1a30-f66a-428e-ad1d-4f17c76b57e3
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: none
+  - type: vmess
+    name: 4Sarina-4e4bcff2dd
+    server: s1.connect.bloroxy.net
+    port: 1127
+    uuid: 2155f8a5-b530-475c-8983-1a0519bf12cc
     alterId: 1
     cipher: aes-128-gcm
     udp: true
@@ -15,13 +26,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-7144a1ba33
+      - 4FreeIran-1cbf985e16
+      - 4Sarina-4e4bcff2dd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-7144a1ba33
+      - 4FreeIran-1cbf985e16
+      - 4Sarina-4e4bcff2dd
 rules:
   - MATCH,Proxy

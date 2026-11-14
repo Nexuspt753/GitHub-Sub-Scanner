@@ -1,0 +1,65 @@
+proxies:
+  - type: vless
+    name: 4Nika-a8cdf77184
+    server: 79.98.38.24
+    port: 443
+    uuid: 7d718630-7a1a-4af8-9332-aa0610634e8a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.alder.lalibobi.online
+    reality-opts:
+      public-key: tKzo0qk-NJCNnmxmSgP7uGmd9VHKiTG2L-YqXYGj4Dc
+      short-id: 203242200f9d16be
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-b6459f1e7e
+    server: api.alder.lalibobi.online
+    port: 443
+    uuid: 7d718630-7a1a-4af8-9332-aa0610634e8a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.alder.lalibobi.online
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-2f62893acb
+    server: api.alder.lalibobi.online
+    port: 443
+    uuid: 7d718630-7a1a-4af8-9332-aa0610634e8a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.alder.lalibobi.online
+    reality-opts:
+      public-key: tKzo0qk-NJCNnmxmSgP7uGmd9VHKiTG2L-YqXYGj4Dc
+      short-id: 203242200f9d16be
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-a8cdf77184
+      - 4Sarina-b6459f1e7e
+      - 4Kian-2f62893acb
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-a8cdf77184
+      - 4Sarina-b6459f1e7e
+      - 4Kian-2f62893acb
+rules:
+  - MATCH,Proxy

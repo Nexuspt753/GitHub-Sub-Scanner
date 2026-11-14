@@ -1,4 +1,51 @@
 proxies:
+  - type: trojan
+    name: 4FreeIran-79786ba298
+    server: 5.59.204.26
+    port: 21443
+    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
+    udp: true
+    tls: true
+    sni: fi1.nebulaguard.org
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-895741bd14
+    server: 5.59.204.26
+    port: 21443
+    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
+    udp: true
+    tls: true
+    sni: fi1.nebulaguard.org
+    alpn:
+      - h2
+      - h3
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /trojan/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fi1.nebulaguard.org
+  - type: trojan
+    name: 4Nika-3158133139
+    server: 5.59.204.26
+    port: 51443
+    password: X00HagvwL8gQXNDAnsxsN8dv1_VdneEo
+    udp: true
+    tls: true
+    sni: lv.nebulaguard.org
+    alpn:
+      - h2
+      - h3
+      - http/1.1
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: /trojan/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lv.nebulaguard.org
   - type: vless
     name: 4Jadi-a8c276d54d
     server: 5.59.204.81
@@ -17,6 +64,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4FreeIran-79786ba298
+      - 4Nika-895741bd14
+      - 4Nika-3158133139
       - 4Jadi-a8c276d54d
   - name: Auto
     type: url-test
@@ -24,6 +74,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-79786ba298
+      - 4Nika-895741bd14
+      - 4Nika-3158133139
       - 4Jadi-a8c276d54d
 rules:
   - MATCH,Proxy

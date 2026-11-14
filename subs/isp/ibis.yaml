@@ -1,5 +1,43 @@
 proxies:
   - type: vless
+    name: 4Jadi-9e71a79f21
+    server: 30u3854t5hkr7cu34jyxd3duf8tp518.test-fox-102.ir
+    port: 443
+    uuid: 393f7488-378f-4c3c-98af-702db5f869e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1
+    servername: 30u3854t5hkr7cu34jyxd3duf8tp518.test-fox-102.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 30u3854t5hkr7cu34jyxd3duf8tp518.test-fox-102.ir
+  - type: vless
+    name: 4Sarina-23a5f3f6a6
+    server: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+    port: 443
+    uuid: 393f7488-378f-4c3c-98af-702db5f869e3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+  - type: vless
     name: 4Mohsen-a8c48011dd
     server: api-austria.locallynet.org
     port: 6443
@@ -18,6 +56,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-9e71a79f21
+      - 4Sarina-23a5f3f6a6
       - 4Mohsen-a8c48011dd
   - name: Auto
     type: url-test
@@ -25,6 +65,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-9e71a79f21
+      - 4Sarina-23a5f3f6a6
       - 4Mohsen-a8c48011dd
 rules:
   - MATCH,Proxy
