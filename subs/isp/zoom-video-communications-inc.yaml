@@ -1,0 +1,53 @@
+proxies:
+  - type: vless
+    name: 4Nika-dc6f0495a9
+    server: www.zoom.us
+    port: 443
+    uuid: b19c62cc-f2c2-4895-aee1-978a0f58f8c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: matrix.phonicsindia.mobi
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: matrix.phonicsindia.mobi
+  - type: vless
+    name: 4Jadi-2926ea6b28
+    server: www.zoom.us
+    port: 443
+    uuid: b19c62cc-f2c2-4895-aee1-978a0f58f8c8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: matrix.phonicsindia.mobi
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: matrix.phonicsindia.mobi
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-dc6f0495a9
+      - 4Jadi-2926ea6b28
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-dc6f0495a9
+      - 4Jadi-2926ea6b28
+rules:
+  - MATCH,Proxy

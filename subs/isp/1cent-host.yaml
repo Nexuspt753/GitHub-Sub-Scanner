@@ -1,25 +1,30 @@
 proxies:
-  - type: trojan
-    name: 4Kian-00a009f6dc
-    server: 217.60.19.42
-    port: 2084
-    password: M6EqM5cCx-10FAcmYnGBz4Cwr1zzSYb1
+  - type: vless
+    name: 4Nika-231fc3df7e
+    server: 138.124.245.102
+    port: 443
+    uuid: 727a9178-d7f0-4142-8205-b0d19959ded0
     udp: true
     tls: true
-    sni: login.vk.com
-    client-fingerprint: chrome
+    client-fingerprint: edge
+    servername: bol.com
+    reality-opts:
+      public-key: yyXZsa238GRW90w5DweXAdRTtVSuK9oZF_dihKQ41So
+      short-id: 9e5a335de26d1f5a
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-00a009f6dc
+      - 4Nika-231fc3df7e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-00a009f6dc
+      - 4Nika-231fc3df7e
 rules:
   - MATCH,Proxy

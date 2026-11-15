@@ -1,0 +1,32 @@
+proxies:
+  - type: vmess
+    name: 4Kian-8e482e2c6f
+    server: 137.175.15.212
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/1690195052514
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-8e482e2c6f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-8e482e2c6f
+rules:
+  - MATCH,Proxy

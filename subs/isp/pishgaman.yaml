@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: 4FreeIran-b56bc27660
+    server: l52.hubnetwatchdssub.ir
+    port: 4431
+    cipher: 2022-blake3-aes-256-gcm
+    password: UQs8UDg3d/ggP6xkGRvDeaWHibuylWJLyTZFPVCeMyw=:cAVAA8zl5G/8kWQCgaT7KlL6jfAh7k3QBRFwCBqpOuA=
+    udp: true
+  - type: ss
+    name: 4Sarina-002b7c12af
+    server: l70.hubnetwatchdssub.ir
+    port: 4436
+    cipher: 2022-blake3-aes-256-gcm
+    password: oI9cmInLfei8aZ5c2s5A2PeSWEP1JIrjRfC/44mDhvo=:cAVAA8zl5G/8kWQCgaT7KlL6jfAh7k3QBRFwCBqpOuA=
+    udp: true
   - type: vless
     name: vless
     server: 85.9.114.245
@@ -9,9 +23,9 @@ proxies:
     client-fingerprint: chrome
     xudp: true
   - type: vless
-    name: vless-01
+    name: VPsave
     server: 85.9.114.245
-    port: 2096
+    port: 2083
     uuid: f415ebc0-2061-4688-b3e8-f1959668a5dd
     udp: true
     tls: true
@@ -36,22 +50,48 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: string00.bot2.ir
+  - type: vless
+    name: 4Kian-94e20f32a0
+    server: 85.9.114.245
+    port: 2083
+    uuid: f415ebc0-2061-4688-b3e8-f1959668a5dd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: 4Kian-d5853d740a
+    server: 85.9.114.39
+    port: 2087
+    uuid: f415ebc0-2061-4688-b3e8-f1959668a5dd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-b56bc27660
+      - 4Sarina-002b7c12af
       - vless
-      - vless-01
+      - VPsave
       - 4Nika-365f34a3e5
+      - 4Kian-94e20f32a0
+      - 4Kian-d5853d740a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-b56bc27660
+      - 4Sarina-002b7c12af
       - vless
-      - vless-01
+      - VPsave
       - 4Nika-365f34a3e5
+      - 4Kian-94e20f32a0
+      - 4Kian-d5853d740a
 rules:
   - MATCH,Proxy

@@ -9,6 +9,20 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: ss
+    name: Jakarta · @DeltaKroneckerGithub-01
+    server: aio.unlimited.biz.id
+    port: 443
+    cipher: none
+    password: f282b878-8711-45a1-8c69-5564172123c1
+    udp: true
+  - type: ss
+    name: Jakarta · @DeltaKroneckerGithub-02
+    server: aio.unlimited.biz.id
+    port: 443
+    cipher: none
+    password: f282b878-8711-45a1-8c69-5564172123c1
+    udp: true
   - type: trojan
     name: Cicurug · 4Nika-4a4e0a73bd
     server: 103.226.139.201
@@ -17,20 +31,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: Jakarta · 4Jadi-700561e9e5
-    server: id.huahua.wiki
-    port: 443
-    uuid: 1d08ca28-9c86-43c6-9eff-7d3c13df06a8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: O_f5yv1Cb3_4Rk2MKYpjnpCEyPNY4_GPUTJYi9usUzc
-      short-id: b6343f999147d133
-    flow: xtls-rprx-vision
-    xudp: true
   - type: vless
     name: Jakarta · 4Nika-250b03617b
     server: 147.139.139.151
@@ -65,16 +65,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
+  - type: vmess
+    name: Jakarta · 4Kian-122cff80cc
+    server: CObpeFkyjxNUQCnw.v.3dns.vip
+    port: 443
+    uuid: b664cc36-4896-454b-bb9c-1377c76176de
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: CObpeFkyjxNUQCnw.v.3dns.vip
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Jakarta · @DeltaKroneckerGithub
+      - Jakarta · @DeltaKroneckerGithub-01
+      - Jakarta · @DeltaKroneckerGithub-02
       - Cicurug · 4Nika-4a4e0a73bd
-      - Jakarta · 4Jadi-700561e9e5
       - Jakarta · 4Nika-250b03617b
       - Jakarta · 4Nika-79af6bcf9d
+      - Jakarta · 4Kian-122cff80cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -82,9 +101,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Jakarta · @DeltaKroneckerGithub
+      - Jakarta · @DeltaKroneckerGithub-01
+      - Jakarta · @DeltaKroneckerGithub-02
       - Cicurug · 4Nika-4a4e0a73bd
-      - Jakarta · 4Jadi-700561e9e5
       - Jakarta · 4Nika-250b03617b
       - Jakarta · 4Nika-79af6bcf9d
+      - Jakarta · 4Kian-122cff80cc
 rules:
   - MATCH,Proxy
