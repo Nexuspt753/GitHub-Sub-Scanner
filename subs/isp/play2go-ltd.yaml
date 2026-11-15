@@ -1,91 +1,32 @@
 proxies:
   - type: vless
-    name: 🇩🇪
-    server: qcloudge1.exitvpn.shop
-    port: 20268
-    uuid: 8bd04756-3beb-4348-82c9-d35453df50ce
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: metrika.yandex.ru
-    reality-opts:
-      public-key: 5H_MmyfvF4SkwS84wTbLmtcZDecXJIJtZ3uisiKQpSM
-      short-id: 0c774b50
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Shh_Proxy-New¹
-    server: germanygem.site
+    name: ConfigV2RayNG
+    server: lvi.su
     port: 443
-    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
+    uuid: 7b91b2c3-8af3-449b-a555-00c9460989f4
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: germanygem.site
-    reality-opts:
-      public-key: JDkmWk05oDq9sMni-vJt_00qVhALtoQ7ynojJqnlvgg
-    flow: xtls-rprx-vision
+    servername: lvi.su
     xudp: true
-  - type: vless
-    name: Shh_Proxy-New⁵
-    server: germanygem.site
-    port: 443
-    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: germanygem.site
-    reality-opts:
-      public-key: JDkmWk05oDq9sMni-vJt_00qVhALtoQ7ynojJqnlvgg
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-fb068e5898
-    server: qcloudge1.exitvpn.shop
-    port: 20268
-    uuid: 8bd04756-3beb-4348-82c9-d35453df50ce
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: metrika.yandex.ru
-    reality-opts:
-      public-key: 5H_MmyfvF4SkwS84wTbLmtcZDecXJIJtZ3uisiKQpSM
-      short-id: 0c774b50
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-10b1c3e095
-    server: germanygem.site
-    port: 443
-    uuid: f811a2e8-08ed-4b30-b44c-449a7cab54d8
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: germanygem.site
-    reality-opts:
-      public-key: JDkmWk05oDq9sMni-vJt_00qVhALtoQ7ynojJqnlvgg
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /vpn-relay?token=27fede42482b3c29d4c1c9640876c250
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: lvi.su
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇩🇪
-      - Shh_Proxy-New¹
-      - Shh_Proxy-New⁵
-      - 4Kian-fb068e5898
-      - 4FreeIran-10b1c3e095
+      - ConfigV2RayNG
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇩🇪
-      - Shh_Proxy-New¹
-      - Shh_Proxy-New⁵
-      - 4Kian-fb068e5898
-      - 4FreeIran-10b1c3e095
+      - ConfigV2RayNG
 rules:
   - MATCH,Proxy

@@ -1,23 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-f7e1281357
-    server: 107.173.127.166
-    port: 25000
-    password: 37afff84-34bd-4db6-b24a-7d73d2ed48ce
-    sni: www.apple.com
-    skip-cert-verify: true
+  - type: vless
+    name: 4Jadi-4269bc0132
+    server: 107.174.50.37
+    port: 8443
+    uuid: 98530c82-0c84-4d30-bebf-0f10f032eca3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: gvTO758wlsVaA4ZVZ_A0Ee_5XcnZfbZUJZiqOpXfrEw
+      short-id: 6219103f017a0851
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-f7e1281357
+      - 4Jadi-4269bc0132
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-f7e1281357
+      - 4Jadi-4269bc0132
 rules:
   - MATCH,Proxy

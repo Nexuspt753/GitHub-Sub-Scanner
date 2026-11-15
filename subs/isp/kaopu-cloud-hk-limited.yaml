@@ -16,6 +16,15 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: 38.54.15.140
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 38.54.15.140
+    client-fingerprint: chrome
   - type: ss
     name: 4Nika-f1cc70e329
     server: 38.60.223.125
@@ -31,6 +40,15 @@ proxies:
     password: c58938bbf5410f996b13983264fb2229
     udp: true
   - type: trojan
+    name: DeltaKroneckerGithub-03
+    server: 38.54.59.90
+    port: 443
+    password: af4b064a9c39472fb34ad8b113acdc6b
+    udp: true
+    tls: true
+    sni: 38.54.59.90
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Nika-f83f6d1fb8
     server: 38.60.136.156
     port: 443
@@ -39,16 +57,6 @@ proxies:
     tls: true
     sni: 38.60.136.156
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Nika-062aa68738
-    server: 119.46.51.45
-    port: 37515
-    uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -56,10 +64,11 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-f1cc70e329
       - 4Kian-8d3ae62884
+      - DeltaKroneckerGithub-03
       - 4Nika-f83f6d1fb8
-      - 4Nika-062aa68738
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,9 +77,10 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
       - 4Nika-f1cc70e329
       - 4Kian-8d3ae62884
+      - DeltaKroneckerGithub-03
       - 4Nika-f83f6d1fb8
-      - 4Nika-062aa68738
 rules:
   - MATCH,Proxy

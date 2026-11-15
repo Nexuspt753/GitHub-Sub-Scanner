@@ -13,12 +13,31 @@ proxies:
       short-id: 8de61902
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Jadi-891604cb23
+    server: 151.242.165.160
+    port: 6233
+    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: v47.emnode.top
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v47.emnode.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-fe914377d9
+      - 4Jadi-891604cb23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-fe914377d9
+      - 4Jadi-891604cb23
 rules:
   - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 144.31.140.125
+    port: 8443
+    uuid: f5e70ce3-cfb4-4df1-b25c-d19bfae627c0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: twitch.tv
+    reality-opts:
+      public-key: wgyw3OxZw4HEzedNdY_eHdcVkrtT7GEeZSHfzcZ8iDo
+      short-id: 168c15efac9df5fd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: برای
     server: 31.76.230.158
     port: 8443
@@ -90,7 +104,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 🇩🇪
+    name: 4Jadi-0f51dbf9e0
     server: 144.31.140.125
     port: 8443
     uuid: f5e70ce3-cfb4-4df1-b25c-d19bfae627c0
@@ -138,54 +152,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Sarina-97ed1b9add
-    server: 2.27.54.132
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - برای
       - 4FreeIran-6f64a436ee
       - 4Jadi-a34c164b51
       - 4Nika-fb1d0ba907
       - V2ray_confiig
       - vpnsal
-      - 🇩🇪
+      - 4Jadi-0f51dbf9e0
       - 4Mohsen-61d98dc3ee
       - 4Mohsen-5b8ff1f1eb
-      - 4Sarina-97ed1b9add
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - برای
       - 4FreeIran-6f64a436ee
       - 4Jadi-a34c164b51
       - 4Nika-fb1d0ba907
       - V2ray_confiig
       - vpnsal
-      - 🇩🇪
+      - 4Jadi-0f51dbf9e0
       - 4Mohsen-61d98dc3ee
       - 4Mohsen-5b8ff1f1eb
-      - 4Sarina-97ed1b9add
 rules:
   - MATCH,Proxy

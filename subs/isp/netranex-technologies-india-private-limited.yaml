@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-c1e6a157dc
-    server: 5.253.29.226
-    port: 443
-    uuid: 92783040-4bfb-4f1c-ba21-c06458d8df4c
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: indi.angelsleep9.com
-    reality-opts:
-      public-key: 3sF41PdW-wOrqEmJpag66KvWX6Fl_SkDMhUvz9UzbBU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Kian-c9c90328f6
     server: indi.angelsleep9.com
     port: 443
@@ -99,30 +86,44 @@ proxies:
       short-id: 68a8
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-9a3f8eec3a
+    server: 5.253.30.168
+    port: 443
+    uuid: b0a6163d-a8a4-432c-91de-cf1ee6a91027
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.ikea.com
+    reality-opts:
+      public-key: pzL-sRds-39y5dcuMOSouVqiXSzOLWV36fBr1o8bYUA
+      short-id: c9e51a7f34
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-c1e6a157dc
       - 4Kian-c9c90328f6
       - 4Mohsen-db1d4b1520
       - 4Mohsen-d60a53a927
       - Tarkshodeh
       - VPsave
       - "[🇮🇳]t.me/v2ray_configs_pools"
+      - 4Kian-9a3f8eec3a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-c1e6a157dc
       - 4Kian-c9c90328f6
       - 4Mohsen-db1d4b1520
       - 4Mohsen-d60a53a927
       - Tarkshodeh
       - VPsave
       - "[🇮🇳]t.me/v2ray_configs_pools"
+      - 4Kian-9a3f8eec3a
 rules:
   - MATCH,Proxy
