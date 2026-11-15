@@ -1,25 +1,58 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: ir1.wufpel.ir
-    port: 443
-    password: GbeGE_MwDQ_2Q_0b9RgdZd07ChS3mMLz
+  - type: vless
+    name: ᴛᴇʟᴇɢʀᴀᴍ
+    server: 188.213.197.26
+    port: 2083
+    uuid: 4842e3ce-2aeb-419d-b96c-3928dde532e0
     udp: true
     tls: true
-    sni: bf0264eb50014997.wufpel.ir
     client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: panel.sajjad.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: np.sajjad.top
+  - type: vless
+    name: ᴛᴇʟᴇɢʀᴀᴍ-01
+    server: 188.213.197.26
+    port: 2087
+    uuid: 4842e3ce-2aeb-419d-b96c-3928dde532e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: panel.sajjad.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sp.sajjad.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - ᴛᴇʟᴇɢʀᴀᴍ
+      - ᴛᴇʟᴇɢʀᴀᴍ-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - ᴛᴇʟᴇɢʀᴀᴍ
+      - ᴛᴇʟᴇɢʀᴀᴍ-01
 rules:
   - MATCH,Proxy

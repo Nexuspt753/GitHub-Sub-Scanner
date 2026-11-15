@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Kian-ad000eb462
+    server: 62.83.88.110
+    port: 443
+    uuid: ca5a5f60-3e51-487d-8b29-bab8c5369a98
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: b88O7OuFPpRraTiZUp2yDpJf0fnmI1HUhjfd8BLc9U4
+      short-id: dbaeb1c76be8a712
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-df40d3051d
+    server: 62.83.95.178
+    port: 443
+    uuid: cb2985ca-be7d-40c7-b3dc-99e2e36416a3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: DJkCpB76XrCvviggedo7PQAjpoyzEzDynZP3YYEPym0
+      short-id: 499f41c7dd761836
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-ad000eb462
+      - 4Mohsen-df40d3051d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-ad000eb462
+      - 4Mohsen-df40d3051d
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Sarina-7a4c12b645
+    server: 72.61.179.194
+    port: 8443
+    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v1n3.11676767.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /go.php/products
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v1n3.11676767.xyz
+  - type: vless
     name: 4Mohsen-29697b4520
     server: 72.61.179.194
     port: 8443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-7a4c12b645
       - 4Mohsen-29697b4520
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-7a4c12b645
       - 4Mohsen-29697b4520
 rules:
   - MATCH,Proxy

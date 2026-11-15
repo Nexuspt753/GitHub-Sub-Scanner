@@ -1,32 +1,26 @@
 proxies:
   - type: vless
-    name: 4Mohsen-a8235d63e1
-    server: 195.24.65.221
-    port: 2096
-    uuid: 9e960af7-e6da-4cb4-8617-b4496a7c6cd2
+    name: 4Mohsen-dfba785553
+    server: eu88.cdn77.icu
+    port: 8443
+    uuid: a6c58c10-183e-4278-bdcd-ffc07220e7e2
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: max.ru
-    reality-opts:
-      public-key: "-Dg4mGAAM5Lwe9ri7Bx5WlYdPBsyYJy-Pai2Z0FGlyc"
-      short-id: afee962d
+    client-fingerprint: firefox
+    servername: eu88.cdn77.icu
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-a8235d63e1
+      - 4Mohsen-dfba785553
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-a8235d63e1
+      - 4Mohsen-dfba785553
 rules:
   - MATCH,Proxy

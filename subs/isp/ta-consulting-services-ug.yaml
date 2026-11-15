@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.125.175.55
+    port: 8443
+    uuid: 052d73c9-1735-4008-b58c-e3a085dc2a37
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: uk-room05.filesnap.tech
+    reality-opts:
+      public-key: FdZlh9FC4ay9OGnKG6K_iNqhz1I3tWDfNZhxrDYuQl8
+      short-id: 7da3ba09a037e956
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 89.125.175.24
+    port: 8443
+    uuid: 052d73c9-1735-4008-b58c-e3a085dc2a37
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: uk-room07.filesnap.tech
+    reality-opts:
+      public-key: 48j01Jsa4o8zfmCGEFoVjn-YeALM80-DSG_-nAZUBDM
+      short-id: dbef98744832b751
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-9b948fb82d
+    server: 89.125.175.24
+    port: 8443
+    uuid: 052d73c9-1735-4008-b58c-e3a085dc2a37
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: uk-room07.filesnap.tech
+    reality-opts:
+      public-key: 48j01Jsa4o8zfmCGEFoVjn-YeALM80-DSG_-nAZUBDM
+      short-id: dbef98744832b751
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-5bb072ed37
+    server: 89.125.175.55
+    port: 8443
+    uuid: 052d73c9-1735-4008-b58c-e3a085dc2a37
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: uk-room05.filesnap.tech
+    reality-opts:
+      public-key: FdZlh9FC4ay9OGnKG6K_iNqhz1I3tWDfNZhxrDYuQl8
+      short-id: 7da3ba09a037e956
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-9b948fb82d
+      - 4Jadi-5bb072ed37
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4FreeIran-9b948fb82d
+      - 4Jadi-5bb072ed37
+rules:
+  - MATCH,Proxy

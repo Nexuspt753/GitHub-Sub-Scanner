@@ -1,6 +1,58 @@
 proxies:
   - type: vless
-    name: 4Jadi-7c42f83324
+    name: DeltaKroneckerGithub
+    server: 136.148.213.96
+    port: 443
+    uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lodizu.hagrid-connected.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: lodizu.hagrid-connected.com
+    port: 443
+    uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: lodizu.hagrid-connected.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-600df867da
+    server: 136.148.213.149
+    port: 443
+    uuid: 4618cebd-e1e9-45c3-be98-d9d6e3ee8bef
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: 362c1eg.se1.h1clayd.click
+    reality-opts:
+      public-key: BLhS7fE4Yh6kAADw7yRIn2PzKun-JDagJHJNOePYRSY
+      short-id: bee802ae4ab66496
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-9da18205d7
+    server: 136.148.213.96
+    port: 443
+    uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lodizu.hagrid-connected.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-99f61a9bd7
     server: lodizu.hagrid-connected.com
     port: 443
     uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
@@ -18,13 +70,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-7c42f83324
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Nika-600df867da
+      - 4Jadi-9da18205d7
+      - 4Nika-99f61a9bd7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-7c42f83324
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Nika-600df867da
+      - 4Jadi-9da18205d7
+      - 4Nika-99f61a9bd7
 rules:
   - MATCH,Proxy

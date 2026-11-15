@@ -1,0 +1,78 @@
+proxies:
+  - type: vless
+    name: 4Kian-138eb11a09
+    server: 185.71.216.94
+    port: 2194
+    uuid: 128bd8ad-4f6c-4d70-af13-15a2cec331d2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: jHtC6ayzhkd_GVNF5TIGPu9iVpqUltBAQj1dpGJHwxs
+      short-id: 55986a94e2228791
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-61fa4bf823
+    server: 185.71.216.95
+    port: 2194
+    uuid: 128bd8ad-4f6c-4d70-af13-15a2cec331d2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: jHtC6ayzhkd_GVNF5TIGPu9iVpqUltBAQj1dpGJHwxs
+      short-id: 55986a94e2228791
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-0366c7e40b
+    server: 185.71.216.95
+    port: 2089
+    uuid: e1eaef08-e4ff-4843-9926-c0c84a034bad
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: oRmj7gTi5H2oIClNYxxgOjqp8-j5kFYtGFU8CNuMj34
+      short-id: deccc6fac1ddb0ff
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-7f07530a9f
+    server: 185.71.216.94
+    port: 2090
+    uuid: f131d292-d3c2-42b3-bcea-f9712c31b303
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: qBobe6KSNkFLqTPCffcJo0nXgxy-3JKru9WRqY9rkjk
+      short-id: bb472a184677af64
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-138eb11a09
+      - 4Kian-61fa4bf823
+      - 4Kian-0366c7e40b
+      - 4Sarina-7f07530a9f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-138eb11a09
+      - 4Kian-61fa4bf823
+      - 4Kian-0366c7e40b
+      - 4Sarina-7f07530a9f
+rules:
+  - MATCH,Proxy

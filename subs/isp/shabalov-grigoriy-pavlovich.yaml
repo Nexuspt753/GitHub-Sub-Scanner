@@ -1,6 +1,20 @@
 proxies:
   - type: vless
-    name: 4Kian-9e1551e015
+    name: 4Kian-150a444008
+    server: 147.45.47.101
+    port: 8443
+    uuid: 27f26dee-9cf1-4cca-93f8-9ac23d311408
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: apple.com
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+      short-id: 6ba85179e30d4fc2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: i10VPN²
     server: 185.98.63.6
     port: 8443
     uuid: 6845a59f-970b-4e1e-8e26-06a34ee663d6
@@ -49,39 +63,26 @@ proxies:
     servername: abuse.ozon.ru
     flow: xtls-rprx-vision-udp443
     xudp: true
-  - type: vless
-    name: 4FreeIran-7f021a7602
-    server: 193.160.141.27
-    port: 443
-    uuid: fd0a5c32-afc0-4d57-b95a-ca6ec8f93e87
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: abuse.ozon.ru
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-9e1551e015
+      - 4Kian-150a444008
+      - i10VPN²
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
       - 4Mohsen-a5ec900908
       - 4FreeIran-dd6290d4e7
-      - 4FreeIran-7f021a7602
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-9e1551e015
+      - 4Kian-150a444008
+      - i10VPN²
       - "𝐂𝐡𝐚𝐧𝐧𝐞𝐥:"
       - 4Mohsen-a5ec900908
       - 4FreeIran-dd6290d4e7
-      - 4FreeIran-7f021a7602
 rules:
   - MATCH,Proxy

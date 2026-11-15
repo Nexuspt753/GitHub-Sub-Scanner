@@ -1,25 +1,46 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-35ac7af6ba
-    server: 171.22.18.99
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 171.22.18.88
     port: 443
-    password: UAKWGor-h0woFsxKSWK92HptcM0g2k2h
+    uuid: a88d4614-2134-404c-9479-6aba1ca9cdfd
     udp: true
     tls: true
-    sni: de.1984.love
+    client-fingerprint: firefox
+    servername: 91a123t.de33.h1clayd.shop
+    reality-opts:
+      public-key: 4INb86gJ3IMgy3mIqciZG3xkwpeCZ_s0zd-CO5G96i4
+      short-id: 3f62d06719cde122
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: 171.22.18.88
+    port: 443
+    uuid: a88d4614-2134-404c-9479-6aba1ca9cdfd
+    udp: true
+    tls: true
     client-fingerprint: chrome
+    servername: 91a123t.de33.h1clayd.shop
+    reality-opts:
+      public-key: 4INb86gJ3IMgy3mIqciZG3xkwpeCZ_s0zd-CO5G96i4
+      short-id: 3f62d06719cde122
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-35ac7af6ba
+      - DeltaKroneckerGithub
+      - VPsave
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-35ac7af6ba
+      - DeltaKroneckerGithub
+      - VPsave
 rules:
   - MATCH,Proxy

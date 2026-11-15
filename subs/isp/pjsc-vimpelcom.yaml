@@ -6,12 +6,20 @@ proxies:
     uuid: 37af0181-5598-4aad-a040-d926bcb65757
     udp: true
     xudp: true
+  - type: vless
+    name: 4Mohsen-74f57d9556
+    server: 78.159.250.83
+    port: 8443
+    uuid: 37af0181-5598-4aad-a040-d926bcb65757
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - 4Mohsen-74f57d9556
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - 4Mohsen-74f57d9556
 rules:
   - MATCH,Proxy
