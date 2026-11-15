@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: 4Jadi-3a8ddaffe6
-    server: 83.141.69.189
-    port: 443
-    uuid: 20d56ff9-359e-4983-9b04-6402e9ebce08
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: cdn.savesafe.space
-    reality-opts:
-      public-key: X5QCQAU6PhQ0ZYdMfsOD8SzK2tAcKqGbqHcGKOCkHg0
-      short-id: 3e70d4cbb01bddfd
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Jadi-9e71a79f21
     server: 30u3854t5hkr7cu34jyxd3duf8tp518.test-fox-102.ir
     port: 443
@@ -33,24 +19,30 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 30u3854t5hkr7cu34jyxd3duf8tp518.test-fox-102.ir
   - type: vless
-    name: 4Sarina-23a5f3f6a6
-    server: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+    name: 4Sarina-f0258ce099
+    server: 83.141.92.190
     port: 443
-    uuid: 393f7488-378f-4c3c-98af-702db5f869e3
+    uuid: 555b35c4-30f9-40c6-a61a-7f53ab1bea45
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: images.porsche.com
+    reality-opts:
+      public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
+      short-id: 1a2b3c4d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-0efd761d88
+    server: 83.141.92.190
+    port: 443
+    uuid: 555b35c4-30f9-40c6-a61a-7f53ab1bea45
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
+    servername: images.porsche.com
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 6t8z7at6qe025z2h8f6l28g5460hs0z.test-fox-102.ir
   - type: vless
     name: 4Mohsen-a8c48011dd
     server: api-austria.locallynet.org
@@ -65,24 +57,40 @@ proxies:
     servername: api-austria.locallynet.org
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-b250cc97dd
+    server: 83.141.92.168
+    port: 443
+    uuid: a7595994-695d-484e-bfcb-e9fbb73cfa39
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: sladovna.russianpiwo.fun
+    reality-opts:
+      public-key: kpQWnVk3fEJXfPGFsMerUoPV_ZqUJUJFRnF1FvKyhRY
+      short-id: 7a7d19880a9ee786
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3a8ddaffe6
       - 4Jadi-9e71a79f21
-      - 4Sarina-23a5f3f6a6
+      - 4Sarina-f0258ce099
+      - 4Jadi-0efd761d88
       - 4Mohsen-a8c48011dd
+      - 4Nika-b250cc97dd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3a8ddaffe6
       - 4Jadi-9e71a79f21
-      - 4Sarina-23a5f3f6a6
+      - 4Sarina-f0258ce099
+      - 4Jadi-0efd761d88
       - 4Mohsen-a8c48011dd
+      - 4Nika-b250cc97dd
 rules:
   - MATCH,Proxy

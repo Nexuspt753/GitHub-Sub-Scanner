@@ -1,52 +1,16 @@
 proxies:
   - type: vless
-    name: 4Mohsen-4cf0c18d92
-    server: 194.58.60.217
-    port: 443
-    uuid: bbb918c0-a510-45f9-ac94-4d449aef6498
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: node43.lmdscdn.ru
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-e534fdfe20
-    server: 194.58.60.217
-    port: 443
-    uuid: bbb918c0-a510-45f9-ac94-4d449aef6498
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: node43.lmdscdn.ru
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Sarina-5d3e5f7662
+    name: hex_proxy
     server: 194.58.60.221
     port: 443
     uuid: bbbc1b48-9539-4300-acab-25cea65b533c
     udp: true
     tls: true
-    client-fingerprint: edge
+    client-fingerprint: chrome
     servername: node43.lmdscdn.ru
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Kian-bb7ffb36bc
-    server: 194.58.60.221
-    port: 443
-    uuid: bbbc1b48-9539-4300-acab-25cea65b533c
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: node43.lmdscdn.ru
+    reality-opts:
+      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
+      short-id: db711de5e3ca0a68
     xudp: true
     network: grpc
     grpc-opts:
@@ -56,19 +20,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-4cf0c18d92
-      - 4Sarina-e534fdfe20
-      - 4Sarina-5d3e5f7662
-      - 4Kian-bb7ffb36bc
+      - hex_proxy
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-4cf0c18d92
-      - 4Sarina-e534fdfe20
-      - 4Sarina-5d3e5f7662
-      - 4Kian-bb7ffb36bc
+      - hex_proxy
 rules:
   - MATCH,Proxy

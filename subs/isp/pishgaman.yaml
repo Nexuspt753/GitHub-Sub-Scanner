@@ -1,6 +1,13 @@
 proxies:
   - type: ss
     name: VPsave
+    server: l52.hubnetwatchdssub.ir
+    port: 4431
+    cipher: 2022-blake3-aes-256-gcm
+    password: UQs8UDg3d/ggP6xkGRvDeaWHibuylWJLyTZFPVCeMyw=:cAVAA8zl5G/8kWQCgaT7KlL6jfAh7k3QBRFwCBqpOuA=
+    udp: true
+  - type: ss
+    name: VPsave-01
     server: l70.hubnetwatchdssub.ir
     port: 4436
     cipher: 2022-blake3-aes-256-gcm
@@ -13,13 +20,22 @@ proxies:
     cipher: 2022-blake3-aes-256-gcm
     password: UQs8UDg3d/ggP6xkGRvDeaWHibuylWJLyTZFPVCeMyw=:cAVAA8zl5G/8kWQCgaT7KlL6jfAh7k3QBRFwCBqpOuA=
     udp: true
+  - type: ss
+    name: 4Sarina-002b7c12af
+    server: l70.hubnetwatchdssub.ir
+    port: 4436
+    cipher: 2022-blake3-aes-256-gcm
+    password: oI9cmInLfei8aZ5c2s5A2PeSWEP1JIrjRfC/44mDhvo=:cAVAA8zl5G/8kWQCgaT7KlL6jfAh7k3QBRFwCBqpOuA=
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - VPsave
+      - VPsave-01
       - 4FreeIran-b56bc27660
+      - 4Sarina-002b7c12af
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,6 +43,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
+      - VPsave-01
       - 4FreeIran-b56bc27660
+      - 4Sarina-002b7c12af
 rules:
   - MATCH,Proxy

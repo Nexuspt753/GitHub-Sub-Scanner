@@ -11,6 +11,20 @@ proxies:
       - http/1.1
     client-fingerprint: firefox
   - type: vless
+    name: VPsave
+    server: viperrrrr.uk
+    port: 443
+    uuid: 7d718630-7a1a-4af8-9332-aa0610634e8a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: viperrrrr.uk
+    reality-opts:
+      public-key: DFkD4WCfoABZzh9i7BI70TopTPM6IIGtX1mwKlcRiCI
+      short-id: 4eab9ebd1e55c997
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-5b290110fc
     server: 82.148.241.136
     port: 39443
@@ -25,29 +39,14 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-3c8a47dc37
-    server: 82.148.241.137
-    port: 24443
-    uuid: b5b85c5b-8ccc-4f7e-ac05-083e9782c722
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: img.suzuki.lol
-    reality-opts:
-      public-key: 43lt439xcY74Yc_p2bdN9s-U15acPd5PtWUblHTtogw
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - VPsave
       - 4Sarina-5b290110fc
-      - 4FreeIran-3c8a47dc37
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,7 +54,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - VPsave
       - 4Sarina-5b290110fc
-      - 4FreeIran-3c8a47dc37
 rules:
   - MATCH,Proxy
