@@ -1,27 +1,30 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 185.72.11.43
+  - type: trojan
+    name: 4Kian-d733f7a0d4
+    server: 178.208.86.182
     port: 443
-    uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
+    password: f426d3c9-fb43-43c0-868b-898dfa451a74
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: rs8.speedtestinternet.link
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: likejennie.pages.dev
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Kian-d733f7a0d4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Kian-d733f7a0d4
 rules:
   - MATCH,Proxy

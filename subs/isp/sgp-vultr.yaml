@@ -1,23 +1,56 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 139.180.220.175
-    port: 8388
-    cipher: aes-256-gcm
-    password: qpSevKaUXYQKvSjp
+  - type: vless
+    name: 4Sarina-947ff000b1
+    server: 139.180.221.53
+    port: 443
+    uuid: 2b30d0df-6ebe-4aed-9bad-b7c554e35e1d
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: itunes.apple.com
+    reality-opts:
+      public-key: plfXwkb-ewI6iibJBTRmPnf8eqPId1BfdArMIm3_mB4
+      short-id: 2f6f6f87
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: itunes.apple.com
+  - type: vless
+    name: 4FreeIran-15908bc235
+    server: 139.180.215.25
+    port: 443
+    uuid: bbc20d3e-0391-48f1-ad72-90a6802f728e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: itunes.apple.com
+    reality-opts:
+      public-key: ybu5pFdSV23WsnMNhbpa8TwV6TJd6NLZ6HX-ggww61A
+      short-id: 83f673ba
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: itunes.apple.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-947ff000b1
+      - 4FreeIran-15908bc235
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-947ff000b1
+      - 4FreeIran-15908bc235
 rules:
   - MATCH,Proxy

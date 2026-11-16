@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 212.233.90.78
+    port: 443
+    uuid: 9548ef84-b54d-41dc-b17c-9da21d52ba82
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: birch-ledger.justext.space
+    reality-opts:
+      public-key: FwPphm8xGAKY6u74WDRVrcVye3A7GdLDfJoNSDWFsFQ
+      short-id: 2c6df23e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-c720ec7588
     server: 185.86.147.175
     port: 443
@@ -34,13 +48,29 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: bhjolq0d0l.flowersgood.top
   - type: vless
-    name: 4Sarina-359dff6e8e
+    name: 4Nika-73b9cbcb62
+    server: 185.86.145.78
+    port: 443
+    uuid: 88e79aa6-f431-4453-8dcc-652a0c747198
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: emberworks.cloud
+    reality-opts:
+      public-key: 2l0y-Mp5wtklY4jS6KOee3eq2XdWiXYqOxzrOi_CeB4
+      short-id: ea322b8b5b015812
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-c7643e73fb
     server: 212.233.90.78
     port: 443
     uuid: 9548ef84-b54d-41dc-b17c-9da21d52ba82
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: birch-ledger.justext.space
     reality-opts:
       public-key: FwPphm8xGAKY6u74WDRVrcVye3A7GdLDfJoNSDWFsFQ
@@ -52,17 +82,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-c720ec7588
       - 4Kian-795f95c864
-      - 4Sarina-359dff6e8e
+      - 4Nika-73b9cbcb62
+      - 4Mohsen-c7643e73fb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-c720ec7588
       - 4Kian-795f95c864
-      - 4Sarina-359dff6e8e
+      - 4Nika-73b9cbcb62
+      - 4Mohsen-c7643e73fb
 rules:
   - MATCH,Proxy

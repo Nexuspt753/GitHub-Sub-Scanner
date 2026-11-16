@@ -1,22 +1,6 @@
 proxies:
   - type: vless
-    name: 4Sarina-b88a165ae6
-    server: o6fb2b8qex.tenqivo.ir
-    port: 200
-    uuid: 9c96c038-8a1f-49b0-bb54-396533e082ab
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: Tunde5.pasarguardspeed.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: Tunde5.pasarguardspeed.ir
-  - type: vless
-    name: 4Mohsen-5f7dad2957
+    name: VPsave
     server: s4.kalampolo.com
     port: 8745
     uuid: e9e5f015-811c-4579-8c0b-12266f7ffae8
@@ -27,20 +11,30 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Mohsen-33796c6101
+    server: dashboard.afrawebsite.top
+    port: 3071
+    uuid: 9a9b03e4-adf6-4803-b3aa-9cdce6d3840b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-b88a165ae6
-      - 4Mohsen-5f7dad2957
+      - VPsave
+      - 4Mohsen-33796c6101
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-b88a165ae6
-      - 4Mohsen-5f7dad2957
+      - VPsave
+      - 4Mohsen-33796c6101
 rules:
   - MATCH,Proxy

@@ -1,15 +1,26 @@
 proxies:
   - type: vless
-    name: 4Kian-1342fc1230
-    server: 159.194.228.99
+    name: DeltaKroneckerGithub
+    server: 159.194.210.102
     port: 443
-    uuid: f3a227cb-8a8b-4ccb-b613-9143c4a1346c
+    uuid: ecf65acd-ea72-0002-be5f-cd23afb2722f
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: ru-nl1.fluxnode777.ru
-    reality-opts:
-      public-key: Hdbh_QHmyYaQjhD4mD5NWdir_qW2FFhJ3t3QFkU7bjc
+    client-fingerprint: ios
+    servername: box.vpvi.store
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-e9f56bbb8e
+    server: 159.194.210.102
+    port: 443
+    uuid: ecf65acd-ea72-0002-be5f-cd23afb2722f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: box.vpvi.store
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -17,13 +28,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-1342fc1230
+      - DeltaKroneckerGithub
+      - 4Nika-e9f56bbb8e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-1342fc1230
+      - DeltaKroneckerGithub
+      - 4Nika-e9f56bbb8e
 rules:
   - MATCH,Proxy

@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Jadi-8f8e046ba9
+    server: 194.55.239.91
+    port: 443
+    uuid: 9a709d5f-d997-4ac0-9520-3635d25cd69e
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: adm.nelerop.app
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v1/events
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: adm.nelerop.app
+  - type: vless
     name: 4Kian-09cd584a9b
     server: 194.55.239.91
     port: 443
@@ -22,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-8f8e046ba9
       - 4Kian-09cd584a9b
   - name: Auto
     type: url-test
@@ -29,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-8f8e046ba9
       - 4Kian-09cd584a9b
 rules:
   - MATCH,Proxy

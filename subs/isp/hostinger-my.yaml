@@ -1,31 +1,32 @@
 proxies:
-  - type: trojan
-    name: 4Mohsen-f058eaf146
-    server: 76.13.188.13
+  - type: vless
+    name: 4Kian-a8d9ff1e69
+    server: 187.52.114.103
     port: 8443
-    password: humanity
+    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
     udp: true
     tls: true
-    sni: www.cordweave.com
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: vp4.1145678.xyz
+    xudp: true
     network: ws
     ws-opts:
-      path: /assignment
+      path: /wenku/comics
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.cordweave.com
+        Host: vp4.1145678.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f058eaf146
+      - 4Kian-a8d9ff1e69
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f058eaf146
+      - 4Kian-a8d9ff1e69
 rules:
   - MATCH,Proxy

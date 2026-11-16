@@ -1,10 +1,87 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: hl-freedom-1.undef.network
-    port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
+    server: 78.17.171.140
+    port: 2053
+    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
     udp: true
+    tls: true
+    sni: ra-p1.victorycloud.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /2fc2ec03a65d451dffa4592d68c43a29
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ra-p1.victorycloud.ru
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 78.17.171.139
+    port: 2053
+    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
+    udp: true
+    tls: true
+    sni: ra-p2.victorycloud.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /cc2db2edcc30d642d7b4fb969c5f7369
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ra-p2.victorycloud.ru
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: hl-freedom-0.undef.network
+    port: 443
+    password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
+    udp: true
+    tls: true
+    sni: hl-freedom-0.undef.network
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-0.undef.network
+  - type: trojan
+    name: 4Kian-2e5f07c081
+    server: 78.17.171.139
+    port: 2053
+    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
+    udp: true
+    tls: true
+    sni: ra-p2.victorycloud.ru
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-8b9e5dc641
+    server: 78.17.171.139
+    port: 2053
+    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
+    udp: true
+    tls: true
+    sni: ra-p2.victorycloud.ru
+    alpn:
+      - http/1.1
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /cc2db2edcc30d642d7b4fb969c5f7369
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ra-p2.victorycloud.ru
+  - type: trojan
+    name: 4Mohsen-42210bd58a
+    server: 78.17.171.140
+    port: 2053
+    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
+    udp: true
+    tls: true
+    sni: ra-p1.victorycloud.ru
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
@@ -12,6 +89,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Kian-2e5f07c081
+      - 4FreeIran-8b9e5dc641
+      - 4Mohsen-42210bd58a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +101,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4Kian-2e5f07c081
+      - 4FreeIran-8b9e5dc641
+      - 4Mohsen-42210bd58a
 rules:
   - MATCH,Proxy

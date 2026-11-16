@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 45.88.13.9
+    port: 8443
+    uuid: 97ab2e86-83c5-0a32-4914-5dbe1af97839
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Nika-f1e4031bb3
     server: 45.88.13.5
     port: 8443
@@ -15,19 +30,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: leviconfigs🪐-9
-    server: 5.181.171.2
-    port: 443
-    uuid: a87bf8a2-17a4-3054-b51e-876b5f1d0f24
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: speed.cloudflare.com
-    reality-opts:
-      public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-e271e0fc7d
     server: 5.181.171.2
     port: 443
@@ -40,6 +42,21 @@ proxies:
       public-key: YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-f04a35fe8b
+    server: 45.88.13.9
+    port: 8443
+    uuid: 97ab2e86-83c5-0a32-4914-5dbe1af97839
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: download.nvidia.com
+    reality-opts:
+      public-key: FOQzn10eHqu4F5xOxiXW2bTDG8lH4TdOXP6A5rDqKFk
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: 4Mohsen-ebc183557f
     server: 5.181.171.2
@@ -58,9 +75,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-f1e4031bb3
-      - leviconfigs🪐-9
       - 4Sarina-e271e0fc7d
+      - 4FreeIran-f04a35fe8b
       - 4Mohsen-ebc183557f
   - name: Auto
     type: url-test
@@ -68,9 +86,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-f1e4031bb3
-      - leviconfigs🪐-9
       - 4Sarina-e271e0fc7d
+      - 4FreeIran-f04a35fe8b
       - 4Mohsen-ebc183557f
 rules:
   - MATCH,Proxy

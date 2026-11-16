@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 5.253.86.3
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl3.gofizz.in
+    reality-opts:
+      public-key: 51ZCyVOxvcD_smARtd9mV-3Rh_WurOzMGRFxk9u2Kgo
+      short-id: fa1754221e4c5f9e
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 88.214.24.247
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fr1.gofizzin.com
+    reality-opts:
+      public-key: uvYdcBw9FFSxYXpZy5Pr5gzgXan7PWkWJKg940ogxSU
+      short-id: 50ea8dd3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-d762500da3
     server: 88.214.24.247
     port: 443
@@ -14,14 +28,16 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-8db37f9760
-    server: 88.214.24.247
+    name: 4FreeIran-6a6115acf9
+    server: ger2.pandaonline.org
     port: 443
-    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    uuid: eadea6af-9e77-4f23-b118-8e3b5b384ce0
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: fr1.gofizzin.com
+    servername: ger2.pandaonline.org
+    reality-opts:
+      public-key: Giyc3O57Sr1N538YOdAFuORm-mYBXc2juuVQ_eJv7Xo
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -29,15 +45,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-d762500da3
-      - 4Nika-8db37f9760
+      - 4FreeIran-6a6115acf9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-d762500da3
-      - 4Nika-8db37f9760
+      - 4FreeIran-6a6115acf9
 rules:
   - MATCH,Proxy

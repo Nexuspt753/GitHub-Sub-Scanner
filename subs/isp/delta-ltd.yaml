@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 116.206.95.231
+    port: 43000
+    uuid: 4a923161-156f-4914-8cac-762fb2433bfb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 116.206.95.231
+    reality-opts:
+      public-key: CG0mVPuvPcfZjplA21zehlqoDpGHihJBK8K_u1zfhgQ
+      short-id: ee4ea980
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-65d57e84fb
     server: 45.81.33.217
     port: 443
@@ -20,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-65d57e84fb
   - name: Auto
     type: url-test
@@ -27,6 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-65d57e84fb
 rules:
   - MATCH,Proxy

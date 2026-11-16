@@ -1,33 +1,46 @@
 proxies:
   - type: vless
-    name: 4FreeIran-b5a425a464
-    server: 95.182.121.9
-    port: 443
-    uuid: aa8d7bf2-26e2-46bb-ac3b-33a932d26cb3
+    name: VPsave
+    server: 46.8.21.86
+    port: 10443
+    uuid: d5651570-bfab-44d8-abd0-60496f548e2a
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: va.stream-room.com
+    client-fingerprint: chrome
+    servername: onf.ru
+    reality-opts:
+      public-key: MAQju7q8wIeEznBQoDXP9l4SpuAkEs8CGDKaNNpKlHI
+      short-id: "4326"
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Kian-1e69d042b0
+    server: 46.8.21.86
+    port: 10443
+    uuid: d5651570-bfab-44d8-abd0-60496f548e2a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: onf.ru
+    reality-opts:
+      public-key: MAQju7q8wIeEznBQoDXP9l4SpuAkEs8CGDKaNNpKlHI
+      short-id: "4326"
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-b5a425a464
+      - VPsave
+      - 4Kian-1e69d042b0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-b5a425a464
+      - VPsave
+      - 4Kian-1e69d042b0
 rules:
   - MATCH,Proxy
