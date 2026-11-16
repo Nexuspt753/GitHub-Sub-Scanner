@@ -1,30 +1,43 @@
 proxies:
   - type: vless
-    name: 4Sarina-a05f88b8e1
-    server: trn24.mobileemdad.top
-    port: 443
-    uuid: 486c73fe-7471-4f7f-a5f0-54e2c3f24b4b
+    name: 4Kian-2df85e94d2
+    server: nl.privatevip.ir
+    port: 447
+    uuid: 7c730089-1791-4828-89b2-86e7e1663063
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: delivery.mp.microsoft.com
-    reality-opts:
-      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
-      short-id: "08"
-    flow: xtls-rprx-vision
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: nl.privatevip.ir
+  - type: vless
+    name: 4Nika-dcef99b577
+    server: nl.privatevip.ir
+    port: 447
+    uuid: 7c730089-1791-4828-89b2-86e7e1663063
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-a05f88b8e1
+      - 4Kian-2df85e94d2
+      - 4Nika-dcef99b577
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-a05f88b8e1
+      - 4Kian-2df85e94d2
+      - 4Nika-dcef99b577
 rules:
   - MATCH,Proxy

@@ -13,6 +13,33 @@ proxies:
       short-id: a1b2c3d4
     flow: xtls-rprx-vision
     xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 113.20.12.98
+    port: 443
+    password: 600421cf-11d7-429f-a65b-c30397f1bc03
+    udp: true
+    tls: true
+    sni: ca.freeguard.org
+    client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-c6a6edaed7
+    server: cc.818567.xyz
+    port: 2053
+    uuid: 0458f752-92b9-4862-abb0-d274a539b791
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: cc.818567.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cc.818567.xyz
   - type: vless
     name: ⚡️
     server: 148.135.86.162
@@ -28,7 +55,23 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-08f23e6bbb
+    name: 4Nika-7eeb4d7fc8
+    server: 103.232.94.154
+    port: 443
+    uuid: 20e565e1-3858-40bf-94e8-4ec9624fc985
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: wallweb8.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: wallweb8.pages.dev
+  - type: vless
+    name: 4Sarina-92eb96c2fb
     server: 148.135.86.162
     port: 10000
     uuid: 327b1113-049e-4256-8d72-8815643dbb65
@@ -41,22 +84,6 @@ proxies:
       short-id: a1b2c3d4
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-4f005fc24c
-    server: 163.47.43.52
-    port: 8443
-    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: vp4.1145678.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /wenku/comics
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp4.1145678.xyz
   - type: vmess
     name: 4Nika-6f29d57d49
     server: 148.135.33.140
@@ -80,9 +107,11 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-c6a6edaed7
       - ⚡️
-      - 4Mohsen-08f23e6bbb
-      - 4Sarina-4f005fc24c
+      - 4Nika-7eeb4d7fc8
+      - 4Sarina-92eb96c2fb
       - 4Nika-6f29d57d49
   - name: Auto
     type: url-test
@@ -91,9 +120,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Kian-c6a6edaed7
       - ⚡️
-      - 4Mohsen-08f23e6bbb
-      - 4Sarina-4f005fc24c
+      - 4Nika-7eeb4d7fc8
+      - 4Sarina-92eb96c2fb
       - 4Nika-6f29d57d49
 rules:
   - MATCH,Proxy

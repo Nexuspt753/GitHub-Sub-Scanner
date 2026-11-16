@@ -1,36 +1,22 @@
 proxies:
   - type: vless
-    name: 4Sarina-7855c6b802
-    server: 188.137.178.174
-    port: 8443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    name: 4Mohsen-9ddf869741
+    server: 185.253.7.22
+    port: 443
+    uuid: 80a06811-f74b-4b82-ac99-7e66c2a98e1c
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: clover.filnex.baby
     xudp: true
     network: ws
     ws-opts:
-      path: /fp=chrome
+      path: /api/de6/stream
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
-  - type: vless
-    name: 4Nika-b7f40567a7
-    server: 188.137.178.174
-    port: 8443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
+        Host: clover.filnex.baby
   - type: vless
     name: 4Sarina-3814237a21
     server: 188.137.178.174
@@ -58,24 +44,6 @@ proxies:
     xudp: true
     skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Nika-0ee3d22df7
-    server: 145.63.134.175
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
     network: ws
     ws-opts:
       path: /api/v1/gpu-stream/socket
@@ -122,11 +90,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-7855c6b802
-      - 4Nika-b7f40567a7
+      - 4Mohsen-9ddf869741
       - 4Sarina-3814237a21
       - 4Nika-f8ddcd9b0c
-      - 4Nika-0ee3d22df7
       - 4Kian-c561bdbeae
       - 4Kian-cdfc73dad8
   - name: Auto
@@ -135,11 +101,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-7855c6b802
-      - 4Nika-b7f40567a7
+      - 4Mohsen-9ddf869741
       - 4Sarina-3814237a21
       - 4Nika-f8ddcd9b0c
-      - 4Nika-0ee3d22df7
       - 4Kian-c561bdbeae
       - 4Kian-cdfc73dad8
 rules:

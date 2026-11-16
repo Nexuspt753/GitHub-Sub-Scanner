@@ -1,28 +1,32 @@
 proxies:
   - type: vless
-    name: 4FreeIran-65c0f86e4b
-    server: 212.80.10.205
-    port: 443
-    uuid: 27632004-774f-7914-1578-93f7f60244c0
+    name: 4Mohsen-493ef9f580
+    server: tunir.helpower.ir
+    port: 8099
+    uuid: e6ab522f-7fe4-4010-aedc-7c46f67a84b5
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: new.mehditork.ir
+    xudp: true
+  - type: vless
+    name: 4Nika-dc8319ede6
+    server: tunir.helpower.ir
+    port: 9365
+    uuid: e6ab522f-7fe4-4010-aedc-7c46f67a84b5
+    udp: true
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-65c0f86e4b
+      - 4Mohsen-493ef9f580
+      - 4Nika-dc8319ede6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-65c0f86e4b
+      - 4Mohsen-493ef9f580
+      - 4Nika-dc8319ede6
 rules:
   - MATCH,Proxy

@@ -5,12 +5,31 @@ proxies:
     port: 443
     password: 4b1be712-774c-4b65-8491-a3339e124a70
     sni: hys-eu.letsconnectpoint.com
+  - type: vless
+    name: 4Mohsen-38414fa5e5
+    server: 194.124.251.104
+    port: 443
+    uuid: 80a06811-f74b-4b82-ac99-7e66c2a98e1c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: clover.filnex.baby
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/de6/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: clover.filnex.baby
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-bb176ecd96
+      - 4Mohsen-38414fa5e5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-bb176ecd96
+      - 4Mohsen-38414fa5e5
 rules:
   - MATCH,Proxy

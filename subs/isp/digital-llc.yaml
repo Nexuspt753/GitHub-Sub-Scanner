@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: OutlineReleasedKey
+    server: 216.172.144.199
+    port: 40643
+    cipher: chacha20-ietf-poly1305
+    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
+    udp: true
+  - type: ss
     name: 4Kian-5a8b528ce7
     server: 216.172.144.199
     port: 40643
@@ -29,24 +36,42 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
     udp: true
+  - type: trojan
+    name: 4Nika-a568bfb709
+    server: 45.38.3.25
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - OutlineReleasedKey
       - 4Kian-5a8b528ce7
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Nika-a568bfb709
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - OutlineReleasedKey
       - 4Kian-5a8b528ce7
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - 4Nika-a568bfb709
 rules:
   - MATCH,Proxy

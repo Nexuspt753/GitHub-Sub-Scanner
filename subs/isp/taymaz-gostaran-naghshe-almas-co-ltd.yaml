@@ -1,32 +1,80 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: ir2.cryptojakiro.com
+    port: 443
+    uuid: 8a1a991a-f206-447a-adaf-37a57c133418
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ir2.cryptojakiro.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ir2.cryptojakiro.com
+  - type: vless
+    name: 4Kian-b2395d6cd2
+    server: ir2.cryptojakiro.com
+    port: 443
+    uuid: 8a1a991a-f206-447a-adaf-37a57c133418
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ir2.cryptojakiro.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ir2.cryptojakiro.com
+  - type: vless
+    name: 4Nika-5a80f071ab
+    server: ir2.cryptojakiro.com
+    port: 443
+    uuid: 8a1a991a-f206-447a-adaf-37a57c133418
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ir2.cryptojakiro.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ir2.cryptojakiro.com
   - type: vmess
-    name: 4Jadi-a3a3513d4f
-    server: rma7.rmaaccshop.ir
-    port: 12146
-    uuid: 9d1bb4a3-1800-4a12-96fc-962719b47b2c
+    name: 4Nika-ce9a599b3e
+    server: dl1.armd.fun
+    port: 443
+    uuid: 72ec8eaf-6a67-4026-aea6-963e3a9ca16a
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-a3a3513d4f
+      - DeltaKroneckerGithub
+      - 4Kian-b2395d6cd2
+      - 4Nika-5a80f071ab
+      - 4Nika-ce9a599b3e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-a3a3513d4f
+      - DeltaKroneckerGithub
+      - 4Kian-b2395d6cd2
+      - 4Nika-5a80f071ab
+      - 4Nika-ce9a599b3e
 rules:
   - MATCH,Proxy

@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: 4Nika-d9bc171d72
+    server: 207.65.189.9
+    port: 443
+    uuid: 57715fc4-f787-4e90-9eb2-53fa515fbf37
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: spsudu.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: spsudu.pages.dev
+  - type: vless
+    name: 4Jadi-e612297763
+    server: 207.65.189.9
+    port: 443
+    uuid: 57715fc4-f787-4e90-9eb2-53fa515fbf37
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: spsudu.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: spsudu.pages.dev
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-d9bc171d72
+      - 4Jadi-e612297763
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-d9bc171d72
+      - 4Jadi-e612297763
+rules:
+  - MATCH,Proxy

@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: rma4.rmaaccshop.ir
+  - type: vmess
+    name: 4Mohsen-dbbc35a3fc
+    server: rma9.rmaaccshop.ir
+    port: 56264
+    uuid: d05d2116-855f-4ccf-a84f-e119b626135e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-8e27ed4e7f
+      - 4Mohsen-dbbc35a3fc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-8e27ed4e7f
+      - 4Mohsen-dbbc35a3fc
 rules:
   - MATCH,Proxy

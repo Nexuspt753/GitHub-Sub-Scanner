@@ -1,18 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-1d9532d837
-    server: 5.83.129.11
-    port: 443
-    password: umnDU7jgFYUjpVjVM2sW9HL0rRYLJNgzVwRu2HzWEhyZKkRx
-    sni: germany1.h2corp.local
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Jadi-0cf0045940
-    server: de.1.22.washing.help
-    port: 443
-    password: umnDU7jgFYUjpVjVM2sW9HL0rRYLJNgzVwRu2HzWEhyZKkRx
-    sni: germany1.h2corp.local
-    skip-cert-verify: true
   - type: vless
     name: VPsave
     server: 31.77.236.131
@@ -79,45 +65,26 @@ proxies:
       short-id: 1a2b3c4d
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 🇩🇪
-    server: 5.83.129.236
-    port: 443
-    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: host-de-upscale.cdn.cachefleet.com
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-1d9532d837
-      - 4Jadi-0cf0045940
       - VPsave
       - 4Mohsen-4f1dc8f3d1
       - 4Jadi-358bca7dde
       - 4Sarina-801ec9e413
       - 4Jadi-2bab45053d
-      - 🇩🇪
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-1d9532d837
-      - 4Jadi-0cf0045940
       - VPsave
       - 4Mohsen-4f1dc8f3d1
       - 4Jadi-358bca7dde
       - 4Sarina-801ec9e413
       - 4Jadi-2bab45053d
-      - 🇩🇪
 rules:
   - MATCH,Proxy

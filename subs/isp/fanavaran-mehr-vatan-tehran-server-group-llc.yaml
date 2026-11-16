@@ -11,11 +11,61 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-3a61d58f6d
+    server: ar.vipsharifi.ir
+    port: 2084
+    uuid: 95d31eef-d6bc-4f0e-90c5-f74851704cdd
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: ar.vipsharifi.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: Ed/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ar.vipsharifi.ir
+  - type: vless
+    name: 4Mohsen-5f7dad2957
+    server: s4.kalampolo.com
+    port: 8745
+    uuid: e9e5f015-811c-4579-8c0b-12266f7ffae8
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vmess
     name: 4Mohsen-33796c6101
     server: dashboard.afrawebsite.top
     port: 3071
     uuid: 9a9b03e4-adf6-4803-b3aa-9cdce6d3840b
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-b16d35cbc2
+    server: dashboard.afrapay.top
+    port: 5385
+    uuid: 76cefcd7-6b53-4c65-ad29-1a92734fc968
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Mohsen-c3f3d25321
+    server: dashboard.afrashop.top
+    port: 5381
+    uuid: 76cefcd7-6b53-4c65-ad29-1a92734fc968
     alterId: 0
     cipher: auto
     udp: true
@@ -27,7 +77,11 @@ proxy-groups:
     proxies:
       - Auto
       - VPsave
+      - 4Nika-3a61d58f6d
+      - 4Mohsen-5f7dad2957
       - 4Mohsen-33796c6101
+      - 4Mohsen-b16d35cbc2
+      - 4Mohsen-c3f3d25321
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -35,6 +89,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
+      - 4Nika-3a61d58f6d
+      - 4Mohsen-5f7dad2957
       - 4Mohsen-33796c6101
+      - 4Mohsen-b16d35cbc2
+      - 4Mohsen-c3f3d25321
 rules:
   - MATCH,Proxy

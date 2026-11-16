@@ -1,44 +1,59 @@
 proxies:
+  - type: hysteria2
+    name: 4Nika-4a8974491e
+    server: ir.config7x.site
+    port: 26503
+    password: Telegram--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X-
+    sni: hy.config7x.site
+    skip-cert-verify: false
+  - type: hysteria2
+    name: 4Nika-aa0b923dfd
+    server: ir.config7x.site
+    port: 26503
+    password: Telegram--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X-
+    sni: hy.config7x.site
+    skip-cert-verify: false
+    fingerprint: 22760B9798F4726D9B76C2F8FB4D5CEE6FDA9C6A75B391137937674AC5B2505F
   - type: vless
-    name: EPODONIOS
-    server: 61d99ddd7d2e5cde.tunvi.w-ert.org
-    port: 448
-    uuid: 5739bb35-2806-4d45-81e2-186e96d7e10b
+    name: 4Sarina-fa334b165e
+    server: s2.tehranionliine.ir
+    port: 80
+    uuid: b1ac23fb-b336-4d37-a3c0-64b29c4ef3a4
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.aparat.com
-    reality-opts:
-      public-key: woId47r1U8pEuDwHoC026bJHVWha2RHjufq1Kw3QoRU
-      short-id: ca4134a0ed2592b6
     xudp: true
-  - type: vless
-    name: EPODONIOS-01
-    server: 07a43ef8ce834d5a.tunvi.w-ert.org
-    port: 448
-    uuid: 58fce630-f90b-42aa-84b4-ba4117864609
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-b487dc001b
+    server: dnsarm.szerofast.ir
+    port: 3535
+    uuid: 14b8aca8-c7cd-11f1-ad50-920007d7ced9
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.aparat.com
-    reality-opts:
-      public-key: woId47r1U8pEuDwHoC026bJHVWha2RHjufq1Kw3QoRU
-      short-id: ca4134a0ed2592b6
     xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - EPODONIOS-01
+      - 4Nika-4a8974491e
+      - 4Nika-aa0b923dfd
+      - 4Sarina-fa334b165e
+      - 4Kian-b487dc001b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - EPODONIOS-01
+      - 4Nika-4a8974491e
+      - 4Nika-aa0b923dfd
+      - 4Sarina-fa334b165e
+      - 4Kian-b487dc001b
 rules:
   - MATCH,Proxy

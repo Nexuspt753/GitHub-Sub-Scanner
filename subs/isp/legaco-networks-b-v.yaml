@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: hex_proxy
-    server: 194.58.60.221
-    port: 443
-    uuid: bbbc1b48-9539-4300-acab-25cea65b533c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: node43.lmdscdn.ru
-    reality-opts:
-      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
-      short-id: db711de5e3ca0a68
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Kian-af51745eb2
     server: 194.58.60.221
     port: 443
@@ -36,7 +20,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - hex_proxy
       - 4Kian-af51745eb2
   - name: Auto
     type: url-test
@@ -44,7 +27,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - hex_proxy
       - 4Kian-af51745eb2
 rules:
   - MATCH,Proxy
