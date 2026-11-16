@@ -1,4 +1,32 @@
 proxies:
+  - type: vless
+    name: 4Kian-4eb8c57cef
+    server: 178.162.147.131
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: zovira.me
+    reality-opts:
+      public-key: OH9jKzqAqEg98VDxmxReqrC_jbJWNwr-ipj2cNRgazc
+      short-id: 2237b916
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-3823db5c6c
+    server: 81.171.14.72
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: zovira.me
+    reality-opts:
+      public-key: OH9jKzqAqEg98VDxmxReqrC_jbJWNwr-ipj2cNRgazc
+      short-id: 2237b916
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Mohsen-2a52f0c141
     server: 53f3167b1b943c53.vira-ai.dns.8.8.8.8.ir-service.connectoo.my.id
@@ -14,6 +42,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-4eb8c57cef
+      - 4FreeIran-3823db5c6c
       - 4Mohsen-2a52f0c141
   - name: Auto
     type: url-test
@@ -21,6 +51,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-4eb8c57cef
+      - 4FreeIran-3823db5c6c
       - 4Mohsen-2a52f0c141
 rules:
   - MATCH,Proxy

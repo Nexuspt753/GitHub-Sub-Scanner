@@ -1,18 +1,25 @@
 proxies:
-  - type: vless
+  - type: ss
+    name: 🇸🇪
+    server: 62.182.193.228
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: 2e555e46dbc421452416834962fd014f
+    udp: true
+  - type: ss
+    name: 4Mohsen-f0ef66339e
+    server: 62.182.193.228
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: 2e555e46dbc421452416834962fd014f
+    udp: true
+  - type: ss
     name: DeltaKroneckerGithub
     server: 62.182.193.228
-    port: 8443
-    uuid: c0d58ed7-41f8-4cf4-b61b-8ba8f6be9a46
+    port: 8388
+    cipher: chacha20-ietf-poly1305
+    password: 2e555e46dbc421452416834962fd014f
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: nekoboxo.isgood.host
-    reality-opts:
-      public-key: G3ZzvlhhrESJFCm41agmCMitg14XGzIAaS5DpdxZxkI
-      short-id: da5e9707
-    flow: xtls-rprx-vision
-    xudp: true
   - type: ss
     name: DeltaKroneckerGithub-01
     server: 62.182.193.228
@@ -36,7 +43,7 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Jadi-7958620bb9
+    name: 4Mohsen-ee49f21fb2
     server: 62.182.193.228
     port: 8443
     uuid: c0d58ed7-41f8-4cf4-b61b-8ba8f6be9a46
@@ -49,33 +56,28 @@ proxies:
       short-id: da5e9707
     flow: xtls-rprx-vision
     xudp: true
-  - type: ss
-    name: 🇸🇪SE-62.182.193.228-0162
-    server: 62.182.193.228
-    port: 8388
-    cipher: chacha20-ietf-poly1305
-    password: 2e555e46dbc421452416834962fd014f
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇸🇪
+      - 4Mohsen-f0ef66339e
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4FreeIran-25def83025
-      - 4Jadi-7958620bb9
-      - 🇸🇪SE-62.182.193.228-0162
+      - 4Mohsen-ee49f21fb2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇸🇪
+      - 4Mohsen-f0ef66339e
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4FreeIran-25def83025
-      - 4Jadi-7958620bb9
-      - 🇸🇪SE-62.182.193.228-0162
+      - 4Mohsen-ee49f21fb2
 rules:
   - MATCH,Proxy

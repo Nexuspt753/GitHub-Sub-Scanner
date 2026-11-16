@@ -1,29 +1,44 @@
 proxies:
   - type: vless
-    name: 4Jadi-1a930fd3b9
-    server: windytrout.net
-    port: 2053
-    uuid: 37af0181-5598-4aad-a040-d926bcb65757
+    name: NOFILTERING2
+    server: qq.utiltools.site
+    port: 443
+    uuid: 4054fdc2-ee80-4419-8a8e-d937df4719e2
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: windytrout.net
+    servername: qq.utiltools.site
+    reality-opts:
+      public-key: drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-ac13a6dc75
+    server: qq.utiltools.site
+    port: 443
+    uuid: 4054fdc2-ee80-4419-8a8e-d937df4719e2
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: qq.utiltools.site
+    reality-opts:
+      public-key: drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-1a930fd3b9
+      - NOFILTERING2
+      - 4Kian-ac13a6dc75
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-1a930fd3b9
+      - NOFILTERING2
+      - 4Kian-ac13a6dc75
 rules:
   - MATCH,Proxy

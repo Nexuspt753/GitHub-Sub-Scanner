@@ -1,0 +1,43 @@
+proxies:
+  - type: vless
+    name: 4Sarina-e89e875692
+    server: 188.132.176.153
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tr2.gofizzin.com
+    reality-opts:
+      public-key: 0dZQFilWbZVW8qj2DqVgiXZndL20ZuxmSuS4KyGRbQc
+      short-id: fa273564
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-16b05685a7
+    server: 188.132.176.153
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tr2.gofizzin.com
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-e89e875692
+      - 4Jadi-16b05685a7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-e89e875692
+      - 4Jadi-16b05685a7
+rules:
+  - MATCH,Proxy

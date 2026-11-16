@@ -1,30 +1,44 @@
 proxies:
   - type: vless
-    name: 4Kian-1fdee92e5f
-    server: retrobikes.top
-    port: 443
-    uuid: 62610fc6-8333-41f9-9258-08915e4343ab
+    name: 4FreeIran-8a25191cd3
+    server: nl41.homelab-cdn.cloud
+    port: 8443
+    uuid: 0ed9418b-e687-4c2d-8869-7e368c44887e
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: retrobikes.top
-    reality-opts:
-      public-key: hilZJNaV8sAGbIE93GN-KkWcToCiUSYXcdIUahbLEhI
-      short-id: 7b0e687408afe7ab
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: nl41.homelab-cdn.cloud
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-7e0604ae3a
+    server: nl41.homelab-cdn.cloud
+    port: 8443
+    uuid: 0ed9418b-e687-4c2d-8869-7e368c44887e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl41.homelab-cdn.cloud
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-1fdee92e5f
+      - 4FreeIran-8a25191cd3
+      - 4Kian-7e0604ae3a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-1fdee92e5f
+      - 4FreeIran-8a25191cd3
+      - 4Kian-7e0604ae3a
 rules:
   - MATCH,Proxy

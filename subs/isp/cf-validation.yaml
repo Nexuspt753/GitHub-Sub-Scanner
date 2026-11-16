@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-c7080c36b6
+    server: 178.239.123.216
+    port: 24443
+    uuid: aa7f42cc-616f-4550-9a87-4b85bb409121
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vless3.datatestvless.click
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F%3Fed%3D2560%26Telegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vless3.datatestvless.click
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-c7080c36b6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-c7080c36b6
+rules:
+  - MATCH,Proxy

@@ -1,30 +1,44 @@
 proxies:
   - type: vless
-    name: 4Sarina-d0d0f5f450
-    server: 141.98.191.115
-    port: 443
-    uuid: 41a382b8-6d2f-482e-abf2-954a56456e8c
+    name: 4FreeIran-5b4ab1f082
+    server: 171.22.133.5
+    port: 8443
+    uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: 31.76.7.128.sslip.io
-    reality-opts:
-      public-key: zvOXkaCzQIFA5H6_gpK2_IMDnkwBkw8nch5AODNsAiY
-      short-id: 88086e66870f03e6
-    flow: xtls-rprx-vision
+    servername: de.krabvpn.pro
     xudp: true
+  - type: vless
+    name: 4FreeIran-2487cc9696
+    server: ru1.gridlane.ru
+    port: 29843
+    uuid: 1e6bb05f-2d45-4f88-ae4d-4baa2763e4cf
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: img.ds-cdn.online
+    reality-opts:
+      public-key: MgEz8bs930ADiUEnFPmP7fEfx5Vp1mzNRdEuEd-DJVE
+      short-id: ea3a142f7285619b
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d0d0f5f450
+      - 4FreeIran-5b4ab1f082
+      - 4FreeIran-2487cc9696
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d0d0f5f450
+      - 4FreeIran-5b4ab1f082
+      - 4FreeIran-2487cc9696
 rules:
   - MATCH,Proxy

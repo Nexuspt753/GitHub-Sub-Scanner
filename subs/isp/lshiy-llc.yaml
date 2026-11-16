@@ -1,23 +1,46 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-9b5c95fd79
-    server: hk2.5yunapi.buzz
-    port: 13212
-    password: ec374b01-8dba-48dc-aa9d-b23cb6b2e694
-    sni: hk2.5yunapi.buzz
-    skip-cert-verify: true
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 2.27.174.132
+    port: 13211
+    uuid: 1a01afd9-8145-4419-8e49-3bad303f6851
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: sDGOcb1sUgxwlVtIF3v1l6agByH9eJHzxu1epRmnFXc
+      short-id: 63af216e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-8306977557
+    server: 2.27.174.132
+    port: 13211
+    uuid: 1a01afd9-8145-4419-8e49-3bad303f6851
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: sDGOcb1sUgxwlVtIF3v1l6agByH9eJHzxu1epRmnFXc
+      short-id: 63af216e
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-9b5c95fd79
+      - DeltaKroneckerGithub
+      - 4Jadi-8306977557
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9b5c95fd79
+      - DeltaKroneckerGithub
+      - 4Jadi-8306977557
 rules:
   - MATCH,Proxy

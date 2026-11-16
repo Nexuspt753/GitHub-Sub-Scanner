@@ -1,50 +1,46 @@
 proxies:
   - type: vless
-    name: 4Jadi-3a7d8691fe
-    server: 2.26.201.194
-    port: 443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    name: DeltaKroneckerGithub
+    server: 2.26.204.46
+    port: 31001
+    uuid: 12a4f736-2238-49ee-831f-5516f15cc951
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: fs.qicai99.com
+    servername: mensura.cdn-apple.com
+    reality-opts:
+      public-key: lzpIiMqHXas_qayw-HvrySb78FNkVroBOqniwqPXPzY
+      short-id: 39793bc4708abbbb
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
   - type: vless
-    name: 4Kian-bdeaeb1ec0
-    server: 2.26.201.194
-    port: 443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    name: 4Kian-fc3cb18eaa
+    server: 2.26.204.46
+    port: 31001
+    uuid: 12a4f736-2238-49ee-831f-5516f15cc951
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: fs.qicai99.com
+    servername: mensura.cdn-apple.com
+    reality-opts:
+      public-key: lzpIiMqHXas_qayw-HvrySb78FNkVroBOqniwqPXPzY
+      short-id: 39793bc4708abbbb
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /fp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3a7d8691fe
-      - 4Kian-bdeaeb1ec0
+      - DeltaKroneckerGithub
+      - 4Kian-fc3cb18eaa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3a7d8691fe
-      - 4Kian-bdeaeb1ec0
+      - DeltaKroneckerGithub
+      - 4Kian-fc3cb18eaa
 rules:
   - MATCH,Proxy

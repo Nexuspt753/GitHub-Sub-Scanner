@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Nika-dd2d17ed44
+    server: 158.51.78.86
+    port: 443
+    uuid: 8055eb3d-a27c-4815-ba40-5e80c1ff5008
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: portalraha.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ig-connect/AinwxMu8W6_XSPRth2BAkJKv
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: portalraha.ir
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-dd2d17ed44
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-dd2d17ed44
+rules:
+  - MATCH,Proxy

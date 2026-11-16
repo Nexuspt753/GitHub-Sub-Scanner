@@ -1,4 +1,40 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: t2w2t2w2.bpca2026.top
+    port: 443
+    password: b7795ce8-3863-4292-adfc-9c0a7b847774
+    udp: true
+    tls: true
+    sni: t2w2t2w2.bpca2026.top
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-b6bc5ce3f3
+    server: t2w2t2w2.bpca2026.top
+    port: 443
+    password: b7795ce8-3863-4292-adfc-9c0a7b847774
+    udp: true
+    tls: true
+    sni: t2w2t2w2.bpca2026.top
+    client-fingerprint: chrome
+  - type: vmess
+    name: 4Mohsen-8243613b4e
+    server: 9641684.sdf65h4.top
+    port: 443
+    uuid: 250c015d-bab0-4ed3-b638-b4eda48f5840
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: 9641684.sdf65h4.top
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 9641684.sdf65h4.top
   - type: vmess
     name: 4Mohsen-bcd089e174
     server: 9641684.sdf65h4.top
@@ -16,38 +52,24 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vmess
-    name: 4Nika-7f13cc657d
-    server: terutrrj.d6f54hd1j.cc
-    port: 443
-    uuid: a904e307-771f-498b-87ad-8e6e0d0ade4a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: terutrrj.d6f54hd1j.cc
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: terutrrj.d6f54hd1j.cc
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - 4Mohsen-b6bc5ce3f3
+      - 4Mohsen-8243613b4e
       - 4Mohsen-bcd089e174
-      - 4Nika-7f13cc657d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - 4Mohsen-b6bc5ce3f3
+      - 4Mohsen-8243613b4e
       - 4Mohsen-bcd089e174
-      - 4Nika-7f13cc657d
 rules:
   - MATCH,Proxy

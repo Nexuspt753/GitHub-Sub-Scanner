@@ -1,55 +1,56 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-b3609dbdee
-    server: 91.240.86.70
-    port: 22443
-    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-    sni: 91.240.86.70
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Sarina-d3aefe3ed2
-    server: 91.240.86.70
-    port: 22443
-    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-    sni: hy.quattro-tech.ru
-  - type: hysteria2
-    name: 4Mohsen-6ab0fda937
-    server: 91.240.86.70
-    port: 22443
-    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-    sni: itsallproxy.quattro-tech.ru
-  - type: hysteria2
-    name: 4Jadi-97e84ebb8f
-    server: 91.240.86.70
-    port: 24443
-    password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
-    sni: hy.quattro-tech.ru
   - type: vless
-    name: 4Mohsen-e959d3f339
-    server: 91.240.87.166
+    name: DeltaKroneckerGithub
+    server: 62.109.22.46
     port: 443
-    uuid: c5694dc5-39fd-4a92-8430-3837baa522a3
+    uuid: 2ca33ca8-3f56-4d2a-b0ba-4cec30b9c5ba
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: mscmems.fastystore.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-f85277ce1b
+    server: 62.109.22.46
+    port: 443
+    uuid: 2ca33ca8-3f56-4d2a-b0ba-4cec30b9c5ba
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: mscmems.fastystore.ru
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: ⚡️
+    server: 62.109.17.78
+    port: 2058
+    uuid: 4ad9f982-b56a-444a-9684-35ce51307a36
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: yandex.ru
+    servername: www.cloudflare.com
     reality-opts:
-      public-key: 2ZUQYIhUijdJ1vRL8iR8RxjmJvRVHYp-JoWevQ2LyR4
-      short-id: 7bb730e3e6616d31
+      public-key: lJBsn9ndieTIUBzXkJUhf6O0OE8pm29_z1fUtARwL0s
+      short-id: 937255313d6ce673
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-6602446fad
-    server: 91.240.87.166
-    port: 443
-    uuid: c5694dc5-39fd-4a92-8430-3837baa522a3
+    name: 4Kian-b52e66f83c
+    server: 62.109.17.78
+    port: 2058
+    uuid: 4ad9f982-b56a-444a-9684-35ce51307a36
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: yandex.ru
+    servername: www.cloudflare.com
     reality-opts:
-      public-key: 2ZUQYIhUijdJ1vRL8iR8RxjmJvRVHYp-JoWevQ2LyR4
-      short-id: 7bb730e3e6616d31
+      public-key: lJBsn9ndieTIUBzXkJUhf6O0OE8pm29_z1fUtARwL0s
+      short-id: 937255313d6ce673
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -57,23 +58,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-b3609dbdee
-      - 4Sarina-d3aefe3ed2
-      - 4Mohsen-6ab0fda937
-      - 4Jadi-97e84ebb8f
-      - 4Mohsen-e959d3f339
-      - 4Nika-6602446fad
+      - DeltaKroneckerGithub
+      - 4Kian-f85277ce1b
+      - ⚡️
+      - 4Kian-b52e66f83c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-b3609dbdee
-      - 4Sarina-d3aefe3ed2
-      - 4Mohsen-6ab0fda937
-      - 4Jadi-97e84ebb8f
-      - 4Mohsen-e959d3f339
-      - 4Nika-6602446fad
+      - DeltaKroneckerGithub
+      - 4Kian-f85277ce1b
+      - ⚡️
+      - 4Kian-b52e66f83c
 rules:
   - MATCH,Proxy

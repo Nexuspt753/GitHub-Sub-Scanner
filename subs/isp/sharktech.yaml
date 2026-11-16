@@ -1,50 +1,33 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-972e28868a
-    server: 64.32.13.230
-    port: 443
-    password: 5f091cbe-fb34-11ea-9777-f23c9164ca5d
-    sni: 9df552ab-tmkao0-u1vxv2-v3c2.los.hyhuawei.com
-  - type: hysteria2
-    name: 4FreeIran-22d055009b
-    server: 64.32.13.230
-    port: 443
-    password: 8f99107c-f091-11ee-9935-f23c9164ca5d
-    sni: 9040b1cc-tmm5c0-tvh2gy-1qzi1.los.hyhuawei.com
   - type: vmess
-    name: 4Mohsen-1d546defb5
-    server: cg1c04.waimaojd.com
+    name: 4Sarina-9c0d3fe241
+    server: cg1c02.waimaojd.com
     port: 443
-    uuid: be8e3136-b874-4085-bd23-ec3699300490
+    uuid: 332774e5-9371-48bb-b518-1fe56c7268da
     alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
     tls: true
-    servername: cg1c04.waimaojd.com
     network: ws
     ws-opts:
       path: /api/v1/graphql
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cg1c04.waimaojd.com
+        Host: cg1c02.waimaojd.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-972e28868a
-      - 4FreeIran-22d055009b
-      - 4Mohsen-1d546defb5
+      - 4Sarina-9c0d3fe241
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-972e28868a
-      - 4FreeIran-22d055009b
-      - 4Mohsen-1d546defb5
+      - 4Sarina-9c0d3fe241
 rules:
   - MATCH,Proxy
