@@ -1,47 +1,6 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 78.17.171.140
-    port: 2053
-    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
-    udp: true
-    tls: true
-    sni: ra-p1.victorycloud.ru
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /2fc2ec03a65d451dffa4592d68c43a29
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ra-p1.victorycloud.ru
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 78.17.171.139
-    port: 2053
-    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
-    udp: true
-    tls: true
-    sni: ra-p2.victorycloud.ru
-    alpn:
-      - http/1.1
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /cc2db2edcc30d642d7b4fb969c5f7369
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ra-p2.victorycloud.ru
-  - type: trojan
-    name: DeltaKroneckerGithub-02
-    server: hl-freedom-1.undef.network
-    port: 443
-    password: JaFKnqNcvnBT63t3rquidGsln
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-03
     server: hl-freedom-0.undef.network
     port: 443
     password: 76yTlnTIsjCTlmqnUJ5Tzc1rM
@@ -55,6 +14,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hl-freedom-0.undef.network
+  - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: hl-freedom-1.undef.network
+    port: 443
+    password: 7LBbob9IutFObLxLf9Svc1HaV
+    udp: true
+    tls: true
+    sni: hl-freedom-1.undef.network
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /f2fc2a1f
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hl-freedom-1.undef.network
+  - type: trojan
+    name: DeltaKroneckerGithub-02
+    server: hl-freedom-1.undef.network
+    port: 443
+    password: JaFKnqNcvnBT63t3rquidGsln
+    udp: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
@@ -63,7 +44,6 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -73,6 +53,5 @@ proxy-groups:
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

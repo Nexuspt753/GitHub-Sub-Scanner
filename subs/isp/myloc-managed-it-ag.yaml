@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 85.14.243.91
+    port: 8443
+    uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: edge-7577e858223c.eu-cdn539.com
+    reality-opts:
+      public-key: dPnrpjfG_vzjH20n0W7qNbWB5-dMxNSjeo2BpIsrXAE
+      short-id: bca958b54462eba5
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: ss
     name: 🇩🇪
     server: 213.202.208.199
@@ -14,90 +30,19 @@ proxies:
     password: RexnBgU7EV5ADxG
     udp: true
   - type: ss
-    name: DeltaKroneckerGithub
-    server: 213.202.208.199
-    port: 5000
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
-    udp: true
-  - type: ss
     name: DeltaKroneckerGithub-01
-    server: 213.202.208.199
-    port: 5000
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-02
     server: 213.202.208.199
     port: 7001
     cipher: aes-256-gcm
     password: RexnBgU7EV5ADxG
     udp: true
-  - type: vless
-    name: 🇩🇪217294
-    server: 85.14.243.91
-    port: 8443
-    uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
+  - type: ss
+    name: DeltaKroneckerGithub-02
+    server: 213.202.208.199
+    port: 5000
+    cipher: aes-256-gcm
+    password: Y6R9pAtvxxzmGC
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edge-7577e858223c.eu-cdn539.com
-    reality-opts:
-      public-key: dPnrpjfG_vzjH20n0W7qNbWB5-dMxNSjeo2BpIsrXAE
-      short-id: bca958b54462eba5
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇩🇪217343
-    server: 85.14.243.91
-    port: 8443
-    uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edge-7577e858223c.eu-cdn539.com
-    reality-opts:
-      public-key: dPnrpjfG_vzjH20n0W7qNbWB5-dMxNSjeo2BpIsrXAE
-      short-id: bca958b54462eba5
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🇩🇪DE-🚀@VPNine1
-    server: 85.14.243.91
-    port: 8443
-    uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edge-7577e858223c.eu-cdn539.com
-    reality-opts:
-      public-key: dPnrpjfG_vzjH20n0W7qNbWB5-dMxNSjeo2BpIsrXAE
-      short-id: bca958b54462eba5
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 🔵@chillguy_vpn
-    server: 85.14.243.91
-    port: 8443
-    uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edge-7577e858223c.eu-cdn539.com
-    reality-opts:
-      public-key: dPnrpjfG_vzjH20n0W7qNbWB5-dMxNSjeo2BpIsrXAE
-      short-id: bca958b54462eba5
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: 4Mohsen-032cae5153
     server: 85.14.243.91
@@ -114,54 +59,28 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-cc2e288374
-    server: 85.14.243.91
-    port: 8443
-    uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: edge-7577e858223c.eu-cdn539.com
-    reality-opts:
-      public-key: dPnrpjfG_vzjH20n0W7qNbWB5-dMxNSjeo2BpIsrXAE
-      short-id: bca958b54462eba5
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 🇩🇪
       - 4Nika-0cd4c72585
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 🇩🇪217294
-      - 🇩🇪217343
-      - 🇩🇪DE-🚀@VPNine1
-      - 🔵@chillguy_vpn
       - 4Mohsen-032cae5153
-      - 4Nika-cc2e288374
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 🇩🇪
       - 4Nika-0cd4c72585
-      - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
-      - 🇩🇪217294
-      - 🇩🇪217343
-      - 🇩🇪DE-🚀@VPNine1
-      - 🔵@chillguy_vpn
       - 4Mohsen-032cae5153
-      - 4Nika-cc2e288374
 rules:
   - MATCH,Proxy

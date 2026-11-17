@@ -1,22 +1,24 @@
 proxies:
   - type: hysteria2
-    name: 4Kian-3e9ceed073
+    name: 4Jadi-af875141c9
     server: 89.125.214.221
     port: 19446
     password: 6fffde27-86de-49e5-9ece-0669b6680afc
     sni: mshvpn.online
+    alpn:
+      - h3
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-3e9ceed073
+      - 4Jadi-af875141c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-3e9ceed073
+      - 4Jadi-af875141c9
 rules:
   - MATCH,Proxy

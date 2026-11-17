@@ -10,12 +10,28 @@ proxies:
     servername: a.samrayan.ir
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-493ef9f580
+    server: tunir.helpower.ir
+    port: 8099
+    uuid: e6ab522f-7fe4-4010-aedc-7c46f67a84b5
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Nika-dc8319ede6
+    server: tunir.helpower.ir
+    port: 9365
+    uuid: e6ab522f-7fe4-4010-aedc-7c46f67a84b5
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-cd55775566
+      - 4Mohsen-493ef9f580
+      - 4Nika-dc8319ede6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -23,5 +39,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-cd55775566
+      - 4Mohsen-493ef9f580
+      - 4Nika-dc8319ede6
 rules:
   - MATCH,Proxy

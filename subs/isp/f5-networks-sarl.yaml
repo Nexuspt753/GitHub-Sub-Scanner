@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: vless
-    server: 159.60.146.82
-    port: 443
-    uuid: e98a123b-7a6f-444d-985d-ad2c389a85ec
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /ws?ip=159.60.146.82:443
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Nika-4702218dc5
     server: 159.60.146.82
     port: 443
@@ -33,20 +17,36 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: flow-vault-hiizyn.pages.dev
+  - type: vless
+    name: 4Nika-16e94bfd06
+    server: 159.60.146.82
+    port: 443
+    uuid: e98a123b-7a6f-444d-985d-ad2c389a85ec
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=159.60.146.82:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
       - 4Nika-4702218dc5
+      - 4Nika-16e94bfd06
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
       - 4Nika-4702218dc5
+      - 4Nika-16e94bfd06
 rules:
   - MATCH,Proxy

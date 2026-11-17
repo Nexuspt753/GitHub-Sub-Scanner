@@ -1,17 +1,52 @@
 proxies:
   - type: vless
-    name: 4FreeIran-b508e112af
-    server: t2.zynexoz.ir
-    port: 9593
-    uuid: 2e5713f7-93c6-43f5-bb0f-e6bf88910a71
+    name: 4Jadi-5eab837ba1
+    server: 46.38.142.90
+    port: 443
+    uuid: a81bcc1d-29f4-4886-b248-65ed8c4f23a9
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: t2.zynexoz.ir
-    reality-opts:
-      public-key: z7KGy_XXNAisx54zJb1Lzfz-7xSgUjICpsg-6wgJaTQ
-      short-id: 13015adb35046407
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+      - h2
+      - h3
+    servername: pantwo.pgbtw.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-02489f51c3
+    server: 46.38.142.90
+    port: 8443
+    uuid: a81bcc1d-29f4-4886-b248-65ed8c4f23a9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+      - h2
+      - h3
+    servername: tr2.gamepantwo.pgbtw.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Kian-f7ebf6c270
+    server: ir.yzcq.ir
+    port: 2050
+    uuid: 986bd21b-225d-479a-964e-93a58f15017a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vmess
     name: 4FreeIran-a617b3284d
     server: ir.yzcq.ir
@@ -23,10 +58,30 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Sarina-76cbb71425
+    name: 4Mohsen-9500596159
+    server: ir.yzcq.ir
+    port: 2040
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-cea075bc2c
+    server: ir.yzcq.ir
+    port: 2070
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4FreeIran-041f25cc29
     server: ir.yzcq.ir
     port: 2030
-    uuid: 21cf69ba-9e09-4c1f-b40d-9e4fa24c6e05
+    uuid: f23401fb-f4a8-4d45-80b7-cfd44b70308a
     alterId: 0
     cipher: auto
     udp: true
@@ -37,17 +92,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-b508e112af
+      - 4Jadi-5eab837ba1
+      - 4Mohsen-02489f51c3
+      - 4Kian-f7ebf6c270
       - 4FreeIran-a617b3284d
-      - 4Sarina-76cbb71425
+      - 4Mohsen-9500596159
+      - 4Sarina-cea075bc2c
+      - 4FreeIran-041f25cc29
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-b508e112af
+      - 4Jadi-5eab837ba1
+      - 4Mohsen-02489f51c3
+      - 4Kian-f7ebf6c270
       - 4FreeIran-a617b3284d
-      - 4Sarina-76cbb71425
+      - 4Mohsen-9500596159
+      - 4Sarina-cea075bc2c
+      - 4FreeIran-041f25cc29
 rules:
   - MATCH,Proxy

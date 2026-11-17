@@ -13,12 +13,29 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Sarina-642d511626
+    server: 188.213.170.198
+    port: 443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v5-4b5.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v5-4b5.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-7f73627249
+      - 4Sarina-642d511626
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-7f73627249
+      - 4Sarina-642d511626
 rules:
   - MATCH,Proxy

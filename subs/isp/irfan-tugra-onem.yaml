@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Jadi-54e88735da
+    server: 176.96.128.133
+    port: 17202
+    uuid: 7dca07fb-e54f-4ed5-988b-41d650c48bf4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: 6_NnkeHy6GOnjIWMk6uOFGEzNAfrkC49GaRAmKQTKG8
+      short-id: c071d934
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4360234e2d
+    server: 176.96.128.133
+    port: 38252
+    uuid: 7dca07fb-e54f-4ed5-988b-41d650c48bf4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: virgool.ir
+    reality-opts:
+      public-key: pSX0wrvn6MbAFTPnZZds-_sq7KJfLqxn9Bu3tb9DxAQ
+      short-id: d384
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-54e88735da
+      - 4FreeIran-4360234e2d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-54e88735da
+      - 4FreeIran-4360234e2d
+rules:
+  - MATCH,Proxy
