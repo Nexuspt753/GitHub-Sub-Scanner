@@ -1,4 +1,16 @@
 proxies:
+  - type: trojan
+    name: 4Kian-489599bce3
+    server: alireza.karamoz1.ir
+    port: 443
+    password: poimnap
+    udp: true
+    tls: true
+    sni: alireza.karamoz1.ir
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
   - type: vless
     name: 4Kian-d72417ccd1
     server: ggggoods.brand-netprime.com
@@ -22,6 +34,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-489599bce3
       - 4Kian-d72417ccd1
   - name: Auto
     type: url-test
@@ -29,6 +42,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-489599bce3
       - 4Kian-d72417ccd1
 rules:
   - MATCH,Proxy

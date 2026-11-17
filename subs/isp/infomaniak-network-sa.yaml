@@ -1,11 +1,36 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 83.228.224.161
+  - type: vless
+    name: 4Jadi-6d563bd9b0
+    server: 83.228.199.3
     port: 443
-    password: SoftNetConnect
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
     udp: true
+    tls: true
+    client-fingerprint: random
+    servername: it-mil.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: it-mil.862400.xyz
+  - type: vless
+    name: 4Sarina-ecf31842d0
+    server: 83.228.199.3
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
     client-fingerprint: chrome
+    servername: it-mil.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: it-mil.862400.xyz
   - type: vless
     name: 4Nika-33181b9707
     server: 84.234.30.10
@@ -25,7 +50,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-6d563bd9b0
+      - 4Sarina-ecf31842d0
       - 4Nika-33181b9707
   - name: Auto
     type: url-test
@@ -33,7 +59,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-6d563bd9b0
+      - 4Sarina-ecf31842d0
       - 4Nika-33181b9707
 rules:
   - MATCH,Proxy

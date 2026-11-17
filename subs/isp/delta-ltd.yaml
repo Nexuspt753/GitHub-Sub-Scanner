@@ -1,6 +1,20 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: 116.206.95.231
+    port: 43000
+    uuid: 4a923161-156f-4914-8cac-762fb2433bfb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 116.206.95.231
+    reality-opts:
+      public-key: CG0mVPuvPcfZjplA21zehlqoDpGHihJBK8K_u1zfhgQ
+      short-id: ee4ea980
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 144.48.11.146
     port: 43000
     uuid: 4a923161-156f-4914-8cac-762fb2433bfb
@@ -13,12 +27,43 @@ proxies:
       short-id: ee4ea980
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: VPsave
+    server: 144.48.11.146
+    port: 43000
+    uuid: 4a923161-156f-4914-8cac-762fb2433bfb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 144.48.11.146
+    reality-opts:
+      public-key: CG0mVPuvPcfZjplA21zehlqoDpGHihJBK8K_u1zfhgQ
+      short-id: ee4ea980
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-4ef0bb8f91
+    server: 144.48.11.146
+    port: 43000
+    uuid: 4a923161-156f-4914-8cac-762fb2433bfb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 144.48.11.146
+    reality-opts:
+      public-key: CG0mVPuvPcfZjplA21zehlqoDpGHihJBK8K_u1zfhgQ
+      short-id: ee4ea980
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - VPsave
+      - 4Jadi-4ef0bb8f91
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - VPsave
+      - 4Jadi-4ef0bb8f91
 rules:
   - MATCH,Proxy

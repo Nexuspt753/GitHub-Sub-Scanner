@@ -1,68 +1,26 @@
 proxies:
-  - type: ss
-    name: 4FreeIran-5ba98f02e7
-    server: 185.22.153.117
-    port: 18443
-    cipher: aes-256-gcm
-    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
+  - type: vless
+    name: 4Nika-9b3d09f1ec
+    server: 46.29.167.14
+    port: 8888
+    uuid: FastKey_155304
     udp: true
-  - type: ss
-    name: 🇩🇪All⁷
-    server: 185.22.153.117
-    port: 18443
-    cipher: aes-256-gcm
-    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub
-    server: 185.22.153.117
-    port: 18443
-    cipher: aes-256-gcm
-    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 185.22.153.117
-    port: 18443
-    cipher: aes-256-gcm
-    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-    udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-02
-    server: 185.22.153.117
-    port: 18443
-    cipher: aes-256-gcm
-    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-    udp: true
-  - type: ss
-    name: 🇷🇺RU-185.22.153.117-0251
-    server: 185.22.153.117
-    port: 18443
-    cipher: aes-256-gcm
-    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5ba98f02e7
-      - 🇩🇪All⁷
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 🇷🇺RU-185.22.153.117-0251
+      - 4Nika-9b3d09f1ec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5ba98f02e7
-      - 🇩🇪All⁷
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
-      - 🇷🇺RU-185.22.153.117-0251
+      - 4Nika-9b3d09f1ec
 rules:
   - MATCH,Proxy

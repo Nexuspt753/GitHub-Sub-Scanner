@@ -1,12 +1,12 @@
 proxies:
   - type: vless
-    name: Channel
+    name: DeltaKroneckerGithub
     server: 41.196.0.128
     port: 443
     uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: eg1.gofizz.in
     reality-opts:
       public-key: tyklNbOfb-FctP-J1OQa1yUHPY9p4co70RyYuRe9nR8
@@ -27,33 +27,20 @@ proxies:
       short-id: f68db13f
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-fec7bd5ff3
-    server: 41.196.0.128
-    port: 443
-    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: eg1.gofizz.in
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Channel
+      - DeltaKroneckerGithub
       - 4Sarina-6400dcb443
-      - 4Mohsen-fec7bd5ff3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Channel
+      - DeltaKroneckerGithub
       - 4Sarina-6400dcb443
-      - 4Mohsen-fec7bd5ff3
 rules:
   - MATCH,Proxy

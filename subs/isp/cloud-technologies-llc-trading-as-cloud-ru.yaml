@@ -1,29 +1,81 @@
 proxies:
   - type: vless
-    name: 4Kian-6d4c3ee4a6
-    server: 176.108.246.180
+    name: 4Sarina-7e57847429
+    server: 176.109.103.238
     port: 443
     uuid: 1b7ee703-fa08-4305-8469-ae3e30e61e44
     udp: true
     tls: true
-    client-fingerprint: safari
-    servername: apsnl.yandex-api.com
+    client-fingerprint: firefox
+    servername: rumos.yandex-api.com
     reality-opts:
-      public-key: bI1SEAWZtr6q-fHL3mxwpU0ki8DdLcR7vOItA15eA24
+      public-key: gQYbz6BaTE05ZD6sk_0lHZGsk2cXzt1cKdjVWZM_C2g
+      short-id: badfead2ae4dca2e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: VPsave
+    server: fr4.mts-cdn.ru
+    port: 443
+    uuid: c15d2785-dab4-451d-aded-d4f3994453d3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr4.mts-cdn.ru
+    reality-opts:
+      public-key: s9ECEaTYJQxacIQRKATAT6w4nAHv7PWPbeSjebjbJTA
+      short-id: fa88c11e5a70bb00
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-b969514bea
+    server: 213.171.31.83
+    port: 443
+    uuid: 77146066-6f06-0001-bced-d2b73668de07
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    alpn:
+      - h2
+      - http/1.1
+    servername: cffhi-ru-46sb.fade.mom
+    xudp: true
+  - type: vless
+    name: 4Sarina-6ee4705ce5
+    server: fr4.mts-cdn.ru
+    port: 443
+    uuid: c15d2785-dab4-451d-aded-d4f3994453d3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr4.mts-cdn.ru
+    reality-opts:
+      public-key: s9ECEaTYJQxacIQRKATAT6w4nAHv7PWPbeSjebjbJTA
+      short-id: fa88c11e5a70bb00
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-6d4c3ee4a6
+      - 4Sarina-7e57847429
+      - VPsave
+      - 4Mohsen-b969514bea
+      - 4Sarina-6ee4705ce5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-6d4c3ee4a6
+      - 4Sarina-7e57847429
+      - VPsave
+      - 4Mohsen-b969514bea
+      - 4Sarina-6ee4705ce5
 rules:
   - MATCH,Proxy

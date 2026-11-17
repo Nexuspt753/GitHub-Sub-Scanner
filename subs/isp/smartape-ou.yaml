@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: 4Kian-e44a40042d
+    server: 193.124.58.5
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: se-sto.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: se-sto.862400.xyz
+  - type: vless
+    name: 4Sarina-b142a5ce16
+    server: 193.124.58.5
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: se-sto.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: se-sto.862400.xyz
+  - type: vless
     name: 4Mohsen-616baf4f6d
     server: 109.172.8.73
     port: 443
@@ -20,6 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-e44a40042d
+      - 4Sarina-b142a5ce16
       - 4Mohsen-616baf4f6d
   - name: Auto
     type: url-test
@@ -27,6 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-e44a40042d
+      - 4Sarina-b142a5ce16
       - 4Mohsen-616baf4f6d
 rules:
   - MATCH,Proxy

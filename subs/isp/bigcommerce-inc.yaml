@@ -1,19 +1,46 @@
 proxies:
   - type: vless
-    name: 4FreeIran-5d571878b7
-    server: 63.141.128.30
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    name: vless
+    server: turkey.daltoon-cloud.ir
+    port: 2083
+    uuid: 122b8a33-d923-48a6-8f1b-e721cf842864
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: 4Kian-a9ac8828fa
+    server: turkey.daltoon-cloud.ir
+    port: 2083
+    uuid: 122b8a33-d923-48a6-8f1b-e721cf842864
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: ">>@oneclickvpnkeys::US"
+    server: 63.141.128.22
+    port: 443
+    uuid: b8b01773-36b1-4b49-9bd0-6249f52345b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: /eyJqdW5rIjoiTkNUaFg0ZnJNUjhhcyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime42.workers.dev
+        Host: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
   - type: vless
-    name: ">>@oneclickvpnkeys::US"
+    name: 4Kian-3b53a1e26b
     server: 63.141.128.22
     port: 443
     uuid: b8b01773-36b1-4b49-9bd0-6249f52345b4
@@ -33,15 +60,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-5d571878b7
+      - vless
+      - 4Kian-a9ac8828fa
       - ">>@oneclickvpnkeys::US"
+      - 4Kian-3b53a1e26b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-5d571878b7
+      - vless
+      - 4Kian-a9ac8828fa
       - ">>@oneclickvpnkeys::US"
+      - 4Kian-3b53a1e26b
 rules:
   - MATCH,Proxy

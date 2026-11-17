@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-72e031ea4d
+    server: 101.108.49.121
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: ap-south.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ap-south.862400.xyz
+  - type: vless
+    name: 4Sarina-4c0e6aee8b
+    server: 101.108.49.121
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ap-south.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ap-south.862400.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-72e031ea4d
+      - 4Sarina-4c0e6aee8b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-72e031ea4d
+      - 4Sarina-4c0e6aee8b
+rules:
+  - MATCH,Proxy

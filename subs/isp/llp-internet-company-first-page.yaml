@@ -1,50 +1,50 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 109.248.18.208
+    name: 4Jadi-267004d7eb
+    server: 109.248.18.169
     port: 443
-    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: garuda.ubuntuhosting.host
-    reality-opts:
-      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
-      short-id: 3fa234ea9feaa048
+    client-fingerprint: random
+    servername: us-lax.862400.xyz
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: us-lax.862400.xyz
   - type: vless
-    name: DeltaKroneckerGithub-01
-    server: garuda.ubuntuhosting.host
+    name: 4Kian-7d4a15f098
+    server: 109.248.18.169
     port: 443
-    uuid: d7430ae7-320c-4658-808b-3006d0627d82
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: garuda.ubuntuhosting.host
-    reality-opts:
-      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
-      short-id: 3fa234ea9feaa048
+    servername: us-lax.862400.xyz
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: us-lax.862400.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Jadi-267004d7eb
+      - 4Kian-7d4a15f098
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Jadi-267004d7eb
+      - 4Kian-7d4a15f098
 rules:
   - MATCH,Proxy
