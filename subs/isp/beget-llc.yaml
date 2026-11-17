@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 159.194.210.102
+    port: 443
+    uuid: ecf65acd-ea72-0002-be5f-cd23afb2722f
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: box.vpvi.store
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-3b03931cba
     server: 159.194.210.102
     port: 443
@@ -15,6 +26,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-3b03931cba
   - name: Auto
     type: url-test
@@ -22,6 +34,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-3b03931cba
 rules:
   - MATCH,Proxy

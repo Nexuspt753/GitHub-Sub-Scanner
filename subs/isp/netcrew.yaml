@@ -1,6 +1,20 @@
 proxies:
-  - type: trojan
+  - type: vless
     name: DeltaKroneckerGithub
+    server: 179.255.125.140
+    port: 443
+    uuid: 68f014b7-e245-4528-890e-289f91d7c968
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amazon.com
+    reality-opts:
+      public-key: ReJYDmhM_L7Y-MzRirsSfUF5ohG-uY9qXGvp6T-ySHs
+      short-id: 82bea5d7
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: trojan
+    name: DeltaKroneckerGithub-01
     server: 179.255.132.69
     port: 443
     password: humanity
@@ -8,12 +22,28 @@ proxies:
     tls: true
     sni: www.cordweave.com
     client-fingerprint: chrome
+  - type: vless
+    name: 4Jadi-b31437616e
+    server: 179.255.125.140
+    port: 443
+    uuid: 68f014b7-e245-4528-890e-289f91d7c968
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amazon.com
+    reality-opts:
+      public-key: ReJYDmhM_L7Y-MzRirsSfUF5ohG-uY9qXGvp6T-ySHs
+      short-id: 82bea5d7
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-b31437616e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +51,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Jadi-b31437616e
 rules:
   - MATCH,Proxy

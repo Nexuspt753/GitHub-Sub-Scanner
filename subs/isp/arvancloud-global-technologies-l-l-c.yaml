@@ -28,6 +28,31 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Kian-b11cd3e07c
+    server: 185.204.168.128
+    port: 8443
+    uuid: 78d4b3a0-7c19-4a81-9ef9-d39fd8d4ec58
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: s15.xovra.fun
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-94454c2b22
+    server: mia15.qevnora.site
+    port: 8443
+    uuid: 78d4b3a0-7c19-4a81-9ef9-d39fd8d4ec58
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: s15.xovra.fun
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-00a4ebaf9a
     server: dears.mobileemdad.top
     port: 443
@@ -41,6 +66,18 @@ proxies:
       short-id: e64e9f5eefbffc15
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-1ff97a59b5
+    server: 130.185.121.69
+    port: 443
+    uuid: d3c9d170-80fa-489a-8ba2-f4cc80d240e3
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -48,7 +85,10 @@ proxy-groups:
       - Auto
       - 4Mohsen-50f3daf78c
       - 4FreeIran-b0052e7ce1
+      - 4Kian-b11cd3e07c
+      - 4Jadi-94454c2b22
       - 4Nika-00a4ebaf9a
+      - 4Mohsen-1ff97a59b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -57,6 +97,9 @@ proxy-groups:
     proxies:
       - 4Mohsen-50f3daf78c
       - 4FreeIran-b0052e7ce1
+      - 4Kian-b11cd3e07c
+      - 4Jadi-94454c2b22
       - 4Nika-00a4ebaf9a
+      - 4Mohsen-1ff97a59b5
 rules:
   - MATCH,Proxy

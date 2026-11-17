@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: fastkanfig
+    server: 188.225.45.152
+    port: 443
+    uuid: 238e492b-bc20-4380-92b6-135d39112ca4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api8.eaglors.com
+    reality-opts:
+      public-key: Nb9IwEEhUHEbHSc6e5uYTjxDgN4ZExhDckM3OgYhj2o
+      short-id: 52ccb3687fe0b7ec
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-db2ea893ce
     server: 188.225.45.77
     port: 443
@@ -15,18 +29,38 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Nika-e9736c13c0
+    server: 188.225.25.35
+    port: 8443
+    uuid: 591db2c1-12a7-4aa8-93af-106bd3e3ae3a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru.starkclaude.top
+    reality-opts:
+      public-key: rJ-fFNYXh7WW9LuYe1N71fh7nAEe5i09Pi5ZDSDlH1s
+      short-id: 4951a2313524dd8f
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - fastkanfig
       - 4Nika-db2ea893ce
+      - 4Nika-e9736c13c0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - fastkanfig
       - 4Nika-db2ea893ce
+      - 4Nika-e9736c13c0
 rules:
   - MATCH,Proxy

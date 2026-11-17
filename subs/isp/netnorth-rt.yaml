@@ -1,15 +1,4 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: tr-netherlands.unlimited-access.ru
-    port: 443
-    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
-    udp: true
-    tls: true
-    sni: tr-netherlands.unlimited-access.ru
-    alpn:
-      - http/1.1
-    client-fingerprint: firefox
   - type: vless
     name: 4Mohsen-2a8a061728
     server: 82.148.240.74
@@ -35,22 +24,36 @@ proxies:
     servername: assets-v2.porsche.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-76fa95a4c0
+    server: viperrrrr.uk
+    port: 443
+    uuid: 7d718630-7a1a-4af8-9332-aa0610634e8a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: viperrrrr.uk
+    reality-opts:
+      public-key: DFkD4WCfoABZzh9i7BI70TopTPM6IIGtX1mwKlcRiCI
+      short-id: 4eab9ebd1e55c997
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Mohsen-2a8a061728
       - 4Mohsen-1938a4032e
+      - 4FreeIran-76fa95a4c0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Mohsen-2a8a061728
       - 4Mohsen-1938a4032e
+      - 4FreeIran-76fa95a4c0
 rules:
   - MATCH,Proxy

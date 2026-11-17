@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 141.133.185.6
+    port: 443
+    uuid: ecf65acd-ea72-0002-be5f-cd23afb2722f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: files.vpvi.store
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 168.113.187.116
+    port: 443
+    uuid: ecf65acd-ea72-0002-be5f-cd23afb2722f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: files.vpvi.store
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: ⚡️
     server: 62.109.17.78
     port: 2058
@@ -28,30 +54,16 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-5ac6328ab7
-    server: 82.146.42.160
-    port: 2058
-    uuid: 4ad9f982-b56a-444a-9684-35ce51307a36
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: lJBsn9ndieTIUBzXkJUhf6O0OE8pm29_z1fUtARwL0s
-      short-id: 937255313d6ce673
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-d1ac859605
-    server: 168.113.187.116
+    name: 4Jadi-782b2c1b42
+    server: msk-01.freegate.win
     port: 443
-    uuid: ecf65acd-ea72-0002-be5f-cd23afb2722f
+    uuid: 8f9c04c9-5c94-495e-9452-ab8b7a8af1bc
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: files.vpvi.store
+    client-fingerprint: edge
+    servername: msk-01.freegate.win
+    reality-opts:
+      public-key: wDDyZZJfgJHB6OOrdpLgAk18P2j9tZrxgOxOB_s7Sws
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -59,19 +71,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - ⚡️
       - Napsternetvirani
-      - 4Sarina-5ac6328ab7
-      - 4Kian-d1ac859605
+      - 4Jadi-782b2c1b42
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - ⚡️
       - Napsternetvirani
-      - 4Sarina-5ac6328ab7
-      - 4Kian-d1ac859605
+      - 4Jadi-782b2c1b42
 rules:
   - MATCH,Proxy

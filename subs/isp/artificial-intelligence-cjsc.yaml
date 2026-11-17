@@ -1,0 +1,47 @@
+proxies:
+  - type: vless
+    name: vless
+    server: 193.111.205.104
+    port: 8443
+    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: media.study.golangwikito.cfd
+    port: 8443
+    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: static.study.golangwikito.cfd
+    port: 8443
+    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+      - vless-01
+      - vless-02
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+      - vless-01
+      - vless-02
+rules:
+  - MATCH,Proxy
