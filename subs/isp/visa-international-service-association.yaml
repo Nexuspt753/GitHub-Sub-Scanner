@@ -1,33 +1,33 @@
 proxies:
-  - type: trojan
-    name: 4Mohsen-51c5510f90
-    server: 199.68.156.221
-    port: 2087
-    password: QzVKeGlc2qYRxyzWb3xZFjHbqY2JmOfZ
+  - type: vless
+    name: 4FreeIran-b6369a4e94
+    server: amir.hossain.zare.auranique.ir
+    port: 443
+    uuid: 470e40df-8695-432b-9a66-264e68230477
     udp: true
     tls: true
-    sni: nexoastra.xnetaro.ir
+    client-fingerprint: ios
     alpn:
       - http/1.1
-    client-fingerprint: firefox
+    servername: somthing.uulko.ir
+    xudp: true
     network: ws
     ws-opts:
-      path: /wss
+      path: /xss/api/v3/5
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: nexoastra.xnetaro.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-51c5510f90
+      - 4FreeIran-b6369a4e94
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-51c5510f90
+      - 4FreeIran-b6369a4e94
 rules:
   - MATCH,Proxy

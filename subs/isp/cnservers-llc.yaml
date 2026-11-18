@@ -1,4 +1,11 @@
 proxies:
+  - type: hysteria2
+    name: 4Nika-daeb4b4f59
+    server: 5.181.219.131
+    port: 8443
+    password: w6qsn04S8jKUCJZRhVimSQ==
+    sni: bing.com
+    skip-cert-verify: true
   - type: vmess
     name: 4FreeIran-26cc23d424
     server: 23.224.101.102
@@ -16,37 +23,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 23.224.101.102
-  - type: vmess
-    name: 4Nika-a00e2c4d6b
-    server: 23.224.101.102
-    port: 443
-    uuid: 946ba5df-5771-4873-a3cb-892378526147
-    alterId: 64
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /footers
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.76126449.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-daeb4b4f59
       - 4FreeIran-26cc23d424
-      - 4Nika-a00e2c4d6b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-daeb4b4f59
       - 4FreeIran-26cc23d424
-      - 4Nika-a00e2c4d6b
 rules:
   - MATCH,Proxy

@@ -1,31 +1,47 @@
 proxies:
-  - type: vless
-    name: 4Sarina-7fc99af6be
-    server: proxyip.jp.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  - type: trojan
+    name: 4Nika-8d19eaf958
+    server: c-cm.jiasu.one
+    port: 16985
+    password: 5398a62d-6fae-465d-8ffe-19418a8b561e
     udp: true
     tls: true
+    sni: hk01.jiasu.one
     client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Sarina-33dd55b627
+    server: c-cm.jiasu.one
+    port: 56262
+    password: 5398a62d-6fae-465d-8ffe-19418a8b561e
+    udp: true
+    tls: true
+    sni: hk06.jiasu.one
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-be40225baa
+    server: c-cm.jiasu.one
+    port: 18534
+    password: f5b7d963-ec43-4515-8bd5-33cbcc5582ec
+    udp: true
+    tls: true
+    sni: us3tcone.jiasu.one
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-7fc99af6be
+      - 4Nika-8d19eaf958
+      - 4Sarina-33dd55b627
+      - 4Nika-be40225baa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-7fc99af6be
+      - 4Nika-8d19eaf958
+      - 4Sarina-33dd55b627
+      - 4Nika-be40225baa
 rules:
   - MATCH,Proxy

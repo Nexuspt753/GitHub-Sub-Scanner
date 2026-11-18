@@ -1,20 +1,5 @@
 proxies:
   - type: vless
-    name: 4FreeIran-c19f3e1e78
-    server: new1.sepidabad.com
-    port: 443
-    uuid: 796dfea9-c156-4e80-832c-d4853d290314
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: vless
     server: 85.9.114.245
     port: 2083
@@ -23,6 +8,25 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
+  - type: vless
+    name: 4Nika-365f34a3e5
+    server: string00.bot2.ir
+    port: 443
+    uuid: c57268f0-1afc-4830-9687-3497e1ee8363
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: string00.bot2.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: string00.bot2.ir
   - type: vless
     name: 4Kian-94e20f32a0
     server: 85.9.114.245
@@ -37,8 +41,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-c19f3e1e78
       - vless
+      - 4Nika-365f34a3e5
       - 4Kian-94e20f32a0
   - name: Auto
     type: url-test
@@ -46,8 +50,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-c19f3e1e78
       - vless
+      - 4Nika-365f34a3e5
       - 4Kian-94e20f32a0
 rules:
   - MATCH,Proxy

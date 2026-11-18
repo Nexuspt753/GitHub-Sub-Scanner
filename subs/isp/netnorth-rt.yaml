@@ -1,15 +1,4 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: tr-netherlands.unlimited-access.ru
-    port: 443
-    password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
-    udp: true
-    tls: true
-    sni: tr-netherlands.unlimited-access.ru
-    alpn:
-      - http/1.1
-    client-fingerprint: firefox
   - type: vless
     name: meliproxyy
     server: asure.win
@@ -38,22 +27,36 @@ proxies:
       short-id: de1d5c00b48cb395
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-2c1f2a3b8e
+    server: asure.win
+    port: 443
+    uuid: b9abca13-8d45-43db-b0a2-4d26f85380c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: asure.win
+    reality-opts:
+      public-key: hWCFExEaWdK89gLmGDQagZd2mlwOWLTcx38DlyNeShQ
+      short-id: de1d5c00b48cb395
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - meliproxyy
       - 🇩🇪All⁵
+      - 4Mohsen-2c1f2a3b8e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - meliproxyy
       - 🇩🇪All⁵
+      - 4Mohsen-2c1f2a3b8e
 rules:
   - MATCH,Proxy

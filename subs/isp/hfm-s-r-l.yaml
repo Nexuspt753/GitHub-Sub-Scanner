@@ -1,27 +1,28 @@
 proxies:
-  - type: trojan
-    name: 4FreeIran-b469185ad2
-    server: de4.dedushka.top
-    port: 443
-    password: 4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA
+  - type: vless
+    name: 4Nika-232297c324
+    server: deployedhazde.shimobile.net
+    port: 8443
+    uuid: 1b0b1650-5125-43a1-a6bb-9886623f4bf9
     udp: true
     tls: true
-    sni: de4.dedushka.top
-    alpn:
-      - http/1.1
     client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-b469185ad2
+      - 4Nika-232297c324
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-b469185ad2
+      - 4Nika-232297c324
 rules:
   - MATCH,Proxy

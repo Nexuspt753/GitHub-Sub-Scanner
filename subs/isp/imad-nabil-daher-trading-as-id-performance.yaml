@@ -1,6 +1,42 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: alireza.karamoz1.ir
+    port: 443
+    password: poimnap
+    udp: true
+    tls: true
+    sni: alireza.karamoz1.ir
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
+    name: Nexus_Panell
+    server: alireza.karamoz1.ir
+    port: 443
+    password: poimnap
+    udp: true
+    tls: true
+    sni: alireza.karamoz1.ir
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
     name: V2rayNPVTConfig
+    server: alireza.karamoz1.ir
+    port: 443
+    password: poimnap
+    udp: true
+    tls: true
+    sni: alireza.karamoz1.ir
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
+    name: Channel
     server: alireza.karamoz1.ir
     port: 443
     password: poimnap
@@ -23,20 +59,46 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: 4Kian-d72417ccd1
+    server: ggggoods.brand-netprime.com
+    port: 2087
+    uuid: 16571fd5-5c8a-44ae-99fa-a354565e500b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: b5.dl-netprime.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws-tls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: b5.dl-netprime.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - Nexus_Panell
       - V2rayNPVTConfig
+      - Channel
       - 4Nika-679bf26bcc
+      - 4Kian-d72417ccd1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - Nexus_Panell
       - V2rayNPVTConfig
+      - Channel
       - 4Nika-679bf26bcc
+      - 4Kian-d72417ccd1
 rules:
   - MATCH,Proxy
