@@ -1,4 +1,18 @@
 proxies:
+  - type: trojan
+    name: 4Kian-7f73627249
+    server: 80.211.238.61
+    port: 8443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4Sarina-642d511626
     server: 188.213.170.198
@@ -36,6 +50,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-7f73627249
       - 4Sarina-642d511626
       - 4Kian-50c9d6b8e9
   - name: Auto
@@ -44,6 +59,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-7f73627249
       - 4Sarina-642d511626
       - 4Kian-50c9d6b8e9
 rules:

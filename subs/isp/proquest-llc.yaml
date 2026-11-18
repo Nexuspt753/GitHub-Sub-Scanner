@@ -1,16 +1,30 @@
 proxies:
   - type: trojan
-    name: 4Kian-1ffe052089
+    name: 4FreeIran-5e6c4dd251
     server: 165.215.250.14
     port: 443
     password: humanity
     udp: true
     tls: true
-    sni: www.calmlunch.com
+    sni: www.ignitelimit.com
     client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /assignment
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Jadi-9a4ac0d528
+    server: 165.215.250.14
+    port: 443
+    password: humanity
+    udp: true
+    tls: true
+    sni: www.ignitelimit.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "%2Fassignment"
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-1ffe052089
+      - 4FreeIran-5e6c4dd251
+      - 4Jadi-9a4ac0d528
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-1ffe052089
+      - 4FreeIran-5e6c4dd251
+      - 4Jadi-9a4ac0d528
 rules:
   - MATCH,Proxy

@@ -1,73 +1,5 @@
 proxies:
   - type: vless
-    name: 4Mohsen-6ee56eed2e
-    server: 5.157.30.28
-    port: 8443
-    uuid: 4859c235-2530-4062-9a0b-ea859cbbf861
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: 1.proxy2.us.ci.
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 1.proxy2.us.ci.
-  - type: vless
-    name: 4Jadi-69bd0849ca
-    server: 5.157.30.28
-    port: 8443
-    uuid: 4859c235-2530-4062-9a0b-ea859cbbf861
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    servername: 1.proxy2.us.ci.
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560fp=ios
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 1.proxy2.us.ci.
-  - type: vless
-    name: 4Kian-616e28a8d9
-    server: 5.157.30.26
-    port: 8443
-    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: us-lax.862400.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /announcement?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: us-lax.862400.xyz
-  - type: vless
-    name: 4Mohsen-47f2b38341
-    server: 5.157.30.26
-    port: 8443
-    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: us-lax.862400.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /announcement?ed=2048fp=random
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: us-lax.862400.xyz
-  - type: vless
     name: 4Kian-a9d847dc57
     server: 5.157.30.28
     port: 8443
@@ -99,46 +31,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: it-mil.862400.xyz
-  - type: vless
-    name: 4Mohsen-f5765b37eb
-    server: 5.157.30.2
-    port: 8443
-    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: it-mil.862400.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /announcement?ed=2048fp=random
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: it-mil.862400.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-6ee56eed2e
-      - 4Jadi-69bd0849ca
-      - 4Kian-616e28a8d9
-      - 4Mohsen-47f2b38341
       - 4Kian-a9d847dc57
       - 4FreeIran-9c5283fc12
-      - 4Mohsen-f5765b37eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-6ee56eed2e
-      - 4Jadi-69bd0849ca
-      - 4Kian-616e28a8d9
-      - 4Mohsen-47f2b38341
       - 4Kian-a9d847dc57
       - 4FreeIran-9c5283fc12
-      - 4Mohsen-f5765b37eb
 rules:
   - MATCH,Proxy

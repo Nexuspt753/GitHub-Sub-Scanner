@@ -1,22 +1,16 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: official.seoulcitygovernment.com.ua
-    port: 8443
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+    server: 02a.seoulcitygovernment.com.ua
+    port: 2050
+    password: 6e1b9a65-884f-3aa9-9469-bf6ec0f08610
     udp: true
     tls: true
+    sni: 45.32.28.232
     client-fingerprint: chrome
-  - type: ss
-    name: 4Nika-ba1c71919c
-    server: 49.254.204.133
-    port: 1774
-    cipher: aes-256-cfb
-    password: 1234!@#$
-    udp: true
   - type: trojan
     name: DeltaKroneckerGithub-01
-    server: official.seoulcityhall.com.ua
+    server: official.seoulcitygovernment.com.ua
     port: 8443
     password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
     udp: true
@@ -24,6 +18,14 @@ proxies:
     client-fingerprint: chrome
   - type: trojan
     name: DeltaKroneckerGithub-02
+    server: official.seoulcityhall.com.ua
+    port: 8443
+    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-03
     server: official.seoulcityhall.com.ua
     port: 2053
     password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
@@ -54,8 +56,17 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
+  - type: trojan
+    name: DeltaKroneckerGithub-04
+    server: 01a.seoulcityhall.com.ua
+    port: 2051
+    password: 6e1b9a65-884f-3aa9-9469-bf6ec0f08610
+    udp: true
+    tls: true
+    sni: 45.32.28.232
+    client-fingerprint: chrome
   - type: ss
-    name: DeltaKroneckerGithub-03
+    name: DeltaKroneckerGithub-05
     server: 121.178.202.91
     port: 12380
     cipher: none
@@ -67,13 +78,14 @@ proxy-groups:
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Nika-ba1c71919c
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Nika-53146af5e0
       - 4Jadi-2153b0cbd5
       - 4Jadi-17aaaf7f7f
-      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -81,12 +93,13 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Nika-ba1c71919c
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - 4Nika-53146af5e0
       - 4Jadi-2153b0cbd5
       - 4Jadi-17aaaf7f7f
-      - DeltaKroneckerGithub-03
+      - DeltaKroneckerGithub-04
+      - DeltaKroneckerGithub-05
 rules:
   - MATCH,Proxy

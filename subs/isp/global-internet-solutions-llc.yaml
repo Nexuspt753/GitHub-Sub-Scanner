@@ -1,29 +1,40 @@
 proxies:
   - type: vless
-    name: 4Sarina-4f918730f3
-    server: 138.124.76.103
-    port: 8080
-    uuid: FastKey_160283
+    name: 4Nika-f0573f9daf
+    server: 89.221.203.29
+    port: 443
+    uuid: a346c521-7a7f-452b-9356-a4893feb5982
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ru2-r.bankai.party
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /api
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: google.com
+  - type: vless
+    name: 4Jadi-1cddb2ddac
+    server: ru1.japancase.site
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: ru1.japancase.site
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-4f918730f3
+      - 4Nika-f0573f9daf
+      - 4Jadi-1cddb2ddac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-4f918730f3
+      - 4Nika-f0573f9daf
+      - 4Jadi-1cddb2ddac
 rules:
   - MATCH,Proxy

@@ -14,6 +14,20 @@ proxies:
     sni: germany1.h2corp.local
     skip-cert-verify: true
   - type: vless
+    name: 4Mohsen-4f1dc8f3d1
+    server: 31.77.236.131
+    port: 443
+    uuid: 02655447-4659-41df-8d0e-d23a3035b7cb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ee.nebulaguard.org
+    reality-opts:
+      public-key: OjB-nOB0_ebRS3ZUo8RS68vzup_1OKjpjIZimXaRvXU
+      short-id: d3c6409a7b0dae17
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-358bca7dde
     server: de.vz-or.com
     port: 443
@@ -25,31 +39,6 @@ proxies:
       path: /api
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Sarina-801ec9e413
-    server: fi.vz-or.com
-    port: 443
-    uuid: 0cc6c31c-e606-4099-86ed-1710ca2cd532
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Kian-f7527238d6
-    server: 5.83.129.236
-    port: 443
-    uuid: d86e6fda-e519-46ab-98eb-9ff9a9da5984
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: host-de-upscale.cdn.cachefleet.com
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
@@ -57,9 +46,8 @@ proxy-groups:
       - Auto
       - 4FreeIran-1d9532d837
       - 4Jadi-0cf0045940
+      - 4Mohsen-4f1dc8f3d1
       - 4Jadi-358bca7dde
-      - 4Sarina-801ec9e413
-      - 4Kian-f7527238d6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,8 +56,7 @@ proxy-groups:
     proxies:
       - 4FreeIran-1d9532d837
       - 4Jadi-0cf0045940
+      - 4Mohsen-4f1dc8f3d1
       - 4Jadi-358bca7dde
-      - 4Sarina-801ec9e413
-      - 4Kian-f7527238d6
 rules:
   - MATCH,Proxy

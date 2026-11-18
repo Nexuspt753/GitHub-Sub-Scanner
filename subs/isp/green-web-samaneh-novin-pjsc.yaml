@@ -1,30 +1,33 @@
 proxies:
   - type: vless
-    name: 4Sarina-add60dac64
-    server: kfl3.persian2xl.ir
-    port: 441
-    uuid: cd370c03-93f6-475e-9820-f4aac2a98e0c
+    name: 4Mohsen-54265e83a2
+    server: 185.255.90.193
+    port: 443
+    uuid: Inetiran
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: amp-api-edge.apps.apple.com
-    reality-opts:
-      public-key: 3QJXjqrXn0KFT0xb_-evN_sh_GbQsP9E--RNJ5yODyg
-      short-id: b208279d87742f98
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: ryanserver.ir
     xudp: true
+    network: ws
+    ws-opts:
+      path: /backhaul-209e18c7d6142c48
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-add60dac64
+      - 4Mohsen-54265e83a2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-add60dac64
+      - 4Mohsen-54265e83a2
 rules:
   - MATCH,Proxy

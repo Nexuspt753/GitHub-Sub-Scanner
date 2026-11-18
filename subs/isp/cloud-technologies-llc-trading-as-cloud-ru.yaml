@@ -30,34 +30,37 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Mohsen-b969514bea
-    server: 213.171.31.83
+    name: 4Sarina-0a6fedbeeb
+    server: 87.242.94.42
     port: 443
-    uuid: 77146066-6f06-0001-bced-d2b73668de07
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    alpn:
-      - h2
-      - http/1.1
-    servername: cffhi-ru-46sb.fade.mom
-    xudp: true
-  - type: vless
-    name: 4Sarina-6ee4705ce5
-    server: fr4.mts-cdn.ru
-    port: 443
-    uuid: c15d2785-dab4-451d-aded-d4f3994453d3
+    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: fr4.mts-cdn.ru
-    reality-opts:
-      public-key: s9ECEaTYJQxacIQRKATAT6w4nAHv7PWPbeSjebjbJTA
-      short-id: fa88c11e5a70bb00
+    servername: 87.242.94.42
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /cart/sync/iJa-_8Pi4FjK
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 87.242.94.42
+  - type: vless
+    name: 4Nika-43bf9811b2
+    server: 87.242.94.43
+    port: 443
+    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 87.242.94.43
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v2/session/CAgikYAkk4z7
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 87.242.94.43
 proxy-groups:
   - name: Proxy
     type: select
@@ -65,8 +68,8 @@ proxy-groups:
       - Auto
       - 4Sarina-7e57847429
       - VPsave
-      - 4Mohsen-b969514bea
-      - 4Sarina-6ee4705ce5
+      - 4Sarina-0a6fedbeeb
+      - 4Nika-43bf9811b2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -75,7 +78,7 @@ proxy-groups:
     proxies:
       - 4Sarina-7e57847429
       - VPsave
-      - 4Mohsen-b969514bea
-      - 4Sarina-6ee4705ce5
+      - 4Sarina-0a6fedbeeb
+      - 4Nika-43bf9811b2
 rules:
   - MATCH,Proxy

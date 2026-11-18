@@ -15,29 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Nika-f1985c77b6
-    server: adgof.mgodping12.xyz
-    port: 2087
-    uuid: 39e3455f-f411-4f29-b506-40539ae8aaec
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - VPsave
-      - 4Nika-f1985c77b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - VPsave
-      - 4Nika-f1985c77b6
 rules:
   - MATCH,Proxy

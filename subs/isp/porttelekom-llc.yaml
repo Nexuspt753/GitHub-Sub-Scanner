@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-cb3d379780
+    server: 45.135.232.36
+    port: 443
+    uuid: b1d36fd9-bf3b-4f97-b274-90d5ef65c0ce
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ap-northeast-1.gameweplay.shop
+    reality-opts:
+      public-key: pN_NVb-0Jr3rDMno5eSw5XAlxm6vFUesWx2Kduoe7y8
+      short-id: 069e42ee
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-cb3d379780
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-cb3d379780
+rules:
+  - MATCH,Proxy
