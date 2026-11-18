@@ -1,32 +1,29 @@
 proxies:
-  - type: ss
-    name: DeltaKroneckerGithub
+  - type: vless
+    name: 4Nika-5118e5a501
     server: 31.171.155.50
-    port: 10394
-    cipher: aes-128-gcm
-    password: 16e3d1d2200f8bb68feed164ef43a021
+    port: 443
+    uuid: a62e2eb6-d856-4710-9f9c-5c3d11cbf25a
     udp: true
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 31.171.155.50
-    port: 10394
-    cipher: aes-128-gcm
-    password: 16e3d1d2200f8bb68feed164ef43a021
-    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: wN3kA3qfTAb0xc7OxCuGNm97ys0ZyO5yav62022dDBk
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-5118e5a501
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
+      - 4Nika-5118e5a501
 rules:
   - MATCH,Proxy

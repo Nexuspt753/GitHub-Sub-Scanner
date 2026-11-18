@@ -1,0 +1,104 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: cloudehouse24.ru
+    port: 8443
+    uuid: fa937345-6d3e-4ff4-8127-1a836987a0db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudehouse24.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1/assets/7c3f9a2e6b4d8f10/nl.js
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudehouse24.ru
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 186.243.218.221
+    port: 8443
+    uuid: fa937345-6d3e-4ff4-8127-1a836987a0db
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cloudehouse24.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1/assets/7c3f9a2e6b4d8f10/us.js
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudehouse24.ru
+  - type: vless
+    name: 4Sarina-15df8ad056
+    server: 186.243.218.221
+    port: 8443
+    uuid: fa937345-6d3e-4ff4-8127-1a836987a0db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudehouse24.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1/assets/7c3f9a2e6b4d8f10/us.js
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudehouse24.ru
+  - type: vless
+    name: 4FreeIran-b72e914644
+    server: 186.243.218.221
+    port: 8443
+    uuid: fa937345-6d3e-4ff4-8127-1a836987a0db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudehouse24.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1/assets/7c3f9a2e6b4d8f10/us.jsfp=firefox
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudehouse24.ru
+  - type: vless
+    name: 4Sarina-a12093a6d1
+    server: cloudehouse24.ru
+    port: 8443
+    uuid: fa937345-6d3e-4ff4-8127-1a836987a0db
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cloudehouse24.ru
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /v1/assets/7c3f9a2e6b4d8f10/nl.js
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cloudehouse24.ru
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Sarina-15df8ad056
+      - 4FreeIran-b72e914644
+      - 4Sarina-a12093a6d1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Sarina-15df8ad056
+      - 4FreeIran-b72e914644
+      - 4Sarina-a12093a6d1
+rules:
+  - MATCH,Proxy

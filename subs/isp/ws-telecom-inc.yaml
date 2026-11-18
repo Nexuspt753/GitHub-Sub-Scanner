@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Sarina-136af64ef3
+    server: 185.112.56.83
+    port: 8443
+    uuid: 019832a7-9376-445a-ba66-76ee9df0685d
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-136af64ef3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-136af64ef3
+rules:
+  - MATCH,Proxy

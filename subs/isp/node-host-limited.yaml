@@ -1,10 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Sarina-45b2025094
-    server: 81.90.17.166
-    port: 443
-    password: lCk4_xMXmmLQV45zGLuQ5BRmzKEHDU8Q
-    sni: assets.stackbase-dev.com
   - type: vless
     name: Tarkahodeh
     server: 194.238.57.23
@@ -32,14 +26,34 @@ proxies:
     servername: nl.krabvpn.pro
     xudp: true
   - type: vless
-    name: 4Sarina-69c885e62f
-    server: 191.217.205.175
-    port: 8443
+    name: 4Kian-9862c18cb1
+    server: 191.217.206.147
+    port: 6443
     uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: de.krabvpn.pro
+    servername: nl.krabvpn.pro
+    xudp: true
+  - type: vless
+    name: 4Sarina-99d89e1847
+    server: 191.217.206.147
+    port: 7443
+    uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: pl-origin.krabvpn.pro
+    xudp: true
+  - type: vless
+    name: 4Kian-b3d25faeaa
+    server: 191.217.206.147
+    port: 9443
+    uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fin.krabvpn.pro
     xudp: true
   - type: vless
     name: 4FreeIran-aedd5ad05d
@@ -57,26 +71,59 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-216a365f04
+    server: 191.44.112.170
+    port: 443
+    uuid: 46d221fa-e9b4-748c-4eae-019a88e42991
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: orbylume.my.to
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tvpn-tor/is
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: orbylume.my.to
+  - type: vless
+    name: 4Nika-29c2a6efce
+    server: fi.quic.best
+    port: 443
+    uuid: c2331311-c9fd-4af9-8f34-7a9edcee3b92
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fi.quic.best
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-45b2025094
       - Tarkahodeh
       - 4Jadi-67c9752fd5
-      - 4Sarina-69c885e62f
+      - 4Kian-9862c18cb1
+      - 4Sarina-99d89e1847
+      - 4Kian-b3d25faeaa
       - 4FreeIran-aedd5ad05d
+      - 4Jadi-216a365f04
+      - 4Nika-29c2a6efce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-45b2025094
       - Tarkahodeh
       - 4Jadi-67c9752fd5
-      - 4Sarina-69c885e62f
+      - 4Kian-9862c18cb1
+      - 4Sarina-99d89e1847
+      - 4Kian-b3d25faeaa
       - 4FreeIran-aedd5ad05d
+      - 4Jadi-216a365f04
+      - 4Nika-29c2a6efce
 rules:
   - MATCH,Proxy

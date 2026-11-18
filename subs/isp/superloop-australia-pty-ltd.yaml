@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: jp-osa.862400.xyz
+  - type: vless
+    name: 4Mohsen-dc1fd677d7
+    server: 202.27.229.7
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: jp-osa.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp-osa.862400.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-5eac68d3a4
+      - 4Mohsen-dc1fd677d7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-5eac68d3a4
+      - 4Mohsen-dc1fd677d7
 rules:
   - MATCH,Proxy

@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: ir1.wufpel.ir
+    port: 443
+    password: GbeGE_MwDQ_2Q_0b9RgdZd07ChS3mMLz
+    udp: true
+    tls: true
+    sni: bf0264eb50014997.wufpel.ir
+    client-fingerprint: chrome
   - type: vless
     name: 4Kian-b2395d6cd2
     server: ir2.cryptojakiro.com
@@ -31,38 +40,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ir2.cryptojakiro.com
-  - type: vmess
-    name: 4Kian-8e27ed4e7f
-    server: rma2.rmaaccshop.ir
-    port: 12146
-    uuid: 83c21735-22a2-4b90-8457-365a6e7fef15
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-b2395d6cd2
       - 4Nika-5a80f071ab
-      - 4Kian-8e27ed4e7f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-b2395d6cd2
       - 4Nika-5a80f071ab
-      - 4Kian-8e27ed4e7f
 rules:
   - MATCH,Proxy

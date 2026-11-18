@@ -1,6 +1,13 @@
 proxies:
+  - type: ss
+    name: 12882@proxy_online_net
+    server: 104.192.227.162
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 91LFVJhY6a7f8KeJPeuYln
+    udp: true
   - type: trojan
-    name: 4Jadi-99d41d2f54
+    name: DeltaKroneckerGithub
     server: 66.23.203.21
     port: 59689
     password: ae7eb4dwyaz25pxwgq59
@@ -11,13 +18,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-99d41d2f54
+      - 12882@proxy_online_net
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-99d41d2f54
+      - 12882@proxy_online_net
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

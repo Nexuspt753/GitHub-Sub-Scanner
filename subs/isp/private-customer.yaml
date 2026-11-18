@@ -1,5 +1,49 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 31.58.213.235
+    port: 443
+    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: app.streamru3.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.58.213.201
+    port: 443
+    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: app.streamru1.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: app.streamru2.net
+    port: 443
+    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: app.streamru2.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 31.58.213.31
+    port: 443
+    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: app.streamru2.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: VPsave
     server: 31.58.213.31
     port: 443
@@ -22,14 +66,14 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-15dc8a834b
-    server: 31.58.213.201
+    name: 4Nika-c603f54171
+    server: 31.58.213.235
     port: 443
     uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: app.streamru1.com
+    servername: app.streamru3.net
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -48,9 +92,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - VPsave
       - 4Kian-54f7040e1f
-      - 4Jadi-15dc8a834b
+      - 4Nika-c603f54171
       - 4Jadi-283de1a3dc
   - name: Auto
     type: url-test
@@ -58,9 +106,13 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
       - VPsave
       - 4Kian-54f7040e1f
-      - 4Jadi-15dc8a834b
+      - 4Nika-c603f54171
       - 4Jadi-283de1a3dc
 rules:
   - MATCH,Proxy

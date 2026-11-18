@@ -6,12 +6,31 @@ proxies:
     uuid: 9180bf15-4f24-be1c-aecd-994c8ad22377
     udp: true
     xudp: true
+  - type: vless
+    name: 4Mohsen-a80d89477c
+    server: palangsorati.buxtep.ir
+    port: 28443
+    uuid: ab671d2b-1969-a168-c2fa-2cf714b44828
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: palangsorati.buxtep.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws28443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: palangsorati.buxtep.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-a330b70767
+      - 4Mohsen-a80d89477c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-a330b70767
+      - 4Mohsen-a80d89477c
 rules:
   - MATCH,Proxy

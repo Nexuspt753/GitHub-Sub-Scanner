@@ -1,32 +1,48 @@
 proxies:
-  - type: vless
-    name: 4Jadi-634b9cab16
+  - type: trojan
+    name: ᴛᴇʟᴇɢʀᴀᴍ
     server: 94.43.238.112
     port: 2053
-    uuid: 9c55c7eb-d53e-40fa-a0c9-e25d2a345073
+    password: f426d3c9-fb43-43c0-868b-898dfa451a74
     udp: true
     tls: true
+    sni: likejennie.pages.dev
     client-fingerprint: chrome
-    servername: jp-osa.862400.xyz
-    xudp: true
     network: ws
     ws-opts:
-      path: /announcement?ed=2048fp=random
+      path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp-osa.862400.xyz
+        Host: likejennie.pages.dev
+  - type: trojan
+    name: 4Jadi-abc7338f92
+    server: 94.43.238.112
+    port: 2053
+    password: f426d3c9-fb43-43c0-868b-898dfa451a74
+    udp: true
+    tls: true
+    sni: likejennie.pages.dev
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: likejennie.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-634b9cab16
+      - ᴛᴇʟᴇɢʀᴀᴍ
+      - 4Jadi-abc7338f92
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-634b9cab16
+      - ᴛᴇʟᴇɢʀᴀᴍ
+      - 4Jadi-abc7338f92
 rules:
   - MATCH,Proxy

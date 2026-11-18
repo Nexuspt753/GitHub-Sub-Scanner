@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-5e0eebb6d7
+    server: 200.180.163.38
+    port: 443
+    uuid: 5bbbbf2c-9031-4511-8222-b6cecd5a5291
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: it-mil.862400.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /announcement?ed=2048
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: it-mil.862400.xyz
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-5e0eebb6d7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-5e0eebb6d7
+rules:
+  - MATCH,Proxy

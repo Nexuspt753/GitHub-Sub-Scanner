@@ -1,5 +1,22 @@
 proxies:
   - type: vmess
+    name: 4Jadi-afc31c015d
+    server: hohm.microsoft.com
+    port: 443
+    uuid: 2b214122-1906-428a-bbb7-a039cbb7cd5c
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /9JZFDTKE
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fr1.trump2023.org
+  - type: vmess
     name: 4Mohsen-3f57c581ea
     server: hohm.microsoft.com
     port: 443
@@ -16,37 +33,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: hohm.microsoft.com
-  - type: vmess
-    name: 4FreeIran-5bc2bdea43
-    server: us3.31vpn.com
-    port: 443
-    uuid: 2ef64dc8-ca3c-45b8-ad5f-20871452143b
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /fastssh/3102637493qqcom/626cf7d8bd49b/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: us3.31vpn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-afc31c015d
       - 4Mohsen-3f57c581ea
-      - 4FreeIran-5bc2bdea43
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-afc31c015d
       - 4Mohsen-3f57c581ea
-      - 4FreeIran-5bc2bdea43
 rules:
   - MATCH,Proxy
