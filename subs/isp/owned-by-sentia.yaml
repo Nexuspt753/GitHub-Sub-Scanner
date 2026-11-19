@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-3eb12b6588
+    server: 85.92.157.67
+    port: 6443
+    uuid: 67864856-8730-40cc-9e1a-a0df697d912b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl.krabvpn.pro
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-3eb12b6588
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-3eb12b6588
+rules:
+  - MATCH,Proxy

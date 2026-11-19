@@ -99,17 +99,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-6f64ed6d47
-    server: app.streamru1.com
-    port: 443
-    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: app.streamru1.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Mohsen-cc2e6757f4
     server: app.streamru2.net
     port: 443
@@ -120,17 +109,24 @@ proxies:
     servername: app.streamru2.net
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-308724e22a
-    server: app.streamru3.net
-    port: 443
-    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+  - type: vmess
+    name: 4Jadi-891604cb23
+    server: 151.242.165.160
+    port: 6233
+    uuid: c3d17f1d-9201-4644-b184-6cd1414c6cc5
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: app.streamru3.net
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: v47.emnode.top
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v47.emnode.top
 proxy-groups:
   - name: Proxy
     type: select
@@ -145,9 +141,8 @@ proxy-groups:
       - 4FreeIran-5581cddc5b
       - 4Nika-c603f54171
       - 4Jadi-7d4c993f7b
-      - 4Mohsen-6f64ed6d47
       - 4Mohsen-cc2e6757f4
-      - 4Kian-308724e22a
+      - 4Jadi-891604cb23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -163,8 +158,7 @@ proxy-groups:
       - 4FreeIran-5581cddc5b
       - 4Nika-c603f54171
       - 4Jadi-7d4c993f7b
-      - 4Mohsen-6f64ed6d47
       - 4Mohsen-cc2e6757f4
-      - 4Kian-308724e22a
+      - 4Jadi-891604cb23
 rules:
   - MATCH,Proxy

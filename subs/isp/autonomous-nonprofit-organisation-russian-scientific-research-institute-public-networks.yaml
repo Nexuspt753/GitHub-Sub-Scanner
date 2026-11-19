@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-58dc89da5a
+    server: 195.208.122.2
+    port: 58621
+    uuid: 7472fc58-115e-4e04-929e-1582daf2abd0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cms.troppa.ru
+    reality-opts:
+      public-key: 8JD7bhqKJgJPZDzzNqHWh13SaTbhstZ7dvbGr6eMHVY
+      short-id: 5e22ef91
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-58dc89da5a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-58dc89da5a
+rules:
+  - MATCH,Proxy

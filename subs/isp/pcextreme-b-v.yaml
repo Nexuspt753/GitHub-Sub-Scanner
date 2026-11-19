@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Sarina-0c73a942f9
+    server: host_1.tufqav.ir
+    port: 8080
+    uuid: 827422fa-e588-cf09-e6bc-b3dffba2a61a
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-0c73a942f9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-0c73a942f9
+rules:
+  - MATCH,Proxy

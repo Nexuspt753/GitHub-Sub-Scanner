@@ -28,10 +28,10 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-3f71a6ab9b
+    name: 4Nika-ea3665c55c
     server: ir.rokoi.ir
     port: 8456
-    uuid: b1d3c720-cff0-4b76-8d6f-5bd34dfd7baf
+    uuid: be6bdfe1-fbdf-48a3-b93c-7b35bf39b9ca
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -57,6 +57,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: play.google.com
+  - type: vmess
+    name: 4Sarina-21cc875c63
+    server: tun1.warzhost.ir
+    port: 2082
+    uuid: c6685dbb-ded3-4c3c-b2c5-f631892a3fe6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
@@ -64,8 +80,9 @@ proxy-groups:
       - Auto
       - 4Mohsen-1dafb11179
       - 4FreeIran-6dfc5f00d4
-      - 4Jadi-3f71a6ab9b
+      - 4Nika-ea3665c55c
       - 4Jadi-a7cbeb551a
+      - 4Sarina-21cc875c63
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -74,7 +91,8 @@ proxy-groups:
     proxies:
       - 4Mohsen-1dafb11179
       - 4FreeIran-6dfc5f00d4
-      - 4Jadi-3f71a6ab9b
+      - 4Nika-ea3665c55c
       - 4Jadi-a7cbeb551a
+      - 4Sarina-21cc875c63
 rules:
   - MATCH,Proxy

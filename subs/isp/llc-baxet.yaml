@@ -1,41 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-bbd9c29775
-    server: 185.22.153.214
-    port: 8080
-    uuid: FastKey_395604
+  - type: ss
+    name: 4Nika-8c2c0747a7
+    server: 45.135.134.68
+    port: 18443
+    cipher: aes-256-gcm
+    password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
     udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: google.com
-  - type: vless
-    name: 4Sarina-607edc2867
-    server: 46.17.47.121
-    port: 8080
-    uuid: FastKey_803815
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-bbd9c29775
-      - 4Sarina-607edc2867
+      - 4Nika-8c2c0747a7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-bbd9c29775
-      - 4Sarina-607edc2867
+      - 4Nika-8c2c0747a7
 rules:
   - MATCH,Proxy

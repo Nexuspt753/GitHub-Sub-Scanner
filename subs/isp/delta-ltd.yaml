@@ -13,12 +13,42 @@ proxies:
       short-id: ee4ea980
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: VPsave
+    server: 95.182.110.134
+    port: 8443
+    uuid: f18c5f6d-2bac-4a99-8c92-a6e6e7aea9b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr.atlanta-api.com
+    reality-opts:
+      public-key: dJqaQL_kSl2DFR7Dx3igZXhPuw1uW9d7XejtyYSvkGg
+      short-id: aaa2ba7d45c12957
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ᴛᴇʟᴇɢʀᴀᴍ
+    server: 95.182.110.134
+    port: 8443
+    uuid: f18c5f6d-2bac-4a99-8c92-a6e6e7aea9b4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fr.atlanta-api.com
+    reality-opts:
+      public-key: dJqaQL_kSl2DFR7Dx3igZXhPuw1uW9d7XejtyYSvkGg
+      short-id: aaa2ba7d45c12957
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - VPsave
+      - ᴛᴇʟᴇɢʀᴀᴍ
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - VPsave
+      - ᴛᴇʟᴇɢʀᴀᴍ
 rules:
   - MATCH,Proxy

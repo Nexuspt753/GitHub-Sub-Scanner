@@ -10,31 +10,12 @@ proxies:
     servername: pulse.sevka.xyz
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Kian-592f36cc46
-    server: 144.31.34.146
-    port: 2096
-    uuid: 6e05822a-e9da-4135-a9db-71aa07a944af
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: fi1.merky.one
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /mky-ws-4f19c8a7
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fi1.merky.one
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-79f9194464
-      - 4Kian-592f36cc46
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-79f9194464
-      - 4Kian-592f36cc46
 rules:
   - MATCH,Proxy

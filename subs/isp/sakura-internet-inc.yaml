@@ -8,6 +8,13 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
+    name: DeltaKroneckerGithub-01
+    server: 49.212.193.129
+    port: 443
+    password: "!str18844"
+    udp: true
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Kian-08e09d6eb6
     server: trs12.bolab.net
     port: 443
@@ -16,7 +23,7 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: DeltaKroneckerGithub-01
+    name: DeltaKroneckerGithub-02
     server: tk-tr-4.cats22.net
     port: 443
     password: 18844@zxcvbn
@@ -24,31 +31,15 @@ proxies:
     tls: true
     sni: tk-tr-4.cats22.net
     client-fingerprint: chrome
-  - type: vless
-    name: 4Kian-510edbc26f
-    server: proxyip.jp.cmliussss.net
-    port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vp10.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp10.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Kian-08e09d6eb6
       - DeltaKroneckerGithub-01
-      - 4Kian-510edbc26f
+      - 4Kian-08e09d6eb6
+      - DeltaKroneckerGithub-02
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -56,8 +47,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Kian-08e09d6eb6
       - DeltaKroneckerGithub-01
-      - 4Kian-510edbc26f
+      - 4Kian-08e09d6eb6
+      - DeltaKroneckerGithub-02
 rules:
   - MATCH,Proxy
