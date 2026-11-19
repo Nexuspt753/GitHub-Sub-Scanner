@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-4b628caa26
+    server: 163.52.57.12
+    port: 443
+    uuid: 31e407b3-6e1e-425f-98ea-fcf8f494c6a0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: s3-eu-west.livemusic.ac
+    reality-opts:
+      public-key: yDLpNGQCt1s8neJIqj77glhomdvApz7eM8SGCYQy1l0
+      short-id: 4e17ada10ab69656
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-4b628caa26
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-4b628caa26
+rules:
+  - MATCH,Proxy

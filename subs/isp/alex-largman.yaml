@@ -1,36 +1,6 @@
 proxies:
   - type: vless
-    name: 4Jadi-ce6793877a
-    server: 122.8.92.4
-    port: 8443
-    uuid: 0e23fd15-184f-9c40-4f25-9a488061cff4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.philips.com
-    reality-opts:
-      public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Nika-ea096e1755
-    server: 122.8.47.2
-    port: 8443
-    uuid: d3eb3931-e23f-eff3-1a72-71314a98f80f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.hp.com
-    reality-opts:
-      public-key: QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Nika-a359753dca
     server: 122.8.47.2
     port: 8443
     uuid: d3eb3931-e23f-eff3-1a72-71314a98f80f
@@ -49,17 +19,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-ce6793877a
       - 4Nika-ea096e1755
-      - 4Nika-a359753dca
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-ce6793877a
       - 4Nika-ea096e1755
-      - 4Nika-a359753dca
 rules:
   - MATCH,Proxy

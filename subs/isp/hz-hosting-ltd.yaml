@@ -1,6 +1,18 @@
 proxies:
   - type: vless
-    name: 4Nika-671ea80372
+    name: 4Mohsen-196f3c6166
+    server: it.monkora.org
+    port: 443
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: example.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    xudp: true
+  - type: vless
+    name: VEGAAS_VPN
     server: de2.rvpn.online
     port: 443
     uuid: fI1Q0aGcfyNupG
@@ -18,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-671ea80372
+      - 4Mohsen-196f3c6166
+      - VEGAAS_VPN
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-671ea80372
+      - 4Mohsen-196f3c6166
+      - VEGAAS_VPN
 rules:
   - MATCH,Proxy

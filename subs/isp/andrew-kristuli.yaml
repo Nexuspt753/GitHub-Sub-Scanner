@@ -1,30 +1,28 @@
 proxies:
   - type: vless
-    name: 4Kian-bac3626293
-    server: 85.155.228.24
-    port: 443
-    uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+    name: 4Nika-b7d8d35de1
+    server: 85.155.228.30
+    port: 8080
+    uuid: 64526f52-9f3e-4ae8-b090-2a794f8cc4e0
     udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: alda1.thewalkingded.life
-    reality-opts:
-      public-key: 2IBUcPHOhFulmJaICe_xuRBJVgjDqVXB8fjHVdbdOQA
-      short-id: e114ca996877ce3a
-    flow: xtls-rprx-vision
     xudp: true
+    network: ws
+    ws-opts:
+      path: /real
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-bac3626293
+      - 4Nika-b7d8d35de1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-bac3626293
+      - 4Nika-b7d8d35de1
 rules:
   - MATCH,Proxy

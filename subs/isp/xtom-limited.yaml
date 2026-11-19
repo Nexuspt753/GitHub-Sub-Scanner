@@ -1,31 +1,6 @@
 proxies:
-  - type: vless
+  - type: trojan
     name: DeltaKroneckerGithub
-    server: 103.201.131.202
-    port: 2053
-    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-    udp: true
-    tls: true
-    client-fingerprint: unsafe
-    servername: jp3.yohototo.top
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /tyxyws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp3.yohototo.top
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: os-2.rise-fuji.com
-    port: 443
-    password: Fn9TZuYXiFYhsyp65T
-    udp: true
-    tls: true
-    sni: os-2.rise-fuji.com
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-02
     server: 45.80.191.177
     port: 443
     password: Fn9TZuYXiFYhsyp65T
@@ -49,15 +24,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: jp3.yohototo.top
+  - type: vless
+    name: 4Sarina-618c463419
+    server: 103.201.131.202
+    port: 2053
+    uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: jp3.yohototo.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tyxyws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: jp3.yohototo.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Nika-7f71a4b9df
+      - 4Sarina-618c463419
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -65,8 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
-      - DeltaKroneckerGithub-02
       - 4Nika-7f71a4b9df
+      - 4Sarina-618c463419
 rules:
   - MATCH,Proxy

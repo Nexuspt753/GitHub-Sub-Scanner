@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Sarina-f5eff19655
+    server: 23.129.180.171
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: us5.gofizzin.com
+    reality-opts:
+      public-key: tKA5ivaRbvqJ9RcSgp1ZtcCNfHAAuhWfve3tjMXse2w
+      short-id: 678ce913b8266e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-56845d51a0
     server: 23.129.180.171
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-f5eff19655
       - 4Mohsen-56845d51a0
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-f5eff19655
       - 4Mohsen-56845d51a0
 rules:
   - MATCH,Proxy

@@ -1,45 +1,31 @@
 proxies:
-  - type: vless
-    name: Lisbon · 4FreeIran-860ae916ed
-    server: 201.58.174.23
-    port: 443
-    uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  - type: trojan
+    name: Lisbon · 4Nika-35f692cf26
+    server: 194.9.62.42
+    port: 8443
+    password: f426d3c9-fb43-43c0-868b-898dfa451a74
     udp: true
     tls: true
+    sni: likejennie.pages.dev
     client-fingerprint: firefox
-    servername: 201.58.174.23
-    reality-opts:
-      public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Constância · 4FreeIran-7b37264244
-    server: 94.46.172.23
-    port: 443
-    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: pt1.gofizzin.com
-    reality-opts:
-      public-key: mrkbW8LrOMr_VqFXxdslDI-2VG38Xvd6iD-c0p48uXg
-      short-id: 522c2ea956
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: likejennie.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Lisbon · 4FreeIran-860ae916ed
-      - Constância · 4FreeIran-7b37264244
+      - Lisbon · 4Nika-35f692cf26
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Lisbon · 4FreeIran-860ae916ed
-      - Constância · 4FreeIran-7b37264244
+      - Lisbon · 4Nika-35f692cf26
 rules:
   - MATCH,Proxy

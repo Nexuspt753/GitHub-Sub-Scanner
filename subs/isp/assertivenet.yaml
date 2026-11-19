@@ -1,4 +1,20 @@
 proxies:
+  - type: vless
+    name: 4Mohsen-5dfd123d99
+    server: 66.154.108.187
+    port: 443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v5-4b5.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v5-4b5.pages.dev
   - type: vmess
     name: 4Jadi-8501900dec
     server: 66.154.113.180
@@ -38,6 +54,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-5dfd123d99
       - 4Jadi-8501900dec
       - 4Sarina-583dabcc24
   - name: Auto
@@ -46,6 +63,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-5dfd123d99
       - 4Jadi-8501900dec
       - 4Sarina-583dabcc24
 rules:

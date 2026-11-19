@@ -1,26 +1,29 @@
 proxies:
   - type: vless
-    name: 4Sarina-6fe91ff287
-    server: plaindune.com
-    port: 8443
-    uuid: 37af0181-5598-4aad-a040-d926bcb65757
+    name: 4Kian-65e778e0e3
+    server: 78.159.250.83
+    port: 443
+    uuid: f656c4b9-54dc-44cc-a142-e242ce687e56
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: plaindune.com
+    alpn:
+      - http/1.1
+    servername: dualarrow.net
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-6fe91ff287
+      - 4Kian-65e778e0e3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-6fe91ff287
+      - 4Kian-65e778e0e3
 rules:
   - MATCH,Proxy

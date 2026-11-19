@@ -1,15 +1,22 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 31.76.31.240
-    port: 4443
-    uuid: 62995b2a-8f82-41f8-ac80-dfdfc1253e76
+    name: YFZ
+    server: 13.143.165.124
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
     udp: true
     tls: true
     client-fingerprint: chrome
+    servername: fs.qicai99.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
   - type: vless
-    name: vless
+    name: 4Jadi-bdc71a3f72
     server: 31.76.31.240
     port: 4443
     uuid: 62995b2a-8f82-41f8-ac80-dfdfc1253e76
@@ -26,57 +33,22 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vless
-    name: 4Sarina-cad3da6a93
-    server: 13.143.165.124
-    port: 8443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
-  - type: vless
-    name: 4Mohsen-d32b1e8d0b
-    server: 13.143.165.124
-    port: 8443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: "%2F"
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
-      - vless
+      - YFZ
+      - 4Jadi-bdc71a3f72
       - 4Mohsen-7b704ce14f
-      - 4Sarina-cad3da6a93
-      - 4Mohsen-d32b1e8d0b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
-      - vless
+      - YFZ
+      - 4Jadi-bdc71a3f72
       - 4Mohsen-7b704ce14f
-      - 4Sarina-cad3da6a93
-      - 4Mohsen-d32b1e8d0b
 rules:
   - MATCH,Proxy
