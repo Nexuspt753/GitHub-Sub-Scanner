@@ -1,41 +1,43 @@
 proxies:
   - type: ss
-    name: 12882@proxy_online_net
+    name: 4Mohsen-963d2c59dc
     server: 104.192.227.162
     port: 443
     cipher: chacha20-ietf-poly1305
     password: 91LFVJhY6a7f8KeJPeuYln
     udp: true
-  - type: ss
-    name: 4Jadi-be55b67def
-    server: 144.48.107.10
-    port: 19142
-    cipher: aes-128-gcm
-    password: 645af07ee09c066da207ad26d78322c2
-    udp: true
   - type: trojan
-    name: DeltaKroneckerGithub
+    name: 4Jadi-99d41d2f54
     server: 66.23.203.21
     port: 59689
     password: ae7eb4dwyaz25pxwgq59
     udp: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-7fb0b49d9c
+    server: 66.23.203.21
+    port: 59689
+    password: ae7eb4dwyaz25pxwgq59
+    udp: true
+    tls: true
+    sni: 66.23.203.21
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 12882@proxy_online_net
-      - 4Jadi-be55b67def
-      - DeltaKroneckerGithub
+      - 4Mohsen-963d2c59dc
+      - 4Jadi-99d41d2f54
+      - 4Nika-7fb0b49d9c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 12882@proxy_online_net
-      - 4Jadi-be55b67def
-      - DeltaKroneckerGithub
+      - 4Mohsen-963d2c59dc
+      - 4Jadi-99d41d2f54
+      - 4Nika-7fb0b49d9c
 rules:
   - MATCH,Proxy

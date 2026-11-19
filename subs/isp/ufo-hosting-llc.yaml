@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: 4Sarina-f01b3eb4ea
+    server: 171.22.133.5
+    port: 9443
+    uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fin.krabvpn.pro
+    xudp: true
+  - type: vless
     name: 4FreeIran-0d1549e24b
     server: ru1.gridlane.ru
     port: 25843
@@ -32,46 +42,33 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Nika-13ce00c724
-    server: 45.144.30.86
-    port: 443
-    uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: chita.vkusnews.com
-    reality-opts:
-      public-key: Buy9pirx5Ih_LHwc6R3BCmvRL4g4Ljx6B3MEsZfIZhU
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Jadi-7ce2a1299f
+    name: 4Mohsen-60ecd91da1
     server: 171.22.133.101
-    port: 7443
+    port: 443
     uuid: 67864856-8730-40cc-9e1a-a0df697d912b
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: pl-origin.krabvpn.pro
+    servername: fin.krabvpn.pro
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-f01b3eb4ea
       - 4FreeIran-0d1549e24b
       - 4FreeIran-2487cc9696
-      - 4Nika-13ce00c724
-      - 4Jadi-7ce2a1299f
+      - 4Mohsen-60ecd91da1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-f01b3eb4ea
       - 4FreeIran-0d1549e24b
       - 4FreeIran-2487cc9696
-      - 4Nika-13ce00c724
-      - 4Jadi-7ce2a1299f
+      - 4Mohsen-60ecd91da1
 rules:
   - MATCH,Proxy

@@ -1,24 +1,38 @@
 proxies:
-  - type: vless
-    name: 4Sarina-6ac3872e20
-    server: uk.finenetwork.ir
-    port: 2053
-    uuid: c4ce05b0-3feb-4cd6-bd87-d569f3ad1278
+  - type: vmess
+    name: 4Nika-c3ec06dd64
+    server: vpn.rezapanel.ir
+    port: 42970
+    uuid: 571d56be-1229-4280-b041-9c549dad03bd
+    alterId: 0
+    cipher: auto
     udp: true
-    flow: xtls-rprx-vision
     xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-3ecfc42dd2
+    server: vpn.rezapanel.ir
+    port: 42970
+    uuid: 9d4857b0-62bb-47ee-9e1e-dee99b384465
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-6ac3872e20
+      - 4Nika-c3ec06dd64
+      - 4Jadi-3ecfc42dd2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-6ac3872e20
+      - 4Nika-c3ec06dd64
+      - 4Jadi-3ecfc42dd2
 rules:
   - MATCH,Proxy

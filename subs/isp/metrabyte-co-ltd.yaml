@@ -1,5 +1,22 @@
 proxies:
   - type: vmess
+    name: 4Sarina-bac4b0628e
+    server: 119.59.98.39
+    port: 30001
+    uuid: 4d24fbde-cb0e-4025-98ec-222933847d3d
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.98666598.xyz
+  - type: vmess
     name: 4FreeIran-52e324a83c
     server: 119.59.98.39
     port: 30001
@@ -21,6 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-bac4b0628e
       - 4FreeIran-52e324a83c
   - name: Auto
     type: url-test
@@ -28,6 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-bac4b0628e
       - 4FreeIran-52e324a83c
 rules:
   - MATCH,Proxy

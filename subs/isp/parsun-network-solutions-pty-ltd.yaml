@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: 4Mohsen-a7119b89e7
+    server: afg.pasmazy1.ir
+    port: 2017
+    cipher: 2022-blake3-aes-128-gcm
+    password: iSBCJnkIxg/Q+tcZfGQBlQ==:655tmY0T0e11XzbQwJJRoQ==
+    udp: true
+  - type: ss
     name: 4Jadi-7643bc5f68
     server: afg.pasmazy1.ir
     port: 2017
@@ -27,17 +34,20 @@ proxies:
     cipher: 2022-blake3-aes-128-gcm
     password: m94OIibIrLmuUKOt8EIkYQ==:qiDZq+1n4Nh/5V56Fak1qA==
     udp: true
-  - type: ss
-    name: 4Kian-6dabbc2e13
-    server: afg.pasmazy1.ir
-    port: 3343
-    cipher: chacha20-ietf-poly1305
-    password: g2cA6XUo9YlNrepJFVkWm-PexUk9G-wZ
-    udp: true
   - type: vless
     name: 4FreeIran-5a7c6050f1
     server: asia2.pvmsolutions.ir
     port: 2443
+    uuid: ea1cabaa-0e44-4502-a2f4-b4e76f5c38a4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ovh.pavementsolutions.ir
+    xudp: true
+  - type: vless
+    name: 4Nika-d0eccb1105
+    server: asia2.pvmsolutions.ir
+    port: 443
     uuid: ea1cabaa-0e44-4502-a2f4-b4e76f5c38a4
     udp: true
     tls: true
@@ -49,23 +59,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-a7119b89e7
       - 4Jadi-7643bc5f68
       - 4Mohsen-be652e49c6
       - 4Jadi-b8598a2128
       - 4Mohsen-01049a3b12
-      - 4Kian-6dabbc2e13
       - 4FreeIran-5a7c6050f1
+      - 4Nika-d0eccb1105
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-a7119b89e7
       - 4Jadi-7643bc5f68
       - 4Mohsen-be652e49c6
       - 4Jadi-b8598a2128
       - 4Mohsen-01049a3b12
-      - 4Kian-6dabbc2e13
       - 4FreeIran-5a7c6050f1
+      - 4Nika-d0eccb1105
 rules:
   - MATCH,Proxy
