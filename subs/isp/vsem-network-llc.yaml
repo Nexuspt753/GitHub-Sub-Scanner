@@ -1,5 +1,15 @@
 proxies:
   - type: vless
+    name: 4Mohsen-8ea86b23ea
+    server: 213.182.201.49
+    port: 3090
+    uuid: 3d1024a5-91a9-4599-a192-4cfc72a27b41
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-6c791a151b
     server: 93.190.9.95
     port: 3090
@@ -30,10 +40,10 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4Mohsen-ca89607da4
-    server: 93.190.9.85
+    name: 4Sarina-bb680c560b
+    server: 93.190.9.167
     port: 3090
-    uuid: fc84a9ce-3ed7-4f2d-a897-a0b1e7f7cf08
+    uuid: b98bf712-7cbf-4d0a-8b3d-4b216066f024
     udp: true
     xudp: true
     network: grpc
@@ -44,19 +54,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-8ea86b23ea
       - 4Jadi-6c791a151b
       - 4Sarina-ae1db4eac0
       - 4Nika-67d00fbf20
-      - 4Mohsen-ca89607da4
+      - 4Sarina-bb680c560b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-8ea86b23ea
       - 4Jadi-6c791a151b
       - 4Sarina-ae1db4eac0
       - 4Nika-67d00fbf20
-      - 4Mohsen-ca89607da4
+      - 4Sarina-bb680c560b
 rules:
   - MATCH,Proxy

@@ -1,43 +1,4 @@
 proxies:
-  - type: ss
-    name: 4Jadi-799c8a0be7
-    server: 178.239.150.77
-    port: 11133
-    cipher: xchacha20-ietf-poly1305
-    password: DIr66gXAEt0sTt2NrkDHWq3gix58BR6LdxcNPURi5xk=
-    udp: true
-  - type: vless
-    name: VPsave
-    server: respina11.carshops4.ir
-    port: 2245
-    uuid: 442fe579-4acf-4f3d-9771-49b2a85a2cb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: asasians.carshops4.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: arvancloud.ir
-  - type: vless
-    name: VPsave-01
-    server: tunrp2.carshops4.ir
-    port: 8880
-    uuid: 442fe579-4acf-4f3d-9771-49b2a85a2cb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: asasians.carshops4.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: arvancloud.ir
   - type: vless
     name: 4FreeIran-3a29e7cc59
     server: respina11.carshops4.ir
@@ -110,32 +71,59 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Nika-9dff8d2dd2
+    server: s3.megaping.casa
+    port: 2082
+    uuid: 13188d38-4aa1-4071-86b9-a246193e5d69
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: s3.megaping.casa
+    alpn:
+      - http/1.1
+  - type: vmess
+    name: 4Jadi-30cf080784
+    server: s7.tiiizshop.com
+    port: 8880
+    uuid: bc7c3ef8-e853-469c-8feb-6b2d88576957
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-799c8a0be7
-      - VPsave
-      - VPsave-01
       - 4FreeIran-3a29e7cc59
       - 4Kian-b45c8816ab
       - 4Jadi-f5bbf8b537
       - 4Kian-0dacbd6e6c
       - 4Sarina-406ef6f8c8
+      - 4Nika-9dff8d2dd2
+      - 4Jadi-30cf080784
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-799c8a0be7
-      - VPsave
-      - VPsave-01
       - 4FreeIran-3a29e7cc59
       - 4Kian-b45c8816ab
       - 4Jadi-f5bbf8b537
       - 4Kian-0dacbd6e6c
       - 4Sarina-406ef6f8c8
+      - 4Nika-9dff8d2dd2
+      - 4Jadi-30cf080784
 rules:
   - MATCH,Proxy

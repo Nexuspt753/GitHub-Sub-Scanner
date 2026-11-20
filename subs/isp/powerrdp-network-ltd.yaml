@@ -1,6 +1,33 @@
 proxies:
   - type: vless
-    name: 4Sarina-cad3da6a93
+    name: vless
+    server: 31.76.31.240
+    port: 4443
+    uuid: 62995b2a-8f82-41f8-ac80-dfdfc1253e76
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: 31.76.31.240
+    port: 4443
+    uuid: 62995b2a-8f82-41f8-ac80-dfdfc1253e76
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 31.76.31.240
+    port: 4443
+    uuid: 62995b2a-8f82-41f8-ac80-dfdfc1253e76
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: YFZ
     server: 13.143.165.124
     port: 8443
     uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
@@ -15,18 +42,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fs.qicai99.com
+  - type: vless
+    name: 4Mohsen-7b704ce14f
+    server: 31.76.31.240
+    port: 4443
+    uuid: 62995b2a-8f82-41f8-ac80-dfdfc1253e76
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-cad3da6a93
+      - vless
+      - VPsave
+      - vless-01
+      - YFZ
+      - 4Mohsen-7b704ce14f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-cad3da6a93
+      - vless
+      - VPsave
+      - vless-01
+      - YFZ
+      - 4Mohsen-7b704ce14f
 rules:
   - MATCH,Proxy

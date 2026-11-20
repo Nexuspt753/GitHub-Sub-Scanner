@@ -1,0 +1,59 @@
+proxies:
+  - type: vless
+    name: Channel
+    server: 62.144.51.70
+    port: 8443
+    uuid: 79dc5b88-035d-46ea-8925-42ec2c8399fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: beta.www.cloudflare.com
+    reality-opts:
+      public-key: FMB8kaF17hi36ZlhlW6ANZZxzV-TN5-6LWhlYp9oQTw
+      short-id: "53"
+    xudp: true
+  - type: vless
+    name: 🔵@chillguy_vpn
+    server: 62.144.51.70
+    port: 8443
+    uuid: 79dc5b88-035d-46ea-8925-42ec2c8399fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: beta.www.cloudflare.com
+    reality-opts:
+      public-key: FMB8kaF17hi36ZlhlW6ANZZxzV-TN5-6LWhlYp9oQTw
+      short-id: "53"
+    xudp: true
+  - type: vless
+    name: 4Jadi-bddf94730d
+    server: 62.144.51.70
+    port: 8443
+    uuid: 79dc5b88-035d-46ea-8925-42ec2c8399fe
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: beta.www.cloudflare.com
+    reality-opts:
+      public-key: FMB8kaF17hi36ZlhlW6ANZZxzV-TN5-6LWhlYp9oQTw
+      short-id: "53"
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - Channel
+      - 🔵@chillguy_vpn
+      - 4Jadi-bddf94730d
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - Channel
+      - 🔵@chillguy_vpn
+      - 4Jadi-bddf94730d
+rules:
+  - MATCH,Proxy

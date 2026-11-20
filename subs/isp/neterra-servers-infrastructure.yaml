@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Jadi-35b45b2d0b
+    server: 87.121.112.83
+    port: 443
+    password: 9a9f167d-b461-466f-be50-f0ffd598a6f8
+    sni: bulghys.live
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-35b45b2d0b
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-35b45b2d0b
+rules:
+  - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-0c3766dfe6
+    server: 162.252.199.207
+    port: 404
+    uuid: d7ec8987-0976-4903-9dff-5f7d7fbad343
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yandex.net
+    reality-opts:
+      public-key: 3FUniksGGqjyy-0stdDMxdhqAJY-3V3f78kgmS4zEls
+      short-id: 91567b119fa3c64c
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-0c3766dfe6
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-0c3766dfe6
+rules:
+  - MATCH,Proxy

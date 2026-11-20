@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Jadi-b36133513a
+    server: 87.107.169.4
+    port: 1100
+    cipher: chacha20-ietf-poly1305
+    password: d53a5358b35f402aa1f045176db19205
+    udp: true
   - type: vless
     name: vless
     server: s2.zynetraq.ir
@@ -20,17 +27,19 @@ proxies:
       short-id: 00d5a70000cb3eeb
     xudp: true
   - type: vless
-    name: 4Mohsen-15fc2069d7
-    server: mh4.appsnetwork.ir
-    port: 311
-    uuid: 15f74cb4-612e-4c25-9a51-85de90b26ae9
+    name: 4Jadi-7f54194907
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: 22c6684b-cd4f-4c8e-62e3-a17fc698471f
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: mh2.appsnetwork.ir
-    reality-opts:
-      public-key: aSJcTFXuug9NpkNA7bAS8Cq5G4iAN3kiS0Hora5Io28
-      short-id: 53038f3c548f77dc
+    xudp: true
+  - type: vless
+    name: sora1co
+    server: nl1.melkban24.ir
+    port: 3102
+    uuid: 6bf83eb4-6e1a-49e7-b966-30de57239621
+    udp: true
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4FreeIran-d14fe3b824
@@ -53,50 +62,39 @@ proxies:
     udp: true
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-187a70cd48
-    server: parrsweb.site
-    port: 443
-    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Sarina-a92ac13047
+    server: s2.zynetraq.ir
+    port: 2087
+    uuid: f8a8b40d-a714-43bf-022a-8b3e3ff2e642
     udp: true
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4FreeIran-c2c20896d1
-    server: ussioa.shadoww345.ir
-    port: 7575
-    uuid: 36b80cff-dfc2-430c-8ed7-5799485cd588
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-b36133513a
       - vless
       - 4Nika-cbdea649c6
-      - 4Mohsen-15fc2069d7
+      - 4Jadi-7f54194907
+      - sora1co
       - 4FreeIran-d14fe3b824
       - 4Jadi-156a52a9da
-      - 4Nika-187a70cd48
-      - 4FreeIran-c2c20896d1
+      - 4Sarina-a92ac13047
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-b36133513a
       - vless
       - 4Nika-cbdea649c6
-      - 4Mohsen-15fc2069d7
+      - 4Jadi-7f54194907
+      - sora1co
       - 4FreeIran-d14fe3b824
       - 4Jadi-156a52a9da
-      - 4Nika-187a70cd48
-      - 4FreeIran-c2c20896d1
+      - 4Sarina-a92ac13047
 rules:
   - MATCH,Proxy

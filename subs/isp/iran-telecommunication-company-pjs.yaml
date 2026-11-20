@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: iranping24
+    server: tobacco-i.armtech.ir
+    port: 8443
+    uuid: 6526e123-b6a9-49b8-ad44-a375e44bbbca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.divar.ir
+    reality-opts:
+      public-key: PemDp0QopR40Slks6KUIp6WuwndVhRBh2s0_HKM2JzY
+      short-id: 09fbe0f9a5c2005a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-1e0a0a6c0e
     server: tobacco-i.armtech.ir
     port: 8443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - iranping24
       - 4Sarina-1e0a0a6c0e
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - iranping24
       - 4Sarina-1e0a0a6c0e
 rules:
   - MATCH,Proxy

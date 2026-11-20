@@ -12,12 +12,26 @@ proxies:
       - h2
       - http/1.1
     xudp: true
+  - type: vless
+    name: 4Jadi-22d15bc57b
+    server: 192.0.54.181
+    port: 443
+    uuid: V2XNET
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
+      - 4Jadi-22d15bc57b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +39,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - 4Jadi-22d15bc57b
 rules:
   - MATCH,Proxy

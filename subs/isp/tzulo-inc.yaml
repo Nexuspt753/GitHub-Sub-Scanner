@@ -31,6 +31,21 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ahbpanel-4134.shiprr.dev
+  - type: vmess
+    name: 4Sarina-fd37555cd1
+    server: 173.249.199.27
+    port: 443
+    uuid: e5543efd-5400-3760-9bb6-02767728e888
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /video
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -38,6 +53,7 @@ proxy-groups:
       - Auto
       - 4Jadi-7dd7cb2dc9
       - 4Nika-23ffd8b9ce
+      - 4Sarina-fd37555cd1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -46,5 +62,6 @@ proxy-groups:
     proxies:
       - 4Jadi-7dd7cb2dc9
       - 4Nika-23ffd8b9ce
+      - 4Sarina-fd37555cd1
 rules:
   - MATCH,Proxy

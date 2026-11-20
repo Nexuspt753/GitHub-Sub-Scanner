@@ -1,7 +1,25 @@
 proxies:
   - type: vless
-    name: 4Kian-12557a88de
+    name: vless
     server: 103.118.211.38
+    port: 443
+    uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: czechia.richforever.ru
+    port: 443
+    uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: czechia.richforever.ru
     port: 443
     uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
     udp: true
@@ -22,7 +40,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-12557a88de
+      - vless
+      - vless-01
+      - VPsave
       - 4Mohsen-08370a79b6
   - name: Auto
     type: url-test
@@ -30,7 +50,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-12557a88de
+      - vless
+      - vless-01
+      - VPsave
       - 4Mohsen-08370a79b6
 rules:
   - MATCH,Proxy

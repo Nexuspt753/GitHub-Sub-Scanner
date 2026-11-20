@@ -27,6 +27,18 @@ proxies:
       short-id: 53a3a94ab9224f5d
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-1ff97a59b5
+    server: 130.185.121.69
+    port: 443
+    uuid: d3c9d170-80fa-489a-8ba2-f4cc80d240e3
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -34,6 +46,7 @@ proxy-groups:
       - Auto
       - 4Sarina-dc802b04cc
       - 4Kian-c218abbc72
+      - 4Mohsen-1ff97a59b5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,5 +55,6 @@ proxy-groups:
     proxies:
       - 4Sarina-dc802b04cc
       - 4Kian-c218abbc72
+      - 4Mohsen-1ff97a59b5
 rules:
   - MATCH,Proxy

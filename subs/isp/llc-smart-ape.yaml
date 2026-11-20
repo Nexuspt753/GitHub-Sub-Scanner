@@ -1,34 +1,52 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 31.177.111.134
+    name: 4Nika-5689d2bdae
+    server: r0xnfzk9ud.newwl.pro
     port: 443
-    uuid: fd90e601-a56c-42b8-aab7-aa02d26fcb04
+    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: k6t8wxun3s.schoolbag.top
+    servername: r0xnfzk9ud.newwl.pro
     xudp: true
     network: ws
     ws-opts:
-      path: /static/metrics/86d07ea17ea1/
+      path: /service/telemetry/045d381f1166/
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ns4pmajwas.flowersgood.top
+        Host: r0xnfzk9ud.newwl.pro
+  - type: vless
+    name: 4Mohsen-4a9d852529
+    server: r0xnfzk9ud.newwl.pro
+    port: 443
+    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: r0xnfzk9ud.newwl.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/telemetry/045d381f1166/fp=firefox
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: r0xnfzk9ud.newwl.pro
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-5689d2bdae
+      - 4Mohsen-4a9d852529
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-5689d2bdae
+      - 4Mohsen-4a9d852529
 rules:
   - MATCH,Proxy

@@ -18,6 +18,20 @@ proxies:
     uuid: a24cd01e-e3d6-4b33-b3c4-69c2bdaa8a68
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-6f107e44d9
+    server: taj.blaackgame.ir
+    port: 2087
+    uuid: fbc56397-8a6e-4f05-bc18-70d232905632
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: taj.blaackgame.ir
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -25,6 +39,7 @@ proxy-groups:
       - Auto
       - 4Sarina-023bc93464
       - 4Mohsen-87769f5587
+      - 4FreeIran-6f107e44d9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,5 +48,6 @@ proxy-groups:
     proxies:
       - 4Sarina-023bc93464
       - 4Mohsen-87769f5587
+      - 4FreeIran-6f107e44d9
 rules:
   - MATCH,Proxy
