@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Kian-15bd948a06
+    server: 62.113.237.3
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: o3-9Eg79umh4CaY8sWC7b3
+    udp: true
   - type: trojan
     name: 4FreeIran-236f5d7c00
     server: 92.42.99.143
@@ -64,55 +71,26 @@ proxies:
       path: /assignment
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Kian-fbf203f60c
-    server: 92.42.99.143
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.pleadcourt.org
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Jadi-45c58e51a2
-    server: frankfurt-oder.freegate.win
-    port: 443
-    uuid: 8f9c04c9-5c94-495e-9452-ab8b7a8af1bc
-    udp: true
-    tls: true
-    client-fingerprint: safari
-    servername: frankfurt-oder.freegate.win
-    reality-opts:
-      public-key: 6ZxGSeQZsl27xzPmy7aMgF0rZkQsSiyf1JzUZgWYgUY
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-15bd948a06
       - 4FreeIran-236f5d7c00
       - 4FreeIran-4e7053baae
       - 4Jadi-9349ea77d1
       - 4Mohsen-ef3a30e9de
-      - 4Kian-fbf203f60c
-      - 4Jadi-45c58e51a2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-15bd948a06
       - 4FreeIran-236f5d7c00
       - 4FreeIran-4e7053baae
       - 4Jadi-9349ea77d1
       - 4Mohsen-ef3a30e9de
-      - 4Kian-fbf203f60c
-      - 4Jadi-45c58e51a2
 rules:
   - MATCH,Proxy

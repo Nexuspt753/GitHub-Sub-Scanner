@@ -14,6 +14,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
+    name: 4Mohsen-2b2ea0ad7f
+    server: 13.140.91.65
+    port: 4380
+    uuid: 01581ecf-eccd-4bee-a352-5fb94454418f
+    udp: true
+    xudp: true
+  - type: vless
     name: ehsawn8
     server: 13.140.92.21
     port: 80
@@ -25,6 +32,34 @@ proxies:
     reality-opts:
       public-key: rtYs5r9380Y2zvtXBFfaBbnypJQ7_1x_uYu0cLpOXk4
       short-id: d8fee47b2d3d94
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-8b563f3072
+    server: 13.140.88.140
+    port: 2443
+    uuid: 27209f7f-ff5a-4bf4-a5c6-61af9ce0080d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: UyhPmSbQPaEYNtEOaO4kTkzK6HfXprD_1xMKbifSlwQ
+      short-id: f434edfb
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-2b1fd13a8a
+    server: 13.140.88.140
+    port: 443
+    uuid: 27209f7f-ff5a-4bf4-a5c6-61af9ce0080d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.speedtest.net
+    reality-opts:
+      public-key: T2K013PbYM3HrcPIJQsADvMG6Q92T1-_siFuXfxRqgI
+      short-id: b25e3c13
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -41,35 +76,17 @@ proxies:
       short-id: d8fee47b2d3d94
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-442b10b7b6
-    server: 46.8.103.136
-    port: 40015
-    uuid: ed1b32ea-5cf9-4eb9-a7a0-a6586f2d5c23
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: 46.8.103.136
-    alpn:
-      - http/1.1
-    network: ws
-    ws-opts:
-      path: /sddsfs
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: dl.google.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-2d88e9c3c0
+      - 4Mohsen-2b2ea0ad7f
       - ehsawn8
+      - 4FreeIran-8b563f3072
+      - 4Sarina-2b1fd13a8a
       - 4Mohsen-efef1a1d2f
-      - 4Nika-442b10b7b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -77,8 +94,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-2d88e9c3c0
+      - 4Mohsen-2b2ea0ad7f
       - ehsawn8
+      - 4FreeIran-8b563f3072
+      - 4Sarina-2b1fd13a8a
       - 4Mohsen-efef1a1d2f
-      - 4Nika-442b10b7b6
 rules:
   - MATCH,Proxy

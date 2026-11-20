@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 156.245.234.97
+    port: 2096
+    uuid: 93c0244e-6eb2-41bc-ad9c-1a7606747e13
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lyhk.mihoyo.site
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+rules:
+  - MATCH,Proxy

@@ -8,23 +8,44 @@ proxies:
     tls: true
     sni: bf0264eb50014997.wufpel.ir
     client-fingerprint: chrome
-  - type: vmess
-    name: 4FreeIran-b5b4c34424
-    server: dl1.armd.fun
+  - type: vless
+    name: 4FreeIran-a0a074e603
+    server: ir2.cryptojakiro.com
     port: 443
-    uuid: 92262a4d-1d5b-4741-a2d0-7b3169e963eb
-    alterId: 0
-    cipher: auto
+    uuid: 8a1a991a-f206-447a-adaf-37a57c133418
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ir2.cryptojakiro.com
     xudp: true
-    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ir2.cryptojakiro.com
+  - type: vless
+    name: 4Mohsen-f7eb70c51e
+    server: de.cactushub.cdnless.com
+    port: 19444
+    uuid: e473ae37-66f7-464d-a9f2-d94483d4f9cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: gU7zZLaPvCNsgvu4DFSo7K6wD47Al2IWDqtHCjkKyXs
+      short-id: 44ae4d30a085848f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-b5b4c34424
+      - 4FreeIran-a0a074e603
+      - 4Mohsen-f7eb70c51e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -32,6 +53,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-b5b4c34424
+      - 4FreeIran-a0a074e603
+      - 4Mohsen-f7eb70c51e
 rules:
   - MATCH,Proxy

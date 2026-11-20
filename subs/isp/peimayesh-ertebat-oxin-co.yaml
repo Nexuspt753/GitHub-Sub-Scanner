@@ -1,33 +1,46 @@
 proxies:
   - type: vless
-    name: 4Sarina-cf365246e4
-    server: kn.n3webhosting.com
-    port: 2083
-    uuid: d19e8015-72b5-4410-b7b4-5de8408ca77f
+    name: 4Nika-2917c8afca
+    server: ir3.mobileemdad.top
+    port: 443
+    uuid: a2f9003e-dc03-476e-a2f4-94421c8c2c6f
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: kn.n3webhosting.com
+    client-fingerprint: firefox
+    servername: play.google.com
+    reality-opts:
+      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
+      short-id: 377d
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-5dd25ce128
+    server: ir4.mobileemdad.top
+    port: 443
+    uuid: a2f9003e-dc03-476e-a2f4-94421c8c2c6f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: play.google.com
+    reality-opts:
+      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
+      short-id: aefc7f3722
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-cf365246e4
+      - 4Nika-2917c8afca
+      - 4Mohsen-5dd25ce128
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-cf365246e4
+      - 4Nika-2917c8afca
+      - 4Mohsen-5dd25ce128
 rules:
   - MATCH,Proxy

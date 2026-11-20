@@ -1,13 +1,52 @@
 proxies:
   - type: vless
-    name: 4Sarina-6f77c3a283
+    name: 4Jadi-ec0633df37
     server: 217.60.100.222
     port: 443
     uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: 217.60.100.222
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-5e007946c1
+    server: 217.60.100.222
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 217.60.100.222
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Mohsen-4a1d610360
+    server: 217.60.100.223
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: est1s.dendi.best
+    reality-opts:
+      public-key: tF62l_MUqYMOj-yHo1rHXQKhZK9hi9rLSyMhZjF5ZVA
+      short-id: 7a15402edc83d157
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-c3ed4beaae
+    server: est1s.dendi.best
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: est1s.dendi.best
+    reality-opts:
+      public-key: tF62l_MUqYMOj-yHo1rHXQKhZK9hi9rLSyMhZjF5ZVA
+      short-id: 7a15402edc83d157
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -15,13 +54,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-6f77c3a283
+      - 4Jadi-ec0633df37
+      - 4FreeIran-5e007946c1
+      - 4Mohsen-4a1d610360
+      - 4FreeIran-c3ed4beaae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-6f77c3a283
+      - 4Jadi-ec0633df37
+      - 4FreeIran-5e007946c1
+      - 4Mohsen-4a1d610360
+      - 4FreeIran-c3ed4beaae
 rules:
   - MATCH,Proxy

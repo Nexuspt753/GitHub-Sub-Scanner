@@ -1,17 +1,4 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 83.229.84.243
-    port: 37763
-    uuid: 06fbcd77-ade5-4d93-9135-e070a60fc5ce
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.sony.com
-    reality-opts:
-      public-key: bLUz0xB26LhvPQSTWCnsHPzhtK_UCrF5I8_rXHRnNlw
-      short-id: "76"
-    xudp: true
   - type: ss
     name: 4Kian-3f45ba0aa6
     server: 45.130.165.90
@@ -19,6 +6,15 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: DAl6fKaoiAVK64kyuaYFaQ
     udp: true
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 45.91.171.116
+    port: 443
+    password: 2ee85121-31de-4581-a492-eb00f606e392
+    udp: true
+    tls: true
+    sni: sto.freeguard.org
+    client-fingerprint: chrome
   - type: trojan
     name: 4Sarina-3deb751852
     server: 207.126.167.150
@@ -42,22 +38,6 @@ proxies:
       short-id: "76"
     xudp: true
   - type: vless
-    name: 4Mohsen-62669ed903
-    server: 103.241.67.83
-    port: 8880
-    uuid: 442fe579-4acf-4f3d-9771-49b2a85a2cb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: asasians.carshops4.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: arvancloud.ir
-  - type: vless
     name: 4Mohsen-c1b64af35d
     server: es.srv.dvzh.net
     port: 443
@@ -76,11 +56,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
       - 4Kian-3f45ba0aa6
+      - DeltaKroneckerGithub
       - 4Sarina-3deb751852
       - Telegram
-      - 4Mohsen-62669ed903
       - 4Mohsen-c1b64af35d
   - name: Auto
     type: url-test
@@ -88,11 +67,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
       - 4Kian-3f45ba0aa6
+      - DeltaKroneckerGithub
       - 4Sarina-3deb751852
       - Telegram
-      - 4Mohsen-62669ed903
       - 4Mohsen-c1b64af35d
 rules:
   - MATCH,Proxy

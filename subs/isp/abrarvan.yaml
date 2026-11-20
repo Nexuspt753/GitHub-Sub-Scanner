@@ -1,23 +1,46 @@
 proxies:
-  - type: ss
-    name: 4Mohsen-db7fd369f6
-    server: 37.152.181.92
-    port: 9130
-    cipher: aes-256-gcm
-    password: MDhmYmE4MGY5OGI5ODgyYTFiZDhlZDEzZTZjY2Vm
+  - type: vless
+    name: 4Sarina-57ca7bee43
+    server: ir.g-boot.ir
+    port: 443
+    uuid: 1fba2b1d-21c7-4110-80b6-5ddfd5407cf8
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-e79206a0f0
+    server: ir.g-boot.ir
+    port: 443
+    uuid: a6cfc07b-964a-4737-a089-69abefcdb509
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-db7fd369f6
+      - 4Sarina-57ca7bee43
+      - 4FreeIran-e79206a0f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-db7fd369f6
+      - 4Sarina-57ca7bee43
+      - 4FreeIran-e79206a0f0
 rules:
   - MATCH,Proxy

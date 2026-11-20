@@ -13,12 +13,27 @@ proxies:
       short-id: 37f069d7ad
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-a935f67b96
+    server: 38.102.125.3
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: perch.denditop.site
+    reality-opts:
+      public-key: aifpr5vxx0eaPohSBVZrC5yUFtaK6Sqa8mGwjOxZ1Sc
+      short-id: f05d81d32f5e4b94
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-dc81e32977
+      - 4Jadi-a935f67b96
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-dc81e32977
+      - 4Jadi-a935f67b96
 rules:
   - MATCH,Proxy

@@ -1,22 +1,5 @@
 proxies:
   - type: vless
-    name: 4Kian-26f3af52d9
-    server: 153.76.190.31
-    port: 2083
-    uuid: d65fb384-5029-4edf-bdc7-0f5960600e3d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: speedtestmark.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /vless-ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4Mohsen-e36e978dd2
     server: 153.76.190.31
     port: 2083
@@ -32,34 +15,6 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Jadi-f564282fc0
-    server: 141.0.187.7
-    port: 11443
-    uuid: df198807-16c0-4ad9-b6e5-db6e97f42b03
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 141.0.187.6
-    reality-opts:
-      public-key: 945vNebBQgPKkgABK0nHHRh35q3gVrmaUbShAVBRSWg
-      short-id: 21bb339df984afbd
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-004126edfa
-    server: 141.0.187.5
-    port: 11443
-    uuid: f24e8412-9d11-49db-9736-edab5d6fb707
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 141.0.187.4
-    reality-opts:
-      public-key: GPz7dacpjZ5iHT5pbZfYap1vpyt85mNKV7BVW3R92hE
-      short-id: 26ca0f0ba115925d
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-c0e665b822
     server: 141.0.187.5
     port: 11443
@@ -73,42 +28,20 @@ proxies:
       short-id: 26ca0f0ba115925d
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-4c6f3c5e64
-    server: 141.0.187.7
-    port: 11443
-    uuid: f24e8412-9d11-49db-9736-edab5d6fb707
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 141.0.187.6
-    reality-opts:
-      public-key: 945vNebBQgPKkgABK0nHHRh35q3gVrmaUbShAVBRSWg
-      short-id: 21bb339df984afbd
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-26f3af52d9
       - 4Mohsen-e36e978dd2
-      - 4Jadi-f564282fc0
-      - 4Nika-004126edfa
       - 4Sarina-c0e665b822
-      - 4Sarina-4c6f3c5e64
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-26f3af52d9
       - 4Mohsen-e36e978dd2
-      - 4Jadi-f564282fc0
-      - 4Nika-004126edfa
       - 4Sarina-c0e665b822
-      - 4Sarina-4c6f3c5e64
 rules:
   - MATCH,Proxy
