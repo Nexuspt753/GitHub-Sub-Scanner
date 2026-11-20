@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: meliproxyy
+    server: 194.55.167.133
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cy1.gofizz.in
+    reality-opts:
+      public-key: XSh3jB8zXtqpI38glgwN2Bn5imxN8Rkyc39LeBSD8BQ
+      short-id: 24f1fa53275b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-8397b7a316
     server: 194.55.167.133
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - meliproxyy
       - 4Nika-8397b7a316
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - meliproxyy
       - 4Nika-8397b7a316
 rules:
   - MATCH,Proxy

@@ -1,30 +1,48 @@
 proxies:
   - type: vless
-    name: Riacho He-He · 4Sarina-dfe024f890
+    name: Riacho He-He · 4Mohsen-f5ededd5a2
     server: 186.122.177.79
     port: 443
     uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: ar1.gofizz.in
     reality-opts:
       public-key: pBEW9XYZQsXxjgt44pCQcxoEOe-B1CdxaTdTnL2QhAA
       short-id: a5d67406
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: Buenos Aires · 4Jadi-7f1456f159
+    server: 131.255.6.88
+    port: 443
+    uuid: 9be9e1e4-d1fc-4423-b22d-cd07a4381acb
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: cj1-e06.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cj1-e06.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Riacho He-He · 4Sarina-dfe024f890
+      - Riacho He-He · 4Mohsen-f5ededd5a2
+      - Buenos Aires · 4Jadi-7f1456f159
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Riacho He-He · 4Sarina-dfe024f890
+      - Riacho He-He · 4Mohsen-f5ededd5a2
+      - Buenos Aires · 4Jadi-7f1456f159
 rules:
   - MATCH,Proxy

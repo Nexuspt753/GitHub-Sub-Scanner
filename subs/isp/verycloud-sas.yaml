@@ -1,29 +1,32 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-e2e5af1d27
-    server: 82.22.2.225
-    port: 443
-    uuid: 7b22dce8-7ebd-425b-8ca4-7b6190321985
+  - type: vmess
+    name: 4FreeIran-4ba0aba43c
+    server: Fr.3lonel.mobileahmadreza.ir
+    port: 1080
+    uuid: 07377c32-6e40-40dc-aaad-3b3fbf22b9bb
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: b-wl.fr-2.bnc-gt.co.uk
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ssh.webdade.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-e2e5af1d27
+      - 4FreeIran-4ba0aba43c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-e2e5af1d27
+      - 4FreeIran-4ba0aba43c
 rules:
   - MATCH,Proxy

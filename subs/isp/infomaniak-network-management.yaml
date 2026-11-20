@@ -13,12 +13,46 @@ proxies:
       short-id: 95da6299f1
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-94302ec7a9
+    server: 83.228.193.229
+    port: 443
+    uuid: 9be9e1e4-d1fc-4423-b22d-cd07a4381acb
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: cj1-e06.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cj1-e06.pages.dev
+  - type: vless
+    name: 4Jadi-fbc70f3f09
+    server: 83.228.193.229
+    port: 443
+    uuid: 9be9e1e4-d1fc-4423-b22d-cd07a4381acb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cj1-e06.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560fp=random
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cj1-e06.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-8c261346d5
+      - 4Jadi-94302ec7a9
+      - 4Jadi-fbc70f3f09
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +60,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-8c261346d5
+      - 4Jadi-94302ec7a9
+      - 4Jadi-fbc70f3f09
 rules:
   - MATCH,Proxy

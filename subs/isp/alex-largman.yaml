@@ -1,5 +1,20 @@
 proxies:
   - type: vless
+    name: 4Kian-fed0ded6de
+    server: 122.8.92.9
+    port: 8443
+    uuid: d236da5f-198e-72dc-5a24-f37b5e90a159
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: cdn.steamstatic.com
+    reality-opts:
+      public-key: sRTNjrosfFSiuQX7Yt7Ub5DJvFznfHSC3nlzFQ3H2WU
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Nika-ea096e1755
     server: 122.8.47.2
     port: 8443
@@ -15,7 +30,37 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4FreeIran-d580872800
+    name: 4Sarina-a33882fa12
+    server: 122.8.45.5
+    port: 8443
+    uuid: f90baf22-0690-e2ea-c014-e5f536503ac6
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.canon.com
+    reality-opts:
+      public-key: iVDh09Vm2DqZMNQoUdf-LCZ6TqVGb9mLXnClAK2LRj4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-2edabf9267
+    server: 122.8.45.5
+    port: 8443
+    uuid: f90baf22-0690-e2ea-c014-e5f536503ac6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.canon.com
+    reality-opts:
+      public-key: iVDh09Vm2DqZMNQoUdf-LCZ6TqVGb9mLXnClAK2LRj4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-e5d054ed14
     server: 122.8.45.5
     port: 8443
     uuid: f90baf22-0690-e2ea-c014-e5f536503ac6
@@ -34,15 +79,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-fed0ded6de
       - 4Nika-ea096e1755
-      - 4FreeIran-d580872800
+      - 4Sarina-a33882fa12
+      - 4Kian-2edabf9267
+      - 4Mohsen-e5d054ed14
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-fed0ded6de
       - 4Nika-ea096e1755
-      - 4FreeIran-d580872800
+      - 4Sarina-a33882fa12
+      - 4Kian-2edabf9267
+      - 4Mohsen-e5d054ed14
 rules:
   - MATCH,Proxy

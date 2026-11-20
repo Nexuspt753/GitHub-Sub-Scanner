@@ -5,12 +5,25 @@ proxies:
     port: 8444
     password: c1f4f185-5786-40c9-893f-2f100b7165f2
     sni: eu79.cdn77.icu
+  - type: vless
+    name: 4Kian-34b79444ca
+    server: eu84.cdn77.icu
+    port: 443
+    uuid: 8da0029e-6ff3-49cc-8b4d-120432cc6414
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: eu84.cdn77.icu
+    reality-opts:
+      public-key: EltWI8AOqkN8lMjRycweRRoFRah5hu6xiKtgBmQOdE8
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-ba2f3ce846
+      - 4Kian-34b79444ca
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +31,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-ba2f3ce846
+      - 4Kian-34b79444ca
 rules:
   - MATCH,Proxy

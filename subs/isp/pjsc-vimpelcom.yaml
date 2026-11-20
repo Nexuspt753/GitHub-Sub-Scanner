@@ -1,14 +1,23 @@
 proxies:
   - type: vless
-    name: 4Kian-65e778e0e3
+    name: V2raySaman
     server: 78.159.250.83
     port: 443
     uuid: f656c4b9-54dc-44cc-a142-e242ce687e56
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
+    client-fingerprint: chrome
+    servername: dualarrow.net
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4e165ff6cd
+    server: 78.159.250.83
+    port: 443
+    uuid: f656c4b9-54dc-44cc-a142-e242ce687e56
+    udp: true
+    tls: true
+    client-fingerprint: chrome
     servername: dualarrow.net
     flow: xtls-rprx-vision
     xudp: true
@@ -17,13 +26,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-65e778e0e3
+      - V2raySaman
+      - 4FreeIran-4e165ff6cd
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-65e778e0e3
+      - V2raySaman
+      - 4FreeIran-4e165ff6cd
 rules:
   - MATCH,Proxy

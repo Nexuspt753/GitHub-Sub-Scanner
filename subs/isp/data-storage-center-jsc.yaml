@@ -1,5 +1,39 @@
 proxies:
   - type: vless
+    name: 4Jadi-469a785518
+    server: 193.58.179.197
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: geoplan-krd.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /checkout/step/wjZAlhnxAy9g
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: geoplan-krd.pro
+  - type: vless
+    name: 4Jadi-c8a4bd3bf9
+    server: 193.58.179.197
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: geoplan-krd.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /checkout/step/wjZAlhnxAy9g
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: geoplan-krd.pro
+  - type: vless
     name: 4Mohsen-ed6ac89b25
     server: 193.58.179.197
     port: 443
@@ -22,6 +56,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-469a785518
+      - 4Jadi-c8a4bd3bf9
       - 4Mohsen-ed6ac89b25
   - name: Auto
     type: url-test
@@ -29,6 +65,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-469a785518
+      - 4Jadi-c8a4bd3bf9
       - 4Mohsen-ed6ac89b25
 rules:
   - MATCH,Proxy

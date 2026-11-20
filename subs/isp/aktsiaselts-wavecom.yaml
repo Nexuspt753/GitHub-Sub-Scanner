@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 80.79.121.155
+    port: 443
+    uuid: 31e407b3-6e1e-425f-98ea-fcf8f494c6a0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: archive-eu-west.livemusic.ac
+    reality-opts:
+      public-key: x9HClr5eRPhMPuBIndkjqFU_0D0M-p4sJVAxuTP68kM
+      short-id: dcfad1cc10d0d15b
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-a6bf1668c3
     server: 80.79.121.155
     port: 443
@@ -28,16 +42,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Sarina-ceaf992ce9
-    server: 46.22.216.31
+    name: 4Sarina-c869de8475
+    server: 80.79.121.156
     port: 443
-    uuid: 4612258c-15e8-4459-a3b6-8b6571699c5f
+    uuid: 6ab79fec-ca02-447b-b7be-5945f6e6ea8f
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: mail.protech-plus.ee
+    client-fingerprint: firefox
+    servername: archive-eu-west.livemusic.ac
     reality-opts:
-      public-key: NiCJO84l7l--GJ10ggvb6HcOS8qLR30pWTphwvWozhg
+      public-key: x9HClr5eRPhMPuBIndkjqFU_0D0M-p4sJVAxuTP68kM
+      short-id: dcfad1cc10d0d15b
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -45,17 +60,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4FreeIran-a6bf1668c3
       - 4FreeIran-cf4457b276
-      - 4Sarina-ceaf992ce9
+      - 4Sarina-c869de8475
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4FreeIran-a6bf1668c3
       - 4FreeIran-cf4457b276
-      - 4Sarina-ceaf992ce9
+      - 4Sarina-c869de8475
 rules:
   - MATCH,Proxy

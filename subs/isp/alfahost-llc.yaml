@@ -1,4 +1,10 @@
 proxies:
+  - type: hysteria2
+    name: 4Nika-177c19b16f
+    server: 141.0.187.4
+    port: 8443
+    password: 67c3f089-46cb-4c09-b207-524aa3fd6625
+    sni: speedtestmark.com
   - type: vless
     name: 4Mohsen-e36e978dd2
     server: 153.76.190.31
@@ -14,6 +20,20 @@ proxies:
       path: /vless-ws
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-004126edfa
+    server: 141.0.187.5
+    port: 11443
+    uuid: f24e8412-9d11-49db-9736-edab5d6fb707
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 141.0.187.4
+    reality-opts:
+      public-key: GPz7dacpjZ5iHT5pbZfYap1vpyt85mNKV7BVW3R92hE
+      short-id: 26ca0f0ba115925d
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Sarina-c0e665b822
     server: 141.0.187.5
@@ -33,7 +53,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-177c19b16f
       - 4Mohsen-e36e978dd2
+      - 4Nika-004126edfa
       - 4Sarina-c0e665b822
   - name: Auto
     type: url-test
@@ -41,7 +63,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-177c19b16f
       - 4Mohsen-e36e978dd2
+      - 4Nika-004126edfa
       - 4Sarina-c0e665b822
 rules:
   - MATCH,Proxy

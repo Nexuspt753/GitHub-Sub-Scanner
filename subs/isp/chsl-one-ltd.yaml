@@ -1,50 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Jadi-1fc00ba504
-    server: 194.87.199.13
+  - type: trojan
+    name: 4Jadi-6ef324d95e
+    server: de194334.cdn-video.pro
     port: 443
-    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
+    password: rW_BDkrbBjZQ9SzXMpKFx8hCSgmRPFzH
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: v1n3.11676767.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /go.php/products
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: v1n3.11676767.xyz
-  - type: vless
-    name: 4Nika-f8bf116136
-    server: 194.87.199.13
-    port: 443
-    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: v1n3.11676767.xyz
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /go.php/productsfp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: v1n3.11676767.xyz
+    sni: de194334.cdn-video.pro
+    alpn:
+      - h2
+    client-fingerprint: firefox
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-1fc00ba504
-      - 4Nika-f8bf116136
+      - 4Jadi-6ef324d95e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-1fc00ba504
-      - 4Nika-f8bf116136
+      - 4Jadi-6ef324d95e
 rules:
   - MATCH,Proxy

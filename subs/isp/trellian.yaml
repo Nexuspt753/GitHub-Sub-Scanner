@@ -1,19 +1,12 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 32.72img.xyz
+    server: 103.224.212.211
     port: 443
-    password: 81d93f62-15a2-4994-adb9-0b5d906aac7e
-    udp: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: DeltaKroneckerGithub-01
-    server: 103.224.212.212
-    port: 443
-    password: 9KogHwaY7hVD
+    password: 61605c66-6d41-4b9d-a496-b9898f3f95d0
     udp: true
     tls: true
-    sni: 103.224.212.212
+    sni: jp-h1.sshub.xyz
     client-fingerprint: chrome
   - type: trojan
     name: 4Sarina-04b8b3e290
@@ -38,6 +31,20 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: trojan
+    name: 4Mohsen-bdcde58727
+    server: cnamemt.ciscocdn1.live
+    port: 443
+    password: 4d706727-996f-4427-930d-60f3bd414cf9
+    udp: true
+    tls: true
+    sni: c2mt.ciscocdn1.live
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /rDCYQta83d0oPABKBhcIX
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
     name: 4Sarina-2f1aa2c477
     server: cnamemc.ciscocdn1.live
     port: 443
@@ -51,16 +58,25 @@ proxies:
       path: /ywQ9KSLI4ZBm9wOAXUaN
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Jadi-a412d249ff
+    server: 32.72img.xyz
+    port: 443
+    password: 81d93f62-15a2-4994-adb9-0b5d906aac7e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
+      - 4Mohsen-bdcde58727
       - 4Sarina-2f1aa2c477
+      - 4Jadi-a412d249ff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,9 +84,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - DeltaKroneckerGithub-01
       - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
+      - 4Mohsen-bdcde58727
       - 4Sarina-2f1aa2c477
+      - 4Jadi-a412d249ff
 rules:
   - MATCH,Proxy

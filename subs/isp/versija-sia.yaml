@@ -13,12 +13,27 @@ proxies:
       short-id: 5d1bb2e74d8eb0bc
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-dde3ae5079
+    server: 185.220.223.78
+    port: 443
+    uuid: 70f1696c-8b82-4614-9c1e-8ec21201684d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: lv.meltun.org
+    reality-opts:
+      public-key: wEJIqlLqor9Z_LMHvcsXh5FSoKMz3NbbcORwPDBgbhw
+      short-id: 5a8e1a04f3d92b67
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-db9cfdf135
+      - 4FreeIran-dde3ae5079
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-db9cfdf135
+      - 4FreeIran-dde3ae5079
 rules:
   - MATCH,Proxy

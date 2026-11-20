@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Kian-6f6ee0c646
+    server: 95.163.2.47
+    port: 443
+    uuid: c8c17d77-cc46-4c81-a2bf-779e75532bdc
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: zisvpn.tech
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /vless-nl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: zisvpn.tech
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-6f6ee0c646
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-6f6ee0c646
+rules:
+  - MATCH,Proxy

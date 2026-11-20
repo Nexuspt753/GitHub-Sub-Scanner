@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-c1db463b42
+    server: 142.249.78.7
+    port: 10696
+    password: 367513f0
+    sni: www.bing.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-c1db463b42
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-c1db463b42
+rules:
+  - MATCH,Proxy

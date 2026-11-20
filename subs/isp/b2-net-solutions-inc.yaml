@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Sarina-32570516c1
+    server: 152.232.62.82
+    port: 443
+    uuid: 31d0f8a6-3dac-4f89-b2f1-aca50f293f70
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-295703029c
     server: 152.232.62.82
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-32570516c1
       - 4Kian-295703029c
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-32570516c1
       - 4Kian-295703029c
 rules:
   - MATCH,Proxy

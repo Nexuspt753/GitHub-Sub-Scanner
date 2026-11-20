@@ -1,29 +1,30 @@
 proxies:
   - type: vless
-    name: 4Kian-f412337ea6
-    server: 81.12.92.87
-    port: 443
-    uuid: e97efd96-800e-4f10-a4b4-6a7f26412461
+    name: 4Mohsen-0085480185
+    server: tel.shnovps.cyou
+    port: 2086
+    uuid: 26d87b51-e894-4e14-8959-f00aacf36ddf
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: origin-www.amazon.com
-    reality-opts:
-      public-key: XmHZyp4G35baYkx4UyykGnNCU5vWdKii3-pow32XUgs
-      short-id: b7867e3942e4d4
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: shno.shnovps.cyou
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f412337ea6
+      - 4Mohsen-0085480185
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f412337ea6
+      - 4Mohsen-0085480185
 rules:
   - MATCH,Proxy
