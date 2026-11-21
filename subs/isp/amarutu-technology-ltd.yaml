@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Jadi-a8e2c19786
+    server: 109.61.109.209
+    port: 9096
+    uuid: d81db550-4787-467e-b98a-579ee9d41999
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: JASBooze12B0nAaLU2QMWkeAqXwh4GmhfPD_O9YteT0
+      short-id: 6ba85179e30d4fc2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-a8e2c19786
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-a8e2c19786
+rules:
+  - MATCH,Proxy

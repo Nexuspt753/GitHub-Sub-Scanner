@@ -1,29 +1,82 @@
 proxies:
   - type: vless
-    name: 4Kian-c7caff80cb
-    server: n2.baterium.space
-    port: 443
-    uuid: 7d63243c-983e-44db-a1b8-13dc3fd6f7a2
+    name: DeltaKroneckerGithub
+    server: 31.76.246.25
+    port: 706
+    uuid: 9780207b-d02a-493a-9bf1-ebc1a4486b34
     udp: true
     tls: true
-    client-fingerprint: qq
-    servername: cdnjs.com
+    client-fingerprint: firefox
+    servername: www.amd.com
     reality-opts:
-      public-key: mg2MoLpb8B51aZiko_nW2SBRoaudv-O6HLHx8VYP7Do
-    flow: xtls-rprx-vision
+      public-key: 6ABNRK-j4hVgo-DwsX3zxMSjMOuudrVZRxLde3XB530
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 31.76.246.27
+    port: 706
+    uuid: 9780207b-d02a-493a-9bf1-ebc1a4486b34
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: 6ABNRK-j4hVgo-DwsX3zxMSjMOuudrVZRxLde3XB530
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-02
+    server: 31.76.246.65
+    port: 706
+    uuid: 9780207b-d02a-493a-9bf1-ebc1a4486b34
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: 6ABNRK-j4hVgo-DwsX3zxMSjMOuudrVZRxLde3XB530
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: DeltaKroneckerGithub-03
+    server: 31.76.246.54
+    port: 706
+    uuid: 9780207b-d02a-493a-9bf1-ebc1a4486b34
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.amd.com
+    reality-opts:
+      public-key: 6ABNRK-j4hVgo-DwsX3zxMSjMOuudrVZRxLde3XB530
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-c7caff80cb
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-c7caff80cb
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

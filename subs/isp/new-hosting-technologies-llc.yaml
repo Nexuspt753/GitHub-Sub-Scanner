@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 89.125.29.31
+    port: 443
+    uuid: 8cef0a51-ce05-50f7-993d-bd341515cc44
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 5post-gate.x5.ru
+    reality-opts:
+      public-key: 1uPNqF5lZg3rU19RXDAT_fijCVi7CGLPxVJY5riHoi0
+      short-id: 3fdebbbb
+    flow: xtls-rprx-vision
+    xudp: true
   - type: hysteria2
     name: 4Sarina-3124a054bd
     server: 194.55.239.220
@@ -27,38 +41,24 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-8538c78023
-    server: food.ebaniyautist.com
-    port: 443
-    uuid: f1e221a2-b4bc-4e59-a8e7-81324788b377
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: sun9-37.userapi.com
-    reality-opts:
-      public-key: 4Su0-tgE1LOcvkrgkhbqwcSx0xP4dr5Wh6gvhtxg0Gk
-      short-id: 7935022d536cccb8
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Sarina-3124a054bd
       - 4Nika-a1b33c9fb1
       - 4Jadi-9e2234a162
-      - 4FreeIran-8538c78023
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Sarina-3124a054bd
       - 4Nika-a1b33c9fb1
       - 4Jadi-9e2234a162
-      - 4FreeIran-8538c78023
 rules:
   - MATCH,Proxy

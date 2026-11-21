@@ -1,33 +1,86 @@
 proxies:
   - type: vmess
-    name: 4Jadi-2708679fa9
-    server: 91.132.197.5
-    port: 443
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 64
+    name: 4Sarina-091f6f3a71
+    server: 185.212.149.7
+    port: 52080
+    uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
+    alterId: 0
     cipher: auto
     udp: true
     xudp: true
     skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /path/191019072927
+  - type: vmess
+    name: 4Sarina-79c651a650
+    server: 185.212.149.7
+    port: 52080
+    uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Kian-a20f41c830
+    server: 185.212.149.7
+    port: 2053
+    uuid: aeb3c019-ae83-4677-af97-846baa787ad5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /3x
       headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: www.29794192.xyz
+        Host: down-cdn.dingtalk.com
+  - type: vmess
+    name: 4Nika-c4073fcb62
+    server: 185.212.149.7
+    port: 52080
+    uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /3x
+      headers:
+        Host: down-cdn.dingtalk.com
+  - type: vmess
+    name: 4Sarina-bd3aa0cc6e
+    server: 185.212.149.7
+    port: 2053
+    uuid: aeb3c019-ae83-4677-af97-846baa787ad5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-2708679fa9
+      - 4Sarina-091f6f3a71
+      - 4Sarina-79c651a650
+      - 4Kian-a20f41c830
+      - 4Nika-c4073fcb62
+      - 4Sarina-bd3aa0cc6e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-2708679fa9
+      - 4Sarina-091f6f3a71
+      - 4Sarina-79c651a650
+      - 4Kian-a20f41c830
+      - 4Nika-c4073fcb62
+      - 4Sarina-bd3aa0cc6e
 rules:
   - MATCH,Proxy

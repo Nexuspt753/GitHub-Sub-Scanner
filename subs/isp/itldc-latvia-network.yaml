@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 195.123.209.159
+    port: 8443
+    uuid: 9a597d68-6688-4046-bf24-a5a541e115e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 6FI4VM9WlQEGVjyCvLDQLz1jOkrzzhtfGl9eQTBn6HU
+      short-id: f8d0271b4b5f9efc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vpnbaz
     server: 195.123.213.28
     port: 443
@@ -14,7 +28,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-1617d3c0cd
+    name: 4FreeIran-79ca4bc4f4
     server: 195.123.209.159
     port: 8443
     uuid: 9a597d68-6688-4046-bf24-a5a541e115e0
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - vpnbaz
-      - 4Kian-1617d3c0cd
+      - 4FreeIran-79ca4bc4f4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - vpnbaz
-      - 4Kian-1617d3c0cd
+      - 4FreeIran-79ca4bc4f4
 rules:
   - MATCH,Proxy

@@ -1,38 +1,30 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-62941ac1f1
-    server: v30.hdacd.com
-    port: 30830
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 13151@proxy_online_net
+    server: 23.172.217.23
+    port: 443
+    uuid: 1ab3c7c3-e1cf-4a20-bd19-ea9041e5518b
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.sony.fi
+    reality-opts:
+      public-key: 2dhlb69O7SFVKy9U3waY8qcErDJAIv-wqgT0Iz8JHyA
+      short-id: "99"
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Jadi-8200ba5f10
-    server: v6.hdacd.com
-    port: 30806
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-62941ac1f1
-      - 4Jadi-8200ba5f10
+      - 13151@proxy_online_net
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-62941ac1f1
-      - 4Jadi-8200ba5f10
+      - 13151@proxy_online_net
 rules:
   - MATCH,Proxy

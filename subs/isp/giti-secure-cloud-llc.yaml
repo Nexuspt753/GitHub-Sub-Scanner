@@ -8,19 +8,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-685d65c90b
-    server: 87.107.194.110
-    port: 9632
-    uuid: 49fe1f7b-e6f6-43dc-a67d-caade85128ba
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: aparat.com
-    reality-opts:
-      public-key: BECatGFyR4lUoLv4-w-qOzPPDkAQt_P8yGB4cP3nE0k
-      short-id: e9b64ca7d55f2672
-    xudp: true
-  - type: vless
     name: 4Jadi-156a52a9da
     server: nl1.melkban24.ir
     port: 3102
@@ -28,25 +15,28 @@ proxies:
     udp: true
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Nika-187a70cd48
-    server: parrsweb.site
-    port: 443
-    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4FreeIran-71ca89d6b3
+    server: nl2.hyperlinklt.com
+    port: 11219
+    uuid: bb94f9a7-e588-9394-684b-ebd4c23a1dad
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: nl2.hyperlinklt.com
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - sora1co
-      - 4Nika-685d65c90b
       - 4Jadi-156a52a9da
-      - 4Nika-187a70cd48
+      - 4FreeIran-71ca89d6b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -54,8 +44,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - sora1co
-      - 4Nika-685d65c90b
       - 4Jadi-156a52a9da
-      - 4Nika-187a70cd48
+      - 4FreeIran-71ca89d6b3
 rules:
   - MATCH,Proxy

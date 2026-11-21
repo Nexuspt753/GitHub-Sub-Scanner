@@ -1,16 +1,43 @@
 proxies:
   - type: vless
-    name: 4Mohsen-1abbc61db9
-    server: 31.59.156.16
+    name: DeltaKroneckerGithub
+    server: 31.59.154.82
+    port: 8459
+    uuid: 11f48e58-bdd8-4251-ba00-ad05d05d9dcf
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: nl-edge.airlinesvpn.com
+    reality-opts:
+      public-key: mTSn98b4yZG3im3ITn-kNLPbT8ljc9ILvAqiT4jyKXk
+      short-id: 0f0e381ec0c4690d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-e336f11915
+    server: 31.59.153.134
     port: 443
-    uuid: ba9ac05e-422e-421e-a46b-a4c111a29946
+    uuid: 0f7b1470-1a9c-4d03-bcbd-73520050df04
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: broe.primetap.cards
+    servername: se02.kubservice.icu
     reality-opts:
-      public-key: M102pOyYWWXO23uugneRjqRqc30SGQN1jIwCYg9STRE
-      short-id: 8acb6e79c1b29c4b
+      public-key: AisbcoZfyF4z3iBBwTjVOV--ldDuON91tQtKBJ3lNzQ
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-5f52bdd338
+    server: 31.59.154.82
+    port: 8459
+    uuid: 11f48e58-bdd8-4251-ba00-ad05d05d9dcf
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl-edge.airlinesvpn.com
+    reality-opts:
+      public-key: mTSn98b4yZG3im3ITn-kNLPbT8ljc9ILvAqiT4jyKXk
+      short-id: 0f0e381ec0c4690d
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +45,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1abbc61db9
+      - DeltaKroneckerGithub
+      - 4Nika-e336f11915
+      - 4Nika-5f52bdd338
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1abbc61db9
+      - DeltaKroneckerGithub
+      - 4Nika-e336f11915
+      - 4Nika-5f52bdd338
 rules:
   - MATCH,Proxy

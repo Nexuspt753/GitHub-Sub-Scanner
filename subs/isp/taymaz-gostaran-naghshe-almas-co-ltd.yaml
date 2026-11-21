@@ -1,25 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: ir1.wufpel.ir
-    port: 443
-    password: GbeGE_MwDQ_2Q_0b9RgdZd07ChS3mMLz
+  - type: vless
+    name: 4FreeIran-35b835e847
+    server: de.cactushub.cdnless.com
+    port: 19444
+    uuid: 9dc0de6b-9afa-46a7-92da-d17206e9a0e2
     udp: true
     tls: true
-    sni: bf0264eb50014997.wufpel.ir
     client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: gU7zZLaPvCNsgvu4DFSo7K6wD47Al2IWDqtHCjkKyXs
+      short-id: 9c46b8bb30481fa8
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4FreeIran-35b835e847
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4FreeIran-35b835e847
 rules:
   - MATCH,Proxy

@@ -8,13 +8,6 @@ proxies:
     obfs: salamander
     obfs-password: vxvnmus9agdzduvz
   - type: vless
-    name: 4Mohsen-167ed19b9c
-    server: 185.239.0.207
-    port: 8080
-    uuid: 13b3edb8-1f15-4537-b742-2b6d04d749ec
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Jadi-1141c2e10d
     server: 194.5.175.47
     port: 9632
@@ -27,14 +20,34 @@ proxies:
       public-key: BECatGFyR4lUoLv4-w-qOzPPDkAQt_P8yGB4cP3nE0k
       short-id: e9b64ca7d55f2672
     xudp: true
+  - type: vless
+    name: 4Jadi-84f0e4f38a
+    server: 171.22.24.101
+    port: 2443
+    uuid: 9de59c56-7fca-40dc-bb86-dc900f2b382b
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Kian-a45be25a19
+    server: 194.48.198.113
+    port: 2053
+    uuid: dd9aadde-27ff-4f71-8b44-d72ea903c9b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-f8ef323be3
-      - 4Mohsen-167ed19b9c
       - 4Jadi-1141c2e10d
+      - 4Jadi-84f0e4f38a
+      - 4Kian-a45be25a19
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,7 +55,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-f8ef323be3
-      - 4Mohsen-167ed19b9c
       - 4Jadi-1141c2e10d
+      - 4Jadi-84f0e4f38a
+      - 4Kian-a45be25a19
 rules:
   - MATCH,Proxy

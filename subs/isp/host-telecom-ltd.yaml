@@ -1,29 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Kian-0cb1780aed
-    server: 170.168.4.52
-    port: 443
-    uuid: 4643976f-85fa-40cf-9e58-ea28b50f253b
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 170.168.5.123
+    port: 8228
+    password: HAB6WFjL2pKev0cN3ML1hz6V4pj1_S00
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: finl11.ali-bard.online
-    reality-opts:
-      public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: nl100.marshonet.store
+    alpn:
+      - h2
+    client-fingerprint: random
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-0cb1780aed
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-0cb1780aed
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

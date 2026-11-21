@@ -9,12 +9,23 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-3ecfc42dd2
+    server: vpn.rezapanel.ir
+    port: 42970
+    uuid: 9d4857b0-62bb-47ee-9e1e-dee99b384465
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-c3ec06dd64
+      - 4Jadi-3ecfc42dd2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -22,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-c3ec06dd64
+      - 4Jadi-3ecfc42dd2
 rules:
   - MATCH,Proxy

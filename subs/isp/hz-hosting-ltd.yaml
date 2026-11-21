@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 77.83.198.104
+    port: 8443
+    uuid: 9a597d68-6688-4046-bf24-a5a541e115e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 6FI4VM9WlQEGVjyCvLDQLz1jOkrzzhtfGl9eQTBn6HU
+      short-id: f8d0271b4b5f9efc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-196f3c6166
     server: it.monkora.org
     port: 443
@@ -12,8 +26,22 @@ proxies:
       public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
     xudp: true
   - type: vless
-    name: 4Sarina-af961ccc02
+    name: 4Sarina-557833888c
     server: 185.117.88.9
+    port: 8443
+    uuid: 9a597d68-6688-4046-bf24-a5a541e115e0
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.apple.com
+    reality-opts:
+      public-key: 6FI4VM9WlQEGVjyCvLDQLz1jOkrzzhtfGl9eQTBn6HU
+      short-id: f8d0271b4b5f9efc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-262d8c2f2e
+    server: 77.83.198.104
     port: 8443
     uuid: 9a597d68-6688-4046-bf24-a5a541e115e0
     udp: true
@@ -30,15 +58,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-196f3c6166
-      - 4Sarina-af961ccc02
+      - 4Sarina-557833888c
+      - 4Jadi-262d8c2f2e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-196f3c6166
-      - 4Sarina-af961ccc02
+      - 4Sarina-557833888c
+      - 4Jadi-262d8c2f2e
 rules:
   - MATCH,Proxy

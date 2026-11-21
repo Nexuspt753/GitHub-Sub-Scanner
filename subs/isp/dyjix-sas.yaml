@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: ConfigV2RayNG
+    server: dash.chiex.ir
+    port: 1349
+    cipher: chacha20-ietf-poly1305
+    password: pFlEjR_10osoxyR2CnNIhUMpAy4CzfXr
+    udp: true
+  - type: ss
     name: 4Jadi-c309bf8503
     server: dash.chiex.ir
     port: 1349
@@ -34,7 +41,7 @@ proxies:
       short-id: f30e45c1fa958a4d
     xudp: true
   - type: vless
-    name: 4Mohsen-11d8d72b05
+    name: 4FreeIran-a735008c3d
     server: 45.154.96.24
     port: 443
     uuid: 849e5ed7-90da-487e-a044-c9052563895c
@@ -44,28 +51,30 @@ proxies:
     servername: firmwaresign.partners.nvidia.com
     reality-opts:
       public-key: o2KcQK-yk3JFACI2IuGoYLa23sClJ2_Az_mKzIj2PhY
-      short-id: dc3500d0cec33c79
+      short-id: 40c55f20dfbf097c
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - ConfigV2RayNG
       - 4Jadi-c309bf8503
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4FreeIran-dbc845f4f4
-      - 4Mohsen-11d8d72b05
+      - 4FreeIran-a735008c3d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - ConfigV2RayNG
       - 4Jadi-c309bf8503
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - 4FreeIran-dbc845f4f4
-      - 4Mohsen-11d8d72b05
+      - 4FreeIran-a735008c3d
 rules:
   - MATCH,Proxy

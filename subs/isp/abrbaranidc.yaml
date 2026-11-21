@@ -1,32 +1,29 @@
 proxies:
-  - type: vmess
-    name: 4Mohsen-3e52590932
-    server: rma4.rmaaccshop.ir
-    port: 44808
-    uuid: 0a6c6c12-d4bd-485e-9bf1-59acec564eef
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Kian-f4786396e2
+    server: p2tun0.greewebservices.ir
+    port: 2053
+    uuid: bee52362-4183-42c5-b065-d3a3f344d00c
     udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: www.aparat.com
+    reality-opts:
+      public-key: ZlyoIAVvDFN8KARLfQv1-OHD2ivwIwNcZbcqY5Qz2Fo
+      short-id: fac9ca37589c58de
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-3e52590932
+      - 4Kian-f4786396e2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-3e52590932
+      - 4Kian-f4786396e2
 rules:
   - MATCH,Proxy

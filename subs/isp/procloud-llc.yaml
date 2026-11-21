@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Sarina-c26c0c2a80
+    name: 4Mohsen-ee30f7b1e5
     server: 5.59.205.83
     port: 443
     uuid: 49118954-b846-4da7-9d55-c859ce59ab50
@@ -13,18 +13,33 @@ proxies:
       short-id: bd0772b42160b76b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-0113725041
+    server: nsk.msk-video-pro.biz
+    port: 443
+    uuid: e9e8b8e7-9813-4e58-a82c-1e1599f76ed5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: nsk.msk-video-pro.biz
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-c26c0c2a80
+      - 4Mohsen-ee30f7b1e5
+      - 4Kian-0113725041
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-c26c0c2a80
+      - 4Mohsen-ee30f7b1e5
+      - 4Kian-0113725041
 rules:
   - MATCH,Proxy

@@ -1,0 +1,24 @@
+proxies:
+  - type: hysteria2
+    name: 4Kian-ae59d7ccee
+    server: hy2-de2.clippyx.net
+    port: 8449
+    password: 962aa7b8-6e17-4dcf-a4a9-350131557ed1:962aa7b8-6e17-4dcf-a4a9-350131557ed1
+    sni: hy2-de2.clippyx.net
+    alpn:
+      - h3
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-ae59d7ccee
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-ae59d7ccee
+rules:
+  - MATCH,Proxy
