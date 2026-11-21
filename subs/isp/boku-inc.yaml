@@ -1,40 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 198.202.24.142
-    port: 2083
-    uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: vipfree.dr-ping.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: VPsave
-    server: 198.202.24.142
-    port: 2083
-    uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: vipfree.dr-ping.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vipfree.dr-ping.ir
-  - type: vless
     name: 4Mohsen-6cad485700
     server: 198.202.24.142
     port: 2083
@@ -51,7 +16,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vipfree.dr-ping.ir
   - type: vless
-    name: 4Jadi-5f3d636f71
+    name: 4Jadi-5a73d3130c
     server: 198.202.24.142
     port: 2083
     uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
@@ -62,9 +27,10 @@ proxies:
     xudp: true
     network: ws
     ws-opts:
-      path: /
+      path: "%2F"
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vipfree.dr-ping.ir
   - type: vless
     name: 4FreeIran-3b7cfd6e62
     server: 198.202.24.214
@@ -85,10 +51,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - VPsave
       - 4Mohsen-6cad485700
-      - 4Jadi-5f3d636f71
+      - 4Jadi-5a73d3130c
       - 4FreeIran-3b7cfd6e62
   - name: Auto
     type: url-test
@@ -96,10 +60,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - VPsave
       - 4Mohsen-6cad485700
-      - 4Jadi-5f3d636f71
+      - 4Jadi-5a73d3130c
       - 4FreeIran-3b7cfd6e62
 rules:
   - MATCH,Proxy

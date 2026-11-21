@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: 4Jadi-3e2cacf7b3
-    server: 81.171.14.72
-    port: 443
-    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: zovira.me
-    reality-opts:
-      public-key: OH9jKzqAqEg98VDxmxReqrC_jbJWNwr-ipj2cNRgazc
-      short-id: 2237b916
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-944abf1718
     server: nl.tarfiq.ir
     port: 54740
@@ -27,32 +13,18 @@ proxies:
       short-id: 5fe52282e09ec75e
     flow: xtls-rprx-vision
     xudp: true
-  - type: vmess
-    name: 4Mohsen-2a52f0c141
-    server: 53f3167b1b943c53.vira-ai.dns.8.8.8.8.ir-service.connectoo.my.id
-    port: 2044
-    uuid: 6bf2145c-75ea-48bc-b10a-84265c8d0973
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-3e2cacf7b3
       - 4Nika-944abf1718
-      - 4Mohsen-2a52f0c141
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3e2cacf7b3
       - 4Nika-944abf1718
-      - 4Mohsen-2a52f0c141
 rules:
   - MATCH,Proxy

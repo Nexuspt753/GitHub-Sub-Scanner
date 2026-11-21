@@ -14,6 +14,20 @@ proxies:
     sni: hy.config7x.site
     skip-cert-verify: false
     fingerprint: 22760B9798F4726D9B76C2F8FB4D5CEE6FDA9C6A75B391137937674AC5B2505F
+  - type: vless
+    name: 4Mohsen-f7eb70c51e
+    server: de.cactushub.cdnless.com
+    port: 19444
+    uuid: e473ae37-66f7-464d-a9f2-d94483d4f9cf
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: gU7zZLaPvCNsgvu4DFSo7K6wD47Al2IWDqtHCjkKyXs
+      short-id: 44ae4d30a085848f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -21,6 +35,7 @@ proxy-groups:
       - Auto
       - 4Nika-4a8974491e
       - 4Nika-aa0b923dfd
+      - 4Mohsen-f7eb70c51e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +44,6 @@ proxy-groups:
     proxies:
       - 4Nika-4a8974491e
       - 4Nika-aa0b923dfd
+      - 4Mohsen-f7eb70c51e
 rules:
   - MATCH,Proxy

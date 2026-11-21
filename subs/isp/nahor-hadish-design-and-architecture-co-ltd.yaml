@@ -1,32 +1,29 @@
 proxies:
   - type: vless
-    name: 4Mohsen-493ef9f580
-    server: tunir.helpower.ir
-    port: 8099
-    uuid: e6ab522f-7fe4-4010-aedc-7c46f67a84b5
+    name: 4Mohsen-fa026983f9
+    server: 212.108.97.14
+    port: 8443
+    uuid: cad844e8-8307-55d8-b75c-5f923376fff7
     udp: true
-    xudp: true
-  - type: vless
-    name: 4Nika-dc8319ede6
-    server: tunir.helpower.ir
-    port: 9365
-    uuid: e6ab522f-7fe4-4010-aedc-7c46f67a84b5
-    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tesla.com
+    reality-opts:
+      public-key: "-p7b4PhnlkadwUd-79Ycl2_TF5LN3_pLD0M6uokA4gg"
+      short-id: 5ce70ea6
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-493ef9f580
-      - 4Nika-dc8319ede6
+      - 4Mohsen-fa026983f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-493ef9f580
-      - 4Nika-dc8319ede6
+      - 4Mohsen-fa026983f9
 rules:
   - MATCH,Proxy

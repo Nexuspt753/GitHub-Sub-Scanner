@@ -6,12 +6,20 @@ proxies:
     uuid: c657310e-d87c-4358-9cb7-200a0c3f35e8
     udp: true
     xudp: true
+  - type: vless
+    name: 🇩🇪03
+    server: 62.144.51.95
+    port: 443
+    uuid: c657310e-d87c-4358-9cb7-200a0c3f35e8
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 🇩🇪03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 🇩🇪03
 rules:
   - MATCH,Proxy

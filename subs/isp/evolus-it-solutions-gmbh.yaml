@@ -13,38 +13,12 @@ proxies:
       short-id: 745948e442d1db44
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Nika-3e27b64b7b
-    server: 157.173.30.204
-    port: 8443
-    uuid: fa214f23-973a-4617-88b5-6662a2081623
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
-    reality-opts:
-      public-key: MMtQZAfeoLdRLaV_tOQwdkU3haA7OjEAjxkDKQkgfls
-      short-id: 745948e442d1db44
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vmess
-    name: 4Kian-0ee8507aae
-    server: 93.157.138.137
-    port: 1125
-    uuid: 78c8ab17-814e-4c10-a642-f616c9be979d
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-f452ce726e
-      - 4Nika-3e27b64b7b
-      - 4Kian-0ee8507aae
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -52,7 +26,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-f452ce726e
-      - 4Nika-3e27b64b7b
-      - 4Kian-0ee8507aae
 rules:
   - MATCH,Proxy

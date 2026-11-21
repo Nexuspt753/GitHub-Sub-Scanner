@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Jadi-517950573d
+    server: nl2.balancer.vbuste-bot.com
+    port: 443
+    uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl2.balancer.vbuste-bot.com
+    reality-opts:
+      public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+      short-id: 4be4110078ebed4a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Mohsen-925c8d5b2e
     server: 88.210.62.122
     port: 443
@@ -14,13 +28,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: vless
+    name: 4FreeIran-6ca97e92ca
     server: gateway.dzen-nl-1.com
     port: 443
     uuid: b392873f-82a2-01f4-ac46-303dd8d4f388
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: gateway.dzen-nl-1.com
     reality-opts:
       public-key: 9F7JxyyP-TNLt0dY2xOB0_34I8W0xXIpFY7rZ7-L0Gg
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-517950573d
       - 4Mohsen-925c8d5b2e
-      - vless
+      - 4FreeIran-6ca97e92ca
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-517950573d
       - 4Mohsen-925c8d5b2e
-      - vless
+      - 4FreeIran-6ca97e92ca
 rules:
   - MATCH,Proxy

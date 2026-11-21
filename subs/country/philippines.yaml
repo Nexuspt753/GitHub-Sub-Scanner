@@ -1,32 +1,52 @@
 proxies:
-  - type: vmess
-    name: Makati City · 4Jadi-e9255445a2
-    server: 120.28.10.46
-    port: 80
-    uuid: ecba5b33-f768-4d8a-b004-b29e8e5c676f
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: Manila · vless
+    server: 103.118.211.38
+    port: 443
+    uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
     udp: true
+    tls: true
+    client-fingerprint: chrome
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sazgar.serveirc.com
+  - type: vless
+    name: Manila · vless-01
+    server: czechia.richforever.ru
+    port: 443
+    uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: Makati City · 4Jadi-6ffcd51b4a
+    server: 120.89.61.213
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ph1.gofizz.in
+    reality-opts:
+      public-key: wAh4gvnTR3NRk0SFrkBRkX3tNeybFNodcmg7piumxiM
+      short-id: 87395f88
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Makati City · 4Jadi-e9255445a2
+      - Manila · vless
+      - Manila · vless-01
+      - Makati City · 4Jadi-6ffcd51b4a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Makati City · 4Jadi-e9255445a2
+      - Manila · vless
+      - Manila · vless-01
+      - Makati City · 4Jadi-6ffcd51b4a
 rules:
   - MATCH,Proxy

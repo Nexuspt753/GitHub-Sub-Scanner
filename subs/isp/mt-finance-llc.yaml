@@ -1,30 +1,33 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 45.143.94.91
+    name: 4Kian-92abebb8a4
+    server: 213.178.155.234
     port: 8443
-    uuid: 3837e7a5-d40e-4b85-8700-5f9725a5a2cb
+    uuid: 3e1798b2-8b39-49e8-9f5f-f3235a16bd66
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: us1.cloudvienta.com
-    reality-opts:
-      public-key: 3Kgy_0tHtOzEn9_mEylNsBVlAHNngT6S4AuYy5wEOSU
-      short-id: 0c37b64d1935ebc1
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: portal-edge.tcpshield.fun
     xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v4/media/session
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
+      - 4Kian-92abebb8a4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
+      - 4Kian-92abebb8a4
 rules:
   - MATCH,Proxy

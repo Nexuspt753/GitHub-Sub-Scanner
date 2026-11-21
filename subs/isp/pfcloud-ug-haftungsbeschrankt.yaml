@@ -8,12 +8,27 @@ proxies:
     tls: true
     sni: www.speedtest.net
     client-fingerprint: chrome
+  - type: vless
+    name: 4Mohsen-065a75adba
+    server: am.mamad.web.tr
+    port: 58336
+    uuid: 94daa499-5f0f-43d4-84bc-a09303e2a384
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tgju.org
+    reality-opts:
+      public-key: 0-Lz5hw7uv9pfGdw_PX9C-H4euFb5vY6KKylQBhB8Rg
+      short-id: 19386c76f700ed04
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-160c3076d1
+      - 4Mohsen-065a75adba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -21,5 +36,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-160c3076d1
+      - 4Mohsen-065a75adba
 rules:
   - MATCH,Proxy

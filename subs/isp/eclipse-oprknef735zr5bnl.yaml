@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: 4Sarina-6b2e32b43f
+    server: 82.152.132.211
+    port: 8044
+    cipher: chacha20-ietf-poly1305
+    password: 6oxELb1-gSKcRTheocLByL8wDlQL3q8k
+    udp: true
+  - type: ss
     name: 4Mohsen-3c4cbf777c
     server: 82.152.132.211
     port: 8044
@@ -20,22 +27,33 @@ proxies:
     uuid: 6d21c2b6-0a3f-4d68-8ebe-6c997f685991
     udp: true
     xudp: true
+  - type: vless
+    name: 4Nika-81ae529feb
+    server: 82.152.132.211
+    port: 8020
+    uuid: f753c5a9-6991-40e8-8155-f13d39b420ec
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-6b2e32b43f
       - 4Mohsen-3c4cbf777c
       - 4Jadi-b416a0250f
       - 4FreeIran-dd510640da
+      - 4Nika-81ae529feb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-6b2e32b43f
       - 4Mohsen-3c4cbf777c
       - 4Jadi-b416a0250f
       - 4FreeIran-dd510640da
+      - 4Nika-81ae529feb
 rules:
   - MATCH,Proxy

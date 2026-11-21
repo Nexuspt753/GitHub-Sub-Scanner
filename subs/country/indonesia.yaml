@@ -34,21 +34,38 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
   - type: vless
-    name: Jakarta · 4Kian-78d6a4ac8b
+    name: Jakarta · 4Kian-19419a9c6c
     server: 43.229.254.71
     port: 443
     uuid: f520bd45-8e26-4a23-a227-2f91acb67928
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: random
     servername: it-mil.862400.xyz
     xudp: true
     network: ws
     ws-opts:
-      path: /announcementfp=random
+      path: /announcement
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: it-mil.862400.xyz
+  - type: vmess
+    name: Jakarta · 4Kian-122cff80cc
+    server: CObpeFkyjxNUQCnw.v.3dns.vip
+    port: 443
+    uuid: b664cc36-4896-454b-bb9c-1377c76176de
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /ws-vmess
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: CObpeFkyjxNUQCnw.v.3dns.vip
 proxy-groups:
   - name: Proxy
     type: select
@@ -57,7 +74,8 @@ proxy-groups:
       - Jakarta · @DeltaKroneckerGithub
       - Cicurug · 4Nika-4a4e0a73bd
       - Jakarta · 4Nika-79af6bcf9d
-      - Jakarta · 4Kian-78d6a4ac8b
+      - Jakarta · 4Kian-19419a9c6c
+      - Jakarta · 4Kian-122cff80cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -67,6 +85,7 @@ proxy-groups:
       - Jakarta · @DeltaKroneckerGithub
       - Cicurug · 4Nika-4a4e0a73bd
       - Jakarta · 4Nika-79af6bcf9d
-      - Jakarta · 4Kian-78d6a4ac8b
+      - Jakarta · 4Kian-19419a9c6c
+      - Jakarta · 4Kian-122cff80cc
 rules:
   - MATCH,Proxy

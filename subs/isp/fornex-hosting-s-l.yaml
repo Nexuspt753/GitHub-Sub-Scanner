@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 103.75.125.162
+    port: 8443
+    uuid: 100e5be4-f765-45ff-85a0-652e4221fa71
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 77.88.8.8
+    reality-opts:
+      public-key: tm1f7W3RTgSx1F6NsoE32TborUxVe1udZQr4LhDAIio
+      short-id: 37ca4a65fde9245c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-76d1da244e
     server: 103.75.125.162
     port: 8443
@@ -28,6 +42,18 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Sarina-e54a2b76b0
+    server: 199.68.198.13
+    port: 443
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: example.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    xudp: true
+  - type: vless
     name: 4Nika-94bb2ae93a
     server: 2.58.66.143
     port: 443
@@ -40,8 +66,8 @@ proxies:
       public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
     xudp: true
   - type: vless
-    name: 4Mohsen-9992714969
-    server: 2.58.66.198
+    name: 4Kian-490e1f3c78
+    server: de.monkora.org
     port: 443
     uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
     udp: true
@@ -52,33 +78,21 @@ proxies:
       public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
     xudp: true
   - type: vless
-    name: 4FreeIran-7b5b255221
-    server: 2.58.66.101
+    name: v2ray_phoenix
+    server: 89.127.210.244
     port: 443
-    uuid: 73e505d4-90e6-43f5-9892-773132ff838d
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 77.88.8.8
-    reality-opts:
-      public-key: a9O5evb8g385KJm77j9SKlB7MvHzUBGes6c8BAxyO1U
-      short-id: 5fd3245e96291c37
-    flow: xtls-rprx-vision
+    servername: fs.qicai99.com
     xudp: true
-  - type: vless
-    name: v2ray313
-    server: 199.195.193.91
-    port: 443
-    uuid: e0216964-ffa1-4d39-82c4-0e40879a470d
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: germ.nullo.pro
-    reality-opts:
-      public-key: gCcUt0o6KZqq3QMrHAwUEUGlyB2H8ZEwXM9WczAHkmU
-      short-id: b29399464c72312d
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
   - type: vless
     name: 4Jadi-8c4dc86f82
     server: 89.127.210.244
@@ -107,6 +121,20 @@ proxies:
     reality-opts:
       public-key: gCcUt0o6KZqq3QMrHAwUEUGlyB2H8ZEwXM9WczAHkmU
       short-id: b29399464c72312d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-6102022089
+    server: sw.data-media-social.org
+    port: 443
+    uuid: ef4f4c3d-0b16-48ad-a8d8-2d22512b3b36
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api-ne.data-media-social.org
+    reality-opts:
+      public-key: jtCRJj_ThfSi1VhBITK1rUZv9lfgKNh-wE19RaGUOTA
+      short-id: b3a1d910e7c2f722
     flow: xtls-rprx-vision
     xudp: true
   - type: vmess
@@ -149,14 +177,16 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Sarina-76d1da244e
       - 4Kian-2498d1b448
+      - 4Sarina-e54a2b76b0
       - 4Nika-94bb2ae93a
-      - 4Mohsen-9992714969
-      - 4FreeIran-7b5b255221
-      - v2ray313
+      - 4Kian-490e1f3c78
+      - v2ray_phoenix
       - 4Jadi-8c4dc86f82
       - 4Jadi-fa9cb411f1
+      - 4Kian-6102022089
       - 4Jadi-9d26ee478f
       - 4Nika-da06da3386
   - name: Auto
@@ -165,14 +195,16 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Sarina-76d1da244e
       - 4Kian-2498d1b448
+      - 4Sarina-e54a2b76b0
       - 4Nika-94bb2ae93a
-      - 4Mohsen-9992714969
-      - 4FreeIran-7b5b255221
-      - v2ray313
+      - 4Kian-490e1f3c78
+      - v2ray_phoenix
       - 4Jadi-8c4dc86f82
       - 4Jadi-fa9cb411f1
+      - 4Kian-6102022089
       - 4Jadi-9d26ee478f
       - 4Nika-da06da3386
 rules:

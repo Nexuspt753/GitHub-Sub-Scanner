@@ -1,65 +1,33 @@
 proxies:
   - type: vless
-    name: EPODONIOS
-    server: 79.175.136.205
-    port: 2096
-    uuid: 217b4e01-7d25-4983-88d4-018e3cf0cd5f
+    name: 4Mohsen-786ef2070f
+    server: loop.loxoid.ir
+    port: 8569
+    uuid: b2040be5-b362-4f0a-822c-d2e7b68b4a3e
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
       - h2
-    servername: tgju.org
-    reality-opts:
-      public-key: hsndXIwexxE5l2h1DUNjc349cgNIL9g9e9jLN5YdAQo
-      short-id: d3669db1187035bc
+      - http/1.1
+      - h3
+    servername: panel.echidi.ir
     xudp: true
-  - type: vless
-    name: "[74305]"
-    server: 79.175.136.205
-    port: 2096
-    uuid: 217b4e01-7d25-4983-88d4-018e3cf0cd5f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: tgju.org
-    reality-opts:
-      public-key: hsndXIwexxE5l2h1DUNjc349cgNIL9g9e9jLN5YdAQo
-      short-id: d3669db1187035bc
-    xudp: true
-  - type: vless
-    name: 🇮🇷196760
-    server: 79.175.136.205
-    port: 2096
-    uuid: 217b4e01-7d25-4983-88d4-018e3cf0cd5f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    servername: tgju.org
-    reality-opts:
-      public-key: hsndXIwexxE5l2h1DUNjc349cgNIL9g9e9jLN5YdAQo
-      short-id: d3669db1187035bc
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - EPODONIOS
-      - "[74305]"
-      - 🇮🇷196760
+      - 4Mohsen-786ef2070f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - EPODONIOS
-      - "[74305]"
-      - 🇮🇷196760
+      - 4Mohsen-786ef2070f
 rules:
   - MATCH,Proxy

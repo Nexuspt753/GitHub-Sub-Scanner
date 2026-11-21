@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Sarina-76f95cbc5a
+    server: 193.106.221.117
+    port: 777
+    uuid: e4747a1b-4245-43ac-9f69-3a2fde5df9ae
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: it.nvidia.com
+    reality-opts:
+      public-key: 5AAbc8WGiJtpoKrcFJyITZEQ8B8jpNuLztju1KEG4SQ
+      short-id: e2db
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-76f95cbc5a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-76f95cbc5a
+rules:
+  - MATCH,Proxy

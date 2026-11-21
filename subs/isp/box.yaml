@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Kian-8b945786f8
+    server: 103.116.7.67
+    port: 2083
+    uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: proxy-1cu.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: proxy-1cu.pages.dev
+  - type: vless
     name: 4Nika-261404fbb8
     server: 103.116.7.10
     port: 2053
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Kian-8b945786f8
       - 4Nika-261404fbb8
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-8b945786f8
       - 4Nika-261404fbb8
 rules:
   - MATCH,Proxy

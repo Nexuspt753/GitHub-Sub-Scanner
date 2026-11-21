@@ -16,19 +16,40 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-71ca89d6b3
-    server: nl2.hyperlinklt.com
-    port: 11219
-    uuid: bb94f9a7-e588-9394-684b-ebd4c23a1dad
+    name: 4Jadi-50871ba9dd
+    server: de-fr.hyperlinkbt.com
+    port: 11134
+    uuid: afdf3eae-510d-547a-9c7c-7921d9bcaccf
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
+      - h3
       - h2
       - http/1.1
-    servername: nl2.hyperlinklt.com
+    servername: de-fr.hyperlinkbt.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Mohsen-84780bc961
+    server: sew.shadoww345.ir
+    port: 7447
+    uuid: 36b80cff-dfc2-430c-8ed7-5799485cd588
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-187a70cd48
+    server: parrsweb.site
+    port: 443
+    uuid: bd75484f-e7db-4b4f-a319-f9719e0c8825
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -36,7 +57,9 @@ proxy-groups:
       - Auto
       - sora1co
       - 4Jadi-156a52a9da
-      - 4FreeIran-71ca89d6b3
+      - 4Jadi-50871ba9dd
+      - 4Mohsen-84780bc961
+      - 4Nika-187a70cd48
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,6 +68,8 @@ proxy-groups:
     proxies:
       - sora1co
       - 4Jadi-156a52a9da
-      - 4FreeIran-71ca89d6b3
+      - 4Jadi-50871ba9dd
+      - 4Mohsen-84780bc961
+      - 4Nika-187a70cd48
 rules:
   - MATCH,Proxy

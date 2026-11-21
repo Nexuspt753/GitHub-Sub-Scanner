@@ -14,6 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: vless
+    server: nsk.msk-video-pro.biz
+    port: 443
+    uuid: e9e8b8e7-9813-4e58-a82c-1e1599f76ed5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - ""
+    servername: nsk.msk-video-pro.biz
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-0113725041
     server: nsk.msk-video-pro.biz
     port: 443
@@ -32,6 +46,7 @@ proxy-groups:
     proxies:
       - Auto
       - 4Mohsen-ee30f7b1e5
+      - vless
       - 4Kian-0113725041
   - name: Auto
     type: url-test
@@ -40,6 +55,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-ee30f7b1e5
+      - vless
       - 4Kian-0113725041
 rules:
   - MATCH,Proxy
