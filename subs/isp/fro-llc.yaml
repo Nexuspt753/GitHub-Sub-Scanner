@@ -12,12 +12,25 @@ proxies:
       public-key: p8pUe3hwND5rhAti-yRQ5qMaIkNdhxOV1K1jpbtJlEQ
       short-id: 125ba3
     xudp: true
+  - type: vless
+    name: 4Jadi-e79c58b377
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-bd21653135
+      - 4Jadi-e79c58b377
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +38,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-bd21653135
+      - 4Jadi-e79c58b377
 rules:
   - MATCH,Proxy

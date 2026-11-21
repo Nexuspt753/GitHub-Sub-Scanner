@@ -1,34 +1,18 @@
 proxies:
   - type: vless
-    name: 4FreeIran-8c261346d5
+    name: 4Kian-95f7eec06f
     server: 91.214.190.127
     port: 443
     uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: edge
     servername: ch1.gofizzin.com
     reality-opts:
       public-key: 3fcmILwQG2sbwo58XW9Z1lziNQXmAFwUglFuXQFePRI
       short-id: 95da6299f1
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Jadi-94302ec7a9
-    server: 83.228.193.229
-    port: 443
-    uuid: 9be9e1e4-d1fc-4423-b22d-cd07a4381acb
-    udp: true
-    tls: true
-    client-fingerprint: random
-    servername: cj1-e06.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cj1-e06.pages.dev
   - type: vless
     name: 4Jadi-fbc70f3f09
     server: 83.228.193.229
@@ -45,22 +29,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cj1-e06.pages.dev
+  - type: vless
+    name: 4Jadi-5d0b53b310
+    server: 83.228.193.229
+    port: 443
+    uuid: 9be9e1e4-d1fc-4423-b22d-cd07a4381acb
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560fp=randomsecurity=tls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cj1-e06.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-8c261346d5
-      - 4Jadi-94302ec7a9
+      - 4Kian-95f7eec06f
       - 4Jadi-fbc70f3f09
+      - 4Jadi-5d0b53b310
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-8c261346d5
-      - 4Jadi-94302ec7a9
+      - 4Kian-95f7eec06f
       - 4Jadi-fbc70f3f09
+      - 4Jadi-5d0b53b310
 rules:
   - MATCH,Proxy

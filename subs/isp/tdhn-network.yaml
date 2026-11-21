@@ -13,12 +13,27 @@ proxies:
       short-id: 6172ba9cffe9c22f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-13d5288b9b
+    server: 178.214.125.2
+    port: 443
+    uuid: 62546819-be8b-4ecf-bb90-ed04fdf610f3
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: conf.emaar.ru
+    reality-opts:
+      public-key: ZxCwJxbsZWJYYCPzeWj7_fxJMVhwh4XGfpvjmEIQjHY
+      short-id: 6172ba9cffe9c22f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 🇩🇪All¹³
+      - 4Jadi-13d5288b9b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 🇩🇪All¹³
+      - 4Jadi-13d5288b9b
 rules:
   - MATCH,Proxy

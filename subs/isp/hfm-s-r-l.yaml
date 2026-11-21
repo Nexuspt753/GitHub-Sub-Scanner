@@ -19,6 +19,18 @@ proxies:
     alpn:
       - http/1.1
     client-fingerprint: chrome
+  - type: vless
+    name: vless
+    server: tieredhazde.shimobile.net
+    port: 443
+    uuid: 1b0b1650-5125-43a1-a6bb-9886623f4bf9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -26,6 +38,7 @@ proxy-groups:
       - Auto
       - DeltaKroneckerGithub
       - 4FreeIran-7bb4d716f3
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -34,5 +47,6 @@ proxy-groups:
     proxies:
       - DeltaKroneckerGithub
       - 4FreeIran-7bb4d716f3
+      - vless
 rules:
   - MATCH,Proxy

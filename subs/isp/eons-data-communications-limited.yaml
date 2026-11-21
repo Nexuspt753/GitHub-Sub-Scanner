@@ -13,12 +13,23 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: 4Mohsen-ad120bf12e
+    server: 64.118.129.151
+    port: 22222
+    uuid: a5206a55-d5bd-41b9-92a5-bd27a90355ff
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-1870a0569b
+      - 4Mohsen-ad120bf12e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-1870a0569b
+      - 4Mohsen-ad120bf12e
 rules:
   - MATCH,Proxy

@@ -1,7 +1,28 @@
 proxies:
   - type: ss
+    name: flyv2ray
+    server: 77.90.10.175
+    port: 8086
+    cipher: 2022-blake3-aes-256-gcm
+    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
+    udp: true
+  - type: ss
+    name: ss
+    server: 77.90.10.175
+    port: 8086
+    cipher: 2022-blake3-aes-256-gcm
+    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
+    udp: true
+  - type: ss
     name: 🇺🇲17@shadowsockskeys
     server: 77.90.10.175
+    port: 8086
+    cipher: 2022-blake3-aes-256-gcm
+    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
+    udp: true
+  - type: ss
+    name: Nexus_Panell
+    server: frr.drwrdoh.org
     port: 8086
     cipher: 2022-blake3-aes-256-gcm
     password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
@@ -16,6 +37,13 @@ proxies:
   - type: ss
     name: 4Mohsen-4b42511da2
     server: 77.90.10.175
+    port: 8086
+    cipher: 2022-blake3-aes-256-gcm
+    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
+    udp: true
+  - type: ss
+    name: 4Sarina-ce8c0b4a79
+    server: frr.drwrdoh.org
     port: 8086
     cipher: 2022-blake3-aes-256-gcm
     password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
@@ -43,7 +71,7 @@ proxies:
     udp: true
   - type: ss
     name: DeltaKroneckerGithub-01
-    server: 77.90.10.175
+    server: frr.drwrdoh.org
     port: 8086
     cipher: 2022-blake3-aes-256-gcm
     password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
@@ -55,32 +83,49 @@ proxies:
     cipher: 2022-blake3-aes-256-gcm
     password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
     udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-03
+    server: frr.drwrdoh.org
+    port: 8086
+    cipher: 2022-blake3-aes-256-gcm
+    password: f2Nq5YLnyclPaWR8my7/Vdd3ZX8URncXZNly5+HcUSs=:dQ6WYcPpGX5xIxUVPAR8w1A9eY6kEVoKKW3HleJ6o8Y=
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - flyv2ray
+      - ss
       - 🇺🇲17@shadowsockskeys
+      - Nexus_Panell
       - 4Nika-40a894bf02
       - 4Mohsen-4b42511da2
+      - 4Sarina-ce8c0b4a79
       - 4Jadi-e87e22436d
       - 4FreeIran-60acbf6651
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - flyv2ray
+      - ss
       - 🇺🇲17@shadowsockskeys
+      - Nexus_Panell
       - 4Nika-40a894bf02
       - 4Mohsen-4b42511da2
+      - 4Sarina-ce8c0b4a79
       - 4Jadi-e87e22436d
       - 4FreeIran-60acbf6651
       - DeltaKroneckerGithub
       - DeltaKroneckerGithub-01
       - DeltaKroneckerGithub-02
+      - DeltaKroneckerGithub-03
 rules:
   - MATCH,Proxy

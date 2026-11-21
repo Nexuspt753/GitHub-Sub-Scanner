@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: VPsave
+    server: 217.60.12.99
+    port: 443
+    uuid: a6142d9d-3f9f-47b7-b7e9-1245dd6a15d6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 217.60.12.99
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - VPsave
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - VPsave
+rules:
+  - MATCH,Proxy

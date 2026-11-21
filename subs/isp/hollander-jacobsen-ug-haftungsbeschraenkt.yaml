@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: Channel
-    server: 195.72.62.7
-    port: 443
-    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fexzoo.net
-    reality-opts:
-      public-key: GQC47B2ZbBygpgJap7Em9lZmCZZkzlckiadXWXlVxGU
-      short-id: 2a67748b0d641e16
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: "14."
     server: 195.72.62.7
     port: 443
@@ -27,20 +13,47 @@ proxies:
       short-id: 2a67748b0d641e16
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-db01fac0ef
+    server: 195.72.62.7
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fexzoo.net
+    reality-opts:
+      public-key: GQC47B2ZbBygpgJap7Em9lZmCZZkzlckiadXWXlVxGU
+      short-id: 2a67748b0d641e16
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-e77a7a980b
+    server: 195.72.62.7
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fexzoo.net
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Channel
       - "14."
+      - 4Sarina-db01fac0ef
+      - 4FreeIran-e77a7a980b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Channel
       - "14."
+      - 4Sarina-db01fac0ef
+      - 4FreeIran-e77a7a980b
 rules:
   - MATCH,Proxy

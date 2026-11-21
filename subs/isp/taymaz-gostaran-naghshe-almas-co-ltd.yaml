@@ -8,29 +8,12 @@ proxies:
     tls: true
     sni: bf0264eb50014997.wufpel.ir
     client-fingerprint: chrome
-  - type: vless
-    name: 4FreeIran-a0a074e603
-    server: ir2.cryptojakiro.com
-    port: 443
-    uuid: 8a1a991a-f206-447a-adaf-37a57c133418
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ir2.cryptojakiro.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: ir2.cryptojakiro.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4FreeIran-a0a074e603
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -38,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4FreeIran-a0a074e603
 rules:
   - MATCH,Proxy

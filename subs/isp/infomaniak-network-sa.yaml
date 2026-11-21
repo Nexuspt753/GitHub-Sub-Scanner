@@ -6,12 +6,27 @@ proxies:
     password: SoftNetConnect
     udp: true
     client-fingerprint: chrome
+  - type: vless
+    name: 4Nika-4f86e63b7c
+    server: 195.15.207.252
+    port: 443
+    uuid: 65b6bc06-44c9-4b21-8dc0-bdf1d688c0e6
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ch.mntw.lol
+    reality-opts:
+      public-key: dqhYuWM5WUOgUYe4FmvLZS-Nb4tY9qZ7_WffpePl6lQ
+      short-id: 76d0389e457fcba0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - 4Nika-4f86e63b7c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +34,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - 4Nika-4f86e63b7c
 rules:
   - MATCH,Proxy

@@ -1,0 +1,27 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-146c99030c
+    server: unokesufayim.begetcdn.cloud
+    port: 443
+    uuid: 835854ab-6aa9-4f7e-8ac9-22ce704b7022
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-146c99030c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-146c99030c
+rules:
+  - MATCH,Proxy

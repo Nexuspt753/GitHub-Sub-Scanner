@@ -1,27 +1,30 @@
 proxies:
   - type: vless
-    name: vless
-    server: 31.210.52.85
+    name: 4Nika-1974097faf
+    server: tr-ist-3.koolb.org
     port: 443
-    uuid: 7c9491a9-b174-4f51-aad4-8229be43b5ed
+    uuid: 95e4113c-f99c-4280-a30b-1eedc5677233
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
+    client-fingerprint: edge
+    servername: tr-ist-3.koolb.org
+    reality-opts:
+      public-key: W58BNG-2mtSvQYg7Id1yuW2-XqtLj0zoutETNsQuWkA
+      short-id: 7ef5a1048af4
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
+      - 4Nika-1974097faf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - 4Nika-1974097faf
 rules:
   - MATCH,Proxy

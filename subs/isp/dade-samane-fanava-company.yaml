@@ -1,54 +1,9 @@
 proxies:
-  - type: ss
-    name: 4Kian-54f0543400
-    server: bash.mrvservice.ir
-    port: 3230
-    cipher: chacha20-ietf-poly1305
-    password: jW_EAIM2k-7fwvqIXnoNuvAKTec0gcv6
-    udp: true
   - type: vless
     name: 4Sarina-768397b8a0
     server: tunpack.webshopi.ir
     port: 61504
     uuid: 4311668e-1c08-4aa3-bda4-e7b3f3bb489d
-    udp: true
-    tls: true
-    client-fingerprint: random
-    alpn:
-      - http/1.1
-    servername: Pasar.zarghamweb.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: pasar.zarghamweb.ir
-  - type: vless
-    name: 4Jadi-f983473bee
-    server: Estiksa.zarghamweb.ir
-    port: 12700
-    uuid: 7886b837-1a56-450e-90a5-f088bc7e55ec
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    servername: pasar.zarghamweb.ir
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: pasar.zarghamweb.ir
-  - type: vless
-    name: 4Nika-fd93841b29
-    server: tunpack.webshopi.ir
-    port: 61504
-    uuid: ae0aa5e5-1923-4d20-826e-164ffe6f8466
     udp: true
     tls: true
     client-fingerprint: random
@@ -78,26 +33,37 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: berfexa.ir
+  - type: vmess
+    name: 4Sarina-deb52b427c
+    server: al1.vipsite2.top
+    port: 2052
+    uuid: d7ce743c-76ad-4158-b2f0-1c59c0393a12
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: alman1.rendai.ir
+    alpn:
+      - h2
+      - http/1.1
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-54f0543400
       - 4Sarina-768397b8a0
-      - 4Jadi-f983473bee
-      - 4Nika-fd93841b29
       - 4Mohsen-ebc506c5e7
+      - 4Sarina-deb52b427c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-54f0543400
       - 4Sarina-768397b8a0
-      - 4Jadi-f983473bee
-      - 4Nika-fd93841b29
       - 4Mohsen-ebc506c5e7
+      - 4Sarina-deb52b427c
 rules:
   - MATCH,Proxy
