@@ -1,9 +1,16 @@
 proxies:
   - type: vless
-    name: 4Nika-dcaf53f3d8
+    name: 4Nika-0ca9ea5108
     server: Iran.powerpanel.space
     port: 443
-    uuid: 6d018441-f4b0-4a95-8204-b38814592fe6
+    uuid: 32c64ff1-2f98-4f91-b9a7-545872370871
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Jadi-58689ff9a0
+    server: Iran.powerpanel.space
+    port: 443
+    uuid: 76858ac1-0098-4ccd-b0d8-2252dca44ee6
     udp: true
     xudp: true
   - type: vless
@@ -27,24 +34,35 @@ proxies:
     uuid: eb877612-ddf8-4877-a7de-b79e9c7f146c
     udp: true
     xudp: true
+  - type: vless
+    name: 4Mohsen-a36dc117cb
+    server: Iran.powerpanel.space
+    port: 443
+    uuid: f1a27e04-a4e0-4466-8d2f-215015d1a603
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-dcaf53f3d8
+      - 4Nika-0ca9ea5108
+      - 4Jadi-58689ff9a0
       - 4Sarina-cbafafb88d
       - 4Kian-544295eca8
       - 4Sarina-4732ace4e6
+      - 4Mohsen-a36dc117cb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-dcaf53f3d8
+      - 4Nika-0ca9ea5108
+      - 4Jadi-58689ff9a0
       - 4Sarina-cbafafb88d
       - 4Kian-544295eca8
       - 4Sarina-4732ace4e6
+      - 4Mohsen-a36dc117cb
 rules:
   - MATCH,Proxy

@@ -11,25 +11,57 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: trojan
-    name: 4Nika-413d7b19e9
-    server: 217.60.19.234
-    port: 2084
-    password: AanARxLoEJexARCmUdenceBWVfXvcdDR
+  - type: vless
+    name: 4Mohsen-35f1f14f61
+    server: 217.60.19.173
+    port: 443
+    uuid: 2e80121c-31b2-423e-914f-f2a365aedfa1
     udp: true
     tls: true
-    sni: login.vk.com
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    client-fingerprint: firefox
+    servername: plos.growmart.site
+    reality-opts:
+      public-key: vNAFIncKncB2sVwrnakzopX-aUC5yzlLnwMmvim39zQ
+      short-id: b77fbbb5f86f53d2
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-00869d2a5e
+    server: 138.124.245.102
+    port: 443
+    uuid: 727a9178-d7f0-4142-8205-b0d19959ded0
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: bol.com
+    reality-opts:
+      public-key: yyXZsa238GRW90w5DweXAdRTtVSuK9oZF_dihKQ41So
+      short-id: 9e5a335de26d1f5a
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4302143405
+    server: 138.124.245.102
+    port: 443
+    uuid: 727a9178-d7f0-4142-8205-b0d19959ded0
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: bol.com
+    reality-opts:
+      public-key: yyXZsa238GRW90w5DweXAdRTtVSuK9oZF_dihKQ41So
+      short-id: 9e5a335de26d1f5a
+    flow: xtls-rprx-vision-udp443
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-b446401317
-      - 4Nika-413d7b19e9
+      - 4Mohsen-35f1f14f61
+      - 4FreeIran-00869d2a5e
+      - 4FreeIran-4302143405
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +69,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-b446401317
-      - 4Nika-413d7b19e9
+      - 4Mohsen-35f1f14f61
+      - 4FreeIran-00869d2a5e
+      - 4FreeIran-4302143405
 rules:
   - MATCH,Proxy

@@ -1,53 +1,26 @@
 proxies:
   - type: vless
-    name: vless
+    name: 4FreeIran-3696126688
     server: api.ferrin.uk
     port: 443
     uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
     udp: true
     tls: true
     client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: api.ferrin.uk
-    port: 443
-    uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
-  - type: vless
-    name: 4Nika-35077b2538
-    server: api.ferrin.uk
-    port: 443
-    uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
+    servername: 7d1a74fd.ferrin.uk
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
-      - vless-01
-      - 4Nika-35077b2538
+      - 4FreeIran-3696126688
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
-      - vless-01
-      - 4Nika-35077b2538
+      - 4FreeIran-3696126688
 rules:
   - MATCH,Proxy

@@ -12,6 +12,34 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
+    name: vless-01
+    server: 192.200.160.42
+    port: 443
+    uuid: d795a9ec-5ed0-4309-ba6c-edc09b818669
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: mama542.baklajann.ru
+    xudp: true
+  - type: vless
+    name: vless-02
+    server: 192.200.160.42
+    port: 443
+    uuid: d795a9ec-5ed0-4309-ba6c-edc09b818669
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: newmama.baklajann.ru
+    xudp: true
+  - type: vless
     name: ">>@oneclickvpnkeys::US"
     server: 63.141.128.22
     port: 443
@@ -44,7 +72,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
   - type: vless
-    name: 4Kian-f3a2086857
+    name: 4FreeIran-e2785ce43f
     server: 192.200.160.42
     port: 443
     uuid: d795a9ec-5ed0-4309-ba6c-edc09b818669
@@ -55,21 +83,6 @@ proxies:
       - h3
       - h2
       - http/1.1
-    servername: mama542.baklajann.ru
-    xudp: true
-  - type: vless
-    name: 4Jadi-bf555f7361
-    server: 192.200.160.42
-    port: 443
-    uuid: d795a9ec-5ed0-4309-ba6c-edc09b818669
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    servername: newmama.baklajann.ru
     xudp: true
 proxy-groups:
   - name: Proxy
@@ -77,10 +90,11 @@ proxy-groups:
     proxies:
       - Auto
       - vless
+      - vless-01
+      - vless-02
       - ">>@oneclickvpnkeys::US"
       - 4Kian-3b53a1e26b
-      - 4Kian-f3a2086857
-      - 4Jadi-bf555f7361
+      - 4FreeIran-e2785ce43f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -88,9 +102,10 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
+      - vless-01
+      - vless-02
       - ">>@oneclickvpnkeys::US"
       - 4Kian-3b53a1e26b
-      - 4Kian-f3a2086857
-      - 4Jadi-bf555f7361
+      - 4FreeIran-e2785ce43f
 rules:
   - MATCH,Proxy

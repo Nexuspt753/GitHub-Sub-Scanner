@@ -1,33 +1,5 @@
 proxies:
   - type: ss
-    name: Vilnius · ⚡06
-    server: 195.238.126.20
-    port: 9068
-    cipher: aes-256-cfb
-    password: mwgRg9hRq3b4Qnwb
-    udp: true
-  - type: ss
-    name: Vilnius · ⚡05
-    server: 195.238.126.20
-    port: 9012
-    cipher: aes-256-cfb
-    password: xaupMUvhptwxdDUg
-    udp: true
-  - type: ss
-    name: Vilnius · 4FreeIran-55d01786f0
-    server: 195.238.126.20
-    port: 9078
-    cipher: aes-256-cfb
-    password: JCJpbRbQZNw9XFZG
-    udp: true
-  - type: ss
-    name: Vilnius · 4Mohsen-f4b9d0e503
-    server: 195.238.126.20
-    port: 9045
-    cipher: aes-256-cfb
-    password: Lp27rqyJq72bZsqX
-    udp: true
-  - type: ss
     name: Vilnius · 4FreeIran-05a3ba1827
     server: 195.238.126.20
     port: 9012
@@ -42,35 +14,6 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: vless
-    name: Šiauliai · 4Mohsen-2d36e0ed20
-    server: 84.32.149.211
-    port: 443
-    uuid: 49db4ce7-ad48-41a3-9b6f-4c6dabd94504
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: acorn.willowfen.top
-    reality-opts:
-      public-key: M-cE7q2hNgBeNv7COM8DS2QC3GGi6Pu7pD1lvUfG0mo
-      short-id: e4fc6803b3212ad4
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: Šiauliai · @OutlineReleasedKey
-    server: 84.32.83.197
-    port: 443
-    uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-dns-gw.galioncc.com
-    reality-opts:
-      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-      short-id: a7d309e4c16b825f
-    xudp: true
   - type: vless
     name: Šiauliai · @vmesskhodam
     server: 84.32.83.197
@@ -126,40 +69,47 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Šiauliai · 4Nika-7c079f41e1
+    server: 85.206.168.71
+    port: 30000
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/191019072927
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.93271626.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Vilnius · ⚡06
-      - Vilnius · ⚡05
-      - Vilnius · 4FreeIran-55d01786f0
-      - Vilnius · 4Mohsen-f4b9d0e503
       - Vilnius · 4FreeIran-05a3ba1827
       - Vilnius · 4Nika-dfe76e557f
-      - Šiauliai · 4Mohsen-2d36e0ed20
-      - Šiauliai · @OutlineReleasedKey
       - Šiauliai · @vmesskhodam
       - Šiauliai · 4Sarina-9d1a0512e7
       - Šiauliai · 4Sarina-e0c8105417
       - Šiauliai · 4Jadi-81551f4385
+      - Šiauliai · 4Nika-7c079f41e1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Vilnius · ⚡06
-      - Vilnius · ⚡05
-      - Vilnius · 4FreeIran-55d01786f0
-      - Vilnius · 4Mohsen-f4b9d0e503
       - Vilnius · 4FreeIran-05a3ba1827
       - Vilnius · 4Nika-dfe76e557f
-      - Šiauliai · 4Mohsen-2d36e0ed20
-      - Šiauliai · @OutlineReleasedKey
       - Šiauliai · @vmesskhodam
       - Šiauliai · 4Sarina-9d1a0512e7
       - Šiauliai · 4Sarina-e0c8105417
       - Šiauliai · 4Jadi-81551f4385
+      - Šiauliai · 4Nika-7c079f41e1
 rules:
   - MATCH,Proxy

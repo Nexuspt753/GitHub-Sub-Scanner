@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Nika-b68c5889d0
+    server: 185.207.197.123
+    port: 443
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
+  - type: vless
     name: 4Sarina-4960992e99
     server: 185.207.197.123
     port: 443
@@ -14,6 +30,22 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-24128a4775
+    server: 185.207.199.123
+    port: 443
+    uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: notls.lukongtou.eu.org
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: notls.lukongtou.eu.org
   - type: vless
     name: 4FreeIran-59dbe1ac65
     server: 185.207.199.123
@@ -30,13 +62,13 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4FreeIran-4a4bb87ec4
+    name: 4Sarina-1c6aa66e69
     server: 185.207.198.151
     port: 443
     uuid: 50414e45-4c5f-5a45-5553-e56923ade28f
     udp: true
     tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     servername: 6izgogewuq8s.5czjqeeeua8s.workers.dev
     xudp: true
     network: ws
@@ -50,17 +82,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-b68c5889d0
       - 4Sarina-4960992e99
+      - 4Mohsen-24128a4775
       - 4FreeIran-59dbe1ac65
-      - 4FreeIran-4a4bb87ec4
+      - 4Sarina-1c6aa66e69
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-b68c5889d0
       - 4Sarina-4960992e99
+      - 4Mohsen-24128a4775
       - 4FreeIran-59dbe1ac65
-      - 4FreeIran-4a4bb87ec4
+      - 4Sarina-1c6aa66e69
 rules:
   - MATCH,Proxy

@@ -1,0 +1,36 @@
+proxies:
+  - type: vless
+    name: vless
+    server: 5.175.221.251
+    port: 39405
+    uuid: ccecc81e-ff9a-4a77-8c6f-1bc95229726f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+  - type: vless
+    name: vless-01
+    server: 5.175.221.251
+    port: 39405
+    uuid: ccecc81e-ff9a-4a77-8c6f-1bc95229726f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - vless
+      - vless-01
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - vless
+      - vless-01
+rules:
+  - MATCH,Proxy

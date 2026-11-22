@@ -1,32 +1,4 @@
 proxies:
-  - type: hysteria2
-    name: 4Kian-c11faf4c25
-    server: ide.vipvirtualnet.eu
-    port: 30746
-    password: 99a271e85dbc4aa8950f9c7beee06b19
-    sni: del.vipvirtualnet.eu
-    skip-cert-verify: false
-    alpn:
-      - h3
-    obfs: salamander
-    obfs-password: 7wjvepshx5g115x4
-  - type: vless
-    name: 4Jadi-0102cc45b2
-    server: fr.vipvirtualnet.eu
-    port: 4002
-    uuid: 89573ddc-bc74-49d3-a1bf-96c293d07cea
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: wx.vipvirtualnet.eu
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: 4Mohsen-782525035b
     server: ide.vipvirtualnet.eu
@@ -61,43 +33,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Sarina-d616b22c23
-    server: usa.vipvirtualnet.eu
-    port: 2052
-    uuid: 89573ddc-bc74-49d3-a1bf-96c293d07cea
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: us.vipvirtualnet.eu
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-c11faf4c25
-      - 4Jadi-0102cc45b2
       - 4Mohsen-782525035b
       - 4FreeIran-cbe9365624
-      - 4Sarina-d616b22c23
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-c11faf4c25
-      - 4Jadi-0102cc45b2
       - 4Mohsen-782525035b
       - 4FreeIran-cbe9365624
-      - 4Sarina-d616b22c23
 rules:
   - MATCH,Proxy

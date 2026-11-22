@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Jadi-943cef09d9
+    server: 195.226.92.131
+    port: 8443
+    uuid: 348daee0-e494-4e96-aa93-884c2079c7ef
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: master-proxy.lighthouselabs.online
+    xudp: true
+  - type: vless
     name: 4Mohsen-d9589633b6
     server: fin1.baterium.space
     port: 443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-943cef09d9
       - 4Mohsen-d9589633b6
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-943cef09d9
       - 4Mohsen-d9589633b6
 rules:
   - MATCH,Proxy
