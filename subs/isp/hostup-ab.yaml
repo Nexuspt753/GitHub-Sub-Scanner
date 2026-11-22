@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 9ed8a8t.se4.h1clayd.click
+    port: 443
+    uuid: f15a2e25-6859-4bcc-b4c4-a14bb8ae0fbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 9ed8a8t.se4.h1clayd.click
+    reality-opts:
+      public-key: aJ_qFu55iLaiUWJ157VIAfAf7Cc6PKbZhFIvE03nNDc
+      short-id: 1cc8aab4a9fa9280
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-91c9b87c75
     server: 136.148.208.221
     port: 443
@@ -28,20 +42,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Mohsen-19048745f0
-    server: 103.177.249.143
-    port: 443
-    uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: lodizu.hagrid-connected.com
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-fa650d9a03
     server: lodizu.hagrid-connected.com
     port: 443
@@ -52,24 +52,40 @@ proxies:
     servername: lodizu.hagrid-connected.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-6639faf934
+    server: 9ed8a8t.se4.h1clayd.click
+    port: 443
+    uuid: f15a2e25-6859-4bcc-b4c4-a14bb8ae0fbb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 9ed8a8t.se4.h1clayd.click
+    reality-opts:
+      public-key: aJ_qFu55iLaiUWJ157VIAfAf7Cc6PKbZhFIvE03nNDc
+      short-id: 1cc8aab4a9fa9280
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4FreeIran-91c9b87c75
       - YFZ
-      - 4Mohsen-19048745f0
       - 4Sarina-fa650d9a03
+      - 4Nika-6639faf934
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4FreeIran-91c9b87c75
       - YFZ
-      - 4Mohsen-19048745f0
       - 4Sarina-fa650d9a03
+      - 4Nika-6639faf934
 rules:
   - MATCH,Proxy

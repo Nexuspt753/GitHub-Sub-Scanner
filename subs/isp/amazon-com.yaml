@@ -1,4 +1,10 @@
 proxies:
+  - type: hysteria2
+    name: 4Nika-244347df88
+    server: vpn-de-002.fastervpn.world
+    port: 443
+    password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+    skip-cert-verify: true
   - type: ss
     name: 4Mohsen-618bbae1bd
     server: 16.171.44.134
@@ -22,22 +28,19 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vmess
-    name: 4Nika-635f916d98
-    server: za-a-zzy.glnyhlgc.com
-    port: 443
-    uuid: 5583af50-f464-4df6-e2ef-34592311e5c6
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Mohsen-83c70a49e7
+    server: shop.raadshop.bond
+    port: 2053
+    uuid: a8740edd-848a-44e0-b2aa-618d07169fff
     udp: true
-    xudp: true
-    skip-cert-verify: false
     tls: true
-    network: ws
-    ws-opts:
-      path: /about/7678
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    client-fingerprint: chrome
+    servername: digikala.com
+    reality-opts:
+      public-key: YTkTPsdfj1hNYd5s32IJ267ayxKP-GY6FcQpVF9aJns
+      short-id: fec43796960fe0
+    xudp: true
   - type: vmess
     name: 4Kian-75981334a1
     server: za-a-zzy.glnyhlgc.com
@@ -61,9 +64,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-244347df88
       - 4Mohsen-618bbae1bd
       - 4Jadi-ba39e52f07
-      - 4Nika-635f916d98
+      - 4Mohsen-83c70a49e7
       - 4Kian-75981334a1
   - name: Auto
     type: url-test
@@ -71,9 +75,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-244347df88
       - 4Mohsen-618bbae1bd
       - 4Jadi-ba39e52f07
-      - 4Nika-635f916d98
+      - 4Mohsen-83c70a49e7
       - 4Kian-75981334a1
 rules:
   - MATCH,Proxy

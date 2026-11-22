@@ -1,5 +1,25 @@
 proxies:
   - type: hysteria2
+    name: 4FreeIran-deef30e80d
+    server: 22egdg.mateflora.com
+    port: 40055
+    password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    sni: psstatic.cdn.bcebos.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    obfs: salamander
+    obfs-password: 6fltjteoyab7fjf1
+  - type: hysteria2
+    name: 4Sarina-ca641f501c
+    server: 22egdg.mateflora.com
+    port: 40055
+    password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    sni: psstatic.cdn.bcebos.com
+    skip-cert-verify: true
+    obfs: salamander
+    obfs-password: salamander
+  - type: hysteria2
     name: 4Mohsen-c705ae5f3a
     server: 86.53.207.112
     port: 40055
@@ -8,18 +28,46 @@ proxies:
     skip-cert-verify: true
     obfs: salamander
     obfs-password: re61ep4ancwplwh8
+  - type: hysteria2
+    name: 4FreeIran-4efa65c02c
+    server: dg3yg.mateflora.com
+    port: 443
+    password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    sni: dg3yg.mateflora.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    obfs: salamander
+    obfs-password: 8utjvetgzbiuwfa7
+  - type: hysteria2
+    name: 4Jadi-a7520417a7
+    server: dg3yg.mateflora.com
+    port: 443
+    password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    sni: dg3yg.mateflora.com
+    skip-cert-verify: true
+    obfs: salamander
+    obfs-password: salamander
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-deef30e80d
+      - 4Sarina-ca641f501c
       - 4Mohsen-c705ae5f3a
+      - 4FreeIran-4efa65c02c
+      - 4Jadi-a7520417a7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-deef30e80d
+      - 4Sarina-ca641f501c
       - 4Mohsen-c705ae5f3a
+      - 4FreeIran-4efa65c02c
+      - 4Jadi-a7520417a7
 rules:
   - MATCH,Proxy

@@ -1,25 +1,32 @@
 proxies:
   - type: trojan
-    name: 4Nika-7fb0b49d9c
+    name: DeltaKroneckerGithub
     server: 66.23.203.21
     port: 59689
     password: ae7eb4dwyaz25pxwgq59
     udp: true
-    tls: true
-    sni: 66.23.203.21
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-99d41d2f54
+    server: 66.23.203.21
+    port: 59689
+    password: ae7eb4dwyaz25pxwgq59
+    udp: true
     client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-7fb0b49d9c
+      - DeltaKroneckerGithub
+      - 4Jadi-99d41d2f54
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-7fb0b49d9c
+      - DeltaKroneckerGithub
+      - 4Jadi-99d41d2f54
 rules:
   - MATCH,Proxy

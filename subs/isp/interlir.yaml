@@ -1,54 +1,29 @@
 proxies:
   - type: vless
-    name: 4Sarina-d9a71aded3
-    server: msk2.aleqseivpn.site
-    port: 2089
-    uuid: 9d08af01-1294-4dd9-a05f-5f0de0e95d66
+    name: DeltaKroneckerGithub
+    server: 8ba6c3t.nl24.h1clayd.shop
+    port: 443
+    uuid: d92038b6-b470-4267-9c69-2c649bf3f4a4
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: msk2.aleqseivpn.site
+    client-fingerprint: firefox
+    servername: 8ba6c3t.nl24.h1clayd.shop
+    reality-opts:
+      public-key: 43bHrvqzL5Sw8lvtDSE3LAlp_0WbixVc7nYcAf17bhg
+      short-id: 16b6715de8577aaa
     xudp: true
-    network: ws
-    ws-opts:
-      path: /be743e1c37611fe412acb394
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: msk.aleqseivpn.site
-  - type: vless
-    name: 4Jadi-bee8d2a992
-    server: msk2.aleqseivpn.site
-    port: 2090
-    uuid: 9d08af01-1294-4dd9-a05f-5f0de0e95d66
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: msk2.aleqseivpn.site
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /f57bb6bee71ac6e1f67b6279
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: msk.aleqseivpn.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d9a71aded3
-      - 4Jadi-bee8d2a992
+      - DeltaKroneckerGithub
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d9a71aded3
-      - 4Jadi-bee8d2a992
+      - DeltaKroneckerGithub
 rules:
   - MATCH,Proxy

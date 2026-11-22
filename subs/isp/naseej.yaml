@@ -14,12 +14,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: mhpanel.kigaping.com
+  - type: trojan
+    name: 🇸🇦223625
+    server: 91.209.253.54
+    port: 443
+    password: 1vkFHbQX_gN1U8V8jVc
+    udp: true
+    tls: true
+    sni: mhpanel.kigaping.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /trojan-ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: mhpanel.kigaping.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-c198f6e53f
+      - 🇸🇦223625
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-c198f6e53f
+      - 🇸🇦223625
 rules:
   - MATCH,Proxy

@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: sora1co
-    server: location15.cpanel-host16.ir
-    port: 56137
-    cipher: chacha20-ietf-poly1305
-    password: uvKNudV-N8AUCrykPiyznA
+  - type: vless
+    name: 4Sarina-c2371aa228
+    server: hageh.starmizban.ir
+    port: 2087
+    uuid: ccb4f3c0-3ac6-402b-9bf9-a12e86e0cc07
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: ca55679ab64740e0.fekr-nakonam.ir
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - sora1co
+      - 4Sarina-c2371aa228
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - sora1co
+      - 4Sarina-c2371aa228
 rules:
   - MATCH,Proxy

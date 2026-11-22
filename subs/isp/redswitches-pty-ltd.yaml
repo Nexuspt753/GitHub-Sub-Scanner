@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Sarina-4bc3066212
+    server: 82.47.1.240
+    port: 443
+    uuid: 850a3eb8-064d-417a-87c9-770cab0ddf97
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: demo-us-east.livemusic.ac
+    reality-opts:
+      public-key: CUfIHVvZtTD1RlJabgO3S-G-6Gyp_jZc8CE1gQd8YyE
+      short-id: b0d86cfde3454d28
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-5c2e1e79a9
     server: demo-us-east.livemusic.ac
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-4bc3066212
       - 4Nika-5c2e1e79a9
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-4bc3066212
       - 4Nika-5c2e1e79a9
 rules:
   - MATCH,Proxy
