@@ -1,23 +1,44 @@
 proxies:
-  - type: hysteria2
-    name: 4Kian-b9926570fb
-    server: 45.86.74.193
+  - type: vless
+    name: 4Jadi-d434f105cb
+    server: lt-tcp.h1.vpnprime.ru
     port: 443
-    password: 3a17ce52-4547-45aa-9820-a7d03ad5faca
-    sni: media.embrofree.org
-    skip-cert-verify: false
+    uuid: 9c462694-93fe-4b43-a3a1-bc458d65de82
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: a96401t.lt3.h1clayd.click
+    reality-opts:
+      public-key: QZsbrRTzJ-nze9D4BJxREqxDBExpyszYpdkK9qO8Jls
+      short-id: d50682df18259eac
+    xudp: true
+  - type: vless
+    name: 4Jadi-dddde0c93c
+    server: 45.86.74.209
+    port: 443
+    uuid: e8b7b937-85d9-43f3-bb7a-7d98478756d7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gemcon.mcufa.pro
+    reality-opts:
+      public-key: "-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo"
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-b9926570fb
+      - 4Jadi-d434f105cb
+      - 4Jadi-dddde0c93c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-b9926570fb
+      - 4Jadi-d434f105cb
+      - 4Jadi-dddde0c93c
 rules:
   - MATCH,Proxy

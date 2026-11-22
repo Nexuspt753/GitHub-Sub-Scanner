@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 193.58.179.199
+    port: 443
+    uuid: df7c56c6-2e4a-49cd-ba89-aa4d38836244
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: avtovyshka-nn.site
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /checkout/step/Q5RCQb6Vu9Kp
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: avtovyshka-nn.site
+  - type: vless
     name: 4FreeIran-78f96b0493
     server: 193.58.179.199
     port: 443
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4FreeIran-78f96b0493
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4FreeIran-78f96b0493
 rules:
   - MATCH,Proxy

@@ -1,5 +1,22 @@
 proxies:
   - type: vless
+    name: 4Mohsen-782525035b
+    server: ide.vipvirtualnet.eu
+    port: 9990
+    uuid: 89573ddc-bc74-49d3-a1bf-96c293d07cea
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: ide.vipvirtualnet.eu
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4FreeIran-cbe9365624
     server: usa.vipvirtualnet.eu
     port: 2052
@@ -38,6 +55,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-782525035b
       - 4FreeIran-cbe9365624
       - 4Sarina-d616b22c23
   - name: Auto
@@ -46,6 +64,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-782525035b
       - 4FreeIran-cbe9365624
       - 4Sarina-d616b22c23
 rules:

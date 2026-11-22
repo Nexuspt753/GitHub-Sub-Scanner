@@ -1,23 +1,24 @@
 proxies:
-  - type: ss
-    name: hex_proxy
-    server: tr.subscriptionservice.ir
-    port: 2089
-    cipher: chacha20-ietf-poly1305
-    password: lZZzfo1mqH7PqnloAogdi2XBhlgiofMy
+  - type: vless
+    name: 4Kian-820bf67047
+    server: T.zonevinzad.ir
+    port: 63505
+    uuid: 3876f553-2d19-46e1-89f3-ba9b538746da
     udp: true
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - hex_proxy
+      - 4Kian-820bf67047
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - hex_proxy
+      - 4Kian-820bf67047
 rules:
   - MATCH,Proxy

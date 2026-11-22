@@ -1,17 +1,6 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 191.217.215.186
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Channel
+    name: 4Kian-f41dc54462
     server: 191.217.215.186
     port: 2053
     uuid: fbe22815-0718-4eae-816f-e91c67d15b54
@@ -22,45 +11,35 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-73c3528f7b
-    server: 191.217.215.186
-    port: 2053
+    name: 4FreeIran-798a5c36af
+    server: 191.217.215.228
+    port: 2096
     uuid: fbe22815-0718-4eae-816f-e91c67d15b54
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision
+    servername: st3b6e5.rumedia-cdn.com
     xudp: true
-  - type: vless
-    name: 4Nika-179b77318e
-    server: 191.217.215.186
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision-udp443
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - Channel
-      - 4Nika-73c3528f7b
-      - 4Nika-179b77318e
+      - 4Kian-f41dc54462
+      - 4FreeIran-798a5c36af
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - Channel
-      - 4Nika-73c3528f7b
-      - 4Nika-179b77318e
+      - 4Kian-f41dc54462
+      - 4FreeIran-798a5c36af
 rules:
   - MATCH,Proxy

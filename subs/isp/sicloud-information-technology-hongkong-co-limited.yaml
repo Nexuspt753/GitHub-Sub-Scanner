@@ -1,32 +1,34 @@
 proxies:
   - type: vless
-    name: 4Jadi-86338a7f63
-    server: 154.19.184.30
+    name: 4Kian-2165ef9636
+    server: 154.19.187.5
     port: 443
-    uuid: 50414e45-4c5f-5a45-5553-2cf63596603d
+    uuid: 92e8d9dc-8e3b-4f81-a278-d18c6bf1b962
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: 7czjqnemuv8s.arminvafaee3.workers.dev
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /stream/PANEL_ZEUS/2cf63596603d
+      path: /ws?ip=154.19.187.5:443
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 7czjqnemuv8s.arminvafaee3.workers.dev
+        Host: app-base-njw3ky.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-86338a7f63
+      - 4Kian-2165ef9636
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-86338a7f63
+      - 4Kian-2165ef9636
 rules:
   - MATCH,Proxy

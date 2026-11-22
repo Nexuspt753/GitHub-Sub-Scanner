@@ -13,12 +13,27 @@ proxies:
       short-id: b470934eb6924098
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-6c2522f414
+    server: se.pink-service.ru
+    port: 443
+    uuid: 0f5c4655-aaee-4ea5-8a49-ea56516d2a60
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: se.pink-service.ru
+    reality-opts:
+      public-key: 2fgsbEAn-ALVpjnE4ZTPrzaZY70vVplYwldCnslInE0
+      short-id: 86b80f1e713a33ad
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-fad879c73e
+      - 4FreeIran-6c2522f414
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-fad879c73e
+      - 4FreeIran-6c2522f414
 rules:
   - MATCH,Proxy

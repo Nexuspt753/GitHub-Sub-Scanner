@@ -1,4 +1,13 @@
 proxies:
+  - type: trojan
+    name: DeltaKroneckerGithub
+    server: 78.17.171.140
+    port: 2053
+    password: t5ZTZ0bYgRLNmJKv-Wg2wmsMx21s6RhX
+    udp: true
+    tls: true
+    sni: ra-p1.victorycloud.ru
+    client-fingerprint: chrome
   - type: vless
     name: 4Nika-db8c912b52
     server: 89.125.100.150
@@ -12,18 +21,51 @@ proxies:
       public-key: d_JJbjmAXfzbclmL3egjE1EaCqK4YWvE-wrc9vSSmjI
       short-id: 06b92539830c0366
     xudp: true
+  - type: vless
+    name: 4Mohsen-cbfbcbb31e
+    server: 89.125.100.59
+    port: 443
+    uuid: 86096188-0ece-41af-922d-792c5f96c3ad
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: anime.caloribro.uno
+    reality-opts:
+      public-key: BzXQPqKb1waqaBR4b2GGyE6VWX4LGd9iCOkyuMc8IGs
+      short-id: 14aa9b370c30c55d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-10aea62cad
+    server: 78.17.171.175
+    port: 443
+    uuid: a637b630-e425-11f1-84a2-52540030ba36
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.wp.pl
+    reality-opts:
+      public-key: gydLdekl4sNcE2j7vueKJJhpYWTBxlGs_VQ6-ZH55iQ
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-db8c912b52
+      - 4Mohsen-cbfbcbb31e
+      - 4Kian-10aea62cad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-db8c912b52
+      - 4Mohsen-cbfbcbb31e
+      - 4Kian-10aea62cad
 rules:
   - MATCH,Proxy

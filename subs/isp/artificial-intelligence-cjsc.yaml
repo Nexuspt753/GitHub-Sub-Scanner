@@ -1,26 +1,70 @@
 proxies:
   - type: vless
-    name: 4Kian-5c8d8ac8b8
-    server: 193.111.204.84
+    name: Tel@MARAMBASHI
+    server: 91.192.158.251
+    port: 2066
+    uuid: 4bec3709-0954-4173-ae59-3dee6cb8b961
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    reality-opts:
+      public-key: 84GM9QUTdTfTrhR-8loDOu7VA0LFW8X02vSvBQdsLAg
+      short-id: 1b2a3f
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4c2c484864
+    server: r4.pythonmakemigreat.wiki
     port: 8443
     uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
     udp: true
     tls: true
     client-fingerprint: firefox
     servername: assets.study.golangwikito.cfd
+    reality-opts:
+      public-key: QrNs0ew7snHqLfpVXS9RAhlRzgAzzGZK9fXmDcx9xHI
+      short-id: 40a4b9403abe554c
     xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
+  - type: vless
+    name: 4Nika-6553d1d92b
+    server: r4.pythonmakemigreat.wiki
+    port: 8443
+    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: assets.study.golangwikito.cfd
+    reality-opts:
+      public-key: QrNs0ew7snHqLfpVXS9RAhlRzgAzzGZK9fXmDcx9xHI
+      short-id: 40a4b9403abe554c
+    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-5c8d8ac8b8
+      - Tel@MARAMBASHI
+      - 4FreeIran-4c2c484864
+      - 4Nika-6553d1d92b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-5c8d8ac8b8
+      - Tel@MARAMBASHI
+      - 4FreeIran-4c2c484864
+      - 4Nika-6553d1d92b
 rules:
   - MATCH,Proxy

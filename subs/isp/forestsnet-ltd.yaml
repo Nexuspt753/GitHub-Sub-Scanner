@@ -1,5 +1,47 @@
 proxies:
   - type: vless
+    name: 4Mohsen-5e882c559a
+    server: 194.93.61.70
+    port: 443
+    uuid: 1b627e4d-4ea4-4dce-8bd8-fc2d3ffbeaba
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: cdnjs.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-fef227a498
+    server: 194.93.61.92
+    port: 443
+    uuid: 1b627e4d-4ea4-4dce-8bd8-fc2d3ffbeaba
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdnjs.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-925c8d5b2e
+    server: 88.210.62.122
+    port: 443
+    uuid: b392873f-82a2-01f4-ac46-303dd8d4f388
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gateway.dzen-nl-1.com
+    reality-opts:
+      public-key: 9F7JxyyP-TNLt0dY2xOB0_34I8W0xXIpFY7rZ7-L0Gg
+      short-id: 0a6ba2716a409da6
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-6ca97e92ca
     server: gateway.dzen-nl-1.com
     port: 443
@@ -18,6 +60,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-5e882c559a
+      - 4FreeIran-fef227a498
+      - 4Mohsen-925c8d5b2e
       - 4FreeIran-6ca97e92ca
   - name: Auto
     type: url-test
@@ -25,6 +70,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-5e882c559a
+      - 4FreeIran-fef227a498
+      - 4Mohsen-925c8d5b2e
       - 4FreeIran-6ca97e92ca
 rules:
   - MATCH,Proxy

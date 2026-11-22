@@ -13,12 +13,47 @@ proxies:
       short-id: dfdee30a27b11f0f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-98b327a13d
+    server: 31.177.111.136
+    port: 443
+    uuid: ef5a57c7-84d5-4f86-b99c-875a16da485f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: q075gi2cms.schoolbag.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /collector/runtime/channel/open
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: q075gi2cms.schoolbag.top
+  - type: vless
+    name: 4Kian-f50491b4c2
+    server: 31.177.111.136
+    port: 443
+    uuid: ef5a57c7-84d5-4f86-b99c-875a16da485f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: q075gi2cms.schoolbag.top
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /collector/runtime/channel/open
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-f7203c77e9
+      - 4Jadi-98b327a13d
+      - 4Kian-f50491b4c2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +61,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-f7203c77e9
+      - 4Jadi-98b327a13d
+      - 4Kian-f50491b4c2
 rules:
   - MATCH,Proxy

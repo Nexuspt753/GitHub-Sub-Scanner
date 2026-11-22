@@ -13,8 +13,24 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
     udp: true
-  - type: ss
+  - type: trojan
     name: DeltaKroneckerGithub
+    server: 104.253.175.99
+    port: 443
+    password: eeb6823c-b926-4ea2-866a-5542edd26e59
+    udp: true
+    tls: true
+    sni: tjsp.hhxaf.cc.cd
+    client-fingerprint: chrome
+  - type: ss
+    name: DeltaKroneckerGithub-01
+    server: 216.172.144.199
+    port: 40643
+    cipher: chacha20-ietf-poly1305
+    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
+    udp: true
+  - type: ss
+    name: DeltaKroneckerGithub-02
     server: 216.172.144.199
     port: 40643
     cipher: chacha20-ietf-poly1305
@@ -34,13 +50,20 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: ss
-    name: DeltaKroneckerGithub-01
-    server: 216.172.144.199
-    port: 40643
-    cipher: chacha20-ietf-poly1305
-    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
+  - type: trojan
+    name: 4Nika-a568bfb709
+    server: 45.38.3.25
+    port: 443
+    password: humanity
     udp: true
+    tls: true
+    sni: www.pleadcourt.org
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -49,8 +72,10 @@ proxy-groups:
       - ConfigV2RayNG
       - 4Kian-5a8b528ce7
       - DeltaKroneckerGithub
-      - 4FreeIran-a1cffca0ef
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4FreeIran-a1cffca0ef
+      - 4Nika-a568bfb709
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -60,7 +85,9 @@ proxy-groups:
       - ConfigV2RayNG
       - 4Kian-5a8b528ce7
       - DeltaKroneckerGithub
-      - 4FreeIran-a1cffca0ef
       - DeltaKroneckerGithub-01
+      - DeltaKroneckerGithub-02
+      - 4FreeIran-a1cffca0ef
+      - 4Nika-a568bfb709
 rules:
   - MATCH,Proxy

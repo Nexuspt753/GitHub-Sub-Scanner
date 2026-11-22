@@ -15,12 +15,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: cj1-e06.pages.dev
+  - type: vless
+    name: 4Jadi-5d0b53b310
+    server: 83.228.193.229
+    port: 443
+    uuid: 9be9e1e4-d1fc-4423-b22d-cd07a4381acb
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560fp=randomsecurity=tls
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cj1-e06.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-78e5a25ae1
+      - 4Jadi-5d0b53b310
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-78e5a25ae1
+      - 4Jadi-5d0b53b310
 rules:
   - MATCH,Proxy

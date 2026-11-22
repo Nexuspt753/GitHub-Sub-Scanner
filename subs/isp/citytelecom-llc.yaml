@@ -1,24 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Jadi-af875141c9
-    server: 89.125.214.221
-    port: 19446
-    password: 6fffde27-86de-49e5-9ece-0669b6680afc
-    sni: mshvpn.online
-    alpn:
-      - h3
+  - type: vless
+    name: 4Mohsen-7f5755c9b3
+    server: 185.229.9.8
+    port: 443
+    uuid: 893cb38d-ee85-419b-a1bf-c8c76abb5a67
+    udp: true
+    tls: true
+    client-fingerprint: random
+    servername: ads.x5.ru
+    reality-opts:
+      public-key: r6LKP3g2W5ruKICTDfH8rwM1PbMjdcgHU7cG6jppxTs
+      short-id: 27e53bbcab7593d7
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-af875141c9
+      - 4Mohsen-7f5755c9b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-af875141c9
+      - 4Mohsen-7f5755c9b3
 rules:
   - MATCH,Proxy

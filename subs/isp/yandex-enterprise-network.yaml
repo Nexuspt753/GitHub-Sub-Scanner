@@ -1,29 +1,52 @@
 proxies:
   - type: vless
-    name: 4Mohsen-d85147abf5
-    server: 84.201.149.75
+    name: 4Kian-0cfbc104ab
+    server: 84.201.156.82
     port: 443
-    uuid: 5713fee0-2f51-4453-9502-b7fd38a657b6
+    uuid: 790fcfdd-f735-48d9-ae52-5f209a361c21
     udp: true
     tls: true
-    client-fingerprint: /
-    servername: moodle.sligvpn.ru
+    client-fingerprint: firefox
+    servername: ads.x5.ru
     reality-opts:
-      public-key: jSx3_X_tBAcNgp7SrKSfZnr5WN0cTN2ShEJv4rHceQU
-    flow: xtls-rprx-vision
+      public-key: QoI8iymZqxZwFFO2x0xh4lhLgq9O2CJUdw9fnCPpT3k
+      short-id: 15affa0af66dfc79
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-1e1c8774f6
+    server: cdn.inboxlv.app
+    port: 443
+    uuid: 88d848f8-88ac-4a90-8258-d61a491ce34e
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: ir.ozone.ru
+    reality-opts:
+      public-key: 12UHjWCU_BNIkRmxt-6QKAuVuSIFzoS2jkN1BIMzGjM
+      short-id: cdce15b3e2179ce8
+    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /
+      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-d85147abf5
+      - 4Kian-0cfbc104ab
+      - 4FreeIran-1e1c8774f6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-d85147abf5
+      - 4Kian-0cfbc104ab
+      - 4FreeIran-1e1c8774f6
 rules:
   - MATCH,Proxy

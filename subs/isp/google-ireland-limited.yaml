@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: 4Nika-859f1947df
+    server: 35.210.99.51
+    port: 443
+    uuid: 92e8d9dc-8e3b-4f81-a278-d18c6bf1b962
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=35.210.99.51:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: app-base-njw3ky.pages.dev
+  - type: vless
     name: 4Nika-a1f12191cf
     server: 34.3.107.0
     port: 443
@@ -17,6 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-859f1947df
       - 4Nika-a1f12191cf
   - name: Auto
     type: url-test
@@ -24,6 +43,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-859f1947df
       - 4Nika-a1f12191cf
 rules:
   - MATCH,Proxy

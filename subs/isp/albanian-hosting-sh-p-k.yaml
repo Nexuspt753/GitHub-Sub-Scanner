@@ -1,32 +1,23 @@
 proxies:
-  - type: vless
-    name: 4Kian-21e11eb2c2
-    server: fast.spirako.com
-    port: 11443
-    uuid: 081cd1d2-4a06-440b-b68a-1472a6aa69f1
+  - type: ss
+    name: 4Nika-a19d21076b
+    server: 103.167.234.75
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: 7UECmz8Ooc5Hlxhdu3h5bw
     udp: true
-    tls: true
-    client-fingerprint: random
-    servername: apple.com
-    reality-opts:
-      public-key: 6O73fxypVjH5qAMVuiYdTGTpj7msRqGBNO0dqqYiaxU
-      short-id: b113695e78b48185
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-21e11eb2c2
+      - 4Nika-a19d21076b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-21e11eb2c2
+      - 4Nika-a19d21076b
 rules:
   - MATCH,Proxy

@@ -1,46 +1,29 @@
 proxies:
   - type: vless
-    name: 4FreeIran-79320972b5
-    server: 83.220.175.235
-    port: 2096
-    uuid: f13b36ac-3765-4458-8a4d-08575038c463
+    name: 4Nika-7901405b03
+    server: ru-msk-fvds-71.sssrvpn.pro
+    port: 443
+    uuid: 13ab7444-2956-46a4-acf1-7f1d9d099381
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: id.vk.com
+    servername: 5post-gate.x5.ru
     reality-opts:
       public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Kian-dbc71cb615
-    server: 83.220.175.235
-    port: 2096
-    uuid: f13b36ac-3765-4458-8a4d-08575038c463
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: id.vk.com
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-79320972b5
-      - 4Kian-dbc71cb615
+      - 4Nika-7901405b03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-79320972b5
-      - 4Kian-dbc71cb615
+      - 4Nika-7901405b03
 rules:
   - MATCH,Proxy

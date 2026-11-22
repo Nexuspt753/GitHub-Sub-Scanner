@@ -1,28 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: ru-1.krugvpn.com
+  - type: vless
+    name: 4Sarina-d00c68c8ce
+    server: ru1.cvs-a.com
     port: 443
-    password: jj59d0f73f5d6
+    uuid: e3479472-3d5d-4142-842a-44a32b501bd7
     udp: true
     tls: true
-    sni: ru-1.krugvpn.com
-    alpn:
-      - h2
-      - http/1.1
     client-fingerprint: chrome
+    servername: ru1.cvs-a.com
+    reality-opts:
+      public-key: vgmo5AxgVJfSME3mlK4ulM4HeVAn6eS2UO9wYEPNFiY
+      short-id: bb55683efa59799d
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-d00c68c8ce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-d00c68c8ce
 rules:
   - MATCH,Proxy
