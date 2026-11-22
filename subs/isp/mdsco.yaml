@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: ConfigV2RayNG
+    server: 103.162.14.250
+    port: 25272
+    uuid: f592a058-bfb6-447e-b849-fd169b65b301
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: G5fbtso9OktJfpHqg7demmUt8zfjnnEAL_QDRqvOzEU
+      short-id: f3a10622fe
+    xudp: true
+  - type: vless
     name: 4Kian-5be307726e
     server: 103.162.14.250
     port: 25272
@@ -13,20 +26,7 @@ proxies:
       short-id: f3a10622fe
     xudp: true
   - type: vless
-    name: 4Jadi-02fb01eb8f
-    server: 103.162.14.250
-    port: 25272
-    uuid: f592a058-bfb6-447e-b849-fd169b65b301
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: www.cloudflare.com
-    reality-opts:
-      public-key: G5fbtso9OktJfpHqg7demmUt8zfjnnEAL_QDRqvOzEU
-      short-id: f3a10622fe
-    xudp: true
-  - type: vless
-    name: 4Mohsen-8085f0e9d8
+    name: 4Mohsen-8f271707c9
     server: kir4.crackerbinam.org
     port: 25272
     uuid: f592a058-bfb6-447e-b849-fd169b65b301
@@ -43,17 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - ConfigV2RayNG
       - 4Kian-5be307726e
-      - 4Jadi-02fb01eb8f
-      - 4Mohsen-8085f0e9d8
+      - 4Mohsen-8f271707c9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - ConfigV2RayNG
       - 4Kian-5be307726e
-      - 4Jadi-02fb01eb8f
-      - 4Mohsen-8085f0e9d8
+      - 4Mohsen-8f271707c9
 rules:
   - MATCH,Proxy

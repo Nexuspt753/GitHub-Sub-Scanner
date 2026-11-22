@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Mohsen-a36d900358
+    server: 198.46.146.118
+    port: 36720
+    password: 4fUg3KH31LpMhko6o0Ka9Q
+    sni: bing.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-a36d900358
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-a36d900358
+rules:
+  - MATCH,Proxy

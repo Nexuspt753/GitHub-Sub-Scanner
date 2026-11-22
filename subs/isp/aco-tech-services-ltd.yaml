@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-dac2a13598
+    server: 191.44.19.24
+    port: 443
+    uuid: 34630c96-6edd-4bf3-9481-ce6ab74ec123
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 920afc50f23e.cdn.cachefleet.com
+    reality-opts:
+      public-key: LcxpMyEhHOnoLDsGE8eY8ucHbZ2oByGihDGBnYpH_yo
+      short-id: 43e3261006bf44b2
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-dac2a13598
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-dac2a13598
+rules:
+  - MATCH,Proxy

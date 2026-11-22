@@ -1,31 +1,30 @@
 proxies:
-  - type: trojan
-    name: Lisbon · 4Nika-35f692cf26
-    server: 194.9.62.42
-    port: 8443
-    password: f426d3c9-fb43-43c0-868b-898dfa451a74
+  - type: vless
+    name: Lisbon · 4Kian-162c275298
+    server: 94.46.172.23
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
     udp: true
     tls: true
-    sni: likejennie.pages.dev
     client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: likejennie.pages.dev
+    servername: pt1.gofizzin.com
+    reality-opts:
+      public-key: mrkbW8LrOMr_VqFXxdslDI-2VG38Xvd6iD-c0p48uXg
+      short-id: 522c2ea956
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Lisbon · 4Nika-35f692cf26
+      - Lisbon · 4Kian-162c275298
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Lisbon · 4Nika-35f692cf26
+      - Lisbon · 4Kian-162c275298
 rules:
   - MATCH,Proxy

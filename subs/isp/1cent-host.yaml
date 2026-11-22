@@ -1,30 +1,42 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-120c85e5db
-    server: plos.growmart.site
-    port: 443
-    uuid: 2e80121c-31b2-423e-914f-f2a365aedfa1
+  - type: trojan
+    name: 4Jadi-b446401317
+    server: 217.60.19.234
+    port: 2084
+    password: AanARxLoEJexARCmUdenceBWVfXvcdDR
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: plos.growmart.site
-    reality-opts:
-      public-key: vNAFIncKncB2sVwrnakzopX-aUC5yzlLnwMmvim39zQ
-      short-id: b77fbbb5f86f53d2
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: login.vk.com
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: trojan
+    name: 4Nika-413d7b19e9
+    server: 217.60.19.234
+    port: 2084
+    password: AanARxLoEJexARCmUdenceBWVfXvcdDR
+    udp: true
+    tls: true
+    sni: login.vk.com
+    client-fingerprint: chrome
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-120c85e5db
+      - 4Jadi-b446401317
+      - 4Nika-413d7b19e9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-120c85e5db
+      - 4Jadi-b446401317
+      - 4Nika-413d7b19e9
 rules:
   - MATCH,Proxy

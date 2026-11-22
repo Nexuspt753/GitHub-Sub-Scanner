@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 🇩🇪01
+    server: DETUN.PRIMESELL.IR
+    port: 3535
+    uuid: 83e56eb0-0876-4647-8ff2-e408cf4247e3
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: pars.aitseller.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ttuit.aitseller.ir
+  - type: vless
     name: 🇩🇪02
     server: DETUN.PRIMESELL.IR
     port: 3535
@@ -32,7 +48,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ttuit.aitseller.ir
   - type: vless
-    name: 🇩🇪07
+    name: 🇩🇪04
     server: DETUN.PRIMESELL.IR
     port: 3535
     uuid: 83e56eb0-0876-4647-8ff2-e408cf4247e3
@@ -68,9 +84,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇩🇪01
       - 🇩🇪02
       - 🇩🇪03
-      - 🇩🇪07
+      - 🇩🇪04
       - 4Sarina-97c801a605
   - name: Auto
     type: url-test
@@ -78,9 +95,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 🇩🇪01
       - 🇩🇪02
       - 🇩🇪03
-      - 🇩🇪07
+      - 🇩🇪04
       - 4Sarina-97c801a605
 rules:
   - MATCH,Proxy

@@ -1,5 +1,14 @@
 proxies:
   - type: trojan
+    name: DeltaKroneckerGithub
+    server: 138.124.229.34
+    port: 443
+    password: "1234567890"
+    udp: true
+    tls: true
+    sni: 138.124.229.34
+    client-fingerprint: chrome
+  - type: trojan
     name: 4Nika-3f201e71e5
     server: 144.31.205.106
     port: 443
@@ -48,7 +57,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Sarina-61a99f5a26
+    name: 🇩🇪222160
+    server: 2.26.251.236
+    port: 443
+    uuid: c16e8cdb-65dd-4049-bc65-14c051b8a6c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mental-deprivation.ru
+    reality-opts:
+      public-key: 1iVMMhJZgXHRY7tRlR-1kypF0YeaBcB7EjcfHRsYZX4
+      short-id: 4ff31b18d1bd8227
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: V2ray_confiig
+    server: 2.26.251.236
+    port: 443
+    uuid: c16e8cdb-65dd-4049-bc65-14c051b8a6c6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mental-deprivation.ru
+    reality-opts:
+      public-key: 1iVMMhJZgXHRY7tRlR-1kypF0YeaBcB7EjcfHRsYZX4
+      short-id: 4ff31b18d1bd8227
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-047c304274
     server: 2.26.251.236
     port: 443
     uuid: c16e8cdb-65dd-4049-bc65-14c051b8a6c6
@@ -66,19 +103,25 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Nika-3f201e71e5
       - 4FreeIran-e5be016611
       - 4Nika-27fcf2cbfe
-      - 4Sarina-61a99f5a26
+      - 🇩🇪222160
+      - V2ray_confiig
+      - 4Sarina-047c304274
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Nika-3f201e71e5
       - 4FreeIran-e5be016611
       - 4Nika-27fcf2cbfe
-      - 4Sarina-61a99f5a26
+      - 🇩🇪222160
+      - V2ray_confiig
+      - 4Sarina-047c304274
 rules:
   - MATCH,Proxy

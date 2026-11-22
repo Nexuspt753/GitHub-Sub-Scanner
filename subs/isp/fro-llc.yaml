@@ -24,6 +24,18 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Mohsen-5536f27dbc
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
@@ -31,6 +43,7 @@ proxy-groups:
       - Auto
       - 4Jadi-bd21653135
       - 4Jadi-e79c58b377
+      - 4Mohsen-5536f27dbc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -39,5 +52,6 @@ proxy-groups:
     proxies:
       - 4Jadi-bd21653135
       - 4Jadi-e79c58b377
+      - 4Mohsen-5536f27dbc
 rules:
   - MATCH,Proxy

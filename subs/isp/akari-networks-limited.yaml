@@ -1,25 +1,59 @@
 proxies:
   - type: trojan
-    name: 4Mohsen-dcf041c5af
-    server: 188.253.12.94
+    name: 4Nika-0ee4f7314b
+    server: 188.253.12.92
     port: 45619
     password: 4f4d1167-ef14-4304-9bce-0740472503ef
     udp: true
     tls: true
     sni: fr.01.naiun.bilibili.com
     client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-840d1e8374
+    server: 188.253.12.93
+    port: 47909
+    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    udp: true
+    tls: true
+    sni: is.01.naiun.bilibili.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4FreeIran-be12cc0ed2
+    server: 188.253.12.93
+    port: 48697
+    password: 4f4d1167-ef14-4304-9bce-0740472503ef
+    udp: true
+    tls: true
+    sni: gh.01.naiun.bilibili.com
+    client-fingerprint: chrome
+  - type: vmess
+    name: 4Sarina-4236d8440f
+    server: 103.160.180.26
+    port: 22222
+    uuid: a5206a55-d5bd-41b9-92a5-bd27a90355ff
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-dcf041c5af
+      - 4Nika-0ee4f7314b
+      - 4Jadi-840d1e8374
+      - 4FreeIran-be12cc0ed2
+      - 4Sarina-4236d8440f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-dcf041c5af
+      - 4Nika-0ee4f7314b
+      - 4Jadi-840d1e8374
+      - 4FreeIran-be12cc0ed2
+      - 4Sarina-4236d8440f
 rules:
   - MATCH,Proxy

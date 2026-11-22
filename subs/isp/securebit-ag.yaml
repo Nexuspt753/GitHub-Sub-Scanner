@@ -1,0 +1,62 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 95.128.157.245
+    port: 443
+    uuid: d17d2930-9102-42b3-96fe-d5255094dc25
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: iJAeFsGnmqu2tCJ4ihKgYKDLB2HSPT2S8V7XQv6rSjU
+      short-id: c81ffb83
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ⚙️31@oneclickvpnkeys
+    server: 95.128.157.245
+    port: 443
+    uuid: d17d2930-9102-42b3-96fe-d5255094dc25
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: iJAeFsGnmqu2tCJ4ihKgYKDLB2HSPT2S8V7XQv6rSjU
+      short-id: c81ffb83
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-fc085e799f
+    server: 95.128.157.245
+    port: 443
+    uuid: d17d2930-9102-42b3-96fe-d5255094dc25
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dl.google.com
+    reality-opts:
+      public-key: iJAeFsGnmqu2tCJ4ihKgYKDLB2HSPT2S8V7XQv6rSjU
+      short-id: c81ffb83
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - ⚙️31@oneclickvpnkeys
+      - 4Nika-fc085e799f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - ⚙️31@oneclickvpnkeys
+      - 4Nika-fc085e799f
+rules:
+  - MATCH,Proxy

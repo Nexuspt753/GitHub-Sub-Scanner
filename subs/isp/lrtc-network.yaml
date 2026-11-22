@@ -1,9 +1,22 @@
 proxies:
   - type: vless
-    name: vless
+    name: VPsave
     server: pix.gilangard.ir
     port: 8443
-    uuid: e9441be6-8185-46f8-9189-ce57a6df9cbb
+    uuid: 01451834-cbc3-4891-b34c-9c35aae6ea99
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: 4Jadi-9392a74111
+    server: pix.gilangard.ir
+    port: 8443
+    uuid: 01451834-cbc3-4891-b34c-9c35aae6ea99
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -17,13 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - vless
+      - VPsave
+      - 4Jadi-9392a74111
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
+      - VPsave
+      - 4Jadi-9392a74111
 rules:
   - MATCH,Proxy

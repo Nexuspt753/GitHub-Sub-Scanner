@@ -1,31 +1,19 @@
 proxies:
   - type: trojan
     name: DeltaKroneckerGithub
-    server: 192.3.107.252
+    server: 198.23.229.250
     port: 443
     password: 2ee85121-31de-4581-a492-eb00f606e392
     udp: true
     tls: true
-    sni: rc8.freeguard.org
+    sni: rc6.freeguard.org
     client-fingerprint: chrome
-  - type: vmess
-    name: 4Sarina-b34406d653
-    server: 192.227.247.27
-    port: 443
-    uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
-      - 4Sarina-b34406d653
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -33,6 +21,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
-      - 4Sarina-b34406d653
 rules:
   - MATCH,Proxy

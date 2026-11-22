@@ -1,19 +1,21 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 194.135.22.186
-    port: 443
-    uuid: 64f002a5-e347-4954-ac53-9fb5d76d19d5
+    name: 4Kian-852c251e23
+    server: 194.135.34.118
+    port: 8443
+    uuid: 020f7f86-a559-4366-8d2d-c6f81d6bbe5f
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: videohosting.cliphub.forum
+    client-fingerprint: firefox
+    servername: web.hosttcp.fun
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /api/v4/media/session
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: VPsave-01
+    name: VPsave
     server: 194.135.22.186
     port: 443
     uuid: 64f002a5-e347-4954-ac53-9fb5d76d19d5
@@ -66,42 +68,26 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4Kian-197f342ee6
-    server: 88.218.248.89
-    port: 443
-    uuid: a56a3bda-e89a-4182-a671-a1858bb0f47c
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: api-maps.yandex.ru
-    reality-opts:
-      public-key: xFEvOfCpuJIJzWv27x9BZ0npZAemtKctvbE3EnAAX3E
-      short-id: 59eee550a1014198
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-852c251e23
       - VPsave
-      - VPsave-01
       - 4Nika-7a5c520b84
       - Tarkahodeh
       - 4Mohsen-a74a1b7952
-      - 4Kian-197f342ee6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-852c251e23
       - VPsave
-      - VPsave-01
       - 4Nika-7a5c520b84
       - Tarkahodeh
       - 4Mohsen-a74a1b7952
-      - 4Kian-197f342ee6
 rules:
   - MATCH,Proxy

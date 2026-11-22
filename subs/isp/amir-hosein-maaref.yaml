@@ -1,50 +1,32 @@
 proxies:
-  - type: vmess
-    name: 4Jadi-a7cbeb551a
-    server: tun1.warzhost.ir
-    port: 2052
-    uuid: c6685dbb-ded3-4c3c-b2c5-f631892a3fe6
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: vless
+    server: de-4-tun.healingfluence.org
+    port: 443
+    uuid: fc639320-e47c-4e32-afc2-700d4c625b0a
     udp: true
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
-  - type: vmess
-    name: 4Sarina-21cc875c63
-    server: tun1.warzhost.ir
-    port: 2082
-    uuid: c6685dbb-ded3-4c3c-b2c5-f631892a3fe6
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Sarina-c1f75c049e
+    server: de-4-tun.healingfluence.org
+    port: 443
+    uuid: fc639320-e47c-4e32-afc2-700d4c625b0a
     udp: true
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: play.google.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-a7cbeb551a
-      - 4Sarina-21cc875c63
+      - vless
+      - 4Sarina-c1f75c049e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-a7cbeb551a
-      - 4Sarina-21cc875c63
+      - vless
+      - 4Sarina-c1f75c049e
 rules:
   - MATCH,Proxy

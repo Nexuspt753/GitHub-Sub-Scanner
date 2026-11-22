@@ -1,0 +1,22 @@
+proxies:
+  - type: hysteria2
+    name: 4Nika-ec60bab907
+    server: 198.46.159.171
+    port: 8443
+    password: EkkoHY2_2024!
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-ec60bab907
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-ec60bab907
+rules:
+  - MATCH,Proxy
