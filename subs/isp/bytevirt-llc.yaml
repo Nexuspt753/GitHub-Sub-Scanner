@@ -1,5 +1,71 @@
 proxies:
   - type: vless
+    name: 4Nika-93d9febb19
+    server: 23.95.123.103
+    port: 443
+    uuid: 92e8d9dc-8e3b-4f81-a278-d18c6bf1b962
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=23.95.123.103:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: app-base-njw3ky.pages.dev
+  - type: vless
+    name: 4Mohsen-a40f51a552
+    server: 140.235.39.162
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
+    name: 4FreeIran-083f8a5888
+    server: 140.235.39.19
+    port: 443
+    uuid: c18b978e-1c4e-415c-8bea-07942b563a64
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: shuma.ccwu.cc
+    xudp: true
+    network: ws
+    ws-opts:
+      path: "%2F"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: shuma.ccwu.cc
+  - type: vless
+    name: 4Jadi-b06bd2cbc8
+    server: 141.11.139.215
+    port: 443
+    uuid: d342d11e-d224-4463-b982-532309285094
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ccc.010304.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: ccc.010304.xyz
+  - type: vless
     name: 4Jadi-6053cb954d
     server: 141.11.139.215
     port: 443
@@ -15,36 +81,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: ccc.010304.xyz
-  - type: vless
-    name: 4Kian-db3a25a40b
-    server: 208.68.180.204
-    port: 443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-93d9febb19
+      - 4Mohsen-a40f51a552
+      - 4FreeIran-083f8a5888
+      - 4Jadi-b06bd2cbc8
       - 4Jadi-6053cb954d
-      - 4Kian-db3a25a40b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-93d9febb19
+      - 4Mohsen-a40f51a552
+      - 4FreeIran-083f8a5888
+      - 4Jadi-b06bd2cbc8
       - 4Jadi-6053cb954d
-      - 4Kian-db3a25a40b
 rules:
   - MATCH,Proxy

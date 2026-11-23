@@ -1,4 +1,44 @@
 proxies:
+  - type: vless
+    name: v2ray_phoenix
+    server: 4ba60e69c4fd291e.web.vipercloud.ir
+    port: 40287
+    uuid: 9517e5e2-c4e9-425d-9355-0a8a9cfbf330
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vmess
+    name: VEGAAS_VPN
+    server: vip.mygharehshop.ir
+    port: 5312
+    uuid: ad155c7d-1be8-4105-b401-eb2ffb53e756
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: cdn.shop.mygharehshop.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: VIP.mygharehshop.ir
+  - type: vless
+    name: 4Mohsen-e238f90bad
+    server: 4ba60e69c4fd291e.web.vipercloud.ir
+    port: 40287
+    uuid: 9517e5e2-c4e9-425d-9355-0a8a9cfbf330
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ask.w-ert.org
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Sarina-4f756a8422
     server: vip.mygharehshop.ir
@@ -17,18 +57,44 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: VIP.mygharehshop.ir
+  - type: vmess
+    name: 4FreeIran-bc2c12daba
+    server: vip.mygharehshop.ir
+    port: 32899
+    uuid: ad155c7d-1be8-4105-b401-eb2ffb53e756
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: cdn.shop.mygharehshop.ir
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn.shop.mygharehshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - v2ray_phoenix
+      - VEGAAS_VPN
+      - 4Mohsen-e238f90bad
       - 4Sarina-4f756a8422
+      - 4FreeIran-bc2c12daba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray_phoenix
+      - VEGAAS_VPN
+      - 4Mohsen-e238f90bad
       - 4Sarina-4f756a8422
+      - 4FreeIran-bc2c12daba
 rules:
   - MATCH,Proxy

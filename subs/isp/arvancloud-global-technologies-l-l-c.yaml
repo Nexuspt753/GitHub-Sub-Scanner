@@ -1,11 +1,50 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-1ff97a59b5
-    server: 130.185.121.69
+  - type: trojan
+    name: 4FreeIran-65f74b96b7
+    server: girm.thugiping.com
     port: 443
-    uuid: d3c9d170-80fa-489a-8ba2-f4cc80d240e3
+    password: 1814e548-140f-480d-bf35-9c947cd1a245
     udp: true
-    xudp: true
+    tls: true
+    sni: girm.thugiping.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Mohsen-e83e2dd7aa
+    server: gote.thugiping.com
+    port: 443
+    password: 1814e548-140f-480d-bf35-9c947cd1a245
+    udp: true
+    tls: true
+    sni: gote.thugiping.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Nika-f3f9e977ca
+    server: thugicd.thugiping.com
+    port: 443
+    password: 1814e548-140f-480d-bf35-9c947cd1a245
+    udp: true
+    tls: true
+    sni: thugiping.thugiping.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: trojan
+    name: 4Sarina-e5caf1a419
+    server: trj.thugiping.com
+    port: 443
+    password: 1814e548-140f-480d-bf35-9c947cd1a245
+    udp: true
+    tls: true
+    sni: grmtrj.thugiping.com
+    client-fingerprint: chrome
     network: ws
     ws-opts:
       path: /
@@ -16,13 +55,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1ff97a59b5
+      - 4FreeIran-65f74b96b7
+      - 4Mohsen-e83e2dd7aa
+      - 4Nika-f3f9e977ca
+      - 4Sarina-e5caf1a419
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1ff97a59b5
+      - 4FreeIran-65f74b96b7
+      - 4Mohsen-e83e2dd7aa
+      - 4Nika-f3f9e977ca
+      - 4Sarina-e5caf1a419
 rules:
   - MATCH,Proxy

@@ -13,12 +13,23 @@ proxies:
     servername: se.fereshtehagonahnemikonnad.ir
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-8a82aa4341
+    server: mahdipoktst.iranfilm.space
+    port: 8080
+    uuid: 272ea556-73e5-49bd-98c6-ea8cf3c689fd
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-5f2c6baaee
+      - 4Nika-8a82aa4341
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +37,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-5f2c6baaee
+      - 4Nika-8a82aa4341
 rules:
   - MATCH,Proxy

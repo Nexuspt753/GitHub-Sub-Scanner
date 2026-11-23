@@ -1,0 +1,119 @@
+proxies:
+  - type: vless
+    name: DeltaKroneckerGithub
+    server: 85.189.89.182
+    port: 20086
+    uuid: 24bc6f99-bb3c-405b-9f99-e27c5012cf45
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: p6xwBXTFkq8nzeO8zjPTSHANvS2DfstuG-Vp134hBGs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
+    server: 85.189.89.169
+    port: 20086
+    uuid: 6618c37f-edd7-4ff0-b9d6-26f1cc4945ab
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: H3CK3gN9HfMONI7aYoSxOUqc5EYPgOVWfLOU3ygaIjw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-0fbdb261a5
+    server: 85.189.67.107
+    port: 20086
+    uuid: 01b87800-396e-4d79-8eaf-c023deeccf7c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.paypal.com
+    reality-opts:
+      public-key: N60X1fq3w78e_eDHwgyrbgdplTgq1oyTnICTAKy7RjY
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-b292764ed6
+    server: 85.189.89.182
+    port: 20086
+    uuid: 24bc6f99-bb3c-405b-9f99-e27c5012cf45
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: p6xwBXTFkq8nzeO8zjPTSHANvS2DfstuG-Vp134hBGs
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-13cfdc641e
+    server: 85.189.89.172
+    port: 20086
+    uuid: 469e41b2-ffb2-4ab3-ad4d-fd00ac69af75
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: n1_yHUrlljxT_VL8HX0ALz8JKAYHJb5e2sQ8tMdBp2A
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-a0f256b3e7
+    server: 85.189.89.169
+    port: 20086
+    uuid: 6618c37f-edd7-4ff0-b9d6-26f1cc4945ab
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: H3CK3gN9HfMONI7aYoSxOUqc5EYPgOVWfLOU3ygaIjw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-2c7b6ff43e
+    server: 85.189.89.170
+    port: 20086
+    uuid: b5e8a15a-e134-4493-9073-be79eab9cda8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.paypal.com
+    reality-opts:
+      public-key: MqEVrXrgUtPf9WYkZyUfVtJQDAssCV79bad4F4LlWGA
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-0fbdb261a5
+      - 4Kian-b292764ed6
+      - 4FreeIran-13cfdc641e
+      - 4Nika-a0f256b3e7
+      - 4FreeIran-2c7b6ff43e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
+      - 4Mohsen-0fbdb261a5
+      - 4Kian-b292764ed6
+      - 4FreeIran-13cfdc641e
+      - 4Nika-a0f256b3e7
+      - 4FreeIran-2c7b6ff43e
+rules:
+  - MATCH,Proxy

@@ -1,16 +1,20 @@
 proxies:
+  - type: vless
+    name: 4Nika-b10fb2e179
+    server: music-i.arvinmoradi.click
+    port: 443
+    uuid: 6526e123-b6a9-49b8-ad44-a375e44bbbca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.aparat.com
+    reality-opts:
+      public-key: W-CSKv_Dc8BOjQ2LoM-ze4X4nQXmhVXJnuLxKySqREg
+      short-id: 23b970709b3f0b24
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: meliproxy
-    server: aeli.orevix.ir
-    port: 4200
-    uuid: 8b1388ca-7c87-42ca-a0d1-77e5112357d6
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4Nika-dd2db777c7
     server: aeli.orevix.ir
     port: 4200
     uuid: 8b1388ca-7c87-42ca-a0d1-77e5112357d6
@@ -24,15 +28,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-b10fb2e179
       - meliproxy
-      - 4Nika-dd2db777c7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-b10fb2e179
       - meliproxy
-      - 4Nika-dd2db777c7
 rules:
   - MATCH,Proxy

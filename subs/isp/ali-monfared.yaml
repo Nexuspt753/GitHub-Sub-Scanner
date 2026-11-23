@@ -1,16 +1,46 @@
 proxies:
   - type: vless
-    name: sora1co
-    server: netherrap.extraservices.ir
-    port: 25186
-    uuid: bf6feeab-e24d-444a-80c8-418aceabbe9f
+    name: 4Kian-08ec4f563f
+    server: tunir.helpower.ir
+    port: 2096
+    uuid: 9890272e-0c0b-401c-a345-f6128832b8c5
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Sarina-040c9cc4c9
+    server: tunir.helpower.ir
+    port: 8099
+    uuid: 9890272e-0c0b-401c-a345-f6128832b8c5
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Kian-ddfbb7a816
+    server: tunir.helpower.ir
+    port: 8443
+    uuid: ba1bb361-3aa6-44aa-9562-1f9124f54a43
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: numpy.org
-    reality-opts:
-      public-key: z8taNICAWDR2i4Ue-A8A5Z0DMwYGNVT4UtyziV6nexc
-      short-id: 396e251e6f974406
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: tunir.helpower.ir
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-69d0c4e4e9
+    server: tunir.helpower.ir
+    port: 8444
+    uuid: ba1bb361-3aa6-44aa-9562-1f9124f54a43
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: tunir.helpower.ir
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +48,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - sora1co
+      - 4Kian-08ec4f563f
+      - 4Sarina-040c9cc4c9
+      - 4Kian-ddfbb7a816
+      - 4Sarina-69d0c4e4e9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - sora1co
+      - 4Kian-08ec4f563f
+      - 4Sarina-040c9cc4c9
+      - 4Kian-ddfbb7a816
+      - 4Sarina-69d0c4e4e9
 rules:
   - MATCH,Proxy

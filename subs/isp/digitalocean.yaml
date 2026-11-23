@@ -13,12 +13,27 @@ proxies:
       short-id: 2da3ecc3ad9a323b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-bfed2eee84
+    server: 139.59.191.88
+    port: 443
+    uuid: a6c5f4c7-073f-416b-b5e3-4a86ec2d9f22
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.stanford.edu
+    reality-opts:
+      public-key: JeaMU58AmMJ2JqJ-QGotRFua9DYxxveqw7I_XMWCu34
+      short-id: 2da3ecc3ad9a323b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 🇬🇧139842
+      - 4Kian-bfed2eee84
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 🇬🇧139842
+      - 4Kian-bfed2eee84
 rules:
   - MATCH,Proxy

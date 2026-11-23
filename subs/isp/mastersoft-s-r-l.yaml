@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: ab1.yndx-game.com
+    port: 443
+    uuid: 6050b89e-8da4-47b7-973b-9baf0027754f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: ab1.yndx-game.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-89e13a1c9f
     server: 188.130.208.210
     port: 443
@@ -28,18 +42,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-bbf1bb49a9
-    server: 144.48.10.243
-    port: 443
-    uuid: 2443c85b-8566-4d61-b6fa-9ccc012701e9
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ab1.xt-game.net
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-6cf5557e06
+    name: 4Kian-1b611bdea4
     server: 45.151.183.22
     port: 443
     uuid: 50414e45-4c5f-5a45-5553-8522f9e577ec
@@ -55,30 +58,17 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dvzss5e8u8zs.kszt2te3u7ts.workers.dev
   - type: vless
-    name: 4FreeIran-01e987d296
-    server: 46.8.113.64
+    name: 4Kian-2afe503055
+    server: ab1.yndx-game.com
     port: 443
-    uuid: 55ad002b-6cdf-4d76-81bb-91f3f605afc5
+    uuid: 6050b89e-8da4-47b7-973b-9baf0027754f
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: www.zabbix.com
-    reality-opts:
-      public-key: _SukRXeT9BnvrE3eQTrw8vwsrhu7w3hNTMTEK2xzHEw
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4FreeIran-b11126b621
-    server: 103.112.71.83
-    port: 443
-    uuid: f82332b2-dc8c-4196-ac12-f276e37e278a
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: test.bridge.anti-zapret.com
-    reality-opts:
-      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
-      short-id: cbb0a5c1dc905505
+    alpn:
+      - h2
+      - http/1.1
+    servername: ab1.yndx-game.com
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -86,23 +76,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Kian-89e13a1c9f
       - 4Sarina-e9760f3e27
-      - 4Nika-bbf1bb49a9
-      - 4FreeIran-6cf5557e06
-      - 4FreeIran-01e987d296
-      - 4FreeIran-b11126b621
+      - 4Kian-1b611bdea4
+      - 4Kian-2afe503055
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Kian-89e13a1c9f
       - 4Sarina-e9760f3e27
-      - 4Nika-bbf1bb49a9
-      - 4FreeIran-6cf5557e06
-      - 4FreeIran-01e987d296
-      - 4FreeIran-b11126b621
+      - 4Kian-1b611bdea4
+      - 4Kian-2afe503055
 rules:
   - MATCH,Proxy

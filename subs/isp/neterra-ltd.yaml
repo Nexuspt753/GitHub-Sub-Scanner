@@ -1,46 +1,32 @@
 proxies:
   - type: vless
-    name: 4Nika-e5843e8bb1
-    server: 5.253.59.156
-    port: 443
-    uuid: 090b4f5d-8cdd-4a80-999f-4e2905406c7f
+    name: 4Nika-e7189c3150
+    server: assets.fernstatic.com
+    port: 8444
+    uuid: 43add026-128a-47d3-a403-b3875b4638db
     udp: true
     tls: true
-    client-fingerprint: edge
-    servername: nl5.freekeysh110.online
+    client-fingerprint: firefox
+    servername: yastatic.net
     reality-opts:
-      public-key: sgPREsDFJUchKawgXgFGEM4YBjTDur0rgD2GuQmZXzA
-      short-id: 04b9f0b2470fae16
-    flow: xtls-rprx-vision
+      public-key: 1hJPKCOTjPXm93o2JEeb-dOuFSkCvHj41uKM6yrP32Q
+      short-id: bcefc042d39188e0
     xudp: true
-  - type: vless
-    name: 4Kian-669a6648b8
-    server: nl5.freekeysh110.online
-    port: 443
-    uuid: 090b4f5d-8cdd-4a80-999f-4e2905406c7f
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: nl5.freekeysh110.online
-    reality-opts:
-      public-key: sgPREsDFJUchKawgXgFGEM4YBjTDur0rgD2GuQmZXzA
-      short-id: 04b9f0b2470fae16
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-e5843e8bb1
-      - 4Kian-669a6648b8
+      - 4Nika-e7189c3150
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-e5843e8bb1
-      - 4Kian-669a6648b8
+      - 4Nika-e7189c3150
 rules:
   - MATCH,Proxy

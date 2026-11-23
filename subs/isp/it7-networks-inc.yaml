@@ -1,25 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 104.194.81.182
+  - type: vless
+    name: 4Nika-567242a1af
+    server: s2318.okgg.top
     port: 443
-    password: "521314"
+    uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
     udp: true
     tls: true
-    sni: tjplay.lxdxo.kdns.fr
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: u695098uf24555c7s2316.gogocs.xyz
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Nika-567242a1af
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Nika-567242a1af
 rules:
   - MATCH,Proxy

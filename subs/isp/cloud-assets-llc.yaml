@@ -1,16 +1,17 @@
 proxies:
   - type: vless
-    name: 4Nika-063ce5273f
-    server: 185.244.182.162
+    name: Channel
+    server: 77.232.40.206
     port: 443
     uuid: c50eae6b-18de-4bdc-a22f-9edda40a57ed
     udp: true
     tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: atd1.tunnely.space
+    client-fingerprint: chrome
+    servername: ch02.tunnely.space
+    reality-opts:
+      public-key: pPGE5Uacj1AGAB_WLOXB_UUnVBOmuJGH0vTSfmRBKzM
+      short-id: 2e40144ddc07e8e1
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4Sarina-9db266cc4f
@@ -31,7 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-063ce5273f
+      - Channel
       - 4Sarina-9db266cc4f
   - name: Auto
     type: url-test
@@ -39,7 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-063ce5273f
+      - Channel
       - 4Sarina-9db266cc4f
 rules:
   - MATCH,Proxy

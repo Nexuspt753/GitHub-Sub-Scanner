@@ -1,14 +1,6 @@
 proxies:
   - type: vless
-    name: 4Sarina-3706936ac7
-    server: 185.231.101.94
-    port: 443
-    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
-    udp: true
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-23ddef05f0
+    name: B2Hub
     server: 185.231.101.94
     port: 443
     uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
@@ -21,20 +13,28 @@ proxies:
       short-id: 51057fb54d2364f4
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-3706936ac7
+    server: 185.231.101.94
+    port: 443
+    uuid: 8197b9b9-8945-460f-99c9-325ef8a8a7c3
+    udp: true
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - B2Hub
       - 4Sarina-3706936ac7
-      - 4Mohsen-23ddef05f0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - B2Hub
       - 4Sarina-3706936ac7
-      - 4Mohsen-23ddef05f0
 rules:
   - MATCH,Proxy

@@ -1,8 +1,22 @@
 proxies:
   - type: vless
     name: DeltaKroneckerGithub
+    server: au-syd1.connect.accessboy.com
+    port: 443
+    uuid: ee0a6b97-4dc1-4a38-8b16-95a42c917158
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: au-syd1.connect.accessboy.com
+    reality-opts:
+      public-key: 1TtWNQhTJr_3H7-ypMw4EiLzVxy22AzUtMiE5JmQMl4
+      short-id: 1c5869a95671bcb0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: DeltaKroneckerGithub-01
     server: 103.75.118.228
-    port: 11452
+    port: 12683
     uuid: 814bd064-544d-4255-a070-5705c03f6da9
     udp: true
     tls: true
@@ -80,17 +94,33 @@ proxies:
     servername: www.apple.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-6827fde5a2
+    server: au-syd1.connect.accessboy.com
+    port: 443
+    uuid: ee0a6b97-4dc1-4a38-8b16-95a42c917158
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: au-syd1.connect.accessboy.com
+    reality-opts:
+      public-key: 1TtWNQhTJr_3H7-ypMw4EiLzVxy22AzUtMiE5JmQMl4
+      short-id: 1c5869a95671bcb0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 📗100@oneclickvpnkeys
       - 4Sarina-e8082fb42f
       - 4Kian-ebfcbad822
       - 4FreeIran-dc99a6acbf
       - 4Kian-515e8a8402
+      - 4Nika-6827fde5a2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -98,10 +128,12 @@ proxy-groups:
     tolerance: 100
     proxies:
       - DeltaKroneckerGithub
+      - DeltaKroneckerGithub-01
       - 📗100@oneclickvpnkeys
       - 4Sarina-e8082fb42f
       - 4Kian-ebfcbad822
       - 4FreeIran-dc99a6acbf
       - 4Kian-515e8a8402
+      - 4Nika-6827fde5a2
 rules:
   - MATCH,Proxy

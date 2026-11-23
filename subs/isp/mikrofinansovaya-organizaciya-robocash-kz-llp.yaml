@@ -1,34 +1,36 @@
 proxies:
   - type: vless
-    name: 4Mohsen-1d7f45cb80
-    server: 194.76.18.126
-    port: 2087
-    uuid: probabblynot-ch
+    name: 4Jadi-e6f4453966
+    server: old.v2xpin.de
+    port: 443
+    uuid: 2e35ca4c-00cd-4e0b-bb51-f69d19c9f3df
     udp: true
     tls: true
     client-fingerprint: chrome
     alpn:
+      - h3
+      - h2
       - http/1.1
-    servername: probabblynot.fazelextremeisreal.com
+    servername: api-fr1.ipng.site
     xudp: true
-    network: ws
-    ws-opts:
-      path: /@probabblynot
+    network: http
+    http-opts:
+      path:
+        - /random
       headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: probabblynot.fazelextremeisreal.com
+        Host: api-fr.ipng.site
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-1d7f45cb80
+      - 4Jadi-e6f4453966
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-1d7f45cb80
+      - 4Jadi-e6f4453966
 rules:
   - MATCH,Proxy

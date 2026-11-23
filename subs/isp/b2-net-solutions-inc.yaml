@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: 4Sarina-32570516c1
-    server: 152.232.62.82
+    name: DeltaKroneckerGithub
+    server: 152.232.62.85
     port: 443
-    uuid: 31d0f8a6-3dac-4f89-b2f1-aca50f293f70
+    uuid: 3208bc65-8489-442e-982a-6d18893a38c0
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -14,10 +14,24 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-295703029c
-    server: 152.232.62.82
+    name: 4Kian-38ffd472fb
+    server: 152.232.62.85
     port: 443
-    uuid: 5d89e94f-9de8-43d8-83c8-ae09a2495bdd
+    uuid: a0c7266e-0357-423e-b696-0fe11e0fe85c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-36dd6f77e5
+    server: api.videobereg.cc
+    port: 443
+    uuid: a5b36e51-15a7-4c33-bc8a-accfaabd3cc6
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -32,15 +46,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-32570516c1
-      - 4Kian-295703029c
+      - DeltaKroneckerGithub
+      - 4Kian-38ffd472fb
+      - 4Nika-36dd6f77e5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-32570516c1
-      - 4Kian-295703029c
+      - DeltaKroneckerGithub
+      - 4Kian-38ffd472fb
+      - 4Nika-36dd6f77e5
 rules:
   - MATCH,Proxy

@@ -15,31 +15,12 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: 4FreeIran-1e1c8774f6
-    server: cdn.inboxlv.app
-    port: 443
-    uuid: 88d848f8-88ac-4a90-8258-d61a491ce34e
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: ir.ozone.ru
-    reality-opts:
-      public-key: 12UHjWCU_BNIkRmxt-6QKAuVuSIFzoS2jkN1BIMzGjM
-      short-id: cdce15b3e2179ce8
-    xudp: true
-    network: http
-    http-opts:
-      path:
-        - /
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-0cfbc104ab
-      - 4FreeIran-1e1c8774f6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -47,6 +28,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-0cfbc104ab
-      - 4FreeIran-1e1c8774f6
 rules:
   - MATCH,Proxy

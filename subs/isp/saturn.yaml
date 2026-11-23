@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: DeltaKroneckerGithub
+    server: 193.106.221.121
+    port: 777
+    uuid: 5fa77250-c3c3-48a2-b432-1f9c6e718571
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: it.nvidia.com
+    reality-opts:
+      public-key: 5Cf3coHU6y-v8Sn3avXr7v5fw4s5AdPMu1_RNITmqTQ
+      short-id: "14"
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Mohsen-c115d75f7c
     server: 193.106.221.121
     port: 777
@@ -20,6 +36,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - DeltaKroneckerGithub
       - 4Mohsen-c115d75f7c
   - name: Auto
     type: url-test
@@ -27,6 +44,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - DeltaKroneckerGithub
       - 4Mohsen-c115d75f7c
 rules:
   - MATCH,Proxy

@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: 4Nika-4795ff5115
+    server: adgof.mgodping12.xyz
+    port: 2087
+    uuid: 4019d31e-fa7d-42ce-8c6e-88810af0807c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Daily_Configs
+    server: adgof.mgodping12.xyz
+    port: 2087
+    uuid: 9e4f2282-d27b-47be-867e-de555f5f62e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4FreeIran-55b1a964d8
     server: adgof.mgodping12.xyz
     port: 2087
@@ -20,6 +48,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-4795ff5115
+      - Daily_Configs
       - 4FreeIran-55b1a964d8
   - name: Auto
     type: url-test
@@ -27,6 +57,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-4795ff5115
+      - Daily_Configs
       - 4FreeIran-55b1a964d8
 rules:
   - MATCH,Proxy

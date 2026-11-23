@@ -1,22 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Mohsen-4fbd4ccf6e
-    server: 31.59.116.20
-    port: 443
-    password: ca60984f-b1f0-4073-bd33-4c75168f749a
-    sni: kraw-pl-5.fantoff.online
+  - type: vless
+    name: 4Jadi-6e1a2a5fe1
+    server: n3.fernstatic.com
+    port: 9443
+    uuid: ad295072-0049-4981-a9aa-6314c43e87e5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n3.fernstatic.com
+    reality-opts:
+      public-key: LGj0rJ5R28CbD24VRc5nCpNg-2EMU85fmUZNdrZ6CWI
+      short-id: bc7b676b8ed7b300
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-4fbd4ccf6e
+      - 4Jadi-6e1a2a5fe1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-4fbd4ccf6e
+      - 4Jadi-6e1a2a5fe1
 rules:
   - MATCH,Proxy
