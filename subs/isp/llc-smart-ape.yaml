@@ -14,20 +14,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-98b327a13d
+    name: 4Kian-2ce4112a88
     server: 31.177.111.136
     port: 443
     uuid: ef5a57c7-84d5-4f86-b99c-875a16da485f
     udp: true
     tls: true
-    client-fingerprint: firefox
+    client-fingerprint: chrome
     alpn:
       - h2
     servername: q075gi2cms.schoolbag.top
     xudp: true
     network: ws
     ws-opts:
-      path: /collector/runtime/channel/open
+      path: /collector/runtime/channel/openfp=firefox
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: q075gi2cms.schoolbag.top
@@ -46,14 +46,31 @@ proxies:
       path: /collector/runtime/channel/open
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4Nika-9003bcbf57
+    server: alt.edge-assets.ru
+    port: 443
+    uuid: fdd8114b-977d-4bb1-b675-a20af8ad41f5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: alt.edge-assets.ru
+    xudp: true
+    network: http
+    http-opts:
+      path:
+        - /e/82tjjqcl-zc2ywbqi-6v0lp8td-u9yssr5w/api/v1/nhde5se4/sync/
+      headers:
+        Host: alt.edge-assets.ru
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-f7203c77e9
-      - 4Jadi-98b327a13d
+      - 4Kian-2ce4112a88
       - 4Kian-f50491b4c2
+      - 4Nika-9003bcbf57
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -61,7 +78,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-f7203c77e9
-      - 4Jadi-98b327a13d
+      - 4Kian-2ce4112a88
       - 4Kian-f50491b4c2
+      - 4Nika-9003bcbf57
 rules:
   - MATCH,Proxy

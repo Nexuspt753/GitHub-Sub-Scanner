@@ -1,30 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-7d9daec5e1
-    server: 31.170.22.68
+  - type: trojan
+    name: 4FreeIran-84676c0299
+    server: 85.31.102.163
     port: 443
-    uuid: 46b81618-5d7f-4b65-b95f-7f782b8242be
+    password: humanity
     udp: true
     tls: true
+    sni: www.calmlunch.com
     client-fingerprint: chrome
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: nDq00UeDI5TKKFipI6rgdVCqiTO98ncHKn90Qp3EsBE
-      short-id: f2b78452f9233f26
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-7d9daec5e1
+      - 4FreeIran-84676c0299
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-7d9daec5e1
+      - 4FreeIran-84676c0299
 rules:
   - MATCH,Proxy

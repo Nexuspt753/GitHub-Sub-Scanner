@@ -1,6 +1,17 @@
 proxies:
   - type: vless
-    name: 4Kian-f41dc54462
+    name: DeltaKroneckerGithub
+    server: 191.217.215.186
+    port: 2053
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 191.217.215.186
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Channel
     server: 191.217.215.186
     port: 2053
     uuid: fbe22815-0718-4eae-816f-e91c67d15b54
@@ -8,6 +19,28 @@ proxies:
     tls: true
     client-fingerprint: chrome
     servername: 191.217.215.186
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-179b77318e
+    server: 191.217.215.186
+    port: 2053
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 191.217.215.186
+    flow: xtls-rprx-vision-udp443
+    xudp: true
+  - type: vless
+    name: 4Mohsen-3cff642b24
+    server: 191.217.215.228
+    port: 2053
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 191.217.215.228
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -31,7 +64,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-f41dc54462
+      - DeltaKroneckerGithub
+      - Channel
+      - 4Nika-179b77318e
+      - 4Mohsen-3cff642b24
       - 4FreeIran-798a5c36af
   - name: Auto
     type: url-test
@@ -39,7 +75,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f41dc54462
+      - DeltaKroneckerGithub
+      - Channel
+      - 4Nika-179b77318e
+      - 4Mohsen-3cff642b24
       - 4FreeIran-798a5c36af
 rules:
   - MATCH,Proxy

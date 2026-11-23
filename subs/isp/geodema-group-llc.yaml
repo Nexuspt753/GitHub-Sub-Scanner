@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 179.253.111.211
+    port: 9445
+    uuid: f1f4b4de-b058-460f-bf38-2167077b4944
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: linode.xanka.best
+    reality-opts:
+      public-key: hs9mODCrFfblYXXZWXuYLLWyBhdiUxNiEjH5I9KUBRU
+      short-id: 1a5c2b0c
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-6c4ce7beff
     server: 179.253.99.12
     port: 443
@@ -13,18 +27,36 @@ proxies:
       short-id: 6b360314a8d57342
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-b3b2984ca2
+    server: 179.253.111.211
+    port: 9445
+    uuid: f1f4b4de-b058-460f-bf38-2167077b4944
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: linode.xanka.best
+    reality-opts:
+      public-key: hs9mODCrFfblYXXZWXuYLLWyBhdiUxNiEjH5I9KUBRU
+      short-id: 1a5c2b0c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Sarina-6c4ce7beff
+      - 4FreeIran-b3b2984ca2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Sarina-6c4ce7beff
+      - 4FreeIran-b3b2984ca2
 rules:
   - MATCH,Proxy

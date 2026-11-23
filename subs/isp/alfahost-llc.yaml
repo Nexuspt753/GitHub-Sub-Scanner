@@ -13,12 +13,27 @@ proxies:
       short-id: 7564a95d066eab7e
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-ccac87e9b1
+    server: 153.76.190.237
+    port: 11443
+    uuid: 4d24fdd2-4960-469c-90bd-716ae5023451
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: 89.105.208.114
+    reality-opts:
+      public-key: E1k1k2JSl5oXLJ3rN-QpA2HjotJ7qIW9PAa4HuOuQjY
+      short-id: efee9455a0712953
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-cbf4cdc30f
+      - 4Jadi-ccac87e9b1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-cbf4cdc30f
+      - 4Jadi-ccac87e9b1
 rules:
   - MATCH,Proxy

@@ -1,5 +1,15 @@
 proxies:
   - type: vmess
+    name: meliproxy
+    server: aeli.orevix.ir
+    port: 4200
+    uuid: 8b1388ca-7c87-42ca-a0d1-77e5112357d6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
     name: 4Nika-dd2db777c7
     server: aeli.orevix.ir
     port: 4200
@@ -14,6 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - meliproxy
       - 4Nika-dd2db777c7
   - name: Auto
     type: url-test
@@ -21,6 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - meliproxy
       - 4Nika-dd2db777c7
 rules:
   - MATCH,Proxy

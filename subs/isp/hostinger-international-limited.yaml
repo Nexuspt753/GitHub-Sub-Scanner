@@ -1,50 +1,28 @@
 proxies:
   - type: vless
-    name: 4Mohsen-aa0f93ed36
-    server: 72.60.235.49
-    port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    name: 4Jadi-daedb8bdff
+    server: 45.9.190.245
+    port: 443
+    uuid: a5b1d16b-719b-4bd6-9d7b-fe6d84607da9
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: fortuna.masynbazar.ru
     xudp: true
-    network: ws
-    ws-opts:
-      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chromefp=chrome
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
-  - type: vless
-    name: 4Kian-aa9fe49e30
-    server: 72.60.236.128
-    port: 8443
-    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: snip.edgeoneai.cc.cd
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: snip.edgeoneai.cc.cd
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-aa0f93ed36
-      - 4Kian-aa9fe49e30
+      - 4Jadi-daedb8bdff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-aa0f93ed36
-      - 4Kian-aa9fe49e30
+      - 4Jadi-daedb8bdff
 rules:
   - MATCH,Proxy

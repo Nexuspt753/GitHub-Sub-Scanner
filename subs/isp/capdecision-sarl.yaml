@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 4Jadi-38937c9f0d
-    server: 45.146.4.50
-    port: 443
-    cipher: aes-256-gcm
-    password: X5Q2l-5w8986-HjxYOC8xU_1m_o03Yr4
+  - type: vless
+    name: 4FreeIran-e35683c630
+    server: 85.31.148.250
+    port: 446
+    uuid: cdf4bc13-31e6-4bff-962c-05fe9151c593
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl2.vrsvpn.com
+    reality-opts:
+      public-key: rk3eixZgzGiz0HWQyMAJ1wRutvlMM1ZfoiCXec3fHE4
+      short-id: 14ba28f812ad1f22
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-38937c9f0d
+      - 4FreeIran-e35683c630
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-38937c9f0d
+      - 4FreeIran-e35683c630
 rules:
   - MATCH,Proxy

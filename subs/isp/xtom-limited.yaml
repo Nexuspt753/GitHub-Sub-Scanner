@@ -1,50 +1,25 @@
 proxies:
   - type: vless
-    name: 4FreeIran-27ffd27eb2
-    server: 103.201.130.126
-    port: 443
-    uuid: 39303679-4e68-4233-8def-8f4f9e48d611
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tt-9nz.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /item/favourites
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: tt-9nz.pages.dev
-  - type: vless
-    name: 4Mohsen-79fdec3199
+    name: vless
     server: 103.201.131.202
     port: 2053
     uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
     udp: true
     tls: true
-    client-fingerprint: unsafe
-    servername: jp3.yohototo.top
+    client-fingerprint: chrome
     xudp: true
-    network: ws
-    ws-opts:
-      path: /tyxyws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: jp3.yohototo.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-27ffd27eb2
-      - 4Mohsen-79fdec3199
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-27ffd27eb2
-      - 4Mohsen-79fdec3199
+      - vless
 rules:
   - MATCH,Proxy

@@ -1,0 +1,25 @@
+proxies:
+  - type: trojan
+    name: 4Jadi-281a929d8f
+    server: 178.239.171.103
+    port: 443
+    password: e0597322-b0d8-4afb-960a-39d5cbd7bd8e
+    udp: true
+    tls: true
+    sni: wfi.sahnama.com
+    client-fingerprint: chrome
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-281a929d8f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-281a929d8f
+rules:
+  - MATCH,Proxy

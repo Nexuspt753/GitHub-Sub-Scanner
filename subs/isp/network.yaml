@@ -1,32 +1,30 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 93.152.211.119
-    port: 8445
-    uuid: 6d987d5d-90d4-4bea-97fe-6b0610e40ff4
+    name: 4Jadi-770f3f43c4
+    server: grcn11.mncdn.ru
+    port: 443
+    uuid: 170da597-160b-4808-a964-b6edf0c5cab8
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: ads.x5.ru
+    servername: grcn11.mncdn.ru
     reality-opts:
-      public-key: "-oJS0Rw7oLz0audAETu1-RuJSZCBMcAjFMVDmD40YSU"
-      short-id: 9cb329df19cc45e8
+      public-key: xY3I1qfhzIRPMEvAWdhGIjn5vk3Zf3juZwxaNzf5AyA
+      short-id: 2f8a1c9e4b7d35
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Jadi-770f3f43c4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Jadi-770f3f43c4
 rules:
   - MATCH,Proxy

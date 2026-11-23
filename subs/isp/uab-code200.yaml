@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Jadi-96b6cb11f8
+    server: 85.202.206.244
+    port: 8443
+    uuid: 6ba5ec30-3331-4258-aa80-e1e7abdbb0d4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.microsoft.com
+    reality-opts:
+      public-key: UgB6kJyM6sKFdSHtFtS4pd0TPYF4j17aoWsxGjg8LTU
+      short-id: 1db05bcce95482
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-96b6cb11f8
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-96b6cb11f8
+rules:
+  - MATCH,Proxy

@@ -13,12 +13,57 @@ proxies:
       short-id: 0486be7f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-a79db04799
+    server: 31.76.35.130
+    port: 9443
+    uuid: 463fdf29-59f1-43f5-ae4c-dd2cf32f7c95
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: 31.76.35.90
+    xudp: true
+  - type: vless
+    name: 🇵🇱226603
+    server: 177.1.192.89
+    port: 443
+    uuid: d81db550-4787-467e-b98a-579ee9d41999
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: XKFUTW9ZAlaaeuUGiKKx9FgLjdQch7pCiR1GC1xMcjk
+      short-id: aab4c8abf7a4c4e4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-beb789e374
+    server: 177.1.192.89
+    port: 443
+    uuid: d81db550-4787-467e-b98a-579ee9d41999
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: XKFUTW9ZAlaaeuUGiKKx9FgLjdQch7pCiR1GC1xMcjk
+      short-id: aab4c8abf7a4c4e4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-4e0f3a2dd8
+      - 4Nika-a79db04799
+      - 🇵🇱226603
+      - 4Mohsen-beb789e374
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +71,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-4e0f3a2dd8
+      - 4Nika-a79db04799
+      - 🇵🇱226603
+      - 4Mohsen-beb789e374
 rules:
   - MATCH,Proxy

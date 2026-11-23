@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: 4FreeIran-961c077c5d
-    server: nl.tarfiq.ir
-    port: 54740
-    uuid: 849e5ed7-90da-487e-a044-c9052563895c
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: ai.android
-    reality-opts:
-      public-key: 1gdzY9kyUL5rIvRwjGQs0Xy1zmHEbo1tnBxkpVXCNAU
-      short-id: 5fe52282e09ec75e
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-2a849b94ce
     server: 185.19.33.171
     port: 443
@@ -22,32 +8,18 @@ proxies:
     tls: true
     client-fingerprint: chrome
     xudp: true
-  - type: vmess
-    name: 4Mohsen-2a52f0c141
-    server: 53f3167b1b943c53.vira-ai.dns.8.8.8.8.ir-service.connectoo.my.id
-    port: 2044
-    uuid: 6bf2145c-75ea-48bc-b10a-84265c8d0973
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-961c077c5d
       - 4FreeIran-2a849b94ce
-      - 4Mohsen-2a52f0c141
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-961c077c5d
       - 4FreeIran-2a849b94ce
-      - 4Mohsen-2a52f0c141
 rules:
   - MATCH,Proxy

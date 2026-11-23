@@ -1,10 +1,23 @@
 proxies:
   - type: vless
-    name: 4Kian-b09ca76062
+    name: V2rayNPVTConfig
     server: 87.58.159.20
     port: 443
     uuid: 2471e7da-5dcd-5da4-983a-3ef758abb17c
     udp: true
+    xudp: true
+  - type: vless
+    name: vless
+    server: 94.237.83.139
+    port: 443
+    uuid: V2XNET-V2XNET
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
     name: awlix_ir
@@ -13,62 +26,22 @@ proxies:
     uuid: awlix_ir
     udp: true
     xudp: true
-  - type: vless
-    name: 4Kian-0b1978dc66
-    server: 87.58.148.202
-    port: 443
-    uuid: db8b37db-6205-425f-9073-e9cb14efec90
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: play.google.com
-    reality-opts:
-      public-key: qwAnwGzDx7sHdZdktrBd6y7VPhlJF5anjntWvCqzlhw
-      short-id: cf3f27
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vmess
-    name: 4Kian-2502d8a05e
-    server: Fast.jexmuk.ir
-    port: 15526
-    uuid: b28bfd04-0b91-4bfb-ab88-4d5c33fd1131
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-  - type: vmess
-    name: 4FreeIran-79b17dfc15
-    server: Fast.jexmuk.ir
-    port: 16176
-    uuid: b28bfd04-0b91-4bfb-ab88-4d5c33fd1131
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-b09ca76062
+      - V2rayNPVTConfig
+      - vless
       - awlix_ir
-      - 4Kian-0b1978dc66
-      - 4Kian-2502d8a05e
-      - 4FreeIran-79b17dfc15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-b09ca76062
+      - V2rayNPVTConfig
+      - vless
       - awlix_ir
-      - 4Kian-0b1978dc66
-      - 4Kian-2502d8a05e
-      - 4FreeIran-79b17dfc15
 rules:
   - MATCH,Proxy
