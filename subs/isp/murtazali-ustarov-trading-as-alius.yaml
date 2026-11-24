@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: 4Jadi-3e9ab2d79d
-    server: pubsub.m2ip-video.cloud
+    name: 4Sarina-51a9362831
+    server: endpoints.m2ip-video.cloud
     port: 8443
-    uuid: 3ed41dfc-0d38-4379-a470-c815673dc504
+    uuid: f5cc1823-4f5e-4420-a799-ac956949d7ab
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: peplow-labs.info
+    client-fingerprint: firefox
+    servername: vandrel.cloud
     reality-opts:
       public-key: cynncQk7kKzEQaExg-FN7pMqFaZPSXEi_Ggy7AXXmVg
-      short-id: 44103f58
+      short-id: 3f8ad1
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-bcc7b07b64
+    server: lb11.mv-video.cloud
+    port: 8443
+    uuid: f5cc1823-4f5e-4420-a799-ac956949d7ab
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hartfordmedia.online
+    reality-opts:
+      public-key: cynncQk7kKzEQaExg-FN7pMqFaZPSXEi_Ggy7AXXmVg
+      short-id: 3f8ad1
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-3e9ab2d79d
+      - 4Sarina-51a9362831
+      - 4Mohsen-bcc7b07b64
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-3e9ab2d79d
+      - 4Sarina-51a9362831
+      - 4Mohsen-bcc7b07b64
 rules:
   - MATCH,Proxy

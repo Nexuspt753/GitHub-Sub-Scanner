@@ -6,25 +6,26 @@ proxies:
     password: 769f34f0-1500-488f-b414-03bc90666502
     sni: se.mimowhat.online
   - type: trojan
-    name: DeltaKroneckerGithub
-    server: 95.143.196.32
+    name: 4FreeIran-6cba36d2fd
+    server: 95.143.196.97
     port: 443
     password: FkQH0Q5EFneySv20Qj3yoArD2GSb2XZF
     udp: true
-    tls: true
-    sni: connect-se.mimowhat.online
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Nika-b7fd4f65fd
-    server: 95.143.196.32
-    port: 443
-    password: FkQH0Q5EFneySv20Qj3yoArD2GSb2XZF
-    udp: true
-    tls: true
-    sni: connect-se.mimowhat.online
     client-fingerprint: chrome
   - type: trojan
     name: 4Nika-e9c5f84fe1
+    server: 95.143.196.97
+    port: 443
+    password: FkQH0Q5EFneySv20Qj3yoArD2GSb2XZF
+    udp: true
+    tls: true
+    sni: connect-se.mimowhat.online
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
+  - type: trojan
+    name: V2ray_confiig
     server: 95.143.196.97
     port: 443
     password: FkQH0Q5EFneySv20Qj3yoArD2GSb2XZF
@@ -59,17 +60,30 @@ proxies:
       - h2
       - http/1.1
     client-fingerprint: chrome
+  - type: trojan
+    name: vpnbaz
+    server: 95.143.196.97
+    port: 443
+    password: FkQH0Q5EFneySv20Qj3yoArD2GSb2XZF
+    udp: true
+    tls: true
+    sni: connect-se.mimowhat.online
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-289e89ebbe
-      - DeltaKroneckerGithub
-      - 4Nika-b7fd4f65fd
+      - 4FreeIran-6cba36d2fd
       - 4Nika-e9c5f84fe1
+      - V2ray_confiig
       - v2raybaaz
       - vmess_ir
+      - vpnbaz
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -77,10 +91,11 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-289e89ebbe
-      - DeltaKroneckerGithub
-      - 4Nika-b7fd4f65fd
+      - 4FreeIran-6cba36d2fd
       - 4Nika-e9c5f84fe1
+      - V2ray_confiig
       - v2raybaaz
       - vmess_ir
+      - vpnbaz
 rules:
   - MATCH,Proxy

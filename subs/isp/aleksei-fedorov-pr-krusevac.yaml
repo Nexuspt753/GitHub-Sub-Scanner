@@ -1,32 +1,30 @@
 proxies:
-  - type: vless
-    name: 4Nika-f4ce1e0713
-    server: 109.107.171.227
-    port: 8443
-    uuid: 3dc81156-17e2-4049-b103-653640749410
+  - type: trojan
+    name: 4Nika-e06aa8b553
+    server: 193.38.235.100
+    port: 2053
+    password: humanity
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: www.wikipedia.org
-    reality-opts:
-      public-key: dY1BlEfqsT3LNPjCkXoPL81jXjR3Pw7x0d6V4J-_bzk
-      short-id: 8c2a1950542261ee
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    sni: www.calmlunch.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-f4ce1e0713
+      - 4Nika-e06aa8b553
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-f4ce1e0713
+      - 4Nika-e06aa8b553
 rules:
   - MATCH,Proxy

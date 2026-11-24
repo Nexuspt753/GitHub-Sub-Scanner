@@ -1,33 +1,5 @@
 proxies:
   - type: vless
-    name: v2ray313
-    server: app-mi-26.spbstudentlife.com
-    port: 443
-    uuid: 07680ffb-0666-4836-b6ad-ec0de62bc38f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: assets-mi-26.spbstudentlife.com
-    reality-opts:
-      public-key: cYtAkO6yUCuRTxHvF8EH76bybk1yfS005KLls-at2yc
-      short-id: a7856800c2deb7b2
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Sarina-47f1425c42
-    server: app-mi-26.spbstudentlife.com
-    port: 443
-    uuid: 07680ffb-0666-4836-b6ad-ec0de62bc38f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: assets-mi-26.spbstudentlife.com
-    reality-opts:
-      public-key: cYtAkO6yUCuRTxHvF8EH76bybk1yfS005KLls-at2yc
-      short-id: a7856800c2deb7b2
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4FreeIran-cfc1c1f47d
     server: 64.188.115.219
     port: 443
@@ -76,46 +48,22 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4FreeIran-1a38886493
-    server: 2.27.16.177
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - v2ray313
-      - 4Sarina-47f1425c42
       - 4FreeIran-cfc1c1f47d
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
-      - 4FreeIran-1a38886493
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - v2ray313
-      - 4Sarina-47f1425c42
       - 4FreeIran-cfc1c1f47d
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
-      - 4FreeIran-1a38886493
 rules:
   - MATCH,Proxy

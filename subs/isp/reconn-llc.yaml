@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-0b5e596a7e
+    server: 91.193.183.231
+    port: 443
+    uuid: cee05b0b-3d23-4c3b-b87e-def35b7ba460
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: fish.bolen-rybalkoi.live
+    reality-opts:
+      public-key: t9x0aQpt0YUXlbqzAHYCJ4T1orNC8MN5PrL_ZaOUaBc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-0b5e596a7e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-0b5e596a7e
+rules:
+  - MATCH,Proxy

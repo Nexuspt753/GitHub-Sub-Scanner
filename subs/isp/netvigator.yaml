@@ -1,29 +1,32 @@
 proxies:
-  - type: vless
-    name: 4FreeIran-20c20380cb
-    server: xg3.zhujue.us
-    port: 9444
-    uuid: 0e46345c-f33b-4f9b-b8ec-90e7c986af7e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: s0.awsstatic.com
-    reality-opts:
-      public-key: sFRyah8EOSGcab8TfIdkq53c5HBSwAVfYQCyvZ0_BG4
-    flow: xtls-rprx-vision
-    xudp: true
+  - type: hysteria2
+    name: 4Kian-8fba0818bf
+    server: 209.9.200.254
+    port: 20000
+    password: e45c8289-54d3-431f-9510-4bc14636862e
+    sni: www.shopify.com
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 4Nika-9cf23209e7
+    server: 209.9.200.254
+    port: 20000
+    password: e45c8289-54d3-431f-9510-4bc14636862e
+    sni: www.shopify.com
+    skip-cert-verify: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-20c20380cb
+      - 4Kian-8fba0818bf
+      - 4Nika-9cf23209e7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-20c20380cb
+      - 4Kian-8fba0818bf
+      - 4Nika-9cf23209e7
 rules:
   - MATCH,Proxy

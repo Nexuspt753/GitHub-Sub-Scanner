@@ -1,15 +1,29 @@
 proxies:
   - type: vless
-    name: 4Kian-744876b8f2
-    server: 177.1.194.5
+    name: 4Jadi-c818b78b3a
+    server: ee.ascl.dev
     port: 443
-    uuid: 0dab10de-af72-483b-b5d8-7f30cab4d35c
+    uuid: 57cde36d-70cb-45b3-a568-0876edaa812b
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: de.ascl.dev
+    client-fingerprint: firefox
+    servername: ee.ascl.dev
     reality-opts:
-      public-key: 2Y2dj8zlCB5qJHxS_AjcFdPEpQY5F5x9VpKN-z8caBo
+      public-key: 1ppFTOnZl-3nA7ygUhGsotwSumU8A2m_3qN9D1GOC10
+      short-id: 3fca1964759edc55
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-067a1cd342
+    server: nl.ascl.dev
+    port: 443
+    uuid: 57cde36d-70cb-45b3-a568-0876edaa812b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl.ascl.dev
+    reality-opts:
+      public-key: "-RJkm-IZH1-iRmnyhgWk2MHUN3ZDrwuoExJhoGgxO3A"
       short-id: 3fca1964759edc55
     flow: xtls-rprx-vision
     xudp: true
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-744876b8f2
+      - 4Jadi-c818b78b3a
+      - 4Nika-067a1cd342
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-744876b8f2
+      - 4Jadi-c818b78b3a
+      - 4Nika-067a1cd342
 rules:
   - MATCH,Proxy

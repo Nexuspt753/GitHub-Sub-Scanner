@@ -1,0 +1,33 @@
+proxies:
+  - type: vless
+    name: 4Sarina-c6c6a6ca31
+    server: s3.cloudstatic-ashbsd.cdn-mirror.net
+    port: 8080
+    uuid: 6cd3dbe2-5bb8-4115-aad9-d50b238ce841
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: s3.cloudstatic-ashbsd.cdn-mirror.net
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /access
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-c6c6a6ca31
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-c6c6a6ca31
+rules:
+  - MATCH,Proxy

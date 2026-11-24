@@ -1,23 +1,21 @@
 proxies:
-  - type: vless
-    name: 4Kian-1143ae7085
-    server: 206.238.239.20
-    port: 2083
-    uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
+  - type: vmess
+    name: 4Kian-3ff65b24be
+    server: 206.238.238.222
+    port: 8443
+    uuid: f5f0babe-aea2-4f07-a1fc-3c9820253f49
+    alterId: 0
+    cipher: auto
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: vipfree.dr-ping.ir
     xudp: true
+    skip-cert-verify: false
+    tls: true
     network: ws
     ws-opts:
-      path: /
+      path: /London31
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: uk.frnhk.xyz
   - type: vmess
     name: 4Kian-e5adec0221
     server: 206.238.239.109
@@ -40,7 +38,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-1143ae7085
+      - 4Kian-3ff65b24be
       - 4Kian-e5adec0221
   - name: Auto
     type: url-test
@@ -48,7 +46,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-1143ae7085
+      - 4Kian-3ff65b24be
       - 4Kian-e5adec0221
 rules:
   - MATCH,Proxy

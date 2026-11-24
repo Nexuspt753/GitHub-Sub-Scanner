@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Nika-d73dffeb0c
+    server: validate.mv-video.cloud
+    port: 8443
+    uuid: f5cc1823-4f5e-4420-a799-ac956949d7ab
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: apisynccloud.info
+    reality-opts:
+      public-key: cynncQk7kKzEQaExg-FN7pMqFaZPSXEi_Ggy7AXXmVg
+      short-id: 3f8ad1
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-d73dffeb0c
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-d73dffeb0c
+rules:
+  - MATCH,Proxy

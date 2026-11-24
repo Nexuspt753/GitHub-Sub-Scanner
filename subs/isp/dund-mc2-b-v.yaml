@@ -1,16 +1,46 @@
 proxies:
   - type: vless
-    name: 4FreeIran-eecd851825
-    server: 109.121.44.81
+    name: 4Mohsen-84c8a56971
+    server: 195.252.180.16
     port: 443
-    uuid: 6179ce37-97b2-4ac7-9591-b4b2bfaca09d
+    uuid: 619f8d27-b403-4913-b589-55d4dda0d56a
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: www.amd.com
+    servername: tnt-cloud.ru
     reality-opts:
       public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
-      short-id: 0a4b7c3d
+      short-id: a7b2c9d4
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-793f32c533
+    server: 31.77.111.13
+    port: 43439
+    uuid: 619f8d27-b403-4913-b589-55d4dda0d56a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: cdn.higames.ru
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: 0df2f86d58385f90
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-901d1e2e03
+    server: 195.252.180.21
+    port: 443
+    uuid: 79f614d3-f861-44a6-a795-0dbcfaa4c2b5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: tnt-cloud.ru
+    reality-opts:
+      public-key: b4n1pcO8ST3JkGtj8YymXVrW17LEe2EHec5wY7hMMR4
+      short-id: e1f8a3b6
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +48,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-eecd851825
+      - 4Mohsen-84c8a56971
+      - 4Mohsen-793f32c533
+      - 4FreeIran-901d1e2e03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-eecd851825
+      - 4Mohsen-84c8a56971
+      - 4Mohsen-793f32c533
+      - 4FreeIran-901d1e2e03
 rules:
   - MATCH,Proxy

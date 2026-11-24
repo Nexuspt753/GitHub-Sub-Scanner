@@ -1,32 +1,32 @@
 proxies:
-  - type: ss
-    name: filembad
-    server: 85.234.91.167
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: zFQwYpKLFAMq4en2tBVTDM-3Px_aZ95G
+  - type: vless
+    name: 4Nika-e4f89f897d
+    server: nl.extremumnews.com
+    port: 6443
+    uuid: 391a32c6-084c-4d61-8e8d-472678021dac
     udp: true
-  - type: ss
-    name: tootffarangi🍓
-    server: 85.234.91.167
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: zFQwYpKLFAMq4en2tBVTDM-3Px_aZ95G
-    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: download.virtualbox.org
+    reality-opts:
+      public-key: yB9Q2h_OxKiAgUC39VmgLcqvEWOMW0Qf6h7-ymAD4Q4
+      short-id: 55e3bb77815eec08
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - filembad
-      - tootffarangi🍓
+      - 4Nika-e4f89f897d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - filembad
-      - tootffarangi🍓
+      - 4Nika-e4f89f897d
 rules:
   - MATCH,Proxy

@@ -1,25 +1,4 @@
 proxies:
-  - type: ss
-    name: 4Sarina-8e1aff742d
-    server: 185.204.1.253
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: V29BpbtkhWZr
-    udp: true
-  - type: ss
-    name: 4Sarina-b68d1fceb5
-    server: 185.77.217.121
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: X7eoEBrARWsBUiVfchVEdH
-    udp: true
-  - type: ss
-    name: 4Kian-d6e09760d6
-    server: 77.83.247.207
-    port: 18285
-    cipher: aes-128-gcm
-    password: f9300a9bf39ae0347c3a3bfbc4dd7754
-    udp: true
   - type: vmess
     name: 4Sarina-c88c5704cf
     server: 185.212.149.7
@@ -71,6 +50,22 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
+    name: 4Kian-a20f41c830
+    server: 185.212.149.7
+    port: 2053
+    uuid: aeb3c019-ae83-4677-af97-846baa787ad5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: http
+    http-opts:
+      path:
+        - /3x
+      headers:
+        Host: down-cdn.dingtalk.com
+  - type: vmess
     name: 4Jadi-2708679fa9
     server: 91.132.197.5
     port: 443
@@ -92,14 +87,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-8e1aff742d
-      - 4Sarina-b68d1fceb5
-      - 4Kian-d6e09760d6
       - 4Sarina-c88c5704cf
       - 4Sarina-091f6f3a71
       - 4Jadi-8f182d5bad
       - 4FreeIran-cc4a0d6cad
       - 4Sarina-79c651a650
+      - 4Kian-a20f41c830
       - 4Jadi-2708679fa9
   - name: Auto
     type: url-test
@@ -107,14 +100,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-8e1aff742d
-      - 4Sarina-b68d1fceb5
-      - 4Kian-d6e09760d6
       - 4Sarina-c88c5704cf
       - 4Sarina-091f6f3a71
       - 4Jadi-8f182d5bad
       - 4FreeIran-cc4a0d6cad
       - 4Sarina-79c651a650
+      - 4Kian-a20f41c830
       - 4Jadi-2708679fa9
 rules:
   - MATCH,Proxy

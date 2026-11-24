@@ -1,23 +1,31 @@
 proxies:
   - type: vless
-    name: 4Nika-b10fb2e179
-    server: music-i.arvinmoradi.click
-    port: 443
-    uuid: 6526e123-b6a9-49b8-ad44-a375e44bbbca
+    name: 4Sarina-c6a1690cf1
+    server: ser4.plasmoon.ir
+    port: 2026
+    uuid: def54d95-2b1b-4b64-8ce4-988efc5d1698
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: www.aparat.com
-    reality-opts:
-      public-key: W-CSKv_Dc8BOjQ2LoM-ze4X4nQXmhVXJnuLxKySqREg
-      short-id: 23b970709b3f0b24
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: tun2.plasmoon.ir
     xudp: true
   - type: vmess
-    name: meliproxy
+    name: 4Nika-dd2db777c7
     server: aeli.orevix.ir
     port: 4200
     uuid: 8b1388ca-7c87-42ca-a0d1-77e5112357d6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-f38a406a13
+    server: aelix.orevix.ir
+    port: 16303
+    uuid: fee2076f-743e-47b5-842a-a755eb221c08
     alterId: 0
     cipher: auto
     udp: true
@@ -28,15 +36,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-b10fb2e179
-      - meliproxy
+      - 4Sarina-c6a1690cf1
+      - 4Nika-dd2db777c7
+      - 4Sarina-f38a406a13
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-b10fb2e179
-      - meliproxy
+      - 4Sarina-c6a1690cf1
+      - 4Nika-dd2db777c7
+      - 4Sarina-f38a406a13
 rules:
   - MATCH,Proxy

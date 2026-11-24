@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Nika-4cf5afe7e7
+    server: sto.sepporated.com
+    port: 443
+    uuid: 0f993d52-a368-461a-b049-a667488fc5c5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: sto.sepporated.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sto.sepporated.com
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-4cf5afe7e7
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-4cf5afe7e7
+rules:
+  - MATCH,Proxy

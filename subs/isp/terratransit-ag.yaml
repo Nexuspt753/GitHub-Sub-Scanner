@@ -1,42 +1,23 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-a0e2e119c1
-    server: fi.zhabulik.ru
-    port: 443
-    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
+  - type: vless
+    name: 4Nika-022cc76bec
+    server: nl.fifapes.monster
+    port: 2090
+    uuid: 56175108-8779-48f3-950c-7de595e1adb8
     udp: true
-    tls: true
-    sni: fi.zhabulik.ru
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: firefox
-  - type: trojan
-    name: prrofile_purple
-    server: fi.zhabulik.ru
-    port: 443
-    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
-    udp: true
-    tls: true
-    sni: fi.zhabulik.ru
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: chrome
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-a0e2e119c1
-      - prrofile_purple
+      - 4Nika-022cc76bec
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-a0e2e119c1
-      - prrofile_purple
+      - 4Nika-022cc76bec
 rules:
   - MATCH,Proxy

@@ -1,10 +1,31 @@
 proxies:
   - type: vmess
-    name: 4FreeIran-ee67e26058
+    name: 4Nika-c5311fabcd
     server: s1.connect.bloroxy.net
-    port: 1159
-    uuid: 2f1a500f-4ee9-4fef-ba53-0808ccf86b94
+    port: 1139
+    uuid: 8149b012-5f2f-47db-b564-f2c6975a24eb
     alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Jadi-646f4e23f1
+    server: s1.connect.bloroxy.net
+    port: 1152
+    uuid: e0be13c2-98f7-4965-b386-87745a82d96b
+    alterId: 1
+    cipher: aes-128-gcm
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    servername: none
+  - type: vmess
+    name: 4Jadi-38f8d1c975
+    server: s1.connect.bloroxy.net
+    port: 1170
+    uuid: eb22db33-8782-4f2d-9855-9359a41f8ddd
+    alterId: 1
     cipher: aes-128-gcm
     udp: true
     xudp: true
@@ -15,13 +36,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-ee67e26058
+      - 4Nika-c5311fabcd
+      - 4Jadi-646f4e23f1
+      - 4Jadi-38f8d1c975
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-ee67e26058
+      - 4Nika-c5311fabcd
+      - 4Jadi-646f4e23f1
+      - 4Jadi-38f8d1c975
 rules:
   - MATCH,Proxy

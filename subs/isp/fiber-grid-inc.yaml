@@ -11,7 +11,18 @@ proxies:
       - h2
     xudp: true
   - type: vless
-    name: VPsave
+    name: vless-01
+    server: api.ferrin.uk
+    port: 443
+    uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+  - type: vless
+    name: 4Mohsen-cc1a3df5da
     server: api.ferrin.uk
     port: 443
     uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
@@ -37,7 +48,8 @@ proxy-groups:
     proxies:
       - Auto
       - vless
-      - VPsave
+      - vless-01
+      - 4Mohsen-cc1a3df5da
       - 4FreeIran-3696126688
   - name: Auto
     type: url-test
@@ -46,7 +58,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - VPsave
+      - vless-01
+      - 4Mohsen-cc1a3df5da
       - 4FreeIran-3696126688
 rules:
   - MATCH,Proxy

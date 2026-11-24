@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Sarina-3b667d82f0
+    server: 141.8.198.29
+    port: 443
+    uuid: ef5a57c7-84d5-4f86-b99c-875a16da485f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rusbox634.grizpliz.am
+    reality-opts:
+      public-key: xPwj2JRpRX0EhUmiJeuii1iMaX1iT2Smq0k5Pyu3hEk
+      short-id: 7ce3580ea68cc329
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-3b667d82f0
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-3b667d82f0
+rules:
+  - MATCH,Proxy

@@ -1,25 +1,30 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: checkout.rowan.lalibobi.online
+  - type: vless
+    name: 4Sarina-eb2b6e2e34
+    server: 153.52.143.118
     port: 443
-    password: qjQdBgnCuhLVLxYKyBrEWHYtWJYtBjpS
+    uuid: ccb8ff48-3934-4250-b4ec-bb76b95d154f
     udp: true
     tls: true
-    sni: checkout.rowan.lalibobi.online
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: de2.fox-lisa.ru
+    reality-opts:
+      public-key: NaCZ-sS4poEbFwKmD7ePAVyc5OhHxsD9nkAStjXkoWs
+      short-id: 027af64166562b09
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
+      - 4Sarina-eb2b6e2e34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
+      - 4Sarina-eb2b6e2e34
 rules:
   - MATCH,Proxy

@@ -1,30 +1,5 @@
 proxies:
   - type: vless
-    name: DeltaKroneckerGithub
-    server: 191.217.215.228
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: 191.217.215.228
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: Channel
-    server: 191.217.215.186
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-179b77318e
     server: 191.217.215.186
     port: 2053
@@ -50,7 +25,7 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-798a5c36af
+    name: 4Nika-eebb5c6f6a
     server: 191.217.215.228
     port: 2096
     uuid: fbe22815-0718-4eae-816f-e91c67d15b54
@@ -81,28 +56,41 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: st3b6e5.rumedia-cdn.com
+  - type: vless
+    name: 4FreeIran-a81593f026
+    server: 191.217.215.228
+    port: 2096
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: st3b6e5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - Channel
       - 4Nika-179b77318e
       - 4Nika-e34c9319b8
-      - 4FreeIran-798a5c36af
+      - 4Nika-eebb5c6f6a
       - 4Jadi-4d9b46eb9f
+      - 4FreeIran-a81593f026
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - Channel
       - 4Nika-179b77318e
       - 4Nika-e34c9319b8
-      - 4FreeIran-798a5c36af
+      - 4Nika-eebb5c6f6a
       - 4Jadi-4d9b46eb9f
+      - 4FreeIran-a81593f026
 rules:
   - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Nika-5390669567
+    server: 193.124.66.208
+    port: 443
+    uuid: ef5a57c7-84d5-4f86-b99c-875a16da485f
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: rufinmicro1.gangplatform.com
+    reality-opts:
+      public-key: 7LBetmnWiUHWLTnW_sflaJvDfgSkTIe1BE6zw_dg1xY
+      short-id: 899cbfb833ccbe51
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-5390669567
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-5390669567
+rules:
+  - MATCH,Proxy

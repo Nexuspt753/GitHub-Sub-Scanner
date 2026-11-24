@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Kian-216dd1e2b5
+    server: r-std-15.edge.shifra.vpncfg.net
+    port: 443
+    uuid: 47bd1009-ee95-49a0-9ca1-589a06f3acd4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: rbc.ru
+    reality-opts:
+      public-key: QtBAeoyLtmYmEipZjOJJ24NsYGWBU8_o6z_tmoUd6yQ
+      short-id: e24642ff719ea4cf
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-216dd1e2b5
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-216dd1e2b5
+rules:
+  - MATCH,Proxy
