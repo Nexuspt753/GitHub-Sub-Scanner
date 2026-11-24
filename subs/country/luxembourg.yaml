@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: Luxembourg · 4Mohsen-4ad1dc037c
-    server: 92.223.84.84
-    port: 443
-    uuid: 03b0a000-a9f1-4ced-8a13-00e807d8b998
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: gcore.com
-    xudp: true
-  - type: vless
     name: Luxembourg · 204
     server: subgift.gcorecdn.com
     port: 443
@@ -31,20 +18,53 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: subgift.gcorecdn.com
   - type: vless
-    name: Luxembourg · @V2ray_Alpha🪸
-    server: subgift.gcorecdn.com
-    port: 443
-    uuid: 740b2630-b42d-425c-bacd-37e7e30d78f1
+    name: Luxembourg · 4Sarina-de43d65a6f
+    server: 185.188.146.107
+    port: 6443
+    uuid: 391a32c6-084c-4d61-8e8d-472678021dac
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: subgift.gcorecdn.com
+    client-fingerprint: firefox
+    servername: download.virtualbox.org
+    reality-opts:
+      public-key: j0S1c1otF2nPttqWdl1jvO3Lpo46deTj5UYBeZoUB0w
+      short-id: 1265c88595b5c91a
     xudp: true
-    network: ws
-    ws-opts:
-      path: /t.me-SubGift
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Luxembourg · 4Kian-54d3f93ca9
+    server: 80.240.97.60
+    port: 6443
+    uuid: 391a32c6-084c-4d61-8e8d-472678021dac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: appstats.nvidia.com
+    reality-opts:
+      public-key: HB7NH1pXFcxfe2DNjWKcwPJCgqJNLn27_KRcm15J2QI
+      short-id: cc546535f6c9e72a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: Luxembourg · 4Nika-80851c2de8
+    server: fr.extremumnews.com
+    port: 6443
+    uuid: 391a32c6-084c-4d61-8e8d-472678021dac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: download.virtualbox.org
+    reality-opts:
+      public-key: j0S1c1otF2nPttqWdl1jvO3Lpo46deTj5UYBeZoUB0w
+      short-id: 1265c88595b5c91a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: Luxembourg · 4Mohsen-5641d2b5b3
     server: 92.223.84.254
@@ -77,26 +97,64 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: subgift.gcorecdn.com
+  - type: vless
+    name: Luxembourg · 4Sarina-9fc35600bf
+    server: subgift.gcorecdn.com
+    port: 443
+    uuid: 740b2630-b42d-425c-bacd-37e7e30d78f1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: subgift.gcorecdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /t.me-SubGift
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vmess
+    name: Schieren · 4Kian-a611986852
+    server: 23.109.136.74
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /path/191019072927
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: www.82710897.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Luxembourg · 4Mohsen-4ad1dc037c
       - Luxembourg · 204
-      - Luxembourg · @V2ray_Alpha🪸
+      - Luxembourg · 4Sarina-de43d65a6f
+      - Luxembourg · 4Kian-54d3f93ca9
+      - Luxembourg · 4Nika-80851c2de8
       - Luxembourg · 4Mohsen-5641d2b5b3
       - Luxembourg · 4Nika-8654994d2f
+      - Luxembourg · 4Sarina-9fc35600bf
+      - Schieren · 4Kian-a611986852
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Luxembourg · 4Mohsen-4ad1dc037c
       - Luxembourg · 204
-      - Luxembourg · @V2ray_Alpha🪸
+      - Luxembourg · 4Sarina-de43d65a6f
+      - Luxembourg · 4Kian-54d3f93ca9
+      - Luxembourg · 4Nika-80851c2de8
       - Luxembourg · 4Mohsen-5641d2b5b3
       - Luxembourg · 4Nika-8654994d2f
+      - Luxembourg · 4Sarina-9fc35600bf
+      - Schieren · 4Kian-a611986852
 rules:
   - MATCH,Proxy

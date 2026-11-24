@@ -1,30 +1,34 @@
 proxies:
-  - type: trojan
-    name: 4Jadi-6ef324d95e
-    server: de194334.cdn-video.pro
+  - type: hysteria2
+    name: 4Jadi-6cf7e2d377
+    server: xnode-de-01.sigma-vpn.com
     port: 443
-    password: rW_BDkrbBjZQ9SzXMpKFx8hCSgmRPFzH
-    udp: true
-    tls: true
-    sni: de194334.cdn-video.pro
+    password: a73b5843-ed5c-4c6b-91e7-4fffa96a2db6
+    sni: xnode-de-01.sigma-vpn.com
     alpn:
-      - h2
-    client-fingerprint: firefox
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+      - h3
+  - type: hysteria2
+    name: 4Kian-f080a65e56
+    server: xnode-de-02.sigma-vpn.com
+    port: 443
+    password: a73b5843-ed5c-4c6b-91e7-4fffa96a2db6
+    sni: xnode-de-02.sigma-vpn.com
+    alpn:
+      - h3
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-6ef324d95e
+      - 4Jadi-6cf7e2d377
+      - 4Kian-f080a65e56
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-6ef324d95e
+      - 4Jadi-6cf7e2d377
+      - 4Kian-f080a65e56
 rules:
   - MATCH,Proxy

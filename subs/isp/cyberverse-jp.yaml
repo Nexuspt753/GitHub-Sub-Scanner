@@ -16,12 +16,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: aus.lovehk.xyz
+  - type: vmess
+    name: 4Kian-3fd2d3c0fb
+    server: 212.135.211.242
+    port: 443
+    uuid: 235e318a-8bcb-4480-b256-7b65cc5d0b0a
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    network: ws
+    ws-opts:
+      path: /Sydney3
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: aus.lovehk.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-c6565acc59
+      - 4Kian-3fd2d3c0fb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -29,5 +47,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-c6565acc59
+      - 4Kian-3fd2d3c0fb
 rules:
   - MATCH,Proxy

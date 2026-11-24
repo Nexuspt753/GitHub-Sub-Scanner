@@ -1,18 +1,6 @@
 proxies:
-  - type: vless
-    name: 4Sarina-c6a1690cf1
-    server: ser4.plasmoon.ir
-    port: 2026
-    uuid: def54d95-2b1b-4b64-8ce4-988efc5d1698
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: tun2.plasmoon.ir
-    xudp: true
   - type: vmess
-    name: 4Nika-dd2db777c7
+    name: meliproxy
     server: aeli.orevix.ir
     port: 4200
     uuid: 8b1388ca-7c87-42ca-a0d1-77e5112357d6
@@ -21,6 +9,19 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vless
+    name: 4Nika-42ab1ea96b
+    server: vip.orbxnet.ru
+    port: 5080
+    uuid: b51f6369-b2ab-4dd6-a2e8-d0748f3da1f2
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vip.orbxnet.shop
   - type: vmess
     name: 4Sarina-f38a406a13
     server: aelix.orevix.ir
@@ -36,8 +37,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-c6a1690cf1
-      - 4Nika-dd2db777c7
+      - meliproxy
+      - 4Nika-42ab1ea96b
       - 4Sarina-f38a406a13
   - name: Auto
     type: url-test
@@ -45,8 +46,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-c6a1690cf1
-      - 4Nika-dd2db777c7
+      - meliproxy
+      - 4Nika-42ab1ea96b
       - 4Sarina-f38a406a13
 rules:
   - MATCH,Proxy

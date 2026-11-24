@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Mohsen-6c5ff9b77e
+    server: 103.232.93.17
+    port: 8443
+    cipher: 2022-blake3-aes-128-gcm
+    password: qT1+kd0KB5v6sUmEyHdVJQ==
+    udp: true
   - type: vless
     name: 4Sarina-92eb96c2fb
     server: 148.135.86.162
@@ -13,6 +20,24 @@ proxies:
       short-id: a1b2c3d4
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-a3eee64647
+    server: 163.47.134.242
+    port: 443
+    uuid: 92e8d9dc-8e3b-4f81-a278-d18c6bf1b962
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=163.47.134.242:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: app-base-njw3ky.pages.dev
   - type: vmess
     name: 4Nika-6f29d57d49
     server: 148.135.33.140
@@ -35,7 +60,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-6c5ff9b77e
       - 4Sarina-92eb96c2fb
+      - 4Sarina-a3eee64647
       - 4Nika-6f29d57d49
   - name: Auto
     type: url-test
@@ -43,7 +70,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-6c5ff9b77e
       - 4Sarina-92eb96c2fb
+      - 4Sarina-a3eee64647
       - 4Nika-6f29d57d49
 rules:
   - MATCH,Proxy

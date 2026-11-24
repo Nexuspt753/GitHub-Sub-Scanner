@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Jadi-c338cf6d60
+    server: br.dexlen.cc
+    port: 8443
+    uuid: 2614a96d-e39f-4cca-a9c7-467a178c2c0a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: br.dexlen.cc
+    reality-opts:
+      public-key: _NcF141EQLSjJU5JxyZXjH6NCi5eb_BOes9E_unBjRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-0deb788992
     server: br.dexlen.cc
     port: 8443
@@ -17,6 +30,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-c338cf6d60
       - 4Nika-0deb788992
   - name: Auto
     type: url-test
@@ -24,6 +38,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-c338cf6d60
       - 4Nika-0deb788992
 rules:
   - MATCH,Proxy

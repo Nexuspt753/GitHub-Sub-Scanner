@@ -1,31 +1,30 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-8df6056b76
-    server: 78.17.128.153
-    port: 35076
-    password: b4c8ee9caa74b7ba0a61
-    sni: scrap.halyvanedorogo.ru
-  - type: hysteria2
-    name: 4Sarina-87abecf609
-    server: scrap.halyvanedorogo.ru
-    port: 35076
-    password: b4c8ee9caa74b7ba0a61
-    sni: scrap.halyvanedorogo.ru
-    skip-cert-verify: true
+  - type: vless
+    name: 4Jadi-ce9dc4bfa0
+    server: r-std-08.edge.shifra.vpncfg.net
+    port: 443
+    uuid: 47bd1009-ee95-49a0-9ca1-589a06f3acd4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: github.com
+    reality-opts:
+      public-key: QtBAeoyLtmYmEipZjOJJ24NsYGWBU8_o6z_tmoUd6yQ
+      short-id: e24642ff719ea4cf
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-8df6056b76
-      - 4Sarina-87abecf609
+      - 4Jadi-ce9dc4bfa0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-8df6056b76
-      - 4Sarina-87abecf609
+      - 4Jadi-ce9dc4bfa0
 rules:
   - MATCH,Proxy

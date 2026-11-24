@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Jadi-5ea4bd03bf
+    server: 185.112.59.157
+    port: 443
+    uuid: 03786aa4-21a5-4e7c-83d6-873aafc41217
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl-06.neverspy.tech
+    reality-opts:
+      public-key: sZXAejndrxL9cgna_fPXmbSB28y8yAJ9Ln6hRzy5TV0
+      short-id: 86af85a72387ef02
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-4b5214ecfc
     server: 193.233.198.117
     port: 443
@@ -69,26 +83,58 @@ proxies:
       short-id: 86af85a72387ef02
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-35808f5784
+    server: 185.231.204.244
+    port: 443
+    uuid: 42a64b9a-ab79-4094-8656-30366a7c2ea3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl-balancer.peregrine-sub.net
+    reality-opts:
+      public-key: Y2uyTCt5ofoFht6Xl-55dBPCBUiYi1fFTVcmZtoiqFw
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-8358c0bcde
+    server: 138.124.126.142
+    port: 443
+    uuid: 9fd994ad-d36c-476d-96c7-25f10bbdf2cb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: google.com
+    reality-opts:
+      public-key: wmZMHl_0sOR2BabFeoxCiVZ6CL8udsg_tzUF5JxK2yE
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-5ea4bd03bf
       - 4Sarina-4b5214ecfc
       - 4Nika-add5ad87e9
       - 4Nika-f91eeb7b74
       - 4Sarina-4f05c36eb7
       - 4Mohsen-dd1097d37e
+      - 4Jadi-35808f5784
+      - 4Sarina-8358c0bcde
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-5ea4bd03bf
       - 4Sarina-4b5214ecfc
       - 4Nika-add5ad87e9
       - 4Nika-f91eeb7b74
       - 4Sarina-4f05c36eb7
       - 4Mohsen-dd1097d37e
+      - 4Jadi-35808f5784
+      - 4Sarina-8358c0bcde
 rules:
   - MATCH,Proxy

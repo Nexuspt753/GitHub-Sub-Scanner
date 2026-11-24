@@ -1,13 +1,4 @@
 proxies:
-  - type: trojan
-    name: 4Kian-81b9aee629
-    server: n1.config7x.new.tg
-    port: 8443
-    password: Telegram--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X
-    udp: true
-    tls: true
-    sni: ookla.com
-    client-fingerprint: chrome
   - type: vless
     name: 4Sarina-2b8deed287
     server: dl2.mbndadwsdf132131.torkey.ir
@@ -54,13 +45,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Jadi-84f0e4f38a
-    server: 171.22.24.101
-    port: 2443
-    uuid: 9de59c56-7fca-40dc-bb86-dc900f2b382b
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Sarina-de7097de34
     server: dl1.mbndadwsdf132131.torkey.ir
     port: 443
@@ -74,28 +58,64 @@ proxies:
       short-id: 7670b1aff090e4f0
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-480a2c284b
+    server: dl2.mbndadwsdf132131.torkey.ir
+    port: 2096
+    uuid: b856294d-5767-4878-8cf5-c1d5ffbfb284
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: dl2.mbndadwsdf132131.torkey.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /assets/ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl2.mbndadwsdf132131.torkey.ir
+  - type: vless
+    name: 4Kian-db5d274c59
+    server: dl2.mbndadwsdf132131.torkey.ir
+    port: 443
+    uuid: c8abc13e-b40a-4a68-893a-756d3684a7fe
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    alpn:
+      - http/1.1
+    servername: dl2.mbndadwsdf132131.torkey.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /games/fortnite
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl2.mbndadwsdf132131.torkey.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-81b9aee629
       - 4Sarina-2b8deed287
       - 4Jadi-1141c2e10d
       - 13286@proxy_online_net
-      - 4Jadi-84f0e4f38a
       - 4Sarina-de7097de34
+      - 4Kian-480a2c284b
+      - 4Kian-db5d274c59
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-81b9aee629
       - 4Sarina-2b8deed287
       - 4Jadi-1141c2e10d
       - 13286@proxy_online_net
-      - 4Jadi-84f0e4f38a
       - 4Sarina-de7097de34
+      - 4Kian-480a2c284b
+      - 4Kian-db5d274c59
 rules:
   - MATCH,Proxy
