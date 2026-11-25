@@ -7,12 +7,25 @@ proxies:
     sni: ee2.sferavpn.pro
     obfs: salamander
     obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
+  - type: vless
+    name: 4Sarina-07f650aada
+    server: autoconfig.happ-vps.store
+    port: 443
+    uuid: 162d2fa0-ac57-40bf-a01b-15ac7d9fe3da
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: autoconfig.happ-vps.store
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Mohsen-e63fd407b1
+      - 4Sarina-07f650aada
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -20,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Mohsen-e63fd407b1
+      - 4Sarina-07f650aada
 rules:
   - MATCH,Proxy

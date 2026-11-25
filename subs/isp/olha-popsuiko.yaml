@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: 4Nika-73c3528f7b
-    server: 191.217.215.186
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-179b77318e
     server: 191.217.215.186
     port: 2053
@@ -35,6 +24,33 @@ proxies:
     servername: 191.217.215.228
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-d9a0fd0538
+    server: 191.217.215.228
+    port: 2053
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: 191.217.215.228
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-c793a66356
+    server: 191.217.215.228
+    port: 2096
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: st3b6e5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
   - type: vless
     name: 4Jadi-4d9b46eb9f
     server: 191.217.215.228
@@ -71,9 +87,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-73c3528f7b
       - 4Nika-179b77318e
       - 4Nika-e34c9319b8
+      - 4Mohsen-d9a0fd0538
+      - 4Mohsen-c793a66356
       - 4Jadi-4d9b46eb9f
       - 4FreeIran-a81593f026
   - name: Auto
@@ -82,9 +99,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-73c3528f7b
       - 4Nika-179b77318e
       - 4Nika-e34c9319b8
+      - 4Mohsen-d9a0fd0538
+      - 4Mohsen-c793a66356
       - 4Jadi-4d9b46eb9f
       - 4FreeIran-a81593f026
 rules:

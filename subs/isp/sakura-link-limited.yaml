@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: 🇭🇰
+    server: 209.248.57.105
+    port: 8388
+    cipher: aes-256-gcm
+    password: AMok40FfaM+Ikwre16psBpVk6JHxsQZw
+    udp: true
+  - type: ss
     name: 4Nika-06ee50017f
     server: 209.248.57.105
     port: 8388
@@ -9,6 +16,14 @@ proxies:
   - type: trojan
     name: 4Nika-9ed14ce990
     server: official.tokyometropolis.chernigov.ua
+    port: 2053
+    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Sarina-dbfe820261
+    server: official.tokyometropolis.ivano-frankivsk.ua
     port: 2053
     password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
     udp: true
@@ -47,14 +62,6 @@ proxies:
     tls: true
     client-fingerprint: chrome
   - type: trojan
-    name: 4Jadi-b2d85c9f8f
-    server: official.tokyometropolis.odesa.ua
-    port: 2053
-    password: 96983eb4-c8f1-316e-ab00-500014ed3d8b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-  - type: trojan
     name: 4Kian-ff044c446a
     server: official.tokyometropolis.odessa.ua
     port: 2053
@@ -62,41 +69,34 @@ proxies:
     udp: true
     tls: true
     client-fingerprint: chrome
-  - type: ss
-    name: 🇺🇸US-209.248.57.105-0264
-    server: 209.248.57.105
-    port: 8388
-    cipher: aes-256-gcm
-    password: AMok40FfaM+Ikwre16psBpVk6JHxsQZw
-    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 🇭🇰
       - 4Nika-06ee50017f
       - 4Nika-9ed14ce990
+      - 4Sarina-dbfe820261
       - 4Sarina-325ea5d4b2
       - 4Sarina-ea0a4ec4b8
       - 4Sarina-4ee1dcbec4
       - 4Nika-a9ead23f8a
-      - 4Jadi-b2d85c9f8f
       - 4Kian-ff044c446a
-      - 🇺🇸US-209.248.57.105-0264
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 🇭🇰
       - 4Nika-06ee50017f
       - 4Nika-9ed14ce990
+      - 4Sarina-dbfe820261
       - 4Sarina-325ea5d4b2
       - 4Sarina-ea0a4ec4b8
       - 4Sarina-4ee1dcbec4
       - 4Nika-a9ead23f8a
-      - 4Jadi-b2d85c9f8f
       - 4Kian-ff044c446a
-      - 🇺🇸US-209.248.57.105-0264
 rules:
   - MATCH,Proxy

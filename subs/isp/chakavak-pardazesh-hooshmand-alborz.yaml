@@ -1,68 +1,30 @@
 proxies:
-  - type: vmess
-    name: 4Kian-8e27ed4e7f
-    server: rma2.rmaaccshop.ir
-    port: 12146
-    uuid: 83c21735-22a2-4b90-8457-365a6e7fef15
-    alterId: 0
-    cipher: auto
+  - type: vless
+    name: 4Kian-c99db1d2f9
+    server: 185.83.90.70
+    port: 443
+    uuid: 9f1a8118-6976-435a-8834-b7bb06108e70
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: XmANqZ3SCleV_Y6_vJzp7OJQKpO5aIoB6hvlnqoFK1o
+      short-id: 80f04dae4c5a
+    flow: xtls-rprx-vision
     xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
-  - type: vmess
-    name: 4Jadi-a3a3513d4f
-    server: rma7.rmaaccshop.ir
-    port: 12146
-    uuid: 9d1bb4a3-1800-4a12-96fc-962719b47b2c
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
-  - type: vmess
-    name: 4Mohsen-dbbc35a3fc
-    server: rma9.rmaaccshop.ir
-    port: 56264
-    uuid: d05d2116-855f-4ccf-a84f-e119b626135e
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /rma
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-8e27ed4e7f
-      - 4Jadi-a3a3513d4f
-      - 4Mohsen-dbbc35a3fc
+      - 4Kian-c99db1d2f9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-8e27ed4e7f
-      - 4Jadi-a3a3513d4f
-      - 4Mohsen-dbbc35a3fc
+      - 4Kian-c99db1d2f9
 rules:
   - MATCH,Proxy

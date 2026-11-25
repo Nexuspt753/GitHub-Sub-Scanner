@@ -1,4 +1,23 @@
 proxies:
+  - type: ss
+    name: 4Jadi-6a41e6b5ed
+    server: mojtun.mlbaz.ir
+    port: 555
+    cipher: chacha20-ietf-poly1305
+    password: 01649206dc52494d9d86b7170a040546
+    udp: true
+  - type: vless
+    name: 4Mohsen-3e21250582
+    server: yas.ertebatgoostar.ir
+    port: 80
+    uuid: 036fdabc-3430-4cee-9ad5-edff5fcc50e8
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
     name: 4FreeIran-0191142c44
     server: 5.202.8.12
@@ -16,6 +35,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Jadi-6a41e6b5ed
+      - 4Mohsen-3e21250582
       - 4FreeIran-0191142c44
   - name: Auto
     type: url-test
@@ -23,6 +44,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-6a41e6b5ed
+      - 4Mohsen-3e21250582
       - 4FreeIran-0191142c44
 rules:
   - MATCH,Proxy

@@ -1,5 +1,35 @@
 proxies:
   - type: vless
+    name: FarazV2ray
+    server: 194.135.34.118
+    port: 8443
+    uuid: 020f7f86-a559-4366-8d2d-c6f81d6bbe5f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: web.hosttcp.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v4/media/session
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: V2raySaman
+    server: 194.135.34.118
+    port: 8443
+    uuid: 020f7f86-a559-4366-8d2d-c6f81d6bbe5f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: web.hosttcp.fun
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/v4/media/session
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Kian-852c251e23
     server: 194.135.34.118
     port: 8443
@@ -29,18 +59,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-689790b20a
-    server: 194.135.22.186
+    name: 4Mohsen-3d6f4bf7cb
+    server: app.sonnysleepbot.uk
     port: 443
-    uuid: 64f002a5-e347-4954-ac53-9fb5d76d19d5
+    uuid: 6042aecb-c19b-4ebc-a3c7-0bad5fbfe01a
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: videohosting.cliphub.forum
+    servername: api-maps.yandex.ru
+    reality-opts:
+      public-key: KQYuIiPZIouIHwvjU2UTXKK54CSvktrxpCL1aKGYIl4
+      short-id: 511ce432cf5d01dd
+    flow: xtls-rprx-vision
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
   - type: vless
     name: 4Kian-197f342ee6
     server: 88.218.248.89
@@ -60,9 +91,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - FarazV2ray
+      - V2raySaman
       - 4Kian-852c251e23
       - Tarkahodeh
-      - 4Kian-689790b20a
+      - 4Mohsen-3d6f4bf7cb
       - 4Kian-197f342ee6
   - name: Auto
     type: url-test
@@ -70,9 +103,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - FarazV2ray
+      - V2raySaman
       - 4Kian-852c251e23
       - Tarkahodeh
-      - 4Kian-689790b20a
+      - 4Mohsen-3d6f4bf7cb
       - 4Kian-197f342ee6
 rules:
   - MATCH,Proxy

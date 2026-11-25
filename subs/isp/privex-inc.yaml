@@ -13,12 +13,27 @@ proxies:
       short-id: 9407b43f
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-635e7fdd52
+    server: 185.130.46.223
+    port: 443
+    uuid: 41561a50-4643-4960-b3a4-3e1371b63c82
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: w46W7GwpVcIjDxPAdN_fFF1MDFU85ERGH4d5tWSM7nw
+      short-id: 4bd8ba03
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-5ff4218e0f
+      - 4Nika-635e7fdd52
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-5ff4218e0f
+      - 4Nika-635e7fdd52
 rules:
   - MATCH,Proxy

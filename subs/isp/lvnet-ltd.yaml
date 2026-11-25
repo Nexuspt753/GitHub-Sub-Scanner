@@ -1,57 +1,38 @@
 proxies:
   - type: vless
-    name: 4Kian-ee8bbb8e84
-    server: 45.88.176.101
-    port: 24443
-    uuid: 9c69546a-e435-4037-bc63-f9e5829a8be3
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: img.suzuki.lol
-    reality-opts:
-      public-key: 43lt439xcY74Yc_p2bdN9s-U15acPd5PtWUblHTtogw
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Jadi-e4bc6a814d
-    server: 45.88.176.101
-    port: 39443
-    uuid: 9c69546a-e435-4037-bc63-f9e5829a8be3
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: static.polina.mom
-    reality-opts:
-      public-key: fdxL-_wJtRHMDPjT2savleui1AgLPJ85z2rr2lZQxCw
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Jadi-937fb94b29
     server: 45.88.176.223
     port: 443
     uuid: d73e3cdc-a80b-4e73-a11b-cc467d7a84f8
     udp: true
     xudp: true
+  - type: vless
+    name: 4Jadi-dddde0c93c
+    server: 45.86.74.209
+    port: 443
+    uuid: e8b7b937-85d9-43f3-bb7a-7d98478756d7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gemcon.mcufa.pro
+    reality-opts:
+      public-key: "-P8DgKISSG4jnLuj6ihZDqZs1_zt-juBrhVhTylHiAo"
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-ee8bbb8e84
-      - 4Jadi-e4bc6a814d
       - 4Jadi-937fb94b29
+      - 4Jadi-dddde0c93c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-ee8bbb8e84
-      - 4Jadi-e4bc6a814d
       - 4Jadi-937fb94b29
+      - 4Jadi-dddde0c93c
 rules:
   - MATCH,Proxy

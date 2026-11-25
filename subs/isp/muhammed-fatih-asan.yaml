@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: B2Hub
-    server: 45.144.214.102
-    port: 443
-    uuid: 128ce9ab-63bc-48dc-92ca-1b5426a9eb46
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: tr.trustsvpn.com
-    reality-opts:
-      public-key: W_6kEDko_-O5JHaIigz6YqXJTm4SLrS0_3lCp5B4CWE
-      short-id: aa2cd28cccee4f45
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: vpnsal
     server: 45.144.214.102
     port: 443
@@ -41,38 +27,20 @@ proxies:
       short-id: aa2cd28cccee4f45
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-e44459927a
-    server: 45.144.214.102
-    port: 443
-    uuid: 128ce9ab-63bc-48dc-92ca-1b5426a9eb46
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: tr.trustsvpn.com
-    reality-opts:
-      public-key: W_6kEDko_-O5JHaIigz6YqXJTm4SLrS0_3lCp5B4CWE
-      short-id: aa2cd28cccee4f45
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - B2Hub
       - vpnsal
       - NOFILTERING2
-      - 4FreeIran-e44459927a
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - B2Hub
       - vpnsal
       - NOFILTERING2
-      - 4FreeIran-e44459927a
 rules:
   - MATCH,Proxy

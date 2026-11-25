@@ -1,16 +1,16 @@
 proxies:
   - type: vless
-    name: 4FreeIran-91c9b87c75
-    server: 136.148.208.221
+    name: ConfigV2RayNG
+    server: 64.112.125.183
     port: 443
-    uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+    uuid: 911acdf2-3968-4d3e-be41-e62e2592e422
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: 8a2e72t.nl20.h1clayd.shop
+    servername: nechunaev.com
     reality-opts:
-      public-key: VZS639V1i-35g7VXb9EoTYL-Srm7858sxcvFAunncmA
-      short-id: 8d0d0679f42ffd98
+      public-key: 7pr2qWG1_3TjBDCidQWJ2lnbEf72lOcse4Gca8anwEo
+      short-id: 57f0eca7ae6be8
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -27,20 +27,52 @@ proxies:
     servername: lodizu.hagrid-connected.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-9051113dab
+    server: 64.112.125.183
+    port: 443
+    uuid: 911acdf2-3968-4d3e-be41-e62e2592e422
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nechunaev.com
+    reality-opts:
+      public-key: 7pr2qWG1_3TjBDCidQWJ2lnbEf72lOcse4Gca8anwEo
+      short-id: 57f0eca7ae6be8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-99f61a9bd7
+    server: lodizu.hagrid-connected.com
+    port: 443
+    uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: lodizu.hagrid-connected.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-91c9b87c75
+      - ConfigV2RayNG
       - YFZ
+      - 4Jadi-9051113dab
+      - 4Nika-99f61a9bd7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-91c9b87c75
+      - ConfigV2RayNG
       - YFZ
+      - 4Jadi-9051113dab
+      - 4Nika-99f61a9bd7
 rules:
   - MATCH,Proxy

@@ -1,0 +1,29 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-b1f672ef56
+    server: tr-net.zabuza.ir
+    port: 443
+    uuid: 3a775f0d-6dab-41c5-bd1e-59c01b18dd5f
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: play.google.com
+    reality-opts:
+      public-key: SbGr1o25LoWAwLzpA57cbio5L_SuKX7REU168ook21s
+      short-id: 86b0af3aade00ad2
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-b1f672ef56
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-b1f672ef56
+rules:
+  - MATCH,Proxy

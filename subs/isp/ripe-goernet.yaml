@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Nika-6366e65f1b
+    server: 31.59.117.196
+    port: 9443
+    uuid: ad295072-0049-4981-a9aa-6314c43e87e5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n3.fernstatic.com
+    reality-opts:
+      public-key: LGj0rJ5R28CbD24VRc5nCpNg-2EMU85fmUZNdrZ6CWI
+      short-id: bc7b676b8ed7b300
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-6e1a2a5fe1
     server: n3.fernstatic.com
     port: 9443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-6366e65f1b
       - 4Jadi-6e1a2a5fe1
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-6366e65f1b
       - 4Jadi-6e1a2a5fe1
 rules:
   - MATCH,Proxy
