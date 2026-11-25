@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Nika-80851c2de8
+    server: fr.extremumnews.com
+    port: 6443
+    uuid: 391a32c6-084c-4d61-8e8d-472678021dac
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: download.virtualbox.org
+    reality-opts:
+      public-key: j0S1c1otF2nPttqWdl1jvO3Lpo46deTj5UYBeZoUB0w
+      short-id: 1265c88595b5c91a
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-80851c2de8
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-80851c2de8
+rules:
+  - MATCH,Proxy

@@ -1,16 +1,5 @@
 proxies:
   - type: vless
-    name: Channel
-    server: 191.217.215.186
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: VPsave
     server: 191.217.215.228
     port: 2053
@@ -20,6 +9,54 @@ proxies:
     client-fingerprint: chrome
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 🇷🇺230805
+    server: 191.217.215.228
+    port: 2096
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: st3b6e5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
+  - type: vless
+    name: 🇺🇸US-🚀@VPNine1
+    server: 191.217.215.228
+    port: 2096
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: st3b6e5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
+  - type: vless
+    name: hex_proxy
+    server: 191.217.215.228
+    port: 2096
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: st3b6e5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
   - type: vless
     name: 4Nika-73c3528f7b
     server: 191.217.215.186
@@ -32,27 +69,13 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-179b77318e
-    server: 191.217.215.186
-    port: 2053
-    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 191.217.215.186
-    flow: xtls-rprx-vision-udp443
-    xudp: true
-  - type: vless
-    name: 4Nika-e34c9319b8
+    name: 4Mohsen-d9a0fd0538
     server: 191.217.215.228
     port: 2053
     uuid: fbe22815-0718-4eae-816f-e91c67d15b54
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
     servername: 191.217.215.228
     flow: xtls-rprx-vision
     xudp: true
@@ -67,7 +90,23 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4FreeIran-a81593f026
+    name: 4Mohsen-bd52d62d4b
+    server: 191.217.215.228
+    port: 2096
+    uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: st3b6e5.rumedia-cdn.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /cdn/v3/live
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
+  - type: vless
+    name: 4Jadi-4d9b46eb9f
     server: 191.217.215.228
     port: 2096
     uuid: fbe22815-0718-4eae-816f-e91c67d15b54
@@ -81,30 +120,35 @@ proxies:
       path: /cdn/v3/live
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: st3b6e5.rumedia-cdn.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - Channel
       - VPsave
+      - 🇷🇺230805
+      - 🇺🇸US-🚀@VPNine1
+      - hex_proxy
       - 4Nika-73c3528f7b
-      - 4Nika-179b77318e
-      - 4Nika-e34c9319b8
+      - 4Mohsen-d9a0fd0538
       - 4Nika-a5ee874b2d
-      - 4FreeIran-a81593f026
+      - 4Mohsen-bd52d62d4b
+      - 4Jadi-4d9b46eb9f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Channel
       - VPsave
+      - 🇷🇺230805
+      - 🇺🇸US-🚀@VPNine1
+      - hex_proxy
       - 4Nika-73c3528f7b
-      - 4Nika-179b77318e
-      - 4Nika-e34c9319b8
+      - 4Mohsen-d9a0fd0538
       - 4Nika-a5ee874b2d
-      - 4FreeIran-a81593f026
+      - 4Mohsen-bd52d62d4b
+      - 4Jadi-4d9b46eb9f
 rules:
   - MATCH,Proxy

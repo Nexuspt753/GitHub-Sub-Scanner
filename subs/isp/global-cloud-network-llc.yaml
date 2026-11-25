@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: NOFILTERING2
+    server: qq.utiltools.site
+    port: 443
+    uuid: 4054fdc2-ee80-4419-8a8e-d937df4719e2
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: qq.utiltools.site
+    reality-opts:
+      public-key: drY21DHNOr6ezJLA2B10mzTExeJ9-gVBfTBNLwVBtWI
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4FreeIran-dd8746d884
     server: qq.utiltools.site
     port: 443
@@ -13,8 +26,26 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-60dcd1f74b
-    server: e3.cdnwh.icu
+    name: 4Nika-f4222f81f2
+    server: 46.243.233.194
+    port: 443
+    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: pssdwynorv.newwl.pro
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /service/telemetry/0294da469190/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: pssdwynorv.newwl.pro
+  - type: vless
+    name: 4Kian-3afcbf6a30
+    server: 46.243.232.149
     port: 443
     uuid: b432a23a-acff-425c-bf69-70480cd6ed09
     udp: true
@@ -30,6 +61,24 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: e3.cdnwh.icu
+  - type: vless
+    name: 4Nika-754039813e
+    server: 46.243.232.149
+    port: 443
+    uuid: b432a23a-acff-425c-bf69-70480cd6ed09
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: devcdn.icu
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /edge/chunk/b2265efffa29/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: devcdn.icu
   - type: vless
     name: 4Mohsen-479e532330
     server: fbsv6.guardora.pro
@@ -53,8 +102,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - NOFILTERING2
       - 4FreeIran-dd8746d884
-      - 4Nika-60dcd1f74b
+      - 4Nika-f4222f81f2
+      - 4Kian-3afcbf6a30
+      - 4Nika-754039813e
       - 4Mohsen-479e532330
   - name: Auto
     type: url-test
@@ -62,8 +114,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - NOFILTERING2
       - 4FreeIran-dd8746d884
-      - 4Nika-60dcd1f74b
+      - 4Nika-f4222f81f2
+      - 4Kian-3afcbf6a30
+      - 4Nika-754039813e
       - 4Mohsen-479e532330
 rules:
   - MATCH,Proxy

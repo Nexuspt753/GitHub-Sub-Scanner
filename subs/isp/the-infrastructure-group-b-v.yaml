@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Sarina-f12c887044
-    server: 150.129.9.126
+    name: 4Sarina-cb585b76d5
+    server: 5.255.99.21
     port: 443
-    uuid: 03248cf9-cbcb-4718-a11d-35b499978d27
+    uuid: f8cb3c89-32af-4255-bebc-d90aad175069
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: nl-node.vopn.net
+    servername: nlc.899themes.pro
     reality-opts:
-      public-key: lBCt9m_PzWWdm1HvyZtJyCupmcySkfphwArSyPLPKXk
-      short-id: bec1a547f54b0a19
-    flow: xtls-rprx-vision
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-f12c887044
+      - 4Sarina-cb585b76d5
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-f12c887044
+      - 4Sarina-cb585b76d5
 rules:
   - MATCH,Proxy

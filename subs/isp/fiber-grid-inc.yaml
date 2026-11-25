@@ -11,11 +11,15 @@ proxies:
       - h2
     xudp: true
   - type: vless
-    name: 4Kian-8bfb2df42e
+    name: vless-01
     server: api.ferrin.uk
     port: 443
     uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
     xudp: true
   - type: vless
     name: 4Nika-35077b2538
@@ -34,7 +38,7 @@ proxy-groups:
     proxies:
       - Auto
       - vless
-      - 4Kian-8bfb2df42e
+      - vless-01
       - 4Nika-35077b2538
   - name: Auto
     type: url-test
@@ -43,7 +47,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Kian-8bfb2df42e
+      - vless-01
       - 4Nika-35077b2538
 rules:
   - MATCH,Proxy

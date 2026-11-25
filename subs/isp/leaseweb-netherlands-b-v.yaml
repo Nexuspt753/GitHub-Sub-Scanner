@@ -1,20 +1,19 @@
 proxies:
   - type: hysteria2
-    name: 🇳🇱230560
+    name: 4Kian-20524bbe18
     server: 185.19.33.28
     port: 2098
     password: hjfkbryrrms11obu
     sni: 185.19.33.28
-    obfs: salamander
-    obfs-password: 7922smqtd5qm70fu
+    skip-cert-verify: true
   - type: hysteria2
-    name: 🇳🇱230609
+    name: 4Nika-97a171e371
     server: 185.19.33.28
     port: 2098
     password: hjfkbryrrms11obu
     sni: 185.19.33.28
+    skip-cert-verify: false
     obfs: salamander
-    obfs-password: 7922smqtd5qm70fu
   - type: hysteria2
     name: 4Nika-8291808138
     server: 185.19.33.28
@@ -37,42 +36,24 @@ proxies:
       short-id: 5fe52282e09ec75e
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-ba49ba5c8c
-    server: 95.211.164.121
-    port: 443
-    uuid: d7430ae7-320c-4658-808b-3006d0627d82
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: devua.nubuntuhosting.host
-    reality-opts:
-      public-key: QJW15WZWLNjA8KEpe4GqSdOe4rfW8KgqjjVmKxPk-ng
-      short-id: 3fa234ea9feaa048
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇳🇱230560
-      - 🇳🇱230609
+      - 4Kian-20524bbe18
+      - 4Nika-97a171e371
       - 4Nika-8291808138
       - 4FreeIran-961c077c5d
-      - 4FreeIran-ba49ba5c8c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇳🇱230560
-      - 🇳🇱230609
+      - 4Kian-20524bbe18
+      - 4Nika-97a171e371
       - 4Nika-8291808138
       - 4FreeIran-961c077c5d
-      - 4FreeIran-ba49ba5c8c
 rules:
   - MATCH,Proxy

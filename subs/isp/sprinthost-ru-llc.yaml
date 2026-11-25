@@ -1,62 +1,32 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 185.185.71.168
+    name: 4Sarina-e478b15641
+    server: 45.142.44.199
     port: 443
-    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
+    uuid: 58e22afd-bf74-4736-984d-63a8ca03d7f0
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: rusbox745.gangtype.com
-    reality-opts:
-      public-key: RZPobWJXwesTvFGCPTeE40Oc0AWFj0fmv0UDeJFLIhY
-      short-id: bf83ed9220c59bc3
-    flow: xtls-rprx-vision
+    client-fingerprint: edge
+    servername: accessfooter.cleanfoodshop.org
     xudp: true
-  - type: vless
-    name: 4Sarina-cdf78a6c88
-    server: 185.185.71.168
-    port: 443
-    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: rusbox745.gangtype.com
-    reality-opts:
-      public-key: RZPobWJXwesTvFGCPTeE40Oc0AWFj0fmv0UDeJFLIhY
-      short-id: bf83ed9220c59bc3
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-5a93b327ca
-    server: 186.246.48.214
-    port: 443
-    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: rusbox596.aidating.am
-    reality-opts:
-      public-key: WSoclfqxCDnfT4JJOeRXkXedigewJQFCvfKrScqvYTs
-      short-id: 5d4c3c6c3990a22a
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: accessfooter.cleanfoodshop.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - VPsave
-      - 4Sarina-cdf78a6c88
-      - 4Mohsen-5a93b327ca
+      - 4Sarina-e478b15641
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
-      - 4Sarina-cdf78a6c88
-      - 4Mohsen-5a93b327ca
+      - 4Sarina-e478b15641
 rules:
   - MATCH,Proxy

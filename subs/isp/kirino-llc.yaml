@@ -1,34 +1,29 @@
 proxies:
-  - type: trojan
-    name: DeltaKroneckerGithub
-    server: 45.9.10.103
-    port: 443
-    password: WpfQAbO2wg
+  - type: vless
+    name: 4Mohsen-4499d365cc
+    server: 38.59.243.225
+    port: 4076
+    uuid: b73a8f0b-0aad-4272-bd40-bc5d0e918d38
     udp: true
     tls: true
-    client-fingerprint: chrome
-  - type: trojan
-    name: 4Kian-d74047569a
-    server: 45.9.10.103
-    port: 443
-    password: WpfQAbO2wg
-    udp: true
-    tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: aws.amazon.com
+    reality-opts:
+      public-key: MnJgQSRNwrlqHe1jPhOJBEhVCZvcLIajf7CegwtV0Fg
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Kian-d74047569a
+      - 4Mohsen-4499d365cc
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Kian-d74047569a
+      - 4Mohsen-4499d365cc
 rules:
   - MATCH,Proxy

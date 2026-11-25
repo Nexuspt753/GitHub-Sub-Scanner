@@ -1,9 +1,9 @@
 proxies:
   - type: vless
-    name: 4Kian-84b408fe38
+    name: ✅
     server: runner.panelsaz.com
     port: 2053
-    uuid: 4d323bdb-11b7-4fd8-a642-f589ab5edc61
+    uuid: 3952eeab-61df-44bb-bb8f-161e2dfd0e21
     udp: true
     xudp: true
     network: ws
@@ -12,6 +12,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: iran.panelsaz.com
+  - type: vless
+    name: MDvpnSEC
+    server: runner2.panelsaz.com
+    port: 2087
+    uuid: 3952eeab-61df-44bb-bb8f-161e2dfd0e21
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /upl
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: trnewpnltun.mamadhpbot.ir
+  - type: vmess
+    name: 4FreeIran-8fb1f55cfc
+    server: rma7.rmaaccshop.ir
+    port: 12146
+    uuid: 13f01a31-3f4c-42c6-8c38-b4b89819b63f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
   - type: vmess
     name: 4Jadi-0651677131
     server: rma7.rmaaccshop.ir
@@ -33,7 +62,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-84b408fe38
+      - ✅
+      - MDvpnSEC
+      - 4FreeIran-8fb1f55cfc
       - 4Jadi-0651677131
   - name: Auto
     type: url-test
@@ -41,7 +72,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-84b408fe38
+      - ✅
+      - MDvpnSEC
+      - 4FreeIran-8fb1f55cfc
       - 4Jadi-0651677131
 rules:
   - MATCH,Proxy

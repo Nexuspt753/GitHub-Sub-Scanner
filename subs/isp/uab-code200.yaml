@@ -1,44 +1,42 @@
 proxies:
-  - type: vless
-    name: DeltaKroneckerGithub
-    server: 85.202.206.244
-    port: 8443
-    uuid: 6ba5ec30-3331-4258-aa80-e1e7abdbb0d4
+  - type: trojan
+    name: prrofile_purple
+    server: fi.zhabulik.ru
+    port: 443
+    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
     udp: true
     tls: true
+    sni: fi.zhabulik.ru
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: chrome
-    servername: www.microsoft.com
-    reality-opts:
-      public-key: UgB6kJyM6sKFdSHtFtS4pd0TPYF4j17aoWsxGjg8LTU
-      short-id: 1db05bcce95482
-    xudp: true
-  - type: vless
-    name: 4Jadi-fbe13dd5dd
-    server: 85.202.206.244
-    port: 8443
-    uuid: 6ba5ec30-3331-4258-aa80-e1e7abdbb0d4
+  - type: trojan
+    name: 4Jadi-a0e2e119c1
+    server: fi.zhabulik.ru
+    port: 443
+    password: WFer-5gN21nfHbVB2N8s71Z74EPUfzVj
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.microsoft.com
-    reality-opts:
-      public-key: UgB6kJyM6sKFdSHtFtS4pd0TPYF4j17aoWsxGjg8LTU
-      short-id: 1db05bcce95482
-    xudp: true
+    sni: fi.zhabulik.ru
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: firefox
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - DeltaKroneckerGithub
-      - 4Jadi-fbe13dd5dd
+      - prrofile_purple
+      - 4Jadi-a0e2e119c1
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - DeltaKroneckerGithub
-      - 4Jadi-fbe13dd5dd
+      - prrofile_purple
+      - 4Jadi-a0e2e119c1
 rules:
   - MATCH,Proxy

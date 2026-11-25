@@ -12,12 +12,29 @@ proxies:
       public-key: fKz8iMdY9dfMURdjdVcb9mYOJz2FlexJ3_v8mlM2RTE
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-7c79f23d67
+    server: 5.104.72.100
+    port: 443
+    uuid: ca5b2bab-e5f7-4dd4-a4b7-ebd4a34a02ca
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: mhost-nl.zalupa231313.shop
+    reality-opts:
+      public-key: EoeKDsLFEs6F6XMnkQZgvHJ4FfB4s5g0hSP5JE2RCl0
+      short-id: a1b2c3d4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-cc5c979def
+      - 4Mohsen-7c79f23d67
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -25,5 +42,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-cc5c979def
+      - 4Mohsen-7c79f23d67
 rules:
   - MATCH,Proxy

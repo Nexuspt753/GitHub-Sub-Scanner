@@ -1,19 +1,5 @@
 proxies:
   - type: trojan
-    name: 4Jadi-c16c34a987
-    server: 216.24.57.7
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.ignitelimit.com
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: "%2Fassignment"
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
     name: 4Mohsen-7a20a2a900
     server: render.com
     port: 443
@@ -62,32 +48,6 @@ proxies:
     name: vless
     server: render.com
     port: 2053
-    uuid: 97be5ac0-dae3-43c1-aae8-3fcb7b130c59
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: 216.24.57.1
-    port: 2083
-    uuid: ace5abce-b3a5-4116-9e53-4eadd6c21bd7
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h3
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
-    name: vless-02
-    server: render.com
-    port: 2053
     uuid: ca74ad0f-c384-4362-96bb-0123b852b346
     udp: true
     tls: true
@@ -110,18 +70,6 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: vms.lifetime28.workers.dev
   - type: vless
-    name: 4Sarina-1c57d000a1
-    server: render.com
-    port: 2053
-    uuid: ca74ad0f-c384-4362-96bb-0123b852b346
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    xudp: true
-  - type: vless
     name: 4Sarina-11ea10565d
     server: render.com
     port: 2095
@@ -133,15 +81,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-c16c34a987
       - 4Mohsen-7a20a2a900
       - 4Mohsen-ba0dc11b27
       - 4FreeIran-e1bfba76e9
       - vless
-      - vless-01
-      - vless-02
       - 4Sarina-779a6d6a85
-      - 4Sarina-1c57d000a1
       - 4Sarina-11ea10565d
   - name: Auto
     type: url-test
@@ -149,15 +93,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-c16c34a987
       - 4Mohsen-7a20a2a900
       - 4Mohsen-ba0dc11b27
       - 4FreeIran-e1bfba76e9
       - vless
-      - vless-01
-      - vless-02
       - 4Sarina-779a6d6a85
-      - 4Sarina-1c57d000a1
       - 4Sarina-11ea10565d
 rules:
   - MATCH,Proxy

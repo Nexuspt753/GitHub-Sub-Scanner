@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-ff8a0eee97
+    server: edge08.tunnely.space
+    port: 443
+    uuid: 11d14aed-3d44-4bb2-b9c0-24e661589e5a
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: ch09.tunnely.space
+    reality-opts:
+      public-key: pPGE5Uacj1AGAB_WLOXB_UUnVBOmuJGH0vTSfmRBKzM
+      short-id: 2e40144ddc07e8e1
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-ff8a0eee97
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-ff8a0eee97
+rules:
+  - MATCH,Proxy

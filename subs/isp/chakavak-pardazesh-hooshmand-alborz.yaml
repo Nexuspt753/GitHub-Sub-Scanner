@@ -13,12 +13,29 @@ proxies:
       short-id: 80f04dae4c5a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vmess
+    name: 4Nika-c2e746cd9e
+    server: amir.amirport.ir
+    port: 8880
+    uuid: 467149f5-7cc4-4449-bcf6-1a2dea7ac83f
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: amir.amirport.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-c99db1d2f9
+      - 4Nika-c2e746cd9e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-c99db1d2f9
+      - 4Nika-c2e746cd9e
 rules:
   - MATCH,Proxy

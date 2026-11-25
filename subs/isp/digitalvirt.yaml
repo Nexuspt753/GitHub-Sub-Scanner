@@ -17,15 +17,20 @@ proxies:
     password: 57beeeb0-03fc-4fc9-94da-7604488a7134
     sni: dg3rb.ianai.it.com
     skip-cert-verify: true
-  - type: trojan
-    name: 4FreeIran-b38425a8a8
-    server: dg4.ianai.it.com
-    port: 443
-    password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  - type: vless
+    name: 4Kian-9d6fa9f281
+    server: 151.241.128.146
+    port: 4430
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
     udp: true
     tls: true
-    sni: dg4.ianai.it.com
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: psstatic.cdn.bcebos.com
+    reality-opts:
+      public-key: iE3EoCDzsS7tTRt7icQDxGYbDd_j_4TDk00y6Nd5Lhs
+      short-id: ade96cf50b4b
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -33,7 +38,7 @@ proxy-groups:
       - Auto
       - 4Kian-9fc4108667
       - 4Kian-c8052b80cd
-      - 4FreeIran-b38425a8a8
+      - 4Kian-9d6fa9f281
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -42,6 +47,6 @@ proxy-groups:
     proxies:
       - 4Kian-9fc4108667
       - 4Kian-c8052b80cd
-      - 4FreeIran-b38425a8a8
+      - 4Kian-9d6fa9f281
 rules:
   - MATCH,Proxy

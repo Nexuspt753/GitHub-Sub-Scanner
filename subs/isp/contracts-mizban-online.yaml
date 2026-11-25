@@ -1,0 +1,23 @@
+proxies:
+  - type: ss
+    name: V2rayNPVTConfig
+    server: germany2.parsiweb.sbs
+    port: 15005
+    cipher: chacha20-ietf-poly1305
+    password: EBbQNo95CWXfQ0h1iVFVYg
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - V2rayNPVTConfig
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - V2rayNPVTConfig
+rules:
+  - MATCH,Proxy

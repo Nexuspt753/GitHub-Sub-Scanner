@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: V2rayNPVTConfig
+    name: v2ray313
     server: 78.159.250.83
     port: 443
     uuid: f656c4b9-54dc-44cc-a142-e242ce687e56
@@ -10,18 +10,49 @@ proxies:
     servername: dualarrow.net
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Sarina-4322c03604
+    server: 81.222.148.87
+    port: 53443
+    uuid: d3eeebec-d7ba-4695-a1ea-2f2407c86582
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: snobvpn.online
+    reality-opts:
+      public-key: oOrVESvP0FHEAkQGP2oih5DDdPAoRZkVJOZTWYsiLxk
+      short-id: 0e9de4c83cb77992
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-f6fcd7792f
+    server: 78.159.250.83
+    port: 443
+    uuid: f656c4b9-54dc-44cc-a142-e242ce687e56
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: dualarrow.net
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - V2rayNPVTConfig
+      - v2ray313
+      - 4Sarina-4322c03604
+      - 4Jadi-f6fcd7792f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - V2rayNPVTConfig
+      - v2ray313
+      - 4Sarina-4322c03604
+      - 4Jadi-f6fcd7792f
 rules:
   - MATCH,Proxy

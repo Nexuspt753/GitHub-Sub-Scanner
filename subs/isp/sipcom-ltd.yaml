@@ -30,6 +30,22 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-a41d51ce03
+    server: 45.135.235.255
+    port: 443
+    uuid: 4dd8d557-dbe3-4c6f-a3ee-168da9a03d1b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: worker3.paneger955.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: worker3.paneger955.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
@@ -37,6 +53,7 @@ proxy-groups:
       - Auto
       - 4FreeIran-a7e442cabc
       - 4Jadi-b9ef94f78d
+      - 4FreeIran-a41d51ce03
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -45,5 +62,6 @@ proxy-groups:
     proxies:
       - 4FreeIran-a7e442cabc
       - 4Jadi-b9ef94f78d
+      - 4FreeIran-a41d51ce03
 rules:
   - MATCH,Proxy

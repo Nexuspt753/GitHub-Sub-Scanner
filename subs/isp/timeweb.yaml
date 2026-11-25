@@ -1,34 +1,59 @@
 proxies:
   - type: vless
-    name: 4Mohsen-138eb3c1cf
-    server: 92.53.119.73
+    name: 4Mohsen-c60ce89d6f
+    server: 94.241.140.130
     port: 443
-    uuid: 7f99eb58-5983-00aa-9c02-d8cea49f7074
+    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: ozon.ru
+    client-fingerprint: chrome
+    servername: rucanmicro2.gangplatform.com
     reality-opts:
-      public-key: 0omtLHQHyKnV7w05maiOqvL5PvxdCQKw_zDqqgR28X8
-      short-id: 8d0ff3d6ec629371
+      public-key: fVYMiP7jX5yo5loyRrDdajLFBM6FNkZIfBIsezKjdm8
+      short-id: 723ace0d14784964
+    flow: xtls-rprx-vision
     xudp: true
-    network: http
-    http-opts:
-      path:
-        - /aqkk8j6ayx76aw67mb
-      headers: "{}"
+  - type: vless
+    name: 4Sarina-4e919100cc
+    server: 94.241.140.130
+    port: 443
+    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: rucanmicro2.gangplatform.com
+    reality-opts:
+      public-key: fVYMiP7jX5yo5loyRrDdajLFBM6FNkZIfBIsezKjdm8
+      short-id: 723ace0d14784964
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-04760fe714
+    server: 94.241.140.130
+    port: 443
+    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: rucanmicro2.gangplatform.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-138eb3c1cf
+      - 4Mohsen-c60ce89d6f
+      - 4Sarina-4e919100cc
+      - 4Mohsen-04760fe714
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-138eb3c1cf
+      - 4Mohsen-c60ce89d6f
+      - 4Sarina-4e919100cc
+      - 4Mohsen-04760fe714
 rules:
   - MATCH,Proxy

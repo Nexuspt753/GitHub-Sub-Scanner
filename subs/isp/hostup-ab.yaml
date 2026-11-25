@@ -14,6 +14,19 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Kian-32c301f4bc
+    server: 136.148.216.115
+    port: 443
+    uuid: 57a3fb3c-5788-4777-933e-882dd22f5b82
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ba0648t.se1.h1clayd.click
+    reality-opts:
+      public-key: _c33IsYcvvy4t95zq8ydgtQ3pXpOK7eLdQqK3O7c2Ao
+      short-id: b684dc4aaba4a911
+    xudp: true
+  - type: vless
     name: YFZ
     server: lodizu.hagrid-connected.com
     port: 443
@@ -27,13 +40,29 @@ proxies:
     servername: lodizu.hagrid-connected.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-99f61a9bd7
+    server: lodizu.hagrid-connected.com
+    port: 443
+    uuid: beda6bd0-7ce4-477a-91f1-860d018dbfcb
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: lodizu.hagrid-connected.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - ConfigV2RayNG
+      - 4Kian-32c301f4bc
       - YFZ
+      - 4Nika-99f61a9bd7
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -41,6 +70,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - ConfigV2RayNG
+      - 4Kian-32c301f4bc
       - YFZ
+      - 4Nika-99f61a9bd7
 rules:
   - MATCH,Proxy
