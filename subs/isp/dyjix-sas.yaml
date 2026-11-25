@@ -1,4 +1,24 @@
 proxies:
+  - type: ss
+    name: vasl_bashim
+    server: dash.chiex.ir
+    port: 1349
+    cipher: chacha20-ietf-poly1305
+    password: pFlEjR_10osoxyR2CnNIhUMpAy4CzfXr
+    udp: true
+  - type: vless
+    name: 4Kian-7b3916aeeb
+    server: 45.154.96.24
+    port: 443
+    uuid: 849e5ed7-90da-487e-a044-c9052563895c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: firmwaresign.partners.nvidia.com
+    reality-opts:
+      public-key: o2KcQK-yk3JFACI2IuGoYLa23sClJ2_Az_mKzIj2PhY
+      short-id: 40c55f20dfbf097c
+    xudp: true
   - type: vless
     name: 4Kian-030bf3c22e
     server: 45.13.119.187
@@ -12,32 +32,22 @@ proxies:
       public-key: fX25_IHeFkJgPptXlebqL0DLnj5iH7paIcMV3QDUwng
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-3f4ed86cb0
-    server: Framcemultiny.belzema.ir
-    port: 7005
-    uuid: efc77ebb-405e-4e42-9774-72e1b06fe037
-    udp: true
-    tls: true
-    client-fingerprint: ios
-    servername: play.googleapis.com
-    reality-opts:
-      public-key: 7aICTN0hv6bhd8bYOjNZniDYSXgD20LunZ3BW6_Zyk4
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - vasl_bashim
+      - 4Kian-7b3916aeeb
       - 4Kian-030bf3c22e
-      - 4FreeIran-3f4ed86cb0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vasl_bashim
+      - 4Kian-7b3916aeeb
       - 4Kian-030bf3c22e
-      - 4FreeIran-3f4ed86cb0
 rules:
   - MATCH,Proxy

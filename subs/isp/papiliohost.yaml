@@ -15,12 +15,29 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: dl1-de1.penguin-easyconnet.ir
+  - type: vless
+    name: 4FreeIran-ec42bfe6d0
+    server: dl1-tr.penguin-easyconnet.ir
+    port: 443
+    uuid: 9c2b4261-4805-4af1-8c3c-98dc08d668ea
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    servername: dl1-tr.penguin-easyconnet.ir
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /games/fortnite-tr
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: dl1-tr.penguin-easyconnet.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-1921c15f63
+      - 4FreeIran-ec42bfe6d0
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +45,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-1921c15f63
+      - 4FreeIran-ec42bfe6d0
 rules:
   - MATCH,Proxy

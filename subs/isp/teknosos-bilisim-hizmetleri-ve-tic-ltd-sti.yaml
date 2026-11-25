@@ -1,41 +1,32 @@
 proxies:
   - type: vless
-    name: 4Kian-29b7d34c42
+    name: v2ray313
     server: iran-alman.turbooserver.ir
     port: 30023
     uuid: 2da08b14-fa4c-4359-8185-860411b01a16
     udp: true
     xudp: true
   - type: vless
-    name: 4Jadi-a0b7cae557
-    server: gateway.iran.zula.battely.centerzula.ir
-    port: 443
-    uuid: 6401d88e-b24c-4497-95db-fe26f7b772dd
+    name: 4Kian-29b7d34c42
+    server: iran-alman.turbooserver.ir
+    port: 30023
+    uuid: 2da08b14-fa4c-4359-8185-860411b01a16
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: t-r-x-h-internal-routing-gateway-local-network-ir.centerzula.ir
     xudp: true
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: t-r-x-h-internal-routing-gateway-local-network-ir.centerzula.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - v2ray313
       - 4Kian-29b7d34c42
-      - 4Jadi-a0b7cae557
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray313
       - 4Kian-29b7d34c42
-      - 4Jadi-a0b7cae557
 rules:
   - MATCH,Proxy

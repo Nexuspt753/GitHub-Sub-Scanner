@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 🇩🇪@IRAN_V2PING
+    server: grm.thugiping.com
+    port: 443
+    cipher: aes-256-gcm
+    password: 1814e548-140f-480d-bf35-9c947cd1a245
+    udp: true
   - type: vless
     name: sora1co
     server: nl1.melkban24.ir
@@ -8,19 +15,26 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: VPsave
-    server: s4.hemvixa.ir
-    port: 2087
-    uuid: d448e308-89e2-4d39-b836-6f5751af557e
-    udp: true
-    xudp: true
-  - type: vless
     name: 4Jadi-156a52a9da
     server: nl1.melkban24.ir
     port: 3102
     uuid: 6bf83eb4-6e1a-49e7-b966-30de57239621
     udp: true
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-2ec047f1b9
+    server: bs.cexora.ir
+    port: 2087
+    uuid: 9c5e958d-8963-4fd2-4932-e77a5ac7492e
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-99d4cd5979
+    server: s4.hemvixa.ir
+    port: 2087
+    uuid: d448e308-89e2-4d39-b836-6f5751af557e
+    udp: true
     xudp: true
   - type: vless
     name: 4Mohsen-ae9bc7177a
@@ -34,9 +48,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇩🇪@IRAN_V2PING
       - sora1co
-      - VPsave
       - 4Jadi-156a52a9da
+      - 4Nika-2ec047f1b9
+      - 4Mohsen-99d4cd5979
       - 4Mohsen-ae9bc7177a
   - name: Auto
     type: url-test
@@ -44,9 +60,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 🇩🇪@IRAN_V2PING
       - sora1co
-      - VPsave
       - 4Jadi-156a52a9da
+      - 4Nika-2ec047f1b9
+      - 4Mohsen-99d4cd5979
       - 4Mohsen-ae9bc7177a
 rules:
   - MATCH,Proxy

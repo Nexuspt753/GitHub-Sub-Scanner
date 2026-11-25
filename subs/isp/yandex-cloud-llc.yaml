@@ -1,10 +1,15 @@
 proxies:
   - type: vless
     name: vless
-    server: 188.72.112.1
+    server: monte.quantumveritas.monster
     port: 443
-    uuid: 273a36a8-8885-44cd-b7b0-77735b68facd
+    uuid: 25ac78e7-6d1d-4c9a-a450-c01a4871769f
     udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
     name: vless-01
@@ -31,15 +36,18 @@ proxies:
       - ""
     xudp: true
   - type: vless
-    name: 4Kian-6924cae4c2
-    server: cdn.weloverkn.ru
+    name: vless-02
+    server: 188.72.112.1
     port: 443
-    uuid: 64e0e993-d662-43ee-aee2-ff1cedc2d862
+    uuid: b432a23a-acff-425c-bf69-70480cd6ed09
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
+    xudp: true
+  - type: vless
+    name: VPsave
+    server: 188.72.112.1
+    port: 443
+    uuid: b432a23a-acff-425c-bf69-70480cd6ed09
+    udp: true
     xudp: true
   - type: vless
     name: 4Kian-99d3657079
@@ -54,6 +62,18 @@ proxies:
       public-key: 5qe0MF8LdxPLFyPkyPkUdQs58rK9J7B0Q5TUj7tSnn4
       short-id: 654119f9d6f01dba
     flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-b99ce96956
+    server: cdn2.5gvpn.pw
+    port: 443
+    uuid: aebbd166-e3e3-42f1-a334-0f007b2b207a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
     name: 4Kian-c3ec667a6e
@@ -77,8 +97,10 @@ proxy-groups:
       - vless
       - vless-01
       - 4Mohsen-6303966592
-      - 4Kian-6924cae4c2
+      - vless-02
+      - VPsave
       - 4Kian-99d3657079
+      - 4Nika-b99ce96956
       - 4Kian-c3ec667a6e
       - 4Nika-e9b93b971b
   - name: Auto
@@ -90,8 +112,10 @@ proxy-groups:
       - vless
       - vless-01
       - 4Mohsen-6303966592
-      - 4Kian-6924cae4c2
+      - vless-02
+      - VPsave
       - 4Kian-99d3657079
+      - 4Nika-b99ce96956
       - 4Kian-c3ec667a6e
       - 4Nika-e9b93b971b
 rules:

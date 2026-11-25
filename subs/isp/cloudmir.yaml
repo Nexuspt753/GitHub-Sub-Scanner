@@ -1,4 +1,22 @@
 proxies:
+  - type: hysteria2
+    name: 4Sarina-d5f7e42e69
+    server: 128.254.186.190
+    port: 13337
+    password: 900c8c92-1979-4c7c-8f2f-63e87d53d8fe
+    sni: mother-earth.fyi
+    skip-cert-verify: false
+    alpn:
+      - h3
+  - type: hysteria2
+    name: 4Kian-259136b057
+    server: uk-tube-01.stre4m.net
+    port: 13337
+    password: 900c8c92-1979-4c7c-8f2f-63e87d53d8fe
+    sni: mother-earth.fyi
+    skip-cert-verify: false
+    alpn:
+      - h3
   - type: vless
     name: Tarkshodeh
     server: 128.254.186.11
@@ -39,32 +57,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: fastkanfig
-    server: uk-tube-01.stre4m.net
-    port: 443
-    uuid: f85ba8bb-a3da-4389-a67a-2b0afde7bbc1
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: jobinvest.ru
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-323051a1f5
-    server: 128.254.186.11
-    port: 443
-    uuid: 98d0fa1b-d778-477e-b897-4e2569c53178
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: mother-earth.fyi
-    reality-opts:
-      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-a827e3e90a
     server: uk-tube-01.stre4m.net
     port: 443
@@ -82,11 +74,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-d5f7e42e69
+      - 4Kian-259136b057
       - Tarkshodeh
       - 4Sarina-f4460a3863
       - 4Mohsen-212c6dadb1
-      - fastkanfig
-      - 4Nika-323051a1f5
       - 4Nika-a827e3e90a
   - name: Auto
     type: url-test
@@ -94,11 +86,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-d5f7e42e69
+      - 4Kian-259136b057
       - Tarkshodeh
       - 4Sarina-f4460a3863
       - 4Mohsen-212c6dadb1
-      - fastkanfig
-      - 4Nika-323051a1f5
       - 4Nika-a827e3e90a
 rules:
   - MATCH,Proxy

@@ -14,12 +14,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 666-4sd.pages.dev
+  - type: trojan
+    name: 4Sarina-eb5b0dd445
+    server: 94.43.238.112
+    port: 2053
+    password: zhs000666
+    udp: true
+    tls: true
+    sni: 666-4sd.pages.dev
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "%2F%3Fed%3D2560%26proxyip%3Dts.hpc.tw"
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 666-4sd.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-18f1e4d879
+      - 4Sarina-eb5b0dd445
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -27,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-18f1e4d879
+      - 4Sarina-eb5b0dd445
 rules:
   - MATCH,Proxy

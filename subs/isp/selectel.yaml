@@ -1,30 +1,74 @@
 proxies:
   - type: vless
-    name: 4Sarina-d00c68c8ce
-    server: ru1.cvs-a.com
+    name: 4Jadi-acc1a84fb6
+    server: edge1.sepporated.com
     port: 443
-    uuid: e3479472-3d5d-4142-842a-44a32b501bd7
+    uuid: 0f993d52-a368-461a-b049-a667488fc5c5
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: ru1.cvs-a.com
-    reality-opts:
-      public-key: vgmo5AxgVJfSME3mlK4ulM4HeVAn6eS2UO9wYEPNFiY
-      short-id: bb55683efa59799d
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: fra2.sepporated.com
     xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fra2.sepporated.com
+  - type: vless
+    name: 4Kian-71bd58a0d5
+    server: edge1.sepporated.com
+    port: 443
+    uuid: 0f993d52-a368-461a-b049-a667488fc5c5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: hel.sepporated.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: hel.sepporated.com
+  - type: vless
+    name: 4Mohsen-0ce6246f8d
+    server: edge1.sepporated.com
+    port: 443
+    uuid: 0f993d52-a368-461a-b049-a667488fc5c5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: sto.sepporated.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: sto.sepporated.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d00c68c8ce
+      - 4Jadi-acc1a84fb6
+      - 4Kian-71bd58a0d5
+      - 4Mohsen-0ce6246f8d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d00c68c8ce
+      - 4Jadi-acc1a84fb6
+      - 4Kian-71bd58a0d5
+      - 4Mohsen-0ce6246f8d
 rules:
   - MATCH,Proxy

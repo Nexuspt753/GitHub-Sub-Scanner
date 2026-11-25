@@ -13,12 +13,27 @@ proxies:
       short-id: 7da3ba09a037e956
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-fd6b18f644
+    server: 89.125.11.26
+    port: 443
+    uuid: d1b33bcd-88e8-428f-87da-cc8bfb2d426c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: room8.filesnap.tech
+    reality-opts:
+      public-key: BTRF6cX_1ul5lAN31QmqrPNl9yMNo8JrsUJOhi9K71U
+      short-id: 3cb2d38fbac380fa
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-fec74cbaf7
+      - 4FreeIran-fd6b18f644
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-fec74cbaf7
+      - 4FreeIran-fd6b18f644
 rules:
   - MATCH,Proxy

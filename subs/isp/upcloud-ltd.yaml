@@ -20,6 +20,13 @@ proxies:
     udp: true
     xudp: true
   - type: vless
+    name: 4Sarina-7b1bfc2c8a
+    server: 87.58.159.20
+    port: 443
+    uuid: awlix_ir
+    udp: true
+    xudp: true
+  - type: vless
     name: 4Kian-0b1978dc66
     server: 87.58.148.202
     port: 443
@@ -35,6 +42,16 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vmess
+    name: 4FreeIran-79b17dfc15
+    server: Fast.jexmuk.ir
+    port: 16176
+    uuid: b28bfd04-0b91-4bfb-ab88-4d5c33fd1131
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -42,7 +59,9 @@ proxy-groups:
       - Auto
       - vless
       - awlix_ir
+      - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
+      - 4FreeIran-79b17dfc15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -51,6 +70,8 @@ proxy-groups:
     proxies:
       - vless
       - awlix_ir
+      - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
+      - 4FreeIran-79b17dfc15
 rules:
   - MATCH,Proxy

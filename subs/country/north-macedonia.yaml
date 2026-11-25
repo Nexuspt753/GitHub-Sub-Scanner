@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: Skopje · @DeltaKroneckerGithub
-    server: maxiloa.kpt99.uk
-    port: 443
-    uuid: 38de3363-7945-402e-9a9b-6f2f9015a44e
+    name: Skopje · 4Jadi-2ba24cd365
+    server: 31.59.83.78
+    port: 3736
+    uuid: 7078176e-bb3e-4dd2-aa74-b126e9d51315
     udp: true
     tls: true
-    client-fingerprint: qq
-    alpn:
-      - h2
-      - http/1.1
-    servername: maxiloa.kpt99.uk
+    client-fingerprint: firefox
+    servername: mk36.static-s3.org
+    reality-opts:
+      public-key: UGc7yGYdqGyVOB4f6qtAliPCKJpyfe6zHdJDqsjcdQg
+      short-id: 16100578e271515e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Skopje · 4Kian-9a263b7aab
+    server: 217.60.55.103
+    port: 443
+    uuid: e5544327-834c-455a-9db5-2454c788fa17
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mk1.static-s3.org
+    reality-opts:
+      public-key: m904i3ti1GCWnFAkmb67LqEktV0dOZtkkmaG3I14djU
+      short-id: c2b6208fdd8c783d
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Skopje · @DeltaKroneckerGithub
+      - Skopje · 4Jadi-2ba24cd365
+      - Skopje · 4Kian-9a263b7aab
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Skopje · @DeltaKroneckerGithub
+      - Skopje · 4Jadi-2ba24cd365
+      - Skopje · 4Kian-9a263b7aab
 rules:
   - MATCH,Proxy

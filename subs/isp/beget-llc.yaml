@@ -13,12 +13,26 @@ proxies:
       short-id: 8957cb90
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-cc730f7f20
+    server: 141.133.202.12
+    port: 1443
+    uuid: 4dea9141-914b-4a25-86b4-c5f98616cb8d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: s3.yandex.net
+    reality-opts:
+      public-key: OPBCa6EpdUuRrZm44e2JQbEFoXLcj5-25gm0bi3zzWA
+      short-id: 76f547961a8ca082
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-6dfef30fed
+      - 4Mohsen-cc730f7f20
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-6dfef30fed
+      - 4Mohsen-cc730f7f20
 rules:
   - MATCH,Proxy

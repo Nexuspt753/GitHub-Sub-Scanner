@@ -1,32 +1,54 @@
 proxies:
   - type: vless
-    name: 4Nika-bf4eeebbad
-    server: 193.168.140.237
+    name: 🇷🇴RO-🚀@VPNine1
+    server: 193.168.140.175
     port: 443
-    uuid: 9c54d883-97a8-4b49-af23-fe052eff2c3a
+    uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: ads.x5.ru
-    reality-opts:
-      public-key: byjOBWoaPgKQoy7yj91s7Uavs9VNpBns773wt-UeRxM
-      short-id: 3e0c480d
+    alpn:
+      - http/1.1
+    servername: inlay.merlano.monster
     xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
+    network: ws
+    ws-opts:
+      path: /api/de3/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: inlay.merlano.monster
+  - type: vless
+    name: 4Mohsen-4f1f3213eb
+    server: 193.168.140.175
+    port: 443
+    uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: inlay.merlano.monster
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/de3/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: inlay.merlano.monster
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-bf4eeebbad
+      - 🇷🇴RO-🚀@VPNine1
+      - 4Mohsen-4f1f3213eb
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-bf4eeebbad
+      - 🇷🇴RO-🚀@VPNine1
+      - 4Mohsen-4f1f3213eb
 rules:
   - MATCH,Proxy

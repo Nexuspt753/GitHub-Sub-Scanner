@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: VPsave
+    server: 45.150.238.201
+    port: 20443
+    uuid: 67a31bdf-5846-409d-8b49-3d795e1a2a4f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dc.insidenet.ru
+    reality-opts:
+      public-key: xE2CNenfDgtu28WQ23Bq2KfdkEj3XN42P_ZVou1YRC4
+      short-id: f847646adc2b82fe
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-5794d5abb4
+    server: 45.150.238.201
+    port: 20443
+    uuid: 67a31bdf-5846-409d-8b49-3d795e1a2a4f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: dc.insidenet.ru
+    reality-opts:
+      public-key: xE2CNenfDgtu28WQ23Bq2KfdkEj3XN42P_ZVou1YRC4
+      short-id: f847646adc2b82fe
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - VPsave
+      - 4Nika-5794d5abb4
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - VPsave
+      - 4Nika-5794d5abb4
+rules:
+  - MATCH,Proxy
