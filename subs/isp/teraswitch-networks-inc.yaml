@@ -13,12 +13,42 @@ proxies:
       short-id: 0a41a674
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-ce17a10b6b
+    server: 64.130.46.4
+    port: 443
+    uuid: ee0a6b97-4dc1-0018-8b16-95a42c917158
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: uk-lon1.connect.accessboy.com
+    reality-opts:
+      public-key: 1TtWNQhTJr_3H7-ypMw4EiLzVxy22AzUtMiE5JmQMl4
+      short-id: 1c5869a95671bcb0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-c258c4ffe9
+    server: uk-lon1.connect.accessboy.com
+    port: 443
+    uuid: ee0a6b97-4dc1-0018-8b16-95a42c917158
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: uk-lon1.connect.accessboy.com
+    reality-opts:
+      public-key: 1TtWNQhTJr_3H7-ypMw4EiLzVxy22AzUtMiE5JmQMl4
+      short-id: 1c5869a95671bcb0
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-fe9604036e
+      - 4Mohsen-ce17a10b6b
+      - 4Nika-c258c4ffe9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +56,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-fe9604036e
+      - 4Mohsen-ce17a10b6b
+      - 4Nika-c258c4ffe9
 rules:
   - MATCH,Proxy

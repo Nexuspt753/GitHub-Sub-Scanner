@@ -1,5 +1,22 @@
 proxies:
   - type: vless
+    name: ConfigV2RayNG
+    server: 116.213.43.43
+    port: 11106
+    uuid: 2e7bd251-52be-4ffa-b79e-108e1fe07185
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+    servername: www.apple.com
+    reality-opts:
+      public-key: "-13uTSuqk44pCU0x6yvldaskzyRIlO2ihmDvM0FsBns"
+      short-id: da12e31124830d42
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Tel-@ProxyMtAlpha🐏
     server: 116.213.43.43
     port: 11106
@@ -65,17 +82,17 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-a204b763a5
-    server: 116.213.43.43
-    port: 11105
-    uuid: 31d5b95e-aff2-4ffb-8160-b5ae941b46f6
+    name: 4Mohsen-75d240ebf3
+    server: 186.241.72.210
+    port: 8080
+    uuid: 6aaf9c9e-1bb2-4be6-91a7-945a261f7052
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: www.apple.com
+    client-fingerprint: firefox
+    servername: images.apple.com
     reality-opts:
-      public-key: ghxoNrFX488_gXprrfDt-03Lkxj3YFqS2q-DDw-m6yE
-      short-id: d9180a5730e950d2
+      public-key: hp5yxgJWnnxhXB-tnQye5RbC1_JPtUKrBHPgiQP0Pl4
+      short-id: 1623547890abcdef
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -83,21 +100,23 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - ConfigV2RayNG
       - Tel-@ProxyMtAlpha🐏
       - 🇭🇰231072
       - 🇭🇰231121
       - 4Mohsen-50c368c79e
-      - 4Nika-a204b763a5
+      - 4Mohsen-75d240ebf3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - ConfigV2RayNG
       - Tel-@ProxyMtAlpha🐏
       - 🇭🇰231072
       - 🇭🇰231121
       - 4Mohsen-50c368c79e
-      - 4Nika-a204b763a5
+      - 4Mohsen-75d240ebf3
 rules:
   - MATCH,Proxy

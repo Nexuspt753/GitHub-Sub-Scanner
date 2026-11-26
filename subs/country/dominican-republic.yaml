@@ -1,17 +1,21 @@
 proxies:
   - type: vless
-    name: Santo Domingo · 4FreeIran-887074448c
+    name: Santo Domingo · 4Nika-591c829f41
     server: 181.36.229.212
     port: 443
     uuid: 4859c235-2530-4062-9a0b-ea859cbbf861
     udp: true
     tls: true
     client-fingerprint: ios
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     servername: 1.proxy2.us.ci.
     xudp: true
     network: ws
     ws-opts:
-      path: "%2F%3Fed%3D2560"
+      path: /?ed=2560
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: 1.proxy2.us.ci.
@@ -20,13 +24,13 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Santo Domingo · 4FreeIran-887074448c
+      - Santo Domingo · 4Nika-591c829f41
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - Santo Domingo · 4FreeIran-887074448c
+      - Santo Domingo · 4Nika-591c829f41
 rules:
   - MATCH,Proxy

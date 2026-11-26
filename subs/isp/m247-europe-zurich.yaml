@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: 4Nika-a39c598551
+    server: 86.106.84.198
+    port: 13265
+    cipher: aes-128-gcm
+    password: 3fdf868d2e099a494e812f983d231530
+    udp: true
+  - type: ss
     name: 4Nika-d9e2aa099f
     server: 86.106.84.196
     port: 13263
@@ -11,6 +18,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Nika-a39c598551
       - 4Nika-d9e2aa099f
   - name: Auto
     type: url-test
@@ -18,6 +26,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-a39c598551
       - 4Nika-d9e2aa099f
 rules:
   - MATCH,Proxy

@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Kian-cf9d5a0c45
+    server: 185.222.30.149
+    port: 443
+    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nemicro473.nashjournal1.com
+    reality-opts:
+      public-key: E2VU2gVSjS7QPkgCNmyC3sp1uNjUrdA-Tm4vCR4tEw0
+      short-id: 7066aedcee832680
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-cf9d5a0c45
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-cf9d5a0c45
+rules:
+  - MATCH,Proxy

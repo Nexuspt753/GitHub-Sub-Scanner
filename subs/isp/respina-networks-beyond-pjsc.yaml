@@ -1,4 +1,17 @@
 proxies:
+  - type: vless
+    name: VPsave
+    server: irusahfz.pudnox.ir
+    port: 17229
+    uuid: d131b694-e9ce-4de5-b4eb-ecd24d5eac54
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: U5wEcH0leexWvYKtOxGadW6f1FVUJ9jBq31sjSTfQU0
+      short-id: 01d9ef84df802be1
+    xudp: true
   - type: vmess
     name: vmesskhodam
     server: aeli.orevix.ir
@@ -30,10 +43,10 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Sarina-f38a406a13
-    server: aelix.orevix.ir
-    port: 16303
-    uuid: fee2076f-743e-47b5-842a-a755eb221c08
+    name: 4Sarina-713500f42c
+    server: aeli.orevix.ir
+    port: 4200
+    uuid: 40052699-47f0-4815-9725-c1698d1b0648
     alterId: 0
     cipher: auto
     udp: true
@@ -44,19 +57,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - vmesskhodam
       - 🇩🇪 ┋ 𝐓𝐔𝐍
       - 4Nika-dd2db777c7
-      - 4Sarina-f38a406a13
+      - 4Sarina-713500f42c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - vmesskhodam
       - 🇩🇪 ┋ 𝐓𝐔𝐍
       - 4Nika-dd2db777c7
-      - 4Sarina-f38a406a13
+      - 4Sarina-713500f42c
 rules:
   - MATCH,Proxy

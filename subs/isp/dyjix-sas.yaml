@@ -1,4 +1,24 @@
 proxies:
+  - type: ss
+    name: vasl_bashim
+    server: dash.chiex.ir
+    port: 1349
+    cipher: chacha20-ietf-poly1305
+    password: pFlEjR_10osoxyR2CnNIhUMpAy4CzfXr
+    udp: true
+  - type: vless
+    name: 4Kian-030bf3c22e
+    server: 45.13.119.187
+    port: 443
+    uuid: cee05b0b-3d23-4c3b-b87e-def35b7ba460
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: server.cyvax.fr
+    reality-opts:
+      public-key: fX25_IHeFkJgPptXlebqL0DLnj5iH7paIcMV3QDUwng
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4FreeIran-3f4ed86cb0
     server: Framcemultiny.belzema.ir
@@ -16,6 +36,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vasl_bashim
+      - 4Kian-030bf3c22e
       - 4FreeIran-3f4ed86cb0
   - name: Auto
     type: url-test
@@ -23,6 +45,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - vasl_bashim
+      - 4Kian-030bf3c22e
       - 4FreeIran-3f4ed86cb0
 rules:
   - MATCH,Proxy

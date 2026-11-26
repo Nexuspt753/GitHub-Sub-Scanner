@@ -1,31 +1,5 @@
 proxies:
   - type: vless
-    name: 4FreeIran-fe46e742ce
-    server: 194.53.175.27
-    port: 443
-    uuid: 11d14aed-3d44-4bb2-b9c0-24e661589e5a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: atd2.tunnely.space
-    xudp: true
-  - type: vless
-    name: 4Jadi-ae30bbddca
-    server: edge07.tunnely.space
-    port: 443
-    uuid: 11d14aed-3d44-4bb2-b9c0-24e661589e5a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - h2
-      - http/1.1
-    servername: atd2.tunnely.space
-    xudp: true
-  - type: vless
     name: 4FreeIran-e5e1500c99
     server: 83.171.241.136
     port: 443
@@ -37,6 +11,32 @@ proxies:
     reality-opts:
       public-key: PslSaSQWP4BZZmkL7irab4FMti8sW6BvoC7ytFjJFyc
       short-id: cc678f10161992a9
+    xudp: true
+  - type: vless
+    name: 4Kian-e38563402d
+    server: 178.130.133.24
+    port: 443
+    uuid: 53a44f0c-a480-0004-802c-92e796ed77c9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: balancer-msk.peregrine-sub.net
+    reality-opts:
+      public-key: BIeplEH7MyksxHu-ut3eoBj8UUNeEsybJZrRmppwQnc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-0604ce142f
+    server: balancer-msk.peregrine-sub.net
+    port: 443
+    uuid: 53a44f0c-a480-0004-802c-92e796ed77c9
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: balancer-msk.peregrine-sub.net
+    reality-opts:
+      public-key: BIeplEH7MyksxHu-ut3eoBj8UUNeEsybJZrRmppwQnc
+    flow: xtls-rprx-vision
     xudp: true
   - type: vless
     name: 4FreeIran-04bec03aae
@@ -52,18 +52,21 @@ proxies:
       short-id: b684dc4aaba4a911
     xudp: true
   - type: vless
-    name: 4Jadi-5accabbd35
-    server: af48d6t.pl10.h1clayd.shop
+    name: 4Nika-0b43b599ef
+    server: 9030b9g.pl10.h1clayd.shop
     port: 443
     uuid: d92038b6-b470-4267-9c69-2c649bf3f4a4
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: af48d6t.pl10.h1clayd.shop
+    servername: 9030b9g.pl10.h1clayd.shop
     reality-opts:
-      public-key: yELja29OBDJ2V0qacVXg_5NDN7uNk1YQVMgGKN9Kc2g
-      short-id: f36b61d044905efb
+      public-key: oE6MuoxfZqB5fkSnx_XWL28kNoBGODAQk58pRNS3qXY
+      short-id: d28c89350a91e479
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: 4Nika-a2f0f0cd94
     server: 9ed8a8t.se4.h1clayd.click
@@ -83,11 +86,11 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-fe46e742ce
-      - 4Jadi-ae30bbddca
       - 4FreeIran-e5e1500c99
+      - 4Kian-e38563402d
+      - 4Sarina-0604ce142f
       - 4FreeIran-04bec03aae
-      - 4Jadi-5accabbd35
+      - 4Nika-0b43b599ef
       - 4Nika-a2f0f0cd94
   - name: Auto
     type: url-test
@@ -95,11 +98,11 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-fe46e742ce
-      - 4Jadi-ae30bbddca
       - 4FreeIran-e5e1500c99
+      - 4Kian-e38563402d
+      - 4Sarina-0604ce142f
       - 4FreeIran-04bec03aae
-      - 4Jadi-5accabbd35
+      - 4Nika-0b43b599ef
       - 4Nika-a2f0f0cd94
 rules:
   - MATCH,Proxy

@@ -1,34 +1,25 @@
 proxies:
   - type: vless
-    name: 4Jadi-edfbac5767
+    name: vless
     server: ro-xh02.tcp-reset-club.net
     port: 8443
     uuid: 4fb82973-a7f1-4fc2-9958-cb21f5162f06
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: s3.netavex.com
-    reality-opts:
-      public-key: Gu_QdtOX6E8pZcYvDWgHKA5dxcit7hrpU27sizCEWXg
-      short-id: e0
     xudp: true
-    network: http
-    http-opts:
-      path:
-        - /assets/v2/pkg
-      headers: "{}"
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-edfbac5767
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-edfbac5767
+      - vless
 rules:
   - MATCH,Proxy

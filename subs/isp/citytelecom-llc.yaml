@@ -1,30 +1,28 @@
 proxies:
-  - type: vless
-    name: 4Mohsen-f2bddd6745
-    server: 185.229.9.174
-    port: 49094
-    uuid: 00da270a-c35a-4102-afbc-2788ef40003a
+  - type: trojan
+    name: 4Nika-83f97ccd9e
+    server: 185.229.9.62
+    port: 443
+    password: 174rUJ1RGKdZ4ETwzu9uhT2GEeof2zrp
     udp: true
     tls: true
+    sni: node205.overgroup.cloud
+    alpn:
+      - h2
+      - http/1.1
     client-fingerprint: firefox
-    servername: max.ru
-    reality-opts:
-      public-key: Td6o-BHBTNeIugm0r2RjtHgYFkhbRoInB1VxEQtOjyg
-      short-id: c95f
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f2bddd6745
+      - 4Nika-83f97ccd9e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f2bddd6745
+      - 4Nika-83f97ccd9e
 rules:
   - MATCH,Proxy

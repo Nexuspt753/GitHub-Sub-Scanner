@@ -1,14 +1,23 @@
 proxies:
   - type: vless
-    name: 4Jadi-daedb8bdff
+    name: vless
+    server: static.lotussec.com
+    port: 443
+    uuid: 14b48651-3738-4926-bc09-4c04e87ff80b
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+  - type: vless
+    name: 4Sarina-96ea021284
     server: 45.9.190.245
     port: 443
     uuid: a5b1d16b-719b-4bd6-9d7b-fe6d84607da9
     udp: true
     tls: true
     client-fingerprint: firefox
-    alpn:
-      - h2
     servername: fortuna.masynbazar.ru
     xudp: true
 proxy-groups:
@@ -16,13 +25,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Jadi-daedb8bdff
+      - vless
+      - 4Sarina-96ea021284
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-daedb8bdff
+      - vless
+      - 4Sarina-96ea021284
 rules:
   - MATCH,Proxy

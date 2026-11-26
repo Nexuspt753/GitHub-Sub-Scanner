@@ -1,44 +1,32 @@
 proxies:
   - type: vless
-    name: 4Jadi-eebd3221a0
-    server: 160.191.52.145
-    port: 6838
-    uuid: 43a7c35b-dfa4-4195-989b-b632af00ad69
+    name: 4Kian-ce336c2065
+    server: 160.25.75.40
+    port: 443
+    uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
     udp: true
     tls: true
-    client-fingerprint: firefox
-    servername: vietteltelecom.vn
-    reality-opts:
-      public-key: sjPpGfG9yvgwG7cXdc4xruMml5A2jvLkhGDuaAn1hn8
-    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    servername: cdn8848.776676.xyz
     xudp: true
-  - type: vless
-    name: 4FreeIran-03d488367b
-    server: 160.191.52.145
-    port: 6838
-    uuid: c2427d3f-5357-4721-b0b2-80ea6caa6e23
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: vietteltelecom.vn
-    reality-opts:
-      public-key: sjPpGfG9yvgwG7cXdc4xruMml5A2jvLkhGDuaAn1hn8
-    flow: xtls-rprx-vision
-    xudp: true
+    network: ws
+    ws-opts:
+      path: /html?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cdn8848.776676.xyz
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-eebd3221a0
-      - 4FreeIran-03d488367b
+      - 4Kian-ce336c2065
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-eebd3221a0
-      - 4FreeIran-03d488367b
+      - 4Kian-ce336c2065
 rules:
   - MATCH,Proxy

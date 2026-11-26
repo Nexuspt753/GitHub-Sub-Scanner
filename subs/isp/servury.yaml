@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: i10VPN¹
+    server: 23.155.44.105
+    port: 443
+    uuid: 128ce9ab-63bc-48dc-92ca-1b5426a9eb46
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: app.flyprotect.ca
+    reality-opts:
+      public-key: HE1CGzI0QBqhMRUsHqq_9v4Mj3M5dkluFmfyMBH_7kM
+      short-id: 70f75668dc5914b3
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-93ee73b0e2
     server: 23.155.44.105
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - i10VPN¹
       - 4Kian-93ee73b0e2
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - i10VPN¹
       - 4Kian-93ee73b0e2
 rules:
   - MATCH,Proxy

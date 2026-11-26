@@ -1,18 +1,4 @@
 proxies:
-  - type: vless
-    name: 4Kian-e1a5d36c75
-    server: Iran.isfpc.ir
-    port: 8642
-    uuid: 3d547f64-ecff-4cc2-a998-70e8dbb91f2f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-      - h3
-    servername: lion.turkey.isfpc.ir
-    xudp: true
   - type: vmess
     name: VEGAAS_VPN
     server: vip.mygharehshop.ir
@@ -59,24 +45,6 @@ proxies:
     servername: cdn.shop.mygharehshop.ir
     xudp: true
   - type: vmess
-    name: 4Sarina-4f756a8422
-    server: vip.mygharehshop.ir
-    port: 5312
-    uuid: ad155c7d-1be8-4105-b401-eb2ffb53e756
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: cdn.shop.mygharehshop.ir
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: VIP.mygharehshop.ir
-  - type: vmess
     name: 4FreeIran-bc2c12daba
     server: vip.mygharehshop.ir
     port: 32899
@@ -99,11 +67,9 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-e1a5d36c75
       - VEGAAS_VPN
       - 4Kian-c816d70825
       - 4Sarina-6df2199a77
-      - 4Sarina-4f756a8422
       - 4FreeIran-bc2c12daba
   - name: Auto
     type: url-test
@@ -111,11 +77,9 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-e1a5d36c75
       - VEGAAS_VPN
       - 4Kian-c816d70825
       - 4Sarina-6df2199a77
-      - 4Sarina-4f756a8422
       - 4FreeIran-bc2c12daba
 rules:
   - MATCH,Proxy

@@ -1,30 +1,28 @@
 proxies:
-  - type: vless
-    name: 4Sarina-4322c03604
-    server: 81.222.148.87
-    port: 53443
-    uuid: d3eeebec-d7ba-4695-a1ea-2f2407c86582
+  - type: trojan
+    name: 4Nika-9879168d1e
+    server: 78.159.250.189
+    port: 443
+    password: 174rUJ1RGKdZ4ETwzu9uhT2GEeof2zrp
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: snobvpn.online
-    reality-opts:
-      public-key: oOrVESvP0FHEAkQGP2oih5DDdPAoRZkVJOZTWYsiLxk
-      short-id: 0e9de4c83cb77992
-    flow: xtls-rprx-vision
-    xudp: true
+    sni: node228.overgroup.cloud
+    alpn:
+      - h2
+      - http/1.1
+    client-fingerprint: firefox
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-4322c03604
+      - 4Nika-9879168d1e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-4322c03604
+      - 4Nika-9879168d1e
 rules:
   - MATCH,Proxy

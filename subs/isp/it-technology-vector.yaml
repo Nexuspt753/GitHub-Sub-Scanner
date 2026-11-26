@@ -1,46 +1,31 @@
 proxies:
   - type: vless
-    name: 🇩🇪All³
-    server: pub-07h33f.mydevelopertool.xyz
-    port: 8000
-    uuid: 74f5426b-19d9-4567-a7ff-865aa4c87cca
+    name: 4Kian-07d7943007
+    server: 212.193.0.117
+    port: 443
+    uuid: 3b386319-a65a-4260-9702-561301b938bd
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: sni-07h33f.mydevelopertool.xyz
+    client-fingerprint: firefox
+    servername: dl.google.com
     reality-opts:
-      public-key: 2dv8gNuhbvuxFB2A2bsxGj1lQ_ApOmj_-5qXejNxRwY
-      short-id: e0954def98b22710
-    flow: xtls-rprx-vision
+      public-key: cAFMol_SqbGzF6IZSHdOS8taChr8dRe9n3RdxJp0QEQ
     xudp: true
-  - type: vless
-    name: 4Kian-99fc9d90df
-    server: pub-07h33f.mydevelopertool.xyz
-    port: 8000
-    uuid: 74f5426b-19d9-4567-a7ff-865aa4c87cca
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: sni-07h33f.mydevelopertool.xyz
-    reality-opts:
-      public-key: 2dv8gNuhbvuxFB2A2bsxGj1lQ_ApOmj_-5qXejNxRwY
-      short-id: e0954def98b22710
-    flow: xtls-rprx-vision
-    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 🇩🇪All³
-      - 4Kian-99fc9d90df
+      - 4Kian-07d7943007
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 🇩🇪All³
-      - 4Kian-99fc9d90df
+      - 4Kian-07d7943007
 rules:
   - MATCH,Proxy

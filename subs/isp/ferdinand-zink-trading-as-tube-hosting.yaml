@@ -13,12 +13,27 @@ proxies:
       short-id: 6f0091ebe3029ebb
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: ✅
+    server: 193.111.248.54
+    port: 443
+    uuid: a8e5585a-6020-4649-a364-c1ebf3a40548
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: tagderdeutscheneinheit.de
+    reality-opts:
+      public-key: 0KDql59THS-DXg30wMR0QGgFB6rXARDhr8WoWyfVA2M
+      short-id: 6f0091ebe3029ebb
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Channel
+      - ✅
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Channel
+      - ✅
 rules:
   - MATCH,Proxy

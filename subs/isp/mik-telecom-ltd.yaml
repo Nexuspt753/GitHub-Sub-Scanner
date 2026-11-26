@@ -1,46 +1,41 @@
 proxies:
   - type: trojan
-    name: 4Mohsen-25e9242fc4
+    name: 4Sarina-dbef1d2289
     server: de.g-boot.ir
     port: 443
-    password: 870e952f-f787-412d-9bb0-7a52836e9126
+    password: ae407090-fcd7-41e1-acf1-6115a6b8dcf4
+    udp: true
+    tls: true
+    sni: www.yahoo.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Jadi-27beffdd41
+    server: de.g-boot.ir
+    port: 443
+    password: e2bbc15d-8121-4ecf-beb5-1fecf46abfc6
     udp: true
     tls: true
     sni: www.yahoo.com
     client-fingerprint: chrome
   - type: vless
+    name: 4Mohsen-531cceb72c
+    server: de.g-boot.ir
+    port: 443
+    uuid: 45b21011-364f-4544-aee6-8284289881a9
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-53d150b87a
     server: de.g-boot.ir
     port: 443
     uuid: 6d6c46cd-9041-4c38-ac2e-b24aebaed007
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
-      short-id: 9a597f16c2171bab
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-7ee89949f2
-    server: de.g-boot.ir
-    port: 443
-    uuid: 870e952f-f787-412d-9bb0-7a52836e9126
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
-      short-id: 9a597f16c2171bab
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-6841629b2e
-    server: de.g-boot.ir
-    port: 443
-    uuid: a6cfc07b-964a-4737-a089-69abefcdb509
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -92,46 +87,30 @@ proxies:
       short-id: 9a597f16c2171bab
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-72f97ef2ce
-    server: de.g-boot.ir
-    port: 443
-    uuid: e66f1c31-95d1-45eb-a36a-56f79a6fa9d4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
-      short-id: 9a597f16c2171bab
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-25e9242fc4
+      - 4Sarina-dbef1d2289
+      - 4Jadi-27beffdd41
+      - 4Mohsen-531cceb72c
       - 4Kian-53d150b87a
-      - 4Mohsen-7ee89949f2
-      - 4Mohsen-6841629b2e
       - 4Mohsen-93cac3dfda
       - 4Sarina-ab3187facd
       - 4Nika-f1686f5524
-      - 4Sarina-72f97ef2ce
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-25e9242fc4
+      - 4Sarina-dbef1d2289
+      - 4Jadi-27beffdd41
+      - 4Mohsen-531cceb72c
       - 4Kian-53d150b87a
-      - 4Mohsen-7ee89949f2
-      - 4Mohsen-6841629b2e
       - 4Mohsen-93cac3dfda
       - 4Sarina-ab3187facd
       - 4Nika-f1686f5524
-      - 4Sarina-72f97ef2ce
 rules:
   - MATCH,Proxy
