@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-d8dc3db793
+    server: 109.248.239.171
+    port: 8443
+    uuid: 8f092ef0-a7e6-03e9-b989-836aebc00ff7
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: ya.ru
+    reality-opts:
+      public-key: DulhUFMYzxIsucjtPONJQMszzyi9V6bqQ9WI3GjGFAY
+      short-id: abc123
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-d8dc3db793
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-d8dc3db793
+rules:
+  - MATCH,Proxy

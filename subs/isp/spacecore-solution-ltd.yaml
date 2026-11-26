@@ -1,30 +1,32 @@
 proxies:
   - type: vless
-    name: 4Nika-1b401ccbc2
-    server: nl5.japancase.site
+    name: 4Jadi-e7ecc8e381
+    server: 80.71.232.52
     port: 443
-    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    uuid: 58e22afd-bf74-4736-984d-63a8ca03d7f0
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: nl5.japancase.site
-    reality-opts:
-      public-key: Yw0T7qr5Wk3HCqV8h6V9N5wcInMxQ0XsxUuLV62_bEM
-      short-id: c498d5e4a069592c
-    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    servername: accessfooter.cleanfoodshop.org
     xudp: true
+    network: ws
+    ws-opts:
+      path: /media/ws/
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: accessfooter.cleanfoodshop.org
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-1b401ccbc2
+      - 4Jadi-e7ecc8e381
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-1b401ccbc2
+      - 4Jadi-e7ecc8e381
 rules:
   - MATCH,Proxy

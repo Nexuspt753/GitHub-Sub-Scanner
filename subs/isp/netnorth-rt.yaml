@@ -1,16 +1,23 @@
 proxies:
   - type: vless
-    name: 4Mohsen-28cb8e732c
-    server: 82.148.255.6
+    name: 4Nika-fccd0afbea
+    server: folio.basterdym.asia
     port: 443
-    uuid: 74e47215-04cc-48e3-bef9-ff5b0e8fb0f5
+    uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+    udp: true
+    xudp: true
+  - type: vless
+    name: 4Mohsen-a8c48011dd
+    server: api-austria.locallynet.org
+    port: 6443
+    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: frofksfds.bober.ac
-    reality-opts:
-      public-key: Ruv2lVsktkoipT3j32rzUY6cXMpnwtMHxfnR0RabS3I
-      short-id: 9faf81ada17f9ec5
+    alpn:
+      - h2
+      - http/1.1
+    servername: api-austria.locallynet.org
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
@@ -31,7 +38,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Mohsen-28cb8e732c
+      - 4Nika-fccd0afbea
+      - 4Mohsen-a8c48011dd
       - 4Mohsen-6e4bae8129
   - name: Auto
     type: url-test
@@ -39,7 +47,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-28cb8e732c
+      - 4Nika-fccd0afbea
+      - 4Mohsen-a8c48011dd
       - 4Mohsen-6e4bae8129
 rules:
   - MATCH,Proxy

@@ -1,5 +1,13 @@
 proxies:
   - type: trojan
+    name: 4Sarina-04b8b3e290
+    server: us2.trojanvh.xyz
+    port: 80
+    password: 255c924c-1314-4084-9a9e-1d1a82a5cf49
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+  - type: trojan
     name: 4FreeIran-324e8bfc84
     server: cnamemk.ciscocdn1.live
     port: 443
@@ -55,36 +63,28 @@ proxies:
     password: 81d93f62-15a2-4994-adb9-0b5d906aac7e
     udp: true
     client-fingerprint: chrome
-  - type: trojan
-    name: 4Sarina-1780c18aad
-    server: uk1.trojanvh.xyz
-    port: 80
-    password: b640d791-ff83-4300-b509-c2a02f97f167
-    udp: true
-    tls: true
-    client-fingerprint: chrome
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
       - 4Mohsen-bdcde58727
       - 4Sarina-2f1aa2c477
       - 4Kian-6e4a643e5c
       - 4Sarina-79442d860e
-      - 4Sarina-1780c18aad
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-04b8b3e290
       - 4FreeIran-324e8bfc84
       - 4Mohsen-bdcde58727
       - 4Sarina-2f1aa2c477
       - 4Kian-6e4a643e5c
       - 4Sarina-79442d860e
-      - 4Sarina-1780c18aad
 rules:
   - MATCH,Proxy

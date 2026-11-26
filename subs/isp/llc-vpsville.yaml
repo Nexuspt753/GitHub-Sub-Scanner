@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: 4FreeIran-fe46e742ce
+    server: 194.53.175.27
+    port: 443
+    uuid: 11d14aed-3d44-4bb2-b9c0-24e661589e5a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: atd2.tunnely.space
+    xudp: true
+  - type: vless
+    name: 4Jadi-ae30bbddca
+    server: edge07.tunnely.space
+    port: 443
+    uuid: 11d14aed-3d44-4bb2-b9c0-24e661589e5a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: atd2.tunnely.space
+    xudp: true
+  - type: vless
     name: 4FreeIran-e5e1500c99
     server: 83.171.241.136
     port: 443
@@ -12,18 +38,68 @@ proxies:
       public-key: PslSaSQWP4BZZmkL7irab4FMti8sW6BvoC7ytFjJFyc
       short-id: cc678f10161992a9
     xudp: true
+  - type: vless
+    name: 4FreeIran-04bec03aae
+    server: ba0648t.se1.h1clayd.click
+    port: 443
+    uuid: 57a3fb3c-5788-4777-933e-882dd22f5b82
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: ba0648t.se1.h1clayd.click
+    reality-opts:
+      public-key: _c33IsYcvvy4t95zq8ydgtQ3pXpOK7eLdQqK3O7c2Ao
+      short-id: b684dc4aaba4a911
+    xudp: true
+  - type: vless
+    name: 4Jadi-5accabbd35
+    server: af48d6t.pl10.h1clayd.shop
+    port: 443
+    uuid: d92038b6-b470-4267-9c69-2c649bf3f4a4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: af48d6t.pl10.h1clayd.shop
+    reality-opts:
+      public-key: yELja29OBDJ2V0qacVXg_5NDN7uNk1YQVMgGKN9Kc2g
+      short-id: f36b61d044905efb
+    xudp: true
+  - type: vless
+    name: 4Nika-a2f0f0cd94
+    server: 9ed8a8t.se4.h1clayd.click
+    port: 443
+    uuid: f15a2e25-6859-4bcc-b4c4-a14bb8ae0fbb
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: 9ed8a8t.se4.h1clayd.click
+    reality-opts:
+      public-key: aJ_qFu55iLaiUWJ157VIAfAf7Cc6PKbZhFIvE03nNDc
+      short-id: 1cc8aab4a9fa9280
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-fe46e742ce
+      - 4Jadi-ae30bbddca
       - 4FreeIran-e5e1500c99
+      - 4FreeIran-04bec03aae
+      - 4Jadi-5accabbd35
+      - 4Nika-a2f0f0cd94
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-fe46e742ce
+      - 4Jadi-ae30bbddca
       - 4FreeIran-e5e1500c99
+      - 4FreeIran-04bec03aae
+      - 4Jadi-5accabbd35
+      - 4Nika-a2f0f0cd94
 rules:
   - MATCH,Proxy

@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: VPsave
-    server: 89.19.223.198
-    port: 443
-    uuid: 49d8ece9-fd73-45c7-817c-c32551174811
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edge-a.maxtelemost.com
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Jadi-c338cf6d60
     server: br.dexlen.cc
     port: 8443
@@ -52,6 +39,20 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: 4Sarina-50b6eb0cd7
+    server: 89.19.223.229
+    port: 443
+    uuid: dd26459b-3e0c-4910-aa5d-2668ae20f65d
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: d3-ru.cloud-cdn.xyz
+    reality-opts:
+      public-key: lRuJPDrUb0b32-47hl4BgDoQutqmkuW31N4qVxbDgmI
+      short-id: 0f19f0c8102dc695
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-c38724e69b
     server: 89.19.223.234
     port: 443
@@ -70,10 +71,10 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - VPsave
       - 4Jadi-c338cf6d60
       - 4Kian-4bbb10088e
       - 4Nika-0deb788992
+      - 4Sarina-50b6eb0cd7
       - 4Sarina-c38724e69b
   - name: Auto
     type: url-test
@@ -81,10 +82,10 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - VPsave
       - 4Jadi-c338cf6d60
       - 4Kian-4bbb10088e
       - 4Nika-0deb788992
+      - 4Sarina-50b6eb0cd7
       - 4Sarina-c38724e69b
 rules:
   - MATCH,Proxy

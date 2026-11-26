@@ -1,0 +1,26 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-0ba4195afd
+    server: corp.scan-cdn.com
+    port: 443
+    password: d7121b33-e335-4921-bb00-4c0b157e7fc1
+    sni: corp.scan-cdn.com
+    skip-cert-verify: false
+    alpn:
+      - h2
+      - http/1.1
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-0ba4195afd
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-0ba4195afd
+rules:
+  - MATCH,Proxy

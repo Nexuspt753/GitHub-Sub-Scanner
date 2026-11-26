@@ -1,4 +1,18 @@
 proxies:
+  - type: ss
+    name: 4Jadi-6a41e6b5ed
+    server: mojtun.mlbaz.ir
+    port: 555
+    cipher: chacha20-ietf-poly1305
+    password: 01649206dc52494d9d86b7170a040546
+    udp: true
+  - type: vless
+    name: 4Kian-37146610e9
+    server: mojtun.mlbaz.ir
+    port: 666
+    uuid: 00bd3a26-fe52-42c9-82ec-833b86a12b3e
+    udp: true
+    xudp: true
   - type: vless
     name: 4Mohsen-3e21250582
     server: yas.ertebatgoostar.ir
@@ -11,18 +25,45 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-0191142c44
+    server: 5.202.8.12
+    port: 80
+    uuid: 1303b62b-2fab-4771-bdec-059b5d65fd4c
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: VPsave
+    server: mojtun.mlbaz.ir
+    port: 666
+    uuid: a591a414-b4a5-4bc8-bc69-3afb9a4655c1
+    udp: true
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-6a41e6b5ed
+      - 4Kian-37146610e9
       - 4Mohsen-3e21250582
+      - 4FreeIran-0191142c44
+      - VPsave
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-6a41e6b5ed
+      - 4Kian-37146610e9
       - 4Mohsen-3e21250582
+      - 4FreeIran-0191142c44
+      - VPsave
 rules:
   - MATCH,Proxy

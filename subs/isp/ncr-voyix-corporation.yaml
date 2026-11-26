@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: "اگه میخوای قطع نشی جوین شو : @farsiproxy"
+    server: 153.52.143.118
+    port: 443
+    uuid: ccb8ff48-3934-4250-b4ec-bb76b95d154f
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: de2.fox-lisa.ru
+    reality-opts:
+      public-key: NaCZ-sS4poEbFwKmD7ePAVyc5OhHxsD9nkAStjXkoWs
+      short-id: 027af64166562b09
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Kian-a361fbc628
+    server: nl-edge.airlinesvpn.com
+    port: 8459
+    uuid: 11f48e58-bdd8-4251-ba00-ad05d05d9dcf
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nl-edge.airlinesvpn.com
+    reality-opts:
+      public-key: mTSn98b4yZG3im3ITn-kNLPbT8ljc9ILvAqiT4jyKXk
+      short-id: 0f0e381ec0c4690d
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Nika-1778596312
     server: cvetidamam.growmart.site
     port: 443
@@ -27,36 +55,24 @@ proxies:
       short-id: 027af64166562b09
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Sarina-eb2b6e2e34
-    server: 153.52.143.118
-    port: 443
-    uuid: ccb8ff48-3934-4250-b4ec-bb76b95d154f
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: de2.fox-lisa.ru
-    reality-opts:
-      public-key: NaCZ-sS4poEbFwKmD7ePAVyc5OhHxsD9nkAStjXkoWs
-      short-id: 027af64166562b09
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - "اگه میخوای قطع نشی جوین شو : @farsiproxy"
+      - 4Kian-a361fbc628
       - 4Nika-1778596312
       - ConfigV2RayNG
-      - 4Sarina-eb2b6e2e34
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - "اگه میخوای قطع نشی جوین شو : @farsiproxy"
+      - 4Kian-a361fbc628
       - 4Nika-1778596312
       - ConfigV2RayNG
-      - 4Sarina-eb2b6e2e34
 rules:
   - MATCH,Proxy

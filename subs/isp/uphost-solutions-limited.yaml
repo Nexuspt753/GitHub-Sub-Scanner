@@ -1,19 +1,5 @@
 proxies:
   - type: vless
-    name: 4Nika-4e0f3a2dd8
-    server: 177.1.192.85
-    port: 443
-    uuid: 03cf11d7-5dea-493a-9a1b-b61fcf2d5fa5
-    udp: true
-    tls: true
-    client-fingerprint: qq
-    servername: addons.mozilla.org
-    reality-opts:
-      public-key: 44rH1cYWsNbCVkyoaEvmgHv_veG_i9gZJNKLn15l3yY
-      short-id: 0486be7f
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Nika-a79db04799
     server: 31.76.35.130
     port: 9443
@@ -23,20 +9,52 @@ proxies:
     client-fingerprint: edge
     servername: 31.76.35.90
     xudp: true
+  - type: vless
+    name: 4FreeIran-669cbc403d
+    server: 177.1.192.72
+    port: 443
+    uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: addons.mozilla.org
+    reality-opts:
+      public-key: y3YCXTqEVks0nGfiSwJ43ol4pY69-mWFUZsdmveoVDM
+      short-id: 46455ff0
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-beb789e374
+    server: 177.1.192.89
+    port: 443
+    uuid: d81db550-4787-467e-b98a-579ee9d41999
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: www.cloudflare.com
+    reality-opts:
+      public-key: XKFUTW9ZAlaaeuUGiKKx9FgLjdQch7pCiR1GC1xMcjk
+      short-id: aab4c8abf7a4c4e4
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-4e0f3a2dd8
       - 4Nika-a79db04799
+      - 4FreeIran-669cbc403d
+      - 4Mohsen-beb789e374
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-4e0f3a2dd8
       - 4Nika-a79db04799
+      - 4FreeIran-669cbc403d
+      - 4Mohsen-beb789e374
 rules:
   - MATCH,Proxy

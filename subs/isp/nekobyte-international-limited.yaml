@@ -1,4 +1,18 @@
 proxies:
+  - type: vless
+    name: 4FreeIran-cfc1c1f47d
+    server: 64.188.115.219
+    port: 443
+    uuid: 1ef3cfdd-a0b7-4584-87b4-2b217d8a4581
+    udp: true
+    tls: true
+    client-fingerprint: safari
+    servername: www.swift.com
+    reality-opts:
+      public-key: 2tjr1gP8eecWi9xlKFB1SmPKOzRgDt40NBQcxhjaKCA
+      short-id: 270b5417f8ecb723
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vmess
     name: 4Jadi-1d234c6142
     server: 2.27.16.177
@@ -34,20 +48,42 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
+  - type: vmess
+    name: 4FreeIran-5c2bce4c4c
+    server: 2.27.16.177
+    port: 443
+    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    tls: true
+    servername: renderer-stream-2-62.mirra.now
+    network: ws
+    ws-opts:
+      path: /api/v1/gpu-stream/socket
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-cfc1c1f47d
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
+      - 4FreeIran-5c2bce4c4c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-cfc1c1f47d
       - 4Jadi-1d234c6142
       - 4Kian-94c1f32033
+      - 4FreeIran-5c2bce4c4c
 rules:
   - MATCH,Proxy
