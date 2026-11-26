@@ -45,16 +45,20 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: www.ignitelimit.com
   - type: vless
-    name: 4Jadi-d957b825f7
-    server: render.com
-    port: 2053
-    uuid: 37e9cb9d-4e0c-47a1-956e-41a6998ea4e7
+    name: vless
+    server: 216.24.57.1
+    port: 2083
+    uuid: 6595cf69-9d5d-4ce9-a279-dea7ac04da05
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
     xudp: true
   - type: vless
-    name: vless
+    name: vless-01
     server: render.com
     port: 2053
     uuid: 97be5ac0-dae3-43c1-aae8-3fcb7b130c59
@@ -67,7 +71,51 @@ proxies:
       - http/1.1
     xudp: true
   - type: vless
-    name: 4FreeIran-a2abe2c2e7
+    name: 4Sarina-779a6d6a85
+    server: 216.24.57.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vms.lifetime28.workers.dev
+  - type: vless
+    name: 4Sarina-4588c26891
+    server: 216.24.57.1
+    port: 2083
+    uuid: 6595cf69-9d5d-4ce9-a279-dea7ac04da05
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    xudp: true
+  - type: vless
+    name: 4Jadi-b44dfcf7c9
+    server: 216.24.57.1
+    port: 8443
+    uuid: 6d830c77-0cb7-4f25-b429-9f32a8551d28
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: cl.sbohanzi.shop
+    flow: xtls-rprx-vision
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Jadi-28822aeb95
     server: 216.24.57.1
     port: 2083
     uuid: b4ca1048-fb56-4543-9a5d-06adfa42b058
@@ -92,9 +140,12 @@ proxy-groups:
       - 4Mohsen-7a20a2a900
       - 4Mohsen-ba0dc11b27
       - 4FreeIran-e1bfba76e9
-      - 4Jadi-d957b825f7
       - vless
-      - 4FreeIran-a2abe2c2e7
+      - vless-01
+      - 4Sarina-779a6d6a85
+      - 4Sarina-4588c26891
+      - 4Jadi-b44dfcf7c9
+      - 4Jadi-28822aeb95
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -104,8 +155,11 @@ proxy-groups:
       - 4Mohsen-7a20a2a900
       - 4Mohsen-ba0dc11b27
       - 4FreeIran-e1bfba76e9
-      - 4Jadi-d957b825f7
       - vless
-      - 4FreeIran-a2abe2c2e7
+      - vless-01
+      - 4Sarina-779a6d6a85
+      - 4Sarina-4588c26891
+      - 4Jadi-b44dfcf7c9
+      - 4Jadi-28822aeb95
 rules:
   - MATCH,Proxy

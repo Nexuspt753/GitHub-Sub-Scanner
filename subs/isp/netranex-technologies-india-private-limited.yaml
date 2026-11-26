@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: Telegram
+    server: 5.253.31.24
+    port: 443
+    uuid: 0157cd12-e329-40e7-ad52-f31b795635dd
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ind.luna-nodes.com
+    reality-opts:
+      public-key: gsLmlhHyrirOHrVV1_rYiQvrrZn2nkqH7SPCYQQnpyc
+      short-id: 3ec20ac098953ce9
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Kian-2f0109d6ff
     server: 5.253.31.24
     port: 443
@@ -18,6 +32,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - Telegram
       - 4Kian-2f0109d6ff
   - name: Auto
     type: url-test
@@ -25,6 +40,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - Telegram
       - 4Kian-2f0109d6ff
 rules:
   - MATCH,Proxy

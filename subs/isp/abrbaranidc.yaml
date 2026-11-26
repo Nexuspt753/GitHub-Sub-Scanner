@@ -1,6 +1,22 @@
 proxies:
+  - type: vmess
+    name: vmesskhodam
+    server: rma2.rmaaccshop.ir
+    port: 12146
+    uuid: fb762698-974e-4584-859f-89b5755caa9e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
   - type: vless
-    name: 4Kian-f4786396e2
+    name: 4FreeIran-4bdf359081
     server: p2tun0.greewebservices.ir
     port: 2053
     uuid: bee52362-4183-42c5-b065-d3a3f344d00c
@@ -12,18 +28,56 @@ proxies:
       public-key: ZlyoIAVvDFN8KARLfQv1-OHD2ivwIwNcZbcqY5Qz2Fo
       short-id: fac9ca37589c58de
     xudp: true
+  - type: vmess
+    name: 4Kian-8e27ed4e7f
+    server: rma2.rmaaccshop.ir
+    port: 12146
+    uuid: 83c21735-22a2-4b90-8457-365a6e7fef15
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
+  - type: vmess
+    name: 4Jadi-92a776c1b3
+    server: rma2.rmaaccshop.ir
+    port: 12146
+    uuid: fb762698-974e-4584-859f-89b5755caa9e
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /rma
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: rma4.rmaaccshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-f4786396e2
+      - vmesskhodam
+      - 4FreeIran-4bdf359081
+      - 4Kian-8e27ed4e7f
+      - 4Jadi-92a776c1b3
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-f4786396e2
+      - vmesskhodam
+      - 4FreeIran-4bdf359081
+      - 4Kian-8e27ed4e7f
+      - 4Jadi-92a776c1b3
 rules:
   - MATCH,Proxy

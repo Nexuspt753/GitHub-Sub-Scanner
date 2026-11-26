@@ -14,6 +14,22 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
+    name: YFZ
+    server: 13.143.165.124
+    port: 8443
+    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: fs.qicai99.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: fs.qicai99.com
+  - type: vless
     name: 4Sarina-cad3da6a93
     server: 13.143.165.124
     port: 8443
@@ -35,6 +51,7 @@ proxy-groups:
     proxies:
       - Auto
       - 4Sarina-4733c312e8
+      - YFZ
       - 4Sarina-cad3da6a93
   - name: Auto
     type: url-test
@@ -43,6 +60,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-4733c312e8
+      - YFZ
       - 4Sarina-cad3da6a93
 rules:
   - MATCH,Proxy

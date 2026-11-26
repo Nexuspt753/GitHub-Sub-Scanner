@@ -1,4 +1,34 @@
 proxies:
+  - type: ss
+    name: 4Jadi-42832005d7
+    server: 91.240.95.62
+    port: 5000
+    cipher: 2022-blake3-aes-256-gcm
+    password: qZF8bZaxV5X0XOYJSXgIn/Mva1JBlf9z2DagsRCcF0c=:UEtBuj/DMv0Iq7Hu77T/0lBcOH/OMfbO3iBLhzSQ+5o=
+    udp: true
+  - type: vless
+    name: 4Kian-fa4c82dcd0
+    server: Iran.isfpc.ir
+    port: 8642
+    uuid: 04b975a5-3d6d-4fe5-8ef9-918784dbd036
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+      - h3
+    servername: lion.turkey.isfpc.ir
+    xudp: true
+  - type: vless
+    name: vless
+    server: vip.mygharehshop.ir
+    port: 23004
+    uuid: ad155c7d-1be8-4105-b401-eb2ffb53e756
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    xudp: true
   - type: vmess
     name: VEGAAS_VPN
     server: vip.mygharehshop.ir
@@ -44,42 +74,28 @@ proxies:
       - h3
     servername: cdn.shop.mygharehshop.ir
     xudp: true
-  - type: vmess
-    name: 4FreeIran-bc2c12daba
-    server: vip.mygharehshop.ir
-    port: 32899
-    uuid: ad155c7d-1be8-4105-b401-eb2ffb53e756
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: cdn.shop.mygharehshop.ir
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: cdn.shop.mygharehshop.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Jadi-42832005d7
+      - 4Kian-fa4c82dcd0
+      - vless
       - VEGAAS_VPN
       - 4Kian-c816d70825
       - 4Sarina-6df2199a77
-      - 4FreeIran-bc2c12daba
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Jadi-42832005d7
+      - 4Kian-fa4c82dcd0
+      - vless
       - VEGAAS_VPN
       - 4Kian-c816d70825
       - 4Sarina-6df2199a77
-      - 4FreeIran-bc2c12daba
 rules:
   - MATCH,Proxy

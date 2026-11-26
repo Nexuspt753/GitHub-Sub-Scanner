@@ -1,17 +1,19 @@
 proxies:
   - type: vless
-    name: YFZ
+    name: v2ray_phoenix
     server: 194.60.228.97
     port: 443
     uuid: 667016ca-f02e-4b5f-bfc3-3d8ed81e9bec
     udp: true
     tls: true
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
     servername: base.hosamobenl.co.uk
     xudp: true
   - type: vless
-    name: V2ray_confiig
-    server: 87.248.149.50
+    name: YFZ
+    server: 194.60.228.97
     port: 443
     uuid: 667016ca-f02e-4b5f-bfc3-3d8ed81e9bec
     udp: true
@@ -53,40 +55,26 @@ proxies:
       - http/1.1
     servername: base.hosamobenl.co.uk
     xudp: true
-  - type: vless
-    name: 4Mohsen-dda7a6f35c
-    server: base.hosamobenl.co.uk
-    port: 443
-    uuid: 667016ca-f02e-4b5f-bfc3-3d8ed81e9bec
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: base.hosamobenl.co.uk
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - v2ray_phoenix
       - YFZ
-      - V2ray_confiig
       - 4Mohsen-d91d8d7d9c
       - 4FreeIran-6ed2c940a6
       - 4Nika-d77adee7f8
-      - 4Mohsen-dda7a6f35c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - v2ray_phoenix
       - YFZ
-      - V2ray_confiig
       - 4Mohsen-d91d8d7d9c
       - 4FreeIran-6ed2c940a6
       - 4Nika-d77adee7f8
-      - 4Mohsen-dda7a6f35c
 rules:
   - MATCH,Proxy

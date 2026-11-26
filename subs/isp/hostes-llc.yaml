@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 4Mohsen-dafc8f6d11
+    server: pl.monkora.org
+    port: 443
+    uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: example.org
+    reality-opts:
+      public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+    xudp: true
+  - type: vless
     name: 4Nika-6f7701bba1
     server: deu196.unboundaccess.org
     port: 443
@@ -17,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-dafc8f6d11
       - 4Nika-6f7701bba1
   - name: Auto
     type: url-test
@@ -24,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-dafc8f6d11
       - 4Nika-6f7701bba1
 rules:
   - MATCH,Proxy

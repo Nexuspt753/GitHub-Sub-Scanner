@@ -1,18 +1,34 @@
 proxies:
   - type: trojan
-    name: 4Kian-40fbe2b42f
+    name: 4Kian-461c84ce4e
     server: ir.g-boot.ir
     port: 443
-    password: ae407090-fcd7-41e1-acf1-6115a6b8dcf4
+    password: 83a8fde4-62d6-41ae-85a8-0cef7504027c
     udp: true
     tls: true
     sni: www.yahoo.com
     client-fingerprint: chrome
   - type: vless
-    name: 4Sarina-1ace944237
+    name: 4Mohsen-d28dfc4168
     server: ir.g-boot.ir
     port: 443
-    uuid: 870e952f-f787-412d-9bb0-7a52836e9126
+    uuid: 83a8fde4-62d6-41ae-85a8-0cef7504027c
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.samsung.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: vmesskhodam
+    server: ir.g-boot.ir
+    port: 443
+    uuid: f56ae4e8-c524-4af5-8fbe-a2e85aee943f
     udp: true
     tls: true
     client-fingerprint: chrome
@@ -27,15 +43,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Kian-40fbe2b42f
-      - 4Sarina-1ace944237
+      - 4Kian-461c84ce4e
+      - 4Mohsen-d28dfc4168
+      - vmesskhodam
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-40fbe2b42f
-      - 4Sarina-1ace944237
+      - 4Kian-461c84ce4e
+      - 4Mohsen-d28dfc4168
+      - vmesskhodam
 rules:
   - MATCH,Proxy
