@@ -1,100 +1,66 @@
 proxies:
-  - type: hysteria2
-    name: 4Nika-c116171584
-    server: assets.cdnresolve.com
-    port: 31002
-    password: 68dea054-c7af-439e-a700-0f1c92e72795
-    sni: alb.vpnvpn.best
-    skip-cert-verify: false
-    alpn:
-      - h3
-  - type: hysteria2
-    name: 4Sarina-f70430969b
-    server: assets.cdnresolve.com
-    port: 31005
-    password: 68dea054-c7af-439e-a700-0f1c92e72795
-    sni: alb.vpnvpn.best
-    skip-cert-verify: false
-    alpn:
-      - h3
-  - type: hysteria2
-    name: 4Mohsen-3efcb2b31e
-    server: assets.cdnresolve.com
-    port: 31010
-    password: 68dea054-c7af-439e-a700-0f1c92e72795
-    sni: alb.vpnvpn.best
-    skip-cert-verify: false
-    alpn:
-      - h3
-  - type: hysteria2
-    name: 4Jadi-cd83596de9
-    server: assets.cdnresolve.com
-    port: 31017
-    password: 68dea054-c7af-439e-a700-0f1c92e72795
-    sni: alb.vpnvpn.best
-    skip-cert-verify: false
-    alpn:
-      - h3
-  - type: hysteria2
-    name: 4Jadi-f39be995ce
-    server: assets.cdnresolve.com
-    port: 443
-    password: 68dea054-c7af-439e-a700-0f1c92e72795
-    sni: alb.vpnvpn.best
-    skip-cert-verify: false
-    alpn:
-      - h3
   - type: vless
-    name: 4FreeIran-d6d58984ea
-    server: 136.234.179.84
+    name: 4Jadi-3cd237e38c
+    server: 138.249.210.11
     port: 443
-    uuid: 0822b3b0-4c52-3584-aed6-be7bf6f54aba
+    uuid: 148917bd-0b37-42b8-98f4-aa94ca73e75a
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: 136.234.179.84
+    servername: travel.yandex.ru
     reality-opts:
-      public-key: 5VmXHSwstujNTK2w79J7lDqsHmTMkVQvoY9oUFq7Gwg
-      short-id: 1ed136481e0ede74
+      public-key: tp7awfnKLbhIDkdYlT7Avf-SfUwt7ncX5oyWS5wQmR0
+      short-id: 4e3f59
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-bee39ba16c
-    server: 136.234.179.84
-    port: 443
-    uuid: 0822b3b0-4c52-3584-aed6-be7bf6f54aba
+    name: 4Jadi-525eecb99c
+    server: 136.234.173.231
+    port: 8881
+    uuid: e460e7b2-a146-4468-87ed-52510b2caae6
     udp: true
     tls: true
-    client-fingerprint: edge
+    client-fingerprint: qq
+    servername: dl.google.com
     reality-opts:
-      public-key: 5VmXHSwstujNTK2w79J7lDqsHmTMkVQvoY9oUFq7Gwg
-      short-id: 1ed136481e0ede74
-    flow: xtls-rprx-vision
+      public-key: Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0
+      short-id: aa
     xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-9e767e1006
+    server: 136.234.173.231
+    port: 8881
+    uuid: e460e7b2-a146-4468-87ed-52510b2caae6
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: dl.google.com
+    reality-opts:
+      public-key: Dfgu8Ey0M8Hz4gXGZAwQ3H9jLt2HByVsjAOTWiuKDB0
+      short-id: aabb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-c116171584
-      - 4Sarina-f70430969b
-      - 4Mohsen-3efcb2b31e
-      - 4Jadi-cd83596de9
-      - 4Jadi-f39be995ce
-      - 4FreeIran-d6d58984ea
-      - 4Nika-bee39ba16c
+      - 4Jadi-3cd237e38c
+      - 4Jadi-525eecb99c
+      - 4Kian-9e767e1006
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-c116171584
-      - 4Sarina-f70430969b
-      - 4Mohsen-3efcb2b31e
-      - 4Jadi-cd83596de9
-      - 4Jadi-f39be995ce
-      - 4FreeIran-d6d58984ea
-      - 4Nika-bee39ba16c
+      - 4Jadi-3cd237e38c
+      - 4Jadi-525eecb99c
+      - 4Kian-9e767e1006
 rules:
   - MATCH,Proxy

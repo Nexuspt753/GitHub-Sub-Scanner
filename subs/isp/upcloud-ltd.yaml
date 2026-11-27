@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: 4Nika-da3ac28398
+    server: 212.147.245.198
+    port: 443
+    uuid: 042d2d08-2973-5d10-97ad-3b75f16bbe54
+    udp: true
+    tls: true
+    client-fingerprint: /
+    servername: online.1c.ru
+    reality-opts:
+      public-key: xwLNHc6jBOg5Ddr1LezwY7I45nP485Qfu1YJXMKwVnI
+      short-id: 330a464a00000000
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: vless
     server: 94.237.83.139
     port: 443
@@ -14,13 +28,6 @@ proxies:
     xudp: true
   - type: vless
     name: awlix_ir
-    server: 87.58.159.20
-    port: 443
-    uuid: awlix_ir
-    udp: true
-    xudp: true
-  - type: vless
-    name: 4Sarina-7b1bfc2c8a
     server: 87.58.159.20
     port: 443
     uuid: awlix_ir
@@ -42,36 +49,24 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vmess
-    name: 4FreeIran-79b17dfc15
-    server: Fast.jexmuk.ir
-    port: 16176
-    uuid: b28bfd04-0b91-4bfb-ab88-4d5c33fd1131
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Nika-da3ac28398
       - vless
       - awlix_ir
-      - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
-      - 4FreeIran-79b17dfc15
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Nika-da3ac28398
       - vless
       - awlix_ir
-      - 4Sarina-7b1bfc2c8a
       - 4Kian-0b1978dc66
-      - 4FreeIran-79b17dfc15
 rules:
   - MATCH,Proxy

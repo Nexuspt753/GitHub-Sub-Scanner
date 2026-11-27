@@ -1,5 +1,19 @@
 proxies:
   - type: hysteria2
+    name: 4Mohsen-80496c117f
+    server: 194.87.224.137
+    port: 14443
+    password: lvu_3390f238bef4e3058ac47c87473755cf_07cd5acf7265adf5c1210040ca46facf:np2.1.HJjJucZ0-OZZUq5Njkl48v1gYx7ol9rXjxYXZUxrQdM
+    sni: n37.neproxy.net
+    skip-cert-verify: false
+  - type: hysteria2
+    name: 4FreeIran-6d7111340a
+    server: 194.87.224.137
+    port: 15443
+    password: lvu_3390f238bef4e3058ac47c87473755cf_07cd5acf7265adf5c1210040ca46facf:np2.1.HJjJucZ0-OZZUq5Njkl48v1gYx7ol9rXjxYXZUxrQdM
+    sni: n9.neproxy.net
+    skip-cert-verify: false
+  - type: hysteria2
     name: 4Mohsen-d67749eb2a
     server: n42.neproxy.net
     port: 14443
@@ -36,39 +50,35 @@ proxies:
     alpn:
       - h3
   - type: hysteria2
-    name: 4Nika-b78eef7f5a
+    name: 4Sarina-d4cbe9b6b6
     server: 194.87.224.137
-    port: 14443
+    port: 9443
     password: lvu_3390f238bef4e3058ac47c87473755cf_07cd5acf7265adf5c1210040ca46facf:np2.1.HJjJucZ0-OZZUq5Njkl48v1gYx7ol9rXjxYXZUxrQdM
-    sni: n37.neproxy.net
-  - type: hysteria2
-    name: 4FreeIran-eaaa253009
-    server: 194.87.224.137
-    port: 15443
-    password: lvu_3390f238bef4e3058ac47c87473755cf_07cd5acf7265adf5c1210040ca46facf:np2.1.HJjJucZ0-OZZUq5Njkl48v1gYx7ol9rXjxYXZUxrQdM
-    sni: n9.neproxy.net
+    sni: n34.neproxy.net
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-80496c117f
+      - 4FreeIran-6d7111340a
       - 4Mohsen-d67749eb2a
       - 4Nika-775773a364
       - 4Sarina-b8e6864820
       - 4Jadi-4f9264bfda
-      - 4Nika-b78eef7f5a
-      - 4FreeIran-eaaa253009
+      - 4Sarina-d4cbe9b6b6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-80496c117f
+      - 4FreeIran-6d7111340a
       - 4Mohsen-d67749eb2a
       - 4Nika-775773a364
       - 4Sarina-b8e6864820
       - 4Jadi-4f9264bfda
-      - 4Nika-b78eef7f5a
-      - 4FreeIran-eaaa253009
+      - 4Sarina-d4cbe9b6b6
 rules:
   - MATCH,Proxy

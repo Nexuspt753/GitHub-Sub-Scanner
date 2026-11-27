@@ -5,12 +5,27 @@ proxies:
     port: 30443
     password: ad80d93f-8b35-4b0e-861d-128813efc7d1
     sni: sync46.lernkino.online
+  - type: vless
+    name: 4Sarina-322c931c0b
+    server: 94.183.221.207
+    port: 9443
+    uuid: ad295072-0049-4981-a9aa-6314c43e87e5
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: n3.fernstatic.com
+    reality-opts:
+      public-key: LGj0rJ5R28CbD24VRc5nCpNg-2EMU85fmUZNdrZ6CWI
+      short-id: bc7b676b8ed7b300
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-8102f0bac6
+      - 4Sarina-322c931c0b
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-8102f0bac6
+      - 4Sarina-322c931c0b
 rules:
   - MATCH,Proxy

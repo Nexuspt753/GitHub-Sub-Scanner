@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Nika-1d9320ab41
+    server: 204.115.18.83
+    port: 443
+    uuid: 7803bad0-403e-4ccc-bd7c-47db51eb674e
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hk01.static-s3.org
+    reality-opts:
+      public-key: 2YfSrcRVkY3dEr1QuwE2FjDVR4dGQADvSRpo7Bykswo
+      short-id: d28d61d2d1e7049f
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-1d9320ab41
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-1d9320ab41
+rules:
+  - MATCH,Proxy

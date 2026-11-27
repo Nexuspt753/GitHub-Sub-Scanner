@@ -1,9 +1,23 @@
 proxies:
   - type: vless
-    name: 4Sarina-9500832ef0
-    server: api.videobereg.cc
+    name: 4Mohsen-9886cfa9df
+    server: 152.232.82.194
     port: 443
-    uuid: e0f63cb5-4b2f-4a91-bb42-2c7d198787ef
+    uuid: 8d475079-fa75-437b-a3ef-61643d84d2e4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-c0ec34ebb8
+    server: 152.232.82.194
+    port: 443
+    uuid: 9b0eb7db-c3be-4564-bf69-025ae05d02b4
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-9500832ef0
+      - 4Mohsen-9886cfa9df
+      - 4Nika-c0ec34ebb8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-9500832ef0
+      - 4Mohsen-9886cfa9df
+      - 4Nika-c0ec34ebb8
 rules:
   - MATCH,Proxy

@@ -1,30 +1,23 @@
 proxies:
   - type: vless
-    name: 4Sarina-ec2e794c97
-    server: 217.150.197.10
+    name: vless
+    server: 78.37.84.51
     port: 443
-    uuid: 98f77231-8539-40de-be3f-7a40ea22ba1c
+    uuid: 58c9a6b4-985b-452f-82fd-8b32e2ff3086
     udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: media-134.paruscamp.com
-    reality-opts:
-      public-key: _43iswi9tdg43JzsQb-YQC11f0O9LaW7oijqRriBZQA
-      short-id: 0815b18ad044a2b3
-    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-ec2e794c97
+      - vless
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-ec2e794c97
+      - vless
 rules:
   - MATCH,Proxy

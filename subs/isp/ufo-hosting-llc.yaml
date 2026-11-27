@@ -13,12 +13,27 @@ proxies:
       short-id: 54a55c80ed16f17b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-79b83fb5cf
+    server: 85.8.201.193
+    port: 443
+    uuid: 7aa77858-f235-0001-9434-7ab060848b17
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: cdn.mornismp.ru
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-5d79bca856
+      - 4Jadi-79b83fb5cf
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-5d79bca856
+      - 4Jadi-79b83fb5cf
 rules:
   - MATCH,Proxy

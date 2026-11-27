@@ -1,21 +1,5 @@
 proxies:
   - type: vless
-    name: YFZ
-    server: 80.47.13.56
-    port: 443
-    uuid: 52e854c3-f891-4eb5-943a-fe385f59e8fb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: ps1.jetservaki.fit
-    reality-opts:
-      public-key: qYmjDdoe-W9e55-Rs6u_G4HCHMk31G_qj0t1Q4_BcUg
-      short-id: 884b938083b628d2
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4FreeIran-1ff59d02f2
     server: 80.47.13.56
     port: 443
@@ -33,6 +17,22 @@ proxies:
       grpc-service-name: /
   - type: vless
     name: 4Kian-fc6f89fec8
+    server: 80.47.13.56
+    port: 443
+    uuid: 52e854c3-f891-4eb5-943a-fe385f59e8fb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ps1.jetservaki.fit
+    reality-opts:
+      public-key: qYmjDdoe-W9e55-Rs6u_G4HCHMk31G_qj0t1Q4_BcUg
+      short-id: 884b938083b628d2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Kian-f473c87860
     server: 80.47.13.56
     port: 443
     uuid: 52e854c3-f891-4eb5-943a-fe385f59e8fb
@@ -131,52 +131,34 @@ proxies:
       short-id: 6f0091ebe3029ebb
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-13e2345929
-    server: 80.47.20.8
-    port: 443
-    uuid: f87a41b5-bc02-4fa6-8777-a1e8303ab191
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: core.happylumenplot.org
-    reality-opts:
-      public-key: ALAKClsk3NTZevmQAH7od4b-eRsWy_KZXZgbQF9Pbi0
-      short-id: 1ba2fd051cf70b5d
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - YFZ
       - 4FreeIran-1ff59d02f2
       - 4Kian-fc6f89fec8
+      - 4Kian-f473c87860
       - hex_proxy
       - ICV2RAY
       - MigMigVPNSHOP
       - VPsave
       - 4Nika-6bef48e784
       - 4Kian-d72a8ea00d
-      - 4Mohsen-13e2345929
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - YFZ
       - 4FreeIran-1ff59d02f2
       - 4Kian-fc6f89fec8
+      - 4Kian-f473c87860
       - hex_proxy
       - ICV2RAY
       - MigMigVPNSHOP
       - VPsave
       - 4Nika-6bef48e784
       - 4Kian-d72a8ea00d
-      - 4Mohsen-13e2345929
 rules:
   - MATCH,Proxy

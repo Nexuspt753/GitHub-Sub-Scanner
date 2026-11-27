@@ -1,23 +1,30 @@
 proxies:
-  - type: ss
-    name: 4Sarina-d19b8b483d
-    server: servermood.abolithenis.ir
-    port: 1080
-    cipher: chacha20-ietf-poly1305
-    password: ZmJ7IQ4UGNQbA4tFjnQa0luoCdLOuxgB
+  - type: vless
+    name: 4Jadi-217bb625c6
+    server: 185.190.53.214
+    port: 3443
+    uuid: bfadfcda-99eb-424a-af53-cabb4fbcb820
     udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: zynerio.com
+    reality-opts:
+      public-key: ZbtRq4SeR_WvLXiWXDael5FUqYG7uAkAGsFSIEyrQEw
+      short-id: 8a907b3d6a7a4ed4
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-d19b8b483d
+      - 4Jadi-217bb625c6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-d19b8b483d
+      - 4Jadi-217bb625c6
 rules:
   - MATCH,Proxy

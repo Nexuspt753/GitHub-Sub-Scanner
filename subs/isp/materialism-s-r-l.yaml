@@ -1,23 +1,5 @@
 proxies:
   - type: vless
-    name: 4FreeIran-f47323a4e9
-    server: 45.142.140.132
-    port: 443
-    uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: inlay.merlano.monster
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/de3/stream
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: inlay.merlano.monster
-  - type: vless
     name: 4Kian-dfe59c4441
     server: 45.142.140.132
     port: 443
@@ -40,7 +22,6 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-f47323a4e9
       - 4Kian-dfe59c4441
   - name: Auto
     type: url-test
@@ -48,7 +29,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-f47323a4e9
       - 4Kian-dfe59c4441
 rules:
   - MATCH,Proxy

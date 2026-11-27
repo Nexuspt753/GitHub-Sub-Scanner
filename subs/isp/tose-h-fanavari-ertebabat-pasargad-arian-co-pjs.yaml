@@ -13,12 +13,26 @@ proxies:
     servername: nl1.hyperlinklt.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4FreeIran-ad24f45a27
+    server: de-pro.hyperlinkbt.com
+    port: 11199
+    uuid: a69b35e6-7eb2-ba17-0a16-bf4e65fc440f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    servername: de-pro.hyperlinkbt.com
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4FreeIran-160f8dc852
+      - 4FreeIran-ad24f45a27
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +40,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4FreeIran-160f8dc852
+      - 4FreeIran-ad24f45a27
 rules:
   - MATCH,Proxy

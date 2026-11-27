@@ -10,16 +10,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: 4FreeIran-bb49f46cf3
-    server: 213.182.201.39
-    port: 3090
-    uuid: 7e5c1bdf-d4ac-454b-a3b6-14c48c82fbb9
-    udp: true
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
     name: 4Sarina-383c0b52cb
     server: 213.182.201.79
     port: 3090
@@ -39,15 +29,25 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: 4Jadi-7c7e8cf3a8
+    server: 93.190.8.50
+    port: 3090
+    uuid: 9be92f6b-cb2b-408b-9dfb-c0e6b4b53578
+    udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-3aa67567d2
-      - 4FreeIran-bb49f46cf3
       - 4Sarina-383c0b52cb
       - 4Kian-8405afd65d
+      - 4Jadi-7c7e8cf3a8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -55,8 +55,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-3aa67567d2
-      - 4FreeIran-bb49f46cf3
       - 4Sarina-383c0b52cb
       - 4Kian-8405afd65d
+      - 4Jadi-7c7e8cf3a8
 rules:
   - MATCH,Proxy

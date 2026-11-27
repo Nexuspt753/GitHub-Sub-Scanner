@@ -17,12 +17,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: b5.dl-netprime.com
+  - type: vless
+    name: 4FreeIran-2c670b2eff
+    server: signup.spacecdn.ir
+    port: 1926
+    uuid: a654ad5b-6184-4c3d-aadb-bf4d6f1c2fc1
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: login.zanjanphone.ir
+    flow: xtls-rprx-vision
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /user
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: login.zanjanphone.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-0954d9876d
+      - 4FreeIran-2c670b2eff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -30,5 +48,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-0954d9876d
+      - 4FreeIran-2c670b2eff
 rules:
   - MATCH,Proxy
