@@ -1,15 +1,45 @@
 proxies:
+  - type: hysteria2
+    name: 4FreeIran-97e17946a7
+    server: 45.15.166.24
+    port: 8445
+    password: 688d05790b544bf2bd6be3e7b1dc31b6
+    sni: hub.via-x.ru
+    alpn:
+      - h3
+    obfs: salamander
+    obfs-password: mmnn3ws0yrmsouwn
+  - type: hysteria2
+    name: 4Jadi-d7f862a52e
+    server: link-v1.via-x.ru
+    port: 8445
+    password: 688d05790b544bf2bd6be3e7b1dc31b6
+    sni: hub.via-x.ru
+    skip-cert-verify: false
+    alpn:
+      - h3
+    obfs: salamander
+    obfs-password: mmnn3ws0yrmsouwn
+  - type: hysteria2
+    name: 4Nika-abf3693d3f
+    server: link-v1.via-x.ru
+    port: 8445
+    password: 688d05790b544bf2bd6be3e7b1dc31b6
+    sni: hub.via-x.ru
+    skip-cert-verify: false
+    obfs: salamander
   - type: vless
-    name: 4FreeIran-cd54e90c5c
-    server: ukhy2.richforever.ru
-    port: 8443
-    uuid: 7918e6f6-df8f-4a20-9c1d-59dbd1f22770
+    name: 4Nika-c1273ddd0c
+    server: 45.15.166.159
+    port: 443
+    uuid: f4b08bf1-d9bd-4755-aa88-ba922282c608
     udp: true
     tls: true
     client-fingerprint: firefox
-    servername: ukhy2.richforever.ru
+    servername: neae474.gangtype.com
     reality-opts:
-      public-key: 3ziuq7wssNcpYpcqcLHqax8nIb2uJok5qAwxuS3mKns
+      public-key: NWjKZ4WCyMLE-6qpwm4L1-kUbV0Mpx3SDmwvYrvvET4
+      short-id: cb455a7c358b4d84
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -17,13 +47,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-cd54e90c5c
+      - 4FreeIran-97e17946a7
+      - 4Jadi-d7f862a52e
+      - 4Nika-abf3693d3f
+      - 4Nika-c1273ddd0c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-cd54e90c5c
+      - 4FreeIran-97e17946a7
+      - 4Jadi-d7f862a52e
+      - 4Nika-abf3693d3f
+      - 4Nika-c1273ddd0c
 rules:
   - MATCH,Proxy

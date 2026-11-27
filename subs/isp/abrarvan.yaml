@@ -1,13 +1,18 @@
 proxies:
-  - type: trojan
-    name: 4Kian-461c84ce4e
+  - type: vless
+    name: 4Mohsen-49900b0b4c
     server: ir.g-boot.ir
     port: 443
-    password: 83a8fde4-62d6-41ae-85a8-0cef7504027c
+    uuid: 145142bd-fafc-45a3-b2d0-174195694a71
     udp: true
     tls: true
-    sni: www.yahoo.com
     client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    flow: xtls-rprx-vision
+    xudp: true
   - type: vless
     name: 4Mohsen-d28dfc4168
     server: ir.g-boot.ir
@@ -24,36 +29,20 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
-  - type: vless
-    name: vmesskhodam
-    server: ir.g-boot.ir
-    port: 443
-    uuid: f56ae4e8-c524-4af5-8fbe-a2e85aee943f
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: www.nvidia.com
-    reality-opts:
-      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
-      short-id: 9a597f16c2171bab
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-461c84ce4e
+      - 4Mohsen-49900b0b4c
       - 4Mohsen-d28dfc4168
-      - vmesskhodam
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-461c84ce4e
+      - 4Mohsen-49900b0b4c
       - 4Mohsen-d28dfc4168
-      - vmesskhodam
 rules:
   - MATCH,Proxy

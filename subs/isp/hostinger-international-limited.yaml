@@ -10,23 +10,12 @@ proxies:
     alpn:
       - h2
     xudp: true
-  - type: vless
-    name: 4Sarina-96ea021284
-    server: 45.9.190.245
-    port: 443
-    uuid: a5b1d16b-719b-4bd6-9d7b-fe6d84607da9
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: fortuna.masynbazar.ru
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - 4Sarina-96ea021284
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -34,6 +23,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Sarina-96ea021284
 rules:
   - MATCH,Proxy

@@ -1,36 +1,30 @@
 proxies:
   - type: vless
-    name: vless
-    server: 103.118.211.38
+    name: 4Kian-8ef449d005
+    server: b.anzgopronet.com
     port: 443
-    uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
+    uuid: 4eb87bcf-713a-4abc-9aea-e5840309161c
     udp: true
     tls: true
-    client-fingerprint: chrome
-    xudp: true
-  - type: vless
-    name: vless-01
-    server: czechia.richforever.ru
-    port: 443
-    uuid: 3dbd9377-43cc-46c3-b32c-2605908024eb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
+    client-fingerprint: firefox
+    servername: b.anzgopronet.com
+    reality-opts:
+      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
+      short-id: cbb0a5c1dc905505
+    flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - vless
-      - vless-01
+      - 4Kian-8ef449d005
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - vless
-      - vless-01
+      - 4Kian-8ef449d005
 rules:
   - MATCH,Proxy

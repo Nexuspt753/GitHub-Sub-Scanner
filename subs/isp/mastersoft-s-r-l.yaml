@@ -14,20 +14,6 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Kian-8ef449d005
-    server: b.anzgopronet.com
-    port: 443
-    uuid: 4eb87bcf-713a-4abc-9aea-e5840309161c
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: b.anzgopronet.com
-    reality-opts:
-      public-key: 0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY
-      short-id: cbb0a5c1dc905505
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: 4Sarina-d5a95890f4
     server: 45.151.183.22
     port: 443
@@ -43,14 +29,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: kaz6ivemuqus.kszt2te3u7ts.workers.dev
+  - type: vless
+    name: 4Jadi-29711a937f
+    server: 45.151.183.22
+    port: 443
+    uuid: 50414e45-4c5f-5a45-5553-eefd05ea62b0
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: etzgote4ubxs.ulzzygequ8es.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/PANEL_ZEUS/eefd05ea62b0
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: etzgote4ubxs.ulzzygequ8es.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-e9760f3e27
-      - 4Kian-8ef449d005
       - 4Sarina-d5a95890f4
+      - 4Jadi-29711a937f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -58,7 +60,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-e9760f3e27
-      - 4Kian-8ef449d005
       - 4Sarina-d5a95890f4
+      - 4Jadi-29711a937f
 rules:
   - MATCH,Proxy

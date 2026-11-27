@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Kian-dbae3bb637
+    server: 200.96.108.88
+    port: 443
+    uuid: 9c69546a-e435-4037-bc63-f9e5829a8be3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.amberlo.pro
+    reality-opts:
+      public-key: C98lmNMA2tOCRtKoHKIthOpgUQ4iOPHwm60fKo9IChE
+      short-id: 6db791ad6c8fda8e
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Jadi-890363d3f1
+    server: 200.96.108.89
+    port: 443
+    uuid: 9c69546a-e435-4037-bc63-f9e5829a8be3
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: static.lantri.buzz
+    reality-opts:
+      public-key: PmoNrv5LLpq-_paCNpZi7SzpebOHfCo0eKhGryi-hyw
+      short-id: ad689b917ae65620
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-dbae3bb637
+      - 4Jadi-890363d3f1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-dbae3bb637
+      - 4Jadi-890363d3f1
+rules:
+  - MATCH,Proxy

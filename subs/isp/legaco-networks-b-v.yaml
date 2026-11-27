@@ -1,5 +1,21 @@
 proxies:
   - type: vless
+    name: 4Sarina-34ead4984e
+    server: 195.58.46.231
+    port: 443
+    uuid: bbb945a6-7d16-4099-b802-d3a7ccebd3ca
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: node43.lmdscdn.ru
+    reality-opts:
+      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
+      short-id: b8abb26d3cfadcfb
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Kian-4a27c644b5
     server: 195.58.46.231
     port: 443
@@ -11,22 +27,6 @@ proxies:
     reality-opts:
       public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
       short-id: b8abb26d3cfadcfb
-    xudp: true
-    network: grpc
-    grpc-opts:
-      grpc-service-name: /
-  - type: vless
-    name: 4Mohsen-bb4d3aa9b9
-    server: 194.58.60.228
-    port: 443
-    uuid: bbbee51e-021e-4e65-ba03-bf7de175116f
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: node43.lmdscdn.ru
-    reality-opts:
-      public-key: PVlnR_I9tZ8hKhOHW6ySpSofhsaShcBQ_JV2-0TePVA
-      short-id: c5548af15927b698
     xudp: true
     network: grpc
     grpc-opts:
@@ -52,8 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Sarina-34ead4984e
       - 4Kian-4a27c644b5
-      - 4Mohsen-bb4d3aa9b9
       - 4Sarina-ab64889cb8
   - name: Auto
     type: url-test
@@ -61,8 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-34ead4984e
       - 4Kian-4a27c644b5
-      - 4Mohsen-bb4d3aa9b9
       - 4Sarina-ab64889cb8
 rules:
   - MATCH,Proxy

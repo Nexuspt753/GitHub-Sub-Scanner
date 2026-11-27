@@ -1,22 +1,45 @@
 proxies:
-  - type: hysteria2
-    name: 4FreeIran-0b7694e69c
-    server: 195.209.217.251
-    port: 30443
-    password: 0c66ef78-33b9-4f88-9529-50db9919fd33
-    sni: dlfd3b.static.tv-av.fun
+  - type: vless
+    name: 4Mohsen-b9c0df59d7
+    server: 195.209.223.32
+    port: 443
+    uuid: 9df9ee1a-0671-4c6c-93c7-65598fb946f7
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ruhsds737.gangtype.com
+    reality-opts:
+      public-key: cwP4lx0DIWttNWp4IeLj2S-e1Yo2tnBedJ5RiMLtT0E
+      short-id: 7e49fe98f9487e19
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-4ee70e4cff
+    server: 195.209.218.113
+    port: 443
+    uuid: Fluffy_VPN-IrUwcGXw
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: absolute-disaster.org
+    reality-opts:
+      public-key: vXErM6MX4mVr214wRWwRcS52KgfxcY6ont639bH8HSE
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-0b7694e69c
+      - 4Mohsen-b9c0df59d7
+      - 4FreeIran-4ee70e4cff
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-0b7694e69c
+      - 4Mohsen-b9c0df59d7
+      - 4FreeIran-4ee70e4cff
 rules:
   - MATCH,Proxy

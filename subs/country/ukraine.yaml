@@ -1,5 +1,19 @@
 proxies:
   - type: vless
+    name: Kyiv · 4Jadi-8c1fbc6db4
+    server: de.g-boot.ir
+    port: 443
+    uuid: 145142bd-fafc-45a3-b2d0-174195694a71
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: Kyiv · 4Sarina-3fcb91fe5b
     server: 213.111.148.137
     port: 443
@@ -16,7 +30,37 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: proxy-1cu.pages.dev
   - type: vless
-    name: Mykolayiv · 4Sarina-b59f68ce6e
+    name: Zaporizhzhya · 4Nika-a9b1cfb723
+    server: 45.135.235.255
+    port: 443
+    uuid: 48cfe81c-3f0b-457f-b740-fbbfc6f679aa
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: worker3.jegakey970.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: worker3.jegakey970.workers.dev
+  - type: vless
+    name: Kyiv · 4Kian-53d150b87a
+    server: de.g-boot.ir
+    port: 443
+    uuid: 6d6c46cd-9041-4c38-ac2e-b24aebaed007
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com
+    reality-opts:
+      public-key: KaVqOudPdBy9TIEDxGMN_fcOGlKJmNg2e2grikDJ2lE
+      short-id: 9a597f16c2171bab
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: Mykolayiv · 4Jadi-28c09a4fac
     server: 194.54.80.37
     port: 8443
     uuid: 9a597d68-6688-4046-bf24-a5a541e115e0
@@ -29,38 +73,26 @@ proxies:
       short-id: f8d0271b4b5f9efc
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Kyiv · 4Kian-3067de4eea
-    server: 173.242.63.235
-    port: 8443
-    uuid: fdc48be3-a615-41ac-8bd1-ed844c931048
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: edgetunnel-4uw.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: edgetunnel-4uw.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - Kyiv · 4Jadi-8c1fbc6db4
       - Kyiv · 4Sarina-3fcb91fe5b
-      - Mykolayiv · 4Sarina-b59f68ce6e
-      - Kyiv · 4Kian-3067de4eea
+      - Zaporizhzhya · 4Nika-a9b1cfb723
+      - Kyiv · 4Kian-53d150b87a
+      - Mykolayiv · 4Jadi-28c09a4fac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - Kyiv · 4Jadi-8c1fbc6db4
       - Kyiv · 4Sarina-3fcb91fe5b
-      - Mykolayiv · 4Sarina-b59f68ce6e
-      - Kyiv · 4Kian-3067de4eea
+      - Zaporizhzhya · 4Nika-a9b1cfb723
+      - Kyiv · 4Kian-53d150b87a
+      - Mykolayiv · 4Jadi-28c09a4fac
 rules:
   - MATCH,Proxy

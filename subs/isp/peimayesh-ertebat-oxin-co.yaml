@@ -1,5 +1,22 @@
 proxies:
   - type: vless
+    name: 4FreeIran-d6ab80ba5f
+    server: kn.n3webhosting.com
+    port: 2053
+    uuid: 13c74a7e-d0a4-4d81-8003-a7e2051802a6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: kn.n3webhosting.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Sarina-0300ebdcf7
     server: kn.n3webhosting.com
     port: 8443
@@ -17,36 +34,35 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Kian-24d17238a9
-    server: kn.n3webhosting.com
-    port: 8443
-    uuid: 8590891c-f66c-48a8-ad83-c2cbe222ab01
+    name: 4Jadi-628cdb5f79
+    server: ir3.mobileemdad.top
+    port: 443
+    uuid: b1ea01b5-2902-4ff6-a64d-fafd20aea9f1
     udp: true
     tls: true
-    client-fingerprint: chrome
-    alpn:
-      - http/1.1
-    servername: kn.n3webhosting.com
+    client-fingerprint: firefox
+    servername: play.google.com
+    reality-opts:
+      public-key: PjR-SM4fOm2fY4mTqWoqZDRyxontvpailM0gBqUxlUQ
+      short-id: e8f4426268c05621
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4FreeIran-d6ab80ba5f
       - 4Sarina-0300ebdcf7
-      - 4Kian-24d17238a9
+      - 4Jadi-628cdb5f79
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4FreeIran-d6ab80ba5f
       - 4Sarina-0300ebdcf7
-      - 4Kian-24d17238a9
+      - 4Jadi-628cdb5f79
 rules:
   - MATCH,Proxy

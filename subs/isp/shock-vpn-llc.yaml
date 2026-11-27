@@ -1,16 +1,30 @@
 proxies:
   - type: vless
-    name: 4Nika-1d9320ab41
-    server: 204.115.18.83
+    name: 4Mohsen-af13b8a731
+    server: 204.115.18.142
     port: 443
-    uuid: 7803bad0-403e-4ccc-bd7c-47db51eb674e
+    uuid: 0629a723-e9fd-460e-80fe-67e3149d9f64
     udp: true
     tls: true
     client-fingerprint: firefox
     servername: hk01.static-s3.org
     reality-opts:
-      public-key: 2YfSrcRVkY3dEr1QuwE2FjDVR4dGQADvSRpo7Bykswo
-      short-id: d28d61d2d1e7049f
+      public-key: l2LZUHHMVVbZwaIhBlMr-Vdpfo7I6_oFyOQdgZywOjI
+      short-id: 2fa9b0474b689aff
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-7caf3f0979
+    server: 204.115.18.142
+    port: 443
+    uuid: 3bfaf855-a05a-482a-93d3-d66388c5506c
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hk01.static-s3.org
+    reality-opts:
+      public-key: l2LZUHHMVVbZwaIhBlMr-Vdpfo7I6_oFyOQdgZywOjI
+      short-id: 2fa9b0474b689aff
     flow: xtls-rprx-vision
     xudp: true
 proxy-groups:
@@ -18,13 +32,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Nika-1d9320ab41
+      - 4Mohsen-af13b8a731
+      - 4Mohsen-7caf3f0979
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-1d9320ab41
+      - 4Mohsen-af13b8a731
+      - 4Mohsen-7caf3f0979
 rules:
   - MATCH,Proxy

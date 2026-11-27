@@ -1,9 +1,25 @@
 proxies:
   - type: vless
-    name: 4FreeIran-c14aad52c0
+    name: 4Mohsen-8f275fc1be
     server: 217.114.15.231
     port: 443
-    uuid: 87a53d4e-ee0b-489f-abf6-b651436f3232
+    uuid: a993daa0-ff11-48cc-9ec1-e03401449d54
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: orbitanl.ru
+    reality-opts:
+      public-key: JTNWyu_3qzHj7NH1ZFWqd_8QCJRlEwrDtZZv_5zlcVc
+      short-id: 23fa2e0a89585908
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Sarina-0e9e15d625
+    server: 217.114.15.231
+    port: 443
+    uuid: a993daa0-ff11-48cc-9ec1-e03401449d54
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -20,13 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-c14aad52c0
+      - 4Mohsen-8f275fc1be
+      - 4Sarina-0e9e15d625
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-c14aad52c0
+      - 4Mohsen-8f275fc1be
+      - 4Sarina-0e9e15d625
 rules:
   - MATCH,Proxy

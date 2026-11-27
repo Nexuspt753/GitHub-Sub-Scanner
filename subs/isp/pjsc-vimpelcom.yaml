@@ -1,28 +1,27 @@
 proxies:
-  - type: trojan
-    name: 4Nika-9879168d1e
-    server: 78.159.250.189
+  - type: vless
+    name: v2ray313
+    server: 78.159.250.83
     port: 443
-    password: 174rUJ1RGKdZ4ETwzu9uhT2GEeof2zrp
+    uuid: f656c4b9-54dc-44cc-a142-e242ce687e56
     udp: true
     tls: true
-    sni: node228.overgroup.cloud
-    alpn:
-      - h2
-      - http/1.1
-    client-fingerprint: firefox
+    client-fingerprint: chrome
+    servername: dualarrow.net
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-9879168d1e
+      - v2ray313
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-9879168d1e
+      - v2ray313
 rules:
   - MATCH,Proxy

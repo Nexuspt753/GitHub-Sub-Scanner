@@ -1,21 +1,24 @@
 proxies:
-  - type: trojan
-    name: 4Sarina-96e564a8aa
-    server: 213.111.177.107
+  - type: vless
+    name: 4Sarina-4940a72e31
+    server: 194.71.227.213
     port: 443
-    password: zhs000666
+    uuid: 92e8d9dc-8e3b-4f81-a278-d18c6bf1b962
     udp: true
     tls: true
-    sni: 666-4sd.pages.dev
     client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
+    xudp: true
     network: ws
     ws-opts:
-      path: "%2F%3Fed%3D2560%26proxyip%3Dts.hpc.tw"
+      path: /ws?ip=194.71.227.213:443
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: 666-4sd.pages.dev
+        Host: app-base-njw3ky.pages.dev
   - type: vless
-    name: 4Jadi-01aa56b54a
+    name: 4Mohsen-e1815a9500
     server: 92.243.66.79
     port: 443
     uuid: c5f59ef3-9540-49fa-bd1e-c6c2f79df49a
@@ -33,15 +36,15 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4Sarina-96e564a8aa
-      - 4Jadi-01aa56b54a
+      - 4Sarina-4940a72e31
+      - 4Mohsen-e1815a9500
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-96e564a8aa
-      - 4Jadi-01aa56b54a
+      - 4Sarina-4940a72e31
+      - 4Mohsen-e1815a9500
 rules:
   - MATCH,Proxy

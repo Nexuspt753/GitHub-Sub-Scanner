@@ -1,11 +1,4 @@
 proxies:
-  - type: ss
-    name: 4Sarina-0db069e0b8
-    server: 38.180.162.98
-    port: 14821
-    cipher: aes-128-gcm
-    password: 39791a007947f3071e105b7635e3ef18
-    udp: true
   - type: vless
     name: "1"
     server: prvtch.titun.su
@@ -298,12 +291,21 @@ proxies:
     udp: true
     xudp: true
     skip-cert-verify: false
+  - type: vmess
+    name: 4Nika-5ad8496f73
+    server: 179.43.140.24
+    port: 42831
+    uuid: a925a98c-ad7a-40c6-9fdf-130a1de69416
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-0db069e0b8
       - "1"
       - appsooner
       - v2ray313
@@ -331,13 +333,13 @@ proxy-groups:
       - ICV2RAY@
       - 4Nika-82010689e1
       - 4Jadi-2a0461d33f
+      - 4Nika-5ad8496f73
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-0db069e0b8
       - "1"
       - appsooner
       - v2ray313
@@ -365,5 +367,6 @@ proxy-groups:
       - ICV2RAY@
       - 4Nika-82010689e1
       - 4Jadi-2a0461d33f
+      - 4Nika-5ad8496f73
 rules:
   - MATCH,Proxy
