@@ -1,29 +1,50 @@
 proxies:
   - type: vless
-    name: 4Jadi-e7a0fbbd38
-    server: 154.206.12.40
-    port: 8880
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    name: 4Kian-d5b77408d1
+    server: 154.206.12.1
+    port: 443
+    uuid: 50414e45-4c5f-5a45-5553-31c10d21b463
     udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: vnzrvgegufns.jqzq9wehu7os.workers.dev
     xudp: true
     network: ws
     ws-opts:
-      path: /?ed=2560
+      path: /stream/PANEL_ZEUS/31c10d21b463/loc-3
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vms.lifetime44.workers.dev
+        Host: vnzrvgegufns.jqzq9wehu7os.workers.dev
+  - type: vless
+    name: 4Jadi-759445cbaa
+    server: 154.206.12.29
+    port: 443
+    uuid: 50414e45-4c5f-5a45-5553-acb244465ac1
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: 1vz2hle8uh1s.y09920213769.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/PANEL_ZEUS/acb244465ac1/loc-0
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 1vz2hle8uh1s.y09920213769.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Jadi-e7a0fbbd38
+      - 4Kian-d5b77408d1
+      - 4Jadi-759445cbaa
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Jadi-e7a0fbbd38
+      - 4Kian-d5b77408d1
+      - 4Jadi-759445cbaa
 rules:
   - MATCH,Proxy

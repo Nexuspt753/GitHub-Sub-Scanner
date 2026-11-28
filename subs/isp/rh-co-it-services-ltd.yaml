@@ -1,0 +1,44 @@
+proxies:
+  - type: vless
+    name: 4Nika-9a0dbe6758
+    server: 153.52.84.107
+    port: 443
+    uuid: ea759639-a58c-4c46-8e0b-4cc834bf6658
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: steam-videos.cc
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Mohsen-af44559711
+    server: 153.52.84.54
+    port: 443
+    uuid: ea759639-a58c-4c46-8e0b-4cc834bf6658
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: steam-videos.cc
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-9a0dbe6758
+      - 4Mohsen-af44559711
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-9a0dbe6758
+      - 4Mohsen-af44559711
+rules:
+  - MATCH,Proxy

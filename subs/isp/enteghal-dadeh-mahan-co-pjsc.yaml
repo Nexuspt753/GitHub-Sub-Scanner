@@ -1,6 +1,38 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 5.202.75.72
+    port: 460
+    uuid: 916f343c-4953-4c0e-adb4-eaaedb294b66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com.ua
+    reality-opts:
+      public-key: 3UdCNM-Cs0yalaH5RJsgAH4NZwHJ4jKQ1vILQwXHpHM
+      short-id: a44aa17cef0f56e3
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Jadi-e07077c199
+    server: 5.202.75.72
+    port: 460
+    uuid: 916f343c-4953-4c0e-adb4-eaaedb294b66
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.nvidia.com.ua
+    reality-opts:
+      public-key: 3UdCNM-Cs0yalaH5RJsgAH4NZwHJ4jKQ1vILQwXHpHM
+      short-id: a44aa17cef0f56e3
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-f20bd8e614
     server: 5.202.75.72
     port: 460
     uuid: 916f343c-4953-4c0e-adb4-eaaedb294b66
@@ -20,13 +52,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Jadi-e07077c199
+      - 4FreeIran-f20bd8e614
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Jadi-e07077c199
+      - 4FreeIran-f20bd8e614
 rules:
   - MATCH,Proxy

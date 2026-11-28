@@ -1,31 +1,29 @@
 proxies:
   - type: vless
-    name: 4Kian-6c656548ab
-    server: 91.185.83.43
+    name: 4Nika-bbe1d8c36d
+    server: mws.gamma-kvn.com
     port: 443
-    uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+    uuid: 6dfb3b5f-e878-48c9-8f49-b2ab0b2a6d48
     udp: true
     tls: true
-    client-fingerprint: chrome
-    servername: pssdwynorv.newwl.pro
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    servername: mws.gamma-kvn.com
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /service/telemetry/0294da469190/
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Kian-6c656548ab
+      - 4Nika-bbe1d8c36d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Kian-6c656548ab
+      - 4Nika-bbe1d8c36d
 rules:
   - MATCH,Proxy

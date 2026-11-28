@@ -1,5 +1,17 @@
 proxies:
   - type: vless
+    name: 4Mohsen-5536f27dbc
+    server: 208.84.100.209
+    port: 8080
+    uuid: 36c3dcc2-17b6-4478-b8a7-3978e6d5afe9
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Nika-f53ac6d9be
     server: 208.84.100.108
     port: 443
@@ -17,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-5536f27dbc
       - 4Nika-f53ac6d9be
   - name: Auto
     type: url-test
@@ -24,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-5536f27dbc
       - 4Nika-f53ac6d9be
 rules:
   - MATCH,Proxy

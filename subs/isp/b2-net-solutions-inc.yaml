@@ -1,9 +1,37 @@
 proxies:
   - type: vless
-    name: 4FreeIran-30fb065833
+    name: VPsave
     server: 152.232.82.194
     port: 443
     uuid: ac01dcf5-a26d-46b1-9514-0ab4088ca813
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-87b06fea3b
+    server: 152.232.82.194
+    port: 443
+    uuid: 8d475079-fa75-437b-a3ef-61643d84d2e4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: api.videobereg.cc
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: a8
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Nika-2d6684916e
+    server: 152.232.82.195
+    port: 443
+    uuid: f362494e-b676-43ce-bbe8-470ecaa3122f
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -14,10 +42,10 @@ proxies:
     flow: xtls-rprx-vision
     xudp: true
   - type: vless
-    name: 4Nika-bbe3d4f507
-    server: 152.232.82.194
+    name: 4FreeIran-2d09e9168e
+    server: 152.232.82.195
     port: 443
-    uuid: b1d8c4f5-0236-4480-a1bc-acd1ecf1be1b
+    uuid: f7683587-d584-4118-a217-b04e64c0e446
     udp: true
     tls: true
     client-fingerprint: firefox
@@ -32,15 +60,19 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-30fb065833
-      - 4Nika-bbe3d4f507
+      - VPsave
+      - 4Sarina-87b06fea3b
+      - 4Nika-2d6684916e
+      - 4FreeIran-2d09e9168e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-30fb065833
-      - 4Nika-bbe3d4f507
+      - VPsave
+      - 4Sarina-87b06fea3b
+      - 4Nika-2d6684916e
+      - 4FreeIran-2d09e9168e
 rules:
   - MATCH,Proxy

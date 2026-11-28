@@ -1,5 +1,33 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: 166.0.25.92
+    port: 443
+    uuid: ea240abb-cbff-4250-a7e2-81fead273be4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: sM_GJx22-fLTXSSyhHKWZGwUUlRajZLXgg7JXo8l0gs
+      short-id: f616956add605348
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: ᴛᴇʟᴇɢʀᴀᴍ
+    server: 166.0.25.92
+    port: 443
+    uuid: ea240abb-cbff-4250-a7e2-81fead273be4
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.amazon.com
+    reality-opts:
+      public-key: sM_GJx22-fLTXSSyhHKWZGwUUlRajZLXgg7JXo8l0gs
+      short-id: f616956add605348
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Jadi-0ba0bb53b4
     server: 166.0.25.92
     port: 443
@@ -18,6 +46,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
+      - ᴛᴇʟᴇɢʀᴀᴍ
       - 4Jadi-0ba0bb53b4
   - name: Auto
     type: url-test
@@ -25,6 +55,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
+      - ᴛᴇʟᴇɢʀᴀᴍ
       - 4Jadi-0ba0bb53b4
 rules:
   - MATCH,Proxy

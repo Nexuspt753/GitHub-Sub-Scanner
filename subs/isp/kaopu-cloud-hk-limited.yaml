@@ -13,6 +13,25 @@ proxies:
     cipher: aes-128-gcm
     password: wvh0jbIJPYqtf8LF/QMs6QmIqSpSF2Ed
     udp: true
+  - type: trojan
+    name: 4Nika-f83f6d1fb8
+    server: 38.60.136.156
+    port: 443
+    password: hCunaKqdEJDBO+3jCrJUSMevXOw9Q_r4Ey
+    udp: true
+    tls: true
+    sni: 38.60.136.156
+    client-fingerprint: chrome
+  - type: vmess
+    name: 4Nika-062aa68738
+    server: 119.46.51.45
+    port: 37515
+    uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
@@ -20,6 +39,8 @@ proxy-groups:
       - Auto
       - 4Kian-8d3ae62884
       - 4Nika-330a398754
+      - 4Nika-f83f6d1fb8
+      - 4Nika-062aa68738
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -28,5 +49,7 @@ proxy-groups:
     proxies:
       - 4Kian-8d3ae62884
       - 4Nika-330a398754
+      - 4Nika-f83f6d1fb8
+      - 4Nika-062aa68738
 rules:
   - MATCH,Proxy

@@ -13,12 +13,29 @@ proxies:
       short-id: b85e293fa1
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-53b98fc589
+    server: 77.90.63.17
+    port: 443
+    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: v4-77j.pages.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: v4-77j.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-43aa6561f2
+      - 4Mohsen-53b98fc589
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +43,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-43aa6561f2
+      - 4Mohsen-53b98fc589
 rules:
   - MATCH,Proxy

@@ -1,5 +1,25 @@
 proxies:
   - type: vless
+    name: 4Mohsen-9461e23b09
+    server: 181.36.229.212
+    port: 443
+    uuid: 4859c235-2530-4062-9a0b-ea859cbbf861
+    udp: true
+    tls: true
+    client-fingerprint: ios
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: 1.proxy2.us.ci.
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 1.proxy2.us.ci.
+  - type: vless
     name: 4FreeIran-887074448c
     server: 181.36.229.212
     port: 443
@@ -20,6 +40,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 4Mohsen-9461e23b09
       - 4FreeIran-887074448c
   - name: Auto
     type: url-test
@@ -27,6 +48,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-9461e23b09
       - 4FreeIran-887074448c
 rules:
   - MATCH,Proxy

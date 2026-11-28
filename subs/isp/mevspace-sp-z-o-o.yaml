@@ -1,5 +1,37 @@
 proxies:
   - type: vless
+    name: YFZ
+    server: 80.47.13.56
+    port: 443
+    uuid: 52e854c3-f891-4eb5-943a-fe385f59e8fb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ps1.jetservaki.fit
+    reality-opts:
+      public-key: qYmjDdoe-W9e55-Rs6u_G4HCHMk31G_qj0t1Q4_BcUg
+      short-id: 884b938083b628d2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4FreeIran-1ff59d02f2
+    server: 80.47.13.56
+    port: 443
+    uuid: 52e854c3-f891-4eb5-943a-fe385f59e8fb
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ps1.jetservaki.fit
+    reality-opts:
+      public-key: qYmjDdoe-W9e55-Rs6u_G4HCHMk31G_qj0t1Q4_BcUg
+      short-id: 884b938083b628d2
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: 4Kian-fc6f89fec8
     server: 80.47.13.56
     port: 443
@@ -32,20 +64,6 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
-    name: hex_proxy
-    server: 80.47.18.60
-    port: 443
-    uuid: e0643422-1e6e-4182-993e-de9b4c78e736
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fedtuna.ai
-    reality-opts:
-      public-key: 0KDql59THS-DXg30wMR0QGgFB6rXARDhr8WoWyfVA2M
-      short-id: 6f0091ebe3029ebb
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
     name: ICV2RAY
     server: 80.47.7.216
     port: 443
@@ -73,74 +91,28 @@ proxies:
       short-id: 6f0091ebe3029ebb
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: VPsave
-    server: 80.47.7.216
-    port: 443
-    uuid: e0643422-1e6e-4182-993e-de9b4c78e736
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fedtuna.ai
-    reality-opts:
-      public-key: 0KDql59THS-DXg30wMR0QGgFB6rXARDhr8WoWyfVA2M
-      short-id: 6f0091ebe3029ebb
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Nika-6bef48e784
-    server: 80.47.18.60
-    port: 443
-    uuid: e0643422-1e6e-4182-993e-de9b4c78e736
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: fedtuna.ai
-    reality-opts:
-      public-key: 0KDql59THS-DXg30wMR0QGgFB6rXARDhr8WoWyfVA2M
-      short-id: 6f0091ebe3029ebb
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Kian-d72a8ea00d
-    server: 80.47.7.216
-    port: 443
-    uuid: e0643422-1e6e-4182-993e-de9b4c78e736
-    udp: true
-    tls: true
-    client-fingerprint: edge
-    servername: fedtuna.ai
-    reality-opts:
-      public-key: 0KDql59THS-DXg30wMR0QGgFB6rXARDhr8WoWyfVA2M
-      short-id: 6f0091ebe3029ebb
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - YFZ
+      - 4FreeIran-1ff59d02f2
       - 4Kian-fc6f89fec8
       - 4Kian-f473c87860
-      - hex_proxy
       - ICV2RAY
       - MigMigVPNSHOP
-      - VPsave
-      - 4Nika-6bef48e784
-      - 4Kian-d72a8ea00d
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - YFZ
+      - 4FreeIran-1ff59d02f2
       - 4Kian-fc6f89fec8
       - 4Kian-f473c87860
-      - hex_proxy
       - ICV2RAY
       - MigMigVPNSHOP
-      - VPsave
-      - 4Nika-6bef48e784
-      - 4Kian-d72a8ea00d
 rules:
   - MATCH,Proxy

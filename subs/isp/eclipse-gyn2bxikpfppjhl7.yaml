@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Mohsen-fd7a39c51a
+    server: 82.152.141.149
+    port: 443
+    uuid: f4b08bf1-d9bd-4755-aa88-ba922282c608
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: nexz747.richhoodfoc.com
+    reality-opts:
+      public-key: UIHULCJ5JuqZHg66twX_GyTtaSE4Zu7XN2VCX4Hc0l0
+      short-id: cf7cd748e03a6be8
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Mohsen-fd7a39c51a
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Mohsen-fd7a39c51a
+rules:
+  - MATCH,Proxy

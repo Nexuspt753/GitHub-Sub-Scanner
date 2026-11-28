@@ -1,0 +1,50 @@
+proxies:
+  - type: vless
+    name: 4FreeIran-4b98f46641
+    server: 85.136.80.71
+    port: 443
+    uuid: ba373a70-295f-482d-a471-8bc17b54e23b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hollowtide.xyz
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
+    name: 4Mohsen-599a5063d1
+    server: 85.136.80.71
+    port: 443
+    uuid: ba373a70-295f-482d-a471-8bc17b54e23b
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: hollowtide.xyz
+    reality-opts:
+      public-key: pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ
+      short-id: 27350908de933e09
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4FreeIran-4b98f46641
+      - 4Mohsen-599a5063d1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4FreeIran-4b98f46641
+      - 4Mohsen-599a5063d1
+rules:
+  - MATCH,Proxy

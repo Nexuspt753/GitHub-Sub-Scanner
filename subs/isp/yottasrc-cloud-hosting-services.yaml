@@ -1,30 +1,89 @@
 proxies:
   - type: vless
-    name: 4Mohsen-703a1b2787
-    server: Tu.zxnetworkstatus.com
-    port: 8446
-    uuid: da479b6f-9bf3-4d56-a0cb-10bd9d76eee9
+    name: vless
+    server: turkey.nyanners.ir
+    port: 2032
+    uuid: 555bd59a-07db-4f19-868a-6f514d06947f
     udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: se.fereshtehagonahnemikonnad.ir
-    flow: xtls-rprx-vision
     xudp: true
+    network: ws
+    ws-opts:
+      path: /audio
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: turkey.nyanners.ir
+  - type: vless
+    name: filembad
+    server: turkey.nyanners.ir
+    port: 2032
+    uuid: 555bd59a-07db-4f19-868a-6f514d06947f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /audio
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: turkey.nyanners.ir
+  - type: vless
+    name: v2ray313
+    server: turkey.nyanners.ir
+    port: 2032
+    uuid: 555bd59a-07db-4f19-868a-6f514d06947f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /audio
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: turkey.nyanners.ir
+  - type: vless
+    name: turkey
+    server: turkey.nyanners.ir
+    port: 2032
+    uuid: 555bd59a-07db-4f19-868a-6f514d06947f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /audio
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: turkey.nyanners.ir
+  - type: vless
+    name: 4Jadi-742052fda9
+    server: turkey.nyanners.ir
+    port: 2032
+    uuid: 555bd59a-07db-4f19-868a-6f514d06947f
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /audio
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: turkey.nyanners.ir
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-703a1b2787
+      - vless
+      - filembad
+      - v2ray313
+      - turkey
+      - 4Jadi-742052fda9
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-703a1b2787
+      - vless
+      - filembad
+      - v2ray313
+      - turkey
+      - 4Jadi-742052fda9
 rules:
   - MATCH,Proxy

@@ -1,20 +1,30 @@
 proxies:
   - type: vless
-    name: 4Mohsen-f6488b1964
-    server: 77.239.104.82
+    name: VPsave
+    server: 144.31.75.168
     port: 443
-    uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+    uuid: b0fd9db4-24b8-45d0-88e1-c709c97646e6
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: vp58.cc.cd
+    servername: www.fortum.com
+    reality-opts:
+      public-key: _OxeyvQDpHcak4ou_pmWb5GmhWcG1j7A8LOIqYXghxg
+      short-id: 2177a83232995047
     xudp: true
-    network: ws
-    ws-opts:
-      path: /Telegram🇨🇳 @VPNine1
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: vp58.cc.cd
+  - type: vless
+    name: Telegram
+    server: 144.31.75.168
+    port: 443
+    uuid: b0fd9db4-24b8-45d0-88e1-c709c97646e6
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.fortum.com
+    reality-opts:
+      public-key: _OxeyvQDpHcak4ou_pmWb5GmhWcG1j7A8LOIqYXghxg
+      short-id: 2177a83232995047
+    xudp: true
   - type: vmess
     name: 4Kian-a2e7b6e00a
     server: 64.188.117.165
@@ -68,63 +78,26 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4Kian-f63f2c0e03
-    server: 64.188.97.153
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
-  - type: vmess
-    name: 4FreeIran-e7d893f05e
-    server: 64.188.97.153
-    port: 443
-    uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-    alterId: 0
-    cipher: auto
-    udp: true
-    xudp: true
-    skip-cert-verify: false
-    tls: true
-    servername: renderer-stream-2-62.mirra.now
-    network: ws
-    ws-opts:
-      path: /api/v1/gpu-stream/socket
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: renderer-stream-2-62.mirra.now
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-f6488b1964
+      - VPsave
+      - Telegram
       - 4Kian-a2e7b6e00a
       - 4Nika-bafb8171e4
       - 4Mohsen-fcb4241d8a
-      - 4Kian-f63f2c0e03
-      - 4FreeIran-e7d893f05e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-f6488b1964
+      - VPsave
+      - Telegram
       - 4Kian-a2e7b6e00a
       - 4Nika-bafb8171e4
       - 4Mohsen-fcb4241d8a
-      - 4Kian-f63f2c0e03
-      - 4FreeIran-e7d893f05e
 rules:
   - MATCH,Proxy

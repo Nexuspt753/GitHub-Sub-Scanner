@@ -18,49 +18,39 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fra2.sepporated.com
   - type: vless
-    name: 4Kian-71bd58a0d5
-    server: edge1.sepporated.com
+    name: 4Mohsen-0ea475cd7f
+    server: selek-msk1.gamma-nodes.com
     port: 443
-    uuid: 0f993d52-a368-461a-b049-a667488fc5c5
+    uuid: 6dfb3b5f-e878-48c9-8f49-b2ab0b2a6d48
     udp: true
     tls: true
     client-fingerprint: firefox
     alpn:
-      - http/1.1
-    servername: hel.sepporated.com
+      - h2
+    servername: selek-msk1.gamma-nodes.com
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: hel.sepporated.com
   - type: vless
-    name: 4Mohsen-0ce6246f8d
-    server: edge1.sepporated.com
+    name: 4Jadi-d0c31025c8
+    server: selek-msk1.gamma-nodes.com
     port: 443
-    uuid: 0f993d52-a368-461a-b049-a667488fc5c5
+    uuid: 6dfb3b5f-e878-48c9-8f49-b2ab0b2a6d48
     udp: true
     tls: true
     client-fingerprint: firefox
     alpn:
-      - http/1.1
-    servername: sto.sepporated.com
+      - h2
+    servername: selek-msk1.gamma-nodes.com
+    flow: xtls-rprx-vision
     xudp: true
-    network: ws
-    ws-opts:
-      path: /ws
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: sto.sepporated.com
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Jadi-acc1a84fb6
-      - 4Kian-71bd58a0d5
-      - 4Mohsen-0ce6246f8d
+      - 4Mohsen-0ea475cd7f
+      - 4Jadi-d0c31025c8
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -68,7 +58,7 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Jadi-acc1a84fb6
-      - 4Kian-71bd58a0d5
-      - 4Mohsen-0ce6246f8d
+      - 4Mohsen-0ea475cd7f
+      - 4Jadi-d0c31025c8
 rules:
   - MATCH,Proxy

@@ -1,11 +1,14 @@
 proxies:
-  - type: ss
-    name: Tbilisi · 4FreeIran-7223d3c03f
-    server: 185.143.179.164
-    port: 8443
-    cipher: chacha20-ietf-poly1305
-    password: ZwwBbQ62rjGPHyrD1z6rSm
+  - type: vless
+    name: Tbilisi · 4Sarina-540cf6b67e
+    server: 93.190.9.129
+    port: 3090
+    uuid: 15985eae-da73-4d8b-9d14-de1c549d28fe
     udp: true
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
   - type: vless
     name: Tbilisi · 4Jadi-7c7e8cf3a8
     server: 93.190.8.50
@@ -21,7 +24,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - Tbilisi · 4FreeIran-7223d3c03f
+      - Tbilisi · 4Sarina-540cf6b67e
       - Tbilisi · 4Jadi-7c7e8cf3a8
   - name: Auto
     type: url-test
@@ -29,7 +32,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - Tbilisi · 4FreeIran-7223d3c03f
+      - Tbilisi · 4Sarina-540cf6b67e
       - Tbilisi · 4Jadi-7c7e8cf3a8
 rules:
   - MATCH,Proxy

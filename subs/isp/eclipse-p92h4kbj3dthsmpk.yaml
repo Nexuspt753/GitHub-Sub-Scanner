@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Nika-7d152abfb3
+    server: 82.152.141.190
+    port: 443
+    uuid: f4b08bf1-d9bd-4755-aa88-ba922282c608
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: nemicro503.jointaction.am
+    reality-opts:
+      public-key: FvLfKSHg-IuXqNk70I9GcP19Xib0NjEkJjfjdUjw0WI
+      short-id: 9de43827829f021f
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Nika-7d152abfb3
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Nika-7d152abfb3
+rules:
+  - MATCH,Proxy
