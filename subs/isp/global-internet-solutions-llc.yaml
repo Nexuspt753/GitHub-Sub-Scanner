@@ -1,7 +1,7 @@
 proxies:
   - type: vless
-    name: 4FreeIran-b10ca12ed9
-    server: 185.76.241.241
+    name: 4Nika-07e2ddedbb
+    server: ru1.japancase.site
     port: 443
     uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
     udp: true
@@ -13,18 +13,31 @@ proxies:
       short-id: 5b555442d5975d6b
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Jadi-1cddb2ddac
+    server: ru1.japancase.site
+    port: 443
+    uuid: db80088c-32a1-4cb8-a907-0f3cb7844152
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: ru1.japancase.site
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-b10ca12ed9
+      - 4Nika-07e2ddedbb
+      - 4Jadi-1cddb2ddac
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-b10ca12ed9
+      - 4Nika-07e2ddedbb
+      - 4Jadi-1cddb2ddac
 rules:
   - MATCH,Proxy

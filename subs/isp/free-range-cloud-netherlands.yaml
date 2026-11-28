@@ -1,0 +1,30 @@
+proxies:
+  - type: vless
+    name: 4Jadi-99623dd53e
+    server: nldirect.mehchannel.ir
+    port: 2095
+    uuid: c76b8704-c9d5-409e-ada9-60449d6625b5
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: play.google.com
+    reality-opts:
+      public-key: Jm58PVXROqNIP6cVW-QchyzIjvxvDMxTaA3uLyl3Bgc
+      short-id: 5a84a6fcc2f484a6
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-99623dd53e
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-99623dd53e
+rules:
+  - MATCH,Proxy

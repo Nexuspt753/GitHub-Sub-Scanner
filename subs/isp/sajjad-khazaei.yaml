@@ -1,5 +1,34 @@
 proxies:
   - type: vless
+    name: 4Sarina-6844d0f0e3
+    server: tr-pro.mobistora.ir
+    port: 1091
+    uuid: 4cebda86-2af3-4757-a83f-b31136856884
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: amzn.com
+    reality-opts:
+      public-key: xoaAnIMfk3f33p-0G8vVc1_JDiJkxE4ucJTGrWZMDHU
+      short-id: 3556bb1b5635ee32
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4FreeIran-edfb313ca9
+    server: fi.hyperlinkbt.com
+    port: 11123
+    uuid: a69b35e6-7eb2-ba17-0a16-bf4e65fc440f
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    servername: fi.hyperlinkbt.com
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-d2e843a221
     server: ms-fr.hyperlinkbe.com
     port: 11194
@@ -14,18 +43,37 @@ proxies:
     servername: fr.hyperlinkbt.com
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Mohsen-e75b321709
+    server: jsv-ir.jmovies.ir
+    port: 443
+    uuid: c26fe2f0-5c69-11f1-8a1a-bf116ceb9215
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: aparat.com
+    reality-opts:
+      public-key: fwS6bEyF28VsSapBZZ2vz6LJmVismH0NYupk6STFRWc
+      short-id: f373df45a687eaff
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Sarina-6844d0f0e3
+      - 4FreeIran-edfb313ca9
       - 4Sarina-d2e843a221
+      - 4Mohsen-e75b321709
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Sarina-6844d0f0e3
+      - 4FreeIran-edfb313ca9
       - 4Sarina-d2e843a221
+      - 4Mohsen-e75b321709
 rules:
   - MATCH,Proxy

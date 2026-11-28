@@ -1,27 +1,5 @@
 proxies:
   - type: hysteria2
-    name: 13466@proxy_online_net
-    server: 216.73.157.142
-    port: 443
-    password: 74bec046f0004aa5bc280ecc4ab50465
-    sni: 216.73.157.142
-    skip-cert-verify: false
-    alpn:
-      - h3
-    obfs: salamander
-    obfs-password: qrl-03E8Q6JaUlAkOPHXQBwN
-  - type: hysteria2
-    name: 13473@proxy_online_net
-    server: 216.73.157.142
-    port: 443
-    password: 74bec046f0004aa5bc280ecc4ab50465
-    sni: 216.73.157.142
-    skip-cert-verify: false
-    alpn:
-      - h3
-    obfs: salamander
-    obfs-password: qrl-03E8Q6JaUlAkOPHXQBwN
-  - type: hysteria2
     name: bored_vpn
     server: 216.73.157.142
     port: 443
@@ -114,13 +92,24 @@ proxies:
     uuid: 9d464bfa-c8b2-4a4f-9bf7-9ec31b339b67
     udp: true
     xudp: true
+  - type: vless
+    name: 4FreeIran-d032509a83
+    server: varzesh.com.tiket.paxaro.ir
+    port: 443
+    uuid: c88e3f12-ad4a-4960-8a81-eecd2289b128
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.speedtest.net
+    reality-opts:
+      public-key: oYzGaAJp6SjTaoQSa-QxNHiIyvdkJ0glN62EPqioMEY
+      short-id: 197b9a8e622bf2d8
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 13466@proxy_online_net
-      - 13473@proxy_online_net
       - bored_vpn
       - mehrosaboran
       - Telegram
@@ -131,14 +120,13 @@ proxy-groups:
       - 4Mohsen-835c16b17c
       - 4Kian-db9e0e661f
       - 4Sarina-ffa0be9662
+      - 4FreeIran-d032509a83
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 13466@proxy_online_net
-      - 13473@proxy_online_net
       - bored_vpn
       - mehrosaboran
       - Telegram
@@ -149,5 +137,6 @@ proxy-groups:
       - 4Mohsen-835c16b17c
       - 4Kian-db9e0e661f
       - 4Sarina-ffa0be9662
+      - 4FreeIran-d032509a83
 rules:
   - MATCH,Proxy

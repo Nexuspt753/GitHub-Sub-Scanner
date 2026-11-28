@@ -1,5 +1,31 @@
 proxies:
   - type: vless
+    name: NOFILTERING2
+    server: gold.jafarghasemiturkk.ir
+    port: 8080
+    uuid: 4f9f03f9-39e9-4879-8f10-0eccf859aafd
+    udp: true
+    flow: xtls-rprx-vision
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
+    name: 4FreeIran-9a59b7aed5
+    server: gold.jafarghasemiturkk.ir
+    port: 8080
+    uuid: 4f9f03f9-39e9-4879-8f10-0eccf859aafd
+    udp: true
+    flow: xtls-rprx-vision
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+  - type: vless
     name: 4Jadi-43aa6561f2
     server: node-de-2.v2sv.top
     port: 2053
@@ -34,6 +60,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - NOFILTERING2
+      - 4FreeIran-9a59b7aed5
       - 4Jadi-43aa6561f2
       - 4Mohsen-53b98fc589
   - name: Auto
@@ -42,6 +70,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - NOFILTERING2
+      - 4FreeIran-9a59b7aed5
       - 4Jadi-43aa6561f2
       - 4Mohsen-53b98fc589
 rules:

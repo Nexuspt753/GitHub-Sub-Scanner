@@ -1,33 +1,59 @@
 proxies:
   - type: hysteria2
-    name: 4FreeIran-d6572d74dd
-    server: nas.aizhzo.com
-    port: 5010
-    password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
-    sni: nas.aizhzo.com
-    skip-cert-verify: false
-    obfs: salamander
-  - type: hysteria2
     name: 4Jadi-15e7cea306
     server: nas.aizhzo.com
     port: 5010
     password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
     sni: nas.aizhzo.com
     skip-cert-verify: true
+  - type: vless
+    name: VPsave
+    server: adseo.net
+    port: 443
+    uuid: 50414e45-4c5f-5a45-5553-acb244465ac1
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: 1vz2hle8uh1s.y09920213769.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/PANEL_ZEUS/acb244465ac1/loc-0
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 1vz2hle8uh1s.y09920213769.workers.dev
+  - type: vless
+    name: 4Sarina-4f72bc0e94
+    server: adseo.net
+    port: 443
+    uuid: 50414e45-4c5f-5a45-5553-acb244465ac1
+    udp: true
+    tls: true
+    client-fingerprint: unsafe
+    servername: 1vz2hle8uh1s.y09920213769.workers.dev
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /stream/PANEL_ZEUS/acb244465ac1/loc-0
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 1vz2hle8uh1s.y09920213769.workers.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4FreeIran-d6572d74dd
       - 4Jadi-15e7cea306
+      - VPsave
+      - 4Sarina-4f72bc0e94
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-d6572d74dd
       - 4Jadi-15e7cea306
+      - VPsave
+      - 4Sarina-4f72bc0e94
 rules:
   - MATCH,Proxy

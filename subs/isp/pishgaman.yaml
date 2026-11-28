@@ -1,6 +1,6 @@
 proxies:
   - type: vless
-    name: 4Nika-217648cfe6
+    name: 4FreeIran-713e2e344c
     server: irankabir-2.rezvan.site
     port: 443
     uuid: 46cb6ada-5fdc-4991-9281-5d50ec77245a
@@ -17,18 +17,30 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: irankabir-2.rezvan.site
+  - type: vmess
+    name: 4Mohsen-84863729a6
+    server: pishambaku.hormozmobile10.ir
+    port: 53590
+    uuid: 6ea1049e-f09c-4a8f-8057-791c8f5546d2
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Nika-217648cfe6
+      - 4FreeIran-713e2e344c
+      - 4Mohsen-84863729a6
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Nika-217648cfe6
+      - 4FreeIran-713e2e344c
+      - 4Mohsen-84863729a6
 rules:
   - MATCH,Proxy

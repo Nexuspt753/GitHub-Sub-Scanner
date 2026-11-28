@@ -11,25 +11,12 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
-    name: 4Mohsen-e176c54dd4
-    server: 85.198.10.216
-    port: 2053
-    uuid: e08b14af-835a-4c7b-8f05-4936e3e72c2e
-    udp: true
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - vless
-      - 4Mohsen-e176c54dd4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -37,6 +24,5 @@ proxy-groups:
     tolerance: 100
     proxies:
       - vless
-      - 4Mohsen-e176c54dd4
 rules:
   - MATCH,Proxy

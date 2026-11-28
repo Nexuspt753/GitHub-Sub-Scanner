@@ -1,0 +1,23 @@
+proxies:
+  - type: hysteria2
+    name: 4Sarina-b411a8068f
+    server: 137.175.93.155
+    port: 28795
+    password: EelIYEc5ZR8RT6thWcK9ohYkp3bYZGcn
+    sni: www.microsoft.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-b411a8068f
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-b411a8068f
+rules:
+  - MATCH,Proxy

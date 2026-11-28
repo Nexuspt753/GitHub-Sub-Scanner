@@ -1,5 +1,18 @@
 proxies:
   - type: vless
+    name: 4Mohsen-807dbdc104
+    server: 185.16.110.62
+    port: 2052
+    uuid: 85432578-96fd-4613-a255-e235a81cc94b
+    udp: true
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /?ed=2052
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: cd90.u8o.lol
+  - type: vless
     name: 4Kian-6cdb8ea282
     server: 185.16.110.62
     port: 443
@@ -15,18 +28,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: shazam.wbciran.com
+  - type: vmess
+    name: 4Jadi-a9eca04d1e
+    server: 185.16.110.212
+    port: 8880
+    uuid: b209dfbf-6bb0-30b2-a77a-286e230466b5
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /dabai
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: TG.WangCai2.s4.db-link02.top
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-807dbdc104
       - 4Kian-6cdb8ea282
+      - 4Jadi-a9eca04d1e
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-807dbdc104
       - 4Kian-6cdb8ea282
+      - 4Jadi-a9eca04d1e
 rules:
   - MATCH,Proxy

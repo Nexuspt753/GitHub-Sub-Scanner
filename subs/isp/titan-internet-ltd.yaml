@@ -6,12 +6,20 @@ proxies:
     cipher: aes-256-gcm
     password: ZmE0NzA5MjAyNDUzYzY2ZTZhZmMyMmEzMzE0NmQy
     udp: true
+  - type: ss
+    name: vmesskhodam
+    server: 130.185.144.4
+    port: 995
+    cipher: aes-256-gcm
+    password: ZmE0NzA5MjAyNDUzYzY2ZTZhZmMyMmEzMzE0NmQy
+    udp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Sarina-b50c336486
+      - vmesskhodam
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -19,5 +27,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Sarina-b50c336486
+      - vmesskhodam
 rules:
   - MATCH,Proxy

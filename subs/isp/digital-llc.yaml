@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: 4Kian-5a8b528ce7
+    server: 216.172.144.199
+    port: 40643
+    cipher: chacha20-ietf-poly1305
+    password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
+    udp: true
   - type: trojan
     name: 4FreeIran-a1cffca0ef
     server: 104.253.175.99
@@ -13,54 +20,40 @@ proxies:
       path: /
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: trojan
-    name: 4Nika-a568bfb709
-    server: 45.38.3.25
-    port: 443
-    password: humanity
-    udp: true
-    tls: true
-    sni: www.pleadcourt.org
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
   - type: vless
-    name: 4Jadi-933f309977
+    name: 4Jadi-29a2d777f2
     server: 104.253.25.144
     port: 443
-    uuid: 83706ae4-be2f-4b2b-8079-c3eb4e0b2e3e
+    uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
     udp: true
     tls: true
     client-fingerprint: firefox
     alpn:
       - http/1.1
-    servername: lagoon.gerqix.online
+    servername: inlay.merlano.monster
     xudp: true
     network: ws
     ws-opts:
-      path: /api/de5/stream
+      path: /api/de3/stream
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lagoon.gerqix.online
+        Host: inlay.merlano.monster
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Kian-5a8b528ce7
       - 4FreeIran-a1cffca0ef
-      - 4Nika-a568bfb709
-      - 4Jadi-933f309977
+      - 4Jadi-29a2d777f2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Kian-5a8b528ce7
       - 4FreeIran-a1cffca0ef
-      - 4Nika-a568bfb709
-      - 4Jadi-933f309977
+      - 4Jadi-29a2d777f2
 rules:
   - MATCH,Proxy

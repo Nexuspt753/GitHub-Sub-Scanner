@@ -33,6 +33,17 @@ proxies:
       - h2
     xudp: true
   - type: vless
+    name: vless-03
+    server: api.ferrin.uk
+    port: 443
+    uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    alpn:
+      - h2
+    xudp: true
+  - type: vless
     name: "&security=tls&alpn=h2&encryption=none&extra={"
     server: api.ferrin.uk
     port: 443
@@ -46,17 +57,6 @@ proxies:
     uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
     udp: true
     xudp: true
-  - type: vless
-    name: 4Nika-8663d2530c
-    server: api.ferrin.uk
-    port: 443
-    uuid: 7d1a74fd-8a38-4a29-863f-5da53a9e557e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
@@ -65,9 +65,9 @@ proxy-groups:
       - vless
       - vless-01
       - vless-02
+      - vless-03
       - "&security=tls&alpn=h2&encryption=none&extra={"
       - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&alpn=h2&encryption=none&extra={
-      - 4Nika-8663d2530c
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -77,8 +77,8 @@ proxy-groups:
       - vless
       - vless-01
       - vless-02
+      - vless-03
       - "&security=tls&alpn=h2&encryption=none&extra={"
       - Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET&security=tls&alpn=h2&encryption=none&extra={
-      - 4Nika-8663d2530c
 rules:
   - MATCH,Proxy

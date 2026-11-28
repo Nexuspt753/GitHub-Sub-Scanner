@@ -1,5 +1,12 @@
 proxies:
   - type: ss
+    name: vpnsal
+    server: ger2.soft98ver2.com
+    port: 305
+    cipher: chacha20-ietf-poly1305
+    password: W4W6T7Th-x0ivl06YkxYVBr6bTLsItVC
+    udp: true
+  - type: ss
     name: YFZ
     server: ger2.soft98ver2.com
     port: 305
@@ -7,14 +14,7 @@ proxies:
     password: W4W6T7Th-x0ivl06YkxYVBr6bTLsItVC
     udp: true
   - type: ss
-    name: vpnsal
-    server: net.soft98ver2.com
-    port: 301
-    cipher: chacha20-ietf-poly1305
-    password: W4W6T7Th-x0ivl06YkxYVBr6bTLsItVC
-    udp: true
-  - type: ss
-    name: YFZ-01
+    name: vpnsal-01
     server: net.soft98ver2.com
     port: 301
     cipher: chacha20-ietf-poly1305
@@ -25,17 +25,17 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - YFZ
       - vpnsal
-      - YFZ-01
+      - YFZ
+      - vpnsal-01
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - YFZ
       - vpnsal
-      - YFZ-01
+      - YFZ
+      - vpnsal-01
 rules:
   - MATCH,Proxy

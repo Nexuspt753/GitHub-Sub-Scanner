@@ -1,0 +1,26 @@
+proxies:
+  - type: vless
+    name: 4Jadi-04b94f5399
+    server: 193.42.109.29
+    port: 443
+    uuid: 7a42d986-f0b8-46e7-82cf-9516e168a613
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mama1455.baklajann.ru
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-04b94f5399
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-04b94f5399
+rules:
+  - MATCH,Proxy
