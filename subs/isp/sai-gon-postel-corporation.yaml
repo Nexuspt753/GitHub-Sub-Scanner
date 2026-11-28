@@ -1,0 +1,32 @@
+proxies:
+  - type: vless
+    name: 4Kian-3b2d585e54
+    server: 221.133.21.135
+    port: 8444
+    uuid: 2144e802-a64f-4261-af53-41309fee1d99
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.bing.com
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /tkfp=chrome
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: 221.133.21.135
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Kian-3b2d585e54
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Kian-3b2d585e54
+rules:
+  - MATCH,Proxy

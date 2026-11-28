@@ -1,7 +1,21 @@
 proxies:
   - type: ss
+    name: 🇭🇰
+    server: 143.20.71.68
+    port: 28014
+    cipher: chacha20-ietf-poly1305
+    password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
+    udp: true
+  - type: ss
     name: 13595@proxy_online_net
     server: waic.pro.main.sys-metric-report.com
+    port: 28014
+    cipher: chacha20-ietf-poly1305
+    password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
+    udp: true
+  - type: ss
+    name: 4FreeIran-a225e25265
+    server: 143.20.71.68
     port: 28014
     cipher: chacha20-ietf-poly1305
     password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
@@ -13,6 +27,24 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
     udp: true
+  - type: trojan
+    name: 4Nika-1d1fc63d39
+    server: 2xp.fireduocc.com
+    port: 22505
+    password: 209e77f0-cfbc-4361-a34d-75bb13a79895
+    udp: true
+    tls: true
+    sni: i1.hdslb.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 4Nika-112c1b5db0
+    server: 2xp.fireduocc.com
+    port: 22515
+    password: 209e77f0-cfbc-4361-a34d-75bb13a79895
+    udp: true
+    tls: true
+    sni: i1.hdslb.com
+    client-fingerprint: chrome
   - type: ss
     name: 🇺🇸US-143.20.71.68-0265
     server: waic.pro.main.sys-metric-report.com
@@ -25,8 +57,12 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - 🇭🇰
       - 13595@proxy_online_net
+      - 4FreeIran-a225e25265
       - 4FreeIran-cc655d28b5
+      - 4Nika-1d1fc63d39
+      - 4Nika-112c1b5db0
       - 🇺🇸US-143.20.71.68-0265
   - name: Auto
     type: url-test
@@ -34,8 +70,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - 🇭🇰
       - 13595@proxy_online_net
+      - 4FreeIran-a225e25265
       - 4FreeIran-cc655d28b5
+      - 4Nika-1d1fc63d39
+      - 4Nika-112c1b5db0
       - 🇺🇸US-143.20.71.68-0265
 rules:
   - MATCH,Proxy

@@ -1,18 +1,5 @@
 proxies:
   - type: vless
-    name: NOFILTERING2
-    server: gold.jafarghasemiturkk.ir
-    port: 8080
-    uuid: 4f9f03f9-39e9-4879-8f10-0eccf859aafd
-    udp: true
-    flow: xtls-rprx-vision
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-  - type: vless
     name: 4FreeIran-9a59b7aed5
     server: gold.jafarghasemiturkk.ir
     port: 8080
@@ -39,40 +26,20 @@ proxies:
       short-id: b85e293fa1
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4Mohsen-53b98fc589
-    server: 77.90.63.17
-    port: 443
-    uuid: bf14dc50-e9f2-49fd-8642-620446edeafb
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: v4-77j.pages.dev
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: v4-77j.pages.dev
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - NOFILTERING2
       - 4FreeIran-9a59b7aed5
       - 4Jadi-43aa6561f2
-      - 4Mohsen-53b98fc589
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - NOFILTERING2
       - 4FreeIran-9a59b7aed5
       - 4Jadi-43aa6561f2
-      - 4Mohsen-53b98fc589
 rules:
   - MATCH,Proxy

@@ -1,31 +1,38 @@
 proxies:
   - type: hysteria2
-    name: 4Mohsen-7d2aa4fd49
+    name: 4Sarina-1d3d3d5e77
     server: nl-hy-test.tcp-reset-club.net
     port: 443
     password: 529f1911-04d5-4427-94b9-c851fd459a27
     sni: nl-hy-test.tcp-reset-club.net
-    skip-cert-verify: true
-  - type: hysteria2
-    name: 4Mohsen-03ce891956
-    server: nl-hy-test.tcp-reset-club.net
+  - type: vless
+    name: 4Jadi-c8a8c70310
+    server: 91.199.50.37
     port: 443
-    password: 529f1911-04d5-4427-94b9-c851fd459a27
-    sni: tcp-reset-club.net
+    uuid: 43488128-319e-f480-64ea-0acdc712e2a8
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: www.alibaba.com
+    reality-opts:
+      public-key: kkRsTNjRh_XrrTM6eZllllldzoL5Z9IqlBkDtmYLMhw
+      short-id: c906f73d3ba8211f
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Mohsen-7d2aa4fd49
-      - 4Mohsen-03ce891956
+      - 4Sarina-1d3d3d5e77
+      - 4Jadi-c8a8c70310
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Mohsen-7d2aa4fd49
-      - 4Mohsen-03ce891956
+      - 4Sarina-1d3d3d5e77
+      - 4Jadi-c8a8c70310
 rules:
   - MATCH,Proxy

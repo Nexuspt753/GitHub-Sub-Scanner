@@ -13,12 +13,27 @@ proxies:
       short-id: 4be4110078ebed4a
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Kian-f6055ee8be
+    server: ragnarok-vpn.ru
+    port: 8443
+    uuid: b7df9363-087b-48f7-a4ca-6e988ebf7f35
+    udp: true
+    tls: true
+    client-fingerprint: edge
+    servername: amd.com
+    reality-opts:
+      public-key: aV7fW5RmH-i6HzOiqnFlMwV_ZgfuutMpeWWfEaJBsTM
+      short-id: 5bfa1416
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Nika-0f9f45c19e
+      - 4Kian-f6055ee8be
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Nika-0f9f45c19e
+      - 4Kian-f6055ee8be
 rules:
   - MATCH,Proxy

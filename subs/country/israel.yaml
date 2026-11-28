@@ -1,24 +1,17 @@
 proxies:
   - type: hysteria2
+    name: 4Mohsen-784047c57b
+    server: 85.209.194.60
+    port: 443
+    password: b1490307-d693-4392-8f32-a3f7cc139202
+    sni: pointsharbor.videostockmarket.org
+  - type: hysteria2
     name: Jerusalem · 4Kian-c642a7b005
     server: 129.159.156.109
     port: 50160
     password: f25f19f29ce3fb53a35bf1b35b452a43
     sni: www.bing.com
     skip-cert-verify: true
-  - type: vless
-    name: Tel Aviv · 4Nika-fcb3e7b334
-    server: 71b840t.de7.h1clayd.click
-    port: 443
-    uuid: 26843758-24de-4f76-b5d0-624038e353c4
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: 71b840t.de7.h1clayd.click
-    reality-opts:
-      public-key: 3wFF83gtIA0sXj-6GGCAa--oQbSr0MVUj0FBc-0QmiE
-      short-id: e572b6579ea525d4
-    xudp: true
   - type: vless
     name: Tel Aviv · 4Sarina-c910fb0e84
     server: 71b840t.de7.h1clayd.click
@@ -29,6 +22,22 @@ proxies:
     client-fingerprint: chrome
     servername: 71b840t.de7.h1clayd.click
     xudp: true
+  - type: vless
+    name: Rosh Ha‘Ayin · 4FreeIran-575c79d204
+    server: 64.177.66.9
+    port: 8443
+    uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vp7.1145678.xyz
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vp7.1145678.xyz
   - type: vless
     name: Tel Aviv · 4FreeIran-54d3a47e99
     server: 9929-dubiously9-caboose9.403x404.org
@@ -43,22 +52,6 @@ proxies:
       short-id: bb3633c8
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: Tel Aviv · 4FreeIran-f642b7ea07
-    server: 192.71.27.237
-    port: 443
-    uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    servername: fs.qicai99.com
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: fs.qicai99.com
   - type: vless
     name: Tel Aviv · 4Mohsen-b10036e97c
     server: 961ec0g.nl13.h1clayd.click
@@ -107,32 +100,48 @@ proxies:
     network: grpc
     grpc-opts:
       grpc-service-name: /
+  - type: vless
+    name: Tel Aviv · 4Mohsen-6af1295b04
+    server: 77.91.69.169
+    port: 19226
+    uuid: f0b144bd-4c44-440d-b630-d79ec82cad3a
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: yahoo.com
+    reality-opts:
+      public-key: PQjgf7GxBd2tDXf0zl9Z5rTZo7LdsWj0hGZLH-lJ-Uk
+      short-id: 7c
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-784047c57b
       - Jerusalem · 4Kian-c642a7b005
-      - Tel Aviv · 4Nika-fcb3e7b334
       - Tel Aviv · 4Sarina-c910fb0e84
+      - Rosh Ha‘Ayin · 4FreeIran-575c79d204
       - Tel Aviv · 4FreeIran-54d3a47e99
-      - Tel Aviv · 4FreeIran-f642b7ea07
       - Tel Aviv · 4Mohsen-b10036e97c
       - Tel Aviv · 4FreeIran-f53da3f82b
       - Tel Aviv · 4Sarina-b5216f2892
+      - Tel Aviv · 4Mohsen-6af1295b04
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-784047c57b
       - Jerusalem · 4Kian-c642a7b005
-      - Tel Aviv · 4Nika-fcb3e7b334
       - Tel Aviv · 4Sarina-c910fb0e84
+      - Rosh Ha‘Ayin · 4FreeIran-575c79d204
       - Tel Aviv · 4FreeIran-54d3a47e99
-      - Tel Aviv · 4FreeIran-f642b7ea07
       - Tel Aviv · 4Mohsen-b10036e97c
       - Tel Aviv · 4FreeIran-f53da3f82b
       - Tel Aviv · 4Sarina-b5216f2892
+      - Tel Aviv · 4Mohsen-6af1295b04
 rules:
   - MATCH,Proxy

@@ -1,5 +1,16 @@
 proxies:
   - type: vless
+    name: VPsave
+    server: mx.bexumconnect.ltd
+    port: 443
+    uuid: 1e06c388-d31c-420e-916a-94a990648e34
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: mx.bexumconnect.ltd
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
     name: 4Sarina-4733c312e8
     server: 191.217.238.38
     port: 443
@@ -18,6 +29,7 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - VPsave
       - 4Sarina-4733c312e8
   - name: Auto
     type: url-test
@@ -25,6 +37,7 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
+      - VPsave
       - 4Sarina-4733c312e8
 rules:
   - MATCH,Proxy

@@ -1,5 +1,23 @@
 proxies:
   - type: vless
+    name: 4Mohsen-597e9b9110
+    server: 179.237.99.57
+    port: 443
+    uuid: 0b6a7fe0-206b-4071-9f96-cd397d1ec01a
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - http/1.1
+    servername: inlay.merlano.monster
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /api/de3/stream
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: inlay.merlano.monster
+  - type: vless
     name: 4Mohsen-38fe1933cf
     server: 84.234.31.84
     port: 443
@@ -81,46 +99,28 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: lagoon.gerqix.online
-  - type: vless
-    name: 4FreeIran-dbe425c8d2
-    server: 84.234.31.84
-    port: 443
-    uuid: 83706ae4-be2f-4b2b-8079-c3eb4e0b2e3e
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    alpn:
-      - http/1.1
-    servername: lagoon.gerqix.online
-    xudp: true
-    network: ws
-    ws-opts:
-      path: /api/de5/stream
-      headers:
-        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
-        Host: lagoon.gerqix.online
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - 4Mohsen-597e9b9110
       - 4Mohsen-38fe1933cf
       - 4FreeIran-2255feda33
       - 4Sarina-06bd3a1049
       - 4Jadi-8e1a34d10e
       - 4Nika-2b158c3dc7
-      - 4FreeIran-dbe425c8d2
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - 4Mohsen-597e9b9110
       - 4Mohsen-38fe1933cf
       - 4FreeIran-2255feda33
       - 4Sarina-06bd3a1049
       - 4Jadi-8e1a34d10e
       - 4Nika-2b158c3dc7
-      - 4FreeIran-dbe425c8d2
 rules:
   - MATCH,Proxy

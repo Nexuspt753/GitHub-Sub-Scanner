@@ -1,4 +1,14 @@
 proxies:
+  - type: vmess
+    name: vmesskhodam
+    server: aeli.orevix.ir
+    port: 4200
+    uuid: 40052699-47f0-4815-9725-c1698d1b0648
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
   - type: vless
     name: 4Jadi-7c371fb1c4
     server: irusahfz.pudnox.ir
@@ -23,10 +33,20 @@ proxies:
     xudp: true
     skip-cert-verify: false
   - type: vmess
-    name: 4Nika-7dfd406339
-    server: xgr.goldnshop.com
-    port: 2083
-    uuid: beadd688-6285-4f0e-bb5e-d984570567a4
+    name: 4Nika-ae83e61b37
+    server: aeli.orevix.ir
+    port: 4200
+    uuid: 8b1388ca-7c87-42ca-a0d1-77e5112357d6
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
+  - type: vmess
+    name: 4Sarina-f38a406a13
+    server: aelix.orevix.ir
+    port: 16303
+    uuid: fee2076f-743e-47b5-842a-a755eb221c08
     alterId: 0
     cipher: auto
     udp: true
@@ -37,17 +57,21 @@ proxy-groups:
     type: select
     proxies:
       - Auto
+      - vmesskhodam
       - 4Jadi-7c371fb1c4
       - 4Sarina-713500f42c
-      - 4Nika-7dfd406339
+      - 4Nika-ae83e61b37
+      - 4Sarina-f38a406a13
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - vmesskhodam
       - 4Jadi-7c371fb1c4
       - 4Sarina-713500f42c
-      - 4Nika-7dfd406339
+      - 4Nika-ae83e61b37
+      - 4Sarina-f38a406a13
 rules:
   - MATCH,Proxy

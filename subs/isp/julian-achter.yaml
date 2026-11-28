@@ -5,12 +5,27 @@ proxies:
     port: 443
     password: ca60984f-b1f0-4073-bd33-4c75168f749a
     sni: wwe.fantoff.online
+  - type: vless
+    name: 4FreeIran-1c96de8641
+    server: 92.119.165.51
+    port: 6443
+    uuid: 68a67906-5b37-4779-a6cc-58a1655f18b4
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    servername: zug-net.locallynet.org
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - 4Kian-a3a4c784ac
+      - 4FreeIran-1c96de8641
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -18,5 +33,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - 4Kian-a3a4c784ac
+      - 4FreeIran-1c96de8641
 rules:
   - MATCH,Proxy

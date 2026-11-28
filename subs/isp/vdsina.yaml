@@ -13,12 +13,27 @@ proxies:
       short-id: 899cbfb833ccbe51
     flow: xtls-rprx-vision
     xudp: true
+  - type: vless
+    name: 4Nika-89fe004be4
+    server: 193.124.66.208
+    port: 443
+    uuid: f4b08bf1-d9bd-4755-aa88-ba922282c608
+    udp: true
+    tls: true
+    client-fingerprint: qq
+    servername: rufinmicro1.gangplatform.com
+    reality-opts:
+      public-key: 7LBetmnWiUHWLTnW_sflaJvDfgSkTIe1BE6zw_dg1xY
+      short-id: 899cbfb833ccbe51
+    flow: xtls-rprx-vision
+    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Tel-@ProxyMtAlpha🥕
+      - 4Nika-89fe004be4
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -26,5 +41,6 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Tel-@ProxyMtAlpha🥕
+      - 4Nika-89fe004be4
 rules:
   - MATCH,Proxy

@@ -16,6 +16,22 @@ proxies:
     grpc-opts:
       grpc-service-name: /
   - type: vless
+    name: 4FreeIran-aedd5ad05d
+    server: 194.238.57.23
+    port: 443
+    uuid: 303c2140-19ff-4eea-b1b1-865d4160d261
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: ai.android
+    reality-opts:
+      public-key: uE1WBdW9se1rQnx8Vh-a1jjaehzK-iUmCVrPui5KU3g
+      short-id: 53499a662395
+    xudp: true
+    network: grpc
+    grpc-opts:
+      grpc-service-name: /
+  - type: vless
     name: Channel
     server: 144.31.215.114
     port: 443
@@ -43,44 +59,15 @@ proxies:
       short-id: 1390632cb141834f
     flow: xtls-rprx-vision
     xudp: true
-  - type: vless
-    name: 4FreeIran-3b471118d1
-    server: 2.26.124.209
-    port: 443
-    uuid: 848951d4-c5a5-484c-897d-d777929bcdc2
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: gateway.icloud.com
-    reality-opts:
-      public-key: aykMwW19tGa685HLa9yI8FDTH567ovT4KipCSUHEySk
-      short-id: "54325343"
-    flow: xtls-rprx-vision
-    xudp: true
-  - type: vless
-    name: 4Mohsen-4646cb3d25
-    server: 31.76.240.210
-    port: 443
-    uuid: 848951d4-c5a5-484c-897d-d777929bcdc2
-    udp: true
-    tls: true
-    client-fingerprint: firefox
-    servername: gateway.icloud.com
-    reality-opts:
-      public-key: aykMwW19tGa685HLa9yI8FDTH567ovT4KipCSUHEySk
-      short-id: "54325343"
-    flow: xtls-rprx-vision
-    xudp: true
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
       - Tarkahodeh
+      - 4FreeIran-aedd5ad05d
       - Channel
       - 4FreeIran-7ba5aae8c2
-      - 4FreeIran-3b471118d1
-      - 4Mohsen-4646cb3d25
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
@@ -88,9 +75,8 @@ proxy-groups:
     tolerance: 100
     proxies:
       - Tarkahodeh
+      - 4FreeIran-aedd5ad05d
       - Channel
       - 4FreeIran-7ba5aae8c2
-      - 4FreeIran-3b471118d1
-      - 4Mohsen-4646cb3d25
 rules:
   - MATCH,Proxy

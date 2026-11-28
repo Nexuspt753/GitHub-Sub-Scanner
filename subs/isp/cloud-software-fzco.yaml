@@ -1,4 +1,11 @@
 proxies:
+  - type: ss
+    name: TEHRANARGO@🤎
+    server: 13.140.89.205
+    port: 1080
+    cipher: chacha20-ietf-poly1305
+    password: MYOZE7eRJPhzd1vg-FfLjxLs3-XuQhzW
+    udp: true
   - type: trojan
     name: 4Jadi-2d88e9c3c0
     server: 45.38.60.139
@@ -41,20 +48,7 @@ proxies:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fr.fxhuntet.ir
   - type: vless
-    name: 4Kian-87a97a5ecb
-    server: pnj.paxaro.ir
-    port: 443
-    uuid: 6db83ec3-fad5-4514-b752-4e42276eb03b
-    udp: true
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-      - h2
-      - http/1.1
-    servername: pnj.paxaro.ir
-    xudp: true
-  - type: vless
-    name: 4Sarina-322d949e1b
+    name: 4Kian-ab4c9bc423
     server: fr.fxhunter.ir
     port: 4433
     uuid: a82b1829-003d-452f-8606-e17ab28c3330
@@ -66,26 +60,38 @@ proxies:
       headers:
         User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
         Host: fr.fxhuntet.ir
+  - type: vmess
+    name: 4FreeIran-035a293464
+    server: 46.8.100.213
+    port: 443
+    uuid: cfd341d9-47d5-4dab-bb60-b588e643c778
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: true
+    skip-cert-verify: false
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
+      - TEHRANARGO@🤎
       - 4Jadi-2d88e9c3c0
       - ehsawn8
       - kurdconfig
-      - 4Kian-87a97a5ecb
-      - 4Sarina-322d949e1b
+      - 4Kian-ab4c9bc423
+      - 4FreeIran-035a293464
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
+      - TEHRANARGO@🤎
       - 4Jadi-2d88e9c3c0
       - ehsawn8
       - kurdconfig
-      - 4Kian-87a97a5ecb
-      - 4Sarina-322d949e1b
+      - 4Kian-ab4c9bc423
+      - 4FreeIran-035a293464
 rules:
   - MATCH,Proxy

@@ -1,22 +1,25 @@
 proxies:
   - type: hysteria2
-    name: 4Sarina-30da7c68c7
+    name: 4Kian-15238a086f
     server: 45.86.74.193
     port: 443
     password: 216c50f9-37dc-457d-b3f5-90732791d10d
     sni: media.embrofree.org
+    skip-cert-verify: true
+    alpn:
+      - h3
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Auto
-      - 4Sarina-30da7c68c7
+      - 4Kian-15238a086f
   - name: Auto
     type: url-test
     url: https://connectivitycheck.gstatic.com/generate_204
     interval: 300
     tolerance: 100
     proxies:
-      - 4Sarina-30da7c68c7
+      - 4Kian-15238a086f
 rules:
   - MATCH,Proxy

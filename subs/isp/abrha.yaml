@@ -1,0 +1,23 @@
+proxies:
+  - type: vless
+    name: 4Sarina-040c9cc4c9
+    server: tunir.helpower.ir
+    port: 8099
+    uuid: 9890272e-0c0b-401c-a345-f6128832b8c5
+    udp: true
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Sarina-040c9cc4c9
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Sarina-040c9cc4c9
+rules:
+  - MATCH,Proxy

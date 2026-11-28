@@ -1,0 +1,46 @@
+proxies:
+  - type: vless
+    name: 4Jadi-e9a8ce2f01
+    server: 213.109.107.38
+    port: 443
+    uuid: aa4645a0-35c4-4d5e-af13-b9e7cffc95d1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: dk.cachevault.net
+    reality-opts:
+      public-key: XTX6Yvtj5B4HENQbNCS0MH3jDqq5vj5gWlg2nilTviE
+      short-id: 8ba02790a1480848
+    flow: xtls-rprx-vision
+    xudp: true
+  - type: vless
+    name: 4Sarina-17f7cf2cb1
+    server: 213.109.107.38
+    port: 443
+    uuid: aa4645a0-35c4-4d5e-af13-b9e7cffc95d1
+    udp: true
+    tls: true
+    client-fingerprint: firefox
+    servername: gr.cachevault.net
+    reality-opts:
+      public-key: XTX6Yvtj5B4HENQbNCS0MH3jDqq5vj5gWlg2nilTviE
+      short-id: 8ba02790a1480848
+    flow: xtls-rprx-vision
+    xudp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Auto
+      - 4Jadi-e9a8ce2f01
+      - 4Sarina-17f7cf2cb1
+  - name: Auto
+    type: url-test
+    url: https://connectivitycheck.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+      - 4Jadi-e9a8ce2f01
+      - 4Sarina-17f7cf2cb1
+rules:
+  - MATCH,Proxy

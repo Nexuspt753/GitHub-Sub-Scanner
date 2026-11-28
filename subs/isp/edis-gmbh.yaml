@@ -1,18 +1,38 @@
 proxies:
   - type: vless
-    name: 4FreeIran-1e64abdada
-    server: 134.255.211.36
+    name: 4Sarina-4940a72e31
+    server: 194.71.227.213
     port: 443
-    uuid: c5f59ef3-9540-49fa-bd1e-c6c2f79df49a
+    uuid: 92e8d9dc-8e3b-4f81-a278-d18c6bf1b962
     udp: true
     tls: true
     client-fingerprint: chrome
-    servername: sg-sin.probe.geomyip.com
-    reality-opts:
-      public-key: KcI3PoYu2yF7whv-e0C7JnRyUoUiUDu6tOlUBPYYbCk
-      short-id: 2e96bf6afa823abb
-    flow: xtls-rprx-vision
+    alpn:
+      - http/1.1
+    servername: app-base-njw3ky.pages.dev
     xudp: true
+    network: ws
+    ws-opts:
+      path: /ws?ip=194.71.227.213:443
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: app-base-njw3ky.pages.dev
+  - type: vless
+    name: 4FreeIran-89697ca885
+    server: 213.111.177.107
+    port: 443
+    uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: vlso5.1d.mom
+    xudp: true
+    network: ws
+    ws-opts:
+      path: /socks5=888:888@hkip.1d.mom:1080
+      headers:
+        User-Agent: Mozilla/5.0 (GitHub Actions; config-ranker)
+        Host: vlso5.1d.mom
   - type: vless
     name: 4Mohsen-e1815a9500
     server: 92.243.66.79
@@ -32,7 +52,8 @@ proxy-groups:
     type: select
     proxies:
       - Auto
-      - 4FreeIran-1e64abdada
+      - 4Sarina-4940a72e31
+      - 4FreeIran-89697ca885
       - 4Mohsen-e1815a9500
   - name: Auto
     type: url-test
@@ -40,7 +61,8 @@ proxy-groups:
     interval: 300
     tolerance: 100
     proxies:
-      - 4FreeIran-1e64abdada
+      - 4Sarina-4940a72e31
+      - 4FreeIran-89697ca885
       - 4Mohsen-e1815a9500
 rules:
   - MATCH,Proxy
